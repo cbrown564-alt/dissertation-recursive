@@ -48,7 +48,7 @@ Required event categories:
 - investigation,
 - diagnosis.
 
-Medication events should distinguish `current`, `previous`, `stopped`, `declined`, `planned`, `increased`, and `reduced`. Seizure-frequency events should preserve temporal scope and seizure-type linkage where stated. Investigation events should separate request/completion status from normal/abnormal results.
+Primary scoring will use ExECTv2-native event content: current ASM prescriptions with dose/frequency, seizure-frequency statements with temporal scope, seizure type, completed EEG/MRI results, and diagnosis/type. Medication events may still distinguish `current`, `previous`, `stopped`, `declined`, `planned`, `increased`, and `reduced`, and investigation events may still separate request/completion status from normal/abnormal results, but non-ExECTv2-native distinctions are extension outputs unless manually adjudicated.
 
 ### E2: Event Extraction Plus Deterministic Aggregation
 
@@ -57,13 +57,15 @@ Rules derive final fields from event objects.
 Example aggregation rules:
 
 - Select current medications from current medication events.
-- Select previous medications from historical, previous, stopped, or discontinued medication events.
+- Select primary scored medications from current ASM events with ExECTv2-compatible dose, unit, and frequency evidence.
+- Log previous, historical, stopped, or discontinued medication events separately from the primary field score.
 - Do not treat declined medication as a current or previous taken medication.
-- Treat planned, increased, and reduced medication events as medication-change events; update the final current dose only when the resulting dose is explicit.
+- Treat planned, increased, and reduced medication events as extension medication-change events; update a primary current dose only when the current resulting dose is explicit and ExECTv2-compatible.
 - Select current seizure frequency from current or most recent seizure-frequency events, retaining temporal scope and seizure type where stated.
 - Do not let historical seizure frequencies override a current seizure-free statement.
+- Score EEG/MRI primarily by ExECTv2-native annotated results.
 - Do not treat requested, pending, or unavailable EEG/MRI as a completed result.
-- Do not treat normal/abnormal investigation wording as status; store it as result.
+- Store normal/abnormal investigation wording as result, not as request/completion status.
 - Do not treat family-history events as patient-level facts.
 
 Purpose: test whether event-first decomposition helps without adding another model call.

@@ -2,6 +2,8 @@
 
 This document defines the first-pass output contract for extraction and scoring. The machine-readable version starts in `schemas/canonical_extraction.schema.json`.
 
+The schema is intentionally a little broader than the primary evaluation. Primary quantitative scoring should use ExECTv2-native fields only; broader medication-status and investigation-status fields are retained for event analysis, robustness tests, and manually adjudicated extensions.
+
 ## Design Principles
 
 - Use one canonical JSON representation for scoring, regardless of whether the model emits JSON or YAML.
@@ -50,6 +52,8 @@ Event temporality should use:
 - `uncertain`
 
 Final field temporality should usually be `current`, `historical`, or `uncertain`, depending on the field.
+
+Primary ExECTv2-native scoring should use only temporal distinctions represented in the gold labels. Other temporal labels may be logged for error analysis but should not be counted as primary gold-supported field accuracy unless the case has been separately adjudicated.
 
 ## Evidence Object
 
@@ -106,11 +110,15 @@ Medication-specific properties:
 - `status`: `current`, `previous`, `stopped`, `declined`, `planned`, `increased`, `reduced`, `uncertain`, or `not_stated`
 - `reason_stopped`
 
+Primary ExECTv2 medication scoring should use current ASM annotations only: medication name, dose, dose unit, and dosing frequency. Non-current medication statuses are extension labels.
+
 Investigation-specific properties:
 
 - `investigation_type`: `EEG` or `MRI`
 - `status`: `requested`, `pending`, `completed`, `unavailable`, `not_stated`, or `uncertain`
 - `result`: `normal`, `abnormal`, `not_stated`, or `uncertain`
+
+Primary ExECTv2 investigation scoring should treat annotated EEG/MRI results as completed-result evidence. Requested, pending, unavailable, or planned statuses are extension labels unless manually adjudicated.
 
 Seizure-frequency-specific properties:
 
@@ -122,11 +130,11 @@ Seizure frequency normalization should preserve temporal scope and seizure-type 
 
 ## Final Field Rules
 
-Current medications should be derived from medication events with `temporality: current`. Previous medications should be derived from medication events with `temporality: historical` or a status indicating stopped, discontinued, or previously tried.
+Primary current medications should be derived from medication events with `temporality: current` and ExECTv2-compatible dose/frequency evidence. Previous medications may be extracted as events for analysis, but should not be part of the primary ExECTv2-native field score.
 
 Current seizure frequency should prefer explicitly current or most recent statements. Historical frequencies should not override a current seizure-free statement.
 
-EEG and MRI fields should distinguish request/completion status from results. "MRI requested" is not equivalent to "MRI normal"; "MRI unavailable" should not be scored as a normal result.
+Primary EEG and MRI fields should score results where ExECTv2 annotates them. Event extraction should still distinguish request/completion status from results so that "MRI requested" is not treated as "MRI normal", but non-result statuses belong to extension analysis.
 
 Diagnosis/type should be conservative. If the letter discusses possible epilepsy without a stated diagnosis, use `uncertain` rather than inventing an epilepsy type.
 

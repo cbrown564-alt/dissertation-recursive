@@ -36,7 +36,7 @@ The strongest epilepsy-specific precedent is ExECT, a GATE-based system develope
 
 ExECTv2 and the 2024 synthetic annotated epilepsy-letter corpus are especially important for this dissertation because they provide a public benchmark aligned with the planned dataset. The synthetic corpus includes 200 UK outpatient epilepsy clinic letters, double annotation, consensus gold labels, and guidelines. It covers diagnosis, epilepsy type/syndrome, seizure type, investigations, current antiseizure medications with dose/unit/frequency, seizure frequency including seizure freedom, and timing-related entities. The reported human inter-annotator agreement was F1 0.73 per item; ExECTv2 achieved F1 0.87 per item and 0.90 per letter against the consensus standard. Seizure frequency remained one of the weakest categories, with per-item F1 0.66 and per-letter F1 0.68.
 
-These results justify the target field set in this dissertation. Current medication, previous medication, dose/status, seizure frequency, seizure type, EEG/MRI status/result, and epilepsy diagnosis/type are not arbitrary fields: they are the core information types repeatedly targeted in epilepsy NLP and explicitly present in the synthetic annotation guidelines. The review also shows why the dissertation should not treat all fields as equally difficult. Medication is comparatively structured; seizure frequency and investigations are more variable and should be primary fields for event-first benefit.
+These results justify the primary target field set in this dissertation. Current medication with dose/unit/frequency, seizure frequency, seizure type, EEG/MRI result, and epilepsy diagnosis/type are not arbitrary fields: they are core information types repeatedly targeted in epilepsy NLP and natively present in the ExECTv2 synthetic annotation guidelines. Broader medication-status and investigation-status distinctions remain clinically important, but should be treated as extension analyses unless manually adjudicated. The review also shows why the dissertation should not treat all fields as equally difficult. Medication is comparatively structured; seizure frequency and investigations are more variable and should be primary fields for event-first benefit.
 
 ### 2. Seizure Frequency Requires Event-Level Representation
 
@@ -73,13 +73,13 @@ This maps directly onto epilepsy clinic letters. "No seizures since lamotrigine 
 
 The schema should keep missingness separate from temporality. `not_stated` means there is no relevant evidence; `uncertain` means there is relevant text but the value cannot be resolved; `conflicting` means incompatible evidence is present. This distinction is important because LLMs may otherwise fill blanks with plausible clinical defaults.
 
-### 4. Medication Extraction Needs Status, Not Only Drug Names
+### 4. Medication Extraction Needs Events, But Primary Scoring Should Stay Current
 
-Medication extraction is a relatively strong category in ExECT and ExECTv2, partly because antiseizure medication entries often follow recognizable dose and frequency patterns. However, this dissertation's target task is harder than medication named-entity recognition. It must distinguish current, previous, stopped, declined, planned, increased, and reduced medications.
+Medication extraction is a relatively strong category in ExECT and ExECTv2, partly because antiseizure medication entries often follow recognizable dose and frequency patterns. The primary ExECTv2-native task should therefore score current ASM name, dose, dose unit, and frequency. Broader status distinctions such as previous, stopped, declined, planned, increased, and reduced medication are useful event labels, but should be evaluated as extension outputs unless a manually adjudicated gold set is created.
 
 Medication change work in clinical NLP supports treating medication as an event with status and temporality. A medication event can describe a current prescription, a historical adverse reaction, a planned titration, a patient declining treatment, or a stopped drug. These should not collapse into a single medication list.
 
-Implementation decision:
+Implementation decision for event extraction:
 
 - Current medication requires evidence of current use, continuation, prescription, or plan-in-effect.
 - Previous medication is supported by prior trial, stopped/discontinued wording, adverse-effect history, or "previously on".
@@ -89,7 +89,7 @@ Implementation decision:
 
 ### 5. Investigation Extraction Must Distinguish Order Status From Result
 
-ExECT extracted CT, MRI, and EEG categories and classified investigation results as normal or abnormal, but performance for MRI and EEG was lower than medication. The 2024 annotation guidelines include EEG, CT, and MRI results annotated as normal, abnormal, or not stated. For the current dissertation, EEG and MRI should be separated into status and result because clinic letters often mention requested, pending, completed, unavailable, normal, or abnormal investigations.
+ExECT extracted CT, MRI, and EEG categories and classified investigation results as normal or abnormal, but performance for MRI and EEG was lower than medication. The 2024 annotation guidelines include EEG, CT, and MRI results annotated as normal, abnormal, or unknown when a result is stated. For the primary ExECTv2-native evaluation, EEG and MRI scoring should focus on annotated results. The event schema can still separate order/completion status from result because clinic letters often mention requested, pending, completed, unavailable, normal, or abnormal investigations, but requested/pending/unavailable statuses should be reported as extension outputs unless manually adjudicated.
 
 Implementation decision:
 
@@ -157,11 +157,11 @@ Repair loops should be limited and logged. A repair step may fix syntax or conve
 | Field | Literature-supported definition | Implementation rule |
 | --- | --- | --- |
 | Current antiseizure medication | Current ASM with dose/unit/frequency is explicitly annotated in ExECTv2. | Include only medications supported as currently taken, prescribed, or continued. |
-| Previous antiseizure medication | Prior treatment history matters clinically but can be confused with current lists. | Include stopped, discontinued, previously tried, or adverse-effect history. Exclude declined-only drugs. |
-| Medication dose/status | Medication text is structured but changes require event status. | Extract dose, frequency, and status on each medication event. Derive final dose only when resolvable. |
+| Previous antiseizure medication | Prior treatment history matters clinically but is not a primary ExECTv2-native gold field. | Extract as extension medication events only unless manually adjudicated. |
+| Medication dose/status | Current ASM dose/unit/frequency is ExECTv2-native; broader changes require event status. | Score current dose/unit/frequency primarily. Extract status on events for extension analysis. |
 | Seizure frequency | ExECT, Xie et al., and Abeysinghe et al. all show frequency requires temporal and event context. | Extract frequency events with scope, seizure type if stated, current/historical/uncertain temporality, and evidence. |
 | Seizure type | ExECT and ExECTv2 annotate seizure type and map to focal/generalized categories. | Extract as stated; normalize only to conservative categories unless specific type is explicit. |
-| EEG/MRI status/result | ExECT extracts investigations; ExECTv2 annotates EEG/MRI results. | Separate order/completion status from normal/abnormal result. Requested is not completed. |
+| EEG/MRI result | ExECT extracts investigations; ExECTv2 annotates EEG/MRI results. | Score annotated normal/abnormal/unknown results primarily. Log requested/pending/unavailable status as extension events. |
 | Diagnosis/type | ExECT requires explicit diagnosis/type and certainty. | Use explicit diagnosis/type only. Possible epilepsy should be `uncertain`, not invented. |
 
 ### Temporal-Label Justification
@@ -251,15 +251,15 @@ Repair loops should be limited and logged. A repair step may fix syntax or conve
 
 Implementation may begin once the following decisions are reflected in schema, prompts, and scoring code:
 
-- Field definitions should follow the ExECT/ExECTv2 target categories but narrow them to current medication, previous medication, dose/status, current seizure frequency, seizure type, EEG/MRI status/result, and diagnosis/type.
+- Primary field definitions should follow ExECTv2-native target categories: current medication name/dose/unit/frequency, current seizure frequency, seizure type, EEG/MRI result where stated, and diagnosis/type.
 - Event objects should be required for medication, seizure frequency, seizure type, investigation, and diagnosis claims in the event-first pipeline.
 - Temporality labels should include `current`, `historical`, `planned`, `requested`, `completed`, `family_history`, `hypothetical`, and `uncertain`.
 - Missingness labels should stay separate from temporality: `not_stated`, `uncertain`, `conflicting`, and `not_applicable` answer different scoring questions.
 - Evidence support should be scored at quote-presence, quote-validity, semantic-support, temporal-support, and field-correctness levels.
 - Exact quote matching is necessary but not sufficient for evidence support.
 - Seizure frequency normalization should retain temporal scope and seizure type linkage where stated.
-- Medication status should distinguish current, previous, stopped, declined, planned, increased, and reduced.
-- Investigation status/result should distinguish requested/pending/completed/unavailable from normal/abnormal/not-stated results.
+- Medication status labels beyond current ASM should be extension outputs unless manually adjudicated.
+- Investigation status labels beyond annotated completed results should be extension outputs unless manually adjudicated.
 - JSON should be the canonical scoring format. YAML-to-JSON can be a secondary model-facing comparison, with parseability, repair, and schema-validity metrics reported separately from clinical accuracy.
 - Model comparisons should be small and controlled, emphasizing whether event-first extraction changes reliability rather than ranking every available model.
 

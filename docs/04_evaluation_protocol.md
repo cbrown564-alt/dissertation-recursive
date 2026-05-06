@@ -11,9 +11,14 @@ Both conditions require evidence. The main difference is whether the model extra
 
 ## Dataset Plan
 
-Initial benchmark:
+Primary benchmark:
 
-- Public synthetic annotated epilepsy clinic-letter corpus.
+- Public ExECTv2 synthetic annotated epilepsy clinic-letter corpus.
+
+Auxiliary datasets:
+
+- Gan 2026 synthetic seizure-frequency subset for seizure-frequency development, stress testing, and robustness analysis.
+- Manually adjudicated challenge cases only where needed for non-ExECTv2-native extension fields.
 
 Optional external validation:
 
@@ -31,19 +36,21 @@ Before prompt optimization:
 ## Field Metrics
 
 - Medication name precision, recall, and F1.
-- Medication status accuracy across current, previous, stopped, declined, planned, increased, and reduced.
+- Current medication dose, dose-unit, and dosing-frequency accuracy.
 - Dose exact match and relaxed match.
 - Current seizure-frequency normalized-value accuracy.
 - Seizure-frequency temporal accuracy.
 - Seizure-frequency temporal-scope accuracy.
 - Seizure-frequency seizure-type linkage accuracy where stated.
 - Seizure type F1.
-- EEG status F1 and EEG result F1, reported separately.
-- MRI status F1 and MRI result F1, reported separately.
+- EEG result F1 where ExECTv2 annotates an EEG result.
+- MRI result F1 where ExECTv2 annotates an MRI result.
 - Diagnosis/type exact or partial match.
 - Missingness accuracy.
 
-Investigation status labels should include requested, pending, completed, unavailable, not stated, and uncertain. Investigation result labels should include normal, abnormal, not stated, and uncertain.
+Primary medication scoring should not include previous, stopped, declined, planned, increased, or reduced status unless those labels are manually adjudicated in an extension set.
+
+Primary investigation scoring should not include requested, pending, unavailable, or planned status unless those labels are manually adjudicated in an extension set. Investigation result labels should include normal, abnormal, unknown, not stated, and uncertain as supported by the ExECTv2 annotation scheme.
 
 ## Evidence Metrics
 
@@ -101,10 +108,16 @@ Model comparisons should be small and controlled. They should emphasize whether 
 Primary fields for event-first benefit:
 
 - seizure frequency,
-- medication status,
-- EEG/MRI status,
+- current medication dose/frequency,
+- EEG/MRI result,
 - seizure type,
 - diagnosis/type.
+
+Extension fields for exploratory event-first benefit:
+
+- non-current medication status,
+- medication-change events,
+- requested, pending, unavailable, or planned investigation status.
 
 ## Reporting Rule
 

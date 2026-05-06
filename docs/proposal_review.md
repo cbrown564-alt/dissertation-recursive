@@ -48,7 +48,7 @@ The strongest move is the scope reduction. Multi-agent verification, self-consis
 - Canonical output schema and event schema.
 - Missingness labels and abstention semantics.
 - Temporal labels for events and fields.
-- Gold-label normalization rules for medication names, dose, seizure frequency, and investigation status.
+- Gold-label normalization rules for ExECTv2-native medication names/dose/frequency, seizure frequency, seizure type, EEG/MRI result, and diagnosis/type.
 - Dataset splits and prompt-development rules.
 - Primary comparison: S2 direct evidence extraction versus E2/E3 event-first extraction.
 

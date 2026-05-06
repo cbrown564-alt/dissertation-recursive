@@ -8,11 +8,12 @@
 
 ## Milestone 1: Schema And Scoring Lock
 
-- Finalize canonical field schema around current medication, previous medication, dose/status, current seizure frequency, seizure type, EEG/MRI status/result, and diagnosis/type.
+- Finalize primary canonical field schema around ExECTv2-native fields: current medication name/dose/unit/frequency, current seizure frequency, seizure type, EEG/MRI result, and diagnosis/type.
 - Finalize event schema requiring medication, seizure-frequency, seizure-type, investigation, and diagnosis events for the event-first pipeline.
 - Define seizure-frequency normalization rules that retain temporal scope and seizure-type linkage where stated.
-- Define medication status labels: current, previous, stopped, declined, planned, increased, and reduced.
-- Define investigation status/result labels, separating requested/pending/completed/unavailable status from normal/abnormal/not-stated results.
+- Define extension medication status labels: current, previous, stopped, declined, planned, increased, and reduced.
+- Define extension investigation status/result labels, separating requested/pending/completed/unavailable status from normal/abnormal/not-stated results.
+- Keep primary quantitative scoring limited to labels supported by ExECTv2 unless an extension set is manually adjudicated.
 - Define missingness labels separately from temporality.
 - Define temporal labels: current, historical, planned, requested, completed, family_history, hypothetical, and uncertain.
 - Implement schema validation.
@@ -23,10 +24,12 @@ Exit criterion: a manually written sample output can be validated and scored.
 ## Milestone 2: Data Intake
 
 - Add dataset manifest.
+- Add dataset rationale documentation.
 - Build preprocessing for letters.
 - Assign sentence IDs and offsets.
 - Create fixed splits.
 - Add a gold-label loader.
+- Add quote-normalization rules for ExECTv2 span text, including hyphen/whitespace normalization and mismatch logging.
 
 Exit criterion: one letter can be loaded, preprocessed, and paired with gold labels.
 
@@ -47,7 +50,8 @@ Exit criterion: direct baselines can run on a small development subset.
 - Implement E2 deterministic aggregation.
 - Add aggregation logging.
 - Implement E3 constrained aggregation if deterministic rules are insufficient.
-- Ensure aggregation preserves event IDs, temporal scope, seizure-type linkage, medication status, and separated investigation status/result.
+- Ensure aggregation preserves event IDs, temporal scope, seizure-type linkage, current medication dose/frequency, and EEG/MRI result.
+- Log non-current medication statuses and non-result investigation statuses as extension outputs.
 
 Exit criterion: event-first extraction can produce canonical JSON for the same subset as direct baselines.
 
@@ -67,6 +71,7 @@ Exit criterion: validation-set results can be reproduced from a single command.
 - Mark perturbations as label-preserving or label-changing.
 - Run direct and event-first systems on perturbed letters.
 - Compare degradation by field and perturbation type.
+- Use Gan 2026 primarily for seizure-frequency stress tests and EXeCTv2-derived/manual cases for broader field perturbations.
 
 Exit criterion: robustness tables identify where event-first extraction helps or fails.
 

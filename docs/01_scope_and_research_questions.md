@@ -17,22 +17,27 @@ Does extracting temporally qualified clinical events before deriving final field
 
 ## Main Hypothesis
 
-Event-first, evidence-grounded extraction will improve reliability for temporally complex epilepsy fields compared with direct structured extraction. The expected benefit should be clearest for seizure frequency, medication status, and investigation status.
+Event-first, evidence-grounded extraction will improve reliability for temporally complex epilepsy fields compared with direct structured extraction. The primary expected benefit should be clearest for seizure frequency, where ExECTv2 provides native gold annotations for temporal scope, seizure counts, ranges, and seizure-free statements.
 
 ## Target Fields
 
-Field definitions should follow the ExECT/ExECTv2 target categories, narrowed to:
+Primary scored field definitions should follow the ExECT/ExECTv2 target categories and should be limited to fields natively captured by the public ExECTv2 annotations:
 
 - Current anti-seizure medications.
-- Previous anti-seizure medications.
-- Medication dose and medication status where stated.
+- Medication dose, dose unit, and dosing frequency where stated or defined by the ExECTv2 annotation guidance.
 - Current seizure frequency and temporal scope.
 - Seizure type.
-- EEG status and result.
-- MRI status and result.
+- EEG result where stated.
+- MRI result where stated.
 - Epilepsy diagnosis or epilepsy type where stated.
 
 Event-first extraction should require intermediate events for medication, seizure frequency, seizure type, investigation, and diagnosis claims before deriving these final fields.
+
+Extension fields may be explored through manual challenge sets or perturbations, but should not carry the primary quantitative claim unless separately adjudicated:
+
+- Previous, stopped, declined, planned, increased, or reduced medication status.
+- Requested, pending, unavailable, or planned EEG/MRI status.
+- Other non-ExECTv2 investigation-state distinctions.
 
 ## Implementation Decisions
 
@@ -41,8 +46,9 @@ Event-first extraction should require intermediate events for medication, seizur
 - Evidence support should be evaluated in layers: quote presence, quote validity, semantic support, temporal support, and field correctness.
 - Exact quote matching is necessary for mechanical evidence validation, but not sufficient for semantic evidence support.
 - Seizure frequency normalization should retain temporal scope and seizure type linkage where stated.
-- Medication status should distinguish `current`, `previous`, `stopped`, `declined`, `planned`, `increased`, and `reduced`.
-- Investigation status/result should distinguish `requested`, `pending`, `completed`, and `unavailable` status from `normal`, `abnormal`, and `not_stated` results.
+- Primary medication scoring should use ExECTv2-native current ASM annotations: drug name, dose, dose unit, and frequency.
+- Primary investigation scoring should use ExECTv2-native completed investigation results: EEG/MRI normal, abnormal, or unknown where annotated.
+- Broader medication-status and investigation-status labels may remain in the event schema for exploratory analysis, but should be reported separately from primary EXeCTv2-native accuracy.
 - JSON should be the canonical scoring format. YAML-to-JSON is a secondary model-facing comparison only.
 - Model comparisons should be small and controlled, emphasizing whether event-first extraction changes reliability rather than ranking models.
 
@@ -53,7 +59,7 @@ Event-first extraction should require intermediate events for medication, seizur
 - Event-first extraction with evidence spans.
 - Deterministic or constrained aggregation from events to final fields.
 - Schema validation, parseability, evidence checking, and repair logging.
-- Robustness tests for temporal ambiguity, negation, family history, planned changes, and investigation ambiguity.
+- Robustness tests for temporal ambiguity, negation, family history, planned changes, and investigation ambiguity, reported as extension analyses when they involve non-ExECTv2-native labels.
 - Small, controlled model-family and output-format comparisons.
 
 ## Out of Scope
