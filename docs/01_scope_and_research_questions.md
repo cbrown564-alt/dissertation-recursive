@@ -21,6 +21,8 @@ Event-first, evidence-grounded extraction will improve reliability for temporall
 
 ## Target Fields
 
+Field definitions should follow the ExECT/ExECTv2 target categories, narrowed to:
+
 - Current anti-seizure medications.
 - Previous anti-seizure medications.
 - Medication dose and medication status where stated.
@@ -29,6 +31,20 @@ Event-first, evidence-grounded extraction will improve reliability for temporall
 - EEG status and result.
 - MRI status and result.
 - Epilepsy diagnosis or epilepsy type where stated.
+
+Event-first extraction should require intermediate events for medication, seizure frequency, seizure type, investigation, and diagnosis claims before deriving these final fields.
+
+## Implementation Decisions
+
+- Temporality labels should include `current`, `historical`, `planned`, `requested`, `completed`, `family_history`, `hypothetical`, and `uncertain`.
+- Missingness labels should stay separate from temporality. `not_stated`, `uncertain`, `conflicting`, and `not_applicable` answer different scoring questions.
+- Evidence support should be evaluated in layers: quote presence, quote validity, semantic support, temporal support, and field correctness.
+- Exact quote matching is necessary for mechanical evidence validation, but not sufficient for semantic evidence support.
+- Seizure frequency normalization should retain temporal scope and seizure type linkage where stated.
+- Medication status should distinguish `current`, `previous`, `stopped`, `declined`, `planned`, `increased`, and `reduced`.
+- Investigation status/result should distinguish `requested`, `pending`, `completed`, and `unavailable` status from `normal`, `abnormal`, and `not_stated` results.
+- JSON should be the canonical scoring format. YAML-to-JSON is a secondary model-facing comparison only.
+- Model comparisons should be small and controlled, emphasizing whether event-first extraction changes reliability rather than ranking models.
 
 ## In Scope
 

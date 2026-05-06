@@ -7,8 +7,10 @@ This document defines the first-pass output contract for extraction and scoring.
 - Use one canonical JSON representation for scoring, regardless of whether the model emits JSON or YAML.
 - Require every asserted value to carry missingness and evidence information.
 - Represent temporality explicitly for events and derived fields.
+- Keep missingness separate from temporality.
 - Separate evidence validity from field correctness.
 - Preserve source traceability through exact quotes and optional sentence IDs or character offsets.
+- Treat exact quote matching as necessary but not sufficient for evidence support.
 
 ## Top-Level Object
 
@@ -31,6 +33,8 @@ Every final field should use one of these missingness labels:
 - `not_applicable` - the field does not apply to the patient or letter context.
 
 Models should abstain with `not_stated` or `uncertain` rather than infer unsupported values.
+
+Missingness should not be used as a proxy for temporality. For example, a planned medication increase is `present` as an event with `temporality: planned`, not `uncertain`; an absent MRI result is `not_stated` even if an MRI request is present.
 
 ## Temporality
 
@@ -82,6 +86,8 @@ Event categories:
 - `investigation`
 - `diagnosis`
 
+The event-first pipeline should require event objects for all medication, seizure-frequency, seizure-type, investigation, and diagnosis claims. Final fields should be derived from these events and should reference the supporting event IDs.
+
 Common event properties:
 
 - `id`
@@ -97,13 +103,22 @@ Medication-specific properties:
 - `dose`
 - `route`
 - `frequency`
+- `status`: `current`, `previous`, `stopped`, `declined`, `planned`, `increased`, `reduced`, `uncertain`, or `not_stated`
 - `reason_stopped`
 
 Investigation-specific properties:
 
 - `investigation_type`: `EEG` or `MRI`
-- `result`
-- `status`: `requested`, `completed`, `normal`, `abnormal`, `not_stated`, or `uncertain`
+- `status`: `requested`, `pending`, `completed`, `unavailable`, `not_stated`, or `uncertain`
+- `result`: `normal`, `abnormal`, `not_stated`, or `uncertain`
+
+Seizure-frequency-specific properties:
+
+- `value`
+- `temporal_scope`
+- `seizure_type`
+
+Seizure frequency normalization should preserve temporal scope and seizure-type linkage where stated. "Previously monthly but now seizure-free" should create separate historical and current seizure-frequency events.
 
 ## Final Field Rules
 
@@ -111,6 +126,18 @@ Current medications should be derived from medication events with `temporality: 
 
 Current seizure frequency should prefer explicitly current or most recent statements. Historical frequencies should not override a current seizure-free statement.
 
-EEG and MRI fields should distinguish requested investigations from completed results. "MRI requested" is not equivalent to "MRI normal".
+EEG and MRI fields should distinguish request/completion status from results. "MRI requested" is not equivalent to "MRI normal"; "MRI unavailable" should not be scored as a normal result.
 
 Diagnosis/type should be conservative. If the letter discusses possible epilepsy without a stated diagnosis, use `uncertain` rather than inventing an epilepsy type.
+
+## Evidence Support
+
+Evidence should be scored in layers:
+
+- quote presence,
+- quote validity,
+- semantic support,
+- temporal support,
+- field correctness.
+
+Quote validity means the evidence quote appears in the source text after agreed normalization. Semantic support means the quote supports the extracted value. Temporal support means the quote also supports the extracted temporality or status.

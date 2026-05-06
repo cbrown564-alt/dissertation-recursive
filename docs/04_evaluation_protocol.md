@@ -31,25 +31,31 @@ Before prompt optimization:
 ## Field Metrics
 
 - Medication name precision, recall, and F1.
-- Medication status accuracy.
+- Medication status accuracy across current, previous, stopped, declined, planned, increased, and reduced.
 - Dose exact match and relaxed match.
 - Current seizure-frequency normalized-value accuracy.
 - Seizure-frequency temporal accuracy.
+- Seizure-frequency temporal-scope accuracy.
+- Seizure-frequency seizure-type linkage accuracy where stated.
 - Seizure type F1.
-- EEG status/result F1.
-- MRI status/result F1.
+- EEG status F1 and EEG result F1, reported separately.
+- MRI status F1 and MRI result F1, reported separately.
 - Diagnosis/type exact or partial match.
 - Missingness accuracy.
+
+Investigation status labels should include requested, pending, completed, unavailable, not stated, and uncertain. Investigation result labels should include normal, abnormal, not stated, and uncertain.
 
 ## Evidence Metrics
 
 - Evidence quote present rate.
 - Quote validity: quote appears in source text.
-- Evidence support: quote supports the extracted value and temporality.
+- Semantic support: quote supports the extracted value.
+- Temporal support: quote supports the extracted temporality or status.
 - Evidence overlap with annotated span where available.
+- Field correctness: extracted normalized value matches the gold field.
 - Unsupported extraction rate.
 
-Quote validity and evidence support should be reported separately.
+Quote validity, semantic support, temporal support, and field correctness should be reported separately. Exact quote matching is necessary for quote validity, but not sufficient for evidence support.
 
 ## Format Metrics
 
@@ -59,6 +65,8 @@ Quote validity and evidence support should be reported separately.
 - Schema validity.
 - Type correctness.
 - Output token count.
+
+JSON is the canonical scoring format. YAML-to-JSON should be treated as a secondary model-facing comparison, with parseability, repair, and schema-validity metrics reported separately from clinical accuracy.
 
 ## Reliability Metrics
 
@@ -87,6 +95,8 @@ Initial perturbation set:
 ## Statistical Analysis
 
 Use paired comparisons because systems run on the same letters. Report field-specific results rather than only an aggregate score.
+
+Model comparisons should be small and controlled. They should emphasize whether event-first extraction changes reliability under the same conditions rather than ranking a broad set of models.
 
 Primary fields for event-first benefit:
 

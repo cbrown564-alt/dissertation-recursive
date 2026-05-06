@@ -38,7 +38,7 @@
           }
         },
         "current_seizure_frequency": {
-          "$ref": "#/$defs/scalar_field"
+          "$ref": "#/$defs/seizure_frequency_field"
         },
         "seizure_types": {
           "type": "array",
@@ -110,6 +110,32 @@
         "uncertain"
       ]
     },
+    "medication_status": {
+      "enum": [
+        "current",
+        "previous",
+        "stopped",
+        "declined",
+        "planned",
+        "increased",
+        "reduced",
+        "uncertain",
+        "not_stated"
+      ]
+    },
+    "investigation_status": {
+      "enum": [
+        "requested",
+        "pending",
+        "completed",
+        "unavailable",
+        "not_stated",
+        "uncertain"
+      ]
+    },
+    "investigation_result": {
+      "enum": ["normal", "abnormal", "not_stated", "uncertain", null]
+    },
     "evidence": {
       "type": "object",
       "required": ["quote"],
@@ -176,7 +202,7 @@
           "type": ["string", "null"]
         },
         "status": {
-          "enum": ["current", "previous", "planned", "stopped", "uncertain", "not_stated"]
+          "$ref": "#/$defs/medication_status"
         },
         "missingness": {
           "$ref": "#/$defs/missingness"
@@ -212,9 +238,50 @@
       "additionalProperties": false,
       "properties": {
         "status": {
-          "enum": ["requested", "pending", "completed", "normal", "abnormal", "not_stated", "uncertain"]
+          "$ref": "#/$defs/investigation_status"
         },
         "result": {
+          "$ref": "#/$defs/investigation_result"
+        },
+        "missingness": {
+          "$ref": "#/$defs/missingness"
+        },
+        "temporality": {
+          "$ref": "#/$defs/temporality"
+        },
+        "evidence": {
+          "type": ["array", "null"],
+          "items": {
+            "$ref": "#/$defs/evidence"
+          }
+        },
+        "evidence_event_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "confidence": {
+          "type": ["number", "null"],
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "seizure_frequency_field": {
+      "type": "object",
+      "required": [
+        "value",
+        "missingness",
+        "temporality",
+        "temporal_scope",
+        "seizure_type",
+        "evidence",
+        "evidence_event_ids"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "value": {
           "type": ["string", "null"]
         },
         "missingness": {
@@ -222,6 +289,12 @@
         },
         "temporality": {
           "$ref": "#/$defs/temporality"
+        },
+        "temporal_scope": {
+          "type": ["string", "null"]
+        },
+        "seizure_type": {
+          "type": ["string", "null"]
         },
         "evidence": {
           "type": ["array", "null"],
@@ -257,10 +330,52 @@
           "$ref": "#/$defs/temporality"
         },
         "status": {
-          "type": ["string", "null"]
+          "enum": [
+            "current",
+            "previous",
+            "stopped",
+            "declined",
+            "planned",
+            "increased",
+            "reduced",
+            "requested",
+            "pending",
+            "completed",
+            "unavailable",
+            "not_stated",
+            "uncertain",
+            null
+          ]
         },
         "value": {
           "type": ["string", "null"]
+        },
+        "medication_name": {
+          "type": ["string", "null"]
+        },
+        "dose": {
+          "type": ["string", "null"]
+        },
+        "route": {
+          "type": ["string", "null"]
+        },
+        "frequency": {
+          "type": ["string", "null"]
+        },
+        "reason_stopped": {
+          "type": ["string", "null"]
+        },
+        "temporal_scope": {
+          "type": ["string", "null"]
+        },
+        "seizure_type": {
+          "type": ["string", "null"]
+        },
+        "investigation_type": {
+          "enum": ["EEG", "MRI", null]
+        },
+        "result": {
+          "$ref": "#/$defs/investigation_result"
         },
         "evidence": {
           "$ref": "#/$defs/evidence"
