@@ -1,0 +1,167 @@
+{
+  "document_id": "EA0001",
+  "pipeline_id": "manual_milestone_1_sample",
+  "fields": {
+    "current_anti_seizure_medications": [
+      {
+        "name": "lamotrigine",
+        "dose": "75",
+        "dose_unit": "mg",
+        "frequency": "twice a day",
+        "status": "current",
+        "missingness": "present",
+        "temporality": "current",
+        "reason_stopped": null,
+        "evidence": [
+          {
+            "quote": "Current antiepileptic medication: lamotrigine 75 mg twice a day",
+            "sentence_id": null,
+            "char_start": null,
+            "char_end": null
+          }
+        ],
+        "evidence_event_ids": ["ev_med_1"],
+        "confidence": null
+      }
+    ],
+    "previous_anti_seizure_medications": [],
+    "current_seizure_frequency": {
+      "value": "2 to 3 per month",
+      "missingness": "present",
+      "temporality": "current",
+      "temporal_scope": "per month",
+      "seizure_type": "focal seizures with loss of awareness",
+      "evidence": [
+        {
+          "quote": "focal seizures with loss of awareness(Unusual smell) approximately 2 to 3 per month",
+          "sentence_id": null,
+          "char_start": null,
+          "char_end": null
+        }
+      ],
+      "evidence_event_ids": ["ev_freq_1"],
+      "confidence": null
+    },
+    "seizure_types": [
+      {
+        "value": "focal seizures with loss of awareness",
+        "missingness": "present",
+        "temporality": "current",
+        "evidence": [
+          {
+            "quote": "focal seizures with loss of awareness",
+            "sentence_id": null,
+            "char_start": null,
+            "char_end": null
+          }
+        ],
+        "evidence_event_ids": ["ev_type_1"],
+        "confidence": null
+      }
+    ],
+    "eeg": {
+      "status": "not_stated",
+      "result": "not_stated",
+      "missingness": "not_stated",
+      "temporality": "uncertain",
+      "evidence": null,
+      "evidence_event_ids": [],
+      "confidence": null
+    },
+    "mri": {
+      "status": "not_stated",
+      "result": "not_stated",
+      "missingness": "not_stated",
+      "temporality": "uncertain",
+      "evidence": null,
+      "evidence_event_ids": [],
+      "confidence": null
+    },
+    "epilepsy_diagnosis": {
+      "value": "symptomatic structural right temporal lobe epilepsy",
+      "missingness": "present",
+      "temporality": "current",
+      "evidence": [
+        {
+          "quote": "Diagnosis: symptomatic, structural right temporal lobe epilepsy",
+          "sentence_id": null,
+          "char_start": null,
+          "char_end": null
+        }
+      ],
+      "evidence_event_ids": ["ev_dx_1"],
+      "confidence": null
+    }
+  },
+  "events": [
+    {
+      "id": "ev_dx_1",
+      "category": "diagnosis",
+      "temporality": "current",
+      "status": null,
+      "value": "symptomatic structural right temporal lobe epilepsy",
+      "evidence": {
+        "quote": "Diagnosis: symptomatic, structural right temporal lobe epilepsy",
+        "sentence_id": null,
+        "char_start": null,
+        "char_end": null
+      }
+    },
+    {
+      "id": "ev_med_1",
+      "category": "medication",
+      "temporality": "current",
+      "status": "current",
+      "value": "lamotrigine 75 mg twice a day",
+      "medication_name": "lamotrigine",
+      "dose": "75",
+      "dose_unit": "mg",
+      "route": null,
+      "frequency": "twice a day",
+      "reason_stopped": null,
+      "evidence": {
+        "quote": "Current antiepileptic medication: lamotrigine 75 mg twice a day",
+        "sentence_id": null,
+        "char_start": null,
+        "char_end": null
+      }
+    },
+    {
+      "id": "ev_type_1",
+      "category": "seizure_type",
+      "temporality": "current",
+      "status": null,
+      "value": "focal seizures with loss of awareness",
+      "evidence": {
+        "quote": "focal seizures with loss of awareness",
+        "sentence_id": null,
+        "char_start": null,
+        "char_end": null
+      }
+    },
+    {
+      "id": "ev_freq_1",
+      "category": "seizure_frequency",
+      "temporality": "current",
+      "status": null,
+      "value": "2 to 3 per month",
+      "temporal_scope": "per month",
+      "seizure_type": "focal seizures with loss of awareness",
+      "evidence": {
+        "quote": "focal seizures with loss of awareness(Unusual smell) approximately 2 to 3 per month",
+        "sentence_id": null,
+        "char_start": null,
+        "char_end": null
+      }
+    }
+  ],
+  "metadata": {
+    "model": "manual",
+    "format": "json",
+    "latency_ms": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "repair_attempted": false,
+    "repair_succeeded": false
+  }
+}

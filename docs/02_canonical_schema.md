@@ -105,12 +105,13 @@ Medication-specific properties:
 
 - `medication_name`
 - `dose`
+- `dose_unit`
 - `route`
 - `frequency`
 - `status`: `current`, `previous`, `stopped`, `declined`, `planned`, `increased`, `reduced`, `uncertain`, or `not_stated`
 - `reason_stopped`
 
-Primary ExECTv2 medication scoring should use current ASM annotations only: medication name, dose, dose unit, and dosing frequency. Non-current medication statuses are extension labels.
+Primary ExECTv2 medication scoring should use current ASM annotations only: medication name, dose, dose unit, and dosing frequency. Dose, dose unit, and frequency should be represented separately for scoring even if the original quote states them together. Non-current medication statuses are extension labels.
 
 Investigation-specific properties:
 

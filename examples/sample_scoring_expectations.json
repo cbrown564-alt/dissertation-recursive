@@ -1,0 +1,18 @@
+{
+  "document_id": "EA0001",
+  "field_expectations": {
+    "current_anti_seizure_medications[0].name": "lamotrigine",
+    "current_anti_seizure_medications[0].dose": "75",
+    "current_anti_seizure_medications[0].dose_unit": "mg",
+    "current_anti_seizure_medications[0].frequency": "twice a day",
+    "current_anti_seizure_medications[0].status": "current",
+    "current_seizure_frequency.value": "2 to 3 per month",
+    "current_seizure_frequency.temporality": "current",
+    "current_seizure_frequency.temporal_scope": "per month",
+    "current_seizure_frequency.seizure_type": "focal seizures with loss of awareness",
+    "seizure_types[0].value": "focal seizures with loss of awareness",
+    "eeg.result": "not_stated",
+    "mri.result": "not_stated",
+    "epilepsy_diagnosis.value": "symptomatic structural right temporal lobe epilepsy"
+  }
+}

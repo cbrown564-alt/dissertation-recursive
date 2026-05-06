@@ -14,7 +14,24 @@ The current proposal is [proposal_tight.md](proposal_tight.md). It narrows the p
 - [Implementation roadmap](docs/05_implementation_roadmap.md) - practical build order and milestones.
 - [Literature review matrix](docs/06_literature_review_matrix.md) - review strands and extraction decisions to support.
 - [Canonical JSON Schema](schemas/canonical_extraction.schema.json) - initial machine-readable output contract.
+- [Milestone 1 scoring spec](docs/scoring/milestone_1_scoring_spec.md) - first executable validation and scoring contract.
+- [Data intake](docs/08_data_intake.md) - dataset manifest, fixed splits, preprocessing, gold loading, and quote-normalization checks.
+
+## Milestone 1 Exit Check
+
+```bash
+python3 src/validate_extraction.py \
+  examples/sample_canonical_extraction.json \
+  --source "data/ExECT 2 (2025)/Gold1-200_corrected_spelling/EA0001.txt" \
+  --expectations examples/sample_scoring_expectations.json
+```
+
+## Milestone 2 Exit Check
+
+```bash
+python3 src/intake.py check-one EA0001 --max-mismatches 10
+```
 
 ## Current Priority
 
-The next work should lock the canonical schema and scoring definitions before prompt or model iteration. That protects the primary comparison from accidental overfitting and keeps the event-first claim measurable.
+The next work should implement Milestone 3 direct baselines: S1 direct JSON extraction, S2 direct extraction with evidence, S3 YAML-to-JSON extraction, parse/repair handling, validation, evidence-layer scoring, and logging on a small development subset.

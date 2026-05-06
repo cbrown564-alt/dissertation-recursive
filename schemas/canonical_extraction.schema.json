@@ -192,13 +192,29 @@
     },
     "medication_field": {
       "type": "object",
-      "required": ["name", "dose", "status", "missingness", "temporality", "evidence", "evidence_event_ids"],
+      "required": [
+        "name",
+        "dose",
+        "dose_unit",
+        "frequency",
+        "status",
+        "missingness",
+        "temporality",
+        "evidence",
+        "evidence_event_ids"
+      ],
       "additionalProperties": false,
       "properties": {
         "name": {
           "type": ["string", "null"]
         },
         "dose": {
+          "type": ["string", "null"]
+        },
+        "dose_unit": {
+          "type": ["string", "null"]
+        },
+        "frequency": {
           "type": ["string", "null"]
         },
         "status": {
@@ -354,6 +370,9 @@
           "type": ["string", "null"]
         },
         "dose": {
+          "type": ["string", "null"]
+        },
+        "dose_unit": {
           "type": ["string", "null"]
         },
         "route": {

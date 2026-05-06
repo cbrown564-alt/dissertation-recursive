@@ -8,6 +8,8 @@
 
 ## Milestone 1: Schema And Scoring Lock
 
+Status: complete for the first executable contract. See `docs/scoring/milestone_1_scoring_spec.md`, `examples/sample_canonical_extraction.json`, `examples/sample_scoring_expectations.json`, and `src/validate_extraction.py`.
+
 - Finalize primary canonical field schema around ExECTv2-native fields: current medication name/dose/unit/frequency, current seizure frequency, seizure type, EEG/MRI result, and diagnosis/type.
 - Finalize event schema requiring medication, seizure-frequency, seizure-type, investigation, and diagnosis events for the event-first pipeline.
 - Define seizure-frequency normalization rules that retain temporal scope and seizure-type linkage where stated.
@@ -22,6 +24,8 @@
 Exit criterion: a manually written sample output can be validated and scored.
 
 ## Milestone 2: Data Intake
+
+Status: complete for the first executable intake contract. See `docs/08_data_intake.md`, `data/manifests/dataset_manifest.json`, `data/splits/exectv2_splits.json`, and `src/intake.py`.
 
 - Add dataset manifest.
 - Add dataset rationale documentation.
