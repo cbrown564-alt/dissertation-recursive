@@ -1,5 +1,38 @@
 # Implementation Roadmap
 
+![Implementation roadmap visual story: clinical letters become evidence-grounded events, validated canonical fields, reproducible evaluation tables, robustness checks, and dissertation-ready findings.](assets/implementation-roadmap-hero.png)
+
+This roadmap tells one implementation story: turn epilepsy clinic letters into
+traceable structured outputs, compare direct extraction against an event-first
+approach, then stress-test the result until the dissertation claims are
+reproducible and bounded.
+
+## Story Arc
+
+1. **Lock the contract.** Milestones 0-1 define the repository structure,
+   canonical schema, event schema, temporal labels, missingness labels, and
+   scoring contract.
+2. **Make the evidence traceable.** Milestones 2-4 move from raw letters to
+   sentence IDs, evidence quotes, direct baselines, event extraction, and
+   deterministic or constrained aggregation.
+3. **Measure reliability.** Milestones 5-6 score fields, evidence, temporality,
+   cost, latency, and robustness under controlled perturbations.
+4. **Write only what the system can support.** Milestones 7-8 turn bounded model
+   comparisons, tables, plots, and error analyses into dissertation-ready
+   claims.
+
+## Visual Legend
+
+- **Source documents:** ExECTv2 letters, sentence IDs, offsets, and gold labels.
+- **Evidence thread:** exact quotes and span support connecting outputs back to
+  the source text.
+- **Two extraction paths:** direct JSON/YAML baselines versus the event-first
+  E1 -> E2/E3 path.
+- **Validation gate:** parseability, schema validity, quote validity, semantic
+  support, temporal support, and field correctness.
+- **Dissertation outputs:** comparison tables, robustness analyses, secondary
+  model checks, limitations, and chapter-ready prose.
+
 ## Milestone 0: Repository Setup
 
 - Add project documentation.
@@ -88,6 +121,10 @@ Status: complete for the first executable robustness harness. See `docs/12_robus
 Exit criterion: robustness tables identify where event-first extraction helps or fails.
 
 ## Milestone 7: Secondary Analyses
+
+Status: in progress. The first executable JSON versus YAML-to-JSON comparison
+is implemented in `src/secondary_analyses.py`; see
+`docs/13_secondary_analyses.md`.
 
 - Run controlled JSON versus YAML-to-JSON comparison.
 - Run small open/local versus closed/frontier model comparison.

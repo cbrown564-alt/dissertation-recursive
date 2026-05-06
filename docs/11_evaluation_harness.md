@@ -1,7 +1,8 @@
 # Evaluation Harness
 
 Milestone 5 adds a reproducible scorer for canonical outputs from S2, E2, and
-E3.
+E3. Milestone 7 also reuses the same scorer for S3 YAML-to-JSON artifacts in
+the controlled format comparison.
 
 ## Scope
 
@@ -54,4 +55,6 @@ For a quick mechanical check against stub outputs:
 - `comparison_table.csv`: compact S2 versus E2/E3 table for reporting.
 
 The harness scores missing outputs as unavailable rather than silently
-dropping expected validation documents.
+dropping expected validation documents. `S3` is accepted as a direct-run system
+for secondary format analyses; it is not part of the primary S2 versus E2/E3
+comparison unless explicitly requested.

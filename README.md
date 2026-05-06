@@ -20,6 +20,7 @@ The current proposal is [proposal_tight.md](proposal_tight.md). It narrows the p
 - [Event-first pipeline](docs/10_event_first_pipeline.md) - E1 event extraction plus E2/E3 aggregation.
 - [Evaluation harness](docs/11_evaluation_harness.md) - S2 versus E2/E3 scoring over existing run outputs.
 - [Robustness tests](docs/12_robustness_tests.md) - perturbation generation, robustness runs, and degradation tables.
+- [Secondary analyses](docs/13_secondary_analyses.md) - controlled JSON versus YAML-to-JSON comparison.
 
 ## Milestone 1 Exit Check
 
@@ -54,6 +55,19 @@ Then run the small-subset stub harness:
   --output-dir runs/milestone_3_stub
 ```
 
+## Milestone 7 Exit Check
+
+Run the controlled format-comparison smoke check against existing stub outputs:
+
+```bash
+.venv/bin/python src/secondary_analyses.py json-yaml \
+  --split development \
+  --limit 2 \
+  --direct-run-dir runs/milestone_3_stub \
+  --output-dir runs/milestone_7_json_yaml_stub
+```
+
 ## Current Priority
 
-The next work should implement Milestone 7 secondary analyses: JSON versus YAML-to-JSON format comparison and a small bounded model comparison.
+The next work should extend Milestone 7 with a small bounded open/local versus
+closed/frontier model comparison.

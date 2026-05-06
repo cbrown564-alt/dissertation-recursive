@@ -160,6 +160,8 @@ def load_json(path: Path) -> Any | None:
 def extraction_path(system: str, document_id: str, args: argparse.Namespace) -> Path:
     if system == "S2":
         return Path(args.direct_run_dir) / "S2" / document_id / "canonical.json"
+    if system == "S3":
+        return Path(args.direct_run_dir) / "S3" / document_id / "canonical.json"
     if system == "E2":
         return Path(args.event_run_dir) / document_id / "e2_canonical.json"
     if system == "E3":
@@ -507,7 +509,7 @@ def main() -> int:
     run.add_argument("--schema", default=str(DEFAULT_SCHEMA))
     run.add_argument("--split", default="validation", choices=["development", "validation", "test"])
     run.add_argument("--limit", type=int)
-    run.add_argument("--systems", nargs="+", default=["S2", "E2", "E3"], choices=["S2", "E2", "E3"])
+    run.add_argument("--systems", nargs="+", default=["S2", "E2", "E3"], choices=["S2", "S3", "E2", "E3"])
     run.add_argument("--direct-run-dir", default=str(DEFAULT_DIRECT_RUN_DIR))
     run.add_argument("--event-run-dir", default=str(DEFAULT_EVENT_RUN_DIR))
     run.add_argument("--output-dir", default=str(DEFAULT_OUTPUT_DIR))
