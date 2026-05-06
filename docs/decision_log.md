@@ -117,3 +117,18 @@ Rationale: The milestone scripts are useful independently, but dissertation clai
 Artifacts: `src/final_runs.py`, updates to `docs/05_implementation_roadmap.md`, and updates to `README.md`.
 
 Command: `.venv/bin/python src/final_runs.py build --provider openai --model gpt-4.1-mini`
+
+## 2026-05-06: Experiment Freeze And Test Gate
+
+Decision: Final-run orchestration now records an `experiment_freeze.json` for
+each run root and requires a validation decision before running the held-out
+test split.
+
+Rationale: The experiment roadmap depends on freezing schema, prompts,
+scoring, aggregation, and interpretation choices before looking at final test
+results. Hashing the relevant inputs and recording the E2/E3 comparator
+decision makes the final-test run auditable rather than merely reproducible.
+
+Artifacts: `src/final_runs.py`, `docs/17_experiment_roadmap.md`, and `README.md`.
+
+Command: `.venv/bin/python src/final_runs.py decide --validation-run-root runs/final_validation --comparator E2 --rationale "..."`

@@ -135,7 +135,10 @@ then run the held-out final test once.
 Start with a smoke check:
 
 ```bash
-.venv/bin/python src/final_runs.py build --provider stub --limit 2 --run-root runs/final_validation_smoke
+.venv/bin/python src/final_runs.py build \
+  --provider stub \
+  --limit 2 \
+  --run-root runs/final_validation_smoke
 ```
 
 Then run the primary validation chain:
@@ -151,13 +154,23 @@ Then run the primary validation chain:
 After validation decisions are frozen, run the held-out final test:
 
 ```bash
+.venv/bin/python src/final_runs.py decide \
+  --validation-run-root runs/final_validation \
+  --comparator E2 \
+  --rationale "Validation results support E2 as the primary event-first comparator."
+
 .venv/bin/python src/final_runs.py build \
   --provider openai \
   --model gpt-4.1-mini \
   --split test \
+  --validation-decision runs/final_validation/validation_decision.json \
   --run-root runs/final_test
 ```
 
 Each run refreshes matched extraction artifacts, primary evaluation, robustness
 outputs, secondary analyses, dissertation write-up tables, dashboard data, and
-`final_run_manifest.json` under the selected run root.
+`final_run_manifest.json` under the selected run root. The orchestrator also
+writes `experiment_freeze.json` with hashes for schema, prompts, scoring code,
+splits, and run settings. Test-split runs are guarded until a validation
+decision file records whether E2, E3, or both are the final event-first
+comparator.

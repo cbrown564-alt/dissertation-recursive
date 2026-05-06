@@ -77,7 +77,9 @@ Command:
 ```
 
 Exit criterion: the full artifact chain completes on a small smoke run and
-writes `final_run_manifest.json` with no failures.
+writes `experiment_freeze.json` and `final_run_manifest.json` with no failures.
+The freeze record hashes the schema, fixed splits, prompts, scoring/orchestration
+code, and roadmap inputs that define the experimental target.
 
 ## Phase 2: Primary Validation Run
 
@@ -102,6 +104,15 @@ Command:
   --run-root runs/final_validation
 ```
 
+Decision command:
+
+```bash
+.venv/bin/python src/final_runs.py decide \
+  --validation-run-root runs/final_validation \
+  --comparator E2 \
+  --rationale "Validation results support E2 as the primary event-first comparator."
+```
+
 Primary outputs:
 
 - `runs/final_validation/direct_baselines/`
@@ -109,6 +120,8 @@ Primary outputs:
 - `runs/final_validation/evaluation/comparison_table.csv`
 - `runs/final_validation/evaluation/evaluation_summary.json`
 - `runs/final_validation/evaluation/document_scores.json`
+- `runs/final_validation/experiment_freeze.json`
+- `runs/final_validation/validation_decision.json`
 - `runs/final_validation/final_run_manifest.json`
 
 Exit criterion: validation results identify the final-test comparison, the
@@ -199,11 +212,14 @@ Command:
   --provider openai \
   --model gpt-4.1-mini \
   --split test \
+  --validation-decision runs/final_validation/validation_decision.json \
   --run-root runs/final_test
 ```
 
 Exit criterion: the final reported primary comparison is generated from a
-single held-out test run with a manifest and matching artifacts.
+single held-out test run with a manifest, matching artifacts, and a linked
+validation decision. The orchestrator refuses test-split runs without that
+decision unless an explicit override is supplied.
 
 ## Phase 7: Dissertation Claim Package
 
