@@ -41,6 +41,8 @@ reproducible and bounded.
 
 ## Milestone 1: Schema And Scoring Lock
 
+![Milestone 1 visual: source evidence, canonical fields, event categories, temporal and missingness labels, and scoring layers locked into one executable validation contract.](assets/milestone-1-schema-scoring-lock.png)
+
 Status: complete for the first executable contract. See `docs/scoring/milestone_1_scoring_spec.md`, `examples/sample_canonical_extraction.json`, `examples/sample_scoring_expectations.json`, and `src/validate_extraction.py`.
 
 - Finalize primary canonical field schema around ExECTv2-native fields: current medication name/dose/unit/frequency, current seizure frequency, seizure type, EEG/MRI result, and diagnosis/type.
@@ -122,9 +124,9 @@ Exit criterion: robustness tables identify where event-first extraction helps or
 
 ## Milestone 7: Secondary Analyses
 
-Status: in progress. The first executable JSON versus YAML-to-JSON comparison
-is implemented in `src/secondary_analyses.py`; see
-`docs/13_secondary_analyses.md`.
+Status: complete for the first executable secondary-analysis harness. JSON
+versus YAML-to-JSON comparison and bounded model-family comparison are
+implemented in `src/secondary_analyses.py`; see `docs/13_secondary_analyses.md`.
 
 - Run controlled JSON versus YAML-to-JSON comparison.
 - Run small open/local versus closed/frontier model comparison.

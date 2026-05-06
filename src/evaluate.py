@@ -394,6 +394,9 @@ def flatten_summary(system: str, document_scores: list[dict[str, Any]]) -> dict[
             "mri_accuracy": None,
             "epilepsy_diagnosis_accuracy": None,
             "mean_latency_ms": None,
+            "mean_input_tokens": None,
+            "mean_output_tokens": None,
+            "mean_estimated_cost_usd": None,
         }
     schema_valid = sum(1 for score in available if score["schema_valid"])
     quote_count = sum(score["quote_validity"]["quote_count"] for score in available)
@@ -428,6 +431,21 @@ def flatten_summary(system: str, document_scores: list[dict[str, Any]]) -> dict[
         for score in available
         if isinstance(score["cost_latency"].get("latency_ms"), (int, float))
     ]
+    input_tokens = [
+        score["cost_latency"]["input_tokens"]
+        for score in available
+        if isinstance(score["cost_latency"].get("input_tokens"), (int, float))
+    ]
+    output_tokens = [
+        score["cost_latency"]["output_tokens"]
+        for score in available
+        if isinstance(score["cost_latency"].get("output_tokens"), (int, float))
+    ]
+    costs = [
+        score["cost_latency"]["estimated_cost_usd"]
+        for score in available
+        if isinstance(score["cost_latency"].get("estimated_cost_usd"), (int, float))
+    ]
     return {
         "system": system,
         "documents_expected": len(document_scores),
@@ -445,6 +463,9 @@ def flatten_summary(system: str, document_scores: list[dict[str, Any]]) -> dict[
         "mri_accuracy": accuracy("mri"),
         "epilepsy_diagnosis_accuracy": accuracy("epilepsy_diagnosis"),
         "mean_latency_ms": sum(latencies) / len(latencies) if latencies else None,
+        "mean_input_tokens": sum(input_tokens) / len(input_tokens) if input_tokens else None,
+        "mean_output_tokens": sum(output_tokens) / len(output_tokens) if output_tokens else None,
+        "mean_estimated_cost_usd": sum(costs) / len(costs) if costs else None,
     }
 
 

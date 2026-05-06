@@ -85,3 +85,25 @@ Rationale: Robustness needs to stay paired with the primary event-first comparis
 Artifacts: `docs/12_robustness_tests.md`, `src/robustness.py`, and updates to `docs/05_implementation_roadmap.md`.
 
 Command: `.venv/bin/python src/robustness.py generate --split validation --limit 5 --include-gan --gan-limit 5 --output-dir runs/robustness && .venv/bin/python src/robustness.py run-systems --provider stub --output-dir runs/robustness && .venv/bin/python src/robustness.py evaluate --output-dir runs/robustness`
+
+## 2026-05-06: Milestone 7 JSON Versus YAML-To-JSON Comparison
+
+Decision: The controlled format comparison uses S2 direct JSON with evidence and S3 YAML-to-JSON with evidence over the same document IDs, then scores both through the canonical JSON evaluator. S3 is accepted by `src/evaluate.py` only as a direct-run system for this secondary analysis.
+
+Rationale: JSON remains the canonical scoring format, so YAML is tested as a model-facing output condition rather than a separate downstream contract. Reusing the evaluator keeps schema validity, quote validity, evidence support, field accuracy, cost, and latency comparable with the primary pipeline results.
+
+Artifacts: `docs/13_secondary_analyses.md`, `src/secondary_analyses.py`, updates to `src/evaluate.py`, `docs/11_evaluation_harness.md`, `README.md`, and `docs/05_implementation_roadmap.md`.
+
+Command: `.venv/bin/python src/secondary_analyses.py json-yaml --split development --limit 2 --direct-run-dir runs/milestone_3_stub --output-dir runs/milestone_7_json_yaml_stub`
+
+## 2026-05-06: Milestone 7 Bounded Model-Family Comparison
+
+Decision: The open/local versus closed/frontier comparison is implemented as a secondary artifact scorer over named conditions in the form `LABEL:FAMILY:SYSTEM:RUN_DIR`, rather than as a model-calling runner or leaderboard. Supported scored systems are S2, S3, E2, and E3.
+
+Rationale: The dissertation question is whether event-first, evidence-grounded extraction improves reliability. Model-family effects should therefore be measured on matched existing artifacts with the same documents, prompts, and pipeline outputs, while missing artifacts remain visible as unavailable.
+
+Implication: Reports include parseability, schema validity, evidence layers, temporal support, field accuracy, latency, token counts, and estimated cost where metadata exists. Optional reference-condition deltas support compact open/local versus closed/frontier comparisons without displacing the primary S2 versus E2/E3 analysis.
+
+Artifacts: `docs/13_secondary_analyses.md`, `src/secondary_analyses.py`, updates to `src/evaluate.py`, `README.md`, and `docs/05_implementation_roadmap.md`.
+
+Command: `.venv/bin/python src/secondary_analyses.py model-compare --split development --limit 2 --condition local_stub:local:S2:runs/milestone_3_stub --condition frontier_stub:closed:S3:runs/milestone_3_stub --reference-condition local_stub --output-dir runs/milestone_7_model_compare_stub`
