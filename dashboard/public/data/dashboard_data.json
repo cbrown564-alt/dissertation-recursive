@@ -2,42 +2,42 @@
   "meta": {
     "schema_version": "1.0.0",
     "exporter_version": "1.0.0",
-    "generated_at": "2026-05-06T13:32:47.493238+00:00",
-    "evaluation_dir": "runs/final_validation_smoke_contract_full/evaluation",
-    "robustness_dir": "runs/final_validation_smoke_contract_full/robustness",
+    "generated_at": "2026-05-06T15:19:57.254651+00:00",
+    "evaluation_dir": "runs/final_validation_smoke/evaluation",
+    "robustness_dir": "runs/final_validation_smoke/robustness",
     "secondary_dirs": [
-      "runs/final_validation_smoke_contract_full/secondary_json_yaml",
-      "runs/final_validation_smoke_contract_full/secondary_model_compare"
+      "runs/final_validation_smoke/secondary_json_yaml",
+      "runs/final_validation_smoke/secondary_model_compare"
     ],
     "split": "validation",
     "artifacts": [
       {
         "id": "evaluation_summary",
-        "path": "runs/final_validation_smoke_contract_full/evaluation/evaluation_summary.json",
+        "path": "runs/final_validation_smoke/evaluation/evaluation_summary.json",
         "exists": true,
         "kind": "json",
-        "size_bytes": 2106,
+        "size_bytes": 2108,
         "row_count": 3
       },
       {
         "id": "comparison_table",
-        "path": "runs/final_validation_smoke_contract_full/evaluation/comparison_table.csv",
+        "path": "runs/final_validation_smoke/evaluation/comparison_table.csv",
         "exists": true,
         "kind": "csv",
-        "size_bytes": 624,
+        "size_bytes": 626,
         "row_count": 3
       },
       {
         "id": "document_scores",
-        "path": "runs/final_validation_smoke_contract_full/evaluation/document_scores.json",
+        "path": "runs/final_validation_smoke/evaluation/document_scores.json",
         "exists": true,
         "kind": "json",
-        "size_bytes": 30333,
+        "size_bytes": 30331,
         "row_count": 3
       },
       {
         "id": "robustness_summary",
-        "path": "runs/final_validation_smoke_contract_full/robustness/robustness_summary.json",
+        "path": "runs/final_validation_smoke/robustness/robustness_summary.json",
         "exists": true,
         "kind": "json",
         "size_bytes": 41614,
@@ -45,7 +45,7 @@
       },
       {
         "id": "label_preserving_degradation",
-        "path": "runs/final_validation_smoke_contract_full/robustness/label_preserving_degradation.csv",
+        "path": "runs/final_validation_smoke/robustness/label_preserving_degradation.csv",
         "exists": true,
         "kind": "csv",
         "size_bytes": 4458,
@@ -53,7 +53,7 @@
       },
       {
         "id": "label_changing_validity",
-        "path": "runs/final_validation_smoke_contract_full/robustness/label_changing_validity.json",
+        "path": "runs/final_validation_smoke/robustness/label_changing_validity.json",
         "exists": true,
         "kind": "json",
         "size_bytes": 10863,
@@ -61,31 +61,31 @@
       },
       {
         "id": "direct_run_log",
-        "path": "runs/final_validation_smoke_contract_full/direct_baselines/baseline_runs.jsonl",
+        "path": "runs/final_validation_smoke/direct_baselines/baseline_runs.jsonl",
         "exists": true,
         "kind": "jsonl",
-        "size_bytes": 4366,
-        "row_count": 4
+        "size_bytes": 8396,
+        "row_count": 8
       },
       {
         "id": "event_run_log",
-        "path": "runs/final_validation_smoke_contract_full/event_first/event_first_runs.jsonl",
+        "path": "runs/final_validation_smoke/event_first/event_first_runs.jsonl",
         "exists": true,
         "kind": "jsonl",
-        "size_bytes": 5440,
-        "row_count": 6
+        "size_bytes": 10432,
+        "row_count": 12
       },
       {
         "id": "secondary_1_json_yaml_table",
-        "path": "runs/final_validation_smoke_contract_full/secondary_json_yaml/json_yaml_comparison_table.csv",
+        "path": "runs/final_validation_smoke/secondary_json_yaml/json_yaml_comparison_table.csv",
         "exists": true,
         "kind": "csv",
-        "size_bytes": 669,
+        "size_bytes": 670,
         "row_count": 2
       },
       {
         "id": "secondary_1_model_comparison_table",
-        "path": "runs/final_validation_smoke_contract_full/secondary_json_yaml/model_comparison_table.csv",
+        "path": "runs/final_validation_smoke/secondary_json_yaml/model_comparison_table.csv",
         "exists": false,
         "kind": "csv",
         "size_bytes": null,
@@ -93,7 +93,7 @@
       },
       {
         "id": "secondary_2_json_yaml_table",
-        "path": "runs/final_validation_smoke_contract_full/secondary_model_compare/json_yaml_comparison_table.csv",
+        "path": "runs/final_validation_smoke/secondary_model_compare/json_yaml_comparison_table.csv",
         "exists": false,
         "kind": "csv",
         "size_bytes": null,
@@ -101,10 +101,10 @@
       },
       {
         "id": "secondary_2_model_comparison_table",
-        "path": "runs/final_validation_smoke_contract_full/secondary_model_compare/model_comparison_table.csv",
+        "path": "runs/final_validation_smoke/secondary_model_compare/model_comparison_table.csv",
         "exists": true,
         "kind": "csv",
-        "size_bytes": 673,
+        "size_bytes": 659,
         "row_count": 1
       }
     ]
@@ -143,7 +143,7 @@
       "eeg_accuracy": "1.0",
       "mri_accuracy": "1.0",
       "epilepsy_diagnosis_accuracy": "0.0",
-      "mean_latency_ms": "0.0028954818844795227",
+      "mean_latency_ms": "0.00035401899367570877",
       "mean_input_tokens": "0.0",
       "mean_output_tokens": "0.0",
       "mean_estimated_cost_usd": "",
@@ -174,7 +174,7 @@
       "mean_estimated_cost_usd": "",
       "condition": "primary_model",
       "family": "closed",
-      "run_dir": "runs/final_validation_smoke_contract_full/event_first",
+      "run_dir": "runs/final_validation_smoke/event_first",
       "log_records_available": "2",
       "parse_success_rate": "1.0",
       "repair_attempt_rate": "0.0",
@@ -196,7 +196,7 @@
       "eeg_accuracy": "1.0",
       "mri_accuracy": "1.0",
       "epilepsy_diagnosis_accuracy": "0.0",
-      "mean_latency_ms": "0.02270846744067967",
+      "mean_latency_ms": "0.022229476599022746",
       "mean_input_tokens": "0.0",
       "mean_output_tokens": "0.0",
       "mean_estimated_cost_usd": ""
@@ -220,7 +220,7 @@
       "eeg_accuracy": "1.0",
       "mri_accuracy": "1.0",
       "epilepsy_diagnosis_accuracy": "0.0",
-      "mean_latency_ms": "0.0003119930624961853",
+      "mean_latency_ms": "0.0003960158210247755",
       "mean_input_tokens": "0.0",
       "mean_output_tokens": "0.0"
     }
@@ -477,20 +477,20 @@
   ],
   "parse_logs": {
     "S2": {
-      "records": 57,
-      "parse_success": 57,
+      "records": 114,
+      "parse_success": 114,
       "repair_attempted": 0,
       "repair_succeeded": 0
     },
     "E2": {
-      "records": 57,
+      "records": 114,
       "parse_success": 0,
       "repair_attempted": 0,
       "repair_succeeded": 0
     },
     "E3": {
-      "records": 57,
-      "parse_success": 57,
+      "records": 114,
+      "parse_success": 114,
       "repair_attempted": 0,
       "repair_succeeded": 0
     }
