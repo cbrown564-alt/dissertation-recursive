@@ -86,6 +86,8 @@ Exit criterion: direct baselines can run on a small development subset.
 
 ## Milestone 4: Event-First Pipeline
 
+![Milestone 4 visual: source quotes become evidence-grounded event cards, pass through E1 validation, split into E2 deterministic aggregation and E3 constrained aggregation, then converge into canonical JSON fields with event-ID traceability.](assets/milestone-4-event-first-pipeline.png)
+
 Status: complete for the first executable event-first harness. See `docs/10_event_first_pipeline.md`, `src/event_first.py`, and `prompts/event_first/`.
 
 - Implement E1 event extraction.
@@ -136,6 +138,9 @@ implemented in `src/secondary_analyses.py`; see `docs/13_secondary_analyses.md`.
 Exit criterion: secondary results are bounded and do not displace the primary event-first analysis.
 
 ## Milestone 8: Dissertation Write-Up Support
+
+Status: first executable write-up support bridge added. See
+`docs/14_dissertation_writeup_support.md` and `src/writeup_support.py`.
 
 - Convert methods into chapter-ready prose.
 - Build reproducible tables and plots.

@@ -21,6 +21,7 @@ The current proposal is [proposal_tight.md](proposal_tight.md). It narrows the p
 - [Evaluation harness](docs/11_evaluation_harness.md) - S2 versus E2/E3 scoring over existing run outputs.
 - [Robustness tests](docs/12_robustness_tests.md) - perturbation generation, robustness runs, and degradation tables.
 - [Secondary analyses](docs/13_secondary_analyses.md) - controlled JSON versus YAML-to-JSON and bounded model-family comparisons.
+- [Dissertation write-up support](docs/14_dissertation_writeup_support.md) - reproducible tables, traceability notes, plots, and error-analysis seeds.
 
 ## Milestone 1 Exit Check
 
@@ -80,7 +81,21 @@ outputs:
   --output-dir runs/milestone_7_model_compare_stub
 ```
 
+## Milestone 8 Exit Check
+
+Generate dissertation-facing tables and traceability notes from existing smoke
+artifacts:
+
+```bash
+.venv/bin/python src/writeup_support.py build \
+  --evaluation-dir runs/milestone_5_stub_eval_final_2 \
+  --robustness-dir runs/robustness_smoke_venv \
+  --secondary-dir runs/milestone_7_json_yaml_stub \
+  --secondary-dir runs/milestone_7_model_compare_stub \
+  --output-dir runs/milestone_8_writeup_smoke
+```
+
 ## Current Priority
 
-The next work should run the bounded Milestone 7 comparisons on real matched
-validation artifacts, then move into dissertation write-up support.
+The next work should run Milestones 5-8 on real matched validation artifacts
+and replace the smoke-run write-up outputs with final dissertation tables.
