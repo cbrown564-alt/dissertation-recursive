@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Validate and lightly score a canonical extraction JSON file.
 
-This is the Milestone 1 executable contract. It intentionally covers the
-project schema surface used by the sample output and the evidence checks that
-can be scored without model or gold-loader infrastructure.
+JSON Schema is the authoritative structural contract. The custom checks in
+this module cover project-specific constraints that JSON Schema cannot express
+cleanly, such as quote validity, duplicate event IDs, and optional evidence
+requirements for no-evidence baselines.
 """
 
 from __future__ import annotations
@@ -15,6 +16,15 @@ import sys
 from pathlib import Path
 from typing import Any
 
+try:
+    from jsonschema import Draft202012Validator
+    from jsonschema.exceptions import ValidationError as JsonSchemaError
+except ImportError:  # pragma: no cover - exercised in dependency-light setups.
+    Draft202012Validator = None
+    JsonSchemaError = None
+
+
+DEFAULT_SCHEMA = Path("schemas/canonical_extraction.schema.json")
 
 MISSINGNESS = {"present", "not_stated", "uncertain", "conflicting", "not_applicable"}
 TEMPORALITY = {
@@ -93,31 +103,31 @@ def validate_evidence(evidence: Any, path: str) -> None:
                 raise ValidationError(f"{path}.{optional_key} must be integer or null")
 
 
-def validate_evidence_list(value: Any, missingness: str, path: str) -> None:
+def validate_evidence_list(value: Any, missingness: str, path: str, require_present_evidence: bool = True) -> None:
     if value is None:
-        if missingness == "present":
+        if missingness == "present" and require_present_evidence:
             raise ValidationError(f"{path} cannot be null when missingness is present")
         return
     if not isinstance(value, list):
         raise ValidationError(f"{path} must be an array or null")
-    if missingness == "present" and not value:
+    if missingness == "present" and not value and require_present_evidence:
         raise ValidationError(f"{path} must not be empty when missingness is present")
     for index, item in enumerate(value):
         validate_evidence(item, f"{path}[{index}]")
 
 
-def validate_scalar_field(field: Any, path: str) -> None:
+def validate_scalar_field(field: Any, path: str, require_present_evidence: bool = True) -> None:
     if not isinstance(field, dict):
         raise ValidationError(f"{path} must be an object")
     require_keys(field, ["value", "missingness", "temporality", "evidence", "evidence_event_ids"], path)
     require_enum(field["missingness"], MISSINGNESS, f"{path}.missingness")
     require_enum(field["temporality"], TEMPORALITY, f"{path}.temporality")
-    validate_evidence_list(field["evidence"], field["missingness"], f"{path}.evidence")
+    validate_evidence_list(field["evidence"], field["missingness"], f"{path}.evidence", require_present_evidence)
     if not isinstance(field["evidence_event_ids"], list):
         raise ValidationError(f"{path}.evidence_event_ids must be an array")
 
 
-def validate_medication_field(field: Any, path: str) -> None:
+def validate_medication_field(field: Any, path: str, require_present_evidence: bool = True) -> None:
     if not isinstance(field, dict):
         raise ValidationError(f"{path} must be an object")
     require_keys(
@@ -128,10 +138,10 @@ def validate_medication_field(field: Any, path: str) -> None:
     require_enum(field["status"], MEDICATION_STATUS, f"{path}.status")
     require_enum(field["missingness"], MISSINGNESS, f"{path}.missingness")
     require_enum(field["temporality"], TEMPORALITY, f"{path}.temporality")
-    validate_evidence_list(field["evidence"], field["missingness"], f"{path}.evidence")
+    validate_evidence_list(field["evidence"], field["missingness"], f"{path}.evidence", require_present_evidence)
 
 
-def validate_investigation_field(field: Any, path: str) -> None:
+def validate_investigation_field(field: Any, path: str, require_present_evidence: bool = True) -> None:
     if not isinstance(field, dict):
         raise ValidationError(f"{path} must be an object")
     require_keys(field, ["status", "result", "missingness", "temporality", "evidence", "evidence_event_ids"], path)
@@ -139,11 +149,11 @@ def validate_investigation_field(field: Any, path: str) -> None:
     require_enum(field["result"], INVESTIGATION_RESULT, f"{path}.result")
     require_enum(field["missingness"], MISSINGNESS, f"{path}.missingness")
     require_enum(field["temporality"], TEMPORALITY, f"{path}.temporality")
-    validate_evidence_list(field["evidence"], field["missingness"], f"{path}.evidence")
+    validate_evidence_list(field["evidence"], field["missingness"], f"{path}.evidence", require_present_evidence)
 
 
-def validate_seizure_frequency_field(field: Any, path: str) -> None:
-    validate_scalar_field(field, path)
+def validate_seizure_frequency_field(field: Any, path: str, require_present_evidence: bool = True) -> None:
+    validate_scalar_field(field, path, require_present_evidence)
     require_keys(field, ["temporal_scope", "seizure_type"], path)
 
 
@@ -159,7 +169,28 @@ def validate_event(event: Any, path: str) -> None:
     validate_evidence(event["evidence"], f"{path}.evidence")
 
 
-def validate_extraction(data: Any) -> None:
+def format_jsonschema_path(error: Any) -> str:
+    parts = ["$"]
+    for part in error.absolute_path:
+        if isinstance(part, int):
+            parts[-1] = f"{parts[-1]}[{part}]"
+        else:
+            parts.append(str(part))
+    return ".".join(parts)
+
+
+def validate_schema(data: Any, schema_path: Path = DEFAULT_SCHEMA) -> None:
+    if Draft202012Validator is None:
+        raise ValidationError("jsonschema is not installed; run `python3 -m pip install -r requirements.txt`")
+    schema = load_json(schema_path)
+    validator = Draft202012Validator(schema)
+    errors = sorted(validator.iter_errors(data), key=lambda error: list(error.absolute_path))
+    if errors:
+        messages = [f"{format_jsonschema_path(error)}: {error.message}" for error in errors[:10]]
+        raise ValidationError("schema validation failed:\n- " + "\n- ".join(messages))
+
+
+def validate_project_constraints(data: Any, require_present_evidence: bool = True) -> None:
     if not isinstance(data, dict):
         raise ValidationError("top-level extraction must be an object")
     require_keys(data, ["document_id", "pipeline_id", "fields", "events", "metadata"], "$")
@@ -186,14 +217,18 @@ def validate_extraction(data: Any) -> None:
         if not isinstance(collection, list):
             raise ValidationError(f"$.fields.{collection_name} must be an array")
         for index, item in enumerate(collection):
-            validate_medication_field(item, f"$.fields.{collection_name}[{index}]")
+            validate_medication_field(item, f"$.fields.{collection_name}[{index}]", require_present_evidence)
 
-    validate_seizure_frequency_field(fields["current_seizure_frequency"], "$.fields.current_seizure_frequency")
+    validate_seizure_frequency_field(
+        fields["current_seizure_frequency"],
+        "$.fields.current_seizure_frequency",
+        require_present_evidence,
+    )
     for index, item in enumerate(fields["seizure_types"]):
-        validate_scalar_field(item, f"$.fields.seizure_types[{index}]")
-    validate_investigation_field(fields["eeg"], "$.fields.eeg")
-    validate_investigation_field(fields["mri"], "$.fields.mri")
-    validate_scalar_field(fields["epilepsy_diagnosis"], "$.fields.epilepsy_diagnosis")
+        validate_scalar_field(item, f"$.fields.seizure_types[{index}]", require_present_evidence)
+    validate_investigation_field(fields["eeg"], "$.fields.eeg", require_present_evidence)
+    validate_investigation_field(fields["mri"], "$.fields.mri", require_present_evidence)
+    validate_scalar_field(fields["epilepsy_diagnosis"], "$.fields.epilepsy_diagnosis", require_present_evidence)
 
     if not isinstance(data["events"], list):
         raise ValidationError("$.events must be an array")
@@ -203,6 +238,15 @@ def validate_extraction(data: Any) -> None:
         if event["id"] in event_ids:
             raise ValidationError(f"duplicate event id: {event['id']}")
         event_ids.add(event["id"])
+
+
+def validate_extraction(
+    data: Any,
+    schema_path: Path = DEFAULT_SCHEMA,
+    require_present_evidence: bool = True,
+) -> None:
+    validate_schema(data, schema_path)
+    validate_project_constraints(data, require_present_evidence)
 
 
 def iter_evidence(data: Any) -> list[tuple[str, str]]:
@@ -261,13 +305,23 @@ def main() -> int:
     parser.add_argument("extraction", type=Path)
     parser.add_argument("--source", type=Path, required=True, help="Source clinic letter for quote validation.")
     parser.add_argument("--expectations", type=Path, help="Manual field expectations for sample scoring.")
+    parser.add_argument("--schema", type=Path, default=DEFAULT_SCHEMA)
+    parser.add_argument(
+        "--allow-present-fields-without-evidence",
+        action="store_true",
+        help="Use for S1/no-evidence baselines; evidence presence is then scored separately.",
+    )
     args = parser.parse_args()
 
     data = load_json(args.extraction)
     source_text = args.source.read_text(encoding="utf-8")
 
     try:
-        validate_extraction(data)
+        validate_extraction(
+            data,
+            args.schema,
+            require_present_evidence=not args.allow_present_fields_without_evidence,
+        )
         quote_total, quote_failures = check_quote_validity(data, source_text)
         if quote_failures:
             raise ValidationError("invalid evidence quotes at: " + ", ".join(quote_failures))

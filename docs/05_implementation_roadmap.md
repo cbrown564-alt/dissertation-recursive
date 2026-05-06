@@ -39,6 +39,8 @@ Exit criterion: one letter can be loaded, preprocessed, and paired with gold lab
 
 ## Milestone 3: Direct Baselines
 
+Status: complete for the first executable harness. See `docs/09_direct_baselines.md`, `src/direct_baselines.py`, and `prompts/direct_baselines/`.
+
 - Implement S1 direct JSON extraction.
 - Implement S2 direct JSON extraction with evidence.
 - Implement S3 YAML-to-JSON extraction with evidence.

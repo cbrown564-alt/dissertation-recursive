@@ -16,6 +16,7 @@ The current proposal is [proposal_tight.md](proposal_tight.md). It narrows the p
 - [Canonical JSON Schema](schemas/canonical_extraction.schema.json) - initial machine-readable output contract.
 - [Milestone 1 scoring spec](docs/scoring/milestone_1_scoring_spec.md) - first executable validation and scoring contract.
 - [Data intake](docs/08_data_intake.md) - dataset manifest, fixed splits, preprocessing, gold loading, and quote-normalization checks.
+- [Direct baselines](docs/09_direct_baselines.md) - S1/S2/S3 prompt, parse, repair, validation, evidence scoring, and logging harness.
 
 ## Milestone 1 Exit Check
 
@@ -32,6 +33,24 @@ python3 src/validate_extraction.py \
 python3 src/intake.py check-one EA0001 --max-mismatches 10
 ```
 
+## Milestone 3 Exit Check
+
+Install dependencies first in a local virtual environment:
+
+```bash
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+```
+
+Then run the small-subset stub harness:
+
+```bash
+.venv/bin/python src/direct_baselines.py run \
+  --provider stub \
+  --limit 2 \
+  --output-dir runs/milestone_3_stub
+```
+
 ## Current Priority
 
-The next work should implement Milestone 3 direct baselines: S1 direct JSON extraction, S2 direct extraction with evidence, S3 YAML-to-JSON extraction, parse/repair handling, validation, evidence-layer scoring, and logging on a small development subset.
+The next work should implement Milestone 4 event-first extraction and deterministic aggregation for the same small development subset as the direct baselines.
