@@ -1,0 +1,454 @@
+{
+  "meta": {
+    "generated_at": "2026-05-06T13:17:45.423968+00:00",
+    "evaluation_dir": "runs/milestone_5_stub_eval_final_2",
+    "robustness_dir": "runs/robustness_smoke_venv",
+    "secondary_dirs": [
+      "runs/milestone_7_json_yaml_stub",
+      "runs/milestone_7_model_compare_stub"
+    ],
+    "split": "development"
+  },
+  "systems": [
+    {
+      "id": "S2",
+      "label": "Direct JSON",
+      "color": "#07858c"
+    },
+    {
+      "id": "E2",
+      "label": "Event-first aggregate",
+      "color": "#2878d8"
+    },
+    {
+      "id": "E3",
+      "label": "Constrained aggregate",
+      "color": "#f26d2b"
+    }
+  ],
+  "summary_by_system": {
+    "E2": {
+      "system": "E2",
+      "documents_expected": "2",
+      "documents_available": "2",
+      "schema_valid_rate": "1.0",
+      "quote_presence_rate": "1.0",
+      "quote_validity_rate": "1.0",
+      "temporal_accuracy": "1.0",
+      "medication_name_f1": "0.0",
+      "medication_full_f1": "0.0",
+      "seizure_type_f1": "0.0",
+      "current_seizure_frequency_accuracy": "0.0",
+      "seizure_frequency_type_linkage_accuracy": "0.0",
+      "eeg_accuracy": "1.0",
+      "mri_accuracy": "0.5",
+      "epilepsy_diagnosis_accuracy": "0.0",
+      "mean_latency_ms": "0.0"
+    },
+    "E3": {
+      "system": "E3",
+      "documents_expected": "2",
+      "documents_available": "2",
+      "schema_valid_rate": "1.0",
+      "quote_presence_rate": "1.0",
+      "quote_validity_rate": "1.0",
+      "temporal_accuracy": "1.0",
+      "medication_name_f1": "0.0",
+      "medication_full_f1": "0.0",
+      "seizure_type_f1": "0.0",
+      "current_seizure_frequency_accuracy": "0.0",
+      "seizure_frequency_type_linkage_accuracy": "0.0",
+      "eeg_accuracy": "1.0",
+      "mri_accuracy": "0.5",
+      "epilepsy_diagnosis_accuracy": "0.0",
+      "mean_latency_ms": "0.027645990485325456"
+    },
+    "S2": {
+      "system": "S2",
+      "documents_expected": "2",
+      "log_records_available": "2",
+      "parse_success_rate": "1.0",
+      "repair_attempt_rate": "0.0",
+      "canonical_available_rate": "1.0",
+      "schema_valid_rate": "1.0",
+      "quote_presence_rate": "1.0",
+      "quote_validity_rate": "1.0",
+      "temporal_accuracy": "1.0",
+      "medication_name_f1": "0.0",
+      "medication_full_f1": "0.0",
+      "seizure_type_f1": "0.0",
+      "current_seizure_frequency_accuracy": "0.0",
+      "seizure_frequency_type_linkage_accuracy": "0.0",
+      "eeg_accuracy": "1.0",
+      "mri_accuracy": "0.5",
+      "epilepsy_diagnosis_accuracy": "0.0",
+      "mean_latency_ms": "0.00047901994548738003",
+      "mean_input_tokens": "0.0",
+      "mean_output_tokens": "0.0",
+      "condition": "local_stub",
+      "family": "local",
+      "run_dir": "runs/milestone_3_stub",
+      "documents_available": "2"
+    },
+    "S3": {
+      "system": "S3",
+      "documents_expected": "2",
+      "log_records_available": "2",
+      "parse_success_rate": "1.0",
+      "repair_attempt_rate": "0.0",
+      "canonical_available_rate": "1.0",
+      "schema_valid_rate": "1.0",
+      "quote_presence_rate": "1.0",
+      "quote_validity_rate": "1.0",
+      "temporal_accuracy": "1.0",
+      "medication_name_f1": "0.0",
+      "medication_full_f1": "0.0",
+      "seizure_type_f1": "0.0",
+      "current_seizure_frequency_accuracy": "0.0",
+      "seizure_frequency_type_linkage_accuracy": "0.0",
+      "eeg_accuracy": "1.0",
+      "mri_accuracy": "0.5",
+      "epilepsy_diagnosis_accuracy": "0.0",
+      "mean_latency_ms": "0.00020800507627427578",
+      "mean_input_tokens": "0.0",
+      "mean_output_tokens": "0.0"
+    }
+  },
+  "kpis": [
+    {
+      "id": "field_accuracy",
+      "label": "Field accuracy",
+      "values": {
+        "S2": 0.25,
+        "E2": 0.25,
+        "E3": 0.25
+      }
+    },
+    {
+      "id": "temporal_correctness",
+      "label": "Temporal correctness",
+      "values": {
+        "S2": 1.0,
+        "E2": 1.0,
+        "E3": 1.0
+      }
+    },
+    {
+      "id": "evidence_validity",
+      "label": "Evidence validity",
+      "values": {
+        "S2": 1.0,
+        "E2": 1.0,
+        "E3": 1.0
+      }
+    },
+    {
+      "id": "schema_validity",
+      "label": "Schema validity",
+      "values": {
+        "S2": 1.0,
+        "E2": 1.0,
+        "E3": 1.0
+      }
+    },
+    {
+      "id": "parse_repair",
+      "label": "Parse / repair",
+      "values": {
+        "S2": 1.0,
+        "E2": null,
+        "E3": null
+      }
+    },
+    {
+      "id": "robustness_degradation",
+      "label": "Robustness degradation",
+      "values": {
+        "S2": null,
+        "E2": null,
+        "E3": null
+      }
+    }
+  ],
+  "field_accuracy": [
+    {
+      "field": "medication",
+      "values": {
+        "S2": 0.0,
+        "E2": 0.0,
+        "E3": 0.0
+      }
+    },
+    {
+      "field": "seizure type",
+      "values": {
+        "S2": 0.0,
+        "E2": 0.0,
+        "E3": 0.0
+      }
+    },
+    {
+      "field": "seizure frequency",
+      "values": {
+        "S2": 0.0,
+        "E2": 0.0,
+        "E3": 0.0
+      }
+    },
+    {
+      "field": "EEG",
+      "values": {
+        "S2": 1.0,
+        "E2": 1.0,
+        "E3": 1.0
+      }
+    },
+    {
+      "field": "MRI",
+      "values": {
+        "S2": 0.5,
+        "E2": 0.5,
+        "E3": 0.5
+      }
+    },
+    {
+      "field": "diagnosis",
+      "values": {
+        "S2": 0.0,
+        "E2": 0.0,
+        "E3": 0.0
+      }
+    }
+  ],
+  "schema_breakdown": [
+    {
+      "system": "S2",
+      "valid": 1.0,
+      "minor": 0.0,
+      "major": 0.0
+    },
+    {
+      "system": "E2",
+      "valid": 1.0,
+      "minor": 0.0,
+      "major": 0.0
+    },
+    {
+      "system": "E3",
+      "valid": 1.0,
+      "minor": 0.0,
+      "major": 0.0
+    }
+  ],
+  "robustness": [
+    {
+      "perturbation": "bullets_to_prose",
+      "values": {
+        "E2": null,
+        "E3": null,
+        "S2": null
+      }
+    },
+    {
+      "perturbation": "family_history_trap",
+      "values": {
+        "E2": null,
+        "E3": null,
+        "S2": null
+      }
+    },
+    {
+      "perturbation": "historical_medication_trap",
+      "values": {
+        "E2": null,
+        "E3": null,
+        "S2": null
+      }
+    },
+    {
+      "perturbation": "negated_investigation_trap",
+      "values": {
+        "E2": null,
+        "E3": null,
+        "S2": null
+      }
+    },
+    {
+      "perturbation": "planned_medication_trap",
+      "values": {
+        "E2": null,
+        "E3": null,
+        "S2": null
+      }
+    },
+    {
+      "perturbation": "removed_headings",
+      "values": {
+        "E2": null,
+        "E3": null,
+        "S2": null
+      }
+    },
+    {
+      "perturbation": "reordered_sections",
+      "values": {
+        "E2": null,
+        "E3": null,
+        "S2": null
+      }
+    }
+  ],
+  "format_comparison": {
+    "metrics": [
+      {
+        "metric": "field accuracy",
+        "json": 0.0,
+        "yaml": 0.0
+      },
+      {
+        "metric": "temporal",
+        "json": 1.0,
+        "yaml": 1.0
+      },
+      {
+        "metric": "evidence",
+        "json": 1.0,
+        "yaml": 1.0
+      },
+      {
+        "metric": "schema",
+        "json": 1.0,
+        "yaml": 1.0
+      },
+      {
+        "metric": "parse",
+        "json": 1.0,
+        "yaml": 1.0
+      }
+    ],
+    "mean": {
+      "json": 0.8,
+      "yaml": 0.8
+    }
+  },
+  "model_family": [
+    {
+      "condition": "local_stub",
+      "family": "local",
+      "system": "S2",
+      "field_accuracy": 0.25,
+      "temporal_correctness": 1.0,
+      "evidence_validity": 1.0,
+      "schema_validity": 1.0,
+      "parse_repair": 1.0
+    },
+    {
+      "condition": "frontier_stub",
+      "family": "closed",
+      "system": "S3",
+      "field_accuracy": 0.25,
+      "temporal_correctness": 1.0,
+      "evidence_validity": 1.0,
+      "schema_validity": 1.0,
+      "parse_repair": 1.0
+    }
+  ],
+  "parse_logs": {
+    "S2": {
+      "records": 13,
+      "parse_success": 13,
+      "repair_attempted": 0,
+      "repair_succeeded": 0
+    },
+    "E2": {
+      "records": 13,
+      "parse_success": 0,
+      "repair_attempted": 0,
+      "repair_succeeded": 0
+    },
+    "E3": {
+      "records": 13,
+      "parse_success": 13,
+      "repair_attempted": 0,
+      "repair_succeeded": 0
+    }
+  },
+  "documents": [
+    {
+      "system": "E2",
+      "document_id": "EA0001",
+      "schema_valid": true,
+      "quote_validity": 1.0,
+      "temporal_accuracy": 1.0,
+      "issues": [
+        "medication_name",
+        "medication_full",
+        "seizure_type",
+        "current_seizure_frequency",
+        "seizure_frequency_type_linkage",
+        "epilepsy_diagnosis"
+      ],
+      "errors": []
+    },
+    {
+      "system": "E2",
+      "document_id": "EA0002",
+      "schema_valid": true,
+      "quote_validity": 1.0,
+      "temporal_accuracy": 1.0,
+      "issues": [
+        "medication_name",
+        "medication_full",
+        "seizure_type",
+        "current_seizure_frequency",
+        "seizure_frequency_type_linkage",
+        "mri",
+        "epilepsy_diagnosis"
+      ],
+      "errors": []
+    },
+    {
+      "system": "E3",
+      "document_id": "EA0001",
+      "schema_valid": true,
+      "quote_validity": 1.0,
+      "temporal_accuracy": 1.0,
+      "issues": [
+        "medication_name",
+        "medication_full",
+        "seizure_type",
+        "current_seizure_frequency",
+        "seizure_frequency_type_linkage",
+        "epilepsy_diagnosis"
+      ],
+      "errors": []
+    },
+    {
+      "system": "E3",
+      "document_id": "EA0002",
+      "schema_valid": true,
+      "quote_validity": 1.0,
+      "temporal_accuracy": 1.0,
+      "issues": [
+        "medication_name",
+        "medication_full",
+        "seizure_type",
+        "current_seizure_frequency",
+        "seizure_frequency_type_linkage",
+        "mri",
+        "epilepsy_diagnosis"
+      ],
+      "errors": []
+    }
+  ],
+  "evidence_examples": [
+    {
+      "system": "E2",
+      "document_id": "example",
+      "field": "evidence",
+      "quote": "No evidence quotes were available in the selected smoke artifacts.",
+      "char_start": null,
+      "char_end": null
+    }
+  ]
+}

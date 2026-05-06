@@ -22,6 +22,7 @@ The current proposal is [proposal_tight.md](proposal_tight.md). It narrows the p
 - [Robustness tests](docs/12_robustness_tests.md) - perturbation generation, robustness runs, and degradation tables.
 - [Secondary analyses](docs/13_secondary_analyses.md) - controlled JSON versus YAML-to-JSON and bounded model-family comparisons.
 - [Dissertation write-up support](docs/14_dissertation_writeup_support.md) - reproducible tables, traceability notes, plots, and error-analysis seeds.
+- [Reliability dashboard](docs/15_reliability_dashboard.md) - React dashboard and dashboard-ready data export from run artifacts.
 
 ## Milestone 1 Exit Check
 
@@ -93,6 +94,23 @@ artifacts:
   --secondary-dir runs/milestone_7_json_yaml_stub \
   --secondary-dir runs/milestone_7_model_compare_stub \
   --output-dir runs/milestone_8_writeup_smoke
+```
+
+Build the dashboard data bundle and run the local dashboard:
+
+```bash
+.venv/bin/python src/dashboard_export.py build \
+  --evaluation-dir runs/milestone_5_stub_eval_final_2 \
+  --robustness-dir runs/robustness_smoke_venv \
+  --direct-run-dir runs/milestone_3_stub \
+  --event-run-dir runs/milestone_4_stub_check_venv_2 \
+  --secondary-dir runs/milestone_7_json_yaml_stub \
+  --secondary-dir runs/milestone_7_model_compare_stub \
+  --output dashboard/public/data/dashboard_data.json
+
+cd dashboard
+npm install
+npm run dev -- --port 5173
 ```
 
 ## Current Priority

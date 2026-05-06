@@ -140,7 +140,9 @@ Exit criterion: secondary results are bounded and do not displace the primary ev
 ## Milestone 8: Dissertation Write-Up Support
 
 Status: first executable write-up support bridge added. See
-`docs/14_dissertation_writeup_support.md` and `src/writeup_support.py`.
+`docs/14_dissertation_writeup_support.md`, `src/writeup_support.py`,
+`docs/15_reliability_dashboard.md`, `src/dashboard_export.py`, and
+`dashboard/`.
 
 - Convert methods into chapter-ready prose.
 - Build reproducible tables and plots.
