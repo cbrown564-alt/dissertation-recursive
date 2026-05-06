@@ -150,3 +150,16 @@ Status: first executable write-up support bridge added. See
 - Document limitations, especially synthetic-data validity and clinical deployment boundaries.
 
 Exit criterion: results and methods can be traced from proposal to code to dissertation tables.
+
+## Milestone 9: Matched Final Artifact Run
+
+Status: first executable orchestration bridge added. See `src/final_runs.py`.
+
+- Run matched direct-baseline and event-first validation artifacts for the same fixed split.
+- Score S2 versus E2/E3 from those matched artifacts.
+- Generate and score robustness perturbations against the same clean validation run.
+- Run bounded JSON versus YAML-to-JSON and model-family secondary analyses from the matched artifacts.
+- Refresh dissertation write-up tables and dashboard data from the same run root.
+- Record a final-run manifest with run directories, split, model, provider, stages, and non-strict failures.
+
+Exit criterion: final validation, robustness, secondary-analysis, write-up, and dashboard artifacts can be rebuilt from a single command.

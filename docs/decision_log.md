@@ -107,3 +107,13 @@ Implication: Reports include parseability, schema validity, evidence layers, tem
 Artifacts: `docs/13_secondary_analyses.md`, `src/secondary_analyses.py`, updates to `src/evaluate.py`, `README.md`, and `docs/05_implementation_roadmap.md`.
 
 Command: `.venv/bin/python src/secondary_analyses.py model-compare --split development --limit 2 --condition local_stub:local:S2:runs/milestone_3_stub --condition frontier_stub:closed:S3:runs/milestone_3_stub --reference-condition local_stub --output-dir runs/milestone_7_model_compare_stub`
+
+## 2026-05-06: Matched Final Artifact Orchestration
+
+Decision: The final validation work should be launched through `src/final_runs.py`, which binds direct baselines, event-first extraction, primary evaluation, robustness, secondary analyses, write-up support, and dashboard export into one run-rooted artifact chain.
+
+Rationale: The milestone scripts are useful independently, but dissertation claims need matched artifacts from the same split, provider, model, and run root. A single orchestration command reduces drift between primary tables, robustness outputs, secondary checks, and the dashboard.
+
+Artifacts: `src/final_runs.py`, updates to `docs/05_implementation_roadmap.md`, and updates to `README.md`.
+
+Command: `.venv/bin/python src/final_runs.py build --provider openai --model gpt-4.1-mini`

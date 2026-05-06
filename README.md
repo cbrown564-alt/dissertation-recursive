@@ -23,6 +23,9 @@ The current proposal is [proposal_tight.md](proposal_tight.md). It narrows the p
 - [Secondary analyses](docs/13_secondary_analyses.md) - controlled JSON versus YAML-to-JSON and bounded model-family comparisons.
 - [Dissertation write-up support](docs/14_dissertation_writeup_support.md) - reproducible tables, traceability notes, plots, and error-analysis seeds.
 - [Reliability dashboard](docs/15_reliability_dashboard.md) - React dashboard and dashboard-ready data export from run artifacts.
+- [Dashboard JSON Schema](schemas/dashboard_data.schema.json) - stable dashboard bundle contract with missingness reasons and artifact metadata.
+- [Dashboard product plan](docs/16_dashboard_product_plan.md) - current prototype status, intended full dashboard workflow, and prioritized future work.
+- [Experiment roadmap](docs/17_experiment_roadmap.md) - how to use the completed implementation to produce final dissertation evidence.
 
 ## Milestone 1 Exit Check
 
@@ -108,12 +111,53 @@ Build the dashboard data bundle and run the local dashboard:
   --secondary-dir runs/milestone_7_model_compare_stub \
   --output dashboard/public/data/dashboard_data.json
 
+.venv/bin/python src/dashboard_export.py validate dashboard/public/data/dashboard_data.json
+
 cd dashboard
 npm install
 npm run dev -- --port 5173
 ```
 
+Dashboard status: the current app is a prototype over a real exported data
+contract. It proves that run outputs can feed a downstream dashboard, but the
+sidebar, header filters, chart context, evidence drill-down, and document audit
+workflow still need product work before it should be treated as a mature
+analysis surface. See the [dashboard product plan](docs/16_dashboard_product_plan.md)
+for the intended full design and backlog.
+
 ## Current Priority
 
-The next work should run Milestones 5-8 on real matched validation artifacts
-and replace the smoke-run write-up outputs with final dissertation tables.
+Implementation is complete. The current priority is to follow the
+[experiment roadmap](docs/17_experiment_roadmap.md): freeze development choices,
+run matched validation artifacts, interpret robustness and secondary analyses,
+then run the held-out final test once.
+
+Start with a smoke check:
+
+```bash
+.venv/bin/python src/final_runs.py build --provider stub --limit 2 --run-root runs/final_validation_smoke
+```
+
+Then run the primary validation chain:
+
+```bash
+.venv/bin/python src/final_runs.py build \
+  --provider openai \
+  --model gpt-4.1-mini \
+  --split validation \
+  --run-root runs/final_validation
+```
+
+After validation decisions are frozen, run the held-out final test:
+
+```bash
+.venv/bin/python src/final_runs.py build \
+  --provider openai \
+  --model gpt-4.1-mini \
+  --split test \
+  --run-root runs/final_test
+```
+
+Each run refreshes matched extraction artifacts, primary evaluation, robustness
+outputs, secondary analyses, dissertation write-up tables, dashboard data, and
+`final_run_manifest.json` under the selected run root.

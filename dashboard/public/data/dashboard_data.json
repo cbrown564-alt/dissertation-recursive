@@ -1,13 +1,113 @@
 {
   "meta": {
-    "generated_at": "2026-05-06T13:17:45.423968+00:00",
-    "evaluation_dir": "runs/milestone_5_stub_eval_final_2",
-    "robustness_dir": "runs/robustness_smoke_venv",
+    "schema_version": "1.0.0",
+    "exporter_version": "1.0.0",
+    "generated_at": "2026-05-06T13:32:47.493238+00:00",
+    "evaluation_dir": "runs/final_validation_smoke_contract_full/evaluation",
+    "robustness_dir": "runs/final_validation_smoke_contract_full/robustness",
     "secondary_dirs": [
-      "runs/milestone_7_json_yaml_stub",
-      "runs/milestone_7_model_compare_stub"
+      "runs/final_validation_smoke_contract_full/secondary_json_yaml",
+      "runs/final_validation_smoke_contract_full/secondary_model_compare"
     ],
-    "split": "development"
+    "split": "validation",
+    "artifacts": [
+      {
+        "id": "evaluation_summary",
+        "path": "runs/final_validation_smoke_contract_full/evaluation/evaluation_summary.json",
+        "exists": true,
+        "kind": "json",
+        "size_bytes": 2106,
+        "row_count": 3
+      },
+      {
+        "id": "comparison_table",
+        "path": "runs/final_validation_smoke_contract_full/evaluation/comparison_table.csv",
+        "exists": true,
+        "kind": "csv",
+        "size_bytes": 624,
+        "row_count": 3
+      },
+      {
+        "id": "document_scores",
+        "path": "runs/final_validation_smoke_contract_full/evaluation/document_scores.json",
+        "exists": true,
+        "kind": "json",
+        "size_bytes": 30333,
+        "row_count": 3
+      },
+      {
+        "id": "robustness_summary",
+        "path": "runs/final_validation_smoke_contract_full/robustness/robustness_summary.json",
+        "exists": true,
+        "kind": "json",
+        "size_bytes": 41614,
+        "row_count": 4
+      },
+      {
+        "id": "label_preserving_degradation",
+        "path": "runs/final_validation_smoke_contract_full/robustness/label_preserving_degradation.csv",
+        "exists": true,
+        "kind": "csv",
+        "size_bytes": 4458,
+        "row_count": 21
+      },
+      {
+        "id": "label_changing_validity",
+        "path": "runs/final_validation_smoke_contract_full/robustness/label_changing_validity.json",
+        "exists": true,
+        "kind": "json",
+        "size_bytes": 10863,
+        "row_count": 30
+      },
+      {
+        "id": "direct_run_log",
+        "path": "runs/final_validation_smoke_contract_full/direct_baselines/baseline_runs.jsonl",
+        "exists": true,
+        "kind": "jsonl",
+        "size_bytes": 4366,
+        "row_count": 4
+      },
+      {
+        "id": "event_run_log",
+        "path": "runs/final_validation_smoke_contract_full/event_first/event_first_runs.jsonl",
+        "exists": true,
+        "kind": "jsonl",
+        "size_bytes": 5440,
+        "row_count": 6
+      },
+      {
+        "id": "secondary_1_json_yaml_table",
+        "path": "runs/final_validation_smoke_contract_full/secondary_json_yaml/json_yaml_comparison_table.csv",
+        "exists": true,
+        "kind": "csv",
+        "size_bytes": 669,
+        "row_count": 2
+      },
+      {
+        "id": "secondary_1_model_comparison_table",
+        "path": "runs/final_validation_smoke_contract_full/secondary_json_yaml/model_comparison_table.csv",
+        "exists": false,
+        "kind": "csv",
+        "size_bytes": null,
+        "row_count": null
+      },
+      {
+        "id": "secondary_2_json_yaml_table",
+        "path": "runs/final_validation_smoke_contract_full/secondary_model_compare/json_yaml_comparison_table.csv",
+        "exists": false,
+        "kind": "csv",
+        "size_bytes": null,
+        "row_count": null
+      },
+      {
+        "id": "secondary_2_model_comparison_table",
+        "path": "runs/final_validation_smoke_contract_full/secondary_model_compare/model_comparison_table.csv",
+        "exists": true,
+        "kind": "csv",
+        "size_bytes": 673,
+        "row_count": 1
+      }
+    ]
   },
   "systems": [
     {
@@ -27,6 +127,31 @@
     }
   ],
   "summary_by_system": {
+    "S2": {
+      "system": "S2",
+      "documents_expected": "2",
+      "documents_available": "2",
+      "schema_valid_rate": "1.0",
+      "quote_presence_rate": "1.0",
+      "quote_validity_rate": "1.0",
+      "temporal_accuracy": "1.0",
+      "medication_name_f1": "0.0",
+      "medication_full_f1": "0.0",
+      "seizure_type_f1": "0.0",
+      "current_seizure_frequency_accuracy": "0.0",
+      "seizure_frequency_type_linkage_accuracy": "0.0",
+      "eeg_accuracy": "1.0",
+      "mri_accuracy": "1.0",
+      "epilepsy_diagnosis_accuracy": "0.0",
+      "mean_latency_ms": "0.0028954818844795227",
+      "mean_input_tokens": "0.0",
+      "mean_output_tokens": "0.0",
+      "mean_estimated_cost_usd": "",
+      "log_records_available": "2",
+      "parse_success_rate": "1.0",
+      "repair_attempt_rate": "0.0",
+      "canonical_available_rate": "1.0"
+    },
     "E2": {
       "system": "E2",
       "documents_expected": "2",
@@ -41,9 +166,19 @@
       "current_seizure_frequency_accuracy": "0.0",
       "seizure_frequency_type_linkage_accuracy": "0.0",
       "eeg_accuracy": "1.0",
-      "mri_accuracy": "0.5",
+      "mri_accuracy": "1.0",
       "epilepsy_diagnosis_accuracy": "0.0",
-      "mean_latency_ms": "0.0"
+      "mean_latency_ms": "0.0",
+      "mean_input_tokens": "0.0",
+      "mean_output_tokens": "0.0",
+      "mean_estimated_cost_usd": "",
+      "condition": "primary_model",
+      "family": "closed",
+      "run_dir": "runs/final_validation_smoke_contract_full/event_first",
+      "log_records_available": "2",
+      "parse_success_rate": "1.0",
+      "repair_attempt_rate": "0.0",
+      "canonical_available_rate": "1.0"
     },
     "E3": {
       "system": "E3",
@@ -59,36 +194,12 @@
       "current_seizure_frequency_accuracy": "0.0",
       "seizure_frequency_type_linkage_accuracy": "0.0",
       "eeg_accuracy": "1.0",
-      "mri_accuracy": "0.5",
+      "mri_accuracy": "1.0",
       "epilepsy_diagnosis_accuracy": "0.0",
-      "mean_latency_ms": "0.027645990485325456"
-    },
-    "S2": {
-      "system": "S2",
-      "documents_expected": "2",
-      "log_records_available": "2",
-      "parse_success_rate": "1.0",
-      "repair_attempt_rate": "0.0",
-      "canonical_available_rate": "1.0",
-      "schema_valid_rate": "1.0",
-      "quote_presence_rate": "1.0",
-      "quote_validity_rate": "1.0",
-      "temporal_accuracy": "1.0",
-      "medication_name_f1": "0.0",
-      "medication_full_f1": "0.0",
-      "seizure_type_f1": "0.0",
-      "current_seizure_frequency_accuracy": "0.0",
-      "seizure_frequency_type_linkage_accuracy": "0.0",
-      "eeg_accuracy": "1.0",
-      "mri_accuracy": "0.5",
-      "epilepsy_diagnosis_accuracy": "0.0",
-      "mean_latency_ms": "0.00047901994548738003",
+      "mean_latency_ms": "0.02270846744067967",
       "mean_input_tokens": "0.0",
       "mean_output_tokens": "0.0",
-      "condition": "local_stub",
-      "family": "local",
-      "run_dir": "runs/milestone_3_stub",
-      "documents_available": "2"
+      "mean_estimated_cost_usd": ""
     },
     "S3": {
       "system": "S3",
@@ -107,9 +218,9 @@
       "current_seizure_frequency_accuracy": "0.0",
       "seizure_frequency_type_linkage_accuracy": "0.0",
       "eeg_accuracy": "1.0",
-      "mri_accuracy": "0.5",
+      "mri_accuracy": "1.0",
       "epilepsy_diagnosis_accuracy": "0.0",
-      "mean_latency_ms": "0.00020800507627427578",
+      "mean_latency_ms": "0.0003119930624961853",
       "mean_input_tokens": "0.0",
       "mean_output_tokens": "0.0"
     }
@@ -119,10 +230,11 @@
       "id": "field_accuracy",
       "label": "Field accuracy",
       "values": {
-        "S2": 0.25,
-        "E2": 0.25,
-        "E3": 0.25
-      }
+        "S2": 0.3333333333333333,
+        "E2": 0.3333333333333333,
+        "E3": 0.3333333333333333
+      },
+      "missingness": {}
     },
     {
       "id": "temporal_correctness",
@@ -131,7 +243,8 @@
         "S2": 1.0,
         "E2": 1.0,
         "E3": 1.0
-      }
+      },
+      "missingness": {}
     },
     {
       "id": "evidence_validity",
@@ -140,7 +253,8 @@
         "S2": 1.0,
         "E2": 1.0,
         "E3": 1.0
-      }
+      },
+      "missingness": {}
     },
     {
       "id": "schema_validity",
@@ -149,25 +263,30 @@
         "S2": 1.0,
         "E2": 1.0,
         "E3": 1.0
-      }
+      },
+      "missingness": {}
     },
     {
       "id": "parse_repair",
       "label": "Parse / repair",
       "values": {
         "S2": 1.0,
-        "E2": null,
+        "E2": 1.0,
         "E3": null
+      },
+      "missingness": {
+        "E3": "unavailable_metric"
       }
     },
     {
       "id": "robustness_degradation",
       "label": "Robustness degradation",
       "values": {
-        "S2": null,
-        "E2": null,
-        "E3": null
-      }
+        "S2": 0.0,
+        "E2": 0.0,
+        "E3": 0.0
+      },
+      "missingness": {}
     }
   ],
   "field_accuracy": [
@@ -177,7 +296,8 @@
         "S2": 0.0,
         "E2": 0.0,
         "E3": 0.0
-      }
+      },
+      "missingness": {}
     },
     {
       "field": "seizure type",
@@ -185,7 +305,8 @@
         "S2": 0.0,
         "E2": 0.0,
         "E3": 0.0
-      }
+      },
+      "missingness": {}
     },
     {
       "field": "seizure frequency",
@@ -193,7 +314,8 @@
         "S2": 0.0,
         "E2": 0.0,
         "E3": 0.0
-      }
+      },
+      "missingness": {}
     },
     {
       "field": "EEG",
@@ -201,15 +323,17 @@
         "S2": 1.0,
         "E2": 1.0,
         "E3": 1.0
-      }
+      },
+      "missingness": {}
     },
     {
       "field": "MRI",
       "values": {
-        "S2": 0.5,
-        "E2": 0.5,
-        "E3": 0.5
-      }
+        "S2": 1.0,
+        "E2": 1.0,
+        "E3": 1.0
+      },
+      "missingness": {}
     },
     {
       "field": "diagnosis",
@@ -217,7 +341,8 @@
         "S2": 0.0,
         "E2": 0.0,
         "E3": 0.0
-      }
+      },
+      "missingness": {}
     }
   ],
   "schema_breakdown": [
@@ -244,58 +369,65 @@
     {
       "perturbation": "bullets_to_prose",
       "values": {
-        "E2": null,
-        "E3": null,
-        "S2": null
-      }
+        "E2": 0.0,
+        "E3": 0.0,
+        "S2": 0.0
+      },
+      "missingness": {}
     },
     {
       "perturbation": "family_history_trap",
       "values": {
-        "E2": null,
-        "E3": null,
-        "S2": null
-      }
+        "E2": 0.0,
+        "E3": 0.0,
+        "S2": 0.0
+      },
+      "missingness": {}
     },
     {
       "perturbation": "historical_medication_trap",
       "values": {
-        "E2": null,
-        "E3": null,
-        "S2": null
-      }
+        "E2": 0.0,
+        "E3": 0.0,
+        "S2": 0.0
+      },
+      "missingness": {}
     },
     {
       "perturbation": "negated_investigation_trap",
       "values": {
-        "E2": null,
-        "E3": null,
-        "S2": null
-      }
+        "E2": 0.0,
+        "E3": 0.0,
+        "S2": 0.0
+      },
+      "missingness": {}
     },
     {
       "perturbation": "planned_medication_trap",
       "values": {
-        "E2": null,
-        "E3": null,
-        "S2": null
-      }
+        "E2": 0.0,
+        "E3": 0.0,
+        "S2": 0.0
+      },
+      "missingness": {}
     },
     {
       "perturbation": "removed_headings",
       "values": {
-        "E2": null,
-        "E3": null,
-        "S2": null
-      }
+        "E2": 0.0,
+        "E3": 0.0,
+        "S2": 0.0
+      },
+      "missingness": {}
     },
     {
       "perturbation": "reordered_sections",
       "values": {
-        "E2": null,
-        "E3": null,
-        "S2": null
-      }
+        "E2": 0.0,
+        "E3": 0.0,
+        "S2": 0.0
+      },
+      "missingness": {}
     }
   ],
   "format_comparison": {
@@ -333,20 +465,10 @@
   },
   "model_family": [
     {
-      "condition": "local_stub",
-      "family": "local",
-      "system": "S2",
-      "field_accuracy": 0.25,
-      "temporal_correctness": 1.0,
-      "evidence_validity": 1.0,
-      "schema_validity": 1.0,
-      "parse_repair": 1.0
-    },
-    {
-      "condition": "frontier_stub",
+      "condition": "primary_model",
       "family": "closed",
-      "system": "S3",
-      "field_accuracy": 0.25,
+      "system": "E2",
+      "field_accuracy": 0.3333333333333333,
       "temporal_correctness": 1.0,
       "evidence_validity": 1.0,
       "schema_validity": 1.0,
@@ -355,28 +477,28 @@
   ],
   "parse_logs": {
     "S2": {
-      "records": 13,
-      "parse_success": 13,
+      "records": 57,
+      "parse_success": 57,
       "repair_attempted": 0,
       "repair_succeeded": 0
     },
     "E2": {
-      "records": 13,
+      "records": 57,
       "parse_success": 0,
       "repair_attempted": 0,
       "repair_succeeded": 0
     },
     "E3": {
-      "records": 13,
-      "parse_success": 13,
+      "records": 57,
+      "parse_success": 57,
       "repair_attempted": 0,
       "repair_succeeded": 0
     }
   },
   "documents": [
     {
-      "system": "E2",
-      "document_id": "EA0001",
+      "system": "S2",
+      "document_id": "EA0008",
       "schema_valid": true,
       "quote_validity": 1.0,
       "temporal_accuracy": 1.0,
@@ -384,6 +506,19 @@
         "medication_name",
         "medication_full",
         "seizure_type",
+        "current_seizure_frequency",
+        "seizure_frequency_type_linkage",
+        "epilepsy_diagnosis"
+      ],
+      "errors": []
+    },
+    {
+      "system": "S2",
+      "document_id": "EA0016",
+      "schema_valid": true,
+      "quote_validity": 1.0,
+      "temporal_accuracy": 1.0,
+      "issues": [
         "current_seizure_frequency",
         "seizure_frequency_type_linkage",
         "epilepsy_diagnosis"
@@ -392,24 +527,7 @@
     },
     {
       "system": "E2",
-      "document_id": "EA0002",
-      "schema_valid": true,
-      "quote_validity": 1.0,
-      "temporal_accuracy": 1.0,
-      "issues": [
-        "medication_name",
-        "medication_full",
-        "seizure_type",
-        "current_seizure_frequency",
-        "seizure_frequency_type_linkage",
-        "mri",
-        "epilepsy_diagnosis"
-      ],
-      "errors": []
-    },
-    {
-      "system": "E3",
-      "document_id": "EA0001",
+      "document_id": "EA0008",
       "schema_valid": true,
       "quote_validity": 1.0,
       "temporal_accuracy": 1.0,
@@ -424,8 +542,21 @@
       "errors": []
     },
     {
+      "system": "E2",
+      "document_id": "EA0016",
+      "schema_valid": true,
+      "quote_validity": 1.0,
+      "temporal_accuracy": 1.0,
+      "issues": [
+        "current_seizure_frequency",
+        "seizure_frequency_type_linkage",
+        "epilepsy_diagnosis"
+      ],
+      "errors": []
+    },
+    {
       "system": "E3",
-      "document_id": "EA0002",
+      "document_id": "EA0008",
       "schema_valid": true,
       "quote_validity": 1.0,
       "temporal_accuracy": 1.0,
@@ -435,7 +566,19 @@
         "seizure_type",
         "current_seizure_frequency",
         "seizure_frequency_type_linkage",
-        "mri",
+        "epilepsy_diagnosis"
+      ],
+      "errors": []
+    },
+    {
+      "system": "E3",
+      "document_id": "EA0016",
+      "schema_valid": true,
+      "quote_validity": 1.0,
+      "temporal_accuracy": 1.0,
+      "issues": [
+        "current_seizure_frequency",
+        "seizure_frequency_type_linkage",
         "epilepsy_diagnosis"
       ],
       "errors": []
@@ -450,5 +593,10 @@
       "char_start": null,
       "char_end": null
     }
-  ]
+  ],
+  "missingness": {
+    "artifact:secondary_1_model_comparison_table": "missing_artifact",
+    "artifact:secondary_2_json_yaml_table": "missing_artifact",
+    "kpis.parse_repair.E3": "unavailable_metric"
+  }
 }

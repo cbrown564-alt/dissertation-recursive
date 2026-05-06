@@ -1,0 +1,314 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/dissertation-recursive/dashboard_data.schema.json",
+  "title": "Reliability Dashboard Data Bundle",
+  "type": "object",
+  "required": [
+    "meta",
+    "systems",
+    "summary_by_system",
+    "kpis",
+    "field_accuracy",
+    "schema_breakdown",
+    "robustness",
+    "format_comparison",
+    "model_family",
+    "parse_logs",
+    "documents",
+    "evidence_examples",
+    "missingness"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": [
+        "schema_version",
+        "exporter_version",
+        "generated_at",
+        "evaluation_dir",
+        "robustness_dir",
+        "secondary_dirs",
+        "split",
+        "artifacts"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": { "const": "1.0.0" },
+        "exporter_version": { "type": "string", "minLength": 1 },
+        "generated_at": { "type": "string", "format": "date-time" },
+        "evaluation_dir": { "type": "string" },
+        "robustness_dir": { "type": "string" },
+        "secondary_dirs": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "split": {
+          "anyOf": [
+            { "enum": ["development", "validation", "test"] },
+            { "type": "null" }
+          ]
+        },
+        "artifacts": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/artifact" }
+        }
+      }
+    },
+    "systems": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/system" }
+    },
+    "summary_by_system": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": {
+          "anyOf": [
+            { "type": "string" },
+            { "type": "number" },
+            { "type": "integer" },
+            { "type": "boolean" },
+            { "type": "null" }
+          ]
+        }
+      }
+    },
+    "kpis": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/kpi" }
+    },
+    "field_accuracy": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/metric_row" }
+    },
+    "schema_breakdown": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/schema_breakdown" }
+    },
+    "robustness": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/robustness_row" }
+    },
+    "format_comparison": {
+      "type": "object",
+      "required": ["metrics", "mean"],
+      "additionalProperties": false,
+      "properties": {
+        "metrics": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["metric", "json", "yaml"],
+            "additionalProperties": false,
+            "properties": {
+              "metric": { "type": "string" },
+              "json": { "$ref": "#/$defs/nullable_number" },
+              "yaml": { "$ref": "#/$defs/nullable_number" }
+            }
+          }
+        },
+        "mean": {
+          "type": "object",
+          "required": ["json", "yaml"],
+          "additionalProperties": false,
+          "properties": {
+            "json": { "$ref": "#/$defs/nullable_number" },
+            "yaml": { "$ref": "#/$defs/nullable_number" }
+          }
+        }
+      }
+    },
+    "model_family": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "condition",
+          "family",
+          "system",
+          "field_accuracy",
+          "temporal_correctness",
+          "evidence_validity",
+          "schema_validity",
+          "parse_repair"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "condition": { "type": ["string", "null"] },
+          "family": { "type": ["string", "null"] },
+          "system": { "type": ["string", "null"] },
+          "field_accuracy": { "$ref": "#/$defs/nullable_number" },
+          "temporal_correctness": { "$ref": "#/$defs/nullable_number" },
+          "evidence_validity": { "$ref": "#/$defs/nullable_number" },
+          "schema_validity": { "$ref": "#/$defs/nullable_number" },
+          "parse_repair": { "$ref": "#/$defs/nullable_number" }
+        }
+      }
+    },
+    "parse_logs": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["records", "parse_success", "repair_attempted", "repair_succeeded"],
+        "additionalProperties": false,
+        "properties": {
+          "records": { "type": "number" },
+          "parse_success": { "type": "number" },
+          "repair_attempted": { "type": "number" },
+          "repair_succeeded": { "type": "number" }
+        }
+      }
+    },
+    "documents": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/document" }
+    },
+    "evidence_examples": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/evidence_example" }
+    },
+    "missingness": {
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/missingness_reason" }
+    }
+  },
+  "$defs": {
+    "nullable_number": {
+      "type": ["number", "null"]
+    },
+    "artifact": {
+      "type": "object",
+      "required": ["id", "path", "exists", "kind", "size_bytes", "row_count"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string" },
+        "path": { "type": "string" },
+        "exists": { "type": "boolean" },
+        "kind": { "enum": ["json", "jsonl", "csv", "directory", "other"] },
+        "size_bytes": { "type": ["integer", "null"], "minimum": 0 },
+        "row_count": { "type": ["integer", "null"], "minimum": 0 }
+      }
+    },
+    "system": {
+      "type": "object",
+      "required": ["id", "label", "color"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string" },
+        "label": { "type": "string" },
+        "color": {
+          "type": "string",
+          "pattern": "^#[0-9a-fA-F]{6}$"
+        }
+      }
+    },
+    "kpi": {
+      "type": "object",
+      "required": ["id", "label", "values", "missingness"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string" },
+        "label": { "type": "string" },
+        "values": { "$ref": "#/$defs/system_values" },
+        "missingness": {
+          "type": "object",
+          "additionalProperties": { "$ref": "#/$defs/missingness_reason" }
+        }
+      }
+    },
+    "metric_row": {
+      "type": "object",
+      "required": ["field", "values", "missingness"],
+      "additionalProperties": false,
+      "properties": {
+        "field": { "type": "string" },
+        "values": { "$ref": "#/$defs/system_values" },
+        "missingness": {
+          "type": "object",
+          "additionalProperties": { "$ref": "#/$defs/missingness_reason" }
+        }
+      }
+    },
+    "system_values": {
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/nullable_number" }
+    },
+    "schema_breakdown": {
+      "type": "object",
+      "required": ["system", "valid", "minor", "major"],
+      "additionalProperties": false,
+      "properties": {
+        "system": { "type": "string" },
+        "valid": { "$ref": "#/$defs/nullable_number" },
+        "minor": { "$ref": "#/$defs/nullable_number" },
+        "major": { "$ref": "#/$defs/nullable_number" }
+      }
+    },
+    "robustness_row": {
+      "type": "object",
+      "required": ["perturbation", "values", "missingness"],
+      "additionalProperties": false,
+      "properties": {
+        "perturbation": { "type": "string" },
+        "values": { "$ref": "#/$defs/system_values" },
+        "missingness": {
+          "type": "object",
+          "additionalProperties": { "$ref": "#/$defs/missingness_reason" }
+        }
+      }
+    },
+    "document": {
+      "type": "object",
+      "required": [
+        "system",
+        "document_id",
+        "schema_valid",
+        "quote_validity",
+        "temporal_accuracy",
+        "issues",
+        "errors"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "system": { "type": "string" },
+        "document_id": { "type": ["string", "null"] },
+        "schema_valid": { "type": "boolean" },
+        "quote_validity": { "$ref": "#/$defs/nullable_number" },
+        "temporal_accuracy": { "$ref": "#/$defs/nullable_number" },
+        "issues": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "errors": {
+          "type": "array",
+          "items": {}
+        }
+      }
+    },
+    "evidence_example": {
+      "type": "object",
+      "required": ["system", "document_id", "field", "quote", "char_start", "char_end"],
+      "additionalProperties": false,
+      "properties": {
+        "system": { "type": "string" },
+        "document_id": { "type": "string" },
+        "field": { "type": "string" },
+        "quote": { "type": "string" },
+        "char_start": { "type": ["integer", "null"] },
+        "char_end": { "type": ["integer", "null"] }
+      }
+    },
+    "missingness_reason": {
+      "enum": [
+        "missing_artifact",
+        "unavailable_metric",
+        "smoke_artifact",
+        "no_clean_baseline",
+        "unsupported_analysis",
+        "not_applicable"
+      ]
+    }
+  }
+}

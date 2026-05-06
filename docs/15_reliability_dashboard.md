@@ -24,6 +24,13 @@ For final dissertation runs, replace those smoke directories with final
 validation artifact directories. Missing values are preserved as `null` and
 rendered as `n/a` or an explicit empty state.
 
+The final matched artifact chain can refresh the dashboard data after primary
+evaluation, robustness, and secondary analyses complete:
+
+```bash
+.venv/bin/python src/final_runs.py build --provider openai --model gpt-4.1-mini
+```
+
 ## Run The App
 
 ```bash
