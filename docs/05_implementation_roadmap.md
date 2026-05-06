@@ -51,6 +51,8 @@ Exit criterion: direct baselines can run on a small development subset.
 
 ## Milestone 4: Event-First Pipeline
 
+Status: complete for the first executable event-first harness. See `docs/10_event_first_pipeline.md`, `src/event_first.py`, and `prompts/event_first/`.
+
 - Implement E1 event extraction.
 - Implement evidence validation for events.
 - Implement E2 deterministic aggregation.

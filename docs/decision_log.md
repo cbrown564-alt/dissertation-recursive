@@ -31,3 +31,37 @@ Rationale: ExECTv2 provides public, reproducible, span-level gold labels for the
 Implication: Previous/stopped/planned medication status and requested/pending/unavailable investigation status move to extension or robustness analyses unless manually adjudicated.
 
 Affected docs: `docs/01_scope_and_research_questions.md`, `docs/02_canonical_schema.md`, `docs/03_pipeline_design.md`, `docs/04_evaluation_protocol.md`, `docs/05_implementation_roadmap.md`, `docs/07_dataset_rationale.md`.
+
+## 2026-05-06: Milestone 3 Direct Baseline Harness
+
+Decision: Milestone 3 is complete for the first executable harness when S1, S2, and S3 can run over a small development subset with prompt generation, raw response capture, parse/repair handling, canonical JSON output, JSON Schema validation, evidence-layer logging, and JSONL run metadata.
+
+Rationale: This creates the direct-baseline comparison surface before event-first extraction is implemented. The stub provider verifies the pipeline mechanics without treating empty outputs as clinical extraction results.
+
+Artifacts: `docs/09_direct_baselines.md`, `src/direct_baselines.py`, `prompts/direct_baselines/`, `requirements.txt`, and updates to `src/validate_extraction.py`.
+
+Command: `.venv/bin/python src/direct_baselines.py run --provider stub --limit 2 --output-dir runs/milestone_3_stub_compact_log`
+
+## 2026-05-06: JSON Schema As Structural Validator
+
+Decision: `schemas/canonical_extraction.schema.json` is the authoritative structural contract. `src/validate_extraction.py` now uses `jsonschema` for schema validation and keeps custom Python checks for project-specific rules.
+
+Rationale: JSON Schema prevents drift between the machine-readable contract and runtime validation, while custom checks remain necessary for duplicate event IDs, present-field evidence requirements, quote validity, and later semantic/temporal support scoring.
+
+Implication: Runtime dependencies are declared in `requirements.txt`; validation commands should run inside a local `.venv`.
+
+## 2026-05-06: Direct Baseline Formats And Repair Boundary
+
+Decision: S1 emits direct canonical JSON without required evidence, S2 emits canonical JSON with evidence, and S3 emits YAML that is parsed into canonical JSON before scoring. JSON remains the only canonical scoring format.
+
+Rationale: S1 tests the simplest structured extraction baseline, S2 is the primary direct evidence comparator, and S3 isolates model-facing format effects without changing downstream scoring.
+
+Repair policy: allow one syntax-level repair attempt only. JSON repair may strip Markdown wrappers/preambles and trailing commas. YAML repair may strip Markdown wrappers and replace tabs with spaces. Repairs must not add clinical values or evidence.
+
+## 2026-05-06: Local API Key Loading
+
+Decision: `src/direct_baselines.py` loads a local `.env` file before OpenAI calls, but only fills environment variables that are not already exported.
+
+Rationale: This keeps local model runs ergonomic while preserving shell-provided overrides and keeping secrets out of version control.
+
+Implication: `.env`, `.venv/`, `runs/`, caches, and `.DS_Store` are ignored by the root `.gitignore`.
