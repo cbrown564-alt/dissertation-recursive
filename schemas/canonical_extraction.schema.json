@@ -1,0 +1,271 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/dissertation-recursive/canonical_extraction.schema.json",
+  "title": "Canonical Epilepsy Clinic Letter Extraction",
+  "type": "object",
+  "required": ["document_id", "pipeline_id", "fields", "events", "metadata"],
+  "additionalProperties": false,
+  "properties": {
+    "document_id": {
+      "type": "string"
+    },
+    "pipeline_id": {
+      "type": "string"
+    },
+    "fields": {
+      "type": "object",
+      "required": [
+        "current_anti_seizure_medications",
+        "previous_anti_seizure_medications",
+        "current_seizure_frequency",
+        "seizure_types",
+        "eeg",
+        "mri",
+        "epilepsy_diagnosis"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "current_anti_seizure_medications": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/medication_field"
+          }
+        },
+        "previous_anti_seizure_medications": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/medication_field"
+          }
+        },
+        "current_seizure_frequency": {
+          "$ref": "#/$defs/scalar_field"
+        },
+        "seizure_types": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/scalar_field"
+          }
+        },
+        "eeg": {
+          "$ref": "#/$defs/investigation_field"
+        },
+        "mri": {
+          "$ref": "#/$defs/investigation_field"
+        },
+        "epilepsy_diagnosis": {
+          "$ref": "#/$defs/scalar_field"
+        }
+      }
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/event"
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "model": {
+          "type": "string"
+        },
+        "format": {
+          "enum": ["json", "yaml_to_json", "constrained_json", "unknown"]
+        },
+        "latency_ms": {
+          "type": "number",
+          "minimum": 0
+        },
+        "input_tokens": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "output_tokens": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "repair_attempted": {
+          "type": "boolean"
+        },
+        "repair_succeeded": {
+          "type": "boolean"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "missingness": {
+      "enum": ["present", "not_stated", "uncertain", "conflicting", "not_applicable"]
+    },
+    "temporality": {
+      "enum": [
+        "current",
+        "historical",
+        "planned",
+        "requested",
+        "completed",
+        "family_history",
+        "hypothetical",
+        "uncertain"
+      ]
+    },
+    "evidence": {
+      "type": "object",
+      "required": ["quote"],
+      "additionalProperties": false,
+      "properties": {
+        "quote": {
+          "type": "string"
+        },
+        "sentence_id": {
+          "type": ["string", "null"]
+        },
+        "char_start": {
+          "type": ["integer", "null"],
+          "minimum": 0
+        },
+        "char_end": {
+          "type": ["integer", "null"],
+          "minimum": 0
+        }
+      }
+    },
+    "scalar_field": {
+      "type": "object",
+      "required": ["value", "missingness", "temporality", "evidence", "evidence_event_ids"],
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "type": ["string", "null"]
+        },
+        "missingness": {
+          "$ref": "#/$defs/missingness"
+        },
+        "temporality": {
+          "$ref": "#/$defs/temporality"
+        },
+        "evidence": {
+          "type": ["array", "null"],
+          "items": {
+            "$ref": "#/$defs/evidence"
+          }
+        },
+        "evidence_event_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "confidence": {
+          "type": ["number", "null"],
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "medication_field": {
+      "type": "object",
+      "required": ["name", "dose", "status", "missingness", "temporality", "evidence", "evidence_event_ids"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": ["string", "null"]
+        },
+        "dose": {
+          "type": ["string", "null"]
+        },
+        "status": {
+          "enum": ["current", "previous", "planned", "stopped", "uncertain", "not_stated"]
+        },
+        "missingness": {
+          "$ref": "#/$defs/missingness"
+        },
+        "temporality": {
+          "$ref": "#/$defs/temporality"
+        },
+        "reason_stopped": {
+          "type": ["string", "null"]
+        },
+        "evidence": {
+          "type": ["array", "null"],
+          "items": {
+            "$ref": "#/$defs/evidence"
+          }
+        },
+        "evidence_event_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "confidence": {
+          "type": ["number", "null"],
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "investigation_field": {
+      "type": "object",
+      "required": ["status", "result", "missingness", "temporality", "evidence", "evidence_event_ids"],
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "enum": ["requested", "pending", "completed", "normal", "abnormal", "not_stated", "uncertain"]
+        },
+        "result": {
+          "type": ["string", "null"]
+        },
+        "missingness": {
+          "$ref": "#/$defs/missingness"
+        },
+        "temporality": {
+          "$ref": "#/$defs/temporality"
+        },
+        "evidence": {
+          "type": ["array", "null"],
+          "items": {
+            "$ref": "#/$defs/evidence"
+          }
+        },
+        "evidence_event_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "confidence": {
+          "type": ["number", "null"],
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "event": {
+      "type": "object",
+      "required": ["id", "category", "temporality", "status", "value", "evidence"],
+      "additionalProperties": true,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "category": {
+          "enum": ["medication", "seizure_frequency", "seizure_type", "investigation", "diagnosis"]
+        },
+        "temporality": {
+          "$ref": "#/$defs/temporality"
+        },
+        "status": {
+          "type": ["string", "null"]
+        },
+        "value": {
+          "type": ["string", "null"]
+        },
+        "evidence": {
+          "$ref": "#/$defs/evidence"
+        }
+      }
+    }
+  }
+}
