@@ -65,3 +65,23 @@ Decision: `src/direct_baselines.py` loads a local `.env` file before OpenAI call
 Rationale: This keeps local model runs ergonomic while preserving shell-provided overrides and keeping secrets out of version control.
 
 Implication: `.env`, `.venv/`, `runs/`, caches, and `.DS_Store` are ignored by the root `.gitignore`.
+
+## 2026-05-06: Milestone 5 Evaluation Harness
+
+Decision: Milestone 5 is complete for the first executable scorer when `src/evaluate.py` can score existing S2, E2, and E3 canonical outputs from a fixed split and write aggregate JSON, per-document JSON, and a CSV comparison table.
+
+Rationale: Direct and event-first systems now share a canonical JSON contract, so evaluation can be separated from extraction. The first scorer keeps field correctness, quote presence, quote validity, evidence overlap, temporal support heuristics, and cost/latency metadata as separate layers instead of collapsing them into one opaque accuracy number.
+
+Artifacts: `docs/11_evaluation_harness.md`, `src/evaluate.py`, and updates to `docs/05_implementation_roadmap.md`.
+
+Command: `.venv/bin/python src/evaluate.py run --split development --limit 2 --systems E2 E3 --event-run-dir runs/milestone_4_stub_check_venv_2 --output-dir runs/milestone_5_stub_eval`
+
+## 2026-05-06: Milestone 6 Robustness Harness
+
+Decision: Milestone 6 is complete for the first executable robustness harness when perturbations can be generated as a runner-compatible corpus, marked by label effect, run through S2/E2/E3, and summarized as field-level degradation tables for label-preserving cases.
+
+Rationale: Robustness needs to stay paired with the primary event-first comparison without treating deliberately label-changing challenge cases as ordinary ExECTv2 gold-label errors. Gan 2026 is kept as a seizure-frequency stress source rather than a replacement benchmark.
+
+Artifacts: `docs/12_robustness_tests.md`, `src/robustness.py`, and updates to `docs/05_implementation_roadmap.md`.
+
+Command: `.venv/bin/python src/robustness.py generate --split validation --limit 5 --include-gan --gan-limit 5 --output-dir runs/robustness && .venv/bin/python src/robustness.py run-systems --provider stub --output-dir runs/robustness && .venv/bin/python src/robustness.py evaluate --output-dir runs/robustness`

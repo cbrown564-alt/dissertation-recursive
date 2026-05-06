@@ -65,6 +65,8 @@ Exit criterion: event-first extraction can produce canonical JSON for the same s
 
 ## Milestone 5: Evaluation Harness
 
+Status: complete for the first executable scorer. See `docs/11_evaluation_harness.md` and `src/evaluate.py`.
+
 - Implement field scoring.
 - Implement evidence scoring at quote-presence, quote-validity, semantic-support, temporal-support, and field-correctness levels.
 - Implement temporal scoring.
@@ -74,6 +76,8 @@ Exit criterion: event-first extraction can produce canonical JSON for the same s
 Exit criterion: validation-set results can be reproduced from a single command.
 
 ## Milestone 6: Robustness Tests
+
+Status: complete for the first executable robustness harness. See `docs/12_robustness_tests.md` and `src/robustness.py`.
 
 - Implement perturbation generators.
 - Mark perturbations as label-preserving or label-changing.

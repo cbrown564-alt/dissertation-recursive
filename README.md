@@ -17,6 +17,9 @@ The current proposal is [proposal_tight.md](proposal_tight.md). It narrows the p
 - [Milestone 1 scoring spec](docs/scoring/milestone_1_scoring_spec.md) - first executable validation and scoring contract.
 - [Data intake](docs/08_data_intake.md) - dataset manifest, fixed splits, preprocessing, gold loading, and quote-normalization checks.
 - [Direct baselines](docs/09_direct_baselines.md) - S1/S2/S3 prompt, parse, repair, validation, evidence scoring, and logging harness.
+- [Event-first pipeline](docs/10_event_first_pipeline.md) - E1 event extraction plus E2/E3 aggregation.
+- [Evaluation harness](docs/11_evaluation_harness.md) - S2 versus E2/E3 scoring over existing run outputs.
+- [Robustness tests](docs/12_robustness_tests.md) - perturbation generation, robustness runs, and degradation tables.
 
 ## Milestone 1 Exit Check
 
@@ -53,4 +56,4 @@ Then run the small-subset stub harness:
 
 ## Current Priority
 
-The next work should implement Milestone 4 event-first extraction and deterministic aggregation for the same small development subset as the direct baselines.
+The next work should implement Milestone 7 secondary analyses: JSON versus YAML-to-JSON format comparison and a small bounded model comparison.
