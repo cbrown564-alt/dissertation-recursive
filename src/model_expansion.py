@@ -20,9 +20,9 @@ from direct_baselines import (
     write_json,
     write_text,
 )
-from evaluate import DEFAULT_MARKUP_ROOT, flatten_summary, load_gold, score_document
+from evaluate import DEFAULT_MARKUP_ROOT, GoldDocument, build_field_prf_table, flatten_summary, load_gold, score_document
 from intake import DEFAULT_EXECT_ROOT, DEFAULT_SPLITS, preprocess_document
-from model_providers import ModelRequest, adapter_for, write_response_log
+from model_providers import ModelRequest, TokenUsage, adapter_for, estimate_cost, write_response_log
 from model_registry import DEFAULT_REGISTRY, load_model_specs, write_registry_snapshot
 from validate_extraction import DEFAULT_SCHEMA
 
@@ -30,6 +30,7 @@ from validate_extraction import DEFAULT_SCHEMA
 DEFAULT_HARNESS_MATRIX = Path("configs/harness_matrix.yaml")
 DEFAULT_OUTPUT_DIR = Path("runs/model_expansion/stage_a_smoke")
 DEFAULT_STAGE_B_OUTPUT_DIR = Path("runs/model_expansion/stage_b_dev_pilot")
+DEFAULT_STAGE_C_OUTPUT_DIR = Path("runs/model_expansion/stage_c_validation")
 BENCHMARK_METRICS = ["medication_name_f1", "seizure_type_f1", "epilepsy_diagnosis_accuracy"]
 
 
@@ -202,7 +203,7 @@ def command_stage_a(args: argparse.Namespace) -> int:
             for document_id in document_ids:
                 row = run_one(args, model_label, harness_id, document_id)
                 rows.append(row)
-                print(f"{row['status']}: {model_label} {harness_id} {document_id}")
+                print(f"{row['status']}: {model_label} {harness_id} {document_id}", flush=True)
 
     write_csv(output_dir / "provider_call_report.csv", rows)
     manifest = {
@@ -447,6 +448,398 @@ def command_stage_b(args: argparse.Namespace) -> int:
     return 0
 
 
+def condition_label(model_label: str, harness_id: str, system: str) -> str:
+    return f"{model_label}:{system}:{harness_id}"
+
+
+def score_stage_a_outputs(
+    stage_a_dir: Path,
+    exect_root: Path,
+    markup_root: Path,
+    schema_path: Path,
+    harness_ids: set[str] | None = None,
+) -> tuple[dict[str, list[dict[str, Any]]], dict[str, dict[str, Any]]]:
+    report_path = stage_a_dir / "provider_call_report.csv"
+    if not report_path.exists():
+        raise FileNotFoundError(f"Stage A provider report not found: {report_path}")
+    rows = read_csv(report_path)
+    gold = load_gold(markup_root, exect_root)
+    all_scores: dict[str, list[dict[str, Any]]] = {}
+    metadata: dict[str, dict[str, Any]] = {}
+
+    for row in rows:
+        harness_id = row.get("harness_id", "")
+        if harness_ids and harness_id not in harness_ids:
+            continue
+        system = system_for_harness(harness_id)
+        label = condition_label(row["model_label"], harness_id, system)
+        metadata.setdefault(
+            label,
+            {
+                "model_label": row["model_label"],
+                "registry_model_label": row["model_label"],
+                "provider": row.get("provider"),
+                "provider_model_id": row.get("provider_model_id"),
+                "system": system,
+                "harness_id": harness_id,
+                "source": "stage_a_outputs",
+                "source_dir": str(stage_a_dir),
+                "call_rows": [],
+            },
+        )
+        metadata[label]["call_rows"].append(row)
+        if harness_id != "H0_strict_canonical":
+            continue
+
+        document_id = row["document_id"]
+        canonical_path = stage_a_dir / row["model_label"] / harness_id / document_id / "canonical.json"
+        data = json.loads(canonical_path.read_text(encoding="utf-8")) if canonical_path.exists() else None
+        source_text = preprocess_document(document_id, exect_root)["text"]
+        score = score_document(data, source_text, gold.get(document_id, GoldDocument(document_id=document_id)), schema_path)
+        score["document_id"] = document_id
+        score["system"] = label
+        all_scores.setdefault(label, []).append(score)
+    return all_scores, metadata
+
+
+def load_evaluation_condition(value: str) -> tuple[str, str, str, Path]:
+    parts = value.split(":", 3)
+    if len(parts) != 4:
+        raise ValueError(
+            "--evaluation-condition must be LABEL:SYSTEM:HARNESS_ID:EVALUATION_DIR, "
+            f"got: {value}"
+        )
+    label, system, harness_id, evaluation_dir = parts
+    return label, system, harness_id, Path(evaluation_dir)
+
+
+def parse_condition_model(values: list[str] | None) -> dict[str, str]:
+    mapping: dict[str, str] = {}
+    for value in values or []:
+        if "=" not in value:
+            raise ValueError(f"--condition-model must be CONDITION=REGISTRY_MODEL_LABEL, got: {value}")
+        condition, model_label = value.split("=", 1)
+        mapping[condition] = model_label
+    return mapping
+
+
+def load_existing_evaluation_conditions(
+    conditions: list[str] | None,
+    condition_models: dict[str, str] | None = None,
+) -> tuple[dict[str, list[dict[str, Any]]], dict[str, dict[str, Any]]]:
+    all_scores: dict[str, list[dict[str, Any]]] = {}
+    metadata: dict[str, dict[str, Any]] = {}
+    for condition in conditions or []:
+        label, system, harness_id, evaluation_dir = load_evaluation_condition(condition)
+        document_scores_path = evaluation_dir / "document_scores.json"
+        if not document_scores_path.exists():
+            raise FileNotFoundError(f"missing document scores for condition {condition}: {document_scores_path}")
+        document_scores = json.loads(document_scores_path.read_text(encoding="utf-8"))
+        system_scores = document_scores.get(system)
+        if not isinstance(system_scores, list):
+            raise ValueError(f"system {system} not found in {document_scores_path}")
+        all_scores[label] = [{**score, "system": label} for score in system_scores]
+        metadata[label] = {
+            "model_label": label,
+            "registry_model_label": (condition_models or {}).get(label, label),
+            "provider": None,
+            "provider_model_id": None,
+            "system": system,
+            "harness_id": harness_id,
+            "source": "evaluation_dir",
+            "source_dir": str(evaluation_dir),
+            "call_rows": [],
+        }
+    return all_scores, metadata
+
+
+def document_metric_value(score: dict[str, Any], metric: str) -> float:
+    field_scores = score.get("field_scores", {})
+    item = field_scores.get(metric, {})
+    if metric in {"medication_name", "seizure_type"} and isinstance(item, dict):
+        return float(item.get("f1", 0.0))
+    if isinstance(item, dict):
+        return 1.0 if item.get("correct") else 0.0
+    return 0.0
+
+
+def summarize_condition(label: str, scores: list[dict[str, Any]], meta: dict[str, Any]) -> dict[str, Any]:
+    summary = flatten_summary(label, scores)
+    call_rows = meta.get("call_rows") or []
+    parse_success = sum(1 for row in call_rows if row.get("parse_success") == "True")
+    repair_attempted = sum(1 for row in call_rows if row.get("repair_attempted") == "True")
+    repair_succeeded = sum(1 for row in call_rows if row.get("repair_succeeded") == "True")
+    benchmark_quality = mean_present([to_float(summary.get(metric)) for metric in BENCHMARK_METRICS])
+    mean_input_tokens = summary.get("mean_input_tokens")
+    mean_output_tokens = summary.get("mean_output_tokens")
+    mean_estimated_cost = summary.get("mean_estimated_cost_usd")
+    if mean_estimated_cost is None:
+        mean_estimated_cost = estimate_mean_cost_from_registry(
+            meta.get("registry_model_label"),
+            mean_input_tokens,
+            mean_output_tokens,
+            meta.get("model_specs", {}),
+        )
+
+    return {
+        "condition": label,
+        "model_label": meta.get("model_label"),
+        "provider": meta.get("provider"),
+        "provider_model_id": meta.get("provider_model_id"),
+        "system": meta.get("system"),
+        "harness_id": meta.get("harness_id"),
+        "source": meta.get("source"),
+        "documents_expected": summary.get("documents_expected"),
+        "documents_available": summary.get("documents_available"),
+        "call_success_rate": (sum(1 for row in call_rows if row.get("status") == "success") / len(call_rows))
+        if call_rows
+        else None,
+        "parse_success_rate": parse_success / len(call_rows) if call_rows else None,
+        "repair_attempt_rate": repair_attempted / len(call_rows) if call_rows else None,
+        "repair_success_rate": repair_succeeded / repair_attempted if repair_attempted else None,
+        "schema_valid_rate": summary.get("schema_valid_rate"),
+        "quote_presence_rate": summary.get("quote_presence_rate"),
+        "quote_validity_rate": summary.get("quote_validity_rate"),
+        "temporal_accuracy": summary.get("temporal_accuracy"),
+        "medication_name_f1": summary.get("medication_name_f1"),
+        "seizure_type_f1": summary.get("seizure_type_f1"),
+        "epilepsy_diagnosis_accuracy": summary.get("epilepsy_diagnosis_accuracy"),
+        "medication_full_f1": summary.get("medication_full_f1"),
+        "current_seizure_frequency_accuracy": summary.get("current_seizure_frequency_accuracy"),
+        "seizure_frequency_type_linkage_accuracy": summary.get("seizure_frequency_type_linkage_accuracy"),
+        "benchmark_quality": benchmark_quality,
+        "mean_latency_ms": summary.get("mean_latency_ms"),
+        "mean_input_tokens": mean_input_tokens,
+        "mean_output_tokens": mean_output_tokens,
+        "mean_estimated_cost_usd": mean_estimated_cost,
+        "cost_estimation_status": cost_estimation_status(
+            mean_estimated_cost,
+            meta.get("registry_model_label"),
+            mean_input_tokens,
+            mean_output_tokens,
+        ),
+    }
+
+
+def estimate_mean_cost_from_registry(
+    registry_model_label: str | None,
+    mean_input_tokens: Any,
+    mean_output_tokens: Any,
+    specs: dict[str, Any],
+) -> float | None:
+    input_tokens = to_float(mean_input_tokens)
+    output_tokens = to_float(mean_output_tokens)
+    if not registry_model_label or registry_model_label not in specs:
+        return None
+    if input_tokens is None or output_tokens is None:
+        return None
+    if input_tokens <= 0 and output_tokens <= 0:
+        return None
+    cost = estimate_cost(
+        specs[registry_model_label],
+        TokenUsage(input_tokens=int(round(input_tokens)), output_tokens=int(round(output_tokens))),
+    )
+    return cost.get("total") if cost.get("status") == "complete" else None
+
+
+def cost_estimation_status(
+    mean_estimated_cost: Any,
+    registry_model_label: str | None,
+    mean_input_tokens: Any,
+    mean_output_tokens: Any,
+) -> str:
+    if isinstance(mean_estimated_cost, (int, float)):
+        return "estimated_or_recorded"
+    if not registry_model_label:
+        return "missing_registry_model_label"
+    input_tokens = to_float(mean_input_tokens)
+    output_tokens = to_float(mean_output_tokens)
+    if input_tokens is None or output_tokens is None:
+        return "missing_token_usage"
+    if input_tokens <= 0 and output_tokens <= 0:
+        return "legacy_zero_token_usage"
+    return "missing_registry_price"
+
+
+def bootstrap_stage_c(
+    all_scores: dict[str, list[dict[str, Any]]],
+    summaries: dict[str, dict[str, Any]],
+    iterations: int,
+    seed: int,
+) -> dict[str, Any]:
+    import random
+
+    rng = random.Random(seed)
+    intervals: dict[str, dict[str, Any]] = {}
+    for label, scores in all_scores.items():
+        intervals[label] = {}
+        if not scores:
+            continue
+        for metric in ["medication_name", "seizure_type", "epilepsy_diagnosis"]:
+            samples = []
+            for _ in range(iterations):
+                sampled_scores = [scores[rng.randrange(len(scores))] for _ in scores]
+                samples.append(sum(document_metric_value(score, metric) for score in sampled_scores) / len(sampled_scores))
+            intervals[label][metric] = {
+                "observed": summaries[label].get(f"{metric}_f1")
+                if metric != "epilepsy_diagnosis"
+                else summaries[label].get("epilepsy_diagnosis_accuracy"),
+                "ci95_low": percentile(samples, 0.025),
+                "ci95_high": percentile(samples, 0.975),
+                "bootstrap_iterations": iterations,
+            }
+    return intervals
+
+
+def correctly_extracted_benchmark_units(scores: list[dict[str, Any]]) -> float:
+    total = 0.0
+    for score in scores:
+        total += document_metric_value(score, "medication_name")
+        total += document_metric_value(score, "seizure_type")
+        total += document_metric_value(score, "epilepsy_diagnosis")
+    return total
+
+
+def build_cost_latency_table(summaries: list[dict[str, Any]], all_scores: dict[str, list[dict[str, Any]]]) -> list[dict[str, Any]]:
+    rows = []
+    for summary in summaries:
+        label = summary["condition"]
+        scores = all_scores.get(label, [])
+        cost = to_float(summary.get("mean_estimated_cost_usd"))
+        correct_units = correctly_extracted_benchmark_units(scores)
+        rows.append(
+            {
+                "condition": label,
+                "model_label": summary.get("model_label"),
+                "system": summary.get("system"),
+                "harness_id": summary.get("harness_id"),
+                "documents_available": summary.get("documents_available"),
+                "mean_latency_ms": summary.get("mean_latency_ms"),
+                "latency_p50_ms": percentile(
+                    [
+                        score.get("cost_latency", {}).get("latency_ms")
+                        for score in scores
+                        if isinstance(score.get("cost_latency", {}).get("latency_ms"), (int, float))
+                    ],
+                    0.50,
+                ),
+                "latency_p95_ms": percentile(
+                    [
+                        score.get("cost_latency", {}).get("latency_ms")
+                        for score in scores
+                        if isinstance(score.get("cost_latency", {}).get("latency_ms"), (int, float))
+                    ],
+                    0.95,
+                ),
+                "mean_input_tokens": summary.get("mean_input_tokens"),
+                "mean_output_tokens": summary.get("mean_output_tokens"),
+                "mean_estimated_cost_usd": cost,
+                "cost_estimation_status": summary.get("cost_estimation_status"),
+                "cost_per_correct_benchmark_unit": cost / correct_units if cost is not None and correct_units else None,
+                "correct_benchmark_units": correct_units,
+            }
+        )
+    return rows
+
+
+def validation_decision(summaries: list[dict[str, Any]], split: str) -> dict[str, Any]:
+    eligible = [
+        row
+        for row in summaries
+        if (to_float(row.get("benchmark_quality")) or 0.0) > 0.0
+        and (to_float(row.get("schema_valid_rate")) or 0.0) >= 0.9
+        and (to_float(row.get("quote_validity_rate")) or 0.0) >= 0.9
+    ]
+    quality_ranked = sorted(eligible, key=lambda row: to_float(row.get("benchmark_quality")) or 0.0, reverse=True)
+    cost_ranked = sorted(
+        [row for row in eligible if isinstance(row.get("mean_estimated_cost_usd"), (int, float))],
+        key=lambda row: (
+            -(to_float(row.get("benchmark_quality")) or 0.0),
+            to_float(row.get("mean_estimated_cost_usd")) or float("inf"),
+        ),
+    )
+    best_quality = quality_ranked[0] if quality_ranked else None
+    best_cost_effective = cost_ranked[0] if cost_ranked else None
+    selected = []
+    for row in [best_quality, best_cost_effective]:
+        if row and row["condition"] not in selected:
+            selected.append(row["condition"])
+    return {
+        "split": split,
+        "held_out_test_used": split == "test",
+        "eligible_conditions": [row["condition"] for row in eligible],
+        "quality_rank_order": [row["condition"] for row in quality_ranked],
+        "selected_final_candidates": selected[:2],
+        "best_quality_candidate": best_quality["condition"] if best_quality else None,
+        "best_cost_effective_candidate": best_cost_effective["condition"] if best_cost_effective else None,
+        "decision": "select_final_candidates" if selected else "no_candidate_selected",
+        "notes": [
+            "Candidates require positive benchmark quality plus schema and quote validity gates.",
+            "Relaxed harnesses without canonical projection are excluded from final-candidate selection.",
+        ],
+    }
+
+
+def command_stage_c(args: argparse.Namespace) -> int:
+    all_scores: dict[str, list[dict[str, Any]]] = {}
+    metadata: dict[str, dict[str, Any]] = {}
+    model_specs = load_model_specs(Path(args.registry))
+    if args.stage_a_dir:
+        stage_scores, stage_metadata = score_stage_a_outputs(
+            Path(args.stage_a_dir),
+            Path(args.exect_root),
+            Path(args.markup_root),
+            Path(args.schema),
+            set(args.harnesses) if args.harnesses else None,
+        )
+        all_scores.update(stage_scores)
+        metadata.update(stage_metadata)
+
+    eval_scores, eval_metadata = load_existing_evaluation_conditions(
+        args.evaluation_condition,
+        parse_condition_model(args.condition_model),
+    )
+    all_scores.update(eval_scores)
+    metadata.update(eval_metadata)
+    for meta in metadata.values():
+        meta["model_specs"] = model_specs
+
+    summaries_by_label = {
+        label: summarize_condition(label, scores, metadata[label])
+        for label, scores in all_scores.items()
+        if scores
+    }
+    summaries = list(summaries_by_label.values())
+    output_dir = Path(args.output_dir)
+    write_csv(output_dir / "model_harness_table.csv", summaries)
+    write_csv(output_dir / "field_prf_table.csv", build_field_prf_table(all_scores))
+    write_json(
+        output_dir / "bootstrap_intervals.json",
+        bootstrap_stage_c(all_scores, summaries_by_label, args.bootstrap_iterations, args.seed),
+    )
+    write_csv(output_dir / "cost_latency_table.csv", build_cost_latency_table(summaries, all_scores))
+    write_json(output_dir / "validation_decision.json", validation_decision(summaries, args.split))
+    write_json(
+        output_dir / "stage_c_manifest.json",
+        {
+            "stage": "stage_c_validation",
+            "split": args.split,
+            "stage_a_dir": args.stage_a_dir,
+            "evaluation_conditions": args.evaluation_condition or [],
+            "conditions": sorted(all_scores),
+            "outputs": {
+                "model_harness_table": str(output_dir / "model_harness_table.csv"),
+                "field_prf_table": str(output_dir / "field_prf_table.csv"),
+                "bootstrap_intervals": str(output_dir / "bootstrap_intervals.json"),
+                "cost_latency_table": str(output_dir / "cost_latency_table.csv"),
+                "validation_decision": str(output_dir / "validation_decision.json"),
+            },
+        },
+    )
+    print(f"wrote Stage C validation matrix for {len(summaries)} scored conditions")
+    return 0
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -479,6 +872,32 @@ def main() -> int:
     stage_b.add_argument("--schema", default=str(DEFAULT_SCHEMA))
     stage_b.add_argument("--split", default="development", choices=["development", "validation", "test"])
     stage_b.set_defaults(func=command_stage_b)
+
+    stage_c = subparsers.add_parser(
+        "stage-c-validation",
+        help="Build Stage C validation tables and candidate decision from scored validation artifacts.",
+    )
+    stage_c.add_argument("--stage-a-dir", help="Stage A-style validation run directory to score canonical H0 outputs.")
+    stage_c.add_argument("--registry", default=str(DEFAULT_REGISTRY))
+    stage_c.add_argument(
+        "--evaluation-condition",
+        action="append",
+        help="Existing evaluation condition as LABEL:SYSTEM:HARNESS_ID:EVALUATION_DIR.",
+    )
+    stage_c.add_argument(
+        "--condition-model",
+        action="append",
+        help="Map an evaluation condition to a registry model label, as CONDITION=REGISTRY_MODEL_LABEL.",
+    )
+    stage_c.add_argument("--harnesses", nargs="+")
+    stage_c.add_argument("--output-dir", default=str(DEFAULT_STAGE_C_OUTPUT_DIR))
+    stage_c.add_argument("--exect-root", default=str(DEFAULT_EXECT_ROOT))
+    stage_c.add_argument("--markup-root", default=str(DEFAULT_MARKUP_ROOT))
+    stage_c.add_argument("--schema", default=str(DEFAULT_SCHEMA))
+    stage_c.add_argument("--split", default="validation", choices=["development", "validation", "test"])
+    stage_c.add_argument("--bootstrap-iterations", type=int, default=1000)
+    stage_c.add_argument("--seed", type=int, default=1729)
+    stage_c.set_defaults(func=command_stage_c)
 
     args = parser.parse_args()
     return args.func(args)

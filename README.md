@@ -161,6 +161,16 @@ build the Stage B pilot decision artifacts from that auditable call report:
   --output-dir runs/model_expansion/stage_b_dev_pilot
 ```
 
+After promoted validation artifacts exist, build the Stage C validation matrix:
+
+```bash
+.venv/bin/python src/model_expansion.py stage-c-validation \
+  --evaluation-condition gpt_4_1_mini_baseline:S2:H0_strict_canonical:runs/final_validation/evaluation \
+  --evaluation-condition event_first_e2:E2:H0_strict_canonical:runs/final_validation/evaluation \
+  --condition-model event_first_e2=gpt_4_1_mini_baseline \
+  --output-dir runs/model_expansion/stage_c_validation
+```
+
 Then run the primary validation chain:
 
 ```bash

@@ -131,18 +131,27 @@ class OpenAIAdapter(ProviderAdapter):
             kwargs: dict[str, Any] = {
                 "model": request.model.provider_model_id,
                 "input": request.prompt,
-                "temperature": request.temperature,
             }
+            if request.temperature is not None:
+                kwargs["temperature"] = request.temperature
             if request.max_output_tokens:
                 kwargs["max_output_tokens"] = request.max_output_tokens
-            response = client.responses.create(**kwargs)
+            try:
+                response = client.responses.create(**kwargs)
+                retries = 0
+            except Exception as exc:
+                if "temperature" not in kwargs or "temperature" not in str(exc):
+                    raise
+                kwargs.pop("temperature", None)
+                response = client.responses.create(**kwargs)
+                retries = 1
             usage = getattr(response, "usage", None)
             token_usage = TokenUsage(
                 input_tokens=getattr(usage, "input_tokens", None),
                 output_tokens=getattr(usage, "output_tokens", None),
             )
             metadata = response.model_dump(mode="json", exclude={"output"}, exclude_none=True)
-            return self._response(
+            model_response = self._response(
                 request,
                 getattr(response, "output_text", "") or "",
                 started,
@@ -150,6 +159,8 @@ class OpenAIAdapter(ProviderAdapter):
                 stop_reason=getattr(response, "status", None),
                 provider_metadata=metadata,
             )
+            model_response.retries = retries
+            return model_response
         except Exception as exc:
             return self._response(request, "", started, error=str(exc))
 
