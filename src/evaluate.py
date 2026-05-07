@@ -32,6 +32,7 @@ DEFAULT_MARKUP_ROOT = Path("data/ExECT 2 (2025)/MarkupOutput_200_SyntheticEpilep
 DEFAULT_OUTPUT_DIR = Path("runs/evaluation")
 DEFAULT_DIRECT_RUN_DIR = Path("runs/direct_baselines")
 DEFAULT_EVENT_RUN_DIR = Path("runs/event_first")
+DEFAULT_RECOVERY_RUN_DIR = Path("runs/recovery/phase4_prompt_contract")
 
 
 @dataclass(frozen=True)
@@ -171,6 +172,8 @@ def extraction_path(system: str, document_id: str, args: argparse.Namespace) -> 
         return Path(args.event_run_dir) / document_id / "e2_canonical.json"
     if system == "E3":
         return Path(args.event_run_dir) / document_id / "e3_canonical.json"
+    if system in {"S4", "S5"}:
+        return Path(args.recovery_run_dir) / system / document_id / "canonical.json"
     raise ValueError(f"unsupported system: {system}")
 
 
@@ -713,9 +716,10 @@ def main() -> int:
     run.add_argument("--schema", default=str(DEFAULT_SCHEMA))
     run.add_argument("--split", default="validation", choices=["development", "validation", "test"])
     run.add_argument("--limit", type=int)
-    run.add_argument("--systems", nargs="+", default=["S2", "E2", "E3"], choices=["S2", "S3", "E2", "E3"])
+    run.add_argument("--systems", nargs="+", default=["S2", "E2", "E3"], choices=["S2", "S3", "S4", "S5", "E2", "E3"])
     run.add_argument("--direct-run-dir", default=str(DEFAULT_DIRECT_RUN_DIR))
     run.add_argument("--event-run-dir", default=str(DEFAULT_EVENT_RUN_DIR))
+    run.add_argument("--recovery-run-dir", default=str(DEFAULT_RECOVERY_RUN_DIR))
     run.add_argument("--output-dir", default=str(DEFAULT_OUTPUT_DIR))
     run.set_defaults(func=command_run)
 
