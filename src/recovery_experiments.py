@@ -29,13 +29,17 @@ from direct_baselines import (
     write_json,
     write_text,
 )
+from direct_baselines import command_run as run_direct_baselines
+from event_first import command_run as run_event_first
 from intake import DEFAULT_EXECT_ROOT, DEFAULT_SPLITS, preprocess_document, read_text
+from recovery_evaluation import command_run as run_recovery_evaluation
 from validate_extraction import DEFAULT_SCHEMA
 
 
 PROMPT_DIR = Path("prompts/recovery")
 DEFAULT_OUTPUT_DIR = Path("runs/recovery/phase4_prompt_contract")
 DEFAULT_PROMPT_MATRIX = Path("runs/recovery/prompt_matrix.json")
+PHASE6_DEFAULT_OUTPUT_DIR = Path("runs/recovery/validation_cycle_01")
 
 S4_PIPELINE_ID = "S4_benchmark_direct_task_prompts"
 S5_PIPELINE_ID = "S5_benchmark_direct_with_verifier"
@@ -73,6 +77,11 @@ TASKS: dict[str, dict[str, Any]] = {
         "optional_extension": True,
     },
 }
+
+DIRECT_SYSTEMS = {"S2"}
+RECOVERY_PROMPT_SYSTEMS = {"S4", "S5"}
+EVENT_SYSTEMS = {"E2", "E3", "E4", "E5"}
+PHASE6_SYSTEMS = sorted(DIRECT_SYSTEMS | RECOVERY_PROMPT_SYSTEMS | EVENT_SYSTEMS)
 
 
 def evidence_or_none(value: Any) -> list[dict[str, Any]] | None:
@@ -175,7 +184,7 @@ def get_response(args: argparse.Namespace, prompt: str, stub_response: str) -> t
     if args.provider == "stub":
         return stub_response, (time.perf_counter() - started) * 1000, "stub"
     if args.provider == "openai":
-        raw = call_openai(prompt, args.model)
+        raw = call_openai(prompt, args.model, getattr(args, "temperature", 0.0))
         return raw, (time.perf_counter() - started) * 1000, args.model
     raise ValueError(f"unsupported provider: {args.provider}")
 
@@ -454,7 +463,7 @@ def run_one(args: argparse.Namespace, document_id: str, system: str) -> dict[str
     return record
 
 
-def command_run(args: argparse.Namespace) -> int:
+def command_run_recovery_prompts(args: argparse.Namespace) -> int:
     if args.repeats > 1:
         manifest = {
             "split": args.split,
@@ -473,7 +482,7 @@ def command_run(args: argparse.Namespace) -> int:
             repeat_args.repeat_index = repeat
             repeat_args.output_dir = str(base_output_dir / f"repeat_{repeat:02d}")
             manifest["repeat_roots"].append(repeat_args.output_dir)
-            failures += command_run(repeat_args)
+            failures += command_run_recovery_prompts(repeat_args)
         write_json(base_output_dir / "repeat_manifest.json", manifest)
         print(f"wrote {base_output_dir / 'repeat_manifest.json'}")
         return 1 if failures else 0
@@ -493,6 +502,116 @@ def command_run(args: argparse.Namespace) -> int:
         ok = bool(scores.get("schema_valid") and scores.get("project_constraints_valid"))
         print(f"{'pass' if ok else 'fail'}: {record['system']} {record['document_id']}")
         failures += 0 if ok else 1
+    return 1 if failures else 0
+
+
+def phase6_event_pipelines(systems: list[str]) -> list[str]:
+    pipelines = ["E1"]
+    if any(system in systems for system in ["E2", "E4"]):
+        pipelines.append("E2")
+    if any(system in systems for system in ["E3", "E5"]):
+        pipelines.append("E3")
+    return pipelines
+
+
+def run_phase6_repeat(args: argparse.Namespace, repeat_root: Path, repeat_index: int) -> int:
+    failures = 0
+    systems = list(args.systems)
+    common = {
+        "exect_root": args.exect_root,
+        "splits": args.splits,
+        "schema": args.schema,
+        "split": args.split,
+        "limit": args.limit,
+        "max_workers": args.max_workers,
+        "refresh": args.refresh,
+        "provider": args.provider,
+        "model": args.model,
+        "temperature": args.temperature,
+    }
+
+    direct_systems = [system for system in systems if system in DIRECT_SYSTEMS]
+    if direct_systems:
+        direct_args = argparse.Namespace(
+            **common,
+            baselines=direct_systems,
+            output_dir=str(repeat_root / "direct_baselines"),
+        )
+        failures += run_direct_baselines(direct_args)
+
+    event_systems = [system for system in systems if system in EVENT_SYSTEMS]
+    if event_systems:
+        event_args = argparse.Namespace(
+            **common,
+            pipelines=phase6_event_pipelines(event_systems),
+            output_dir=str(repeat_root / "event_first"),
+        )
+        failures += run_event_first(event_args)
+
+    prompt_systems = [system for system in systems if system in RECOVERY_PROMPT_SYSTEMS]
+    if prompt_systems:
+        prompt_args = argparse.Namespace(
+            **common,
+            systems=prompt_systems,
+            tasks=args.tasks,
+            repeats=1,
+            repeat_index=repeat_index,
+            output_dir=str(repeat_root / "recovery_prompts"),
+        )
+        failures += command_run_recovery_prompts(prompt_args)
+
+    return failures
+
+
+def command_run(args: argparse.Namespace) -> int:
+    if args.split == "test":
+        raise SystemExit("Phase 6 recovery experiments must not use the held-out test split.")
+
+    output_dir = Path(args.output_dir)
+    manifest = {
+        "phase": 6,
+        "split": args.split,
+        "systems": args.systems,
+        "tasks": args.tasks,
+        "repeats": args.repeats,
+        "provider": args.provider,
+        "model": args.model,
+        "temperature": args.temperature,
+        "temperature_policy": "near-zero provider temperature; cached raw outputs are replayed unless --refresh is set",
+        "system_aliases": {
+            "E4": "Scores the repaired deterministic event aggregation output when e4_canonical.json is absent.",
+            "E5": "Scores the repaired constrained event aggregation output when e5_canonical.json is absent.",
+        },
+        "repeat_roots": [],
+    }
+    failures = 0
+    for repeat in range(1, args.repeats + 1):
+        repeat_root = output_dir / f"repeat_{repeat:02d}"
+        manifest["repeat_roots"].append(str(repeat_root))
+        failures += run_phase6_repeat(args, repeat_root, repeat)
+
+    manifest_path = output_dir / "repeat_manifest.json"
+    write_json(manifest_path, manifest)
+
+    evaluation_args = argparse.Namespace(
+        exect_root=args.exect_root,
+        markup_root=args.markup_root,
+        splits=args.splits,
+        schema=args.schema,
+        split=args.split,
+        limit=args.limit,
+        systems=args.systems,
+        baseline=args.baseline,
+        direct_run_dir=str(output_dir / "repeat_01" / "direct_baselines"),
+        event_run_dir=str(output_dir / "repeat_01" / "event_first"),
+        recovery_run_dir=str(output_dir / "repeat_01" / "recovery_prompts"),
+        repeat_manifest=str(manifest_path),
+        output_dir=str(output_dir),
+        bootstrap_iterations=args.bootstrap_iterations,
+        randomization_iterations=args.randomization_iterations,
+        seed=args.seed,
+    )
+    failures += run_recovery_evaluation(evaluation_args)
     return 1 if failures else 0
 
 
@@ -549,14 +668,14 @@ def add_common_arguments(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--exect-root", default=str(DEFAULT_EXECT_ROOT))
     parser.add_argument("--splits", default=str(DEFAULT_SPLITS))
     parser.add_argument("--schema", default=str(DEFAULT_SCHEMA))
-    parser.add_argument("--split", default="development", choices=["development", "validation", "test"])
+    parser.add_argument("--split", default="validation", choices=["development", "validation", "test"])
     parser.add_argument("--limit", type=int)
     parser.add_argument("--max-workers", type=int, default=1)
     parser.add_argument("--refresh", action="store_true")
-    parser.add_argument("--repeats", type=int, default=1)
-    parser.add_argument("--systems", nargs="+", default=["S4", "S5"], choices=["S4", "S5"])
+    parser.add_argument("--repeats", type=int, default=4)
+    parser.add_argument("--systems", nargs="+", default=["S2", "S4", "S5", "E3"], choices=PHASE6_SYSTEMS)
     parser.add_argument("--tasks", nargs="+", default=list(TASKS), choices=list(TASKS))
-    parser.add_argument("--output-dir", default=str(DEFAULT_OUTPUT_DIR))
+    parser.add_argument("--output-dir", default=str(PHASE6_DEFAULT_OUTPUT_DIR))
 
 
 def main() -> int:
@@ -567,10 +686,21 @@ def main() -> int:
     add_common_arguments(run)
     run.add_argument("--provider", default="stub", choices=["stub", "openai"])
     run.add_argument("--model", default="gpt-4.1-mini")
+    run.add_argument("--temperature", type=float, default=0.0)
+    run.add_argument("--markup-root", default="data/ExECT 2 (2025)/MarkupOutput_200_SyntheticEpilepsyLetters")
+    run.add_argument("--baseline", default="S2")
+    run.add_argument("--bootstrap-iterations", type=int, default=1000)
+    run.add_argument("--randomization-iterations", type=int, default=1000)
+    run.add_argument("--seed", type=int, default=1701)
     run.set_defaults(func=command_run)
 
     prepare = subparsers.add_parser("prepare", help="Write prompts without calling a provider.")
     add_common_arguments(prepare)
+    prepare.set_defaults(
+        output_dir=str(DEFAULT_OUTPUT_DIR),
+        repeats=1,
+        systems=["S4", "S5"],
+    )
     prepare.set_defaults(func=command_prepare)
 
     matrix = subparsers.add_parser("matrix", help="Write the Phase 4 prompt matrix artifact.")

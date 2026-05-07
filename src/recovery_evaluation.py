@@ -244,19 +244,68 @@ def recovery_decision(summaries: list[dict[str, Any]], significance: dict[str, A
     }
 
 
+def repeat_roots(args: argparse.Namespace) -> list[Path | None]:
+    manifest_path = getattr(args, "repeat_manifest", None)
+    if not manifest_path:
+        return [None]
+    manifest = load_json(Path(manifest_path))
+    if not isinstance(manifest, dict):
+        raise SystemExit(f"repeat manifest is not valid JSON object: {manifest_path}")
+    roots = manifest.get("repeat_roots")
+    if not isinstance(roots, list) or not roots:
+        raise SystemExit(f"repeat manifest has no repeat_roots: {manifest_path}")
+    return [Path(root) for root in roots]
+
+
+def system_run_dirs(args: argparse.Namespace, repeat_root: Path | None) -> dict[str, Path]:
+    if repeat_root is None:
+        return {
+            "direct": Path(args.direct_run_dir),
+            "event": Path(args.event_run_dir),
+            "recovery": Path(args.recovery_run_dir),
+        }
+    recovery_dir = repeat_root / "recovery_prompts"
+    if not recovery_dir.exists():
+        recovery_dir = repeat_root
+    return {
+        "direct": repeat_root / "direct_baselines",
+        "event": repeat_root / "event_first",
+        "recovery": recovery_dir,
+    }
+
+
+def extraction_path_for_dirs(system: str, document_id: str, dirs: dict[str, Path]) -> Path:
+    if system == "S2":
+        return dirs["direct"] / "S2" / document_id / "canonical.json"
+    if system == "S3":
+        return dirs["direct"] / "S3" / document_id / "canonical.json"
+    if system in {"E2", "E4"}:
+        filename = "e4_canonical.json" if system == "E4" and (dirs["event"] / document_id / "e4_canonical.json").exists() else "e2_canonical.json"
+        return dirs["event"] / document_id / filename
+    if system in {"E3", "E5"}:
+        filename = "e5_canonical.json" if system == "E5" and (dirs["event"] / document_id / "e5_canonical.json").exists() else "e3_canonical.json"
+        return dirs["event"] / document_id / filename
+    if system in {"S4", "S5"}:
+        return dirs["recovery"] / system / document_id / "canonical.json"
+    raise ValueError(f"unsupported system: {system}")
+
+
 def score_systems(args: argparse.Namespace) -> dict[str, list[dict[str, Any]]]:
     document_ids = load_split_ids(Path(args.splits), args.split, args.limit)
     gold = load_gold(Path(args.markup_root), Path(args.exect_root))
     all_scores: dict[str, list[dict[str, Any]]] = {system: [] for system in args.systems}
-    for system in args.systems:
-        for document_id in document_ids:
-            data = load_json(extraction_path(system, document_id, args))
-            source_text = read_text(Path(args.exect_root) / f"{document_id}.txt")
-            document_gold = gold.get(document_id, GoldDocument(document_id=document_id))
-            score = score_document(data, source_text, document_gold, Path(args.schema))
-            score["document_id"] = document_id
-            score["system"] = system
-            all_scores[system].append(score)
+    for repeat_index, repeat_root in enumerate(repeat_roots(args), start=1):
+        dirs = system_run_dirs(args, repeat_root)
+        for system in args.systems:
+            for document_id in document_ids:
+                data = load_json(extraction_path_for_dirs(system, document_id, dirs))
+                source_text = read_text(Path(args.exect_root) / f"{document_id}.txt")
+                document_gold = gold.get(document_id, GoldDocument(document_id=document_id))
+                score = score_document(data, source_text, document_gold, Path(args.schema))
+                score["document_id"] = document_id
+                score["system"] = system
+                score["repeat"] = repeat_index
+                all_scores[system].append(score)
     return all_scores
 
 
@@ -307,11 +356,12 @@ def main() -> int:
     parser.add_argument("--schema", default=str(DEFAULT_SCHEMA))
     parser.add_argument("--split", default="validation", choices=["development", "validation", "test"])
     parser.add_argument("--limit", type=int)
-    parser.add_argument("--systems", nargs="+", default=["S2", "E2", "E3"], choices=["S2", "S3", "S4", "S5", "E2", "E3"])
+    parser.add_argument("--systems", nargs="+", default=["S2", "E2", "E3"], choices=["S2", "S3", "S4", "S5", "E2", "E3", "E4", "E5"])
     parser.add_argument("--baseline", default="S2")
     parser.add_argument("--direct-run-dir", default=str(DEFAULT_DIRECT_RUN_DIR))
     parser.add_argument("--event-run-dir", default=str(DEFAULT_EVENT_RUN_DIR))
     parser.add_argument("--recovery-run-dir", default=str(DEFAULT_RECOVERY_RUN_DIR))
+    parser.add_argument("--repeat-manifest", help="Score every repeat root from a Phase 6 repeat_manifest.json.")
     parser.add_argument("--output-dir", default=str(DEFAULT_OUTPUT_DIR))
     parser.add_argument("--bootstrap-iterations", type=int, default=1000)
     parser.add_argument("--randomization-iterations", type=int, default=1000)

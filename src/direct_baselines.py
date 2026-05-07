@@ -418,7 +418,7 @@ def render_stub_response(document_id: str, baseline: str, latency_ms: float) -> 
     return json.dumps(data, indent=2, ensure_ascii=False)
 
 
-def call_openai(prompt: str, model: str) -> str:
+def call_openai(prompt: str, model: str, temperature: float = 0.0) -> str:
     load_dotenv()
     try:
         from openai import OpenAI
@@ -427,7 +427,7 @@ def call_openai(prompt: str, model: str) -> str:
     if not os.environ.get("OPENAI_API_KEY"):
         raise RuntimeError("OPENAI_API_KEY is not set")
     client = OpenAI()
-    response = client.responses.create(model=model, input=prompt)
+    response = client.responses.create(model=model, input=prompt, temperature=temperature)
     return response.output_text
 
 
@@ -437,7 +437,7 @@ def get_model_response(args: argparse.Namespace, prompt: str, document_id: str, 
         latency_ms = (time.perf_counter() - started) * 1000
         return render_stub_response(document_id, baseline, latency_ms), latency_ms, "stub"
     if args.provider == "openai":
-        response = call_openai(prompt, args.model)
+        response = call_openai(prompt, args.model, getattr(args, "temperature", 0.0))
         latency_ms = (time.perf_counter() - started) * 1000
         return response, latency_ms, args.model
     raise ValueError(f"unsupported provider: {args.provider}")
@@ -631,6 +631,7 @@ def add_common_arguments(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--limit", type=int)
     parser.add_argument("--max-workers", type=int, default=1)
     parser.add_argument("--refresh", action="store_true", help="Call the provider even when a raw response already exists.")
+    parser.add_argument("--temperature", type=float, default=0.0)
     parser.add_argument("--baselines", nargs="+", default=["S1", "S2", "S3"], choices=sorted(BASELINES))
     parser.add_argument("--output-dir", default=str(DEFAULT_OUTPUT_DIR))
 

@@ -125,7 +125,7 @@ def get_model_response(args: argparse.Namespace, prompt: str, document_id: str) 
         latency_ms = (time.perf_counter() - started) * 1000
         return stub_e1_response(document_id, latency_ms), latency_ms, "stub"
     if args.provider == "openai":
-        response = call_openai(prompt, args.model)
+        response = call_openai(prompt, args.model, getattr(args, "temperature", 0.0))
         latency_ms = (time.perf_counter() - started) * 1000
         return response, latency_ms, args.model
     raise ValueError(f"unsupported provider: {args.provider}")
@@ -605,7 +605,7 @@ def run_e3(args: argparse.Namespace, document: dict[str, Any], events: list[dict
         latency_ms = (time.perf_counter() - started) * 1000
         model_name = "stub"
     else:
-        raw_response = call_openai(prompt, args.model)
+        raw_response = call_openai(prompt, args.model, getattr(args, "temperature", 0.0))
         latency_ms = (time.perf_counter() - started) * 1000
         model_name = args.model
     write_text(raw_path, raw_response)
@@ -929,6 +929,7 @@ def add_common_arguments(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--limit", type=int)
     parser.add_argument("--max-workers", type=int, default=1)
     parser.add_argument("--refresh", action="store_true", help="Call the provider even when a raw response already exists.")
+    parser.add_argument("--temperature", type=float, default=0.0)
     parser.add_argument("--pipelines", nargs="+", default=["E1", "E2"], choices=["E1", "E2", "E3"])
     parser.add_argument("--output-dir", default=str(DEFAULT_OUTPUT_DIR))
 
