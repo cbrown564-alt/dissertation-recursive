@@ -1,0 +1,30 @@
+version: 2026-05-07-stage-a
+harnesses:
+  H0_strict_canonical:
+    family: canonical
+    description: Canonical JSON, project schema, evidence quotes, strict validation.
+    prompt_source: prompts/direct_baselines/s2_direct_json_evidence.md
+    output_contract: canonical_json
+    require_present_evidence: true
+    allow_repair: false
+    score_locally: true
+  H2_task_specific:
+    family: task_specific
+    description: Compact benchmark-style extraction prompts for individual field groups.
+    output_contract: simple_json
+    require_present_evidence: false
+    allow_repair: true
+    score_locally: false
+    tasks:
+      - medication_names
+      - seizure_type
+      - epilepsy_type
+      - seizure_frequency
+      - investigations
+  H3_loose_answer_then_parse:
+    family: loose_answer_then_parse
+    description: Concise clinical answer or simple lists, followed by deterministic parsing.
+    output_contract: loose_text_or_json
+    require_present_evidence: false
+    allow_repair: true
+    score_locally: false
