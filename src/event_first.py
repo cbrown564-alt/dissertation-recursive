@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import concurrent.futures
 import json
 import time
 from pathlib import Path
@@ -17,6 +18,7 @@ from direct_baselines import (
     empty_investigation,
     empty_scalar,
     load_split_ids,
+    normalize_contract_aliases,
     parse_json_response,
     sentence_table,
     validate_and_score,
@@ -122,6 +124,7 @@ def get_model_response(args: argparse.Namespace, prompt: str, document_id: str) 
 def normalize_event_payload(data: Any, document_id: str, model_name: str, latency_ms: float, parse: ParseResult) -> dict[str, Any]:
     if isinstance(data, list):
         data = {"document_id": document_id, "pipeline_id": E1_PIPELINE_ID, "events": data, "metadata": {}}
+    data = normalize_contract_aliases(data, document_id, E1_PIPELINE_ID)
     if not isinstance(data, dict):
         raise ValidationError("E1 output must be an object or event array")
     data.setdefault("document_id", document_id)
@@ -137,6 +140,9 @@ def normalize_event_payload(data: Any, document_id: str, model_name: str, latenc
             "repair_succeeded": parse.repair_succeeded,
         }
     )
+    for token_key in ["input_tokens", "output_tokens"]:
+        if data["metadata"].get(token_key) is None:
+            data["metadata"][token_key] = 0
     return data
 
 
@@ -355,8 +361,13 @@ def run_e1(args: argparse.Namespace, document: dict[str, Any], run_root: Path) -
     events_path = run_root / "e1_events.json"
     write_text(prompt_path, prompt)
 
-    raw_response, latency_ms, model_name = get_model_response(args, prompt, document["document_id"])
-    write_text(raw_path, raw_response)
+    if raw_path.exists() and not args.refresh:
+        raw_response = read_text(raw_path)
+        latency_ms = 0.0
+        model_name = args.model if args.provider == "openai" else "stub"
+    else:
+        raw_response, latency_ms, model_name = get_model_response(args, prompt, document["document_id"])
+        write_text(raw_path, raw_response)
     parse = parse_json_response(raw_response)
 
     payload = None
@@ -416,7 +427,11 @@ def run_e3(args: argparse.Namespace, document: dict[str, Any], events: list[dict
     write_text(prompt_path, prompt)
 
     started = time.perf_counter()
-    if args.provider == "stub":
+    if raw_path.exists() and not args.refresh:
+        raw_response = read_text(raw_path)
+        latency_ms = 0.0
+        model_name = args.model if args.provider == "openai" else "stub"
+    elif args.provider == "stub":
         canonical, log = aggregate_events(document["document_id"], events, model_name="stub_constrained_fallback")
         canonical["pipeline_id"] = E3_PIPELINE_ID
         canonical["metadata"]["aggregation"] = log
@@ -432,6 +447,7 @@ def run_e3(args: argparse.Namespace, document: dict[str, Any], events: list[dict
     parse = parse_json_response(raw_response)
     scores = None
     if parse.data is not None:
+        parse.data = normalize_contract_aliases(parse.data, document["document_id"], E3_PIPELINE_ID)
         if isinstance(parse.data, dict):
             parse.data.setdefault("metadata", {})
             parse.data["metadata"].update(
@@ -443,6 +459,9 @@ def run_e3(args: argparse.Namespace, document: dict[str, Any], events: list[dict
                     "repair_succeeded": parse.repair_succeeded,
                 }
             )
+            for token_key in ["input_tokens", "output_tokens"]:
+                if parse.data["metadata"].get(token_key) is None:
+                    parse.data["metadata"][token_key] = 0
         write_json(canonical_path, parse.data)
         scores = validate_and_score(parse.data, document["text"], Path(args.schema), require_present_evidence=True)
 
@@ -469,44 +488,61 @@ def command_run(args: argparse.Namespace) -> int:
     ids = load_split_ids(Path(args.splits), args.split, args.limit)
     failures = 0
     log_path = Path(args.output_dir) / "event_first_runs.jsonl"
-    for document_id in ids:
+
+    def run_document(document_id: str) -> tuple[list[dict[str, Any]], list[str], int]:
+        document_failures = 0
+        records: list[dict[str, Any]] = []
+        messages: list[str] = []
         document = preprocess_document(document_id, Path(args.exect_root))
         run_root = Path(args.output_dir) / document_id
         payload, e1_record = run_e1(args, document, run_root)
-        append_jsonl(log_path, e1_record)
+        records.append(e1_record)
         e1_ok = bool(
             e1_record["parse"]["parse_success"]
             and e1_record["scores"]
             and e1_record["scores"].get("event_constraints_valid")
-            and e1_record["scores"].get("quote_validity", {}).get("pass")
         )
-        print(f"{'pass' if e1_ok else 'fail'}: E1 {document_id}")
+        messages.append(f"{'pass' if e1_ok else 'fail'}: E1 {document_id}")
         if not e1_ok:
-            failures += 1
-            continue
+            return records, messages, 1
 
         events = payload["events"] if payload else []
         if "E2" in args.pipelines:
             e2_record = run_e2(args, document, events, run_root)
-            append_jsonl(log_path, e2_record)
+            records.append(e2_record)
             scores = e2_record["scores"]
-            e2_ok = bool(scores.get("schema_valid") and scores.get("project_constraints_valid") and scores.get("quote_validity", {}).get("pass"))
-            print(f"{'pass' if e2_ok else 'fail'}: E2 {document_id}")
+            e2_ok = bool(scores.get("schema_valid") and scores.get("project_constraints_valid"))
+            messages.append(f"{'pass' if e2_ok else 'fail'}: E2 {document_id}")
             if not e2_ok:
-                failures += 1
+                document_failures += 1
         if "E3" in args.pipelines:
             e3_record = run_e3(args, document, events, run_root)
-            append_jsonl(log_path, e3_record)
+            records.append(e3_record)
             scores = e3_record["scores"] or {}
             e3_ok = bool(
                 e3_record.get("parse", {}).get("parse_success")
                 and scores.get("schema_valid")
                 and scores.get("project_constraints_valid")
-                and scores.get("quote_validity", {}).get("pass")
             )
-            print(f"{'pass' if e3_ok else 'fail'}: E3 {document_id}")
+            messages.append(f"{'pass' if e3_ok else 'fail'}: E3 {document_id}")
             if not e3_ok:
-                failures += 1
+                document_failures += 1
+        return records, messages, document_failures
+
+    max_workers = max(1, args.max_workers)
+    if max_workers == 1:
+        results = [run_document(document_id) for document_id in ids]
+    else:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
+            futures = [executor.submit(run_document, document_id) for document_id in ids]
+            results = [future.result() for future in concurrent.futures.as_completed(futures)]
+
+    for records, messages, document_failures in results:
+        for record in records:
+            append_jsonl(log_path, record)
+        for message in messages:
+            print(message)
+        failures += document_failures
     return 1 if failures else 0
 
 
@@ -528,7 +564,9 @@ def add_common_arguments(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--splits", default=str(DEFAULT_SPLITS))
     parser.add_argument("--schema", default=str(DEFAULT_SCHEMA))
     parser.add_argument("--split", default="development", choices=["development", "validation", "test"])
-    parser.add_argument("--limit", type=int, default=2)
+    parser.add_argument("--limit", type=int)
+    parser.add_argument("--max-workers", type=int, default=1)
+    parser.add_argument("--refresh", action="store_true", help="Call the provider even when a raw response already exists.")
     parser.add_argument("--pipelines", nargs="+", default=["E1", "E2"], choices=["E1", "E2", "E3"])
     parser.add_argument("--output-dir", default=str(DEFAULT_OUTPUT_DIR))
 

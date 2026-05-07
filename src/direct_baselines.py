@@ -4,9 +4,11 @@
 from __future__ import annotations
 
 import argparse
+import concurrent.futures
 import json
 import os
 import re
+import threading
 import time
 from dataclasses import dataclass
 from pathlib import Path
@@ -49,6 +51,8 @@ BASELINES = {
     },
 }
 
+JSONL_LOCK = threading.Lock()
+
 
 @dataclass
 class ParseResult:
@@ -71,8 +75,9 @@ def write_json(path: Path, value: Any) -> None:
 
 def append_jsonl(path: Path, value: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    with path.open("a", encoding="utf-8") as handle:
-        handle.write(json.dumps(value, ensure_ascii=False) + "\n")
+    with JSONL_LOCK:
+        with path.open("a", encoding="utf-8") as handle:
+            handle.write(json.dumps(value, ensure_ascii=False) + "\n")
 
 
 def load_split_ids(split_path: Path, split: str, limit: int | None) -> list[str]:
@@ -188,13 +193,27 @@ def repair_json_text(text: str) -> str:
 def parse_json_response(text: str) -> ParseResult:
     raw = extract_json_object(text)
     try:
-        return ParseResult(json.loads(raw), True, False, False, None)
+        return ParseResult(json.loads(raw, strict=False), True, False, False, None)
     except json.JSONDecodeError as first_error:
         repaired = repair_json_text(text)
         try:
-            return ParseResult(json.loads(repaired), True, True, True, None)
+            return ParseResult(json.loads(repaired, strict=False), True, True, True, None)
         except json.JSONDecodeError as second_error:
-            return ParseResult(None, False, True, False, f"{first_error}; repair failed: {second_error}")
+            try:
+                import yaml
+
+                return ParseResult(yaml.safe_load(repaired), True, True, True, None)
+            except Exception as yaml_error:
+                try:
+                    return ParseResult(json.loads(repaired.replace(r"\"", '"'), strict=False), True, True, True, None)
+                except json.JSONDecodeError as third_error:
+                    return ParseResult(
+                        None,
+                        False,
+                        True,
+                        False,
+                        f"{first_error}; repair failed: {second_error}; yaml failed: {yaml_error}; unescape failed: {third_error}",
+                    )
 
 
 def parse_yaml_response(text: str) -> ParseResult:
@@ -218,6 +237,122 @@ def parse_model_response(text: str, baseline: str) -> ParseResult:
     if BASELINES[baseline]["format"] == "yaml_to_json":
         return parse_yaml_response(text)
     return parse_json_response(text)
+
+
+def normalize_contract_aliases(data: Any, document_id: str | None = None, pipeline_id: str | None = None) -> Any:
+    """Normalize common provider aliases into the frozen canonical contract."""
+
+    def visit(value: Any, parent: dict[str, Any] | None = None) -> Any:
+        if isinstance(value, list):
+            return [visit(item, parent) for item in value]
+        if not isinstance(value, dict):
+            return value
+
+        normalized: dict[str, Any] = {}
+        for key, child in value.items():
+            if key == "temporality" and child == "not_stated":
+                normalized[key] = "uncertain"
+            elif key == "temporality" and child == "previous":
+                normalized[key] = "historical"
+            elif key == "temporality" and child == "recent":
+                normalized[key] = "current"
+            elif key == "evidence":
+                normalized[key] = normalize_evidence_shape(child, value)
+            elif key == "status" and child == "historical":
+                normalized[key] = "previous"
+            elif key == "result" and child == "negative":
+                normalized[key] = "normal"
+            elif key in {"dose", "dose_unit", "frequency", "reason_stopped", "medication_name"} and child is not None:
+                normalized[key] = str(child)
+            elif key == "investigation_type" and child not in {"EEG", "MRI", None}:
+                normalized[key] = None
+            else:
+                normalized[key] = visit(child, value)
+        if is_event_like(normalized):
+            value_child = normalized.get("value")
+            if isinstance(value_child, dict):
+                for nested_key in ["medication_name", "dose", "dose_unit", "frequency", "reason_stopped"]:
+                    if normalized.get(nested_key) is None and value_child.get(nested_key) is not None:
+                        normalized[nested_key] = str(value_child[nested_key])
+                normalized["value"] = (
+                    normalized.get("medication_name")
+                    or value_child.get("value")
+                    or json.dumps(value_child, ensure_ascii=False, sort_keys=True)
+                )
+            elif "value" not in normalized:
+                normalized["value"] = normalized.get("medication_name") or normalized.get("result")
+        if is_investigation_field_like(normalized) and normalized.get("status") == "planned":
+            normalized["status"] = "requested"
+        if is_field_like(normalized) and normalized.get("missingness") == "present" and not normalized.get("evidence"):
+            normalized["missingness"] = "uncertain"
+        return normalized
+
+    def normalize_evidence_shape(evidence: Any, owner: dict[str, Any]) -> Any:
+        event_like = is_event_like(owner)
+        if event_like:
+            if isinstance(evidence, list):
+                if len(evidence) == 1:
+                    return normalize_evidence_object(visit(evidence[0], owner))
+                if evidence:
+                    return normalize_evidence_object(visit(evidence[0], owner))
+            return normalize_evidence_object(visit(evidence, owner))
+        if isinstance(evidence, dict):
+            return [normalize_evidence_object(visit(evidence, owner))]
+        return visit(evidence, owner)
+
+    def normalize_evidence_object(evidence: Any) -> Any:
+        if not isinstance(evidence, dict):
+            return evidence
+        quote = evidence.get("quote", evidence.get("text"))
+        normalized = {
+            "quote": quote,
+            "sentence_id": evidence.get("sentence_id"),
+            "char_start": evidence.get("char_start"),
+            "char_end": evidence.get("char_end"),
+        }
+        return {key: child for key, child in normalized.items() if child is not None or key == "quote"}
+
+    def is_event_like(value: dict[str, Any]) -> bool:
+        return "id" in value and "category" in value
+
+    def is_investigation_field_like(value: dict[str, Any]) -> bool:
+        return {"status", "result", "missingness", "temporality", "evidence_event_ids"}.issubset(value)
+
+    def is_field_like(value: dict[str, Any]) -> bool:
+        return {"missingness", "temporality", "evidence", "evidence_event_ids"}.issubset(value)
+
+    normalized = visit(data)
+    if not isinstance(normalized, dict):
+        return normalized
+
+    if document_id is not None and not normalized.get("document_id"):
+        normalized["document_id"] = document_id
+    if pipeline_id is not None and not normalized.get("pipeline_id"):
+        normalized["pipeline_id"] = pipeline_id
+
+    fields = normalized.get("fields")
+    if isinstance(fields, dict):
+        for field_key in ["eeg", "mri", "epilepsy_diagnosis"]:
+            if field_key not in fields and field_key in normalized:
+                fields[field_key] = normalized.pop(field_key)
+
+    events = normalized.get("events")
+    if isinstance(events, list):
+        seen_event_ids: dict[str, int] = {}
+        for event in events:
+            if not isinstance(event, dict) or not isinstance(event.get("id"), str):
+                continue
+            event_id = event["id"]
+            seen_event_ids[event_id] = seen_event_ids.get(event_id, 0) + 1
+            if seen_event_ids[event_id] > 1:
+                event["id"] = f"{event_id}_{seen_event_ids[event_id]}"
+
+    metadata = normalized.setdefault("metadata", {})
+    if isinstance(metadata, dict):
+        for token_key in ["input_tokens", "output_tokens"]:
+            if metadata.get(token_key) is None:
+                metadata[token_key] = 0
+    return normalized
 
 
 def load_dotenv(path: Path = DEFAULT_ENV_FILE) -> None:
@@ -391,6 +526,9 @@ def enrich_metadata(data: Any, baseline: str, model_name: str, latency_ms: float
             "repair_succeeded": parse.repair_succeeded,
         }
     )
+    for token_key in ["input_tokens", "output_tokens"]:
+        if data["metadata"].get(token_key) is None:
+            data["metadata"][token_key] = 0
 
 
 def parse_log(parse: ParseResult) -> dict[str, Any]:
@@ -413,12 +551,18 @@ def run_one(args: argparse.Namespace, document_id: str, baseline: str) -> dict[s
     extraction_path = run_root / "canonical.json"
 
     write_text(prompt_path, prompt)
-    raw_response, latency_ms, model_name = get_model_response(args, prompt, document_id, baseline)
-    write_text(raw_path, raw_response)
+    if raw_path.exists() and not args.refresh:
+        raw_response = read_text(raw_path)
+        latency_ms = 0.0
+        model_name = args.model if args.provider == "openai" else "stub"
+    else:
+        raw_response, latency_ms, model_name = get_model_response(args, prompt, document_id, baseline)
+        write_text(raw_path, raw_response)
 
     parse = parse_model_response(raw_response, baseline)
     scores: dict[str, Any] | None = None
     if parse.data is not None:
+        parse.data = normalize_contract_aliases(parse.data, document_id, config["pipeline_id"])
         enrich_metadata(parse.data, baseline, model_name, latency_ms, parse)
         write_json(extraction_path, parse.data)
         scores = validate_and_score(
@@ -447,15 +591,23 @@ def run_one(args: argparse.Namespace, document_id: str, baseline: str) -> dict[s
 def command_run(args: argparse.Namespace) -> int:
     ids = load_split_ids(Path(args.splits), args.split, args.limit)
     failures = 0
-    for document_id in ids:
-        for baseline in args.baselines:
-            record = run_one(args, document_id, baseline)
-            scores = record["scores"] or {}
-            ok = record["parse"]["parse_success"] and scores.get("schema_valid") and scores.get("project_constraints_valid")
-            status = "pass" if ok else "fail"
-            print(f"{status}: {baseline} {document_id}")
-            if not ok:
-                failures += 1
+    jobs = [(document_id, baseline) for document_id in ids for baseline in args.baselines]
+    max_workers = max(1, args.max_workers)
+    if max_workers == 1:
+        records = [run_one(args, document_id, baseline) for document_id, baseline in jobs]
+    else:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
+            futures = [executor.submit(run_one, args, document_id, baseline) for document_id, baseline in jobs]
+            records = [future.result() for future in concurrent.futures.as_completed(futures)]
+    for record in records:
+        scores = record["scores"] or {}
+        ok = record["parse"]["parse_success"] and scores.get("schema_valid") and scores.get("project_constraints_valid")
+        baseline = record["baseline"]
+        document_id = record["document_id"]
+        status = "pass" if ok else "fail"
+        print(f"{status}: {baseline} {document_id}")
+        if not ok:
+            failures += 1
     return 1 if failures else 0
 
 
@@ -476,7 +628,9 @@ def add_common_arguments(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--splits", default=str(DEFAULT_SPLITS))
     parser.add_argument("--schema", default=str(DEFAULT_SCHEMA))
     parser.add_argument("--split", default="development", choices=["development", "validation", "test"])
-    parser.add_argument("--limit", type=int, default=2)
+    parser.add_argument("--limit", type=int)
+    parser.add_argument("--max-workers", type=int, default=1)
+    parser.add_argument("--refresh", action="store_true", help="Call the provider even when a raw response already exists.")
     parser.add_argument("--baselines", nargs="+", default=["S1", "S2", "S3"], choices=sorted(BASELINES))
     parser.add_argument("--output-dir", default=str(DEFAULT_OUTPUT_DIR))
 

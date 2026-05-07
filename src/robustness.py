@@ -404,6 +404,8 @@ def command_run_systems(args: argparse.Namespace) -> int:
                 str(record_count),
                 "--baselines",
                 "S2",
+                "--max-workers",
+                str(args.max_workers),
                 "--output-dir",
                 str(output_dir / "direct_baselines"),
             ]
@@ -433,6 +435,8 @@ def command_run_systems(args: argparse.Namespace) -> int:
                 "--pipelines",
                 "E1",
                 *event_systems,
+                "--max-workers",
+                str(args.max_workers),
                 "--output-dir",
                 str(output_dir / "event_first"),
             ]
@@ -681,6 +685,7 @@ def main() -> int:
     run_systems.add_argument("--systems", nargs="+", default=["S2", "E2", "E3"], choices=["S2", "E2", "E3"])
     run_systems.add_argument("--provider", default="stub", choices=["stub", "openai"])
     run_systems.add_argument("--model", default="gpt-4.1-mini")
+    run_systems.add_argument("--max-workers", type=int, default=4)
     run_systems.set_defaults(func=command_run_systems)
 
     evaluate = subparsers.add_parser("evaluate", help="Score robustness outputs and write degradation tables.")

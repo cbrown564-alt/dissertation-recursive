@@ -1,4 +1,4 @@
-export const SYSTEM_COLORS = { S2: "#58a6ff", E2: "#3fb950", E3: "#d29922" };
+export const SYSTEM_COLORS = { S2: "#1d4ed8", E2: "#047857", E3: "#b45309" };
 
 export function pct(value, options = {}) {
   if (value === null || value === undefined || Number.isNaN(Number(value))) return "n/a";
@@ -21,10 +21,10 @@ export function clamp(value, min = 0, max = 1) {
 export function heat(value) {
   if (value === null || value === undefined) return "transparent";
   const v = clamp(value);
-  if (v >= 0.95) return "rgba(63,185,80,0.22)";
-  if (v >= 0.85) return "rgba(88,166,255,0.18)";
-  if (v >= 0.75) return "rgba(210,153,34,0.20)";
-  return "rgba(248,81,73,0.20)";
+  if (v >= 0.95) return "#dcfce7";
+  if (v >= 0.85) return "#dbeafe";
+  if (v >= 0.75) return "#fef9c3";
+  return "#fee2e2";
 }
 
 export function shortPert(value) {

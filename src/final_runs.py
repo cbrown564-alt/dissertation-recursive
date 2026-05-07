@@ -273,6 +273,8 @@ def command_build(args: argparse.Namespace) -> int:
                     args.provider,
                     "--model",
                     args.model,
+                    "--max-workers",
+                    args.max_workers,
                     "--baselines",
                     "S2",
                     "S3",
@@ -296,6 +298,8 @@ def command_build(args: argparse.Namespace) -> int:
                     args.provider,
                     "--model",
                     args.model,
+                    "--max-workers",
+                    args.max_workers,
                     "--pipelines",
                     "E1",
                     "E2",
@@ -365,6 +369,8 @@ def command_build(args: argparse.Namespace) -> int:
                     args.provider,
                     "--model",
                     args.model,
+                    "--max-workers",
+                    args.max_workers,
                     "--output-dir",
                     paths.robustness,
                 ]
@@ -556,6 +562,7 @@ def main() -> int:
     build.add_argument("--model", default=DEFAULT_MODEL)
     build.add_argument("--robustness-limit", type=int, default=5)
     build.add_argument("--gan-limit", type=int, default=5)
+    build.add_argument("--max-workers", type=int, default=4)
     build.add_argument("--model-condition-label", default="primary_model")
     build.add_argument("--model-family", default="closed", choices=["open", "closed", "local", "frontier"])
     build.add_argument("--validation-decision", default=str(DEFAULT_VALIDATION_DECISION))
