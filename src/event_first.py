@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import concurrent.futures
+import csv
 import json
 import time
 from pathlib import Path
@@ -26,6 +27,13 @@ from direct_baselines import (
     write_text,
 )
 from intake import DEFAULT_EXECT_ROOT, DEFAULT_SPLITS, preprocess_document, read_text
+from normalization import (
+    canonical_diagnosis,
+    canonical_investigation_result,
+    canonical_medication_name,
+    canonical_seizure_type,
+    normalize_value,
+)
 from validate_extraction import (
     DEFAULT_SCHEMA,
     EVENT_CATEGORY,
@@ -39,6 +47,8 @@ from validate_extraction import (
 
 PROMPT_DIR = Path("prompts/event_first")
 DEFAULT_OUTPUT_DIR = Path("runs/event_first")
+DEFAULT_RECOVERY_ORACLE_DIR = Path("runs/recovery/aggregation_oracle")
+DEFAULT_MARKUP_ROOT = Path("data/ExECT 2 (2025)/MarkupOutput_200_SyntheticEpilepsyLetters")
 
 E1_PIPELINE_ID = "E1_event_extraction"
 E2_PIPELINE_ID = "E2_deterministic_event_aggregation"
@@ -204,9 +214,12 @@ def medication_from_event(event: dict[str, Any]) -> dict[str, Any]:
 
 
 def investigation_from_event(event: dict[str, Any]) -> dict[str, Any]:
+    result = canonical_investigation_result(event.get("result") or event.get("value")) or "not_stated"
+    if result not in {"normal", "abnormal", "not_stated", "uncertain", None}:
+        result = "uncertain"
     return {
         "status": event.get("status") or "completed",
-        "result": event.get("result") or "not_stated",
+        "result": result,
         "missingness": "present",
         "temporality": event.get("temporality", "completed"),
         "evidence": [event["evidence"]],
@@ -227,18 +240,146 @@ def no_support(log: dict[str, Any], path: str, reason: str) -> None:
     log["final_fields_without_event_support"].append(path)
 
 
-def choose_latest_current(events: list[dict[str, Any]]) -> dict[str, Any] | None:
-    current = [event for event in events if event.get("temporality") == "current"]
-    if current:
-        return current[-1]
-    non_historical = [event for event in events if event.get("temporality") not in {"historical", "family_history", "hypothetical"}]
-    return non_historical[-1] if non_historical else None
+def event_position(event: dict[str, Any], fallback: int) -> int:
+    evidence = event.get("evidence") if isinstance(event.get("evidence"), dict) else {}
+    start = evidence.get("char_start")
+    return start if isinstance(start, int) else fallback
+
+
+def candidate_snapshot(event: dict[str, Any], field: str, rank: tuple[Any, ...], reason: str | None = None) -> dict[str, Any]:
+    snapshot = {
+        "field": field,
+        "event_id": event.get("id"),
+        "category": event.get("category"),
+        "temporality": event.get("temporality"),
+        "status": event.get("status"),
+        "value": event.get("value"),
+        "rank": list(rank),
+    }
+    if reason:
+        snapshot["reason"] = reason
+    return snapshot
+
+
+def discard_candidate(log: dict[str, Any], event: dict[str, Any], field: str, rank: tuple[Any, ...], reason: str) -> None:
+    event_id = event.get("id")
+    if event_id:
+        log["ignored_event_ids"].append(event_id)
+    log["discarded_candidates"].append(candidate_snapshot(event, field, rank, reason))
+
+
+def select_candidate(
+    log: dict[str, Any],
+    field: str,
+    candidates: list[tuple[dict[str, Any], tuple[Any, ...], str]],
+    missing_reason: str,
+) -> dict[str, Any] | None:
+    for event, rank, note in sorted(candidates, key=lambda item: item[1], reverse=True):
+        log["ranked_candidates"].append(candidate_snapshot(event, field, rank, note))
+    selectable = [(event, rank, note) for event, rank, note in candidates if rank[0] > 0]
+    if not selectable:
+        no_support(log, field, missing_reason)
+        for event, rank, note in candidates:
+            discard_candidate(log, event, field, rank, note)
+        return None
+    selected, selected_rank, selected_note = max(selectable, key=lambda item: item[1])
+    log["selected_event_ids"][field] = [selected["id"]]
+    for event, rank, note in candidates:
+        if event["id"] == selected["id"]:
+            continue
+        discard_candidate(log, event, field, rank, note)
+        if rank[0] > 0:
+            log["conflict_decisions"].append(
+                {
+                    "field": field,
+                    "selected_event_id": selected["id"],
+                    "discarded_event_id": event["id"],
+                    "reason": f"ranked candidate selected over lower-ranked candidate: {note}",
+                }
+            )
+    log["selection_decisions"].append(
+        {
+            "field": field,
+            "selected_event_id": selected["id"],
+            "rank": list(selected_rank),
+            "reason": selected_note,
+        }
+    )
+    return selected
+
+
+def medication_rank(event: dict[str, Any], index: int) -> tuple[int, int, int, int]:
+    temporality = event.get("temporality")
+    status = event.get("status")
+    current = temporality == "current" and status in {"current", "increased", "reduced"}
+    has_components = int(bool(event.get("dose") or event.get("dose_unit") or event.get("frequency")))
+    return (1 if current else 0, 1 if status == "current" else 0, has_components, event_position(event, index))
+
+
+def medication_discard_reason(event: dict[str, Any]) -> str:
+    temporality = event.get("temporality")
+    status = event.get("status")
+    if temporality == "historical" or status in {"previous", "stopped"}:
+        return "non-current medication retained only in previous medication extension"
+    if temporality == "planned" or status in {"planned", "declined"}:
+        return "planned or declined medication is not a current ASM"
+    if status != "current":
+        return "medication status is not explicitly current"
+    return "lower-ranked duplicate medication candidate"
+
+
+def seizure_type_rank(event: dict[str, Any], index: int) -> tuple[int, int, int]:
+    value = event.get("value")
+    canonical = canonical_seizure_type(value)
+    normalized = normalize_value(value)
+    mapped = bool(canonical and canonical != normalized) or canonical in {
+        "focal seizure",
+        "focal aware seizure",
+        "focal impaired awareness seizure",
+        "focal to bilateral tonic clonic seizure",
+        "generalized absence seizure",
+        "generalized atonic seizure",
+        "generalized myoclonic seizure",
+        "generalized tonic clonic seizure",
+        "unknown seizure type",
+    }
+    explicit = any(term in normalized for term in ["seizure", "absence", "tonic", "clonic", "focal", "partial", "myoclonic", "atonic", "gtc"])
+    selectable = mapped or explicit
+    return (1 if selectable else 0, 1 if mapped else 0, event_position(event, index))
+
+
+def frequency_rank(event: dict[str, Any], index: int) -> tuple[int, int, int, int]:
+    temporality = event.get("temporality")
+    current = temporality == "current"
+    non_historical = temporality not in {"historical", "family_history", "hypothetical", "planned"}
+    has_linkage = int(bool(event.get("seizure_type")))
+    return (1 if current or non_historical else 0, 1 if current else 0, has_linkage, event_position(event, index))
+
+
+def investigation_rank(event: dict[str, Any], index: int) -> tuple[int, int, int, int]:
+    status = event.get("status")
+    result = canonical_investigation_result(event.get("result") or event.get("value"))
+    completed_result = status == "completed" and result in {"normal", "abnormal", "uncertain"}
+    definite_result = result in {"normal", "abnormal"}
+    return (1 if completed_result else 0, 1 if definite_result else 0, 1 if status == "completed" else 0, event_position(event, index))
+
+
+def diagnosis_rank(event: dict[str, Any], index: int) -> tuple[int, int, int]:
+    temporality = event.get("temporality")
+    value = canonical_diagnosis(event.get("value"))
+    patient_level = temporality != "family_history"
+    explicit = bool(value and "epilepsy" in value)
+    return (1 if patient_level and explicit else 0, 1 if temporality == "current" else 0, event_position(event, index))
 
 
 def aggregate_events(document_id: str, events: list[dict[str, Any]], model_name: str = "deterministic") -> tuple[dict[str, Any], dict[str, Any]]:
     log: dict[str, Any] = {
+        "contract_version": "phase5_ranked_candidates_v1",
         "selected_event_ids": {},
         "ignored_event_ids": [],
+        "ranked_candidates": [],
+        "discarded_candidates": [],
+        "selection_decisions": [],
         "conflict_decisions": [],
         "missingness_decisions": [],
         "final_fields_without_event_support": [],
@@ -257,83 +398,108 @@ def aggregate_events(document_id: str, events: list[dict[str, Any]], model_name:
     }
 
     medication_events = [event for event in events if event.get("category") == "medication"]
-    for event in medication_events:
+    medication_candidates_by_name: dict[str, list[tuple[dict[str, Any], tuple[Any, ...], str]]] = {}
+    for index, event in enumerate(medication_events):
+        rank = medication_rank(event, index)
+        name = canonical_medication_name(event.get("medication_name") or event.get("value")) or f"__unnamed_{index}"
+        reason = "current medication ranked above historical, planned, stopped, or declined medication"
+        medication_candidates_by_name.setdefault(name, []).append((event, rank, reason))
         status = event.get("status")
-        if event.get("temporality") == "current" and status == "current":
-            fields["current_anti_seizure_medications"].append(medication_from_event(event))
-            log["selected_event_ids"].setdefault("current_anti_seizure_medications", []).append(event["id"])
-        elif status in {"previous", "stopped"} or event.get("temporality") == "historical":
+        if status in {"previous", "stopped"} or event.get("temporality") == "historical":
             previous = medication_from_event(event)
             previous["status"] = status if status in {"previous", "stopped"} else "previous"
             previous["temporality"] = "historical"
             fields["previous_anti_seizure_medications"].append(previous)
             log["selected_event_ids"].setdefault("previous_anti_seizure_medications", []).append(event["id"])
-            if status != "previous":
-                log["extension_non_current_medications"].append(event)
-        else:
-            log["ignored_event_ids"].append(event["id"])
-            if status != "current":
+            log["extension_non_current_medications"].append(event)
+
+    selected_medication_ids: set[str] = set()
+    for name, candidates in medication_candidates_by_name.items():
+        selected = select_candidate(
+            log,
+            f"current_anti_seizure_medications[{name}]",
+            [(event, rank, medication_discard_reason(event) if rank[0] == 0 else reason) for event, rank, reason in candidates],
+            f"no current medication candidate for {name}",
+        )
+        if selected:
+            fields["current_anti_seizure_medications"].append(medication_from_event(selected))
+            log["selected_event_ids"].setdefault("current_anti_seizure_medications", []).append(selected["id"])
+            selected_medication_ids.add(selected["id"])
+    for event in medication_events:
+        if event["id"] not in selected_medication_ids and event not in log["extension_non_current_medications"]:
+            status = event.get("status")
+            if status != "current" or event.get("temporality") != "current":
                 log["extension_non_current_medications"].append(event)
 
     seizure_frequency_events = [event for event in events if event.get("category") == "seizure_frequency"]
-    selected_frequency = choose_latest_current(seizure_frequency_events)
+    frequency_candidates = [
+        (
+            event,
+            frequency_rank(event, index),
+            "latest current seizure-frequency statement ranked above historical frequency",
+        )
+        for index, event in enumerate(seizure_frequency_events)
+    ]
+    selected_frequency = select_candidate(log, "current_seizure_frequency", frequency_candidates, "no current seizure-frequency event")
     if selected_frequency:
         frequency = field_from_event(selected_frequency, temporality=selected_frequency.get("temporality", "uncertain"))
         frequency["temporal_scope"] = selected_frequency.get("temporal_scope")
         frequency["seizure_type"] = selected_frequency.get("seizure_type")
         fields["current_seizure_frequency"] = frequency
-        log["selected_event_ids"]["current_seizure_frequency"] = [selected_frequency["id"]]
-        for event in seizure_frequency_events:
-            if event["id"] != selected_frequency["id"]:
-                log["ignored_event_ids"].append(event["id"])
-    else:
-        no_support(log, "current_seizure_frequency", "no seizure-frequency event")
 
-    for event in events:
+    selected_seizure_type_values: set[str] = set()
+    for index, event in enumerate(events):
         if event.get("category") == "seizure_type":
-            fields["seizure_types"].append(field_from_event(event))
+            rank = seizure_type_rank(event, index)
+            canonical_value = canonical_seizure_type(event.get("value"))
+            log["ranked_candidates"].append(
+                candidate_snapshot(
+                    event,
+                    "seizure_types",
+                    rank,
+                    "explicit seizure-type label or mapped semiology preferred over unmapped descriptive semiology",
+                )
+            )
+            if rank[0] <= 0:
+                discard_candidate(log, event, "seizure_types", rank, "unmapped descriptive semiology is not promoted to seizure type")
+                continue
+            if canonical_value in selected_seizure_type_values:
+                discard_candidate(log, event, "seizure_types", rank, "duplicate canonical seizure type")
+                continue
+            selected_seizure_type_values.add(canonical_value)
+            selected = field_from_event(event)
+            selected["value"] = canonical_value or event.get("value")
+            fields["seizure_types"].append(selected)
             log["selected_event_ids"].setdefault("seizure_types", []).append(event["id"])
 
     investigation_events = [event for event in events if event.get("category") == "investigation"]
     for investigation_type, field_name in [("EEG", "eeg"), ("MRI", "mri")]:
         candidates = [event for event in investigation_events if event.get("investigation_type") == investigation_type]
-        result_events = [
-            event
-            for event in candidates
-            if event.get("status") == "completed" and event.get("result") in {"normal", "abnormal", "uncertain"}
+        ranked = [
+            (
+                event,
+                investigation_rank(event, index),
+                f"completed {investigation_type} result ranked above requested or pending investigation",
+            )
+            for index, event in enumerate(candidates)
         ]
-        if result_events:
-            selected = result_events[-1]
+        selected = select_candidate(log, field_name, ranked, f"no completed {investigation_type} result event")
+        if selected:
             fields[field_name] = investigation_from_event(selected)
-            log["selected_event_ids"][field_name] = [selected["id"]]
-            for event in candidates:
-                if event["id"] != selected["id"]:
-                    log["ignored_event_ids"].append(event["id"])
-                    if event.get("status") != "completed" or event.get("result") in {None, "not_stated"}:
-                        log["extension_investigation_statuses"].append(event)
-        else:
-            no_support(log, field_name, f"no completed {investigation_type} result event")
-            for event in candidates:
-                log["ignored_event_ids"].append(event["id"])
+        for event in candidates:
+            if event.get("status") != "completed" or event.get("result") in {None, "not_stated"}:
                 log["extension_investigation_statuses"].append(event)
 
-    diagnosis_events = [event for event in events if event.get("category") == "diagnosis" and event.get("temporality") != "family_history"]
-    if diagnosis_events:
-        selected = diagnosis_events[-1]
+    diagnosis_events = [event for event in events if event.get("category") == "diagnosis"]
+    diagnosis_candidates = [
+        (event, diagnosis_rank(event, index), "patient-level explicit diagnosis ranked by currentness and latest evidence")
+        for index, event in enumerate(diagnosis_events)
+    ]
+    selected = select_candidate(log, "epilepsy_diagnosis", diagnosis_candidates, "no patient-level diagnosis event")
+    if selected:
         fields["epilepsy_diagnosis"] = field_from_event(selected)
-        log["selected_event_ids"]["epilepsy_diagnosis"] = [selected["id"]]
-        for event in diagnosis_events[:-1]:
-            log["ignored_event_ids"].append(event["id"])
-            log["conflict_decisions"].append(
-                {
-                    "field": "epilepsy_diagnosis",
-                    "selected_event_id": selected["id"],
-                    "ignored_event_id": event["id"],
-                    "reason": "later diagnosis event selected by deterministic ordering",
-                }
-            )
-    else:
-        no_support(log, "epilepsy_diagnosis", "no patient-level diagnosis event")
+
+    log["ignored_event_ids"] = sorted(set(log["ignored_event_ids"]))
 
     canonical = {
         "document_id": document_id,
@@ -484,6 +650,202 @@ def run_e3(args: argparse.Namespace, document: dict[str, Any], events: list[dict
     }
 
 
+def gold_evidence(span: Any, source_text: str) -> dict[str, Any]:
+    quote = getattr(span, "value", "") or source_text[getattr(span, "start", 0) : getattr(span, "end", 0)]
+    return {
+        "quote": quote,
+        "sentence_id": None,
+        "char_start": getattr(span, "start", None),
+        "char_end": getattr(span, "end", None),
+    }
+
+
+def first_span(spans: list[Any], index: int) -> Any | None:
+    if not spans:
+        return None
+    return spans[index] if index < len(spans) else spans[-1]
+
+
+def evidence_from_gold(document_gold: Any, group: str, index: int, source_text: str, fallback: str) -> dict[str, Any]:
+    span = first_span(document_gold.spans_by_group.get(group, []), index)
+    if span is not None:
+        return gold_evidence(span, source_text)
+    return {"quote": fallback, "sentence_id": None, "char_start": None, "char_end": None}
+
+
+def gold_events_from_document(document_gold: Any, source_text: str) -> list[dict[str, Any]]:
+    events: list[dict[str, Any]] = []
+    for index, medication in enumerate(document_gold.medications, start=1):
+        name = medication.get("name")
+        if not name:
+            continue
+        events.append(
+            {
+                "id": f"gold_med_{index}",
+                "category": "medication",
+                "temporality": "current",
+                "status": "current",
+                "value": name,
+                "medication_name": name,
+                "dose": medication.get("dose") or None,
+                "dose_unit": medication.get("dose_unit") or None,
+                "frequency": medication.get("frequency") or None,
+                "reason_stopped": None,
+                "evidence": evidence_from_gold(document_gold, "medications", index - 1, source_text, name),
+            }
+        )
+
+    for index, frequency in enumerate(document_gold.seizure_frequencies, start=1):
+        value = frequency.get("value")
+        if not value:
+            continue
+        events.append(
+            {
+                "id": f"gold_freq_{index}",
+                "category": "seizure_frequency",
+                "temporality": "current",
+                "status": None,
+                "value": value,
+                "temporal_scope": frequency.get("temporal_scope") or "current",
+                "seizure_type": frequency.get("seizure_type") or None,
+                "evidence": evidence_from_gold(document_gold, "seizure_frequency", index - 1, source_text, value),
+            }
+        )
+        if frequency.get("seizure_type"):
+            events.append(
+                {
+                    "id": f"gold_type_from_freq_{index}",
+                    "category": "seizure_type",
+                    "temporality": "current",
+                    "status": None,
+                    "value": frequency.get("seizure_type"),
+                    "evidence": evidence_from_gold(document_gold, "seizure_frequency", index - 1, source_text, frequency.get("seizure_type") or ""),
+                }
+            )
+
+    for index, diagnosis in enumerate(document_gold.diagnoses, start=1):
+        events.append(
+            {
+                "id": f"gold_dx_{index}",
+                "category": "diagnosis",
+                "temporality": "current",
+                "status": None,
+                "value": diagnosis,
+                "evidence": evidence_from_gold(document_gold, "diagnosis", index - 1, source_text, diagnosis),
+            }
+        )
+
+    for field_name, investigation_type in [("eeg", "EEG"), ("mri", "MRI")]:
+        result = document_gold.investigations.get(field_name)
+        if not result:
+            continue
+        events.append(
+            {
+                "id": f"gold_{field_name}",
+                "category": "investigation",
+                "temporality": "completed",
+                "status": "completed",
+                "value": result,
+                "investigation_type": investigation_type,
+                "result": result,
+                "evidence": evidence_from_gold(document_gold, field_name, 0, source_text, result),
+            }
+        )
+    return events
+
+
+def write_csv_rows(path: Path, rows: list[dict[str, Any]]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    preferred = ["field", "documents", "oracle_failures", "failure_rate"]
+    extra = sorted({key for row in rows for key in row} - set(preferred))
+    fieldnames = preferred + extra
+    with path.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=fieldnames)
+        writer.writeheader()
+        for row in rows:
+            writer.writerow(row)
+
+
+def oracle_error_budget(document_scores: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    fields = [
+        "medication_name",
+        "medication_full",
+        "seizure_type",
+        "current_seizure_frequency",
+        "seizure_frequency_type_linkage",
+        "epilepsy_diagnosis",
+    ]
+    rows: list[dict[str, Any]] = []
+    for field in fields:
+        failures = 0
+        available = 0
+        for score in document_scores:
+            field_scores = score.get("field_scores", {})
+            field_correctness = score.get("field_correctness", {})
+            value = field_scores.get(field) or field_correctness.get(field)
+            if value is None:
+                continue
+            available += 1
+            if isinstance(value, dict):
+                ok = value.get("f1") == 1.0 if "f1" in value else bool(value.get("correct"))
+            else:
+                ok = bool(value)
+            failures += 0 if ok else 1
+        rows.append(
+            {
+                "field": field,
+                "documents": available,
+                "oracle_failures": failures,
+                "failure_rate": failures / available if available else 0.0,
+            }
+        )
+    return rows
+
+
+def command_aggregation_oracle(args: argparse.Namespace) -> int:
+    from evaluate import GoldDocument, load_gold, score_document
+
+    ids = load_split_ids(Path(args.splits), args.split, args.limit)
+    gold = load_gold(Path(args.markup_root), Path(args.exect_root))
+    output_dir = Path(args.output_dir)
+    document_scores = []
+    log_path = output_dir / "event_first_runs.jsonl"
+    if log_path.exists():
+        log_path.unlink()
+
+    for document_id in ids:
+        source_text = read_text(Path(args.exect_root) / f"{document_id}.txt")
+        document_gold = gold.get(document_id, GoldDocument(document_id=document_id))
+        events = gold_events_from_document(document_gold, source_text)
+        canonical, log = aggregate_events(document_id, events, model_name="gold_aggregation_oracle")
+        run_root = output_dir / document_id
+        write_json(run_root / "gold_events.json", {"document_id": document_id, "events": events})
+        write_json(run_root / "e2_canonical.json", canonical)
+        write_json(run_root / "e2_aggregation_log.json", log)
+        score = score_document(canonical, source_text, document_gold, Path(args.schema))
+        score["document_id"] = document_id
+        document_scores.append(score)
+        append_jsonl(
+            log_path,
+            {
+                "document_id": document_id,
+                "pipeline": "aggregation_oracle",
+                "pipeline_id": E2_PIPELINE_ID,
+                "canonical_output_path": str(run_root / "e2_canonical.json"),
+                "aggregation_log_path": str(run_root / "e2_aggregation_log.json"),
+                "gold_event_count": len(events),
+                "scores": score,
+            },
+        )
+        print(f"oracle: {document_id} events={len(events)}")
+
+    write_json(output_dir / "oracle_document_scores.json", document_scores)
+    budget = oracle_error_budget(document_scores)
+    write_csv_rows(output_dir / "aggregation_error_budget.csv", budget)
+    print(f"wrote {output_dir / 'aggregation_error_budget.csv'}")
+    return 0
+
+
 def command_run(args: argparse.Namespace) -> int:
     ids = load_split_ids(Path(args.splits), args.split, args.limit)
     failures = 0
@@ -584,6 +946,16 @@ def main() -> int:
     prepare = subparsers.add_parser("prepare", help="Write event-first prompts without calling a provider.")
     add_common_arguments(prepare)
     prepare.set_defaults(func=command_prepare)
+
+    oracle = subparsers.add_parser("aggregation-oracle", help="Feed gold-derived events through deterministic aggregation.")
+    oracle.add_argument("--exect-root", default=str(DEFAULT_EXECT_ROOT))
+    oracle.add_argument("--markup-root", default=str(DEFAULT_MARKUP_ROOT))
+    oracle.add_argument("--splits", default=str(DEFAULT_SPLITS))
+    oracle.add_argument("--schema", default=str(DEFAULT_SCHEMA))
+    oracle.add_argument("--split", default="development", choices=["development", "validation", "test"])
+    oracle.add_argument("--limit", type=int)
+    oracle.add_argument("--output-dir", default=str(DEFAULT_RECOVERY_ORACLE_DIR))
+    oracle.set_defaults(func=command_aggregation_oracle)
 
     args = parser.parse_args()
     return args.func(args)
