@@ -132,3 +132,23 @@ decision makes the final-test run auditable rather than merely reproducible.
 Artifacts: `src/final_runs.py`, `docs/17_experiment_roadmap.md`, and `README.md`.
 
 Command: `.venv/bin/python src/final_runs.py decide --validation-run-root runs/final_validation --comparator E2 --rationale "..."`
+
+## 2026-05-07: Performance Recovery Roadmap
+
+Decision: The final validation/test results are not strong enough to support
+the intended benchmark-level dissertation claim, so the project now enters a
+performance-recovery loop before any post-recovery final claim is made.
+
+Rationale: Fang et al. 2025 report substantially stronger epilepsy clinic
+letter extraction performance for benchmarkable tasks, including F1 .80 for
+epilepsy type, .76 for seizure type, and .90 for current ASMs. Current local
+results fall well below that standard on seizure type, full medication tuples,
+and seizure-frequency extraction, with zero current-frequency accuracy across
+systems indicating a likely scoring, normalization, or target-definition
+failure that must be diagnosed before interpretation.
+
+Artifacts: `docs/18_performance_recovery_roadmap.md`,
+`runs/final_validation/evaluation/comparison_table.csv`, and
+`runs/final_test/evaluation/comparison_table.csv`.
+
+Benchmark: https://pubmed.ncbi.nlm.nih.gov/40637590/
