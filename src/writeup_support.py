@@ -84,6 +84,13 @@ def format_value(value: Any) -> str:
     return str(value)
 
 
+def format_delta(value: float | None) -> str:
+    if value is None:
+        return "n/a"
+    sign = "+" if value > 0 else ""
+    return f"{sign}{value:.3f}"
+
+
 def markdown_table(rows: list[dict[str, Any]], columns: list[str] | None = None) -> str:
     if not rows:
         return "_No rows available._"
@@ -144,6 +151,97 @@ def select_columns(rows: list[dict[str, Any]], wanted: list[str]) -> list[dict[s
     for row in rows:
         selected.append({column: row.get(column) for column in wanted if column in row})
     return selected
+
+
+def system_summary_map(evaluation_summary: dict[str, Any] | None) -> dict[str, dict[str, Any]]:
+    if not isinstance(evaluation_summary, dict):
+        return {}
+    summaries = evaluation_summary.get("summaries", [])
+    if not isinstance(summaries, list):
+        return {}
+    return {
+        str(row.get("system")): row
+        for row in summaries
+        if isinstance(row, dict) and row.get("system")
+    }
+
+
+def metric_delta_rows(evaluation_summary: dict[str, Any] | None, comparator: str) -> list[dict[str, Any]]:
+    systems = system_summary_map(evaluation_summary)
+    direct = systems.get("S2", {})
+    event = systems.get(comparator, {})
+    rows = []
+    metric_labels = {
+        "schema_valid_rate": "schema validity",
+        "quote_validity_rate": "quote validity",
+        "temporal_accuracy": "temporal accuracy",
+        "medication_full_f1": "medication full F1",
+        "seizure_type_f1": "seizure type F1",
+        "current_seizure_frequency_accuracy": "current seizure frequency accuracy",
+        "eeg_accuracy": "EEG accuracy",
+        "mri_accuracy": "MRI accuracy",
+        "epilepsy_diagnosis_accuracy": "epilepsy diagnosis accuracy",
+    }
+    for metric, label in metric_labels.items():
+        s2_value = parse_number(direct.get(metric))
+        event_value = parse_number(event.get(metric))
+        delta = None if s2_value is None or event_value is None else event_value - s2_value
+        rows.append(
+            {
+                "metric": label,
+                "s2": format_value(s2_value),
+                comparator.lower(): format_value(event_value),
+                "delta": format_delta(delta),
+            }
+        )
+    return rows
+
+
+def selected_comparator(
+    validation_decision: dict[str, Any] | None,
+    evaluation_summary: dict[str, Any] | None,
+) -> str:
+    if isinstance(validation_decision, dict):
+        comparator = validation_decision.get("selected_event_first_comparator")
+        if comparator in {"E2", "E3"}:
+            return str(comparator)
+    systems = system_summary_map(evaluation_summary)
+    if "E3" in systems:
+        return "E3"
+    if "E2" in systems:
+        return "E2"
+    return "E2"
+
+
+def recommendation_text(evaluation_summary: dict[str, Any] | None, comparator: str) -> str:
+    systems = system_summary_map(evaluation_summary)
+    s2 = systems.get("S2", {})
+    event = systems.get(comparator, {})
+    if not s2 or not event:
+        return "Do not make a final recommendation until S2 and the selected event-first comparator are both scored."
+
+    wins = []
+    losses = []
+    for metric in PRIMARY_METRICS:
+        s2_value = parse_number(s2.get(metric))
+        event_value = parse_number(event.get(metric))
+        if s2_value is None or event_value is None:
+            continue
+        if event_value > s2_value:
+            wins.append(metric)
+        elif event_value < s2_value:
+            losses.append(metric)
+
+    if wins and losses:
+        return (
+            f"Recommend event-first extraction conditionally: {comparator} improves selected reliability layers "
+            "but does not dominate direct extraction across field-level metrics."
+        )
+    if wins:
+        return f"Recommend event-first extraction for this bounded task: {comparator} improves the scored reliability metrics available here."
+    if losses:
+        return f"Do not recommend event-first extraction as a general replacement: {comparator} trails S2 on the scored metrics available here."
+    return f"Treat event-first as neutral on this evidence: {comparator} and S2 are tied on the scored metrics available here."
 
 
 def claim_rows(
@@ -517,7 +615,7 @@ def build_tables_markdown(
     sections = [
         "# Dissertation Tables",
         "",
-        "Generated from reproducible run artifacts. Replace smoke-test runs with final validation runs before using these values in chapter prose.",
+        "Generated from reproducible run artifacts. Use values from the final validation or held-out test run named in the manifest.",
         "",
         "## Primary Evaluation",
         "",
@@ -573,6 +671,113 @@ def build_methods_markdown(manifest: dict[str, Any], claims: list[dict[str, Any]
     return "\n".join(sections) + "\n"
 
 
+def build_claim_package_markdown(
+    evaluation_summary: dict[str, Any] | None,
+    evaluation_rows: list[dict[str, str]],
+    robustness_rows: list[dict[str, str]],
+    secondary: list[dict[str, Any]],
+    manifest: dict[str, Any],
+    claims: list[dict[str, Any]],
+    examples: list[dict[str, Any]],
+    final_run_manifest: dict[str, Any] | None,
+    validation_decision: dict[str, Any] | None,
+) -> str:
+    comparator = selected_comparator(validation_decision, evaluation_summary)
+    run_root = manifest.get("inputs", {}).get("run_root", "n/a")
+    split = evaluation_summary.get("split", "n/a") if isinstance(evaluation_summary, dict) else "n/a"
+    test_gate = final_run_manifest.get("test_gate", {}) if isinstance(final_run_manifest, dict) else {}
+    failures = final_run_manifest.get("failures", []) if isinstance(final_run_manifest, dict) else []
+    gate_status = test_gate.get("status", "not_recorded") if isinstance(test_gate, dict) else "not_recorded"
+    failure_note = (
+        f"{len(failures)} upstream stage failure(s) are recorded in final_run_manifest.json; inspect before claiming a clean rerun."
+        if failures
+        else "No upstream stage failures are recorded in final_run_manifest.json."
+    )
+    limit_note = (
+        "This package is bounded to synthetic ExECTv2-native labels, evidence-grounded extraction artifacts, "
+        "and the limited model-family conditions present in the run directories. It is not a clinical deployment claim."
+    )
+
+    sections = [
+        "# Dissertation Claim Package",
+        "",
+        f"Run root: `{run_root}`",
+        f"Split: `{split}`",
+        f"Selected event-first comparator: `{comparator}`",
+        f"Test gate status: `{gate_status}`",
+        "",
+        "## Recommendation",
+        "",
+        recommendation_text(evaluation_summary, comparator),
+        "",
+        "## Primary Claim Trace",
+        "",
+        markdown_table(metric_delta_rows(evaluation_summary, comparator)),
+        "",
+        "## Required Outputs",
+        "",
+        markdown_table(manifest["artifacts"]),
+        "",
+        "## Claim Support Matrix",
+        "",
+        markdown_table(claims),
+        "",
+        "## Robustness Evidence",
+        "",
+        markdown_table(
+            select_columns(
+                robustness_rows[:30],
+                [
+                    "system",
+                    "perturbation_id",
+                    "available",
+                    "delta_schema_valid_rate",
+                    "delta_quote_validity_rate",
+                    "delta_medication_full_f1",
+                    "delta_current_seizure_frequency_accuracy",
+                    "delta_mri_accuracy",
+                ],
+            )
+        ),
+        "",
+        "## Secondary Checks",
+        "",
+        markdown_table(
+            [
+                {
+                    "kind": item["kind"],
+                    "directory": item["directory"],
+                    "rows": len(item.get("table", [])),
+                }
+                for item in secondary
+            ]
+        ),
+        "",
+        "## Error Analysis Seeds",
+        "",
+        markdown_table(examples[:12]),
+        "",
+        "## Interpretation Boundaries",
+        "",
+        f"- {limit_note}",
+        "- Report evidence validity, temporality, field correctness, parseability, cost, and latency separately.",
+        "- Treat label-changing robustness cases as validity checks rather than ordinary accuracy rows.",
+        f"- {failure_note}",
+        "",
+        "## Chapter Order",
+        "",
+        "1. Dataset, split, model, prompts, schema, and run manifest.",
+        "2. Primary S2 versus event-first field-level comparison.",
+        "3. Evidence and temporality layers.",
+        "4. Parseability, cost, and latency.",
+        "5. Robustness and challenge-case behavior.",
+        "6. Secondary format and model-family checks.",
+        "7. Error analysis with concrete evidence examples.",
+        "8. Interpretation, limitations, and recommendation.",
+    ]
+    return "\n".join(sections) + "\n"
+
+
 def artifact_row(label: str, path: Path) -> dict[str, Any]:
     bytes_value = path.stat().st_size if path.exists() and path.is_file() else None
     return {
@@ -595,6 +800,12 @@ def command_build(args: argparse.Namespace) -> int:
     evaluation_summary, evaluation_rows, document_scores = load_evaluation(evaluation_dir)
     robustness_summary, robustness_rows, label_changing = load_robustness(robustness_dir)
     secondary = load_secondary(secondary_dirs)
+    final_run_manifest = read_json(run_root / "final_run_manifest.json")
+    validation_decision = read_json(run_root / "validation_decision.json")
+    if validation_decision is None and isinstance(final_run_manifest, dict):
+        decision_path = final_run_manifest.get("test_gate", {}).get("validation_decision")
+        if decision_path:
+            validation_decision = read_json(Path(decision_path))
 
     output_dir.mkdir(parents=True, exist_ok=True)
     plot_written = metric_plot_svg(evaluation_rows, output_dir / "evaluation_metric_plot.svg")
@@ -621,6 +832,8 @@ def command_build(args: argparse.Namespace) -> int:
             "source_text_root": str(Path(args.source_text_root)),
         },
         "artifacts": [
+            artifact_row("final_run_manifest", run_root / "final_run_manifest.json"),
+            artifact_row("experiment_freeze", run_root / "experiment_freeze.json"),
             artifact_row("primary_evaluation_summary", evaluation_dir / "evaluation_summary.json"),
             artifact_row("primary_evaluation_table", evaluation_dir / "comparison_table.csv"),
             artifact_row("primary_document_scores", evaluation_dir / "document_scores.json"),
@@ -631,6 +844,7 @@ def command_build(args: argparse.Namespace) -> int:
                 artifact_row(f"secondary_{index}_{item['kind']}", Path(item["directory"]))
                 for index, item in enumerate(secondary, start=1)
             ],
+            artifact_row("dashboard_data_bundle", Path("dashboard/public/data/dashboard_data.json")),
         ],
         "counts": {
             "evaluation_rows": len(evaluation_rows),
@@ -652,10 +866,25 @@ def command_build(args: argparse.Namespace) -> int:
         build_methods_markdown(manifest, claims, examples),
         encoding="utf-8",
     )
+    (output_dir / "claim_package.md").write_text(
+        build_claim_package_markdown(
+            evaluation_summary,
+            evaluation_rows,
+            robustness_rows,
+            secondary,
+            manifest,
+            claims,
+            examples,
+            final_run_manifest,
+            validation_decision,
+        ),
+        encoding="utf-8",
+    )
 
     print(f"wrote {output_dir / 'writeup_manifest.json'}")
     print(f"wrote {output_dir / 'dissertation_tables.md'}")
     print(f"wrote {output_dir / 'methods_traceability.md'}")
+    print(f"wrote {output_dir / 'claim_package.md'}")
     if plot_written:
         print(f"wrote {output_dir / 'evaluation_metric_plot.svg'}")
     return 0
