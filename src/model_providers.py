@@ -24,6 +24,8 @@ class ModelRequest:
     max_output_tokens: int | None = None
     schema_mode: str | None = None
     seed: int | None = None
+    reasoning_effort: str | None = None
+    google_thinking_budget: int | None = None
     metadata: dict[str, Any] = field(default_factory=dict)
 
 
@@ -136,15 +138,25 @@ class OpenAIAdapter(ProviderAdapter):
                 kwargs["temperature"] = request.temperature
             if request.max_output_tokens:
                 kwargs["max_output_tokens"] = request.max_output_tokens
-            try:
-                response = client.responses.create(**kwargs)
-                retries = 0
-            except Exception as exc:
-                if "temperature" not in kwargs or "temperature" not in str(exc):
-                    raise
-                kwargs.pop("temperature", None)
-                response = client.responses.create(**kwargs)
-                retries = 1
+            if request.reasoning_effort:
+                kwargs["reasoning"] = {"effort": request.reasoning_effort}
+            retries = 0
+            _droppable = [("reasoning", "reasoning"), ("temperature", "temperature")]
+            while True:
+                try:
+                    response = client.responses.create(**kwargs)
+                    break
+                except Exception as exc:
+                    exc_str = str(exc)
+                    dropped = False
+                    for signal, param in _droppable:
+                        if signal in exc_str and param in kwargs:
+                            kwargs.pop(param)
+                            retries += 1
+                            dropped = True
+                            break
+                    if not dropped:
+                        raise
             usage = getattr(response, "usage", None)
             token_usage = TokenUsage(
                 input_tokens=getattr(usage, "input_tokens", None),
@@ -228,6 +240,8 @@ class GoogleAdapter(ProviderAdapter):
                 temperature=request.temperature,
                 max_output_tokens=request.max_output_tokens or request.model.max_output_tokens,
             )
+            if request.google_thinking_budget is not None:
+                config.thinking_config = types.ThinkingConfig(thinking_budget=request.google_thinking_budget)
             response = client.models.generate_content(
                 model=request.model.provider_model_id,
                 contents=request.prompt,
