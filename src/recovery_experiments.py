@@ -441,6 +441,7 @@ def run_one(args: argparse.Namespace, document_id: str, system: str) -> dict[str
     record = {
         "document_id": document_id,
         "system": system,
+        "repeat": getattr(args, "repeat_index", 1),
         "pipeline_id": pipeline_id,
         "provider": args.provider,
         "model": model_name,
@@ -454,6 +455,29 @@ def run_one(args: argparse.Namespace, document_id: str, system: str) -> dict[str
 
 
 def command_run(args: argparse.Namespace) -> int:
+    if args.repeats > 1:
+        manifest = {
+            "split": args.split,
+            "systems": args.systems,
+            "tasks": args.tasks,
+            "repeats": args.repeats,
+            "provider": args.provider,
+            "model": args.model,
+            "repeat_roots": [],
+        }
+        failures = 0
+        base_output_dir = Path(args.output_dir)
+        for repeat in range(1, args.repeats + 1):
+            repeat_args = argparse.Namespace(**vars(args))
+            repeat_args.repeats = 1
+            repeat_args.repeat_index = repeat
+            repeat_args.output_dir = str(base_output_dir / f"repeat_{repeat:02d}")
+            manifest["repeat_roots"].append(repeat_args.output_dir)
+            failures += command_run(repeat_args)
+        write_json(base_output_dir / "repeat_manifest.json", manifest)
+        print(f"wrote {base_output_dir / 'repeat_manifest.json'}")
+        return 1 if failures else 0
+
     ids = load_split_ids(Path(args.splits), args.split, args.limit)
     jobs = [(document_id, system) for document_id in ids for system in args.systems]
     failures = 0
@@ -529,6 +553,7 @@ def add_common_arguments(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--limit", type=int)
     parser.add_argument("--max-workers", type=int, default=1)
     parser.add_argument("--refresh", action="store_true")
+    parser.add_argument("--repeats", type=int, default=1)
     parser.add_argument("--systems", nargs="+", default=["S4", "S5"], choices=["S4", "S5"])
     parser.add_argument("--tasks", nargs="+", default=list(TASKS), choices=list(TASKS))
     parser.add_argument("--output-dir", default=str(DEFAULT_OUTPUT_DIR))
