@@ -14,11 +14,13 @@ import yaml
 from direct_baselines import (
     build_prompt as build_direct_prompt,
     load_split_ids,
+    normalize_contract_aliases,
     parse_json_response,
     validate_and_score,
     write_json,
     write_text,
 )
+from evaluate import DEFAULT_MARKUP_ROOT, flatten_summary, load_gold, score_document
 from intake import DEFAULT_EXECT_ROOT, DEFAULT_SPLITS, preprocess_document
 from model_providers import ModelRequest, adapter_for, write_response_log
 from model_registry import DEFAULT_REGISTRY, load_model_specs, write_registry_snapshot
@@ -27,6 +29,8 @@ from validate_extraction import DEFAULT_SCHEMA
 
 DEFAULT_HARNESS_MATRIX = Path("configs/harness_matrix.yaml")
 DEFAULT_OUTPUT_DIR = Path("runs/model_expansion/stage_a_smoke")
+DEFAULT_STAGE_B_OUTPUT_DIR = Path("runs/model_expansion/stage_b_dev_pilot")
+BENCHMARK_METRICS = ["medication_name_f1", "seizure_type_f1", "epilepsy_diagnosis_accuracy"]
 
 
 def load_harnesses(path: Path) -> dict[str, dict[str, Any]]:
@@ -117,6 +121,26 @@ def run_one(args: argparse.Namespace, model_label: str, harness_id: str, documen
     parse = parse_json_response(response.text)
     scores = None
     if harness_id == "H0_strict_canonical" and parse.data is not None:
+        parse.data = normalize_contract_aliases(parse.data, document_id, f"D0_{harness_id}")
+        metadata = parse.data.setdefault("metadata", {}) if isinstance(parse.data, dict) else {}
+        if isinstance(metadata, dict):
+            metadata.update(
+                {
+                    "model": spec.provider_model_id,
+                    "model_label": model_label,
+                    "provider": spec.provider,
+                    "harness_id": harness_id,
+                    "latency_ms": response.latency_ms,
+                    "input_tokens": response.token_usage.input_tokens,
+                    "output_tokens": response.token_usage.output_tokens,
+                    "cache_read_tokens": response.token_usage.cache_read_tokens,
+                    "cache_write_tokens": response.token_usage.cache_write_tokens,
+                    "estimated_cost_usd": response.estimated_cost.get("total"),
+                    "pricing_snapshot_date": response.estimated_cost.get("pricing_snapshot_date"),
+                    "repair_attempted": parse.repair_attempted,
+                    "repair_succeeded": parse.repair_succeeded,
+                }
+            )
         scores = validate_and_score(parse.data, document["text"], Path(args.schema), require_present_evidence=True)
         write_json(run_root / "canonical.json", parse.data)
 
@@ -197,6 +221,232 @@ def command_stage_a(args: argparse.Namespace) -> int:
     return 1 if failures and not args.allow_unavailable else 0
 
 
+def read_csv(path: Path) -> list[dict[str, str]]:
+    with path.open("r", encoding="utf-8", newline="") as handle:
+        return list(csv.DictReader(handle))
+
+
+def to_float(value: Any) -> float | None:
+    if value in {None, ""}:
+        return None
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return None
+
+
+def mean_present(values: list[float | None]) -> float | None:
+    present = [value for value in values if value is not None]
+    return sum(present) / len(present) if present else None
+
+
+def system_for_harness(harness_id: str) -> str:
+    return {
+        "H0_strict_canonical": "D0",
+        "H2_task_specific": "D1",
+        "H3_loose_answer_then_parse": "D2",
+    }.get(harness_id, harness_id)
+
+
+def score_stage_b_canonical(
+    stage_a_dir: Path,
+    rows: list[dict[str, str]],
+    exect_root: Path,
+    markup_root: Path,
+    schema_path: Path,
+) -> dict[tuple[str, str], dict[str, Any]]:
+    gold = load_gold(markup_root, exect_root)
+    by_pair: dict[tuple[str, str], list[dict[str, Any]]] = {}
+    for row in rows:
+        if row.get("harness_id") != "H0_strict_canonical":
+            continue
+        document_id = row["document_id"]
+        canonical_path = stage_a_dir / row["model_label"] / row["harness_id"] / document_id / "canonical.json"
+        data = json.loads(canonical_path.read_text(encoding="utf-8")) if canonical_path.exists() else None
+        source_text = preprocess_document(document_id, exect_root)["text"]
+        by_pair.setdefault((row["model_label"], row["harness_id"]), []).append(
+            score_document(data, source_text, gold[document_id], schema_path)
+        )
+    return {pair: flatten_summary(f"{pair[0]}:{pair[1]}", scores) for pair, scores in by_pair.items()}
+
+
+def summarize_stage_b_rows(
+    rows: list[dict[str, str]],
+    canonical_scores: dict[tuple[str, str], dict[str, Any]],
+) -> list[dict[str, Any]]:
+    grouped: dict[tuple[str, str], list[dict[str, str]]] = {}
+    for row in rows:
+        grouped.setdefault((row["model_label"], row["harness_id"]), []).append(row)
+
+    summaries = []
+    for (model_label, harness_id), pair_rows in sorted(grouped.items()):
+        status_success = sum(1 for row in pair_rows if row.get("status") == "success")
+        parse_success = sum(1 for row in pair_rows if row.get("parse_success") == "True")
+        repair_attempted = sum(1 for row in pair_rows if row.get("repair_attempted") == "True")
+        repair_succeeded = sum(1 for row in pair_rows if row.get("repair_succeeded") == "True")
+        scored = canonical_scores.get((model_label, harness_id), {})
+        benchmark_values = [to_float(scored.get(metric)) for metric in BENCHMARK_METRICS]
+        benchmark_quality = mean_present(benchmark_values)
+        mean_cost = mean_present([to_float(row.get("estimated_cost")) for row in pair_rows])
+        summary = {
+            "model_label": model_label,
+            "provider": pair_rows[0].get("provider"),
+            "provider_model_id": pair_rows[0].get("provider_model_id"),
+            "system": system_for_harness(harness_id),
+            "harness_id": harness_id,
+            "documents": len(pair_rows),
+            "successful_calls": status_success,
+            "call_success_rate": status_success / len(pair_rows) if pair_rows else 0.0,
+            "parse_success_rate": parse_success / len(pair_rows) if pair_rows else 0.0,
+            "repair_attempt_rate": repair_attempted / len(pair_rows) if pair_rows else 0.0,
+            "repair_success_rate": repair_succeeded / repair_attempted if repair_attempted else 1.0,
+            "schema_valid_rate": scored.get("schema_valid_rate"),
+            "quote_presence_rate": scored.get("quote_presence_rate"),
+            "quote_validity_rate": scored.get("quote_validity_rate"),
+            "temporal_accuracy": scored.get("temporal_accuracy"),
+            "medication_name_f1": scored.get("medication_name_f1"),
+            "seizure_type_f1": scored.get("seizure_type_f1"),
+            "epilepsy_diagnosis_accuracy": scored.get("epilepsy_diagnosis_accuracy"),
+            "benchmark_quality": benchmark_quality,
+            "mean_latency_ms": mean_present([to_float(row.get("latency_ms")) for row in pair_rows]),
+            "latency_p50_ms": percentile([value for value in [to_float(row.get("latency_ms")) for row in pair_rows] if value is not None], 0.50),
+            "latency_p95_ms": percentile([value for value in [to_float(row.get("latency_ms")) for row in pair_rows] if value is not None], 0.95),
+            "mean_input_tokens": mean_present([to_float(row.get("input_tokens")) for row in pair_rows]),
+            "mean_output_tokens": mean_present([to_float(row.get("output_tokens")) for row in pair_rows]),
+            "mean_estimated_cost_usd": mean_cost,
+            "cost_per_benchmark_quality_point": (mean_cost / benchmark_quality) if mean_cost is not None and benchmark_quality else None,
+            "scoring_status": "canonical_scored" if scored else "parser_only_until_canonical_projection",
+        }
+        summaries.append(summary)
+    return summaries
+
+
+def percentile(values: list[float], pct: float) -> float | None:
+    if not values:
+        return None
+    if len(values) == 1:
+        return values[0]
+    ordered = sorted(values)
+    position = (len(ordered) - 1) * pct
+    lower = int(position)
+    upper = min(lower + 1, len(ordered) - 1)
+    fraction = position - lower
+    return ordered[lower] * (1 - fraction) + ordered[upper] * fraction
+
+
+def cost_frontier(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    candidates = [
+        row
+        for row in rows
+        if isinstance(row.get("benchmark_quality"), (int, float))
+        and isinstance(row.get("mean_estimated_cost_usd"), (int, float))
+    ]
+    frontier = []
+    for row in candidates:
+        dominated = any(
+            other is not row
+            and other["benchmark_quality"] >= row["benchmark_quality"]
+            and other["mean_estimated_cost_usd"] <= row["mean_estimated_cost_usd"]
+            and (
+                other["benchmark_quality"] > row["benchmark_quality"]
+                or other["mean_estimated_cost_usd"] < row["mean_estimated_cost_usd"]
+            )
+            for other in candidates
+        )
+        if not dominated:
+            frontier.append({**row, "frontier_reason": "not_dominated_on_quality_and_cost"})
+    return sorted(frontier, key=lambda row: (row["mean_estimated_cost_usd"], -row["benchmark_quality"]))
+
+
+def promotion_decision(rows: list[dict[str, Any]], frontier_rows: list[dict[str, Any]], split: str) -> str:
+    scored_rows = [row for row in rows if row["scoring_status"] == "canonical_scored"]
+    baseline = next((row for row in scored_rows if row["model_label"] == "gpt_4_1_mini_baseline"), None)
+    baseline_quality = to_float((baseline or {}).get("benchmark_quality")) or 0.0
+    promoted = [
+        row
+        for row in frontier_rows
+        if (to_float(row.get("benchmark_quality")) or 0.0) >= baseline_quality
+        and (to_float(row.get("parse_success_rate")) or 0.0) >= 0.9
+        and (to_float(row.get("schema_valid_rate")) or 0.0) >= 0.9
+    ]
+    cheapest = min(scored_rows, key=lambda row: to_float(row.get("mean_estimated_cost_usd")) or float("inf"), default=None)
+    retained_baseline = baseline or cheapest
+
+    lines = [
+        "# Stage B Development Pilot Promotion Decision",
+        "",
+        f"Split: `{split}`",
+        "",
+        "## Summary",
+        "",
+        f"- Scored canonical pairs: {len(scored_rows)}",
+        f"- Cost-effectiveness frontier pairs: {len(frontier_rows)}",
+        f"- Baseline benchmark quality: {baseline_quality:.4f}",
+        f"- Retained cheap baseline: `{retained_baseline['model_label']}` / `{retained_baseline['harness_id']}`"
+        if retained_baseline
+        else "- Retained cheap baseline: none",
+        "",
+        "## Promoted Pairs",
+        "",
+    ]
+    if promoted:
+        for row in promoted:
+            lines.append(
+                "- "
+                + f"`{row['model_label']}` / `{row['harness_id']}` "
+                + f"(quality={to_float(row.get('benchmark_quality')) or 0.0:.4f}, "
+                + f"mean_cost_usd={to_float(row.get('mean_estimated_cost_usd')) or 0.0:.8f})"
+            )
+    else:
+        lines.append("- None; no scored pair passed the promotion gate.")
+    lines.extend(
+        [
+            "",
+            "## Gate Notes",
+            "",
+            "- `H2_task_specific` and `H3_loose_answer_then_parse` are tracked for call and parse stability, but remain parser-only until a deterministic canonical projection is added.",
+            "- Promotion requires call/parse stability, canonical schema validity, and non-dominance on cost versus benchmark-quality when cost is available.",
+        ]
+    )
+    return "\n".join(lines) + "\n"
+
+
+def command_stage_b(args: argparse.Namespace) -> int:
+    stage_a_dir = Path(args.stage_a_dir)
+    report_path = stage_a_dir / "provider_call_report.csv"
+    if not report_path.exists():
+        raise FileNotFoundError(f"Stage A provider report not found: {report_path}")
+    rows = read_csv(report_path)
+    canonical_scores = score_stage_b_canonical(
+        stage_a_dir,
+        rows,
+        Path(args.exect_root),
+        Path(args.markup_root),
+        Path(args.schema),
+    )
+    summaries = summarize_stage_b_rows(rows, canonical_scores)
+    frontier = cost_frontier(summaries)
+    output_dir = Path(args.output_dir)
+    write_csv(output_dir / "comparison_table.csv", summaries)
+    write_csv(output_dir / "cost_effectiveness_frontier.csv", frontier)
+    (output_dir / "promotion_decision.md").parent.mkdir(parents=True, exist_ok=True)
+    (output_dir / "promotion_decision.md").write_text(
+        promotion_decision(summaries, frontier, args.split),
+        encoding="utf-8",
+    )
+    manifest = {
+        "stage": "stage_b_dev_pilot",
+        "source_stage_a_dir": str(stage_a_dir),
+        "split": args.split,
+        "comparison_table": str(output_dir / "comparison_table.csv"),
+        "cost_effectiveness_frontier": str(output_dir / "cost_effectiveness_frontier.csv"),
+        "promotion_decision": str(output_dir / "promotion_decision.md"),
+    }
+    write_json(output_dir / "stage_b_manifest.json", manifest)
+    print(f"wrote Stage B comparison for {len(summaries)} model/harness pairs")
+    return 0
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -217,6 +467,18 @@ def main() -> int:
     stage_a.add_argument("--allow-unavailable", action="store_true", help="Exit zero even if providers are unavailable.")
     stage_a.add_argument("--output-dir", default=str(DEFAULT_OUTPUT_DIR))
     stage_a.set_defaults(func=command_stage_a)
+
+    stage_b = subparsers.add_parser(
+        "stage-b-dev-pilot",
+        help="Summarize a Stage A/dev-pilot run into comparison, frontier, and promotion artifacts.",
+    )
+    stage_b.add_argument("--stage-a-dir", default=str(DEFAULT_OUTPUT_DIR))
+    stage_b.add_argument("--output-dir", default=str(DEFAULT_STAGE_B_OUTPUT_DIR))
+    stage_b.add_argument("--exect-root", default=str(DEFAULT_EXECT_ROOT))
+    stage_b.add_argument("--markup-root", default=str(DEFAULT_MARKUP_ROOT))
+    stage_b.add_argument("--schema", default=str(DEFAULT_SCHEMA))
+    stage_b.add_argument("--split", default="development", choices=["development", "validation", "test"])
+    stage_b.set_defaults(func=command_stage_b)
 
     args = parser.parse_args()
     return args.func(args)

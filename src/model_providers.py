@@ -40,6 +40,8 @@ class ModelResponse:
     provider: str
     model_label: str
     model_id: str
+    harness_id: str
+    schema_mode: str | None
     text: str
     parsed: Any | None
     token_usage: TokenUsage
@@ -49,6 +51,7 @@ class ModelResponse:
     provider_metadata: dict[str, Any]
     raw_response_path: str | None
     estimated_cost: dict[str, Any]
+    request_metadata: dict[str, Any]
     error: str | None = None
 
 
@@ -72,6 +75,8 @@ class ProviderAdapter:
             provider=self.provider,
             model_label=request.model.label,
             model_id=request.model.provider_model_id,
+            harness_id=request.harness_id,
+            schema_mode=request.schema_mode,
             text=text,
             parsed=None,
             token_usage=usage or TokenUsage(),
@@ -81,6 +86,7 @@ class ProviderAdapter:
             provider_metadata=provider_metadata or {},
             raw_response_path=None,
             estimated_cost=estimate_cost(request.model, usage or TokenUsage()),
+            request_metadata=request.metadata,
             error=error,
         )
 

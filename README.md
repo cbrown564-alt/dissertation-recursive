@@ -146,6 +146,21 @@ Start with a smoke check:
   --run-root runs/final_validation_smoke
 ```
 
+For the powerful-model expansion path, run Stage A with stub calls first, then
+build the Stage B pilot decision artifacts from that auditable call report:
+
+```bash
+.venv/bin/python src/model_expansion.py stage-a-smoke \
+  --stub-calls \
+  --allow-unavailable \
+  --limit 2 \
+  --output-dir runs/model_expansion/stage_a_smoke
+
+.venv/bin/python src/model_expansion.py stage-b-dev-pilot \
+  --stage-a-dir runs/model_expansion/stage_a_smoke \
+  --output-dir runs/model_expansion/stage_b_dev_pilot
+```
+
 Then run the primary validation chain:
 
 ```bash
