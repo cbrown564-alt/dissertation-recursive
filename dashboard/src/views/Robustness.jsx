@@ -1,4 +1,5 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
+import { ChevronDown, ChevronRight } from "lucide-react";
 import { AppContext } from "../context.js";
 import { pct, shortPert } from "../utils.js";
 
@@ -41,10 +42,10 @@ const PERT_CATALOG = {
 };
 
 const CATEGORY_COLORS = {
-  format:   "#1d4ed8",
-  clinical: "#047857",
-  temporal: "#b45309",
-  negation: "#7c3aed",
+  format:    "#1d4ed8",
+  clinical:  "#047857",
+  temporal:  "#b45309",
+  negation:  "#7c3aed",
   structure: "#0f766e",
 };
 
@@ -59,6 +60,8 @@ function DeltaCell({ value }) {
 
 export default function Robustness() {
   const { data, systems } = useContext(AppContext);
+  const [catalogOpen, setCatalogOpen] = useState(true);
+
   const rows = data.robustness || [];
   const hasData = rows.some((r) =>
     systems.some((s) => r.values?.[s.id] !== null && r.values?.[s.id] !== undefined)
@@ -77,106 +80,107 @@ export default function Robustness() {
         Field accuracy degradation under label-preserving perturbations
       </p>
 
-      {!hasData && (
-        <div
-          style={{
-            padding: "24px 0",
-            fontFamily: "var(--mono)",
-            fontSize: 12,
-            color: "var(--muted)",
-            lineHeight: 1.8,
-          }}
-        >
-          <p>no matched clean baselines available</p>
-          <p style={{ color: "var(--dim)", marginTop: 6 }}>
-            run final matched evaluation to populate degradation deltas — smoke artifacts do not
-            contain clean/perturbed baseline pairs
-          </p>
-          <p style={{ marginTop: 10, color: "var(--dim)" }}>
-            missing artifact:{" "}
-            <code
-              style={{
-                background: "var(--raised)",
-                padding: "2px 7px",
-                borderRadius: 4,
-                color: "var(--muted)",
-              }}
+      <div className="robust-layout">
+        {/* ── Left: definitions ───────────────────────────── */}
+        <div className="robust-defs-col">
+          <div className="panel" style={{ padding: 0, overflow: "hidden" }}>
+            <button
+              className="robust-defs-toggle"
+              onClick={() => setCatalogOpen((o) => !o)}
             >
-              robustness/label_preserving_degradation.csv
-            </code>
-          </p>
-        </div>
-      )}
+              <span className="panel-title" style={{ fontSize: 12 }}>Perturbation Definitions</span>
+              {catalogOpen
+                ? <ChevronDown size={14} style={{ color: "var(--muted)" }} />
+                : <ChevronRight size={14} style={{ color: "var(--muted)" }} />
+              }
+            </button>
 
-      <div className="pert-catalog">
-        {catalogRows.map(({ id, label, category, desc, dataRow }) => {
-          const catColor = CATEGORY_COLORS[category] || "var(--muted)";
-          return (
-            <div key={id} className="pert-row">
-              <div>
-                <div className="pert-meta" style={{ marginBottom: 6 }}>
-                  <span className="pert-tag" style={{ background: catColor + "18", color: catColor }}>
-                    {category}
-                  </span>
-                  <span className="pert-name">{label}</span>
-                </div>
-                <p className="pert-desc">{desc}</p>
-              </div>
-              <div className="pert-deltas">
-                {systems.map((s) => {
-                  const v = dataRow?.values?.[s.id];
-                  const missing = v === null || v === undefined || isNaN(Number(v));
-                  const n = Number(v);
-                  const cls = missing ? "delta-zero" : n < -0.005 ? "delta-neg" : n > 0.005 ? "delta-pos" : "delta-zero";
+            {catalogOpen && (
+              <div className="robust-defs-body">
+                {catalogRows.map(({ id, label, category, desc }) => {
+                  const catColor = CATEGORY_COLORS[category] || "var(--muted)";
                   return (
-                    <div key={s.id} className="pert-delta-row">
-                      <span className="pert-delta-sys" style={{ color: s.color, fontSize: 10, fontFamily: "var(--mono)" }}>
-                        {s.id}
-                      </span>
-                      <span className={`pert-delta-val ${cls}`} style={{ fontFamily: "var(--mono)", fontSize: 11 }}>
-                        {missing ? "—" : pct(n, { signed: true })}
-                      </span>
+                    <div key={id} className="robust-def-item">
+                      <div className="robust-def-head">
+                        <span
+                          className="pert-tag"
+                          style={{ background: catColor + "18", color: catColor }}
+                        >
+                          {category}
+                        </span>
+                        <span className="pert-name">{label}</span>
+                      </div>
+                      <p className="pert-desc">{desc}</p>
                     </div>
                   );
                 })}
               </div>
-            </div>
-          );
-        })}
-      </div>
-
-      {rows.length > 0 && (
-        <div className="panel" style={{ marginTop: 20 }}>
-          <div className="panel-head">
-            <span className="panel-title">Degradation by Perturbation Type</span>
-            <span className="panel-note">delta vs clean baseline</span>
-          </div>
-          <div style={{ overflowX: "auto" }}>
-            <table className="robust-table">
-              <thead>
-                <tr>
-                  <th>Perturbation</th>
-                  {systems.map((s) => (
-                    <th key={s.id} style={{ color: s.color }}>
-                      {s.id}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {rows.map((row) => (
-                  <tr key={row.perturbation}>
-                    <td>{shortPert(row.perturbation)}</td>
-                    {systems.map((s) => (
-                      <DeltaCell key={s.id} value={row.values?.[s.id]} />
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            )}
           </div>
         </div>
-      )}
+
+        {/* ── Right: table ─────────────────────────────────── */}
+        <div className="robust-table-col">
+          {!hasData && (
+            <div className="panel" style={{ fontFamily: "var(--mono)", fontSize: 12, color: "var(--muted)", lineHeight: 1.8 }}>
+              <p>no matched clean baselines available</p>
+              <p style={{ color: "var(--dim)", marginTop: 6 }}>
+                run final matched evaluation to populate degradation deltas — smoke artifacts do not
+                contain clean/perturbed baseline pairs
+              </p>
+              <p style={{ marginTop: 10, color: "var(--dim)" }}>
+                missing artifact:{" "}
+                <code style={{ background: "var(--raised)", padding: "2px 7px", borderRadius: 4, color: "var(--muted)" }}>
+                  robustness/label_preserving_degradation.csv
+                </code>
+              </p>
+            </div>
+          )}
+
+          <div className="panel" style={{ padding: 0, overflow: "hidden" }}>
+            <div className="panel-head" style={{ padding: "12px 16px" }}>
+              <span className="panel-title">Degradation by Perturbation</span>
+              <span className="panel-note">delta vs clean baseline</span>
+            </div>
+            <div style={{ overflowX: "auto" }}>
+              <table className="robust-table">
+                <thead>
+                  <tr>
+                    <th>Perturbation</th>
+                    {systems.map((s) => (
+                      <th key={s.id} style={{ color: s.color }}>{s.id}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {allPerts.map((id) => {
+                    const dataRow = rows.find((r) => r.perturbation === id);
+                    const { label } = PERT_CATALOG[id];
+                    return (
+                      <tr key={id}>
+                        <td style={{ fontWeight: 500 }}>{label}</td>
+                        {systems.map((s) => (
+                          <DeltaCell key={s.id} value={dataRow?.values?.[s.id]} />
+                        ))}
+                      </tr>
+                    );
+                  })}
+                  {rows
+                    .filter((r) => !PERT_CATALOG[r.perturbation])
+                    .map((row) => (
+                      <tr key={row.perturbation}>
+                        <td>{shortPert(row.perturbation)}</td>
+                        {systems.map((s) => (
+                          <DeltaCell key={s.id} value={row.values?.[s.id]} />
+                        ))}
+                      </tr>
+                    ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
