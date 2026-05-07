@@ -26,6 +26,9 @@ The current proposal is [proposal_tight.md](proposal_tight.md). It narrows the p
 - [Dashboard JSON Schema](schemas/dashboard_data.schema.json) - stable dashboard bundle contract with missingness reasons and artifact metadata.
 - [Dashboard product plan](docs/16_dashboard_product_plan.md) - current prototype status, intended full dashboard workflow, and prioritized future work.
 - [Experiment roadmap](docs/17_experiment_roadmap.md) - how to use the completed implementation to produce final dissertation evidence.
+- [Performance recovery roadmap](docs/18_performance_recovery_roadmap.md) - benchmark recovery plan after weak initial final results.
+- [Benchmark crosswalk](docs/19_benchmark_crosswalk.md) - Fang et al. benchmark mapping to local fields and metrics.
+- [Powerful model expansion roadmap](docs/20_powerful_model_expansion_roadmap.md) - cost-aware plan for testing stronger models and looser harnesses.
 
 ## Milestone 1 Exit Check
 
@@ -127,10 +130,12 @@ for the intended full design and backlog.
 
 ## Current Priority
 
-Implementation is complete. The current priority is to follow the
-[experiment roadmap](docs/17_experiment_roadmap.md): freeze development choices,
-run matched validation artifacts, interpret robustness and secondary analyses,
-then run the held-out final test once.
+Implementation is complete, and the first final results are now a baseline
+observation rather than the end of the project. The current priority is to use
+the [performance recovery roadmap](docs/18_performance_recovery_roadmap.md)
+and the [powerful model expansion roadmap](docs/20_powerful_model_expansion_roadmap.md)
+to test whether stronger models, improved scoring/normalization, and looser
+harness contracts can reach benchmark-level performance at an acceptable cost.
 
 Start with a smoke check:
 

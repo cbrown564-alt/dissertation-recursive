@@ -1,7 +1,9 @@
 # Robustness Tests
 
-Milestone 6 adds a perturbation harness for stress-testing S2, E2, and E3 on
-modified clinic letters.
+Milestone 6 added a perturbation harness for stress-testing S2, E2, and E3 on
+modified clinic letters. Phase 7 extends the same harness into the recovery
+robustness gate for comparing S2 with recovered candidates such as S4, S5, E4,
+and E5.
 
 ## Scope
 
@@ -22,7 +24,10 @@ The ExECTv2 label-preserving set currently covers:
 - historical medication traps,
 - planned medication traps,
 - family-history seizure-frequency traps,
-- negated investigation traps.
+- negated investigation traps,
+- historical seizure-free wording,
+- vague seizure-frequency wording,
+- mixed semiology and seizure-type wording.
 
 The label-changing ExECTv2 set currently covers:
 
@@ -50,7 +55,7 @@ Run the selected systems over the generated corpus:
 ```bash
 .venv/bin/python src/robustness.py run-systems \
   --provider stub \
-  --systems S2 E2 E3 \
+  --systems S2 S4 \
   --output-dir runs/robustness
 ```
 
@@ -58,8 +63,11 @@ Evaluate robustness outputs:
 
 ```bash
 .venv/bin/python src/robustness.py evaluate \
-  --systems S2 E2 E3 \
+  --systems S2 S4 \
+  --winning-system S4 \
   --clean-direct-run-dir runs/direct_baselines \
+  --clean-recovery-run-dir runs/recovery/phase4_prompt_contract \
+  --clean-comparison-table runs/recovery/validation_cycle_01/comparison_table.csv \
   --clean-event-run-dir runs/event_first \
   --output-dir runs/robustness
 ```
@@ -78,6 +86,11 @@ For real model runs, replace `--provider stub` with `--provider openai` and set
   metrics by system and perturbation type.
 - `label_changing_validity.json`: validity-only records for label-changing
   stress cases.
+- `challenge_validity.json`: Phase 7 challenge-case bundle separating scored
+  label-preserving traps from label-changing validity checks.
+- `robustness_decision.md`: gate decision comparing the winning candidate with
+  S2 on label-preserving degradation, with clean-validation gain available as a
+  documented override.
 - `gan_frequency_scores.json`: per-document Gan seizure-frequency scores.
 - `gan_frequency_summary.csv`: Gan frequency accuracy by system and
   perturbation type.

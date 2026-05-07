@@ -24,14 +24,29 @@ from evaluate import (
     score_document,
 )
 from intake import DEFAULT_EXECT_ROOT, DEFAULT_SPLITS, document_ids, read_text
+from recovery_experiments import TASKS, command_run_recovery_prompts
 from validate_extraction import DEFAULT_SCHEMA, check_quote_validity, validate_extraction
 
 
 DEFAULT_OUTPUT_DIR = Path("runs/robustness")
+DEFAULT_RECOVERY_RUN_DIR = Path("runs/recovery/phase4_prompt_contract")
 DEFAULT_GAN_PATH = Path("data/Gan (2026)/synthetic_data_subset_1500.json")
 LABEL_PRESERVING = "label_preserving"
 LABEL_CHANGING = "label_changing"
 GAN_FREQUENCY = "gan_frequency"
+DIRECT_SYSTEMS = {"S2"}
+EVENT_SYSTEMS = {"E2", "E3", "E4", "E5"}
+RECOVERY_PROMPT_SYSTEMS = {"S4", "S5"}
+SUPPORTED_SYSTEMS = sorted(DIRECT_SYSTEMS | EVENT_SYSTEMS | RECOVERY_PROMPT_SYSTEMS)
+STRUCTURAL_PERTURBATIONS = {"reordered_sections", "removed_headings", "bullets_to_prose"}
+PRIMARY_DEGRADATION_METRICS = [
+    "medication_name_f1",
+    "medication_full_f1",
+    "seizure_type_f1",
+    "current_seizure_frequency_accuracy",
+    "seizure_frequency_type_linkage_accuracy",
+    "epilepsy_diagnosis_accuracy",
+]
 
 
 @dataclass(frozen=True)
@@ -136,6 +151,33 @@ def add_current_seizure_free_contrast(text: str, _: str) -> str:
     return text.rstrip() + replacement + "\n"
 
 
+def add_historical_seizure_free_trap(text: str, _: str) -> str:
+    trap = (
+        "\n\nHistorical seizure-free wording: An earlier clinic letter described a "
+        "seizure-free interval, but this sentence is historical and should not replace "
+        "the current seizure frequency documented in this letter."
+    )
+    return text.rstrip() + trap + "\n"
+
+
+def add_vague_frequency_trap(text: str, _: str) -> str:
+    trap = (
+        "\n\nVague frequency note: The family sometimes uses phrases such as occasional "
+        "or now and again, but the current seizure frequency should be taken only from "
+        "the explicit current statement elsewhere in this letter."
+    )
+    return text.rstrip() + trap + "\n"
+
+
+def add_mixed_semiology_type_trap(text: str, _: str) -> str:
+    trap = (
+        "\n\nSemiology wording note: The phrase focal twitching is used descriptively "
+        "here and is not a new seizure-type diagnosis unless the letter explicitly "
+        "labels it as a seizure type."
+    )
+    return text.rstrip() + trap + "\n"
+
+
 def add_requested_mri_contrast(text: str, _: str) -> str:
     replacement = (
         "\n\nUpdated investigation plan: MRI brain has been requested and is pending; "
@@ -193,6 +235,27 @@ EXECT_PERTURBATIONS = [
         "exectv2",
         "Add a negated abnormal MRI statement.",
         add_negated_investigation,
+    ),
+    Perturbation(
+        "historical_seizure_free_trap",
+        LABEL_PRESERVING,
+        "exectv2",
+        "Add historical seizure-free language that should not replace current frequency labels.",
+        add_historical_seizure_free_trap,
+    ),
+    Perturbation(
+        "vague_frequency_trap",
+        LABEL_PRESERVING,
+        "exectv2",
+        "Add vague seizure-frequency language that should not replace explicit current frequency labels.",
+        add_vague_frequency_trap,
+    ),
+    Perturbation(
+        "mixed_semiology_type_trap",
+        LABEL_PRESERVING,
+        "exectv2",
+        "Add mixed semiology and seizure-type wording that should not create a new type label.",
+        add_mixed_semiology_type_trap,
     ),
     Perturbation(
         "current_seizure_free_contrast",
@@ -377,69 +440,102 @@ def run_command(command: list[str]) -> int:
     return completed.returncode
 
 
+def event_pipelines_for_systems(systems: list[str]) -> list[str]:
+    pipelines = ["E1"]
+    if any(system in systems for system in ["E2", "E4"]):
+        pipelines.append("E2")
+    if any(system in systems for system in ["E3", "E5"]):
+        pipelines.append("E3")
+    return pipelines
+
+
 def command_run_systems(args: argparse.Namespace) -> int:
     output_dir = Path(args.output_dir)
     corpus_dir = output_dir / "corpus"
     splits = output_dir / "splits.json"
     record_count = len(load_manifest(output_dir / "perturbation_manifest.json"))
     failures = 0
-    if "S2" in args.systems:
+    direct_systems = [system for system in args.systems if system in DIRECT_SYSTEMS]
+    if direct_systems:
         failures += int(
             run_command(
-            [
-                sys.executable,
-                "src/direct_baselines.py",
-                "run",
-                "--provider",
-                args.provider,
-                "--model",
-                args.model,
-                "--exect-root",
-                str(corpus_dir),
-                "--splits",
-                str(splits),
-                "--split",
-                "development",
-                "--limit",
-                str(record_count),
-                "--baselines",
-                "S2",
-                "--max-workers",
-                str(args.max_workers),
-                "--output-dir",
-                str(output_dir / "direct_baselines"),
-            ]
+                [
+                    sys.executable,
+                    "src/direct_baselines.py",
+                    "run",
+                    "--provider",
+                    args.provider,
+                    "--model",
+                    args.model,
+                    "--exect-root",
+                    str(corpus_dir),
+                    "--splits",
+                    str(splits),
+                    "--split",
+                    "development",
+                    "--limit",
+                    str(record_count),
+                    "--baselines",
+                    *direct_systems,
+                    "--max-workers",
+                    str(args.max_workers),
+                    "--output-dir",
+                    str(output_dir / "direct_baselines"),
+                ]
             )
             != 0
         )
-    event_systems = [system for system in args.systems if system in {"E2", "E3"}]
+    event_systems = [system for system in args.systems if system in EVENT_SYSTEMS]
     if event_systems:
         failures += int(
             run_command(
-            [
-                sys.executable,
-                "src/event_first.py",
-                "run",
-                "--provider",
-                args.provider,
-                "--model",
-                args.model,
-                "--exect-root",
-                str(corpus_dir),
-                "--splits",
-                str(splits),
-                "--split",
-                "development",
-                "--limit",
-                str(record_count),
-                "--pipelines",
-                "E1",
-                *event_systems,
-                "--max-workers",
-                str(args.max_workers),
-                "--output-dir",
-                str(output_dir / "event_first"),
-            ]
+                [
+                    sys.executable,
+                    "src/event_first.py",
+                    "run",
+                    "--provider",
+                    args.provider,
+                    "--model",
+                    args.model,
+                    "--exect-root",
+                    str(corpus_dir),
+                    "--splits",
+                    str(splits),
+                    "--split",
+                    "development",
+                    "--limit",
+                    str(record_count),
+                    "--pipelines",
+                    *event_pipelines_for_systems(event_systems),
+                    "--max-workers",
+                    str(args.max_workers),
+                    "--output-dir",
+                    str(output_dir / "event_first"),
+                ]
+            )
+            != 0
+        )
+    prompt_systems = [system for system in args.systems if system in RECOVERY_PROMPT_SYSTEMS]
+    if prompt_systems:
+        failures += int(
+            command_run_recovery_prompts(
+                argparse.Namespace(
+                    exect_root=str(corpus_dir),
+                    splits=str(splits),
+                    schema=args.schema,
+                    split="development",
+                    limit=None,
+                    max_workers=args.max_workers,
+                    refresh=args.refresh,
+                    repeats=1,
+                    systems=prompt_systems,
+                    tasks=list(TASKS),
+                    output_dir=str(output_dir / "recovery_prompts"),
+                    provider=args.provider,
+                    model=args.model,
+                    temperature=args.temperature,
+                    repeat_index=1,
+                )
             )
             != 0
         )
@@ -448,23 +544,54 @@ def command_run_systems(args: argparse.Namespace) -> int:
     return 0
 
 
+def first_existing_path(paths: list[Path]) -> Path:
+    for path in paths:
+        if path.exists():
+            return path
+    return paths[0]
+
+
 def perturbed_extraction_path(system: str, document_id: str, output_dir: Path) -> Path:
     if system == "S2":
         return output_dir / "direct_baselines" / "S2" / document_id / "canonical.json"
-    if system == "E2":
-        return output_dir / "event_first" / document_id / "e2_canonical.json"
-    if system == "E3":
-        return output_dir / "event_first" / document_id / "e3_canonical.json"
+    if system in {"S4", "S5"}:
+        return output_dir / "recovery_prompts" / system / document_id / "canonical.json"
+    if system in {"E2", "E4"}:
+        return first_existing_path(
+            [
+                output_dir / "event_first" / document_id / "e4_canonical.json",
+                output_dir / "event_first" / document_id / "e2_canonical.json",
+            ]
+        )
+    if system in {"E3", "E5"}:
+        return first_existing_path(
+            [
+                output_dir / "event_first" / document_id / "e5_canonical.json",
+                output_dir / "event_first" / document_id / "e3_canonical.json",
+            ]
+        )
     raise ValueError(f"unsupported system: {system}")
 
 
 def clean_extraction_path(system: str, source_document_id: str, args: argparse.Namespace) -> Path:
     if system == "S2":
         return Path(args.clean_direct_run_dir) / "S2" / source_document_id / "canonical.json"
-    if system == "E2":
-        return Path(args.clean_event_run_dir) / source_document_id / "e2_canonical.json"
-    if system == "E3":
-        return Path(args.clean_event_run_dir) / source_document_id / "e3_canonical.json"
+    if system in {"S4", "S5"}:
+        return Path(args.clean_recovery_run_dir) / system / source_document_id / "canonical.json"
+    if system in {"E2", "E4"}:
+        return first_existing_path(
+            [
+                Path(args.clean_event_run_dir) / source_document_id / "e4_canonical.json",
+                Path(args.clean_event_run_dir) / source_document_id / "e2_canonical.json",
+            ]
+        )
+    if system in {"E3", "E5"}:
+        return first_existing_path(
+            [
+                Path(args.clean_event_run_dir) / source_document_id / "e5_canonical.json",
+                Path(args.clean_event_run_dir) / source_document_id / "e3_canonical.json",
+            ]
+        )
     raise ValueError(f"unsupported system: {system}")
 
 
@@ -532,6 +659,7 @@ def metric_delta_rows(
     metrics = [
         "schema_valid_rate",
         "quote_validity_rate",
+        "medication_name_f1",
         "medication_full_f1",
         "seizure_type_f1",
         "current_seizure_frequency_accuracy",
@@ -571,6 +699,160 @@ def aggregate_gan_rows(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
             }
         )
     return summaries
+
+
+def challenge_validity_payload(
+    degradation_rows: list[dict[str, Any]],
+    validity_rows: list[dict[str, Any]],
+    gan_rows: list[dict[str, Any]],
+) -> dict[str, Any]:
+    challenge_degradation = [
+        row for row in degradation_rows if row["perturbation_id"] not in STRUCTURAL_PERTURBATIONS
+    ]
+    return {
+        "description": "Phase 7 challenge cases derived from recovery failure modes. Label-preserving rows retain accuracy scoring; label-changing rows are validity checks only.",
+        "label_preserving_challenge_degradation": challenge_degradation,
+        "label_changing_validity": validity_rows,
+        "gan_frequency_validity": aggregate_gan_rows(gan_rows),
+    }
+
+
+def numeric(value: Any) -> float | None:
+    return float(value) if isinstance(value, (int, float)) else None
+
+
+def system_degradation_index(rows: list[dict[str, Any]]) -> dict[tuple[str, str], dict[str, Any]]:
+    return {(row["system"], row["perturbation_id"]): row for row in rows}
+
+
+def compare_candidate_to_baseline(
+    rows: list[dict[str, Any]],
+    baseline: str,
+    candidate: str,
+) -> dict[str, Any]:
+    indexed = system_degradation_index(rows)
+    comparisons = []
+    for perturbation_id in sorted({row["perturbation_id"] for row in rows}):
+        baseline_row = indexed.get((baseline, perturbation_id))
+        candidate_row = indexed.get((candidate, perturbation_id))
+        if not baseline_row or not candidate_row:
+            continue
+        for metric in PRIMARY_DEGRADATION_METRICS:
+            baseline_delta = numeric(baseline_row.get(f"delta_{metric}"))
+            candidate_delta = numeric(candidate_row.get(f"delta_{metric}"))
+            if baseline_delta is None or candidate_delta is None:
+                continue
+            comparisons.append(
+                {
+                    "perturbation_id": perturbation_id,
+                    "metric": metric,
+                    "baseline_delta": baseline_delta,
+                    "candidate_delta": candidate_delta,
+                    "candidate_no_worse": candidate_delta >= baseline_delta,
+                }
+            )
+    passes = sum(1 for item in comparisons if item["candidate_no_worse"])
+    total = len(comparisons)
+    return {
+        "baseline": baseline,
+        "candidate": candidate,
+        "comparisons": comparisons,
+        "no_worse_count": passes,
+        "comparison_count": total,
+        "no_worse_rate": passes / total if total else None,
+    }
+
+
+def clean_validation_gain(comparison_table: Path | None, baseline: str, candidate: str) -> float | None:
+    if comparison_table is None or not comparison_table.exists():
+        return None
+    with comparison_table.open("r", encoding="utf-8", newline="") as handle:
+        rows = list(csv.DictReader(handle))
+    by_system = {row.get("system"): row for row in rows}
+    baseline_row = by_system.get(baseline)
+    candidate_row = by_system.get(candidate)
+    if not baseline_row or not candidate_row:
+        return None
+    deltas = []
+    for metric in PRIMARY_DEGRADATION_METRICS:
+        baseline_value = numeric_value_from_csv(baseline_row.get(metric))
+        candidate_value = numeric_value_from_csv(candidate_row.get(metric))
+        if baseline_value is not None and candidate_value is not None:
+            deltas.append(candidate_value - baseline_value)
+    return sum(deltas) / len(deltas) if deltas else None
+
+
+def numeric_value_from_csv(value: Any) -> float | None:
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return None
+
+
+def render_robustness_decision(
+    output_dir: Path,
+    systems: list[str],
+    degradation_rows: list[dict[str, Any]],
+    validity_rows: list[dict[str, Any]],
+    gan_rows: list[dict[str, Any]],
+    args: argparse.Namespace,
+) -> dict[str, Any]:
+    candidates = [system for system in systems if system != args.baseline]
+    candidate = args.winning_system or (candidates[0] if candidates else None)
+    comparison = compare_candidate_to_baseline(degradation_rows, args.baseline, candidate) if candidate else {}
+    no_worse_rate = comparison.get("no_worse_rate")
+    clean_gain = clean_validation_gain(
+        Path(args.clean_comparison_table) if args.clean_comparison_table else None,
+        args.baseline,
+        candidate,
+    ) if candidate else None
+    large_clean_gain = clean_gain is not None and clean_gain >= args.large_clean_gain
+    enough_robust = no_worse_rate is not None and no_worse_rate > 0.5
+    invalid_label_changing = [
+        row for row in validity_rows
+        if not row.get("available")
+        or not row.get("schema_valid")
+        or (numeric(row.get("quote_validity_rate")) is not None and numeric(row.get("quote_validity_rate")) < args.quote_validity_min)
+    ]
+    gan_summary = aggregate_gan_rows(gan_rows)
+    decision = "pass_robustness_gate" if candidate and (enough_robust or large_clean_gain) and not invalid_label_changing else "continue_recovery_cycle"
+    payload = {
+        "baseline": args.baseline,
+        "candidate": candidate,
+        "decision": decision,
+        "no_worse_rate": no_worse_rate,
+        "clean_validation_gain": clean_gain,
+        "large_clean_gain_threshold": args.large_clean_gain,
+        "quote_validity_min": args.quote_validity_min,
+        "comparison": comparison,
+        "label_changing_invalid_records": invalid_label_changing,
+        "gan_frequency_summary": gan_summary,
+    }
+    write_json(output_dir / "robustness_decision.json", payload)
+    write_text(output_dir / "robustness_decision.md", robustness_decision_markdown(payload))
+    return payload
+
+
+def robustness_decision_markdown(payload: dict[str, Any]) -> str:
+    candidate = payload.get("candidate") or "none"
+    no_worse_rate = payload.get("no_worse_rate")
+    no_worse_text = f"{no_worse_rate:.3f}" if isinstance(no_worse_rate, float) else "unavailable"
+    clean_gain = payload.get("clean_validation_gain")
+    clean_gain_text = f"{clean_gain:.3f}" if isinstance(clean_gain, float) else "not provided"
+    invalid_count = len(payload.get("label_changing_invalid_records", []))
+    lines = [
+        "# Robustness Decision",
+        "",
+        f"- Baseline: `{payload.get('baseline')}`",
+        f"- Candidate: `{candidate}`",
+        f"- Decision: `{payload.get('decision')}`",
+        f"- Label-preserving no-worse rate versus baseline: {no_worse_text}",
+        f"- Mean clean validation gain: {clean_gain_text}",
+        f"- Invalid label-changing challenge outputs: {invalid_count}",
+        "",
+        "Phase 7 treats label-preserving perturbations as scored robustness checks and label-changing perturbations as schema, quote, and validity checks only.",
+    ]
+    return "\n".join(lines) + "\n"
 
 
 def command_evaluate(args: argparse.Namespace) -> int:
@@ -641,20 +923,26 @@ def command_evaluate(args: argparse.Namespace) -> int:
     ]
     write_json(output_dir / "robustness_document_scores.json", document_scores)
     write_json(output_dir / "label_changing_validity.json", validity_rows)
+    write_json(output_dir / "challenge_validity.json", challenge_validity_payload(degradation_rows, validity_rows, gan_rows))
     write_json(output_dir / "gan_frequency_scores.json", gan_rows)
+    decision = render_robustness_decision(output_dir, systems, degradation_rows, validity_rows, gan_rows, args)
     write_json(
         output_dir / "robustness_summary.json",
         {
             "systems": systems,
             "label_preserving_degradation": degradation_rows,
             "label_changing_validity": validity_rows,
+            "challenge_validity": challenge_validity_payload(degradation_rows, validity_rows, gan_rows),
             "gan_frequency_summary": aggregate_gan_rows(gan_rows),
+            "robustness_decision": decision,
         },
     )
     write_csv(output_dir / "label_preserving_degradation.csv", degradation_rows)
     write_csv(output_dir / "gan_frequency_summary.csv", aggregate_gan_rows(gan_rows))
     print(f"wrote {output_dir / 'robustness_summary.json'}")
     print(f"wrote {output_dir / 'label_preserving_degradation.csv'}")
+    print(f"wrote {output_dir / 'challenge_validity.json'}")
+    print(f"wrote {output_dir / 'robustness_decision.md'}")
     return 0
 
 
@@ -682,20 +970,29 @@ def main() -> int:
 
     run_systems = subparsers.add_parser("run-systems", help="Run selected systems on the generated perturbed corpus.")
     run_systems.add_argument("--output-dir", default=str(DEFAULT_OUTPUT_DIR))
-    run_systems.add_argument("--systems", nargs="+", default=["S2", "E2", "E3"], choices=["S2", "E2", "E3"])
+    run_systems.add_argument("--systems", nargs="+", default=["S2", "E2", "E3"], choices=SUPPORTED_SYSTEMS)
     run_systems.add_argument("--provider", default="stub", choices=["stub", "openai"])
     run_systems.add_argument("--model", default="gpt-4.1-mini")
+    run_systems.add_argument("--temperature", type=float, default=0.0)
+    run_systems.add_argument("--schema", default=str(DEFAULT_SCHEMA))
     run_systems.add_argument("--max-workers", type=int, default=4)
+    run_systems.add_argument("--refresh", action="store_true")
     run_systems.set_defaults(func=command_run_systems)
 
     evaluate = subparsers.add_parser("evaluate", help="Score robustness outputs and write degradation tables.")
     evaluate.add_argument("--output-dir", default=str(DEFAULT_OUTPUT_DIR))
-    evaluate.add_argument("--systems", nargs="+", default=["S2", "E2", "E3"], choices=["S2", "E2", "E3"])
+    evaluate.add_argument("--systems", nargs="+", default=["S2", "E2", "E3"], choices=SUPPORTED_SYSTEMS)
     evaluate.add_argument("--exect-root", default=str(DEFAULT_EXECT_ROOT))
     evaluate.add_argument("--markup-root", default=str(DEFAULT_MARKUP_ROOT))
     evaluate.add_argument("--schema", default=str(DEFAULT_SCHEMA))
     evaluate.add_argument("--clean-direct-run-dir", default=str(DEFAULT_DIRECT_RUN_DIR))
     evaluate.add_argument("--clean-event-run-dir", default=str(DEFAULT_EVENT_RUN_DIR))
+    evaluate.add_argument("--clean-recovery-run-dir", default=str(DEFAULT_RECOVERY_RUN_DIR))
+    evaluate.add_argument("--baseline", default="S2")
+    evaluate.add_argument("--winning-system")
+    evaluate.add_argument("--clean-comparison-table")
+    evaluate.add_argument("--large-clean-gain", type=float, default=0.10)
+    evaluate.add_argument("--quote-validity-min", type=float, default=0.99)
     evaluate.set_defaults(func=command_evaluate)
 
     args = parser.parse_args()
