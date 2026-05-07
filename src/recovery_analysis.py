@@ -26,6 +26,7 @@ from evaluate import (
     set_prf,
 )
 from intake import DEFAULT_EXECT_ROOT, DEFAULT_SPLITS
+from normalization import canonical_diagnosis, canonical_seizure_type
 
 
 WEAK_FIELDS = [
@@ -77,9 +78,9 @@ def field_values(data: Any | None, gold: GoldDocument, field: str) -> tuple[Any,
 
     if field == "seizure_type":
         predicted = {
-            (normalize_value(item.get("value")),)
+            (canonical_seizure_type(item.get("value")),)
             for item in fields.get("seizure_types", [])
-            if normalize_value(item.get("value"))
+            if canonical_seizure_type(item.get("value"))
         }
         expected = {(item,) for item in set(gold.seizure_types) if item}
         return predicted, expected
@@ -90,12 +91,12 @@ def field_values(data: Any | None, gold: GoldDocument, field: str) -> tuple[Any,
         return predicted, expected
 
     if field == "seizure_frequency_type_linkage":
-        predicted = normalize_value(fields.get("current_seizure_frequency", {}).get("seizure_type"))
+        predicted = canonical_seizure_type(fields.get("current_seizure_frequency", {}).get("seizure_type"))
         expected = {item["seizure_type"] for item in gold.seizure_frequencies if item.get("seizure_type")}
         return predicted, expected
 
     if field == "epilepsy_diagnosis":
-        predicted = normalize_value(fields.get("epilepsy_diagnosis", {}).get("value"))
+        predicted = canonical_diagnosis(fields.get("epilepsy_diagnosis", {}).get("value"))
         expected = set(gold.diagnoses)
         return predicted, expected
 

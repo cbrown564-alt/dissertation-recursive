@@ -6,13 +6,25 @@ from __future__ import annotations
 import argparse
 import csv
 import json
-import re
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
 from direct_baselines import load_split_ids, write_json
 from intake import DEFAULT_EXECT_ROOT, DEFAULT_SPLITS, load_gold_annotations, read_text
+from normalization import (
+    canonical_diagnosis,
+    canonical_investigation_result,
+    canonical_medication_name,
+    canonical_seizure_type,
+    frequency_parts_match,
+    normalize_dose,
+    normalize_frequency,
+    normalize_unit,
+    normalize_value,
+    parse_frequency_expression,
+    singular_unit,
+)
 from validate_extraction import DEFAULT_SCHEMA, check_quote_validity, validate_extraction
 
 
@@ -41,110 +53,6 @@ class GoldDocument:
     spans_by_group: dict[str, list[GoldSpan]] = field(default_factory=dict)
 
 
-def normalize_value(value: Any) -> str:
-    if value is None:
-        return ""
-    text = str(value).strip().lower()
-    if text in {"", "null", "none", "nan", "n/a"}:
-        return ""
-    text = text.replace("_", " ").replace("-", " ")
-    text = re.sub(r"[^a-z0-9.]+", " ", text)
-    return re.sub(r"\s+", " ", text).strip()
-
-
-def normalize_frequency(value: Any) -> str:
-    mapping = {
-        "1": "once daily",
-        "once a day": "once daily",
-        "once daily": "once daily",
-        "od": "once daily",
-        "2": "twice daily",
-        "twice a day": "twice daily",
-        "twice daily": "twice daily",
-        "bd": "twice daily",
-        "3": "three times daily",
-        "tds": "three times daily",
-        "4": "four times daily",
-        "qds": "four times daily",
-        "as required": "as required",
-        "prn": "as required",
-    }
-    normalized = normalize_value(value)
-    if normalized in mapping:
-        return mapping[normalized]
-    return normalized
-
-
-def normalize_unit(value: Any) -> str:
-    normalized = normalize_value(value)
-    mapping = {
-        "milligram": "mg",
-        "milligrams": "mg",
-        "mgs": "mg",
-        "gram": "g",
-        "grams": "g",
-    }
-    return mapping.get(normalized, normalized)
-
-
-def singular_unit(value: str) -> str:
-    normalized = normalize_value(value)
-    if normalized.endswith("s"):
-        normalized = normalized[:-1]
-    return normalized
-
-
-def parse_frequency_expression(value: Any) -> dict[str, str]:
-    normalized = normalize_value(value)
-    if not normalized:
-        return {"count": "", "period_count": "", "period_unit": "", "class": ""}
-    if any(term in normalized for term in ["seizure free", "seizurefree", "none since", "no seizures"]):
-        return {"count": "0", "period_count": "", "period_unit": "", "class": "seizure_free"}
-    if normalized in {"weekly", "every week", "once weekly"}:
-        return {"count": "1", "period_count": "1", "period_unit": "week", "class": "rate"}
-    if normalized in {"daily", "every day", "once daily"}:
-        return {"count": "1", "period_count": "1", "period_unit": "day", "class": "rate"}
-    if normalized in {"monthly", "every month", "once monthly"}:
-        return {"count": "1", "period_count": "1", "period_unit": "month", "class": "rate"}
-    if normalized in {"yearly", "annually", "every year", "once yearly"}:
-        return {"count": "1", "period_count": "1", "period_unit": "year", "class": "rate"}
-
-    every = re.search(r"\bevery\s+(\d+(?:\.\d+)?)\s+(day|week|month|year)s?\b", normalized)
-    if every:
-        return {"count": "1", "period_count": every.group(1), "period_unit": every.group(2), "class": "rate"}
-
-    per = re.search(
-        r"\b(?:(\d+(?:\.\d+)?)(?:\s*(?:to|-)\s*(\d+(?:\.\d+)?))?\s+)?per\s+(?:(\d+(?:\.\d+)?)\s+)?(day|week|month|year)s?\b",
-        normalized,
-    )
-    if per:
-        count = f"{per.group(1)}-{per.group(2)}" if per.group(1) and per.group(2) else per.group(1) or "1"
-        return {"count": count, "period_count": per.group(3) or "1", "period_unit": per.group(4), "class": "rate"}
-
-    in_period = re.search(
-        r"\b(\d+(?:\.\d+)?)(?:\s*(?:to|-)\s*(\d+(?:\.\d+)?))?\s+(?:in|over|during|last)\s+(?:(\d+(?:\.\d+)?)\s+)?(day|week|month|year)s?\b",
-        normalized,
-    )
-    if in_period:
-        count = f"{in_period.group(1)}-{in_period.group(2)}" if in_period.group(2) else in_period.group(1)
-        return {"count": count, "period_count": in_period.group(3) or "1", "period_unit": in_period.group(4), "class": "rate"}
-
-    bare = re.fullmatch(r"\d+(?:\.\d+)?", normalized)
-    if bare:
-        return {"count": normalized, "period_count": "", "period_unit": "", "class": "count_only"}
-
-    return {"count": "", "period_count": "", "period_unit": "", "class": "unparsed"}
-
-
-def frequency_parts_match(predicted: dict[str, str], gold: dict[str, str]) -> bool:
-    return bool(
-        predicted.get("count")
-        and predicted.get("count") == gold.get("count")
-        and predicted.get("period_count") == gold.get("period_count")
-        and predicted.get("period_unit") == gold.get("period_unit")
-    )
-
-
 def document_id_from_filename(filename: str) -> str:
     return Path(filename).stem
 
@@ -171,8 +79,8 @@ def load_gold(markup_root: Path = DEFAULT_MARKUP_ROOT, exect_root: Path = DEFAUL
             continue
         document = ensure_gold(gold, document_id_from_filename(row[0]))
         medication = {
-            "name": normalize_value(row[4] if row[4].lower() != "null" else row[5]),
-            "dose": normalize_value(row[6]),
+            "name": canonical_medication_name(row[4] if row[4].lower() != "null" else row[5]),
+            "dose": normalize_dose(row[6]),
             "dose_unit": normalize_unit(row[7]),
             "frequency": normalize_frequency(row[8]),
         }
@@ -200,7 +108,7 @@ def load_gold(markup_root: Path = DEFAULT_MARKUP_ROOT, exect_root: Path = DEFAUL
         else:
             effective_period_count = ""
             frequency = count
-        seizure_type = normalize_value(row[5] if row[5].lower() != "null" else row[4])
+        seizure_type = canonical_seizure_type(row[5] if row[5].lower() != "null" else row[4])
         document.seizure_frequencies.append(
             {
                 "value": normalize_value(frequency),
@@ -233,7 +141,7 @@ def load_gold(markup_root: Path = DEFAULT_MARKUP_ROOT, exect_root: Path = DEFAUL
             continue
         document = ensure_gold(gold, document_id_from_filename(row[0]))
         if normalize_value(row[7]) == "epilepsy" and normalize_value(row[6]) == "affirmed":
-            diagnosis = normalize_value(row[5] if row[5].lower() != "null" else row[4])
+            diagnosis = canonical_diagnosis(row[5] if row[5].lower() != "null" else row[4])
             if diagnosis:
                 document.diagnoses.append(diagnosis)
             add_span(document, "diagnosis", row[1], row[2], "Diagnosis", row[5])
@@ -307,23 +215,25 @@ def set_prf(predicted: set[tuple[str, ...]], gold: set[tuple[str, ...]]) -> dict
 
 def medication_tuple(item: dict[str, Any]) -> tuple[str, str, str, str]:
     return (
-        normalize_value(item.get("name")),
-        normalize_value(item.get("dose")),
+        canonical_medication_name(item.get("name")),
+        normalize_dose(item.get("dose")),
         normalize_unit(item.get("dose_unit")),
         normalize_frequency(item.get("frequency")),
     )
 
 
 def medication_name_tuple(item: dict[str, Any]) -> tuple[str]:
-    return (normalize_value(item.get("name")),)
+    return (canonical_medication_name(item.get("name")),)
 
 
 def medication_component_tuple(item: dict[str, Any], component: str) -> tuple[str, str]:
-    name = normalize_value(item.get("name"))
+    name = canonical_medication_name(item.get("name"))
     if component == "dose_unit":
         value = normalize_unit(item.get(component))
     elif component == "frequency":
         value = normalize_frequency(item.get(component))
+    elif component == "dose":
+        value = normalize_dose(item.get(component))
     else:
         value = normalize_value(item.get(component))
     return (name, value)
@@ -420,9 +330,9 @@ def score_document(data: Any | None, source_text: str, document_gold: GoldDocume
         }
 
     predicted_types = {
-        (normalize_value(item.get("value")),)
+        (canonical_seizure_type(item.get("value")),)
         for item in fields.get("seizure_types", [])
-        if normalize_value(item.get("value"))
+        if canonical_seizure_type(item.get("value"))
     }
     gold_types = {(item,) for item in set(document_gold.seizure_types) if item}
     result["field_scores"]["seizure_type"] = set_prf(predicted_types, gold_types)
@@ -487,7 +397,7 @@ def score_document(data: Any | None, source_text: str, document_gold: GoldDocume
         "predicted": normalize_value(fields.get("current_seizure_frequency", {}).get("temporality")),
         "gold_values": ["current"] if gold_frequencies else [],
     }
-    predicted_frequency_type = normalize_value(fields.get("current_seizure_frequency", {}).get("seizure_type"))
+    predicted_frequency_type = canonical_seizure_type(fields.get("current_seizure_frequency", {}).get("seizure_type"))
     gold_frequency_types = {item["seizure_type"] for item in document_gold.seizure_frequencies if item.get("seizure_type")}
     result["field_scores"]["seizure_frequency_type_linkage"] = {
         "correct": bool(predicted_frequency_type and predicted_frequency_type in gold_frequency_types),
@@ -496,7 +406,7 @@ def score_document(data: Any | None, source_text: str, document_gold: GoldDocume
     }
 
     for field_name in ["eeg", "mri"]:
-        predicted = normalize_value(fields.get(field_name, {}).get("result"))
+        predicted = canonical_investigation_result(fields.get(field_name, {}).get("result"))
         gold = document_gold.investigations.get(field_name)
         result["field_scores"][field_name] = {
             "correct": (predicted == gold) if gold else predicted in {"", "not stated", "none"},
@@ -504,7 +414,7 @@ def score_document(data: Any | None, source_text: str, document_gold: GoldDocume
             "gold": gold,
         }
 
-    predicted_diagnosis = normalize_value(fields.get("epilepsy_diagnosis", {}).get("value"))
+    predicted_diagnosis = canonical_diagnosis(fields.get("epilepsy_diagnosis", {}).get("value"))
     result["field_scores"]["epilepsy_diagnosis"] = {
         "correct": any(predicted_diagnosis and (predicted_diagnosis in gold or gold in predicted_diagnosis) for gold in document_gold.diagnoses),
         "predicted": predicted_diagnosis,

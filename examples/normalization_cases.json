@@ -1,0 +1,146 @@
+{
+  "cases": [
+    {
+      "id": "asm_brand_keppra",
+      "function": "canonical_medication_name",
+      "input": "Keppra 500 mg tablets",
+      "expected": "levetiracetam"
+    },
+    {
+      "id": "asm_brand_epilim",
+      "function": "canonical_medication_name",
+      "input": "Epilim Chrono",
+      "expected": "sodium valproate"
+    },
+    {
+      "id": "dose_with_unit",
+      "function": "normalize_dose",
+      "input": "500 mg",
+      "expected": "500"
+    },
+    {
+      "id": "unit_milligrams",
+      "function": "normalize_unit",
+      "input": "milligrams",
+      "expected": "mg"
+    },
+    {
+      "id": "med_frequency_bd",
+      "function": "normalize_medication_frequency",
+      "input": "BD",
+      "expected": "twice daily"
+    },
+    {
+      "id": "med_frequency_tds",
+      "function": "normalize_medication_frequency",
+      "input": "three times a day",
+      "expected": "three times daily"
+    },
+    {
+      "id": "seizure_complex_partial",
+      "function": "canonical_seizure_type",
+      "input": "complex partial seizures",
+      "expected": "focal impaired awareness seizure"
+    },
+    {
+      "id": "seizure_gtc",
+      "function": "canonical_seizure_type",
+      "input": "generalised tonic-clonic seizures",
+      "expected": "generalized tonic clonic seizure"
+    },
+    {
+      "id": "diagnosis_jme",
+      "function": "canonical_diagnosis",
+      "input": "JME",
+      "expected": "juvenile myoclonic epilepsy"
+    },
+    {
+      "id": "eeg_no_abnormality",
+      "function": "canonical_investigation_result",
+      "input": "EEG showed no abnormality",
+      "expected": "normal"
+    },
+    {
+      "id": "mri_abnormal",
+      "function": "canonical_investigation_result",
+      "input": "MRI was abnormal with hippocampal sclerosis",
+      "expected": "abnormal"
+    },
+    {
+      "id": "frequency_weekly",
+      "function": "parse_frequency_expression",
+      "input": "weekly",
+      "expected": {
+        "count": "1",
+        "period_count": "1",
+        "period_unit": "week",
+        "class": "rate"
+      }
+    },
+    {
+      "id": "frequency_range",
+      "function": "parse_frequency_expression",
+      "input": "2 to 3 per month",
+      "expected": {
+        "count": "2-3",
+        "period_count": "1",
+        "period_unit": "month",
+        "class": "rate"
+      }
+    },
+    {
+      "id": "frequency_every_few_months",
+      "function": "parse_frequency_expression",
+      "input": "every few months",
+      "expected": {
+        "count": "1",
+        "period_count": "3",
+        "period_unit": "month",
+        "class": "approximate_rate"
+      }
+    },
+    {
+      "id": "frequency_none_since",
+      "function": "parse_frequency_expression",
+      "input": "none since starting lamotrigine",
+      "expected": {
+        "count": "0",
+        "period_count": "",
+        "period_unit": "",
+        "class": "seizure_free"
+      }
+    },
+    {
+      "id": "temporal_historical",
+      "function": "normalize_temporality",
+      "input": "previously weekly",
+      "expected": "historical"
+    },
+    {
+      "id": "missingness_uncertain",
+      "function": "normalize_missingness",
+      "input": "possible focal epilepsy",
+      "expected": "uncertain"
+    },
+    {
+      "id": "medication_structured_tuple",
+      "function": "normalize_medication",
+      "input": {
+        "name": "Lamictal",
+        "dose": "75mg",
+        "dose_unit": "milligrams",
+        "frequency": "twice a day",
+        "temporality": "current",
+        "missingness": "present"
+      },
+      "expected": {
+        "name": "lamotrigine",
+        "dose": "75",
+        "dose_unit": "mg",
+        "frequency": "twice daily",
+        "temporality": "current",
+        "missingness": "present"
+      }
+    }
+  ]
+}
