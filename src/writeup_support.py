@@ -15,6 +15,7 @@ from typing import Any
 DEFAULT_OUTPUT_DIR = Path("runs/writeup_support")
 DEFAULT_EVALUATION_DIR = Path("runs/evaluation")
 DEFAULT_ROBUSTNESS_DIR = Path("runs/robustness")
+DEFAULT_EXECT_TEXT_ROOT = Path("data/ExECT 2 (2025)/Gold1-200_corrected_spelling")
 PRIMARY_METRICS = [
     "schema_valid_rate",
     "quote_presence_rate",
@@ -203,6 +204,226 @@ def incorrect_field_names(score: dict[str, Any]) -> list[str]:
     return incorrect
 
 
+def field_score_value(field_score: dict[str, Any]) -> float:
+    if "correct" in field_score:
+        return 1.0 if field_score.get("correct") is True else 0.0
+    f1 = parse_number(field_score.get("f1"))
+    if f1 is not None:
+        return f1
+    return 0.0
+
+
+def document_score_value(score: dict[str, Any]) -> float:
+    if not score.get("available"):
+        return 0.0
+    field_scores = score.get("field_scores", {})
+    values = [
+        field_score_value(field_score)
+        for field_score in field_scores.values()
+        if isinstance(field_score, dict)
+    ]
+    field_mean = sum(values) / len(values) if values else 0.0
+    temporal = parse_number(score.get("temporal_scores", {}).get("accuracy"))
+    quote_validity = parse_number(score.get("quote_validity", {}).get("rate"))
+    schema = 1.0 if score.get("schema_valid") else 0.0
+    components = [field_mean, schema]
+    if temporal is not None:
+        components.append(temporal)
+    if quote_validity is not None:
+        components.append(quote_validity)
+    return sum(components) / len(components)
+
+
+def evidence_issue_summary(score: dict[str, Any]) -> str:
+    issues = []
+    quote_validity = score.get("quote_validity", {})
+    if quote_validity.get("invalid_quote_count"):
+        issues.append(f"{quote_validity.get('invalid_quote_count')} invalid quote(s)")
+    for field_name, item in score.get("semantic_support", {}).items():
+        if isinstance(item, dict) and item.get("present") and item.get("gold_overlap") is False:
+            issues.append(f"{field_name}: quote valid but no gold overlap")
+        if isinstance(item, dict) and item.get("field_count") and item.get("supported_count") == 0:
+            issues.append(f"{field_name}: extracted items lack gold-overlap evidence")
+    return "; ".join(issues) if issues else "no evidence-specific issue flagged"
+
+
+def quote_error_class(score: dict[str, Any], incorrect: list[str]) -> str:
+    quote_validity = score.get("quote_validity", {})
+    if quote_validity.get("invalid_quote_count"):
+        return "quote_invalid"
+    if incorrect:
+        return "quote_valid_but_semantically_wrong_or_missing"
+    return "no_field_error"
+
+
+def failure_mode_tags(score: dict[str, Any]) -> list[str]:
+    tags = []
+    if not score.get("available"):
+        tags.append("missing_output")
+    if not score.get("schema_valid"):
+        tags.append("schema_or_parse")
+    if score.get("quote_validity", {}).get("invalid_quote_count"):
+        tags.append("evidence_selection")
+    temporal = score.get("temporal_scores", {})
+    checked = temporal.get("checked_count") or 0
+    correct = temporal.get("correct_count") or 0
+    if checked and correct < checked:
+        tags.append("temporality")
+    for field_name in incorrect_field_names(score):
+        if field_name in {"medication_name", "medication_full", "seizure_type"}:
+            tags.append("normalization_or_missingness")
+        elif field_name in {"current_seizure_frequency", "seizure_frequency_type_linkage"}:
+            tags.append("temporality_or_frequency_normalization")
+        elif field_name in {"eeg", "mri"}:
+            tags.append("investigation_ambiguity")
+        elif field_name == "epilepsy_diagnosis":
+            tags.append("diagnosis_normalization")
+    return sorted(set(tags)) or ["none_flagged"]
+
+
+def read_aggregation_log(event_run_dir: Path, document_id: str, comparator: str) -> dict[str, Any] | None:
+    if comparator != "E2":
+        return None
+    path = event_run_dir / document_id / "e2_aggregation_log.json"
+    if not path.exists():
+        return None
+    return read_json(path)
+
+
+def event_failure_stage(
+    event_score: dict[str, Any],
+    event_run_dir: Path,
+    comparator: str,
+) -> str:
+    document_id = str(event_score.get("document_id"))
+    incorrect = incorrect_field_names(event_score)
+    if comparator == "E3":
+        if not event_score.get("schema_valid"):
+            return "constrained_aggregation_schema_or_parse"
+        return "constrained_aggregation_or_extraction_review_needed"
+    log = read_aggregation_log(event_run_dir, document_id, comparator)
+    if not isinstance(log, dict):
+        return "aggregation_log_unavailable"
+    missing_fields = set(log.get("final_fields_without_event_support", []))
+    if any(field in missing_fields for field in incorrect):
+        return "extraction_failure_missing_event_support"
+    if log.get("conflict_decisions"):
+        return "aggregation_failure_conflict_resolution"
+    if incorrect and (log.get("selected_event_ids") or log.get("ignored_event_ids")):
+        return "aggregation_failure_or_event_normalization"
+    return "no_event_first_failure_flagged"
+
+
+def score_by_document(document_scores: dict[str, Any], system: str) -> dict[str, dict[str, Any]]:
+    rows = document_scores.get(system, [])
+    if not isinstance(rows, list):
+        return {}
+    return {
+        str(row.get("document_id")): row
+        for row in rows
+        if isinstance(row, dict) and row.get("document_id")
+    }
+
+
+def artifact_path_for_system(
+    run_root: Path,
+    direct_run_dir: Path | None,
+    event_run_dir: Path | None,
+    system: str,
+    document_id: str,
+) -> str:
+    if system == "S2":
+        base = direct_run_dir or run_root / "direct_baselines"
+        return str(base / "S2" / document_id / "canonical.json")
+    if system == "S3":
+        base = direct_run_dir or run_root / "direct_baselines"
+        return str(base / "S3" / document_id / "canonical.json")
+    if system == "E2":
+        base = event_run_dir or run_root / "event_first"
+        return str(base / document_id / "e2_canonical.json")
+    if system == "E3":
+        base = event_run_dir or run_root / "event_first"
+        return str(base / document_id / "e3_canonical.json")
+    return ""
+
+
+def paired_error_analysis_examples(
+    document_scores: dict[str, Any] | None,
+    limit: int,
+    run_root: Path,
+    direct_run_dir: Path | None = None,
+    event_run_dir: Path | None = None,
+    source_text_root: Path = DEFAULT_EXECT_TEXT_ROOT,
+) -> list[dict[str, Any]]:
+    if not isinstance(document_scores, dict):
+        return []
+    direct = score_by_document(document_scores, "S2")
+    event_run_dir = event_run_dir or run_root / "event_first"
+    rows = []
+    per_category_limit = max(1, limit)
+    for comparator in ("E2", "E3"):
+        event = score_by_document(document_scores, comparator)
+        candidates = []
+        for document_id in sorted(set(direct) & set(event)):
+            s2_score = direct[document_id]
+            event_score = event[document_id]
+            s2_value = document_score_value(s2_score)
+            event_value = document_score_value(event_score)
+            candidates.append((event_value - s2_value, document_id, s2_score, event_score))
+
+        category_specs = [
+            ("event_first_improves_over_s2", sorted(candidates, reverse=True)),
+            ("s2_outperforms_event_first", sorted(candidates)),
+            (
+                "all_systems_fail",
+                sorted(
+                    [
+                        (max(document_score_value(s2), document_score_value(event_score)), document_id, s2, event_score)
+                        for _, document_id, s2, event_score in candidates
+                        if incorrect_field_names(s2) and incorrect_field_names(event_score)
+                    ]
+                ),
+            ),
+        ]
+        for category, ranked in category_specs:
+            added = 0
+            for delta_or_score, document_id, s2_score, event_score in ranked:
+                if category == "event_first_improves_over_s2" and delta_or_score <= 0:
+                    continue
+                if category == "s2_outperforms_event_first" and delta_or_score >= 0:
+                    continue
+                s2_incorrect = incorrect_field_names(s2_score)
+                event_incorrect = incorrect_field_names(event_score)
+                score_delta = document_score_value(event_score) - document_score_value(s2_score)
+                rows.append(
+                    {
+                        "category": category,
+                        "comparator": comparator,
+                        "document_id": document_id,
+                        "s2_score": f"{document_score_value(s2_score):.3f}",
+                        "event_score": f"{document_score_value(event_score):.3f}",
+                        "score_delta_event_minus_s2": f"{score_delta:.3f}",
+                        "s2_incorrect_fields": ", ".join(s2_incorrect) if s2_incorrect else "none",
+                        "event_incorrect_fields": ", ".join(event_incorrect) if event_incorrect else "none",
+                        "s2_failure_modes": ", ".join(failure_mode_tags(s2_score)),
+                        "event_failure_modes": ", ".join(failure_mode_tags(event_score)),
+                        "event_failure_stage": event_failure_stage(event_score, event_run_dir, comparator),
+                        "s2_quote_error_class": quote_error_class(s2_score, s2_incorrect),
+                        "event_quote_error_class": quote_error_class(event_score, event_incorrect),
+                        "s2_evidence_issue": evidence_issue_summary(s2_score),
+                        "event_evidence_issue": evidence_issue_summary(event_score),
+                        "source_text_path": str(source_text_root / f"{document_id}.txt"),
+                        "s2_artifact": artifact_path_for_system(run_root, direct_run_dir, event_run_dir, "S2", document_id),
+                        "event_artifact": artifact_path_for_system(run_root, direct_run_dir, event_run_dir, comparator, document_id),
+                        "aggregation_log": str(event_run_dir / document_id / "e2_aggregation_log.json") if comparator == "E2" else "n/a",
+                    }
+                )
+                added += 1
+                if added >= per_category_limit:
+                    break
+    return rows
+
+
 def error_examples(document_scores: dict[str, Any] | None, limit: int) -> list[dict[str, Any]]:
     if not isinstance(document_scores, dict):
         return []
@@ -345,6 +566,8 @@ def build_methods_markdown(manifest: dict[str, Any], claims: list[dict[str, Any]
         "",
         "## Error Analysis Seeds",
         "",
+        "Rows are selected from paired S2 versus E2/E3 validation scores. They include event-first wins, direct-baseline wins, and shared failures so chapter prose can explain the headline metrics with concrete documents.",
+        "",
         markdown_table(examples),
     ]
     return "\n".join(sections) + "\n"
@@ -365,6 +588,9 @@ def command_build(args: argparse.Namespace) -> int:
     robustness_dir = Path(args.robustness_dir)
     secondary_dirs = [Path(item) for item in args.secondary_dir]
     output_dir = Path(args.output_dir)
+    run_root = Path(args.run_root) if args.run_root else evaluation_dir.parent
+    direct_run_dir = Path(args.direct_run_dir) if args.direct_run_dir else None
+    event_run_dir = Path(args.event_run_dir) if args.event_run_dir else None
 
     evaluation_summary, evaluation_rows, document_scores = load_evaluation(evaluation_dir)
     robustness_summary, robustness_rows, label_changing = load_robustness(robustness_dir)
@@ -373,13 +599,26 @@ def command_build(args: argparse.Namespace) -> int:
     output_dir.mkdir(parents=True, exist_ok=True)
     plot_written = metric_plot_svg(evaluation_rows, output_dir / "evaluation_metric_plot.svg")
     claims = claim_rows(evaluation_summary, robustness_summary, secondary)
-    examples = error_examples(document_scores, args.error_examples)
+    examples = paired_error_analysis_examples(
+        document_scores,
+        args.error_examples,
+        run_root=run_root,
+        direct_run_dir=direct_run_dir,
+        event_run_dir=event_run_dir,
+        source_text_root=Path(args.source_text_root),
+    )
+    if not examples:
+        examples = error_examples(document_scores, args.error_examples)
     manifest = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "inputs": {
+            "run_root": str(run_root),
             "evaluation_dir": str(evaluation_dir),
             "robustness_dir": str(robustness_dir),
             "secondary_dirs": [str(item) for item in secondary_dirs],
+            "direct_run_dir": str(direct_run_dir) if direct_run_dir else str(run_root / "direct_baselines"),
+            "event_run_dir": str(event_run_dir) if event_run_dir else str(run_root / "event_first"),
+            "source_text_root": str(Path(args.source_text_root)),
         },
         "artifacts": [
             artifact_row("primary_evaluation_summary", evaluation_dir / "evaluation_summary.json"),
@@ -432,6 +671,10 @@ def main() -> int:
     build.add_argument("--secondary-dir", action="append", default=[], help="Directory containing a secondary-analysis summary.")
     build.add_argument("--output-dir", default=str(DEFAULT_OUTPUT_DIR))
     build.add_argument("--error-examples", type=int, default=8)
+    build.add_argument("--run-root", help="Run root used to construct artifact paths; defaults to the evaluation directory parent.")
+    build.add_argument("--direct-run-dir", help="Direct-baseline artifact directory; defaults to RUN_ROOT/direct_baselines.")
+    build.add_argument("--event-run-dir", help="Event-first artifact directory; defaults to RUN_ROOT/event_first.")
+    build.add_argument("--source-text-root", default=str(DEFAULT_EXECT_TEXT_ROOT))
     build.set_defaults(func=command_build)
 
     args = parser.parse_args()
