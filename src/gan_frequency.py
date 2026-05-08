@@ -525,6 +525,16 @@ def call_model(
     return response
 
 
+def response_total_cost(response: Any) -> float | None:
+    value = response.estimated_cost.get("total") if getattr(response, "estimated_cost", None) else None
+    return value if isinstance(value, (int, float)) else None
+
+
+def sum_optional_numbers(values: list[Any]) -> float | int | None:
+    numeric = [value for value in values if isinstance(value, (int, float))]
+    return sum(numeric) if numeric else None
+
+
 def command_predict(args: argparse.Namespace) -> int:
     examples = load_gan_examples(Path(args.gan_path))
     if args.document_ids:
@@ -575,6 +585,7 @@ def command_predict(args: argparse.Namespace) -> int:
             raw_response_path = doc_dir / "pass2_normalize" / "raw_response.txt"
             extra_parse_error = evidence_error
             calls_per_doc = 2
+            pass_responses = [evidence_response, response]
         else:
             response = call_model(
                 adapter,
@@ -591,10 +602,16 @@ def command_predict(args: argparse.Namespace) -> int:
             raw_response_path = doc_dir / "pass1_label" / "raw_response.txt"
             extra_parse_error = ""
             calls_per_doc = 1
+            pass_responses = [response]
         predicted_label, quote, parse_error = extract_predicted_label(response.text)
         parse_error = "; ".join(item for item in [extra_parse_error, parse_error] if item)
         if response.error and predicted_label == GAN_LABEL_FALLBACK:
             parse_error = response.error
+        provider_error = "; ".join(item for item in (pass_response.error for pass_response in pass_responses) if item)
+        latency_ms = sum_optional_numbers([pass_response.latency_ms for pass_response in pass_responses])
+        input_tokens = sum_optional_numbers([pass_response.token_usage.input_tokens for pass_response in pass_responses])
+        output_tokens = sum_optional_numbers([pass_response.token_usage.output_tokens for pass_response in pass_responses])
+        estimated_cost_usd = sum_optional_numbers([response_total_cost(pass_response) for pass_response in pass_responses])
         predictions[example.document_id] = predicted_label
         rows.append(
             {
@@ -608,12 +625,12 @@ def command_predict(args: argparse.Namespace) -> int:
                 "quote": quote or "",
                 "evidence_quotes": " || ".join(evidence_quotes),
                 "parse_error": parse_error or "",
-                "provider_error": response.error or "",
+                "provider_error": provider_error,
                 "calls_per_doc": calls_per_doc,
-                "latency_ms": response.latency_ms,
-                "input_tokens": response.token_usage.input_tokens,
-                "output_tokens": response.token_usage.output_tokens,
-                "estimated_cost_usd": response.estimated_cost.get("total"),
+                "latency_ms": latency_ms,
+                "input_tokens": input_tokens,
+                "output_tokens": output_tokens,
+                "estimated_cost_usd": estimated_cost_usd,
                 "raw_response_path": str(raw_response_path),
             }
         )
