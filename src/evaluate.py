@@ -13,10 +13,13 @@ from typing import Any
 from direct_baselines import load_split_ids, write_json
 from intake import DEFAULT_EXECT_ROOT, DEFAULT_SPLITS, load_gold_annotations, read_text
 from normalization import (
+    benchmark_epilepsy_label,
+    benchmark_seizure_type_label,
     canonical_diagnosis,
     canonical_investigation_result,
     canonical_medication_name,
     canonical_seizure_type,
+    frequency_loose_match,
     frequency_parts_match,
     normalize_dose,
     normalize_frequency,
@@ -344,6 +347,23 @@ def score_document(data: Any | None, source_text: str, document_gold: GoldDocume
         "gold": [" | ".join(item) for item in sorted(gold_types)],
     }
 
+    # Collapsed benchmark labels per Fang et al. 2025: focal / generalized / unknown.
+    predicted_types_collapsed = {
+        (benchmark_seizure_type_label(item.get("value")),)
+        for item in fields.get("seizure_types", [])
+        if benchmark_seizure_type_label(item.get("value"))
+    }
+    gold_types_collapsed = {
+        (benchmark_seizure_type_label(item),)
+        for item in document_gold.seizure_types
+        if benchmark_seizure_type_label(item)
+    }
+    result["field_scores"]["seizure_type_collapsed"] = set_prf(predicted_types_collapsed, gold_types_collapsed)
+    result["field_label_sets"]["seizure_type_collapsed"] = {
+        "predicted": [" | ".join(item) for item in sorted(predicted_types_collapsed)],
+        "gold": [" | ".join(item) for item in sorted(gold_types_collapsed)],
+    }
+
     predicted_frequency = normalize_value(fields.get("current_seizure_frequency", {}).get("value"))
     gold_frequencies = {item["value"] for item in document_gold.seizure_frequencies if item.get("value")}
     predicted_frequency_parts = parse_frequency_expression(predicted_frequency)
@@ -363,6 +383,11 @@ def score_document(data: Any | None, source_text: str, document_gold: GoldDocume
     }
     result["field_scores"]["current_seizure_frequency_relaxed"] = {
         "correct": any(frequency_parts_match(predicted_frequency_parts, item) for item in gold_frequency_parts),
+        "predicted": predicted_frequency_parts,
+        "gold_values": gold_frequency_parts,
+    }
+    result["field_scores"]["current_seizure_frequency_loose"] = {
+        "correct": any(frequency_loose_match(predicted_frequency_parts, item) for item in gold_frequency_parts),
         "predicted": predicted_frequency_parts,
         "gold_values": gold_frequency_parts,
     }
@@ -422,6 +447,19 @@ def score_document(data: Any | None, source_text: str, document_gold: GoldDocume
         "correct": any(predicted_diagnosis and (predicted_diagnosis in gold or gold in predicted_diagnosis) for gold in document_gold.diagnoses),
         "predicted": predicted_diagnosis,
         "gold_values": sorted(set(document_gold.diagnoses)),
+    }
+
+    # Per-label epilepsy-type F1 collapsed to benchmark categories per Fang et al. 2025.
+    predicted_dx_collapsed = benchmark_epilepsy_label(predicted_diagnosis)
+    gold_dx_collapsed = {benchmark_epilepsy_label(d) for d in document_gold.diagnoses if benchmark_epilepsy_label(d)}
+    result["field_scores"]["epilepsy_diagnosis_collapsed"] = {
+        "correct": bool(predicted_dx_collapsed and predicted_dx_collapsed in gold_dx_collapsed),
+        "predicted": predicted_dx_collapsed,
+        "gold_values": sorted(gold_dx_collapsed),
+    }
+    result["field_label_sets"]["epilepsy_diagnosis_collapsed"] = {
+        "predicted": [predicted_dx_collapsed] if predicted_dx_collapsed else [],
+        "gold": sorted(gold_dx_collapsed),
     }
 
     group_map = {
@@ -491,8 +529,10 @@ def flatten_summary(system: str, document_scores: list[dict[str, Any]]) -> dict[
             "medication_frequency_f1": None,
             "medication_full_f1": None,
             "seizure_type_f1": None,
+            "seizure_type_f1_collapsed": None,
             "current_seizure_frequency_accuracy": None,
             "current_seizure_frequency_relaxed_accuracy": None,
+            "current_seizure_frequency_loose_accuracy": None,
             "seizure_frequency_value_accuracy": None,
             "seizure_frequency_period_accuracy": None,
             "seizure_frequency_temporal_scope_accuracy": None,
@@ -500,6 +540,7 @@ def flatten_summary(system: str, document_scores: list[dict[str, Any]]) -> dict[
             "eeg_accuracy": None,
             "mri_accuracy": None,
             "epilepsy_diagnosis_accuracy": None,
+            "epilepsy_diagnosis_accuracy_collapsed": None,
             "mean_latency_ms": None,
             "mean_input_tokens": None,
             "mean_output_tokens": None,
@@ -521,6 +562,7 @@ def flatten_summary(system: str, document_scores: list[dict[str, Any]]) -> dict[
         "medication_frequency",
         "medication_full",
         "seizure_type",
+        "seizure_type_collapsed",
     ]
     for metric in prf_metric_names:
         totals[metric] = {"tp": 0, "fp": 0, "fn": 0}
@@ -575,8 +617,10 @@ def flatten_summary(system: str, document_scores: list[dict[str, Any]]) -> dict[
         "medication_frequency_f1": prf_metrics["medication_frequency"]["f1"],
         "medication_full_f1": prf_metrics["medication_full"]["f1"],
         "seizure_type_f1": prf_metrics["seizure_type"]["f1"],
+        "seizure_type_f1_collapsed": prf_metrics["seizure_type_collapsed"]["f1"],
         "current_seizure_frequency_accuracy": accuracy("current_seizure_frequency"),
         "current_seizure_frequency_relaxed_accuracy": accuracy("current_seizure_frequency_relaxed"),
+        "current_seizure_frequency_loose_accuracy": accuracy("current_seizure_frequency_loose"),
         "seizure_frequency_value_accuracy": accuracy("seizure_frequency_value"),
         "seizure_frequency_period_accuracy": accuracy("seizure_frequency_period"),
         "seizure_frequency_temporal_scope_accuracy": accuracy("seizure_frequency_temporal_scope"),
@@ -584,6 +628,7 @@ def flatten_summary(system: str, document_scores: list[dict[str, Any]]) -> dict[
         "eeg_accuracy": accuracy("eeg"),
         "mri_accuracy": accuracy("mri"),
         "epilepsy_diagnosis_accuracy": accuracy("epilepsy_diagnosis"),
+        "epilepsy_diagnosis_accuracy_collapsed": accuracy("epilepsy_diagnosis_collapsed"),
         "mean_latency_ms": sum(latencies) / len(latencies) if latencies else None,
         "mean_input_tokens": sum(input_tokens) / len(input_tokens) if input_tokens else None,
         "mean_output_tokens": sum(output_tokens) / len(output_tokens) if output_tokens else None,
@@ -626,6 +671,7 @@ def build_field_prf_table(all_scores: dict[str, list[dict[str, Any]]]) -> list[d
             "medication_frequency",
             "medication_full",
             "seizure_type",
+            "seizure_type_collapsed",
         ]:
             aggregate = aggregate_set_metric(document_scores, metric)
             rows.append({"system": system, "field": metric, "label": "__micro__", **aggregate})

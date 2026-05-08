@@ -31,43 +31,112 @@ NUMBER_WORDS = {
 }
 
 ASM_SYNONYMS = {
+    # Acetazolamide
     "acetazolamide": "acetazolamide",
+    "diamox": "acetazolamide",
+    # Brivaracetam
     "brivaracetam": "brivaracetam",
+    "brivlera": "brivaracetam",
+    "briviracetam": "brivaracetam",   # misspelling
+    "brivitiracetam": "brivaracetam", # misspelling (Phase 1 error case)
+    "brivaricetam": "brivaracetam",   # misspelling
+    # Carbamazepine
     "carbamazepine": "carbamazepine",
+    "carbamezapine": "carbamazepine", # misspelling
+    "carbmazepine": "carbamazepine",  # misspelling
     "tegretol": "carbamazepine",
+    # Clobazam
     "clobazam": "clobazam",
     "frisium": "clobazam",
+    "onfi": "clobazam",
+    # Clonazepam
     "clonazepam": "clonazepam",
-    "rufinamide": "rufinamide",
-    "inovelon": "rufinamide",
+    "rivotril": "clonazepam",
+    # Eslicarbazepine
+    "eslicarbazepine": "eslicarbazepine",
+    "zebinix": "eslicarbazepine",
+    "aptiom": "eslicarbazepine",
+    # Ethosuximide
     "ethosuximide": "ethosuximide",
-    "epilim": "sodium valproate",
-    "valproate": "sodium valproate",
-    "sodium valproate": "sodium valproate",
-    "valproic acid": "sodium valproate",
-    "keppra": "levetiracetam",
-    "levetiracetam": "levetiracetam",
-    "lamictal": "lamotrigine",
-    "lamotrigine": "lamotrigine",
+    "zarontin": "ethosuximide",
+    "emeside": "ethosuximide",
+    # Fenfluramine
+    "fenfluramine": "fenfluramine",
+    "fintepla": "fenfluramine",
+    # Gabapentin
+    "gabapentin": "gabapentin",
+    "neurontin": "gabapentin",
+    # Lacosamide
     "lacosamide": "lacosamide",
     "vimpat": "lacosamide",
+    "lacosamid": "lacosamide",        # misspelling
+    # Lamotrigine
+    "lamotrigine": "lamotrigine",
+    "lamictal": "lamotrigine",
+    "lamotrigene": "lamotrigine",     # misspelling
+    "lamotrogine": "lamotrigine",     # misspelling
+    # Levetiracetam
+    "levetiracetam": "levetiracetam",
+    "keppra": "levetiracetam",
+    "levetircetam": "levetiracetam",  # misspelling
+    "levitiracetam": "levetiracetam", # misspelling
+    "leviteracetam": "levetiracetam", # misspelling
+    # Oxcarbazepine
     "oxcarbazepine": "oxcarbazepine",
     "trileptal": "oxcarbazepine",
+    # Perampanel
     "perampanel": "perampanel",
     "fycompa": "perampanel",
+    # Phenobarbital
     "phenobarbital": "phenobarbital",
     "phenobarbitone": "phenobarbital",
+    "phenobarbitol": "phenobarbital", # misspelling
+    "luminal": "phenobarbital",
+    # Phenytoin
     "phenytoin": "phenytoin",
+    "epanutin": "phenytoin",
+    "dilantin": "phenytoin",
+    "phenytoins": "phenytoin",        # plural misspelling
+    # Pregabalin
     "pregabalin": "pregabalin",
     "lyrica": "pregabalin",
+    # Primidone
+    "primidone": "primidone",
+    "mysoline": "primidone",
+    # Rufinamide
+    "rufinamide": "rufinamide",
+    "inovelon": "rufinamide",
+    "banzel": "rufinamide",
+    # Sodium valproate / valproic acid
+    "sodium valproate": "sodium valproate",
+    "valproate": "sodium valproate",
+    "valproic acid": "sodium valproate",
+    "epilim": "sodium valproate",
+    "eplim": "sodium valproate",      # misspelling (Phase 1 error case)
+    "epillim": "sodium valproate",    # misspelling
+    "depakote": "sodium valproate",
+    "depakene": "sodium valproate",
+    "semisodium valproate": "sodium valproate",
+    "divalproex": "sodium valproate",
+    # Stiripentol
+    "stiripentol": "stiripentol",
+    "diacomit": "stiripentol",
+    # Tiagabine
     "tiagabine": "tiagabine",
     "gabitril": "tiagabine",
-    "topamax": "topiramate",
+    # Topiramate
     "topiramate": "topiramate",
+    "topamax": "topiramate",
+    "topiramat": "topiramate",        # misspelling
+    # Vigabatrin
     "vigabatrin": "vigabatrin",
     "sabril": "vigabatrin",
+    # Zonisamide
     "zonisamide": "zonisamide",
     "zonegran": "zonisamide",
+    "zonismaide": "zonisamide",       # misspelling (Phase 1 error case)
+    "zonisimide": "zonisamide",       # misspelling
+    "zonisamid": "zonisamide",        # misspelling
 }
 
 SEIZURE_TYPE_SYNONYMS = {
@@ -107,6 +176,77 @@ DIAGNOSIS_SYNONYMS = {
     "juvenile myoclonic epilepsy": "juvenile myoclonic epilepsy",
     "temporal lobe epilepsy": "focal epilepsy",
 }
+
+
+# Benchmark-collapsed labels per Fang et al. 2025 (Epilepsia 2025;66:3369-3384).
+# Maps canonical seizure-type labels to three coarse categories used in the paper.
+BENCHMARK_SEIZURE_LABEL = {
+    "focal aware seizure": "focal seizure or epilepsy",
+    "focal impaired awareness seizure": "focal seizure or epilepsy",
+    "focal seizure": "focal seizure or epilepsy",
+    "focal to bilateral tonic clonic seizure": "focal seizure or epilepsy",
+    "generalized absence seizure": "generalized seizure or epilepsy",
+    "generalized atonic seizure": "generalized seizure or epilepsy",
+    "generalized myoclonic seizure": "generalized seizure or epilepsy",
+    "generalized tonic clonic seizure": "generalized seizure or epilepsy",
+    "generalized seizures": "generalized seizure or epilepsy",
+    "secondary generalized seizures": "generalized seizure or epilepsy",
+    "convulsive seizure": "generalized seizure or epilepsy",
+    "cluster of seizures": "unknown seizure or epilepsy",
+    "seizure free": "unknown seizure or epilepsy",
+    "unknown seizure type": "unknown seizure or epilepsy",
+}
+
+# Maps canonical epilepsy-diagnosis labels to four coarse categories per Fang et al. 2025.
+BENCHMARK_EPILEPSY_LABEL = {
+    "focal epilepsy": "focal_epilepsy",
+    "generalized epilepsy": "generalized_epilepsy",
+    "juvenile myoclonic epilepsy": "generalized_epilepsy",
+    "combined generalized and focal epilepsy": "combined_generalized_and_focal_epilepsy",
+    "combined_generalized_and_focal_epilepsy": "combined_generalized_and_focal_epilepsy",
+    "status epilepticus": "unknown_epilepsy",
+    "epilepsy": "unknown_epilepsy",
+}
+
+
+def benchmark_seizure_type_label(value: Any) -> str:
+    """Map a seizure-type string to the coarse benchmark label used by Fang et al. 2025.
+
+    Returns one of: 'focal seizure or epilepsy', 'generalized seizure or epilepsy',
+    'unknown seizure or epilepsy', or empty string if the value is absent.
+    """
+    canonical = canonical_seizure_type(value)
+    if not canonical:
+        return ""
+    if canonical in BENCHMARK_SEIZURE_LABEL:
+        return BENCHMARK_SEIZURE_LABEL[canonical]
+    if "focal" in canonical or "partial" in canonical:
+        return "focal seizure or epilepsy"
+    if "generalized" in canonical or "tonic clonic" in canonical or "absence" in canonical or "myoclonic" in canonical:
+        return "generalized seizure or epilepsy"
+    return "unknown seizure or epilepsy"
+
+
+def benchmark_epilepsy_label(value: Any) -> str:
+    """Map an epilepsy-diagnosis string to the coarse benchmark label used by Fang et al. 2025.
+
+    Returns one of: 'focal_epilepsy', 'generalized_epilepsy',
+    'combined_generalized_and_focal_epilepsy', 'unknown_epilepsy', or empty string.
+    """
+    canonical = canonical_diagnosis(value)
+    if not canonical:
+        return ""
+    if canonical in BENCHMARK_EPILEPSY_LABEL:
+        return BENCHMARK_EPILEPSY_LABEL[canonical]
+    if "focal" in canonical:
+        return "focal_epilepsy"
+    if "generalized" in canonical:
+        return "generalized_epilepsy"
+    if "combined" in canonical:
+        return "combined_generalized_and_focal_epilepsy"
+    if "epilepsy" in canonical:
+        return "unknown_epilepsy"
+    return ""
 
 
 def normalize_value(value: Any) -> str:
@@ -316,17 +456,21 @@ def parse_frequency_expression(value: Any) -> dict[str, str]:
         "daily": ("1", "day"),
         "every day": ("1", "day"),
         "once daily": ("1", "day"),
+        "once a day": ("1", "day"),
         "weekly": ("1", "week"),
         "every week": ("1", "week"),
         "once weekly": ("1", "week"),
+        "once a week": ("1", "week"),
         "fortnightly": ("2", "week"),
         "monthly": ("1", "month"),
         "every month": ("1", "month"),
         "once monthly": ("1", "month"),
+        "once a month": ("1", "month"),
         "yearly": ("1", "year"),
         "annually": ("1", "year"),
         "every year": ("1", "year"),
         "once yearly": ("1", "year"),
+        "once a year": ("1", "year"),
     }
     if normalized in single_rates:
         period_count, period_unit = single_rates[normalized]
@@ -358,7 +502,7 @@ def parse_frequency_expression(value: Any) -> dict[str, str]:
     in_period = re.search(
         r"\b((?:\d+(?:\.\d+)?)|one|two|three|four|five|six|seven|eight|nine|ten)"
         r"(?:\s*(?:to|or|-)\s*((?:\d+(?:\.\d+)?)|one|two|three|four|five|six|seven|eight|nine|ten))?"
-        r"\s+(?:seizures?\s+)?(?:in|over|during|last)\s+"
+        r"\s+(?:seizures?\s+)?(?:in|over|during|last)(?:\s+(?:the\s+)?(?:last|past))?\s+"
         r"(?:(\d+(?:\.\d+)?)\s+)?(day|week|month|year)s?\b",
         normalized,
     )
@@ -378,12 +522,71 @@ def parse_frequency_expression(value: Any) -> dict[str, str]:
 
 
 def frequency_parts_match(predicted: dict[str, str], gold: dict[str, str]) -> bool:
+    """Strict component match: class, count, period_count, and period_unit must all agree."""
+    pred_class = predicted.get("class", "")
+    gold_class = gold.get("class", "")
+    if pred_class == "seizure_free" and gold_class == "seizure_free":
+        return True
+    if pred_class == "seizure_free" or gold_class == "seizure_free":
+        return False
     return bool(
         predicted.get("count")
         and predicted.get("count") == gold.get("count")
         and predicted.get("period_count") == gold.get("period_count")
         and predicted.get("period_unit") == gold.get("period_unit")
     )
+
+
+def _count_in_range(count_str: str, gold_count_str: str) -> bool:
+    """Return True if count_str falls within a gold range or equals the gold count exactly."""
+    if count_str == gold_count_str:
+        return True
+    if "-" in gold_count_str:
+        parts = gold_count_str.split("-", 1)
+        try:
+            low, high = float(parts[0]), float(parts[1])
+            pred = float(count_str)
+            return low <= pred <= high
+        except (ValueError, IndexError):
+            pass
+    return False
+
+
+PERIOD_UNIT_EQUIVALENCES: dict[str, str] = {
+    "day": "day",
+    "days": "day",
+    "week": "week",
+    "weeks": "week",
+    "fortnight": "week",    # fortnightly → 1/2 weeks, not exact but same unit
+    "month": "month",
+    "months": "month",
+    "year": "year",
+    "years": "year",
+    "annual": "year",
+}
+
+
+def frequency_loose_match(predicted: dict[str, str], gold: dict[str, str]) -> bool:
+    """Relaxed match: class must agree; count may fall within a gold range; period unit
+    is normalized to singular form before comparison.  Period count must match exactly.
+    """
+    pred_class = predicted.get("class", "")
+    gold_class = gold.get("class", "")
+    if pred_class == "seizure_free" and gold_class == "seizure_free":
+        return True
+    if pred_class == "seizure_free" or gold_class == "seizure_free":
+        return False
+    pred_count = predicted.get("count", "")
+    gold_count = gold.get("count", "")
+    if not pred_count or not gold_count:
+        return False
+    if not _count_in_range(pred_count, gold_count):
+        return False
+    pred_unit = PERIOD_UNIT_EQUIVALENCES.get(predicted.get("period_unit", ""), predicted.get("period_unit", ""))
+    gold_unit = PERIOD_UNIT_EQUIVALENCES.get(gold.get("period_unit", ""), gold.get("period_unit", ""))
+    if pred_unit != gold_unit:
+        return False
+    return predicted.get("period_count", "") == gold.get("period_count", "")
 
 
 def normalize_medication(item: dict[str, Any]) -> dict[str, str]:
@@ -415,7 +618,9 @@ def _run_case(case: dict[str, Any]) -> dict[str, Any]:
         "normalize_unit": normalize_unit,
         "normalize_medication_frequency": normalize_medication_frequency,
         "canonical_seizure_type": canonical_seizure_type,
+        "benchmark_seizure_type_label": benchmark_seizure_type_label,
         "canonical_diagnosis": canonical_diagnosis,
+        "benchmark_epilepsy_label": benchmark_epilepsy_label,
         "canonical_investigation_result": canonical_investigation_result,
         "normalize_temporality": normalize_temporality,
         "normalize_missingness": normalize_missingness,

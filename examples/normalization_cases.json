@@ -13,6 +13,42 @@
       "expected": "sodium valproate"
     },
     {
+      "id": "asm_misspelling_eplim",
+      "function": "canonical_medication_name",
+      "input": "eplim",
+      "expected": "sodium valproate"
+    },
+    {
+      "id": "asm_misspelling_brivitiracetam",
+      "function": "canonical_medication_name",
+      "input": "brivitiracetam",
+      "expected": "brivaracetam"
+    },
+    {
+      "id": "asm_misspelling_zonismaide",
+      "function": "canonical_medication_name",
+      "input": "zonismaide",
+      "expected": "zonisamide"
+    },
+    {
+      "id": "asm_misspelling_levitiracetam",
+      "function": "canonical_medication_name",
+      "input": "levitiracetam",
+      "expected": "levetiracetam"
+    },
+    {
+      "id": "asm_brand_depakote",
+      "function": "canonical_medication_name",
+      "input": "Depakote",
+      "expected": "sodium valproate"
+    },
+    {
+      "id": "asm_brand_tegretol",
+      "function": "canonical_medication_name",
+      "input": "Tegretol 200mg",
+      "expected": "carbamazepine"
+    },
+    {
       "id": "dose_with_unit",
       "function": "normalize_dose",
       "input": "500 mg",
@@ -108,6 +144,94 @@
         "period_count": "",
         "period_unit": "",
         "class": "seizure_free"
+      }
+    },
+    {
+      "id": "frequency_seizure_free",
+      "function": "parse_frequency_expression",
+      "input": "seizure free",
+      "expected": {
+        "count": "0",
+        "period_count": "",
+        "period_unit": "",
+        "class": "seizure_free"
+      }
+    },
+    {
+      "id": "frequency_no_seizures",
+      "function": "parse_frequency_expression",
+      "input": "no seizures",
+      "expected": {
+        "count": "0",
+        "period_count": "",
+        "period_unit": "",
+        "class": "seizure_free"
+      }
+    },
+    {
+      "id": "frequency_once_a_week",
+      "function": "parse_frequency_expression",
+      "input": "once a week",
+      "expected": {
+        "count": "1",
+        "period_count": "1",
+        "period_unit": "week",
+        "class": "rate"
+      }
+    },
+    {
+      "id": "frequency_twice_monthly",
+      "function": "parse_frequency_expression",
+      "input": "2 per month",
+      "expected": {
+        "count": "2",
+        "period_count": "1",
+        "period_unit": "month",
+        "class": "rate"
+      }
+    },
+    {
+      "id": "frequency_every_3_months",
+      "function": "parse_frequency_expression",
+      "input": "every 3 months",
+      "expected": {
+        "count": "1",
+        "period_count": "3",
+        "period_unit": "month",
+        "class": "rate"
+      }
+    },
+    {
+      "id": "frequency_fortnightly",
+      "function": "parse_frequency_expression",
+      "input": "fortnightly",
+      "expected": {
+        "count": "1",
+        "period_count": "2",
+        "period_unit": "week",
+        "class": "rate"
+      }
+    },
+    {
+      "id": "frequency_annually",
+      "function": "parse_frequency_expression",
+      "input": "annually",
+      "expected": {
+        "count": "1",
+        "period_count": "1",
+        "period_unit": "year",
+        "class": "rate"
+      }
+    },
+    {
+      "id": "frequency_in_period",
+      "function": "parse_frequency_expression",
+      "input": "3 seizures in the last month",
+      "expected": {
+        "count": "3",
+        "period_count": "1",
+        "period_unit": "month",
+        "class": "rate"
       }
     },
     {
