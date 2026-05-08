@@ -36,6 +36,7 @@ DEFAULT_OUTPUT_DIR = Path("runs/evaluation")
 DEFAULT_DIRECT_RUN_DIR = Path("runs/direct_baselines")
 DEFAULT_EVENT_RUN_DIR = Path("runs/event_first")
 DEFAULT_RECOVERY_RUN_DIR = Path("runs/recovery/phase4_prompt_contract")
+DEFAULT_FREQUENCY_WORKSTREAM_DIR = Path("runs/frequency_workstream")
 
 
 @dataclass(frozen=True)
@@ -75,6 +76,16 @@ def add_span(document: GoldDocument, group: str, start: str, end: str, label: st
         document.spans_by_group.setdefault(group, []).append(GoldSpan(int(start), int(end), label, value))
 
 
+def source_span_text(document_id: str, start: str, end: str, exect_root: Path) -> str:
+    if not (start.isdigit() and end.isdigit()):
+        return ""
+    text_path = exect_root / f"{document_id}.txt"
+    if not text_path.exists():
+        return ""
+    text = read_text(text_path)
+    return text[int(start) : int(end)]
+
+
 def load_gold(markup_root: Path = DEFAULT_MARKUP_ROOT, exect_root: Path = DEFAULT_EXECT_ROOT) -> dict[str, GoldDocument]:
     gold: dict[str, GoldDocument] = {}
 
@@ -94,12 +105,14 @@ def load_gold(markup_root: Path = DEFAULT_MARKUP_ROOT, exect_root: Path = DEFAUL
     for row in read_csv_rows(markup_root / "MarkupSeizureFrequency.csv"):
         if len(row) < 11:
             continue
-        document = ensure_gold(gold, document_id_from_filename(row[0]))
+        document_id = document_id_from_filename(row[0])
+        document = ensure_gold(gold, document_id)
         exact = normalize_value(row[7])
         lower = normalize_value(row[8])
         upper = normalize_value(row[9])
         period = singular_unit(row[10])
         period_count = normalize_value(row[11]) if len(row) > 11 else ""
+        surface = source_span_text(document_id, row[1], row[2], exect_root)
         if lower and upper:
             count = f"{lower}-{upper}"
         else:
@@ -121,6 +134,7 @@ def load_gold(markup_root: Path = DEFAULT_MARKUP_ROOT, exect_root: Path = DEFAUL
                 "period_unit": period,
                 "seizure_type": seizure_type,
                 "temporal_scope": normalize_value(" ".join(cell for cell in row[12:] if cell.lower() != "null")),
+                "surface": surface,
             }
         )
         if seizure_type:
@@ -155,6 +169,62 @@ def load_gold(markup_root: Path = DEFAULT_MARKUP_ROOT, exect_root: Path = DEFAUL
         for annotation in load_gold_annotations(document_id, exect_root):
             add_span(document, annotation.label, str(annotation.char_start), str(annotation.char_end), annotation.label, annotation.annotation_text)
     return gold
+
+
+def structured_frequency_parts(item: dict[str, str | None]) -> dict[str, str]:
+    return {
+        "count": item.get("count", "") or "",
+        "period_count": item.get("period_count", "") or "",
+        "period_unit": item.get("period_unit", "") or "",
+        "class": "rate" if item.get("period_unit") else "count_only" if item.get("count") else "",
+    }
+
+
+def gold_frequency_part_candidates(document_gold: GoldDocument) -> list[dict[str, str]]:
+    """Return every parsable representation that can support per-letter matching.
+
+    The CSV columns provide normalized count/period attributes for rate-like annotations.
+    The raw span text catches cases such as seizure freedom or compact surface forms that
+    are not represented cleanly by those columns.
+    """
+    candidates: list[dict[str, str]] = []
+    seen: set[tuple[str, str, str, str]] = set()
+
+    def add(parts: dict[str, str]) -> None:
+        key = (
+            parts.get("count", ""),
+            parts.get("period_count", ""),
+            parts.get("period_unit", ""),
+            parts.get("class", ""),
+        )
+        if any(key) and key not in seen:
+            seen.add(key)
+            candidates.append(parts)
+
+    for item in document_gold.seizure_frequencies:
+        add(structured_frequency_parts(item))
+        surface_parts = parse_frequency_expression(item.get("surface"))
+        if surface_parts.get("class") not in {"", "unparsed"}:
+            add(surface_parts)
+    return candidates
+
+
+def classify_frequency_annotation(item: dict[str, str | None]) -> str:
+    parts = structured_frequency_parts(item)
+    surface_parts = parse_frequency_expression(item.get("surface"))
+    temporal_scope = normalize_value(item.get("temporal_scope"))
+    surface = normalize_value(item.get("surface"))
+    if parts.get("period_unit"):
+        return "rate"
+    if surface_parts.get("class") == "seizure_free":
+        return "seizure_free"
+    if any(term in surface for term in ["increase", "increased", "decrease", "decreased", "reduced", "unchanged"]):
+        return "change"
+    if temporal_scope:
+        return "temporal"
+    if parts.get("count"):
+        return "count_only"
+    return surface_parts.get("class") or "unparsed"
 
 
 def load_json(path: Path) -> Any | None:
@@ -367,15 +437,8 @@ def score_document(data: Any | None, source_text: str, document_gold: GoldDocume
     predicted_frequency = normalize_value(fields.get("current_seizure_frequency", {}).get("value"))
     gold_frequencies = {item["value"] for item in document_gold.seizure_frequencies if item.get("value")}
     predicted_frequency_parts = parse_frequency_expression(predicted_frequency)
-    gold_frequency_parts = [
-        {
-            "count": item.get("count", ""),
-            "period_count": item.get("period_count", ""),
-            "period_unit": item.get("period_unit", ""),
-            "class": "rate" if item.get("period_unit") else "count_only" if item.get("count") else "",
-        }
-        for item in document_gold.seizure_frequencies
-    ]
+    gold_frequency_parts = [structured_frequency_parts(item) for item in document_gold.seizure_frequencies]
+    gold_frequency_part_candidates_for_letter = gold_frequency_part_candidates(document_gold)
     result["field_scores"]["current_seizure_frequency"] = {
         "correct": bool(predicted_frequency and predicted_frequency in gold_frequencies),
         "predicted": predicted_frequency,
@@ -390,6 +453,15 @@ def score_document(data: Any | None, source_text: str, document_gold: GoldDocume
         "correct": any(frequency_loose_match(predicted_frequency_parts, item) for item in gold_frequency_parts),
         "predicted": predicted_frequency_parts,
         "gold_values": gold_frequency_parts,
+    }
+    result["field_scores"]["current_seizure_frequency_per_letter"] = {
+        "correct": any(
+            frequency_loose_match(predicted_frequency_parts, item)
+            for item in gold_frequency_part_candidates_for_letter
+        ),
+        "predicted": predicted_frequency_parts,
+        "gold_values": gold_frequency_part_candidates_for_letter,
+        "gold_annotation_count": len(document_gold.seizure_frequencies),
     }
     result["field_scores"]["seizure_frequency_value"] = {
         "correct": bool(
@@ -533,6 +605,7 @@ def flatten_summary(system: str, document_scores: list[dict[str, Any]]) -> dict[
             "current_seizure_frequency_accuracy": None,
             "current_seizure_frequency_relaxed_accuracy": None,
             "current_seizure_frequency_loose_accuracy": None,
+            "current_seizure_frequency_per_letter_accuracy": None,
             "seizure_frequency_value_accuracy": None,
             "seizure_frequency_period_accuracy": None,
             "seizure_frequency_temporal_scope_accuracy": None,
@@ -621,6 +694,7 @@ def flatten_summary(system: str, document_scores: list[dict[str, Any]]) -> dict[
         "current_seizure_frequency_accuracy": accuracy("current_seizure_frequency"),
         "current_seizure_frequency_relaxed_accuracy": accuracy("current_seizure_frequency_relaxed"),
         "current_seizure_frequency_loose_accuracy": accuracy("current_seizure_frequency_loose"),
+        "current_seizure_frequency_per_letter_accuracy": accuracy("current_seizure_frequency_per_letter"),
         "seizure_frequency_value_accuracy": accuracy("seizure_frequency_value"),
         "seizure_frequency_period_accuracy": accuracy("seizure_frequency_period"),
         "seizure_frequency_temporal_scope_accuracy": accuracy("seizure_frequency_temporal_scope"),
@@ -708,6 +782,32 @@ def build_field_prf_table(all_scores: dict[str, list[dict[str, Any]]]) -> list[d
                         "f1": f1,
                     }
                 )
+        for metric in [
+            "current_seizure_frequency",
+            "current_seizure_frequency_relaxed",
+            "current_seizure_frequency_loose",
+            "current_seizure_frequency_per_letter",
+        ]:
+            values = [
+                bool(score.get("field_scores", {}).get(metric, {}).get("correct"))
+                for score in document_scores
+                if metric in score.get("field_scores", {})
+            ]
+            correct = sum(1 for value in values if value)
+            total = len(values)
+            rows.append(
+                {
+                    "system": system,
+                    "field": metric,
+                    "label": "__document_accuracy__",
+                    "tp": correct,
+                    "fp": total - correct,
+                    "fn": 0,
+                    "precision": correct / total if total else 0.0,
+                    "recall": 1.0,
+                    "f1": correct / total if total else 0.0,
+                }
+            )
     return rows
 
 
@@ -715,28 +815,187 @@ def format_metric(value: Any) -> str:
     return f"{value:.3f}" if isinstance(value, (int, float)) else "n/a"
 
 
-def command_run(args: argparse.Namespace) -> int:
-    systems = args.systems
-    document_ids = load_split_ids(Path(args.splits), args.split, args.limit)
-    gold = load_gold(Path(args.markup_root), Path(args.exect_root))
-    output_dir = Path(args.output_dir)
+def evaluate_systems_for_split(
+    split: str,
+    systems: list[str],
+    direct_run_dir: Path,
+    event_run_dir: Path,
+    recovery_run_dir: Path,
+    markup_root: Path,
+    exect_root: Path,
+    splits_path: Path,
+    schema_path: Path,
+    limit: int | None = None,
+) -> tuple[dict[str, list[dict[str, Any]]], list[dict[str, Any]]]:
+    document_ids = load_split_ids(splits_path, split, limit)
+    gold = load_gold(markup_root, exect_root)
     all_scores: dict[str, list[dict[str, Any]]] = {system: [] for system in systems}
-
+    args = argparse.Namespace(
+        direct_run_dir=str(direct_run_dir),
+        event_run_dir=str(event_run_dir),
+        recovery_run_dir=str(recovery_run_dir),
+    )
     for system in systems:
         for document_id in document_ids:
             data = load_json(extraction_path(system, document_id, args))
-            source_text = read_text(Path(args.exect_root) / f"{document_id}.txt")
+            source_text = read_text(exect_root / f"{document_id}.txt")
             document_gold = gold.get(document_id, GoldDocument(document_id=document_id))
-            score = score_document(data, source_text, document_gold, Path(args.schema))
+            score = score_document(data, source_text, document_gold, schema_path)
             score["document_id"] = document_id
             score["system"] = system
             all_scores[system].append(score)
-
     summaries = [flatten_summary(system, all_scores[system]) for system in systems]
-    write_json(output_dir / "evaluation_summary.json", {"split": args.split, "systems": systems, "summaries": summaries})
+    return all_scores, summaries
+
+
+def write_evaluation_outputs(
+    output_dir: Path,
+    split: str,
+    systems: list[str],
+    all_scores: dict[str, list[dict[str, Any]]],
+    summaries: list[dict[str, Any]],
+) -> None:
+    write_json(output_dir / "evaluation_summary.json", {"split": split, "systems": systems, "summaries": summaries})
     write_json(output_dir / "document_scores.json", all_scores)
     write_csv(output_dir / "comparison_table.csv", summaries)
     write_csv(output_dir / "field_prf_table.csv", build_field_prf_table(all_scores))
+
+
+def command_frequency_audit(args: argparse.Namespace) -> int:
+    output_dir = Path(args.output_dir)
+    stage_dir = output_dir / "stage_f0"
+    markup_root = Path(args.markup_root)
+    exect_root = Path(args.exect_root)
+    gold = load_gold(markup_root, exect_root)
+    validation_ids = load_split_ids(Path(args.splits), "validation", None)
+
+    rows: list[dict[str, Any]] = []
+    missed_surfaces: dict[str, int] = {}
+    temporal_only_docs: list[str] = []
+    for document_id in validation_ids:
+        document_gold = gold.get(document_id, GoldDocument(document_id=document_id))
+        annotations = document_gold.seizure_frequencies
+        annotation_types = [classify_frequency_annotation(item) for item in annotations]
+        candidate_parts = gold_frequency_part_candidates(document_gold)
+        parse_success = bool(candidate_parts)
+        for item in annotations:
+            surface = normalize_value(item.get("surface"))
+            surface_parts = parse_frequency_expression(surface)
+            if surface and surface_parts.get("class") in {"", "unparsed"}:
+                missed_surfaces[surface] = missed_surfaces.get(surface, 0) + 1
+        has_rate_like = any(kind in {"rate", "seizure_free", "count_only"} for kind in annotation_types)
+        if annotations and not has_rate_like:
+            temporal_only_docs.append(document_id)
+        rows.append(
+            {
+                "doc_id": document_id,
+                "n_annotations": len(annotations),
+                "annotation_types": "|".join(annotation_types),
+                "parse_success": parse_success,
+                "n_parsable_candidates": len(candidate_parts),
+                "surfaces": " || ".join(normalize_value(item.get("surface")) for item in annotations if item.get("surface")),
+            }
+        )
+
+    write_csv(stage_dir / "gold_distribution.csv", rows)
+    common_misses = sorted(missed_surfaces.items(), key=lambda item: (-item[1], item[0]))[:10]
+    zero = sum(1 for row in rows if row["n_annotations"] == 0)
+    one = sum(1 for row in rows if row["n_annotations"] == 1)
+    multiple = sum(1 for row in rows if row["n_annotations"] >= 2)
+    parse_failures = sum(1 for row in rows if row["n_annotations"] and not row["parse_success"])
+    decision = [
+        "# Stage F0 Scoring Decision",
+        "",
+        "Chosen option: Option 1, per-letter binary scoring.",
+        "",
+        "Rationale: this is the lowest-cost benchmark-aligned metric in the workstream and can be applied to existing single-value outputs without new model calls.",
+        "",
+        "Implementation notes:",
+        "- `current_seizure_frequency_per_letter_accuracy` is scored at document level.",
+        "- A document is correct when the extracted `current_seizure_frequency.value` loosely matches any gold seizure-frequency annotation candidate for that letter.",
+        "- Gold candidates include structured CSV count/period attributes and parsable raw annotation spans, so seizure-free spans can be matched when the CSV attributes are sparse.",
+        "- Letters with no gold seizure-frequency annotation score false for this benchmark metric, which exposes the oracle ceiling for a positive-only per-letter target.",
+        "",
+        "Validation gold audit:",
+        f"- Documents: {len(rows)}",
+        f"- 0 annotations: {zero}",
+        f"- 1 annotation: {one}",
+        f"- 2+ annotations: {multiple}",
+        f"- Annotated documents with no parsable candidate: {parse_failures}",
+        f"- Temporal/comparative-only documents: {', '.join(temporal_only_docs) if temporal_only_docs else 'none'}",
+        "",
+        "Most common raw-span parse misses:",
+    ]
+    decision.extend(f"- {surface}: {count}" for surface, count in common_misses)
+    (stage_dir / "scoring_decision.md").parent.mkdir(parents=True, exist_ok=True)
+    (stage_dir / "scoring_decision.md").write_text("\n".join(decision) + "\n", encoding="utf-8")
+
+    print(f"wrote {stage_dir / 'gold_distribution.csv'}")
+    print(f"wrote {stage_dir / 'scoring_decision.md'}")
+    return 0
+
+
+def command_frequency_rescore(args: argparse.Namespace) -> int:
+    output_dir = Path(args.output_dir)
+    stage_dir = output_dir / "stage_f1"
+    systems = args.systems
+    rows: list[dict[str, Any]] = []
+    run_specs = [
+        ("final_validation", "validation", Path("runs/final_validation/direct_baselines"), Path("runs/final_validation/event_first")),
+        ("final_test", "test", Path("runs/final_test/direct_baselines"), Path("runs/final_test/event_first")),
+    ]
+    for run_name, split, direct_dir, event_dir in run_specs:
+        all_scores, summaries = evaluate_systems_for_split(
+            split,
+            systems,
+            direct_dir,
+            event_dir,
+            Path(args.recovery_run_dir),
+            Path(args.markup_root),
+            Path(args.exect_root),
+            Path(args.splits),
+            Path(args.schema),
+        )
+        write_evaluation_outputs(stage_dir / run_name, split, systems, all_scores, summaries)
+        corrected_dir = Path("runs/recovery/corrected_metrics") / split
+        if corrected_dir.exists():
+            write_evaluation_outputs(corrected_dir, split, systems, all_scores, summaries)
+        for summary in summaries:
+            loose = summary.get("current_seizure_frequency_loose_accuracy")
+            per_letter = summary.get("current_seizure_frequency_per_letter_accuracy")
+            if isinstance(loose, (int, float)) and isinstance(per_letter, (int, float)) and per_letter < loose:
+                raise ValueError(f"{run_name} {summary['system']} per-letter accuracy {per_letter} < loose accuracy {loose}")
+            rows.append(
+                {
+                    "run": run_name,
+                    "split": split,
+                    "system": summary["system"],
+                    "loose_acc": loose,
+                    "per_letter_acc": per_letter,
+                    "benchmark_gap": per_letter - 0.68 if isinstance(per_letter, (int, float)) else None,
+                }
+            )
+    write_csv(stage_dir / "rescored_existing_runs.csv", rows)
+    print(f"wrote {stage_dir / 'rescored_existing_runs.csv'}")
+    return 0
+
+
+def command_run(args: argparse.Namespace) -> int:
+    systems = args.systems
+    output_dir = Path(args.output_dir)
+    all_scores, summaries = evaluate_systems_for_split(
+        args.split,
+        systems,
+        Path(args.direct_run_dir),
+        Path(args.event_run_dir),
+        Path(args.recovery_run_dir),
+        Path(args.markup_root),
+        Path(args.exect_root),
+        Path(args.splits),
+        Path(args.schema),
+        args.limit,
+    )
+    write_evaluation_outputs(output_dir, args.split, systems, all_scores, summaries)
 
     for row in summaries:
         print(
@@ -768,6 +1027,23 @@ def main() -> int:
     run.add_argument("--recovery-run-dir", default=str(DEFAULT_RECOVERY_RUN_DIR))
     run.add_argument("--output-dir", default=str(DEFAULT_OUTPUT_DIR))
     run.set_defaults(func=command_run)
+
+    audit = subparsers.add_parser("frequency-audit", help="Run Stage F0 seizure-frequency gold audit.")
+    audit.add_argument("--exect-root", default=str(DEFAULT_EXECT_ROOT))
+    audit.add_argument("--markup-root", default=str(DEFAULT_MARKUP_ROOT))
+    audit.add_argument("--splits", default=str(DEFAULT_SPLITS))
+    audit.add_argument("--output-dir", default=str(DEFAULT_FREQUENCY_WORKSTREAM_DIR))
+    audit.set_defaults(func=command_frequency_audit)
+
+    rescore = subparsers.add_parser("frequency-rescore", help="Run Stage F1 seizure-frequency rescoring.")
+    rescore.add_argument("--exect-root", default=str(DEFAULT_EXECT_ROOT))
+    rescore.add_argument("--markup-root", default=str(DEFAULT_MARKUP_ROOT))
+    rescore.add_argument("--splits", default=str(DEFAULT_SPLITS))
+    rescore.add_argument("--schema", default=str(DEFAULT_SCHEMA))
+    rescore.add_argument("--systems", nargs="+", default=["S2", "E2", "E3"], choices=["S2", "S3", "S4", "S5", "E2", "E3"])
+    rescore.add_argument("--recovery-run-dir", default=str(DEFAULT_RECOVERY_RUN_DIR))
+    rescore.add_argument("--output-dir", default=str(DEFAULT_FREQUENCY_WORKSTREAM_DIR))
+    rescore.set_defaults(func=command_frequency_rescore)
 
     args = parser.parse_args()
     return args.func(args)
