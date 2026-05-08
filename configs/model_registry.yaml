@@ -205,7 +205,7 @@ models:
     api_surface: openai_compat
     sdk_package: openai
     sdk_version: null
-    context_window_tokens: 32768
+    context_window_tokens: 262144
     max_output_tokens: 4096
     structured_output: json_mode
     temperature: 0.0
@@ -217,7 +217,7 @@ models:
     region: local
     billing_currency: local
     deprecation_or_alias_behavior: local_model_no_deprecation
-    source_notes: "Qwen 3.6 35B MoE model via Ollama at Q4_K_M 4-bit quantization (~24 GB). VRAM+RAM spillover on 8 GB GPU. Extended thinking disabled via /no_think + think:false."
+    source_notes: "Qwen 3.6 35B hybrid transformer+SSM MoE via Ollama at Q4_K_M (~23 GB). 256 experts, 8 active per token, embedding_length=2048 -- active FLOPS closer to ~7-10B dense despite 36B total params. 256K context. VRAM+RAM spillover on 8 GB GPU. Extended thinking disabled via /no_think + think:false."
   gemma_4b_local:
     provider: ollama
     provider_model_id: gemma4:e4b
