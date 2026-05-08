@@ -34,6 +34,7 @@ DEFAULT_STAGE_B_OUTPUT_DIR = Path("runs/model_expansion/stage_b_dev_pilot")
 DEFAULT_STAGE_C_OUTPUT_DIR = Path("runs/model_expansion/stage_c0_strict_validation")
 DEFAULT_STAGE_C1_OUTPUT_DIR = Path("runs/model_expansion/stage_c1_relaxed_projection")
 BENCHMARK_METRICS = ["medication_name_f1", "seizure_type_f1", "epilepsy_diagnosis_accuracy"]
+RELAXED_PROJECTION_VERSION = "relaxed_v2_benchmark_seizure_labels_no_evidence"
 
 
 def load_harnesses(path: Path) -> dict[str, dict[str, Any]]:
@@ -981,6 +982,70 @@ def split_compact_list(text: str) -> list[str]:
     return [part.strip(" -\t\n\r,") for part in parts if part.strip(" -\t\n\r,")]
 
 
+def benchmark_seizure_type(value: str | None) -> str | None:
+    """Collapse relaxed seizure descriptions to the ExECT benchmark label space."""
+    if not value:
+        return None
+    text = value.lower().replace("generalised", "generalized")
+    text = text.replace("-", " ")
+    text = re_sub(r"[^a-z0-9/ ]+", " ", text)
+    text = re_sub(r"\s+", " ", text).strip()
+    if not text or text in {"not stated", "none", "null"}:
+        return None
+
+    symptom_terms = [
+        "aura",
+        "warning",
+        "unusual smell",
+        "strange smell",
+        "strange taste",
+        "abdominal sensation",
+        "epigastric",
+    ]
+    seizure_terms = ["seizure", "seizures", "fit", "fits", "convulsive", "convulsion"]
+    if any(term in text for term in symptom_terms) and not any(term in text for term in seizure_terms):
+        return None
+
+    if any(term in text for term in ["dissociative", "nonepileptic", "non epileptic", "dizzy spell"]):
+        return "unknown seizure type"
+    if "secondary" in text and any(term in text for term in ["generalized", "convulsive", "tonic clonic"]):
+        return "secondary generalized seizures"
+    if "focal to bilateral" in text and "tonic clonic" in text:
+        return "secondary generalized seizures"
+    if "focal" in text or "partial" in text or "temporal" in text:
+        return "focal seizure"
+    if "complex partial" in text:
+        return "focal seizure"
+    if "tonic clonic" in text or "gtc" in text:
+        return "generalized tonic clonic seizure"
+    if "absence" in text:
+        return "generalized absence seizure"
+    if "myoclonic" in text:
+        return "generalized myoclonic seizure"
+    if "generalized seizure" in text or "generalized seizures" in text:
+        return "generalized seizures"
+    if text in {"seizure", "seizures", "fits"}:
+        return "unknown seizure type"
+    return value.strip()
+
+
+def re_sub(pattern: str, replacement: str, text: str) -> str:
+    import re
+
+    return re.sub(pattern, replacement, text, flags=re.IGNORECASE)
+
+
+def benchmark_seizure_types(values: list[str]) -> list[str]:
+    labels: list[str] = []
+    seen: set[str] = set()
+    for value in values:
+        label = benchmark_seizure_type(value)
+        if label and label not in seen:
+            labels.append(label)
+            seen.add(label)
+    return labels
+
+
 def parse_loose_sections(text: str) -> dict[str, Any]:
     parsed = parse_json_response(text)
     if isinstance(parsed.data, dict):
@@ -1096,7 +1161,7 @@ def projected_canonical(document_id: str, harness_id: str, model_label: str, pay
         or payload.get("current_anti_seizure_medications")
         or payload.get("current anti-seizure medications")
     )
-    seizure_types = value_list(payload.get("seizure_types") or payload.get("seizure_type"))
+    seizure_types = benchmark_seizure_types(value_list(payload.get("seizure_types") or payload.get("seizure_type")))
     epilepsy = first_value(
         payload.get("epilepsy_types")
         or payload.get("epilepsy_diagnosis")
@@ -1136,7 +1201,7 @@ def projected_canonical(document_id: str, harness_id: str, model_label: str, pay
             "model_label": model_label,
             "harness_id": harness_id,
             "format": "unknown",
-            "projection": "relaxed_v1_no_evidence",
+            "projection": RELAXED_PROJECTION_VERSION,
             "latency_ms": to_float(row.get("latency_ms")),
             "input_tokens": int(to_float(row.get("input_tokens")) or 0),
             "output_tokens": int(to_float(row.get("output_tokens")) or 0),
@@ -1156,7 +1221,8 @@ def relaxed_projection_report(summaries: list[dict[str, Any]], projection_rows: 
         "## Projection Status",
         "",
         f"- Projected documents: {projected}/{total}",
-        "- Projection version: `relaxed_v1_no_evidence`",
+        f"- Projection version: `{RELAXED_PROJECTION_VERSION}`",
+        "- Seizure-type projection collapses focal semiology to `focal seizure`, maps secondary generalized convulsive wording to `secondary generalized seizures`, and drops aura-only symptom phrases.",
         "- Evidence quotes are not reconstructed; benchmark field scores are comparable, but strict evidence metrics are intentionally degraded.",
         "",
         "## Scored Conditions",
