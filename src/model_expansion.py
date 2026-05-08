@@ -156,6 +156,54 @@ def build_h6v2_prompt(document: dict[str, Any], harness_id: str) -> str:
     )
 
 
+def _h6fs_examples() -> str:
+    """Two-shot examples targeting the two dominant N1 seizure-type failure modes:
+    (1) 'unknown seizure type' meta-label miss when type is unspecified.
+    (2) 'seizure free' when patient is currently seizure-free.
+    Examples are synthetic and do not appear in the ExECT dataset.
+    """
+    return "\n".join([
+        "## Examples",
+        "",
+        "Example 1 -- patient has ongoing seizures but type is not specified in the letter:",
+        'Letter excerpt: "She continues to have approximately two episodes per month. We plan to review her medication at the next visit."',
+        'Output: {"medication_names":["lamotrigine"],"seizure_types":["unknown seizure type"],"epilepsy_diagnosis_type":"epilepsy"}',
+        "",
+        "Example 2 -- patient is currently seizure-free:",
+        'Letter excerpt: "He has been completely seizure-free for the past ten months since starting levetiracetam."',
+        'Output: {"medication_names":["levetiracetam"],"seizure_types":["seizure free"],"epilepsy_diagnosis_type":"juvenile myoclonic epilepsy"}',
+        "",
+        "Example 3 -- letter mentions past seizure type but patient is now seizure-free:",
+        'Letter excerpt: "Previously had tonic clonic seizures, but has had no further events since sodium valproate was introduced two years ago."',
+        'Output: {"medication_names":["sodium valproate"],"seizure_types":["seizure free"],"epilepsy_diagnosis_type":"generalized epilepsy"}',
+    ])
+
+
+def build_h6fs_prompt(document: dict[str, Any], harness_id: str) -> str:
+    """H6 with few-shot examples (Variant A).
+    Three inline examples demonstrate: unknown seizure type when unspecified,
+    seizure free when currently seizure-free, and seizure free (not historical
+    type) when past seizures are mentioned but currently resolved.
+    Targets the two dominant N1 failure modes without changing the label set or
+    schema shape.
+    """
+    return "\n\n".join(
+        [
+            "Extract only benchmark fields from this epilepsy clinic letter.",
+            "Return JSON only with this shape:",
+            '{"medication_names":[],"seizure_types":[],"epilepsy_diagnosis_type":null}',
+            "Medication names should include current anti-seizure medications only. Use generic drug names where possible.",
+            "Seizure types must use only the allowed labels. Do not include aura, warning, symptom, medication side effect, investigation finding, or differential diagnosis labels as seizure types.",
+            "Epilepsy diagnosis/type must use one allowed label or null. Do not invent a diagnosis if the letter does not support one.",
+            benchmark_label_block(),
+            _h6fs_examples(),
+            f"## Harness\n{harness_id}",
+            "## Source Letter",
+            document["text"],
+        ]
+    )
+
+
 def benchmark_output_schema() -> dict[str, Any]:
     return {
         "name": "benchmark_fields",

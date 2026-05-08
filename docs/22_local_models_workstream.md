@@ -1,7 +1,7 @@
 # Local Models (Ollama) Workstream
 
-**Date:** 2026-05-08 (updated 2026-05-08 with 40-doc results, N1-N5 complete)
-**Status:** ✅ All stages and follow-ups complete (2026-05-08, Windows)
+**Date:** 2026-05-08 (updated 2026-05-08 with H6fs Variant A results)
+**Status:** ✅ All stages and follow-ups complete; Variant A (H6fs) added (2026-05-08, Windows)
 **Motivation:** All experiments to date use closed frontier APIs (OpenAI, Anthropic, Google).
 A dissertation contribution of independent significance is demonstrating that a locally-hosted
 open-weight model can achieve competitive performance — reducing cost to near-zero marginal,
@@ -288,6 +288,70 @@ remaining equal to frontier E3 and well above S2 (0.725); likely random variatio
 
 This result revises the dissertation claim substantially: with appropriate prompt engineering,
 qwen3.5:9b reaches near-frontier seizure type performance at zero marginal cost.
+
+### Variant A — H6fs: Few-shot seizure-type examples — COMPLETE (2026-05-08)
+
+Three inline examples added to H6 targeting the two dominant N1 failure modes:
+- Example 1: ongoing seizures, type unspecified -> `unknown seizure type`
+- Example 2: currently seizure-free -> `seizure free`
+- Example 3: historical specific type + now seizure-free -> `seizure free` (not historical type)
+
+#### Results (40-doc validation)
+
+| System | Med F1 | Sz F1 collapsed | Dx Acc |
+|--------|--------|-----------------|--------|
+| GPT-4.1-mini S2 (frontier) | 0.852 | 0.610 | 0.725 |
+| GPT-4.1-mini E3 (frontier best) | 0.872 | 0.633 | 0.775 |
+| qwen3.5:9b H6 (baseline) | 0.800 | 0.541 | 0.800 |
+| qwen3.5:9b H6v2 | 0.814 | 0.595 | 0.775 |
+| **qwen3.5:9b H6fs** | **0.839** | **0.602** | **0.825** |
+| gemma4:e4b H6 (baseline) | 0.849 | 0.593 | 0.825 |
+| gemma4:e4b H6v2 | 0.865 | 0.568 | 0.825 |
+| **gemma4:e4b H6fs** | **0.815** | **0.561** | **0.825** |
+
+#### H6fs is the best harness for qwen3.5:9b across all three metrics simultaneously.
+- Med: +3.9pp vs H6, +2.5pp vs H6v2
+- Sz: +6.1pp vs H6, +0.7pp vs H6v2
+- Dx: +2.5pp vs H6, +5pp vs H6v2
+- Seizure F1 0.602 is now only 0.8pp below frontier S2 (0.610)
+
+#### H6fs regresses gemma4:e4b on medication and seizure (-3.4pp, -3.2pp).
+Diagnosis accuracy unchanged. H6 remains best for gemma4.
+
+#### Failure mode analysis (N1 methodology applied to H6fs outputs)
+
+| Failure mode | H6 (qwen9b) | H6fs (qwen9b) | H6fs (gemma4) |
+|---|---|---|---|
+| Missing `unknown seizure type` | 15 | 13 (-2) | 13 |
+| Hallucinations on empty gold | 12 | 14 (+2) | 14 |
+| `focal seizure` FP | 11 | 9 (-2) | 9 |
+| GTCS FP | 11 | 7 (-4) | 5 |
+| `seizure free` FP (new) | 2 | 5 (+3) | 5 |
+
+The F1 gain for qwen3.5 came primarily from Example 3 reducing GTCS and focal seizure
+hallucinations from historical mentions (11->7 and 11->9). The `unknown seizure type`
+meta-label miss reduced modestly (15->13). A side effect: `seizure free` FPs increased
+(2->5) as the model over-applies Example 2.
+
+For gemma4, the `seizure free` over-application is the dominant regression driver (5 new
+FPs), alongside reduced selectivity on other types. gemma4 was already well-calibrated on
+these cases without examples; the examples introduced new error patterns.
+
+#### Interpretation
+
+The examples work as intended for the model that needed guidance (qwen3.5) but harm the
+model that was already well-calibrated (gemma4). This is a genuine finding: few-shot
+guidance has model-specific effects that cannot be assumed to generalise across model
+families. A harness that improves one model can regress another. For the dissertation,
+this argues for model-specific harness selection rather than a single universal prompt.
+
+#### Updated best-of-model recommendations
+
+| Model | Best harness | Med F1 | Sz F1 | Dx Acc |
+|-------|-------------|--------|-------|--------|
+| qwen3.5:9b | H6fs | 0.839 | 0.602 | 0.825 |
+| qwen3.5:4b | H6 | 0.814 | 0.535 | 0.750 |
+| gemma4:e4b | H6 | 0.849 | 0.593 | 0.825 |
 
 ### N6 — Frequency field (out of scope but noted)
 

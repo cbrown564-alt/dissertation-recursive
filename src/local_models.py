@@ -36,6 +36,7 @@ from model_expansion import (
     BENCHMARK_EPILEPSY_LABELS,
     BENCHMARK_SEIZURE_LABELS,
     build_h6_prompt,
+    build_h6fs_prompt,
     build_h6v2_prompt,
     build_h7_extract_prompt,
     build_h7_normalize_prompt,
@@ -91,6 +92,8 @@ def _build_local_prompt(
         prompt = build_h6_prompt(document, harness_id)
     elif harness_id == "H6v2_benchmark_only_coarse_json":
         prompt = build_h6v2_prompt(document, harness_id)
+    elif harness_id == "H6fs_benchmark_only_coarse_json":
+        prompt = build_h6fs_prompt(document, harness_id)
     elif harness_id == "H3_loose_answer_then_parse":
         prompt = build_loose_prompt(document, harness_id)
     elif harness_id == "H7_extract_then_normalize":
