@@ -191,21 +191,35 @@ def repair_json_text(text: str) -> str:
 
 
 def parse_json_response(text: str) -> ParseResult:
+    if not text.strip():
+        return ParseResult(None, False, False, False, "empty response")
     raw = extract_json_object(text)
     try:
-        return ParseResult(json.loads(raw, strict=False), True, False, False, None)
+        data = json.loads(raw, strict=False)
+        if data is None:
+            return ParseResult(None, False, False, False, "empty JSON value")
+        return ParseResult(data, True, False, False, None)
     except json.JSONDecodeError as first_error:
         repaired = repair_json_text(text)
         try:
-            return ParseResult(json.loads(repaired, strict=False), True, True, True, None)
+            data = json.loads(repaired, strict=False)
+            if data is None:
+                return ParseResult(None, False, True, False, "empty repaired JSON value")
+            return ParseResult(data, True, True, True, None)
         except json.JSONDecodeError as second_error:
             try:
                 import yaml
 
-                return ParseResult(yaml.safe_load(repaired), True, True, True, None)
+                data = yaml.safe_load(repaired)
+                if data is None:
+                    return ParseResult(None, False, True, False, "empty YAML value")
+                return ParseResult(data, True, True, True, None)
             except Exception as yaml_error:
                 try:
-                    return ParseResult(json.loads(repaired.replace(r"\"", '"'), strict=False), True, True, True, None)
+                    data = json.loads(repaired.replace(r"\"", '"'), strict=False)
+                    if data is None:
+                        return ParseResult(None, False, True, False, "empty unescaped JSON value")
+                    return ParseResult(data, True, True, True, None)
                 except json.JSONDecodeError as third_error:
                     return ParseResult(
                         None,

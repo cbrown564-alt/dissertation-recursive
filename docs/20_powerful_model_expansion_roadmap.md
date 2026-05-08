@@ -156,8 +156,12 @@ Design:
 
 Decision rule:
 
-- Promote a model/harness pair if it improves at least two benchmark-aligned
-  fields or materially improves one weak field without parse/evidence collapse.
+- Promote a model/harness pair to strict validation only if it produces
+  canonically scoreable output and improves at least two benchmark-aligned fields
+  or materially improves one weak field without parse, evidence, or availability
+  collapse.
+- Treat relaxed harnesses as projection-blocked until they can be deterministically
+  mapped into the canonical benchmark fields and scored with the same evaluator.
 - Drop a pair if it is dominated by another pair on both accuracy and cost.
 - Keep one cheap model even if it is not best, as the cost baseline.
 
@@ -167,19 +171,27 @@ Outputs:
 - `runs/model_expansion/stage_b_dev_pilot/cost_effectiveness_frontier.csv`
 - `runs/model_expansion/stage_b_dev_pilot/promotion_decision.md`
 
-### Stage C: Validation Matrix
+Stage B result: `H0_strict_canonical` is currently the only promotion-eligible
+harness because it produces scoreable canonical output with valid evidence
+quotes. `H2_task_specific` and `H3_loose_answer_then_parse` are retained as
+low-cost exploratory harnesses, but they cannot support benchmark-aligned
+promotion decisions until a canonical projection layer exists. `H3` also needs a
+more tolerant parser because model output format varies substantially.
 
-Purpose: evaluate promoted systems rigorously without touching test data.
+### Stage C0: Strict Validation Matrix
+
+Purpose: evaluate promoted strict systems rigorously without touching test data.
 
 Design:
 
 - split: validation;
 - documents: full validation split;
 - repeats: 3 for stochastic model calls where budget allows;
-- systems: promoted direct systems plus one event-first variant;
+- systems: promoted `H0` direct systems plus one event-first variant;
 - models: promoted frontier models, promoted efficiency models, and
   `gpt_4_1_mini_baseline`;
-- harnesses: at least one strict and one relaxed condition.
+- harnesses: `H0_strict_canonical` only, unless another strict canonical harness
+  has become scoreable.
 
 Report:
 
@@ -197,16 +209,59 @@ Report:
 
 Outputs:
 
-- `runs/model_expansion/stage_c_validation/model_harness_table.csv`
-- `runs/model_expansion/stage_c_validation/field_prf_table.csv`
-- `runs/model_expansion/stage_c_validation/bootstrap_intervals.json`
-- `runs/model_expansion/stage_c_validation/cost_latency_table.csv`
-- `runs/model_expansion/stage_c_validation/validation_decision.json`
+- `runs/model_expansion/stage_c0_strict_validation/model_harness_table.csv`
+- `runs/model_expansion/stage_c0_strict_validation/field_prf_table.csv`
+- `runs/model_expansion/stage_c0_strict_validation/bootstrap_intervals.json`
+- `runs/model_expansion/stage_c0_strict_validation/cost_latency_table.csv`
+- `runs/model_expansion/stage_c0_strict_validation/strict_validation_decision.json`
 
-Exit criterion: select at most two final candidates:
+Exit criterion: select at most two strict final candidates:
 
 - the best quality candidate;
 - the best cost-effective candidate.
+
+### Stage C1: Relaxed-Projection Validation
+
+Purpose: determine whether lower schema pressure improves extraction quality once
+relaxed harnesses can be projected into the same canonical scoring contract.
+
+Entry criteria:
+
+- `H2` and/or `H3` has a deterministic canonical projection layer;
+- projected outputs pass schema validation for benchmark-aligned fields;
+- projection behavior is covered by development-set regression fixtures;
+- `H3` parser accepts prose, simple lists, and JSON-like structured outputs;
+- call availability is high enough for model comparisons to be meaningful.
+
+Design:
+
+- split: validation;
+- documents: full validation split;
+- repeats: 3 for stochastic model calls where budget allows;
+- systems: promoted relaxed direct systems from `D1` and/or `D2`;
+- models: strict-validation finalists plus any relaxed-only model that is
+  reliable and cost-competitive;
+- harnesses: scoreable `H2` and/or `H3` projections, compared against the
+  matching `H0` strict candidate.
+
+Report:
+
+- the same benchmark-collapsed PRF fields as Stage C0;
+- projection success, projection repair rate, and projection failure modes;
+- unsupported-field and evidence-audit rates;
+- cost per document and cost per correctly extracted benchmark field;
+- direct comparison against the corresponding strict `H0` system.
+
+Outputs:
+
+- `runs/model_expansion/stage_c1_relaxed_projection/projection_report.md`
+- `runs/model_expansion/stage_c1_relaxed_projection/model_harness_table.csv`
+- `runs/model_expansion/stage_c1_relaxed_projection/field_prf_table.csv`
+- `runs/model_expansion/stage_c1_relaxed_projection/cost_latency_table.csv`
+- `runs/model_expansion/stage_c1_relaxed_projection/relaxed_validation_decision.json`
+
+Exit criterion: decide whether any relaxed projected system should join or
+replace the strict finalists before robustness ablation.
 
 ### Stage D: Robustness And Constraint Ablation
 
@@ -354,13 +409,14 @@ Use these rules before writing claims:
 
 ## Immediate Next Actions
 
-1. Add a provider-neutral model registry and response log contract.
-2. Implement Anthropic and Google provider adapters alongside the existing
-   OpenAI adapter.
-3. Create `H0`, `H2`, and `H3` harness modes for a 2-document smoke run.
-4. Build cost accounting into every model call before running the expensive
-   matrix.
-5. Run Stage A smoke across the requested model set and record exact model IDs,
-   availability, token usage, latency, and pricing snapshot date.
-6. Run Stage B on development hard cases and promote only non-dominated
-   model/harness pairs to validation.
+1. Write the Stage B promotion decision: only canonically scoreable `H0`
+   candidates are eligible for Stage C0.
+2. Mark `H2` and `H3` as projection-blocked exploratory harnesses until their
+   outputs can be deterministically mapped into canonical benchmark fields.
+3. Build the `H2`/`H3` canonical projection layer and regression fixtures on the
+   15 development documents.
+4. Harden the `H3` parser so it accepts prose, simple lists, and JSON-like
+   structured answers from models that ignore the loose-output instruction.
+5. Run Stage C0 strict validation on promoted `H0` candidates.
+6. Run Stage C1 relaxed-projection validation only after projection success,
+   parser stability, and call availability meet the entry criteria.

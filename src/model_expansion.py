@@ -111,6 +111,8 @@ def run_one(args: argparse.Namespace, model_label: str, harness_id: str, documen
         temperature=args.temperature if args.temperature is not None else spec.temperature,
         max_output_tokens=args.max_output_tokens or spec.max_output_tokens,
         schema_mode=None,
+        reasoning_effort=args.reasoning_effort,
+        google_thinking_budget=args.google_thinking_budget,
         metadata={"document_id": document_id, "stage": "stage_a_smoke"},
     )
     adapter = adapter_for(provider_for_args(spec.provider, args.stub_calls))
@@ -154,9 +156,11 @@ def run_one(args: argparse.Namespace, model_label: str, harness_id: str, documen
         "document_id": document_id,
         "status": "success" if not response.error else "unavailable",
         "error": response.error,
+        "stop_reason": response.stop_reason,
         "prompt_path": str(prompt_path),
         "raw_response_path": str(raw_path),
         "provider_response_path": str(response_log_path),
+        "canonical_output_path": str(run_root / "canonical.json") if scores is not None else None,
         "parse_success": parse.parse_success,
         "repair_attempted": parse.repair_attempted,
         "repair_succeeded": parse.repair_succeeded,
@@ -171,6 +175,7 @@ def run_one(args: argparse.Namespace, model_label: str, harness_id: str, documen
         "estimated_cost": response.estimated_cost.get("total"),
         "cost_status": response.estimated_cost.get("status"),
         "pricing_snapshot_date": response.estimated_cost.get("pricing_snapshot_date"),
+        "parse_error": parse.error,
     }
     return record
 
@@ -214,6 +219,9 @@ def command_stage_a(args: argparse.Namespace) -> int:
         "document_ids": document_ids,
         "model_labels": model_labels,
         "harness_ids": harness_ids,
+        "max_output_tokens": args.max_output_tokens,
+        "reasoning_effort": args.reasoning_effort,
+        "google_thinking_budget": args.google_thinking_budget,
         "stub_calls": args.stub_calls,
         "report": str(output_dir / "provider_call_report.csv"),
     }
@@ -249,6 +257,67 @@ def system_for_harness(harness_id: str) -> str:
     }.get(harness_id, harness_id)
 
 
+def truthy_csv(value: Any) -> bool:
+    return str(value).strip().lower() in {"1", "true", "yes", "y"}
+
+
+def resolve_report_path(stage_a_dir: Path, row: dict[str, str], field: str) -> Path | None:
+    value = (row.get(field) or "").strip()
+    if not value:
+        return None
+    path = Path(value)
+    candidates = [path] if path.is_absolute() else [path, stage_a_dir / path]
+    source_dir = (row.get("source_dir") or "").strip()
+    if source_dir and not path.is_absolute():
+        candidates.append(Path(source_dir) / path)
+    for candidate in candidates:
+        if candidate.exists():
+            return candidate
+    return candidates[0] if candidates else None
+
+
+def canonical_path_for_report_row(stage_a_dir: Path, row: dict[str, str]) -> Path:
+    explicit = resolve_report_path(stage_a_dir, row, "canonical_output_path")
+    if explicit and explicit.exists():
+        return explicit
+    raw_path = resolve_report_path(stage_a_dir, row, "raw_response_path")
+    if raw_path:
+        sibling = raw_path.with_name("canonical.json")
+        if sibling.exists():
+            return sibling
+    return stage_a_dir / row["model_label"] / row["harness_id"] / row["document_id"] / "canonical.json"
+
+
+def parse_success_for_row(stage_a_dir: Path, row: dict[str, str]) -> bool:
+    if "parse_success" in row and (row.get("parse_success") or "") != "":
+        parsed = truthy_csv(row.get("parse_success"))
+        if row.get("harness_id") == "H0_strict_canonical":
+            return parsed and canonical_path_for_report_row(stage_a_dir, row).exists()
+        return parsed
+    return row.get("harness_id") == "H0_strict_canonical" and canonical_path_for_report_row(stage_a_dir, row).exists()
+
+
+def repair_attempted_for_row(row: dict[str, str]) -> bool:
+    return truthy_csv(row.get("repair_attempted"))
+
+
+def repair_succeeded_for_row(row: dict[str, str]) -> bool:
+    return truthy_csv(row.get("repair_succeeded"))
+
+
+def availability_note(pair_rows: list[dict[str, str]]) -> str:
+    errors = " ".join(row.get("error") or "" for row in pair_rows)
+    successes = sum(1 for row in pair_rows if row.get("status") == "success")
+    failures = len(pair_rows) - successes
+    if failures and successes == 0 and ("RESOURCE_EXHAUSTED" in errors or "quota" in errors.lower() or "429" in errors):
+        return "unavailable_due_to_quota"
+    if failures and successes and ("503" in errors or "UNAVAILABLE" in errors):
+        return "mostly_available_with_transient_503"
+    if failures:
+        return "partially_available_with_failures"
+    return "available"
+
+
 def score_stage_b_canonical(
     stage_a_dir: Path,
     rows: list[dict[str, str]],
@@ -262,7 +331,7 @@ def score_stage_b_canonical(
         if row.get("harness_id") != "H0_strict_canonical":
             continue
         document_id = row["document_id"]
-        canonical_path = stage_a_dir / row["model_label"] / row["harness_id"] / document_id / "canonical.json"
+        canonical_path = canonical_path_for_report_row(stage_a_dir, row)
         data = json.loads(canonical_path.read_text(encoding="utf-8")) if canonical_path.exists() else None
         source_text = preprocess_document(document_id, exect_root)["text"]
         by_pair.setdefault((row["model_label"], row["harness_id"]), []).append(
@@ -272,6 +341,7 @@ def score_stage_b_canonical(
 
 
 def summarize_stage_b_rows(
+    stage_a_dir: Path,
     rows: list[dict[str, str]],
     canonical_scores: dict[tuple[str, str], dict[str, Any]],
 ) -> list[dict[str, Any]]:
@@ -282,13 +352,16 @@ def summarize_stage_b_rows(
     summaries = []
     for (model_label, harness_id), pair_rows in sorted(grouped.items()):
         status_success = sum(1 for row in pair_rows if row.get("status") == "success")
-        parse_success = sum(1 for row in pair_rows if row.get("parse_success") == "True")
-        repair_attempted = sum(1 for row in pair_rows if row.get("repair_attempted") == "True")
-        repair_succeeded = sum(1 for row in pair_rows if row.get("repair_succeeded") == "True")
+        parse_success = sum(1 for row in pair_rows if parse_success_for_row(stage_a_dir, row))
+        repair_attempted = sum(1 for row in pair_rows if repair_attempted_for_row(row))
+        repair_succeeded = sum(1 for row in pair_rows if repair_succeeded_for_row(row))
         scored = canonical_scores.get((model_label, harness_id), {})
+        canonical_documents_available = int(scored.get("documents_available") or 0)
         benchmark_values = [to_float(scored.get(metric)) for metric in BENCHMARK_METRICS]
         benchmark_quality = mean_present(benchmark_values)
         mean_cost = mean_present([to_float(row.get("estimated_cost")) for row in pair_rows])
+        note = availability_note(pair_rows)
+        scoring_status = "canonical_scored" if canonical_documents_available else "parser_only_until_canonical_projection"
         summary = {
             "model_label": model_label,
             "provider": pair_rows[0].get("provider"),
@@ -296,8 +369,10 @@ def summarize_stage_b_rows(
             "system": system_for_harness(harness_id),
             "harness_id": harness_id,
             "documents": len(pair_rows),
+            "canonical_documents_available": canonical_documents_available,
             "successful_calls": status_success,
             "call_success_rate": status_success / len(pair_rows) if pair_rows else 0.0,
+            "availability_note": note,
             "parse_success_rate": parse_success / len(pair_rows) if pair_rows else 0.0,
             "repair_attempt_rate": repair_attempted / len(pair_rows) if pair_rows else 0.0,
             "repair_success_rate": repair_succeeded / repair_attempted if repair_attempted else 1.0,
@@ -316,7 +391,8 @@ def summarize_stage_b_rows(
             "mean_output_tokens": mean_present([to_float(row.get("output_tokens")) for row in pair_rows]),
             "mean_estimated_cost_usd": mean_cost,
             "cost_per_benchmark_quality_point": (mean_cost / benchmark_quality) if mean_cost is not None and benchmark_quality else None,
-            "scoring_status": "canonical_scored" if scored else "parser_only_until_canonical_projection",
+            "scoring_status": scoring_status,
+            "promotion_eligibility": "eligible" if scoring_status == "canonical_scored" and note == "available" else f"excluded_or_marked:{note}",
         }
         summaries.append(summary)
     return summaries
@@ -367,6 +443,8 @@ def promotion_decision(rows: list[dict[str, Any]], frontier_rows: list[dict[str,
         row
         for row in frontier_rows
         if (to_float(row.get("benchmark_quality")) or 0.0) >= baseline_quality
+        and row.get("availability_note") == "available"
+        and (to_float(row.get("call_success_rate")) or 0.0) >= 0.9
         and (to_float(row.get("parse_success_rate")) or 0.0) >= 0.9
         and (to_float(row.get("schema_valid_rate")) or 0.0) >= 0.9
     ]
@@ -400,11 +478,13 @@ def promotion_decision(rows: list[dict[str, Any]], frontier_rows: list[dict[str,
             )
     else:
         lines.append("- None; no scored pair passed the promotion gate.")
+    lines.extend(["", "## Gate Notes", ""])
+    if any(row["model_label"] == "gemini_3_1_pro" and row.get("availability_note") == "unavailable_due_to_quota" for row in rows):
+        lines.append("- `gemini_3_1_pro` is marked unavailable where Stage A returned quota/resource-exhausted errors.")
+    if any(row["model_label"] == "gemini_3_1_flash" and row.get("availability_note") == "mostly_available_with_transient_503" for row in rows):
+        lines.append("- `gemini_3_1_flash` is marked mostly available where Stage A mixed successful calls with a transient 503.")
     lines.extend(
         [
-            "",
-            "## Gate Notes",
-            "",
             "- `H2_task_specific` and `H3_loose_answer_then_parse` are tracked for call and parse stability, but remain parser-only until a deterministic canonical projection is added.",
             "- Promotion requires call/parse stability, canonical schema validity, and non-dominance on cost versus benchmark-quality when cost is available.",
         ]
@@ -425,7 +505,7 @@ def command_stage_b(args: argparse.Namespace) -> int:
         Path(args.markup_root),
         Path(args.schema),
     )
-    summaries = summarize_stage_b_rows(rows, canonical_scores)
+    summaries = summarize_stage_b_rows(stage_a_dir, rows, canonical_scores)
     frontier = cost_frontier(summaries)
     output_dir = Path(args.output_dir)
     write_csv(output_dir / "comparison_table.csv", summaries)
@@ -439,6 +519,7 @@ def command_stage_b(args: argparse.Namespace) -> int:
         "stage": "stage_b_dev_pilot",
         "source_stage_a_dir": str(stage_a_dir),
         "split": args.split,
+        "artifact_path_policy": "canonical_output_path/raw_response_path from provider report are honored before falling back under source_stage_a_dir",
         "comparison_table": str(output_dir / "comparison_table.csv"),
         "cost_effectiveness_frontier": str(output_dir / "cost_effectiveness_frontier.csv"),
         "promotion_decision": str(output_dir / "promotion_decision.md"),
@@ -492,7 +573,7 @@ def score_stage_a_outputs(
             continue
 
         document_id = row["document_id"]
-        canonical_path = stage_a_dir / row["model_label"] / harness_id / document_id / "canonical.json"
+        canonical_path = canonical_path_for_report_row(stage_a_dir, row)
         data = json.loads(canonical_path.read_text(encoding="utf-8")) if canonical_path.exists() else None
         source_text = preprocess_document(document_id, exect_root)["text"]
         score = score_document(data, source_text, gold.get(document_id, GoldDocument(document_id=document_id)), schema_path)
@@ -856,6 +937,16 @@ def main() -> int:
     stage_a.add_argument("--harnesses", nargs="+")
     stage_a.add_argument("--temperature", type=float)
     stage_a.add_argument("--max-output-tokens", type=int)
+    stage_a.add_argument(
+        "--reasoning-effort",
+        choices=["minimal", "low", "medium", "high"],
+        help="OpenAI reasoning effort for reasoning models; use low/minimal for extraction smoke runs.",
+    )
+    stage_a.add_argument(
+        "--google-thinking-budget",
+        type=int,
+        help="Google thinking token budget. Use 0 or a small value for extraction smoke runs.",
+    )
     stage_a.add_argument("--stub-calls", action="store_true", help="Exercise logging without paid provider calls.")
     stage_a.add_argument("--allow-unavailable", action="store_true", help="Exit zero even if providers are unavailable.")
     stage_a.add_argument("--output-dir", default=str(DEFAULT_OUTPUT_DIR))
