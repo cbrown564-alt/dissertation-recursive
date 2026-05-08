@@ -33,8 +33,28 @@ DEFAULT_OUTPUT_DIR = Path("runs/model_expansion/stage_a_smoke")
 DEFAULT_STAGE_B_OUTPUT_DIR = Path("runs/model_expansion/stage_b_dev_pilot")
 DEFAULT_STAGE_C_OUTPUT_DIR = Path("runs/model_expansion/stage_c0_strict_validation")
 DEFAULT_STAGE_C1_OUTPUT_DIR = Path("runs/model_expansion/stage_c1_relaxed_projection")
+DEFAULT_H6_H7_OUTPUT_DIR = Path("runs/model_expansion/stage_d_h6_h7_diagnostic")
 BENCHMARK_METRICS = ["medication_name_f1", "seizure_type_f1", "epilepsy_diagnosis_accuracy"]
 RELAXED_PROJECTION_VERSION = "relaxed_v2_benchmark_seizure_labels_no_evidence"
+BENCHMARK_SEIZURE_LABELS = [
+    "focal seizure",
+    "secondary generalized seizures",
+    "generalized tonic clonic seizure",
+    "generalized absence seizure",
+    "generalized myoclonic seizure",
+    "generalized seizures",
+    "convulsive seizure",
+    "cluster of seizures",
+    "seizure free",
+    "unknown seizure type",
+]
+BENCHMARK_EPILEPSY_LABELS = [
+    "epilepsy",
+    "focal epilepsy",
+    "generalized epilepsy",
+    "juvenile myoclonic epilepsy",
+    "status epilepticus",
+]
 
 
 def load_harnesses(path: Path) -> dict[str, dict[str, Any]]:
@@ -81,6 +101,139 @@ def build_loose_prompt(document: dict[str, Any], harness_id: str) -> str:
     )
 
 
+def benchmark_label_block() -> str:
+    return "\n".join(
+        [
+            "Allowed seizure_type labels:",
+            *[f"- {label}" for label in BENCHMARK_SEIZURE_LABELS],
+            "",
+            "Allowed epilepsy_diagnosis_type labels:",
+            *[f"- {label}" for label in BENCHMARK_EPILEPSY_LABELS],
+        ]
+    )
+
+
+def build_h6_prompt(document: dict[str, Any], harness_id: str) -> str:
+    return "\n\n".join(
+        [
+            "Extract only benchmark fields from this epilepsy clinic letter.",
+            "Return JSON only with this shape:",
+            '{"medication_names":[],"seizure_types":[],"epilepsy_diagnosis_type":null}',
+            "Medication names should include current anti-seizure medications only. Use generic drug names where possible.",
+            "Seizure types must use only the allowed labels. Do not include aura, warning, symptom, medication side effect, investigation finding, or differential diagnosis labels as seizure types.",
+            "Epilepsy diagnosis/type must use one allowed label or null. Do not invent a diagnosis if the letter does not support one.",
+            benchmark_label_block(),
+            f"## Harness\n{harness_id}",
+            "## Source Letter",
+            document["text"],
+        ]
+    )
+
+
+def benchmark_output_schema() -> dict[str, Any]:
+    return {
+        "name": "benchmark_fields",
+        "strict": True,
+        "schema": {
+            "type": "object",
+            "additionalProperties": False,
+            "properties": {
+                "medication_names": {"type": "array", "items": {"type": "string"}},
+                "seizure_types": {
+                    "type": "array",
+                    "items": {"type": "string", "enum": BENCHMARK_SEIZURE_LABELS},
+                },
+                "epilepsy_diagnosis_type": {
+                    "anyOf": [{"type": "string", "enum": BENCHMARK_EPILEPSY_LABELS}, {"type": "null"}]
+                },
+            },
+            "required": ["medication_names", "seizure_types", "epilepsy_diagnosis_type"],
+        },
+    }
+
+
+def build_h7_extract_prompt(document: dict[str, Any], harness_id: str) -> str:
+    return "\n\n".join(
+        [
+            "Pass 1 of 2: extract rich clinical facts from this epilepsy clinic letter.",
+            "Return JSON only with this shape:",
+            '{"rich_facts":[{"category":"medication|seizure_type|epilepsy_diagnosis","text":"","support":"","current_patient_fact":true}]}',
+            "Include current anti-seizure medication names, clinically described seizure/semiology facts, and epilepsy diagnosis/type facts.",
+            "It is okay to preserve clinically specific wording here. Mark non-current, family-history, unsupported, or non-patient facts with current_patient_fact=false.",
+            f"## Harness\n{harness_id}",
+            "## Source Letter",
+            document["text"],
+        ]
+    )
+
+
+def build_h8_evidence_prompt(document: dict[str, Any], harness_id: str, candidates_text: str) -> str:
+    return "\n\n".join(
+        [
+            "Pass 2 of 2: provide evidence quotes only for the selected benchmark candidate fields.",
+            "Return JSON only with this shape:",
+            '{"field_evidence":[{"field":"medication_names|seizure_types|epilepsy_diagnosis_type","value":"","quote":""}]}',
+            "Quotes must be exact short spans copied from the source letter. If no exact supporting quote exists, omit that evidence item.",
+            f"## Harness\n{harness_id}",
+            "## Candidate Fields",
+            candidates_text,
+            "## Source Letter",
+            document["text"],
+        ]
+    )
+
+
+def build_d3_candidate_prompt(document: dict[str, Any], harness_id: str) -> str:
+    return "\n\n".join(
+        [
+            "Pass 1 of 2: extract permissive candidate benchmark facts from this epilepsy clinic letter.",
+            "Return JSON only with this shape:",
+            '{"candidates":[{"category":"medication|seizure_type|epilepsy_diagnosis","text":"","support":""}]}',
+            "Include possible current anti-seizure medications, seizure labels/semiology, and epilepsy diagnosis/type facts. Preserve specific wording.",
+            f"## Harness\n{harness_id}",
+            "## Source Letter",
+            document["text"],
+        ]
+    )
+
+
+def build_d3_verifier_prompt(document: dict[str, Any], harness_id: str, candidates_text: str) -> str:
+    return "\n\n".join(
+        [
+            "Pass 2 of 2: verify candidate facts and drop unsupported or non-benchmark labels.",
+            "Return JSON only with this shape:",
+            '{"medication_names":[],"verified_seizure_type_mappings":[{"candidate":"","benchmark_label":null,"keep":true,"reason":"supported|unsupported|not_benchmark_relevant|too_specific"}],"seizure_types":[],"epilepsy_diagnosis_type":null}',
+            "Keep only current patient anti-seizure medication names.",
+            "For seizure types, keep only supported benchmark labels. Drop aura-only symptoms, non-patient history, investigation-only findings, and unsupported differentials. Map too-specific supported labels to the nearest allowed benchmark label.",
+            benchmark_label_block(),
+            f"## Harness\n{harness_id}",
+            "## Candidate Facts",
+            candidates_text,
+            "## Source Letter",
+            document["text"],
+        ]
+    )
+
+
+def build_h7_normalize_prompt(document: dict[str, Any], harness_id: str, rich_fact_text: str) -> str:
+    return "\n\n".join(
+        [
+            "Pass 2 of 2: map extracted clinical facts to benchmark labels.",
+            "Use only the extracted facts and source letter. Return JSON only with this shape:",
+            '{"medication_names":[],"seizure_type_mappings":[{"fact":"","benchmark_label":null,"decision":"supported|unsupported|too_specific|not_benchmark_relevant"}],"seizure_types":[],"epilepsy_diagnosis_type":null,"epilepsy_diagnosis_decision":"supported|unsupported|too_specific|not_benchmark_relevant"}',
+            "Keep medication_names as current anti-seizure medication names only.",
+            "For seizure_types, include only supported benchmark labels from mappings. Drop aura-only symptoms, non-patient facts, investigation-only findings, and unsupported differentials.",
+            "If a fact is clinically specific, map it to the nearest allowed benchmark label and set decision=too_specific.",
+            benchmark_label_block(),
+            f"## Harness\n{harness_id}",
+            "## Pass 1 Rich Facts",
+            rich_fact_text,
+            "## Source Letter",
+            document["text"],
+        ]
+    )
+
+
 def build_harness_prompt(harness_id: str, document: dict[str, Any], schema_path: Path) -> str:
     if harness_id == "H0_strict_canonical":
         return build_direct_prompt("S2", document, schema_path)
@@ -88,6 +241,10 @@ def build_harness_prompt(harness_id: str, document: dict[str, Any], schema_path:
         return build_task_specific_prompt(document, harness_id)
     if harness_id == "H3_loose_answer_then_parse":
         return build_loose_prompt(document, harness_id)
+    if harness_id == "H6_benchmark_only_coarse_json":
+        return build_h6_prompt(document, harness_id)
+    if harness_id == "H4_provider_native_structured_output":
+        return build_h6_prompt(document, harness_id)
     raise ValueError(f"unsupported Stage A harness: {harness_id}")
 
 
@@ -257,6 +414,11 @@ def system_for_harness(harness_id: str) -> str:
         "H0_strict_canonical": "D0",
         "H2_task_specific": "D1",
         "H3_loose_answer_then_parse": "D2",
+        "H4_provider_native_structured_output": "D4",
+        "H6_benchmark_only_coarse_json": "D6",
+        "H7_extract_then_normalize": "D7",
+        "H8_evidence_later": "D8",
+        "D3_candidate_plus_verifier": "D3",
     }.get(harness_id, harness_id)
 
 
@@ -1365,6 +1527,388 @@ def command_stage_c1(args: argparse.Namespace) -> int:
     return 0
 
 
+def diagnostic_report(summaries: list[dict[str, Any]], projection_rows: list[dict[str, Any]], split: str) -> str:
+    harnesses = {row.get("harness_id") for row in summaries}
+    lines = [
+        "# Harness Diagnostic Report",
+        "",
+        f"Split: `{split}`",
+        "",
+        "## Purpose",
+        "",
+    ]
+    if "H4_provider_native_structured_output" in harnesses:
+        lines.append("- H4 tests provider-native structured output for benchmark-only fields.")
+    if "H6_benchmark_only_coarse_json" in harnesses:
+        lines.append("- H6 tests direct benchmark-only JSON extraction with coarse allowed labels.")
+    if "H7_extract_then_normalize" in harnesses:
+        lines.append("- H7 tests rich extraction followed by model-based benchmark normalization.")
+    if "H8_evidence_later" in harnesses:
+        lines.append("- H8 tests quote-free field extraction first, with evidence requested only after candidate fields are selected.")
+    if "D3_candidate_plus_verifier" in harnesses:
+        lines.append("- D3 tests permissive candidate extraction followed by verifier pruning of unsupported or non-benchmark labels.")
+    lines.append("- Benchmark scores are computed from projected field values; H8 evidence-pass outputs are retained in call logs for audit.")
+    lines.extend(["", "## Scored Conditions", ""])
+    for row in summaries:
+        lines.append(
+            "- "
+            + f"`{row['condition']}`: quality={to_float(row.get('benchmark_quality')) or 0.0:.4f}, "
+            + f"med_f1={to_float(row.get('medication_name_f1')) or 0.0:.4f}, "
+            + f"seizure_f1={to_float(row.get('seizure_type_f1')) or 0.0:.4f}, "
+            + f"diagnosis_acc={to_float(row.get('epilepsy_diagnosis_accuracy')) or 0.0:.4f}, "
+            + f"docs={row.get('documents_available')}"
+        )
+    failures = [row for row in projection_rows if not row["projection_success"]]
+    if failures:
+        lines.extend(["", "## Failures", ""])
+        for row in failures[:30]:
+            lines.append(f"- `{row['model_label']}` / `{row['harness_id']}` / `{row['document_id']}`: {row['projection_error']}")
+    return "\n".join(lines) + "\n"
+
+
+def combined_usage(responses: list[Any]) -> TokenUsage:
+    return TokenUsage(
+        input_tokens=sum(int(response.token_usage.input_tokens or 0) for response in responses),
+        output_tokens=sum(int(response.token_usage.output_tokens or 0) for response in responses),
+        cache_read_tokens=sum(int(response.token_usage.cache_read_tokens or 0) for response in responses),
+        cache_write_tokens=sum(int(response.token_usage.cache_write_tokens or 0) for response in responses),
+    )
+
+
+def combined_cost(responses: list[Any]) -> float | None:
+    values = [response.estimated_cost.get("total") for response in responses]
+    numeric = [value for value in values if isinstance(value, (int, float))]
+    return sum(numeric) if numeric else None
+
+
+def diagnostic_row(
+    spec: Any,
+    adapter: Any,
+    harness_id: str,
+    document_id: str,
+    responses: list[Any],
+    parse_success: bool,
+    parse_error: str | None,
+    output_path: Path | None,
+) -> dict[str, Any]:
+    first = responses[0]
+    usage = combined_usage(responses)
+    errors = [response.error for response in responses if response.error]
+    return {
+        "model_label": spec.label,
+        "provider": spec.provider,
+        "called_provider": adapter.provider,
+        "provider_model_id": spec.provider_model_id,
+        "harness_id": harness_id,
+        "document_id": document_id,
+        "status": "success" if not errors else "unavailable",
+        "error": "; ".join(errors),
+        "stop_reason": responses[-1].stop_reason,
+        "raw_response_path": str(output_path) if output_path else None,
+        "parse_success": str(parse_success),
+        "repair_attempted": "False",
+        "repair_succeeded": "False",
+        "input_tokens": usage.input_tokens,
+        "output_tokens": usage.output_tokens,
+        "cache_read_tokens": usage.cache_read_tokens,
+        "cache_write_tokens": usage.cache_write_tokens,
+        "latency_ms": round(sum(response.latency_ms for response in responses), 3),
+        "retries": sum(response.retries for response in responses),
+        "estimated_cost": combined_cost(responses),
+        "cost_status": "complete" if combined_cost(responses) is not None else first.estimated_cost.get("status"),
+        "pricing_snapshot_date": first.estimated_cost.get("pricing_snapshot_date"),
+        "parse_error": parse_error,
+    }
+
+
+def metadata_row_for_projection(row: dict[str, Any]) -> dict[str, str]:
+    return {key: "" if value is None else str(value) for key, value in row.items()}
+
+
+def run_h6_h7_one(
+    args: argparse.Namespace,
+    spec: Any,
+    adapter: Any,
+    harness_id: str,
+    document_id: str,
+    document: dict[str, Any],
+    output_dir: Path,
+) -> tuple[dict[str, Any], dict[str, Any] | None, str | None]:
+    run_root = output_dir / "calls" / spec.label / harness_id / document_id
+    run_root.mkdir(parents=True, exist_ok=True)
+    if harness_id in {"H6_benchmark_only_coarse_json", "H4_provider_native_structured_output"}:
+        prompt = build_h6_prompt(document, harness_id)
+        write_text(run_root / "prompt.txt", prompt)
+        request = ModelRequest(
+            prompt=prompt,
+            model=spec,
+            harness_id=harness_id,
+            temperature=args.temperature if args.temperature is not None else spec.temperature,
+            max_output_tokens=args.max_output_tokens or min(spec.max_output_tokens or 4096, 4096),
+            schema_mode="json_schema" if harness_id == "H4_provider_native_structured_output" else None,
+            response_json_schema=benchmark_output_schema()
+            if harness_id == "H4_provider_native_structured_output"
+            else None,
+            reasoning_effort=args.reasoning_effort,
+            metadata={"document_id": document_id, "stage": "h6_h7_clean_diagnostic"},
+        )
+        response = adapter.call(request)
+        write_text(run_root / "raw_response.txt", response.text)
+        response.raw_response_path = str(run_root / "raw_response.txt")
+        write_response_log(response, run_root / "provider_response.json")
+        parsed = parse_json_response(response.text)
+        payload = parsed.data if isinstance(parsed.data, dict) and not response.error else None
+        row = diagnostic_row(spec, adapter, harness_id, document_id, [response], payload is not None, parsed.error, run_root / "raw_response.txt")
+        return row, payload, parsed.error
+
+    if harness_id == "H8_evidence_later":
+        extract_prompt = build_h6_prompt(document, harness_id)
+        write_text(run_root / "extract_prompt.txt", extract_prompt)
+        extract_request = ModelRequest(
+            prompt=extract_prompt,
+            model=spec,
+            harness_id=f"{harness_id}:extract",
+            temperature=args.temperature if args.temperature is not None else spec.temperature,
+            max_output_tokens=args.max_output_tokens or min(spec.max_output_tokens or 4096, 4096),
+            reasoning_effort=args.reasoning_effort,
+            metadata={"document_id": document_id, "stage": "h4_h8_d3_clean_diagnostic", "pass": "extract"},
+        )
+        extract_response = adapter.call(extract_request)
+        write_text(run_root / "extract_raw_response.txt", extract_response.text)
+        write_response_log(extract_response, run_root / "extract_provider_response.json")
+        parsed_extract = parse_json_response(extract_response.text)
+        candidate_text = json.dumps(parsed_extract.data, indent=2) if isinstance(parsed_extract.data, dict) else extract_response.text
+        evidence_prompt = build_h8_evidence_prompt(document, harness_id, candidate_text)
+        write_text(run_root / "evidence_prompt.txt", evidence_prompt)
+        evidence_request = ModelRequest(
+            prompt=evidence_prompt,
+            model=spec,
+            harness_id=f"{harness_id}:evidence",
+            temperature=args.temperature if args.temperature is not None else spec.temperature,
+            max_output_tokens=args.max_output_tokens or min(spec.max_output_tokens or 4096, 4096),
+            reasoning_effort=args.reasoning_effort,
+            metadata={"document_id": document_id, "stage": "h4_h8_d3_clean_diagnostic", "pass": "evidence"},
+        )
+        evidence_response = adapter.call(evidence_request)
+        write_text(run_root / "raw_response.txt", evidence_response.text)
+        write_response_log(evidence_response, run_root / "evidence_provider_response.json")
+        payload = parsed_extract.data if isinstance(parsed_extract.data, dict) and not extract_response.error and not evidence_response.error else None
+        row = diagnostic_row(
+            spec,
+            adapter,
+            harness_id,
+            document_id,
+            [extract_response, evidence_response],
+            payload is not None,
+            parsed_extract.error,
+            run_root / "raw_response.txt",
+        )
+        return row, payload, parsed_extract.error
+
+    if harness_id == "D3_candidate_plus_verifier":
+        candidate_prompt = build_d3_candidate_prompt(document, harness_id)
+        write_text(run_root / "candidate_prompt.txt", candidate_prompt)
+        candidate_request = ModelRequest(
+            prompt=candidate_prompt,
+            model=spec,
+            harness_id=f"{harness_id}:candidate",
+            temperature=args.temperature if args.temperature is not None else spec.temperature,
+            max_output_tokens=args.max_output_tokens or min(spec.max_output_tokens or 4096, 4096),
+            reasoning_effort=args.reasoning_effort,
+            metadata={"document_id": document_id, "stage": "h4_h8_d3_clean_diagnostic", "pass": "candidate"},
+        )
+        candidate_response = adapter.call(candidate_request)
+        write_text(run_root / "candidate_raw_response.txt", candidate_response.text)
+        write_response_log(candidate_response, run_root / "candidate_provider_response.json")
+        verifier_prompt = build_d3_verifier_prompt(document, harness_id, candidate_response.text)
+        write_text(run_root / "verifier_prompt.txt", verifier_prompt)
+        verifier_request = ModelRequest(
+            prompt=verifier_prompt,
+            model=spec,
+            harness_id=f"{harness_id}:verifier",
+            temperature=args.temperature if args.temperature is not None else spec.temperature,
+            max_output_tokens=args.max_output_tokens or min(spec.max_output_tokens or 4096, 4096),
+            reasoning_effort=args.reasoning_effort,
+            metadata={"document_id": document_id, "stage": "h4_h8_d3_clean_diagnostic", "pass": "verifier"},
+        )
+        verifier_response = adapter.call(verifier_request)
+        write_text(run_root / "raw_response.txt", verifier_response.text)
+        write_response_log(verifier_response, run_root / "verifier_provider_response.json")
+        parsed = parse_json_response(verifier_response.text)
+        payload = parsed.data if isinstance(parsed.data, dict) and not candidate_response.error and not verifier_response.error else None
+        row = diagnostic_row(
+            spec,
+            adapter,
+            harness_id,
+            document_id,
+            [candidate_response, verifier_response],
+            payload is not None,
+            parsed.error,
+            run_root / "raw_response.txt",
+        )
+        return row, payload, parsed.error
+
+    if harness_id == "H7_extract_then_normalize":
+        extract_prompt = build_h7_extract_prompt(document, harness_id)
+        write_text(run_root / "extract_prompt.txt", extract_prompt)
+        extract_request = ModelRequest(
+            prompt=extract_prompt,
+            model=spec,
+            harness_id=f"{harness_id}:extract",
+            temperature=args.temperature if args.temperature is not None else spec.temperature,
+            max_output_tokens=args.max_output_tokens or min(spec.max_output_tokens or 4096, 4096),
+            reasoning_effort=args.reasoning_effort,
+            metadata={"document_id": document_id, "stage": "h6_h7_clean_diagnostic", "pass": "extract"},
+        )
+        extract_response = adapter.call(extract_request)
+        write_text(run_root / "extract_raw_response.txt", extract_response.text)
+        extract_response.raw_response_path = str(run_root / "extract_raw_response.txt")
+        write_response_log(extract_response, run_root / "extract_provider_response.json")
+
+        normalize_prompt = build_h7_normalize_prompt(document, harness_id, extract_response.text)
+        write_text(run_root / "normalize_prompt.txt", normalize_prompt)
+        normalize_request = ModelRequest(
+            prompt=normalize_prompt,
+            model=spec,
+            harness_id=f"{harness_id}:normalize",
+            temperature=args.temperature if args.temperature is not None else spec.temperature,
+            max_output_tokens=args.max_output_tokens or min(spec.max_output_tokens or 4096, 4096),
+            reasoning_effort=args.reasoning_effort,
+            metadata={"document_id": document_id, "stage": "h6_h7_clean_diagnostic", "pass": "normalize"},
+        )
+        normalize_response = adapter.call(normalize_request)
+        write_text(run_root / "raw_response.txt", normalize_response.text)
+        normalize_response.raw_response_path = str(run_root / "raw_response.txt")
+        write_response_log(normalize_response, run_root / "normalize_provider_response.json")
+        parsed = parse_json_response(normalize_response.text)
+        payload = parsed.data if isinstance(parsed.data, dict) and not extract_response.error and not normalize_response.error else None
+        row = diagnostic_row(
+            spec,
+            adapter,
+            harness_id,
+            document_id,
+            [extract_response, normalize_response],
+            payload is not None,
+            parsed.error,
+            run_root / "raw_response.txt",
+        )
+        return row, payload, parsed.error
+
+    raise ValueError(f"unsupported diagnostic harness: {harness_id}")
+
+
+def command_h6_h7_diagnostic(args: argparse.Namespace) -> int:
+    output_dir = Path(args.output_dir)
+    specs = load_model_specs(Path(args.registry))
+    model_labels = args.models or ["gpt_4_1_mini_baseline", "gpt_5_4_mini", "gpt_5_5"]
+    harness_ids = args.harnesses or ["H6_benchmark_only_coarse_json", "H7_extract_then_normalize"]
+    document_ids = load_split_ids(Path(args.splits), args.split, args.limit)
+    gold = load_gold(Path(args.markup_root), Path(args.exect_root))
+    all_scores: dict[str, list[dict[str, Any]]] = {}
+    metadata: dict[str, dict[str, Any]] = {}
+    call_rows: list[dict[str, Any]] = []
+    projection_rows: list[dict[str, Any]] = []
+
+    for model_label in model_labels:
+        if model_label not in specs:
+            raise ValueError(f"unknown model label: {model_label}")
+        spec = specs[model_label]
+        adapter = adapter_for(provider_for_args(spec.provider, args.stub_calls))
+        for harness_id in harness_ids:
+            for document_id in document_ids:
+                document = preprocess_document(document_id, Path(args.exect_root))
+                row, payload, error = run_h6_h7_one(args, spec, adapter, harness_id, document_id, document, output_dir)
+                call_rows.append(row)
+                projection_success = payload is not None and row["status"] == "success"
+                label = condition_label(model_label, harness_id, system_for_harness(harness_id))
+                metadata.setdefault(
+                    label,
+                    {
+                        "model_label": model_label,
+                        "provider": spec.provider,
+                        "provider_model_id": spec.provider_model_id,
+                        "system": system_for_harness(harness_id),
+                        "harness_id": harness_id,
+                        "source": "h6_h7_clean_diagnostic",
+                        "call_rows": [],
+                        "projection_schema_valid": 0,
+                        "projection_count": 0,
+                    },
+                )
+                metadata[label]["call_rows"].append(metadata_row_for_projection(row))
+                metadata[label]["projection_count"] += 1
+                projection_path = output_dir / "projections" / model_label / harness_id / document_id / "canonical_projection.json"
+                projected = (
+                    projected_canonical(document_id, harness_id, model_label, payload or {}, metadata_row_for_projection(row))
+                    if projection_success
+                    else None
+                )
+                projection_schema_valid = False
+                projection_error = error
+                if projected is not None:
+                    try:
+                        validate_extraction(projected, Path(args.schema), require_present_evidence=False)
+                        projection_schema_valid = True
+                    except Exception as exc:
+                        projection_error = str(exc)
+                    write_json(projection_path, projected)
+                    score = score_document(projected, document["text"], gold.get(document_id, GoldDocument(document_id=document_id)), Path(args.schema))
+                    score["document_id"] = document_id
+                    score["system"] = label
+                    all_scores.setdefault(label, []).append(score)
+                metadata[label]["projection_schema_valid"] += 1 if projection_schema_valid else 0
+                projection_rows.append(
+                    {
+                        "model_label": model_label,
+                        "provider": spec.provider,
+                        "provider_model_id": spec.provider_model_id,
+                        "harness_id": harness_id,
+                        "document_id": document_id,
+                        "call_status": row["status"],
+                        "projection_success": projection_success,
+                        "projection_schema_valid": projection_schema_valid,
+                        "projection_error": projection_error,
+                        "projection_path": str(projection_path) if projected is not None else None,
+                    }
+                )
+                print(f"{row['status']}: {model_label} {harness_id} {document_id}", flush=True)
+
+    summaries = []
+    for label, scores in sorted(all_scores.items()):
+        summary = summarize_condition(label, scores, metadata[label])
+        projection_count = metadata[label]["projection_count"]
+        summary["projection_success_rate"] = len(scores) / projection_count if projection_count else 0.0
+        summary["projection_schema_valid_rate"] = metadata[label]["projection_schema_valid"] / projection_count if projection_count else 0.0
+        summaries.append(summary)
+
+    write_csv(output_dir / "provider_call_report.csv", call_rows)
+    write_csv(output_dir / "projection_rows.csv", projection_rows)
+    write_csv(output_dir / "model_harness_table.csv", summaries)
+    write_csv(output_dir / "field_prf_table.csv", build_field_prf_table(all_scores))
+    write_csv(output_dir / "cost_latency_table.csv", build_cost_latency_table(summaries, all_scores))
+    (output_dir / "diagnostic_report.md").parent.mkdir(parents=True, exist_ok=True)
+    (output_dir / "diagnostic_report.md").write_text(diagnostic_report(summaries, projection_rows, args.split), encoding="utf-8")
+    write_json(
+        output_dir / "stage_d_manifest.json",
+        {
+            "stage": "h6_h7_clean_diagnostic",
+            "split": args.split,
+            "document_ids": document_ids,
+            "models": model_labels,
+            "harnesses": harness_ids,
+            "outputs": {
+                "diagnostic_report": str(output_dir / "diagnostic_report.md"),
+                "model_harness_table": str(output_dir / "model_harness_table.csv"),
+                "field_prf_table": str(output_dir / "field_prf_table.csv"),
+                "projection_rows": str(output_dir / "projection_rows.csv"),
+                "provider_call_report": str(output_dir / "provider_call_report.csv"),
+            },
+        },
+    )
+    print(f"wrote H6/H7 clean diagnostic for {len(summaries)} scored conditions")
+    return 0
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -1448,6 +1992,26 @@ def main() -> int:
     stage_c1.add_argument("--schema", default=str(DEFAULT_SCHEMA))
     stage_c1.add_argument("--split", default="development", choices=["development", "validation", "test"])
     stage_c1.set_defaults(func=command_stage_c1)
+
+    h6_h7 = subparsers.add_parser(
+        "h6-h7-clean-diagnostic",
+        help="Run H6 benchmark-only JSON and H7 extract-then-normalize on the development diagnostic slice.",
+    )
+    h6_h7.add_argument("--registry", default=str(DEFAULT_REGISTRY))
+    h6_h7.add_argument("--splits", default=str(DEFAULT_SPLITS))
+    h6_h7.add_argument("--exect-root", default=str(DEFAULT_EXECT_ROOT))
+    h6_h7.add_argument("--markup-root", default=str(DEFAULT_MARKUP_ROOT))
+    h6_h7.add_argument("--schema", default=str(DEFAULT_SCHEMA))
+    h6_h7.add_argument("--split", default="development", choices=["development", "validation", "test"])
+    h6_h7.add_argument("--limit", type=int, default=15)
+    h6_h7.add_argument("--models", nargs="+", default=["gpt_4_1_mini_baseline", "gpt_5_4_mini", "gpt_5_5"])
+    h6_h7.add_argument("--harnesses", nargs="+", default=["H6_benchmark_only_coarse_json", "H7_extract_then_normalize"])
+    h6_h7.add_argument("--temperature", type=float)
+    h6_h7.add_argument("--max-output-tokens", type=int)
+    h6_h7.add_argument("--reasoning-effort", choices=["minimal", "low", "medium", "high"])
+    h6_h7.add_argument("--stub-calls", action="store_true", help="Exercise logging without paid provider calls.")
+    h6_h7.add_argument("--output-dir", default=str(DEFAULT_H6_H7_OUTPUT_DIR))
+    h6_h7.set_defaults(func=command_h6_h7_diagnostic)
 
     args = parser.parse_args()
     return args.func(args)

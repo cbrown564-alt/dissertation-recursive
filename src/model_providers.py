@@ -23,6 +23,7 @@ class ModelRequest:
     temperature: float = 0.0
     max_output_tokens: int | None = None
     schema_mode: str | None = None
+    response_json_schema: dict[str, Any] | None = None
     seed: int | None = None
     reasoning_effort: str | None = None
     google_thinking_budget: int | None = None
@@ -140,6 +141,15 @@ class OpenAIAdapter(ProviderAdapter):
                 kwargs["max_output_tokens"] = request.max_output_tokens
             if request.reasoning_effort:
                 kwargs["reasoning"] = {"effort": request.reasoning_effort}
+            if request.response_json_schema:
+                kwargs["text"] = {
+                    "format": {
+                        "type": "json_schema",
+                        "name": request.response_json_schema.get("name", "structured_response"),
+                        "schema": request.response_json_schema["schema"],
+                        "strict": request.response_json_schema.get("strict", True),
+                    }
+                }
             retries = 0
             _droppable = [("reasoning", "reasoning"), ("temperature", "temperature")]
             while True:

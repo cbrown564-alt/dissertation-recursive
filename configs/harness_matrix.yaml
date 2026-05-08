@@ -28,3 +28,38 @@ harnesses:
     require_present_evidence: false
     allow_repair: true
     score_locally: false
+  H4_provider_native_structured_output:
+    family: provider_native_structured_output
+    description: Provider-native structured output for benchmark-only fields.
+    output_contract: provider_native_benchmark_json
+    require_present_evidence: false
+    allow_repair: false
+    score_locally: true
+  H6_benchmark_only_coarse_json:
+    family: benchmark_only
+    description: Direct benchmark-only JSON extraction with constrained coarse seizure and epilepsy labels.
+    output_contract: benchmark_json
+    require_present_evidence: false
+    allow_repair: true
+    score_locally: true
+  H7_extract_then_normalize:
+    family: two_pass
+    description: Rich clinical fact extraction followed by model-based benchmark-label normalization.
+    output_contract: normalized_benchmark_json
+    require_present_evidence: false
+    allow_repair: true
+    score_locally: true
+  H8_evidence_later:
+    family: evidence_later
+    description: Extract benchmark fields without evidence first, then request evidence only for selected candidate fields.
+    output_contract: benchmark_json_with_later_evidence
+    require_present_evidence: false
+    allow_repair: true
+    score_locally: true
+  D3_candidate_plus_verifier:
+    family: candidate_verifier
+    description: Permissive candidate extraction followed by a verifier that drops unsupported or non-benchmark labels.
+    output_contract: verified_benchmark_json
+    require_present_evidence: false
+    allow_repair: true
+    score_locally: true
