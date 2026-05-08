@@ -340,6 +340,12 @@ comparing against the paper's category-level benchmark rather than exact-string 
 **Purpose:** Build a frequency-only extraction harness whose output can be scored by
 `src/gan_frequency.py evaluate`.
 
+**Status:** Implemented as the `predict` subcommand in `src/gan_frequency.py`.
+`Gan_direct_label`, `Gan_cot_label`, `Gan_evidence_label`, `Gan_two_pass`, and
+`Gan_fs_hard` are now runnable through the same command. Stub smoke tests verify that each
+harness writes predictions, call reports, and Gan category evaluation artifacts without paid
+model calls.
+
 **Required output format:** one normalized frequency label per Gan document ID.
 
 Example prediction file:
@@ -378,8 +384,30 @@ Use "no seizure frequency reference" when the letter does not mention seizure fr
 **Outputs:**
 
 - `runs/gan_frequency/<condition>/predictions.json`
+- `runs/gan_frequency/<condition>/call_report.csv`
 - `runs/gan_frequency/<condition>/gan_frequency_evaluation.json`
 - `runs/gan_frequency/<condition>/gan_frequency_predictions_scored.csv`
+
+Run example:
+
+```bash
+.venv/bin/python src/gan_frequency.py predict \
+  --model gpt_4_1_mini_baseline \
+  --harness Gan_direct_label \
+  --output-dir runs/gan_frequency/stage_g1/gpt_4_1_mini_baseline_direct \
+  --evaluate
+```
+
+Prompt-sweep smoke example:
+
+```bash
+.venv/bin/python src/gan_frequency.py predict \
+  --stub-calls \
+  --limit 2 \
+  --harness Gan_two_pass \
+  --output-dir runs/gan_frequency/stage_g1/stub_two_pass \
+  --evaluate
+```
 
 ---
 
@@ -412,6 +440,19 @@ labels can approach the paper's pragmatic micro-F1 target.
 - `runs/gan_frequency/stage_g2/comparison_table.csv`
   (model, harness, pragmatic_micro_f1, purist_micro_f1, exact_label_accuracy, cost_per_doc)
 - `runs/gan_frequency/stage_g2/promotion_decision.md`
+
+Run example:
+
+```bash
+.venv/bin/python src/gan_frequency.py sweep \
+  --models gpt_4_1_mini_baseline gpt_5_5 claude_sonnet_4_6 \
+  --harnesses Gan_direct_label Gan_cot_label Gan_evidence_label Gan_two_pass \
+  --limit 150 \
+  --output-dir runs/gan_frequency/stage_g2 \
+  --stub-calls
+```
+
+Remove `--stub-calls` for the real sweep once API keys and budget are confirmed.
 
 **Decision rule:**
 
@@ -658,8 +699,8 @@ subset first, and only promote one or two conditions to G4.
 ```
 F0/F1 ExECTv2 crosswalk audit + rescore (done / zero cost)
   → G0 Gan metric lock + local subset audit (done / zero cost)
-      → G1 Gan prediction runner
-          → G2 Gan model × prompt sweep
+      → G1 Gan prediction runner (done / stub-verified)
+          → G2 Gan model × prompt sweep (ready to run)
               → G3 Gan hard-case prompt development
                   → G4 Gan full-subset benchmark run
                       → F5 ExECTv2 per-item crosswalk (conditional)
