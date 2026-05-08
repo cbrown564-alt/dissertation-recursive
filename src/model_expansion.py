@@ -24,7 +24,7 @@ from evaluate import DEFAULT_MARKUP_ROOT, GoldDocument, build_field_prf_table, f
 from intake import DEFAULT_EXECT_ROOT, DEFAULT_SPLITS, preprocess_document
 from model_providers import ModelRequest, TokenUsage, adapter_for, estimate_cost, write_response_log
 from model_registry import DEFAULT_REGISTRY, load_model_specs, write_registry_snapshot
-from validate_extraction import DEFAULT_SCHEMA
+from validate_extraction import DEFAULT_SCHEMA, normalize_text
 from validate_extraction import validate_extraction
 
 
@@ -157,9 +157,10 @@ def build_h7_extract_prompt(document: dict[str, Any], harness_id: str) -> str:
         [
             "Pass 1 of 2: extract rich clinical facts from this epilepsy clinic letter.",
             "Return JSON only with this shape:",
-            '{"rich_facts":[{"category":"medication|seizure_type|epilepsy_diagnosis","text":"","support":"","current_patient_fact":true}]}',
+            '{"rich_facts":[{"category":"medication|seizure_type|epilepsy_diagnosis","text":"","quote":"<exact verbatim span copied from the letter>","current_patient_fact":true}]}',
             "Include current anti-seizure medication names, clinically described seizure/semiology facts, and epilepsy diagnosis/type facts.",
-            "It is okay to preserve clinically specific wording here. Mark non-current, family-history, unsupported, or non-patient facts with current_patient_fact=false.",
+            "The quote field must be an exact contiguous span copied from the source letter. Do not paraphrase. If no single span supports the fact, use the most representative short span.",
+            "Mark non-current, family-history, unsupported, or non-patient facts with current_patient_fact=false.",
             f"## Harness\n{harness_id}",
             "## Source Letter",
             document["text"],
@@ -202,9 +203,11 @@ def build_d3_verifier_prompt(document: dict[str, Any], harness_id: str, candidat
         [
             "Pass 2 of 2: verify candidate facts and drop unsupported or non-benchmark labels.",
             "Return JSON only with this shape:",
-            '{"medication_names":[],"verified_seizure_type_mappings":[{"candidate":"","benchmark_label":null,"keep":true,"reason":"supported|unsupported|not_benchmark_relevant|too_specific"}],"seizure_types":[],"epilepsy_diagnosis_type":null}',
+            '{"medication_names":[{"name":"","quote":""}],"verified_seizure_type_mappings":[{"candidate":"","benchmark_label":null,"keep":true,"reason":"supported|unsupported|not_benchmark_relevant|too_specific","quote":""}],"seizure_types":[{"label":"","quote":""}],"epilepsy_diagnosis_type":{"label":null,"quote":""}}',
             "Keep only current patient anti-seizure medication names.",
             "For seizure types, keep only supported benchmark labels. Drop aura-only symptoms, non-patient history, investigation-only findings, and unsupported differentials. Map too-specific supported labels to the nearest allowed benchmark label.",
+            "Every kept medication, seizure type, and epilepsy diagnosis/type must include an exact contiguous quote copied from the source letter.",
+            "If no exact source quote supports a candidate, drop it rather than returning an unsupported field.",
             benchmark_label_block(),
             f"## Harness\n{harness_id}",
             "## Candidate Facts",
@@ -218,11 +221,12 @@ def build_d3_verifier_prompt(document: dict[str, Any], harness_id: str, candidat
 def build_h7_normalize_prompt(document: dict[str, Any], harness_id: str, rich_fact_text: str) -> str:
     return "\n\n".join(
         [
-            "Pass 2 of 2: map extracted clinical facts to benchmark labels.",
+            "Pass 2 of 2: map extracted clinical facts to benchmark labels and preserve evidence quotes.",
             "Use only the extracted facts and source letter. Return JSON only with this shape:",
-            '{"medication_names":[],"seizure_type_mappings":[{"fact":"","benchmark_label":null,"decision":"supported|unsupported|too_specific|not_benchmark_relevant"}],"seizure_types":[],"epilepsy_diagnosis_type":null,"epilepsy_diagnosis_decision":"supported|unsupported|too_specific|not_benchmark_relevant"}',
-            "Keep medication_names as current anti-seizure medication names only.",
+            '{"medication_names":[{"name":"","quote":""}],"seizure_type_mappings":[{"fact":"","benchmark_label":null,"decision":"supported|unsupported|too_specific|not_benchmark_relevant","quote":""}],"seizure_types":[{"label":"","quote":""}],"epilepsy_diagnosis_type":{"label":null,"quote":""},"epilepsy_diagnosis_decision":"supported|unsupported|too_specific|not_benchmark_relevant"}',
+            "Keep medication_names as current anti-seizure medication names only. Copy the quote directly from Pass 1 rich_facts for each kept item.",
             "For seizure_types, include only supported benchmark labels from mappings. Drop aura-only symptoms, non-patient facts, investigation-only findings, and unsupported differentials.",
+            "Every kept medication_name, seizure_type, and epilepsy_diagnosis_type must include the exact quote from Pass 1 (or from the source letter if Pass 1 omitted it).",
             "If a fact is clinically specific, map it to the nearest allowed benchmark label and set decision=too_specific.",
             benchmark_label_block(),
             f"## Harness\n{harness_id}",
@@ -1317,19 +1321,162 @@ def investigation_field(value: str | None) -> dict[str, Any]:
     }
 
 
-def projected_canonical(document_id: str, harness_id: str, model_label: str, payload: dict[str, Any], row: dict[str, str]) -> dict[str, Any]:
-    medications = value_list(
+def quote_value(item: Any) -> str | None:
+    if isinstance(item, dict):
+        for key in ["quote", "support", "evidence", "source_quote"]:
+            value = item.get(key)
+            if isinstance(value, str) and value.strip():
+                return value.strip()
+    return None
+
+
+def named_items(value: Any, value_keys: list[str]) -> list[dict[str, str | None]]:
+    if value is None:
+        return []
+    if isinstance(value, list):
+        items: list[dict[str, str | None]] = []
+        for item in value:
+            items.extend(named_items(item, value_keys))
+        return items
+    if isinstance(value, dict):
+        text = None
+        for key in value_keys:
+            candidate = value.get(key)
+            if isinstance(candidate, str) and candidate.strip():
+                text = candidate.strip()
+                break
+        if text is None:
+            text = first_value(value)
+        return [{"value": text, "quote": quote_value(value)}] if text else []
+    text = first_value(value)
+    return [{"value": text, "quote": None}] if text else []
+
+
+def d3_medication_items(payload: dict[str, Any]) -> list[dict[str, str | None]]:
+    return named_items(
         payload.get("medication_names")
         or payload.get("current_anti_seizure_medications")
-        or payload.get("current anti-seizure medications")
+        or payload.get("current anti-seizure medications"),
+        ["name", "value", "text", "medication"],
     )
-    seizure_types = benchmark_seizure_types(value_list(payload.get("seizure_types") or payload.get("seizure_type")))
-    epilepsy = first_value(
+
+
+def d3_seizure_items(payload: dict[str, Any]) -> list[dict[str, str | None]]:
+    items = named_items(payload.get("seizure_types") or payload.get("seizure_type"), ["label", "benchmark_label", "value", "text"])
+    for mapping in payload.get("verified_seizure_type_mappings") or []:
+        if not isinstance(mapping, dict) or mapping.get("keep") is False:
+            continue
+        label = mapping.get("benchmark_label") or mapping.get("label")
+        if isinstance(label, str) and label.strip():
+            items.append({"value": label.strip(), "quote": quote_value(mapping)})
+    deduped: list[dict[str, str | None]] = []
+    seen: set[tuple[str | None, str | None]] = set()
+    for item in items:
+        key = (item.get("value"), item.get("quote"))
+        if item.get("value") and key not in seen:
+            deduped.append(item)
+            seen.add(key)
+    return deduped
+
+
+def d3_epilepsy_item(payload: dict[str, Any]) -> dict[str, str | None]:
+    raw = (
         payload.get("epilepsy_types")
         or payload.get("epilepsy_diagnosis")
         or payload.get("epilepsy_diagnosis_type")
         or payload.get("epilepsy diagnosis/type")
     )
+    items = named_items(raw, ["label", "value", "text", "diagnosis"])
+    return items[0] if items else {"value": None, "quote": None}
+
+
+def evidence_from_quote(document: dict[str, Any] | None, quote: str | None) -> list[dict[str, Any]]:
+    if not quote or not document:
+        return []
+    if normalize_text(quote) not in normalize_text(document["text"]):
+        return []
+    char_start = document["text"].find(quote)
+    char_end = char_start + len(quote) if char_start >= 0 else None
+    sentence_id = None
+    if char_start >= 0 and char_end is not None:
+        for sentence in document.get("sentences", []):
+            if sentence["char_start"] <= char_start and char_end <= sentence["char_end"]:
+                sentence_id = sentence["sentence_id"]
+                break
+    return [
+        {
+            "quote": quote,
+            "sentence_id": sentence_id,
+            "char_start": char_start if char_start >= 0 else None,
+            "char_end": char_end,
+        }
+    ]
+
+
+def medication_from_item(item: dict[str, str | None], document: dict[str, Any] | None) -> dict[str, Any]:
+    field = medication_from_text(str(item["value"]))
+    field["evidence"] = evidence_from_quote(document, item.get("quote"))
+    return field
+
+
+def scalar_field_with_evidence(value: str | None, quote: str | None, document: dict[str, Any] | None, temporality: str = "current") -> dict[str, Any]:
+    field = scalar_field(value, temporality)
+    if value:
+        field["evidence"] = evidence_from_quote(document, quote)
+    return field
+
+
+def projected_canonical(
+    document_id: str,
+    harness_id: str,
+    model_label: str,
+    payload: dict[str, Any],
+    row: dict[str, str],
+    document: dict[str, Any] | None = None,
+    require_present_evidence: bool = False,
+) -> dict[str, Any]:
+    use_evidence_items = harness_id in {"D3_candidate_plus_verifier", "H7_extract_then_normalize"}
+    medication_items = d3_medication_items(payload) if use_evidence_items else [
+        {"value": item, "quote": None}
+        for item in value_list(
+            payload.get("medication_names")
+            or payload.get("current_anti_seizure_medications")
+            or payload.get("current anti-seizure medications")
+        )
+    ]
+    raw_seizure_items = d3_seizure_items(payload) if use_evidence_items else [
+        {"value": item, "quote": None}
+        for item in value_list(payload.get("seizure_types") or payload.get("seizure_type"))
+    ]
+    seizure_items: list[dict[str, str | None]] = []
+    seen_seizure_labels: set[str] = set()
+    for item in raw_seizure_items:
+        label = benchmark_seizure_type(item.get("value"))
+        if label and label not in seen_seizure_labels:
+            seizure_items.append({"value": label, "quote": item.get("quote")})
+            seen_seizure_labels.add(label)
+    epilepsy_item = d3_epilepsy_item(payload) if use_evidence_items else {
+        "value": first_value(
+            payload.get("epilepsy_types")
+            or payload.get("epilepsy_diagnosis")
+            or payload.get("epilepsy_diagnosis_type")
+            or payload.get("epilepsy diagnosis/type")
+        ),
+        "quote": None,
+    }
+    seizure_types = [str(item["value"]) for item in seizure_items if item.get("value")]
+    epilepsy = epilepsy_item.get("value")
+    if use_evidence_items and require_present_evidence:
+        medication_items = [
+            item for item in medication_items if item.get("value") and evidence_from_quote(document, item.get("quote"))
+        ]
+        seizure_items = [
+            item for item in seizure_items if item.get("value") and evidence_from_quote(document, item.get("quote"))
+        ]
+        seizure_types = [str(item["value"]) for item in seizure_items if item.get("value")]
+        if epilepsy and not evidence_from_quote(document, epilepsy_item.get("quote")):
+            epilepsy = None
+            epilepsy_item = {"value": None, "quote": None}
     frequency = first_value(payload.get("seizure_frequency") or payload.get("current_seizure_frequency"))
     investigations = value_list(payload.get("investigations"))
     eeg = first_value(payload.get("eeg") or payload.get("EEG_result"))
@@ -1343,19 +1490,29 @@ def projected_canonical(document_id: str, harness_id: str, model_label: str, pay
 
     return {
         "document_id": document_id,
-        "pipeline_id": f"{system_for_harness(harness_id)}_relaxed_projection",
+        "pipeline_id": f"{system_for_harness(harness_id)}_{'evidence_projection' if use_evidence_items else 'relaxed_projection'}",
         "fields": {
-            "current_anti_seizure_medications": [medication_from_text(item) for item in medications],
+            "current_anti_seizure_medications": [
+                medication_from_item(item, document) for item in medication_items if item.get("value")
+            ],
             "previous_anti_seizure_medications": [],
             "current_seizure_frequency": {
                 **scalar_field(frequency),
                 "temporal_scope": "current" if frequency else None,
                 "seizure_type": seizure_types[0] if seizure_types else None,
             },
-            "seizure_types": [scalar_field(item) for item in seizure_types],
+            "seizure_types": [
+                scalar_field_with_evidence(str(item["value"]), item.get("quote"), document)
+                for item in seizure_items
+                if item.get("value")
+            ],
             "eeg": investigation_field(eeg),
             "mri": investigation_field(mri),
-            "epilepsy_diagnosis": scalar_field(epilepsy),
+            "epilepsy_diagnosis": scalar_field_with_evidence(
+                str(epilepsy) if epilepsy else None,
+                epilepsy_item.get("quote"),
+                document,
+            ),
         },
         "events": [],
         "metadata": {
@@ -1839,7 +1996,15 @@ def command_h6_h7_diagnostic(args: argparse.Namespace) -> int:
                 metadata[label]["projection_count"] += 1
                 projection_path = output_dir / "projections" / model_label / harness_id / document_id / "canonical_projection.json"
                 projected = (
-                    projected_canonical(document_id, harness_id, model_label, payload or {}, metadata_row_for_projection(row))
+                    projected_canonical(
+                        document_id,
+                        harness_id,
+                        model_label,
+                        payload or {},
+                        metadata_row_for_projection(row),
+                        document,
+                        require_present_evidence=args.require_present_evidence_for_projection,
+                    )
                     if projection_success
                     else None
                 )
@@ -1847,7 +2012,11 @@ def command_h6_h7_diagnostic(args: argparse.Namespace) -> int:
                 projection_error = error
                 if projected is not None:
                     try:
-                        validate_extraction(projected, Path(args.schema), require_present_evidence=False)
+                        validate_extraction(
+                            projected,
+                            Path(args.schema),
+                            require_present_evidence=args.require_present_evidence_for_projection,
+                        )
                         projection_schema_valid = True
                     except Exception as exc:
                         projection_error = str(exc)
@@ -2010,6 +2179,11 @@ def main() -> int:
     h6_h7.add_argument("--max-output-tokens", type=int)
     h6_h7.add_argument("--reasoning-effort", choices=["minimal", "low", "medium", "high"])
     h6_h7.add_argument("--stub-calls", action="store_true", help="Exercise logging without paid provider calls.")
+    h6_h7.add_argument(
+        "--require-present-evidence-for-projection",
+        action="store_true",
+        help="Validate projected canonical outputs as strict evidence-bearing extractions.",
+    )
     h6_h7.add_argument("--output-dir", default=str(DEFAULT_H6_H7_OUTPUT_DIR))
     h6_h7.set_defaults(func=command_h6_h7_diagnostic)
 

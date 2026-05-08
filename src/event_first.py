@@ -364,11 +364,21 @@ def investigation_rank(event: dict[str, Any], index: int) -> tuple[int, int, int
     return (1 if completed_result else 0, 1 if definite_result else 0, 1 if status == "completed" else 0, event_position(event, index))
 
 
+def _is_epilepsy_diagnosis(value: str) -> bool:
+    """Return True if canonical value represents an epilepsy-type diagnosis.
+
+    Matches "epilepsy", "epileptic" (encephalopathy), and "epilepticus" (status
+    epilepticus) so that all clinically valid epilepsy diagnoses rank above
+    comorbidities and non-epilepsy conditions.
+    """
+    return bool(value and ("epilepsy" in value or "epilept" in value))
+
+
 def diagnosis_rank(event: dict[str, Any], index: int) -> tuple[int, int, int]:
     temporality = event.get("temporality")
     value = canonical_diagnosis(event.get("value"))
     patient_level = temporality != "family_history"
-    explicit = bool(value and "epilepsy" in value)
+    explicit = _is_epilepsy_diagnosis(value)
     return (1 if patient_level and explicit else 0, 1 if temporality == "current" else 0, event_position(event, index))
 
 
