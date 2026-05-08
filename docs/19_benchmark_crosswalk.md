@@ -13,6 +13,11 @@ extensions.
   clinic letters using large language models." Epilepsia. 2025;66:3369-3384.
   DOI: 10.1111/epi.18475. PubMed/PMC record:
   https://pmc.ncbi.nlm.nih.gov/articles/PMC12455391/
+- Fonferko-Shadrach B et al. "Annotation of epilepsy clinic letters for natural
+  language processing." J Biomed Semantics. 2024;15:17. DOI: 10.1186/s13326-024-00316-z.
+  **Primary seizure frequency benchmark: ExECTv2 per-item F1 = 0.66, per-letter F1 = 0.68.**
+  Human IAA for seizure frequency = 0.47 (lowest of any annotated entity).
+  ExECTv2 is the rule-based GATE pipeline that produced the gold data we use.
 - Author code repository:
   https://github.com/scfang6/extracting_information_using_LLMs
 - Local schema: `schemas/canonical_extraction.schema.json`
@@ -70,7 +75,7 @@ single document-level exact-match score.
 | Schema validity >= .99 | `schema_valid_rate` | Already directly measured. |
 | Quote validity >= .99 | `quote_validity_rate` | Already directly measured. |
 | Temporal accuracy >= .95 | `temporal_accuracy` | Local-only reliability gate. Not directly benchmarked by Fang et al. |
-| Current seizure-frequency extraction | `current_seizure_frequency_accuracy` | Not benchmarked by Fang et al.; must be audited against ExECTv2/Gan frequency definitions. |
+| Current seizure-frequency extraction | `current_seizure_frequency_per_letter_accuracy` (new) | **Benchmarked by Fonferko-Shadrach 2024: ExECTv2 per-letter F1 = 0.68, per-item F1 = 0.66.** Human IAA = 0.47. Target: ≥ 0.68 per-letter. See `docs/21_seizure_frequency_workstream.md`. |
 | Seizure-frequency type linkage | `seizure_frequency_type_linkage_accuracy` | Not benchmarked by Fang et al.; local-only event-first claim. |
 
 ## Prompt And Label Implications
