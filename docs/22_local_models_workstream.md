@@ -485,6 +485,56 @@ larger model (gemma4:e4b) exhibits natively. For gemma4, the best strategy is a 
 minimal prompt -- any extra schema fields or structural constraints degrade performance.
 This argues for capability-appropriate prompt design rather than a universal harness.
 
+### Large Model Validation — qwen3.6:27b and qwen3.6:35b (2026-05-08)
+
+Models pulled after Ollama upgraded to v0.23.2. Both run with VRAM+RAM spillover
+on RTX 4070 Laptop (8 GB VRAM, 31.5 GB system RAM).
+
+| Model | Size | Architecture | VRAM | RAM | Latency/doc |
+|-------|------|--------------|------|-----|-------------|
+| qwen3.6:27b | 17 GB | Dense, 27.8B params | 7.2 GB | 16.1 GB | 34s |
+| qwen3.6:35b | 23 GB | Hybrid transformer+SSM MoE, 36B total / 8-of-256 experts active | ~7 GB | ~16 GB | TBD |
+
+#### qwen3.6:27b results (40-doc validation) — COMPLETE
+
+| System | Med F1 | Sz F1 collapsed | Dx Acc |
+|--------|--------|-----------------|--------|
+| GPT-4.1-mini S2 (frontier) | 0.852 | 0.610 | 0.725 |
+| GPT-4.1-mini E3 (frontier best) | 0.872 | 0.633 | 0.775 |
+| qwen3.5:9b H6 | 0.800 | 0.541 | 0.800 |
+| qwen3.5:9b H6fs (best 9b) | 0.839 | 0.602 | 0.825 |
+| gemma4:e4b H6 (best gemma4) | 0.849 | 0.593 | 0.825 |
+| **qwen3.6:27b H6** | **0.885** | **0.578** | **0.800** |
+| qwen3.6:27b H6fs | 0.838 | 0.593 | 0.800 |
+
+**qwen3.6:27b H6 achieves 0.885 medication F1 -- the first local model to exceed
+both frontier baselines on medication (+1.3pp vs S2, +1.3pp vs E3).**
+
+Seizure F1 improves with scale (+3.7pp vs 9b H6: 0.541->0.578) but the `unknown
+seizure type` miss persists at 14/26 docs. Scale does not close the meta-label gap.
+Hallucinations on empty gold also unchanged (13/40 docs).
+
+H6fs at 27B: medication drops -4.7pp (0.885->0.838); seizure improves +1.5pp
+(0.578->0.593). The few-shot examples no longer help at this scale and actively
+hurt medication -- same pattern as gemma4. Best harness for 27b is plain H6.
+
+**Scale-vs-harness progression (H6 baseline seizure F1):**
+qwen3.5:9b (0.541) -> qwen3.5:4b (0.535) -> qwen3.6:27b (0.578) -> gemma4:e4b (0.593)
+
+**Scale-vs-harness progression (H6 baseline medication F1):**
+qwen3.5:9b (0.800) -> qwen3.5:4b (0.814) -> gemma4:e4b (0.849) -> qwen3.6:27b (0.885)
+
+The medication scaling law is steep; the seizure scaling law is shallow. This confirms
+that `unknown seizure type` is a structural annotation challenge (meta-label requiring
+inference about absence of information) that scale alone does not resolve.
+
+#### qwen3.6:35b results — IN PROGRESS
+
+Architecture: hybrid transformer+SSM MoE (qwen35moe family). 256 experts, 8 active
+per token. embedding_length=2048, expert_feed_forward_length=512. Active compute per
+forward pass is closer to ~7-10B dense equivalent despite 36B total params. 256K context.
+Results to be added when validation completes.
+
 ### N6 -- Frequency field (out of scope but noted)
 
 `current_seizure_frequency` was not scored in this workstream (the H6/H4 output schema
