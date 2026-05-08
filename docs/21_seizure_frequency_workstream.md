@@ -416,6 +416,10 @@ Prompt-sweep smoke example:
 **Purpose:** Establish whether stronger models, event-first reasoning, or Gan-style structured
 labels can approach the paper's pragmatic micro-F1 target.
 
+**Status:** Completed on a 50-document deterministic development subset using paid provider
+calls. All 12 model × harness conditions completed with 50 prediction rows each and no provider
+errors. The run cost about **$4.54** in total.
+
 **Design:**
 
 | Axis | Values |
@@ -423,7 +427,7 @@ labels can approach the paper's pragmatic micro-F1 target.
 | Models | `gpt_4_1_mini_baseline` (baseline), `gpt_5_5`, `qwen_35b_local` |
 | Harnesses | `Gan_direct_label`, `Gan_cot_label`, `Gan_evidence_label`, `Gan_two_pass` |
 | Dataset | Gan local synthetic subset |
-| Split | Deterministic development subset, e.g. 150 docs |
+| Split | Deterministic development subset; first real sweep used 50 docs |
 | Repeats | 1 |
 | Primary metric | Pragmatic micro-F1 |
 | Secondary | Purist micro-F1, exact normalized-label accuracy, quote/evidence validity |
@@ -455,17 +459,36 @@ Run example:
 .venv/bin/python src/gan_frequency.py sweep \
   --models gpt_4_1_mini_baseline gpt_5_5 qwen_35b_local \
   --harnesses Gan_direct_label Gan_cot_label Gan_evidence_label Gan_two_pass \
-  --limit 150 \
-  --output-dir runs/gan_frequency/stage_g2 \
-  --stub-calls
+  --limit 50 \
+  --output-dir runs/gan_frequency/stage_g2
 ```
-
-Remove `--stub-calls` for the real sweep once API keys and budget are confirmed.
 
 **Decision rule:**
 
 - Promote the best model × harness to Stage G3 if Pragmatic micro-F1 >= 0.75 on the development subset.
 - If GPT-4.1-mini is within 0.03 absolute Pragmatic micro-F1 of larger models, use it for subsequent prompt iteration.
+
+**Result:**
+
+| Rank | Condition | Pragmatic micro-F1 | Purist micro-F1 | Exact label accuracy | Est. cost |
+|---:|---|---:|---:|---:|---:|
+| 1 | `gpt_5_5` + `Gan_cot_label` | **0.80** | **0.76** | 0.54 | $0.62 |
+| 2 | `gpt_5_5` + `Gan_direct_label` | 0.76 | **0.76** | **0.60** | $0.62 |
+| 3 | `claude_sonnet_4_6` + `Gan_direct_label` | 0.76 | **0.76** | 0.58 | $0.30 |
+| 4 | `claude_sonnet_4_6` + `Gan_evidence_label` | 0.74 | 0.70 | 0.54 | $0.31 |
+| 5 | `gpt_5_5` + `Gan_evidence_label` | 0.72 | 0.70 | 0.54 | $0.67 |
+| 6 | `claude_sonnet_4_6` + `Gan_cot_label` | 0.72 | 0.70 | 0.54 | $0.34 |
+| 7 | `claude_sonnet_4_6` + `Gan_two_pass` | 0.66 | 0.64 | 0.48 | $0.47 |
+| 8 | `gpt_4_1_mini_baseline` + `Gan_direct_label` | 0.66 | 0.62 | 0.48 | $0.02 |
+| 9 | `gpt_4_1_mini_baseline` + `Gan_evidence_label` | 0.58 | 0.52 | 0.36 | $0.02 |
+| 10 | `gpt_4_1_mini_baseline` + `Gan_two_pass` | 0.58 | 0.50 | 0.36 | $0.03 |
+| 11 | `gpt_4_1_mini_baseline` + `Gan_cot_label` | 0.54 | 0.50 | 0.34 | $0.02 |
+| 12 | `gpt_5_5` + `Gan_two_pass` | 0.34 | 0.34 | 0.18 | $1.11 |
+
+Promotion decision: **promote `gpt_5_5` + `Gan_cot_label` to Stage G3**. It exceeded the
+0.75 Pragmatic micro-F1 promotion threshold on the 50-document development subset. `gpt_5_5`
+two-pass should not be carried forward without debugging: it was the most expensive condition
+and had the worst score, with frequent parse errors in the two-pass output path.
 
 ---
 
@@ -532,14 +555,24 @@ Add examples covering the hardest Gan categories:
 
 | Condition | Harness | Model | Calls/doc |
 |---|---|---|---|
-| G3-A | Gan_direct_label | best from G2 | 1 |
-| G3-B | Gan_two_pass | best from G2 | 2 |
-| G3-C | Gan_fs_hard | best from G2 | 1 |
+| G3-A | Gan_cot_label refinement | `gpt_5_5` | 1 |
+| G3-B | Gan_direct_label comparison | `gpt_5_5` and/or `claude_sonnet_4_6` | 1 |
+| G3-C | Gan_fs_hard | `gpt_5_5` | 1 |
 | Baseline | H0 canonical projected to Gan labels | GPT-4.1-mini | 1 |
 
-**Split:** Gan development subset, 1 repeat.  
+**Split:** Gan development subset, start with the same 50-document subset for controlled
+comparison; expand to 150 docs if G3 prompt changes remain promising.  
 **Primary metric:** Pragmatic micro-F1.  
 **Decision rule:** Promote the highest Pragmatic micro-F1 condition to Stage G4.
+
+**G3 focus after G2:**
+
+- Improve `gpt_5_5` + `Gan_cot_label` from 0.80 toward the >= 0.85 Pragmatic target.
+- Compare against `gpt_5_5` + `Gan_direct_label` because it tied Purist micro-F1 and had
+  better exact-label accuracy.
+- Keep `claude_sonnet_4_6` + `Gan_direct_label` as a cost-efficient challenger; it matched
+  `gpt_5_5` direct on category metrics at roughly half the cost.
+- Deprioritize two-pass until the evidence-normalization contract is repaired.
 
 **Outputs:**
 
@@ -629,6 +662,7 @@ important implementation step. Without it, the per-letter metric cannot be compu
 | Gan 2026 — MedGemma-4B CoT(15000) | 0.787 Purist / **0.858 Pragmatic micro-F1** | Synthetic CoT fine-tuning | Clinician double-checked real-letter test set |
 | Fonferko-Shadrach 2024 — human IAA | 0.47 per-item | Expert annotators (consensus) | ExECTv2 synthetic letters |
 | Fonferko-Shadrach 2024 — ExECTv2 | **0.66** per-item / **0.68** per-letter | Rule-based GATE pipeline | ExECTv2 synthetic letters (same data) |
+| Our G2 best, 50-doc development sweep | 0.760 Purist / **0.800 Pragmatic micro-F1** | `gpt_5_5` prompted `Gan_cot_label` | Gan local synthetic subset, 50 docs |
 | Our current best ExECTv2 crosswalk (GPT-4.1-mini, E3) | 0.15 per-letter / 0.125 loose | LLM extraction, single value | ExECTv2 validation split |
 
 Gan supplies the best frequency-specific evaluation frame because it was designed around
@@ -679,6 +713,9 @@ are named precisely.
 |---|---|---:|---:|---:|---|
 | Gan 2026 Qwen2.5-14B CoT(15000) | real test set | 0.847 | 0.788 | — | Published target |
 | Gan 2026 MedGemma-4B CoT(15000) | real test set | 0.858 | 0.787 | — | Published target |
+| G2 `gpt_5_5` + `Gan_cot_label` | Gan local synthetic subset, 50-doc dev | 0.800 | 0.760 | — | Promote to G3 |
+| G2 `gpt_5_5` + `Gan_direct_label` | Gan local synthetic subset, 50-doc dev | 0.760 | 0.760 | — | Strong exact-label challenger |
+| G2 `claude_sonnet_4_6` + `Gan_direct_label` | Gan local synthetic subset, 50-doc dev | 0.760 | 0.760 | — | Lower-cost challenger |
 | ExECTv2 rule-based | ExECTv2 | — | — | 0.68 | Crosswalk target |
 | E3 H0 GPT-4.1-mini existing | ExECTv2 validation | — | — | 0.15 | Current crosswalk baseline |
 | [best G4 system] | Gan local synthetic subset | TBD | TBD | optional | Main frequency result |
@@ -692,8 +729,10 @@ are named precisely.
 | F0/F1 ExECTv2 crosswalk audit/rescore | 0 | $0 |
 | G0 Gan audit/metric lock | 0 | $0 |
 | G1 runner implementation smoke | 5-20 | <$1 |
-| G2 Gan model × prompt sweep (e.g. 3 models × 4 harnesses × 150 docs) | 1,800 | model-dependent |
-| G3 focused prompt iteration (3 variants × 150 docs) | 450-900 | model-dependent |
+| G2 Gan model × prompt sweep, completed 50-doc run | 750 | ~$4.54 |
+| G2 Gan model × prompt sweep, original 150-doc design | 1,800 | model-dependent |
+| G3 focused prompt iteration, 50-doc controlled subset | 150-250 | model-dependent |
+| G3 focused prompt iteration, 150-doc expansion | 450-900 | model-dependent |
 | G4 full local Gan subset (1 best condition × 1,500 docs) | 1,500-3,000 | model-dependent |
 | F5 ExECTv2 per-item crosswalk | 0-80 | $0 if re-scoring existing list outputs |
 
@@ -708,8 +747,8 @@ subset first, and only promote one or two conditions to G4.
 F0/F1 ExECTv2 crosswalk audit + rescore (done / zero cost)
   → G0 Gan metric lock + local subset audit (done / zero cost)
       → G1 Gan prediction runner (done / stub-verified)
-          → G2 Gan model × prompt sweep (ready to run)
-              → G3 Gan hard-case prompt development
+          → G2 Gan model × prompt sweep (done on 50 docs; best = gpt_5_5 + Gan_cot_label)
+              → G3 Gan hard-case prompt development (next)
                   → G4 Gan full-subset benchmark run
                       → F5 ExECTv2 per-item crosswalk (conditional)
 ```
