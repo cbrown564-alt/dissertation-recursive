@@ -277,48 +277,82 @@ class GoogleAdapter(ProviderAdapter):
 
 
 class OllamaAdapter(ProviderAdapter):
+    """Adapter for locally-hosted Ollama models using Ollama's native /api/generate endpoint.
+
+    Uses the native API rather than the OpenAI-compat shim so that `think: false` is
+    forwarded correctly. The OpenAI-compat endpoint silently ignores this parameter,
+    causing qwen3.x models to consume all output tokens on internal reasoning.
+    """
+
     provider = "ollama"
 
     def call(self, request: ModelRequest) -> ModelResponse:
+        import urllib.request as _urllib_request
+
         started = time.perf_counter()
         base_url = os.environ.get("OLLAMA_BASE_URL", "http://localhost:11434/v1")
-        try:
-            from openai import OpenAI
-        except ImportError as exc:
-            return self._response(request, "", started, error=f"openai is not installed: {exc}")
+        ollama_base = base_url.rstrip("/")
+        if ollama_base.endswith("/v1"):
+            ollama_base = ollama_base[: -len("/v1")]
+        generate_url = f"{ollama_base}/api/generate"
 
         try:
-            client = OpenAI(base_url=base_url, api_key="ollama")
             prompt = truncate_to_context(request.prompt, request.model)
             context_truncated = prompt != request.prompt
 
-            kwargs: dict[str, Any] = {
-                "model": request.model.provider_model_id,
-                "messages": [{"role": "user", "content": prompt}],
-                "temperature": request.temperature,
-            }
+            # qwen3.x models use extended thinking by default; `think: false` disables it
+            # so output tokens go to the actual response. Belt-and-suspenders: also prepend
+            # /no_think to the prompt, which is the model-level directive.
+            model_id = request.model.provider_model_id.lower()
+            disable_think = "qwen3" in model_id
+            if disable_think:
+                prompt = "/no_think\n\n" + prompt
+
+            options: dict[str, Any] = {"temperature": request.temperature}
             max_tokens = request.max_output_tokens or request.model.max_output_tokens
             if max_tokens:
-                kwargs["max_tokens"] = max_tokens
+                options["num_predict"] = max_tokens
             if request.schema_mode == "json_mode":
-                kwargs["response_format"] = {"type": "json_object"}
+                options["format"] = "json"
 
-            response = client.chat.completions.create(**kwargs)
-            text = response.choices[0].message.content or "" if response.choices else ""
-            usage = getattr(response, "usage", None)
-            token_usage = TokenUsage(
-                input_tokens=getattr(usage, "prompt_tokens", None),
-                output_tokens=getattr(usage, "completion_tokens", None),
+            payload: dict[str, Any] = {
+                "model": request.model.provider_model_id,
+                "prompt": prompt,
+                "stream": False,
+                "options": options,
+            }
+            if disable_think:
+                payload["think"] = False
+
+            body = json.dumps(payload).encode()
+            req_obj = _urllib_request.Request(
+                generate_url,
+                data=body,
+                headers={"Content-Type": "application/json"},
+                method="POST",
             )
-            stop_reason = response.choices[0].finish_reason if response.choices else None
-            provider_metadata: dict[str, Any] = {"base_url": base_url, "context_truncated": context_truncated}
+            with _urllib_request.urlopen(req_obj, timeout=300) as resp:
+                data: dict[str, Any] = json.loads(resp.read().decode())
 
+            text = data.get("response", "")
+            done_reason = data.get("done_reason")
+            token_usage = TokenUsage(
+                input_tokens=data.get("prompt_eval_count"),
+                output_tokens=data.get("eval_count"),
+            )
+            provider_metadata: dict[str, Any] = {
+                "ollama_base": ollama_base,
+                "context_truncated": context_truncated,
+                "think_disabled": disable_think,
+                "done": data.get("done"),
+                "done_reason": done_reason,
+            }
             model_response = self._response(
                 request,
                 text,
                 started,
                 usage=token_usage,
-                stop_reason=stop_reason,
+                stop_reason=done_reason,
                 provider_metadata=provider_metadata,
             )
             model_response.estimated_cost = {

@@ -368,9 +368,15 @@ def run_one(args: argparse.Namespace, model_label: str, harness_id: str, documen
 
 def write_csv(path: Path, rows: list[dict[str, Any]]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    fieldnames = list(rows[0].keys()) if rows else []
+    if not rows:
+        return
+    # Collect all unique fieldnames across all rows to handle heterogeneous summary rows
+    seen: dict[str, None] = {}
+    for row in rows:
+        seen.update(dict.fromkeys(row.keys()))
+    fieldnames = list(seen)
     with path.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fieldnames)
+        writer = csv.DictWriter(handle, fieldnames=fieldnames, extrasaction="ignore", restval="")
         writer.writeheader()
         writer.writerows(rows)
 

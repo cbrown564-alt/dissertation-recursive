@@ -180,17 +180,27 @@ def run_local_one(
         return row
 
     # Single-pass harnesses
+    from model_expansion import normalize_relaxed_payload
+
     prompt = _build_local_prompt(harness_id, document, schema_path, vocab_preamble)
     write_text(run_root / "prompt.txt", prompt)
     response = adapter.call(make_request(prompt, harness_id))
     write_text(run_root / "raw_response.txt", response.text)
     write_response_log(response, run_root / "provider_response.json")
 
-    parsed = parse_json_response(response.text)
-    payload = parsed.data if isinstance(parsed.data, dict) and not response.error else None
+    # H3 uses parse_loose_sections (handles markdown/prose); all others use JSON parser.
+    if harness_id == "H3_loose_answer_then_parse":
+        payload, parse_error = normalize_relaxed_payload(harness_id, response.text)
+        parse_ok = payload is not None and not response.error
+    else:
+        parsed = parse_json_response(response.text)
+        payload = parsed.data if isinstance(parsed.data, dict) and not response.error else None
+        parse_error = parsed.error
+        parse_ok = payload is not None
+
     row = diagnostic_row(
         spec, adapter, harness_id, document_id,
-        [response], payload is not None, parsed.error,
+        [response], parse_ok, parse_error,
         run_root / "raw_response.txt",
     )
     row["vocab_preamble"] = vocab_preamble
@@ -226,9 +236,14 @@ def score_local_rows(
             raw_path = run_root / "raw_response.txt"
             if not raw_path.exists():
                 continue
+            from model_expansion import normalize_relaxed_payload
+
             text = raw_path.read_text(encoding="utf-8")
-            parsed = parse_json_response(text)
-            payload = parsed.data if isinstance(parsed.data, dict) else None
+            if harness_id == "H3_loose_answer_then_parse":
+                payload, _ = normalize_relaxed_payload(harness_id, text)
+            else:
+                parsed = parse_json_response(text)
+                payload = parsed.data if isinstance(parsed.data, dict) else None
             if payload is None:
                 continue
             document = preprocess_document(document_id, exect_root)
@@ -391,7 +406,7 @@ def command_l0(args: argparse.Namespace) -> int:
     report_lines.extend(["", "## Prompt Length vs Context Window"])
     import os
     os.environ.setdefault("OLLAMA_BASE_URL", args.ollama_base_url)
-    doc_ids = load_split_ids(Path(args.splits), "dev", args.limit or 15)
+    doc_ids = load_split_ids(Path(args.splits), "development", args.limit or 15)
     for label in target_labels:
         if label not in specs:
             continue
@@ -565,7 +580,7 @@ def command_l5(args: argparse.Namespace) -> int:
     write_registry_snapshot(output_dir / "model_registry_snapshot.json", Path(args.registry))
     model_labels = args.models or ["qwen_9b_local"]
     harness_ids = args.harnesses or ["H7_extract_then_normalize"]
-    document_ids = load_split_ids(Path(args.splits), args.split or "validation", args.limit)
+    document_ids = load_split_ids(Path(args.splits), args.split or "validation", args.limit or None)
     call_rows, summaries = _run_stage(
         "stage_l5_validation", model_labels, harness_ids, document_ids,
         output_dir, Path(args.registry), Path(args.exect_root), Path(args.markup_root),
@@ -654,7 +669,7 @@ def _add_common_args(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--markup-root", default=str(DEFAULT_MARKUP_ROOT))
     parser.add_argument("--schema", default=str(DEFAULT_SCHEMA))
     parser.add_argument("--splits", default=str(DEFAULT_SPLITS))
-    parser.add_argument("--split", default="dev")
+    parser.add_argument("--split", default="development")
     parser.add_argument("--limit", type=int, default=None)
     parser.add_argument("--models", nargs="+", default=None)
     parser.add_argument("--temperature", type=float, default=0.0)

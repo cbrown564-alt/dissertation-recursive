@@ -142,8 +142,8 @@ models:
     source_notes: "OpenAI docs list gpt-4.1-mini and snapshot gpt-4.1-mini-2025-04-14."
   qwen_9b_local:
     provider: ollama
-    provider_model_id: qwen3.5:8b
-    provider_alias: qwen3.5:8b
+    provider_model_id: qwen3.5:9b
+    provider_alias: qwen3.5:9b
     api_surface: openai_compat
     sdk_package: openai
     sdk_version: null
@@ -159,7 +159,7 @@ models:
     region: local
     billing_currency: local
     deprecation_or_alias_behavior: local_model_no_deprecation
-    source_notes: "Qwen 3.5 8B via Ollama. 32K context window at Q4_K_M quantization. ~6-8 GB VRAM required."
+    source_notes: "Qwen 3.5 9B (9.7B params) via Ollama at Q4_K_M quantization. ~6-8 GB VRAM required."
   qwen_4b_local:
     provider: ollama
     provider_model_id: qwen3.5:4b
