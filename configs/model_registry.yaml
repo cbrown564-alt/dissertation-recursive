@@ -182,11 +182,11 @@ models:
     source_notes: "Qwen 3.5 4B via Ollama (study label qwen_4b_local). Smaller/faster; lower expected quality."
   gemma_4b_local:
     provider: ollama
-    provider_model_id: gemma3:4b
+    provider_model_id: gemma4:e4b
     api_surface: openai_compat
     sdk_package: openai
     sdk_version: null
-    context_window_tokens: 32768
+    context_window_tokens: 131072
     max_output_tokens: 4096
     structured_output: json_mode
     temperature: 0.0
@@ -198,4 +198,4 @@ models:
     region: local
     billing_currency: local
     deprecation_or_alias_behavior: local_model_no_deprecation
-    source_notes: "Gemma 3 4B via Ollama. Google model family; different clinical vocabulary from Qwen."
+    source_notes: "Gemma 4 E4B via Ollama. Google model family; 128K context; no extended thinking; multimodal (text+image+audio)."

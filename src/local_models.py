@@ -36,6 +36,7 @@ from model_expansion import (
     BENCHMARK_EPILEPSY_LABELS,
     BENCHMARK_SEIZURE_LABELS,
     build_h6_prompt,
+    build_h6v2_prompt,
     build_h7_extract_prompt,
     build_h7_normalize_prompt,
     build_loose_prompt,
@@ -88,6 +89,8 @@ def _build_local_prompt(
         return build_direct_prompt("S2", document, schema_path)
     if harness_id in {"H4_provider_native_structured_output", "H6_benchmark_only_coarse_json"}:
         prompt = build_h6_prompt(document, harness_id)
+    elif harness_id == "H6v2_benchmark_only_coarse_json":
+        prompt = build_h6v2_prompt(document, harness_id)
     elif harness_id == "H3_loose_answer_then_parse":
         prompt = build_loose_prompt(document, harness_id)
     elif harness_id == "H7_extract_then_normalize":
@@ -397,7 +400,7 @@ def command_l0(args: argparse.Namespace) -> int:
             continue
         mid = specs[label].provider_model_id
         pulled = any(mid in m for m in available_models)
-        report_lines.append(f"- {label} ({mid}): {'PULLED' if pulled else 'NOT PULLED — run: ollama pull ' + mid}")
+        report_lines.append(f"- {label} ({mid}): {'PULLED' if pulled else 'NOT PULLED -- run: ollama pull ' + mid}")
 
     if missing:
         report_lines.extend(["", "## Action Required", f"Pull missing models: {missing}"])
@@ -616,9 +619,9 @@ def command_l5(args: argparse.Namespace) -> int:
     for s in summaries:
         med_f1 = s.get("medication_name_f1") or 0.0
         if med_f1 >= 0.70:
-            tier = "SUCCESS (≥ 0.70 med name F1)"
+            tier = "SUCCESS (>= 0.70 med name F1)"
         elif med_f1 >= 0.50:
-            tier = "PARTIAL SUCCESS (0.50–0.70 med name F1)"
+            tier = "PARTIAL SUCCESS (0.50-0.70 med name F1)"
         else:
             tier = "FAILURE (< 0.50 med name F1)"
         claim_lines.extend([
@@ -692,7 +695,7 @@ def main() -> int:
     l1.add_argument("--output-dir", default=str(DEFAULT_LOCAL_OUTPUT_ROOT / "stage_l1"))
 
     # L2: H4 json mode
-    l2 = subparsers.add_parser("stage-l2", help="H4 (json_mode) — does enforcing JSON output improve parse success?")
+    l2 = subparsers.add_parser("stage-l2", help="H4 (json_mode): does enforcing JSON output improve parse success?")
     _add_common_args(l2)
     l2.add_argument("--output-dir", default=str(DEFAULT_LOCAL_OUTPUT_ROOT / "stage_l2"))
 

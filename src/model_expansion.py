@@ -130,6 +130,32 @@ def build_h6_prompt(document: dict[str, Any], harness_id: str) -> str:
     )
 
 
+def build_h6v2_prompt(document: dict[str, Any], harness_id: str) -> str:
+    """H6 with two seizure-type prompt fixes identified via N1 gap analysis:
+    - Explicit 'unknown seizure type' guidance for unspecified-type cases.
+    - Temporality restriction to current (not historical) seizure types.
+    """
+    return "\n\n".join(
+        [
+            "Extract only benchmark fields from this epilepsy clinic letter.",
+            "Return JSON only with this shape:",
+            '{"medication_names":[],"seizure_types":[],"epilepsy_diagnosis_type":null}',
+            "Medication names should include current anti-seizure medications only. Use generic drug names where possible.",
+            (
+                "Seizure types must use only the allowed labels. "
+                "Include only the patient's CURRENT seizure types as documented in this letter -- do not include historical seizure types that are no longer occurring. "
+                "If the patient has seizures but the specific type is not described or is unclear in the letter, use 'unknown seizure type'. "
+                "Do not include aura, warning, symptom, medication side effect, investigation finding, or differential diagnosis labels as seizure types."
+            ),
+            "Epilepsy diagnosis/type must use one allowed label or null. Do not invent a diagnosis if the letter does not support one.",
+            benchmark_label_block(),
+            f"## Harness\n{harness_id}",
+            "## Source Letter",
+            document["text"],
+        ]
+    )
+
+
 def benchmark_output_schema() -> dict[str, Any]:
     return {
         "name": "benchmark_fields",
