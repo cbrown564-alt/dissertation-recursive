@@ -1,0 +1,231 @@
+{
+  "experiment_id": "20260430T151551Z_h008_single_broad_field_llm_n50",
+  "timestamp_utc": "2026-04-30T15:15:51Z",
+  "harness_id": "h008_single_broad_field_llm",
+  "description": "M-C3 h008 n50 ASM-only medication and absence-only investigation guards rerun",
+  "data": {
+    "path": "synthetic_data_subset_1500.json",
+    "sha256": "cf13b498609079d37ba7ccd4cb9886b7d8a60a8bcd75e48ab5b4debb939b1c21",
+    "row_ok_only": true,
+    "limit": 50
+  },
+  "runtime": {
+    "provider": "ollama",
+    "model": "qwen3.5:4b",
+    "num_predict": 1024,
+    "timeout_seconds": 180
+  },
+  "summary": {
+    "n": 50,
+    "invalid_output_rate": 0.0,
+    "seizure_frequency": {
+      "n": 50,
+      "exact_label_accuracy": 0.08,
+      "monthly_rate_accuracy_tolerance_15pct": 0.16,
+      "pragmatic": {
+        "micro_f1": 0.32,
+        "macro_f1": 0.3477319781667608,
+        "weighted_f1": 0.32407302842085456,
+        "per_class": {
+          "NS": {
+            "precision": 1.0,
+            "recall": 0.4,
+            "f1": 0.5714285714285715,
+            "support": 5
+          },
+          "UNK": {
+            "precision": 0.19444444444444445,
+            "recall": 0.7,
+            "f1": 0.30434782608695654,
+            "support": 10
+          },
+          "frequent": {
+            "precision": 0.6,
+            "recall": 0.23076923076923078,
+            "f1": 0.33333333333333337,
+            "support": 26
+          },
+          "infrequent": {
+            "precision": 0.5,
+            "recall": 0.1111111111111111,
+            "f1": 0.1818181818181818,
+            "support": 9
+          }
+        }
+      },
+      "purist": {
+        "micro_f1": 0.22,
+        "macro_f1": 0.1308887355264167,
+        "weighted_f1": 0.182367977915804,
+        "per_class": {
+          "(1/6M,1/M)": {
+            "precision": 1.0,
+            "recall": 0.125,
+            "f1": 0.2222222222222222,
+            "support": 8
+          },
+          "(1/M,1/W)": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 5
+          },
+          "(1/W,1/D)": {
+            "precision": 0.14285714285714285,
+            "recall": 0.05555555555555555,
+            "f1": 0.08,
+            "support": 18
+          },
+          "1/6M": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "1/M": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1
+          },
+          "1/W": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          ">=1/D": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 3
+          },
+          "NS": {
+            "precision": 1.0,
+            "recall": 0.4,
+            "f1": 0.5714285714285715,
+            "support": 5
+          },
+          "UNK": {
+            "precision": 0.19444444444444445,
+            "recall": 0.7,
+            "f1": 0.30434782608695654,
+            "support": 10
+          }
+        }
+      },
+      "pragmatic_confusion": {
+        "frequent": {
+          "frequent": 6,
+          "UNK": 20
+        },
+        "infrequent": {
+          "UNK": 6,
+          "infrequent": 1,
+          "frequent": 2
+        },
+        "UNK": {
+          "frequent": 2,
+          "UNK": 7,
+          "infrequent": 1
+        },
+        "NS": {
+          "UNK": 3,
+          "NS": 2
+        }
+      }
+    },
+    "feasibility": {
+      "current_medications": {
+        "abstention_rate": 0.14,
+        "mean_items_per_row": 1.46,
+        "total_items": 73,
+        "evidence_support_rate": 1.0
+      },
+      "seizure_types": {
+        "abstention_rate": 0.1,
+        "mean_items_per_row": 1.62,
+        "total_items": 81,
+        "evidence_support_rate": 1.0
+      },
+      "investigations": {
+        "abstention_rate": 0.2,
+        "mean_items_per_row": 1.96,
+        "total_items": 98,
+        "evidence_support_rate": 0.969
+      }
+    },
+    "mc3_locked_subset": {
+      "version": "2026-04-28",
+      "phase": "M-C3",
+      "scoredFields": [
+        "current_medications",
+        "investigations"
+      ],
+      "shadowFields": [
+        "seizure_types"
+      ],
+      "sourceRowCount": 25,
+      "totalScoredItems": 95,
+      "overall": {
+        "valueAccuracy": 0.926,
+        "statusAccuracy": 0.947,
+        "normalizationAccuracy": 0.926,
+        "lockedEvidenceSupportRate": 0.916,
+        "lockedSupportedItems": 87
+      },
+      "fields": {
+        "current_medications": {
+          "totalItems": 56,
+          "valueCorrect": 56,
+          "valuePartial": 0,
+          "valueAccuracy": 1.0,
+          "valueCorrectOrPartialRate": 1.0,
+          "statusCorrect": 55,
+          "statusAccuracy": 0.982,
+          "normalizationCorrect": 56,
+          "normalizationPartial": 0,
+          "normalizationAccuracy": 1.0,
+          "normalizationCorrectOrPartialRate": 1.0,
+          "lockedSupportedItems": 55,
+          "lockedEvidenceSupportRate": 0.982,
+          "evidenceGradeCounts": {
+            "exact_span": 54,
+            "overlapping_span": 1,
+            "wrong_temporal_status": 1
+          },
+          "acceptanceRule": "A medication counts as supported only when the value is correct, the status is correct, and the evidence grade is exact_span or overlapping_span."
+        },
+        "investigations": {
+          "totalItems": 39,
+          "valueCorrect": 32,
+          "valuePartial": 2,
+          "valueAccuracy": 0.821,
+          "valueCorrectOrPartialRate": 0.872,
+          "statusCorrect": 35,
+          "statusAccuracy": 0.897,
+          "normalizationCorrect": 32,
+          "normalizationPartial": 2,
+          "normalizationAccuracy": 0.821,
+          "normalizationCorrectOrPartialRate": 0.872,
+          "lockedSupportedItems": 32,
+          "lockedEvidenceSupportRate": 0.821,
+          "evidenceGradeCounts": {
+            "exact_span": 34,
+            "unsupported": 5
+          },
+          "acceptanceRule": "An investigation counts as supported only when value/status are correct, result normalization is correct, and the evidence grade is exact_span or overlapping_span."
+        }
+      },
+      "shadow": {
+        "seizure_types": {
+          "totalItems": 46,
+          "valueAccuracy": 0.696,
+          "valueCorrectOrPartialRate": 0.913,
+          "normalizationAccuracy": 0.522,
+          "scored": false
+        }
+      }
+    }
+  }
+}

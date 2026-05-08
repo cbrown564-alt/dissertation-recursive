@@ -1,0 +1,12 @@
+harness: h013
+harness_id: h013_production_multi_agent_llm
+provider: openai
+model: gpt-5.5
+data: data/synthetic_data_subset_1500.json
+limit: 50
+timeout_seconds: 240
+max_retries: 1
+num_predict: 1024
+adjudication_csv: docs/adjudication/h013_gpt55_matched_25rows_scoring.csv
+expected_result: expected_results/h013_gpt55_n50_summary.json
+adjudication_status: proxy_metrics_complete_broader_field_scoring_pending

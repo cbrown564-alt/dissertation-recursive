@@ -1,0 +1,11 @@
+harness: h008
+harness_id: h008_single_broad_field_llm
+provider: ollama
+model: qwen3.5:4b
+data: data/synthetic_data_subset_1500.json
+limit: 50
+timeout_seconds: 180
+max_retries: 1
+num_predict: 1024
+adjudication_csv: docs/adjudication/h008_guideline_matched_25rows_scoring.csv
+expected_result: expected_results/h008_qwen35_4b_guarded_n50_summary.json

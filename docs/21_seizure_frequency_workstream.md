@@ -420,13 +420,21 @@ labels can approach the paper's pragmatic micro-F1 target.
 
 | Axis | Values |
 |---|---|
-| Models | `gpt_4_1_mini` (baseline), `gpt_5_5`, `claude_sonnet_4_6` |
+| Models | `gpt_4_1_mini_baseline` (baseline), `gpt_5_5`, `qwen_35b_local` |
 | Harnesses | `Gan_direct_label`, `Gan_cot_label`, `Gan_evidence_label`, `Gan_two_pass` |
 | Dataset | Gan local synthetic subset |
 | Split | Deterministic development subset, e.g. 150 docs |
 | Repeats | 1 |
 | Primary metric | Pragmatic micro-F1 |
 | Secondary | Purist micro-F1, exact normalized-label accuracy, quote/evidence validity |
+
+**Note on `qwen_35b_local`:** replaces Claude Sonnet as the open-weight representative.
+This is a natural extension of the local models workstream (doc 22), where qwen3.6:35b H6fs
+was the recommended deployment configuration. Including it in G2 directly tests whether the
+same local model that matched frontier on ExECTv2 medication F1 can approach frontier on
+the Gan frequency task. The OllamaAdapter handles `json_schema` mode by falling back to
+`format: "json"` (Ollama's JSON enforcement), and think-suppression (`think: false`,
+`/no_think` prefix) is already wired for qwen3 models in `src/model_providers.py`.
 
 **Harness definitions:**
 
@@ -445,7 +453,7 @@ Run example:
 
 ```bash
 .venv/bin/python src/gan_frequency.py sweep \
-  --models gpt_4_1_mini_baseline gpt_5_5 claude_sonnet_4_6 \
+  --models gpt_4_1_mini_baseline gpt_5_5 qwen_35b_local \
   --harnesses Gan_direct_label Gan_cot_label Gan_evidence_label Gan_two_pass \
   --limit 150 \
   --output-dir runs/gan_frequency/stage_g2 \

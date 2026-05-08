@@ -151,20 +151,23 @@ between models, L6 is informative but not blocking for the dissertation claim.
 
 > "Locally-hosted open-weight models achieve near-frontier or frontier-level performance on
 > all three key epilepsy letter extraction tasks at zero marginal API cost. On 40 held-out
-> validation documents, gemma4:e4b using the H6 benchmark-only JSON harness achieves 0.849
-> medication name F1 (0.3pp below GPT-4.1-mini S2), 0.593 seizure type F1 collapsed (1.7pp
-> below frontier S2), and 0.825 epilepsy diagnosis accuracy (10pp above both frontier
-> baselines). With the H6v2 prompt variant, gemma4:e4b medication F1 rises to 0.865,
-> exceeding frontier S2 (0.852). qwen3.5:9b with H6v2 achieves 0.595 seizure type F1,
-> within 1.5pp of frontier S2 (0.610). Targeted prompt engineering — explicit guidance for
-> the 'unknown seizure type' meta-label and temporality restriction to current seizure types
-> — improved qwen3.5:9b seizure F1 by +5.4pp at no additional cost, and is the primary
-> driver of the remaining gap between raw and refined local model performance. The pipeline
-> is viable for privacy-constrained offline clinical deployment with no internet connectivity
-> or API subscription required."
+> validation documents, the recommended deployment configuration — qwen3.6:35b with the H6fs
+> benchmark-only JSON harness using few-shot seizure-type examples — achieves 0.852 medication
+> name F1 (matching GPT-4.1-mini S2 exactly), 0.593 seizure type F1 collapsed (within 1.7pp of
+> frontier S2), and 0.800 epilepsy diagnosis accuracy, at 12 seconds per document with no API
+> cost or internet requirement. The largest dense local model tested, qwen3.6:27b H6, achieves
+> 0.885 medication F1 — the first local model to exceed both frontier baselines on medication.
+> gemma4:e4b H6 achieves 0.825 diagnosis accuracy, the highest of any model tested. Few-shot
+> seizure-type examples (H6fs) improved qwen3.5:9b seizure F1 by +6.1pp over the H6 baseline
+> and medication F1 by +3.9pp simultaneously. Larger models (qwen3.6:35b, gemma4:e4b) exhibit
+> well-calibrated seizure-type behaviour under the plain H6 prompt, indicating that
+> capability-appropriate harness selection is required rather than a single universal prompt.
+> The pipeline is viable for privacy-constrained offline clinical deployment with no internet
+> connectivity or API subscription required."
 
-**Recommended deployment configuration:** gemma4:e4b H6 for maximum seizure accuracy;
-gemma4:e4b H6v2 if medication extraction is the priority metric.
+**Recommended deployment configuration:** qwen3.6:35b H6fs for the best combination of
+medication F1, seizure F1, and throughput at clinical scale; qwen3.5:4b H6 as a low-VRAM
+fallback (~3-4 GB VRAM).
 
 **Note on 5-doc vs 40-doc results:** The prior 5-doc L5 results overstated the seizure
 type gap (sz_f1=0.250 reported) due to sampling noise. The 40-doc numbers are authoritative.
@@ -587,11 +590,14 @@ not to annotate them as current. The boundary between "currently relevant" and
 **Recommended for clinical deployment:** qwen3.6:35b H6fs -- matches frontier
 medication F1 at 12s/doc with no API cost or internet requirement.
 
-### N6 -- Frequency field (out of scope but noted)
+### N6 -- Frequency field (out of scope for this workstream; separate workstream active)
 
 `current_seizure_frequency` was not scored in this workstream (the H6/H4 output schema
-does not include it). The H3 loose-text output does include it verbatim. If frequency
-extraction matters for the dissertation, H3 with a relaxed projection is the path forward.
+does not include it). Frequency extraction is now in scope for the dissertation and is
+tracked in `docs/21_seizure_frequency_workstream.md`. That workstream uses the Gan 2026
+synthetic subset as its primary benchmark (Pragmatic micro-F1 target >= 0.85) with
+ExECTv2 per-letter accuracy as a secondary crosswalk metric. Infrastructure (G0 audit,
+G1 prediction harness) is complete; Stage G2 model × harness sweep is the current next step.
 
 ---
 
@@ -621,4 +627,9 @@ before running experiments (it does not auto-start on Windows as a system servic
 | N3 (H6, 4b, 40 docs) | 40 x 1 | ~5 min | $0 |
 | N5 (H6v2, 9b, 40 docs) | 40 x 1 | ~8 min | $0 |
 | N4 (gemma4 H6+H6v2, 40 docs) | 40 x 2 | ~34 min | $0 |
-| **Total** | | **~96 min** | **$0** |
+| Variant A (H6fs, qwen3.5:9b + gemma4:e4b, 40 docs each) | 40 x 2 | ~28 min | $0 |
+| Variant B (H6qa, qwen3.5:9b + gemma4:e4b, 40 docs each) | 40 x 2 | ~28 min | $0 |
+| Variant C (H6ev, qwen3.5:9b + gemma4:e4b, 40 docs each) | 40 x 2 | ~28 min | $0 |
+| qwen3.6:27b H6 + H6fs (40 docs each) | 40 x 2 | ~46 min | $0 |
+| qwen3.6:35b H6 + H6fs (40 docs each) | 40 x 2 | ~16 min | $0 |
+| **Total** | | **~276 min (~4.6 hrs)** | **$0** |

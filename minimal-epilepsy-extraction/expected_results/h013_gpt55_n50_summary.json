@@ -1,0 +1,242 @@
+{
+  "experiment_id": "20260501T180000Z_h013_production_multi_agent_llm_gpt_5_5_n50",
+  "timestamp_utc": "2026-05-01T17:10:49Z",
+  "harness_id": "h013_production_multi_agent_llm",
+  "description": "h013 production role pipeline GPT-5.5 n50 sensitivity against h012",
+  "data": {
+    "path": "synthetic_data_subset_1500.json",
+    "sha256": "cf13b498609079d37ba7ccd4cb9886b7d8a60a8bcd75e48ab5b4debb939b1c21",
+    "row_ok_only": true,
+    "limit": 50
+  },
+  "runtime": {
+    "provider": "openai",
+    "model": "gpt-5.5",
+    "num_predict": 1024,
+    "timeout_seconds": 240
+  },
+  "summary": {
+    "n": 50,
+    "invalid_output_rate": 0.0,
+    "seizure_frequency": {
+      "n": 50,
+      "exact_label_accuracy": 0.34,
+      "monthly_rate_accuracy_tolerance_15pct": 0.54,
+      "pragmatic": {
+        "micro_f1": 0.68,
+        "macro_f1": 0.7204675806649491,
+        "weighted_f1": 0.6840562507667771,
+        "per_class": {
+          "NS": {
+            "precision": 0.625,
+            "recall": 1.0,
+            "f1": 0.7692307692307693,
+            "support": 5
+          },
+          "UNK": {
+            "precision": 0.43478260869565216,
+            "recall": 1.0,
+            "f1": 0.6060606060606061,
+            "support": 10
+          },
+          "frequent": {
+            "precision": 1.0,
+            "recall": 0.46153846153846156,
+            "f1": 0.631578947368421,
+            "support": 26
+          },
+          "infrequent": {
+            "precision": 1.0,
+            "recall": 0.7777777777777778,
+            "f1": 0.8750000000000001,
+            "support": 9
+          }
+        }
+      },
+      "purist": {
+        "micro_f1": 0.64,
+        "macro_f1": 0.6266763791763792,
+        "weighted_f1": 0.6329010101010101,
+        "per_class": {
+          "(1/6M,1/M)": {
+            "precision": 1.0,
+            "recall": 0.625,
+            "f1": 0.7692307692307693,
+            "support": 8
+          },
+          "(1/M,1/W)": {
+            "precision": 1.0,
+            "recall": 0.8,
+            "f1": 0.888888888888889,
+            "support": 5
+          },
+          "(1/W,1/D)": {
+            "precision": 0.8571428571428571,
+            "recall": 0.3333333333333333,
+            "f1": 0.48,
+            "support": 18
+          },
+          "1/M": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 1
+          },
+          "<1/6M": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          ">=1/D": {
+            "precision": 1.0,
+            "recall": 0.3333333333333333,
+            "f1": 0.5,
+            "support": 3
+          },
+          "NS": {
+            "precision": 0.625,
+            "recall": 1.0,
+            "f1": 0.7692307692307693,
+            "support": 5
+          },
+          "UNK": {
+            "precision": 0.43478260869565216,
+            "recall": 1.0,
+            "f1": 0.6060606060606061,
+            "support": 10
+          }
+        }
+      },
+      "pragmatic_confusion": {
+        "frequent": {
+          "frequent": 12,
+          "UNK": 13,
+          "NS": 1
+        },
+        "infrequent": {
+          "NS": 2,
+          "infrequent": 7
+        },
+        "UNK": {
+          "UNK": 10
+        },
+        "NS": {
+          "NS": 5
+        }
+      }
+    },
+    "feasibility": {
+      "current_medications": {
+        "abstention_rate": 0.14,
+        "mean_items_per_row": 1.58,
+        "total_items": 79,
+        "evidence_support_rate": 1.0
+      },
+      "seizure_types": {
+        "abstention_rate": 0.0,
+        "mean_items_per_row": 2.88,
+        "total_items": 144,
+        "evidence_support_rate": 1.0
+      },
+      "investigations": {
+        "abstention_rate": 0.12,
+        "mean_items_per_row": 2.8,
+        "total_items": 140,
+        "evidence_support_rate": 1.0
+      },
+      "epilepsy_type": {
+        "abstention_rate": 0.34,
+        "rows_with_value": 33,
+        "evidence_support_rate": 1.0
+      },
+      "epilepsy_syndrome": {
+        "abstention_rate": 1.0,
+        "rows_with_value": 0,
+        "evidence_support_rate": null
+      }
+    },
+    "runtime": {
+      "mean_latency_ms": 9595.554,
+      "max_latency_ms": 15819.0,
+      "mean_prompt_tokens": 1100.347,
+      "mean_completion_tokens": 176.46,
+      "mean_total_tokens": 1276.807,
+      "total_prompt_tokens": 165052,
+      "total_completion_tokens": 26469,
+      "total_tokens": 191521
+    },
+    "mc3_locked_subset": {
+      "version": "2026-04-28",
+      "phase": "M-C3",
+      "scoredFields": [
+        "current_medications",
+        "investigations"
+      ],
+      "shadowFields": [
+        "seizure_types"
+      ],
+      "sourceRowCount": 25,
+      "totalScoredItems": 95,
+      "overall": {
+        "valueAccuracy": 0.926,
+        "statusAccuracy": 0.947,
+        "normalizationAccuracy": 0.926,
+        "lockedEvidenceSupportRate": 0.916,
+        "lockedSupportedItems": 87
+      },
+      "fields": {
+        "current_medications": {
+          "totalItems": 56,
+          "valueCorrect": 56,
+          "valuePartial": 0,
+          "valueAccuracy": 1.0,
+          "valueCorrectOrPartialRate": 1.0,
+          "statusCorrect": 55,
+          "statusAccuracy": 0.982,
+          "normalizationCorrect": 56,
+          "normalizationPartial": 0,
+          "normalizationAccuracy": 1.0,
+          "normalizationCorrectOrPartialRate": 1.0,
+          "lockedSupportedItems": 55,
+          "lockedEvidenceSupportRate": 0.982,
+          "evidenceGradeCounts": {
+            "exact_span": 54,
+            "overlapping_span": 1,
+            "wrong_temporal_status": 1
+          },
+          "acceptanceRule": "A medication counts as supported only when the value is correct, the status is correct, and the evidence grade is exact_span or overlapping_span."
+        },
+        "investigations": {
+          "totalItems": 39,
+          "valueCorrect": 32,
+          "valuePartial": 2,
+          "valueAccuracy": 0.821,
+          "valueCorrectOrPartialRate": 0.872,
+          "statusCorrect": 35,
+          "statusAccuracy": 0.897,
+          "normalizationCorrect": 32,
+          "normalizationPartial": 2,
+          "normalizationAccuracy": 0.821,
+          "normalizationCorrectOrPartialRate": 0.872,
+          "lockedSupportedItems": 32,
+          "lockedEvidenceSupportRate": 0.821,
+          "evidenceGradeCounts": {
+            "exact_span": 34,
+            "unsupported": 5
+          },
+          "acceptanceRule": "An investigation counts as supported only when value/status are correct, result normalization is correct, and the evidence grade is exact_span or overlapping_span."
+        }
+      },
+      "shadow": {
+        "seizure_types": {
+          "totalItems": 46,
+          "valueAccuracy": 0.696,
+          "valueCorrectOrPartialRate": 0.913,
+          "normalizationAccuracy": 0.522,
+          "scored": false
+        }
+      }
+    }
+  }
+}

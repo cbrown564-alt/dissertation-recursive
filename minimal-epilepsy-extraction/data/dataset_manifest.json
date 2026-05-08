@@ -1,0 +1,14 @@
+{
+  "dataset": "Gan synthetic epilepsy clinic-letter subset",
+  "file": "data/synthetic_data_subset_1500.json",
+  "sha256": "cf13b498609079d37ba7ccd4cb9886b7d8a60a8bcd75e48ab5b4debb939b1c21",
+  "canonical_slice": {
+    "row_ok_only": true,
+    "limit": 50,
+    "matched_adjudication_rows": 25
+  },
+  "notes": [
+    "This capsule contains only synthetic data.",
+    "All expected results in expected_results/ were generated from this dataset hash."
+  ]
+}

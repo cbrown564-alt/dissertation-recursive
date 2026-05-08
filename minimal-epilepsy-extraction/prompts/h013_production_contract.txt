@@ -1,0 +1,22 @@
+h013 production multi-agent prompt contract
+
+Call 1: seizure_frequency
+- Full-letter seizure-frequency extraction.
+- JSON keys include label, evidence, confidence, analysis, warnings.
+- Invalid JSON falls back to deterministic seizure-frequency extraction.
+
+Call 2: broader_fields
+- Full-letter M-C3 broader extraction, excluding seizure frequency.
+- Return current_medications, seizure_types, investigations.
+- Coverage-oriented and evidence-bound.
+- Include current maintenance and rescue ASMs if prescribed.
+- Do not include non-ASMs.
+- Extract investigations only when explicitly named or clearly described.
+- Preserve conditional/pending/planned status distinctions.
+- Invalid JSON falls back to deterministic broader-field extraction.
+
+Call 3: epilepsy_classification
+- Extract epilepsy type and syndrome only when stated.
+- Do not infer type from medication, seizure frequency, or investigations.
+- Do not invent a syndrome.
+- Classification is optional/shadow relative to the core M-C3 result.

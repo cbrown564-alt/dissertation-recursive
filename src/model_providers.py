@@ -312,7 +312,7 @@ class OllamaAdapter(ProviderAdapter):
             max_tokens = request.max_output_tokens or request.model.max_output_tokens
             if max_tokens:
                 options["num_predict"] = max_tokens
-            if request.schema_mode == "json_mode":
+            if request.schema_mode in {"json_mode", "json_schema"}:
                 options["format"] = "json"
 
             payload: dict[str, Any] = {
