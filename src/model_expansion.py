@@ -238,18 +238,40 @@ def build_h7_normalize_prompt(document: dict[str, Any], harness_id: str, rich_fa
     )
 
 
-def build_harness_prompt(harness_id: str, document: dict[str, Any], schema_path: Path) -> str:
+def build_vocab_preamble() -> str:
+    return "\n".join(
+        [
+            "## Anti-seizure medication names",
+            "Common ASMs include: levetiracetam (Keppra), sodium valproate (Epilim, Eplim),",
+            "lamotrigine (Lamictal), carbamazepine (Tegretol), phenytoin, topiramate, zonisamide,",
+            "brivaracetam, lacosamide, oxcarbazepine, perampanel, clobazam, clonazepam.",
+            "Normalize brand names to generic names in your output.",
+            "",
+            "## Epilepsy and seizure terminology",
+            "Focal seizures: focal aware, focal impaired awareness, focal to bilateral tonic-clonic.",
+            "Generalized seizures: generalized tonic-clonic (GTCS), absence, myoclonic, atonic.",
+            "Epilepsy syndromes: JME (juvenile myoclonic epilepsy), childhood absence epilepsy (CAE),",
+            "Lennox-Gastaut syndrome (LGS), DRAVET syndrome.",
+        ]
+    )
+
+
+def build_harness_prompt(harness_id: str, document: dict[str, Any], schema_path: Path, vocab_preamble: bool = False) -> str:
     if harness_id == "H0_strict_canonical":
         return build_direct_prompt("S2", document, schema_path)
     if harness_id == "H2_task_specific":
         return build_task_specific_prompt(document, harness_id)
     if harness_id == "H3_loose_answer_then_parse":
-        return build_loose_prompt(document, harness_id)
-    if harness_id == "H6_benchmark_only_coarse_json":
-        return build_h6_prompt(document, harness_id)
-    if harness_id == "H4_provider_native_structured_output":
-        return build_h6_prompt(document, harness_id)
-    raise ValueError(f"unsupported Stage A harness: {harness_id}")
+        prompt = build_loose_prompt(document, harness_id)
+    elif harness_id == "H6_benchmark_only_coarse_json":
+        prompt = build_h6_prompt(document, harness_id)
+    elif harness_id == "H4_provider_native_structured_output":
+        prompt = build_h6_prompt(document, harness_id)
+    else:
+        raise ValueError(f"unsupported Stage A harness: {harness_id}")
+    if vocab_preamble:
+        return build_vocab_preamble() + "\n\n" + prompt
+    return prompt
 
 
 def provider_for_args(model_provider: str, stub_calls: bool) -> str:
@@ -1212,46 +1234,109 @@ def benchmark_seizure_types(values: list[str]) -> list[str]:
     return labels
 
 
+_NULL_VALUES = frozenset(["none", "nil", "n/a", "not stated", "not mentioned", "not reported", "unknown", "not applicable"])
+
+
+def _split_list_value(value: str) -> list[str] | str:
+    """Split comma/semicolon-separated values into a list; return as string if it's a single item."""
+    if not value or value.lower() in _NULL_VALUES:
+        return []
+    parts = [v.strip() for v in value.replace(";", ",").split(",") if v.strip()]
+    parts = [p for p in parts if p.lower() not in _NULL_VALUES]
+    return parts if len(parts) > 1 else (parts[0] if parts else value)
+
+
+_CANONICAL_KEY_ALIASES: dict[str, str] = {
+    "medications": "medication_names",
+    "medication": "medication_names",
+    "medication names": "medication_names",
+    "current medications": "medication_names",
+    "current anti seizure medications": "medication_names",
+    "anti seizure medications": "medication_names",
+    "asms": "medication_names",
+    "seizure types": "seizure_types",
+    "seizure type": "seizure_types",
+    "seizure semiology": "seizure_types",
+    "seizures": "seizure_types",
+    "epilepsy types": "epilepsy_types",
+    "epilepsy type": "epilepsy_types",
+    "epilepsy diagnosis": "epilepsy_types",
+    "epilepsy diagnosis type": "epilepsy_types",
+    "epilepsy_diagnosis_type": "epilepsy_types",
+    "diagnosis": "epilepsy_types",
+    "frequency": "seizure_frequency",
+    "seizure frequency": "seizure_frequency",
+    "current seizure frequency": "seizure_frequency",
+}
+
+
+_LIST_FIELDS = frozenset(["medication_names", "seizure_types"])
+
+
+def _normalize_parsed_keys(data: dict[str, Any]) -> dict[str, Any]:
+    """Normalize non-canonical JSON keys to canonical field names and split list fields."""
+    normalized: dict[str, Any] = {}
+    for key, value in data.items():
+        # Strip parenthetical qualifiers: "Medications (current)" → "medications"
+        clean_key = key.lower().replace("_", " ").replace("-", " ").split("(")[0].strip()
+        canon = _CANONICAL_KEY_ALIASES.get(clean_key, key)
+        # Split comma-separated strings for list fields
+        if canon in _LIST_FIELDS and isinstance(value, str):
+            value = _split_list_value(value)
+        normalized[canon] = value
+    return normalized
+
+
 def parse_loose_sections(text: str) -> dict[str, Any]:
     parsed = parse_json_response(text)
     if isinstance(parsed.data, dict):
-        return parsed.data
+        return _normalize_parsed_keys(parsed.data)
     sections: dict[str, Any] = {}
     current_key: str | None = None
     for raw_line in text.splitlines():
         line = raw_line.strip()
         if not line:
             continue
-        line = line.lstrip("-*0123456789. ").strip()
-        line = line.replace("**", "")
+        line = line.lstrip("-*•·0123456789. ").strip()
+        line = line.replace("**", "").replace("__", "")
+        if not line:
+            continue
         if ":" not in line:
             if current_key:
-                sections.setdefault(current_key, [])
-                if isinstance(sections[current_key], list):
-                    sections[current_key].append(line)
+                item = line.strip()
+                if item and item.lower() not in _NULL_VALUES:
+                    sections.setdefault(current_key, [])
+                    if isinstance(sections[current_key], list):
+                        sections[current_key].append(item)
             continue
         label, value = line.split(":", 1)
-        label_key = label.strip().lower().replace("-", " ")
+        # Strip parenthetical qualifiers from label: "Medications (current)" -> "medications"
+        label_key = label.strip().lower().replace("-", " ").split("(")[0].strip()
         value = value.strip()
         target_key = None
-        if "medication" in label_key:
+        if "medication" in label_key or "anti seizure" in label_key or "anti-seizure" in label_key or "asm" in label_key:
             target_key = "medication_names"
-        elif "seizure type" in label_key:
+        elif "seizure type" in label_key or "seizure semiology" in label_key:
             target_key = "seizure_types"
-        elif "epilepsy" in label_key or "diagnosis" in label_key:
+        elif "seizure" in label_key and "frequency" not in label_key and "type" not in label_key:
+            target_key = "seizure_types"
+        elif "epilepsy" in label_key or "diagnosis" in label_key or "syndrome" in label_key:
             target_key = "epilepsy_types"
-        elif "frequency" in label_key:
+        elif "frequency" in label_key or "seizure control" in label_key:
             target_key = "seizure_frequency"
-        elif "eeg" in label_key:
+        elif "eeg" in label_key or "electroencephalogram" in label_key:
             target_key = "eeg"
-        elif "mri" in label_key:
+        elif "mri" in label_key or "magnetic resonance" in label_key:
             target_key = "mri"
         if not target_key:
             current_key = None
             continue
         current_key = target_key
-        if value:
-            sections[target_key] = value
+        if value and value.lower() not in _NULL_VALUES:
+            if target_key in {"medication_names", "seizure_types"}:
+                sections[target_key] = _split_list_value(value)
+            else:
+                sections[target_key] = value
         else:
             sections.setdefault(target_key, [])
     return sections

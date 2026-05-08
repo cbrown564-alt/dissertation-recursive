@@ -140,3 +140,62 @@ models:
     billing_currency: USD
     deprecation_or_alias_behavior: dated_snapshot_selected_from_official_model_page
     source_notes: "OpenAI docs list gpt-4.1-mini and snapshot gpt-4.1-mini-2025-04-14."
+  qwen_9b_local:
+    provider: ollama
+    provider_model_id: qwen3.5:8b
+    provider_alias: qwen3.5:8b
+    api_surface: openai_compat
+    sdk_package: openai
+    sdk_version: null
+    context_window_tokens: 32768
+    max_output_tokens: 4096
+    structured_output: json_mode
+    temperature: 0.0
+    seed_supported: false
+    input_price_per_million: null
+    output_price_per_million: null
+    cache_read_price_per_million: null
+    cache_write_price_per_million: null
+    region: local
+    billing_currency: local
+    deprecation_or_alias_behavior: local_model_no_deprecation
+    source_notes: "Qwen 3.5 8B via Ollama. 32K context window at Q4_K_M quantization. ~6-8 GB VRAM required."
+  qwen_4b_local:
+    provider: ollama
+    provider_model_id: qwen3.5:4b
+    provider_alias: qwen3.5:4b
+    api_surface: openai_compat
+    sdk_package: openai
+    sdk_version: null
+    context_window_tokens: 32768
+    max_output_tokens: 4096
+    structured_output: json_mode
+    temperature: 0.0
+    seed_supported: false
+    input_price_per_million: null
+    output_price_per_million: null
+    cache_read_price_per_million: null
+    cache_write_price_per_million: null
+    region: local
+    billing_currency: local
+    deprecation_or_alias_behavior: local_model_no_deprecation
+    source_notes: "Qwen 3.5 4B via Ollama (study label qwen_4b_local). Smaller/faster; lower expected quality."
+  gemma_4b_local:
+    provider: ollama
+    provider_model_id: gemma3:4b
+    api_surface: openai_compat
+    sdk_package: openai
+    sdk_version: null
+    context_window_tokens: 32768
+    max_output_tokens: 4096
+    structured_output: json_mode
+    temperature: 0.0
+    seed_supported: false
+    input_price_per_million: null
+    output_price_per_million: null
+    cache_read_price_per_million: null
+    cache_write_price_per_million: null
+    region: local
+    billing_currency: local
+    deprecation_or_alias_behavior: local_model_no_deprecation
+    source_notes: "Gemma 3 4B via Ollama. Google model family; different clinical vocabulary from Qwen."

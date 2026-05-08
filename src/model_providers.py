@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import logging
 import os
 import time
 from dataclasses import asdict, dataclass, field
@@ -275,16 +276,105 @@ class GoogleAdapter(ProviderAdapter):
             return self._response(request, "", started, error=str(exc))
 
 
+class OllamaAdapter(ProviderAdapter):
+    provider = "ollama"
+
+    def call(self, request: ModelRequest) -> ModelResponse:
+        started = time.perf_counter()
+        base_url = os.environ.get("OLLAMA_BASE_URL", "http://localhost:11434/v1")
+        try:
+            from openai import OpenAI
+        except ImportError as exc:
+            return self._response(request, "", started, error=f"openai is not installed: {exc}")
+
+        try:
+            client = OpenAI(base_url=base_url, api_key="ollama")
+            prompt = truncate_to_context(request.prompt, request.model)
+            context_truncated = prompt != request.prompt
+
+            kwargs: dict[str, Any] = {
+                "model": request.model.provider_model_id,
+                "messages": [{"role": "user", "content": prompt}],
+                "temperature": request.temperature,
+            }
+            max_tokens = request.max_output_tokens or request.model.max_output_tokens
+            if max_tokens:
+                kwargs["max_tokens"] = max_tokens
+            if request.schema_mode == "json_mode":
+                kwargs["response_format"] = {"type": "json_object"}
+
+            response = client.chat.completions.create(**kwargs)
+            text = response.choices[0].message.content or "" if response.choices else ""
+            usage = getattr(response, "usage", None)
+            token_usage = TokenUsage(
+                input_tokens=getattr(usage, "prompt_tokens", None),
+                output_tokens=getattr(usage, "completion_tokens", None),
+            )
+            stop_reason = response.choices[0].finish_reason if response.choices else None
+            provider_metadata: dict[str, Any] = {"base_url": base_url, "context_truncated": context_truncated}
+
+            model_response = self._response(
+                request,
+                text,
+                started,
+                usage=token_usage,
+                stop_reason=stop_reason,
+                provider_metadata=provider_metadata,
+            )
+            model_response.estimated_cost = {
+                "currency": "local",
+                "pricing_snapshot_date": None,
+                "components": {"input": 0.0, "output": 0.0},
+                "total": 0.0,
+                "status": "local_compute",
+                "missing_required": [],
+            }
+            return model_response
+        except Exception as exc:
+            return self._response(request, "", started, error=str(exc))
+
+
 def adapter_for(provider: str) -> ProviderAdapter:
     adapters: dict[str, ProviderAdapter] = {
         "stub": StubAdapter(),
         "openai": OpenAIAdapter(),
         "anthropic": AnthropicAdapter(),
         "google": GoogleAdapter(),
+        "ollama": OllamaAdapter(),
     }
     if provider not in adapters:
         raise ValueError(f"unsupported provider: {provider}")
     return adapters[provider]
+
+
+def truncate_to_context(prompt: str, model: ModelSpec) -> str:
+    """Truncate prompt to fit model context window, preserving instructions and truncating the source letter."""
+    if model.context_window_tokens is None:
+        return prompt
+    max_output = model.max_output_tokens or 2048
+    budget_tokens = model.context_window_tokens - max_output
+    if len(prompt) / 4 <= budget_tokens:
+        return prompt
+
+    marker = "## Source Letter"
+    idx = prompt.rfind(marker)
+    if idx == -1:
+        target_chars = int(budget_tokens * 4)
+        logging.warning("truncate_to_context: truncating from %d to %d chars (no Source Letter marker)", len(prompt), target_chars)
+        return prompt[:target_chars]
+
+    prefix = prompt[: idx + len(marker)]
+    suffix = prompt[idx + len(marker):]
+    prefix_tokens = len(prefix) / 4
+    available_for_suffix = budget_tokens - prefix_tokens
+    if available_for_suffix <= 0:
+        logging.warning("truncate_to_context: prefix alone exceeds context budget")
+        return prompt[: int(budget_tokens * 4)]
+    target_suffix_chars = int(available_for_suffix * 4)
+    if len(suffix) > target_suffix_chars:
+        logging.warning("truncate_to_context: source letter truncated from %d to %d chars", len(suffix), target_suffix_chars)
+        suffix = suffix[:target_suffix_chars]
+    return prefix + suffix
 
 
 def estimate_cost(model: ModelSpec, usage: TokenUsage) -> dict[str, Any]:
