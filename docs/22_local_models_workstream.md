@@ -353,6 +353,74 @@ this argues for model-specific harness selection rather than a single universal 
 | qwen3.5:4b | H6 | 0.814 | 0.535 | 0.750 |
 | gemma4:e4b | H6 | 0.849 | 0.593 | 0.825 |
 
+### Variant B -- H6qa: Decomposed current-status reasoning — COMPLETE (2026-05-08)
+
+Extends the output schema with a `current_seizure_status` field (`active|seizure_free|unclear`)
+that the model must populate first, then constrains `seizure_types` based on that decision:
+- active -> specific current types (or `unknown seizure type` if unspecified)
+- seizure_free -> `["seizure free"]`
+- unclear -> `["unknown seizure type"]`
+
+Prompt is shorter than H6fs (~424 tokens vs ~534) since it carries no examples.
+
+#### Results (40-doc validation)
+
+| System | Med F1 | Sz F1 collapsed | Dx Acc |
+|--------|--------|-----------------|--------|
+| GPT-4.1-mini S2 (frontier) | 0.852 | 0.610 | 0.725 |
+| GPT-4.1-mini E3 (frontier best) | 0.872 | 0.633 | 0.775 |
+| qwen3.5:9b H6 (baseline) | 0.800 | 0.541 | 0.800 |
+| qwen3.5:9b H6fs (best prior) | 0.839 | 0.602 | 0.825 |
+| **qwen3.5:9b H6qa** | **0.821** | **0.545** | **0.800** |
+| gemma4:e4b H6 (baseline) | 0.849 | 0.593 | 0.825 |
+| gemma4:e4b H6fs | 0.815 | 0.561 | 0.825 |
+| **gemma4:e4b H6qa** | **0.839** | **0.525** | **0.825** |
+
+H6qa underperforms H6fs for qwen3.5:9b and is the worst seizure harness yet for gemma4.
+
+#### Failure mode analysis
+
+| | H6 (qwen9b) | H6qa (qwen9b) | H6qa (gemma4) |
+|---|---|---|---|
+| Missing `unknown seizure type` | 15 | 13 | 13 |
+| Hallucinations on empty gold | 12 | 14 | 14 |
+| `seizure free` FPs | 2 | 9 | **19** |
+| `unknown seizure type` FPs | 2 | 8 | 4 |
+| GTCS FPs | 11 | 5 | 3 |
+
+qwen3.5:9b `current_seizure_status` distribution: active=27, seizure_free=10, unclear=3.
+The model follows the constraint rules (seizure_free -> ["seizure free"]) but over-classifies
+as seizure_free or unclear, creating 9 seizure_free FPs and 8 unknown_seizure_type FPs.
+The old FP types (GTCS: 11->5, focal: 11->8) are reduced, but new ones appear.
+
+gemma4:e4b did not output `current_seizure_status` in parseable form (json.loads failed on
+all 40 raw responses; the scoring pipeline recovered seizure_types via the more lenient
+parse_json_response). Gemma4 appears to output the literal placeholder string or omit the
+field entirely, then populate seizure_types without the status constraint. The result is 19
+`seizure free` FPs -- gemma4 is mapping `unclear` cases to seizure_free without the intended
+constraint routing.
+
+#### Interpretation
+
+The structured reasoning approach (B) is less effective than the few-shot approach (A).
+The constraint works mechanically for qwen3.5 but the upstream classification is unreliable.
+For gemma4, the schema extension is not being followed -- the model drops the new field and
+reverts to unconstrained extraction with new failure patterns.
+
+Hypothesised cause: the `current_seizure_status` field introduces a new classification task
+(determine current seizure status as a discrete category) that is itself error-prone. The
+model needs to be correct on this sub-task before the constraint can help. Few-shot examples
+sidestep this by showing completed outputs directly rather than requiring a chain of
+decisions.
+
+#### Cumulative best-of-model (all harnesses to date)
+
+| Model | Best harness | Med F1 | Sz F1 | Dx Acc |
+|-------|-------------|--------|-------|--------|
+| qwen3.5:9b | **H6fs** | 0.839 | 0.602 | 0.825 |
+| qwen3.5:4b | H6 | 0.814 | 0.535 | 0.750 |
+| gemma4:e4b | **H6** | 0.849 | 0.593 | 0.825 |
+
 ### N6 — Frequency field (out of scope but noted)
 
 `current_seizure_frequency` was not scored in this workstream (the H6/H4 output schema

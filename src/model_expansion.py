@@ -204,6 +204,44 @@ def build_h6fs_prompt(document: dict[str, Any], harness_id: str) -> str:
     )
 
 
+def build_h6qa_prompt(document: dict[str, Any], harness_id: str) -> str:
+    """H6 with decomposed current-status reasoning (Variant B).
+    Extends the output schema with a required current_seizure_status field.
+    The model must classify seizure status before populating seizure_types,
+    anchoring temporality and constraining the label choices:
+    - active     -> list specific current types (or 'unknown seizure type' if unspecified)
+    - seizure_free -> seizure_types must be ['seizure free']
+    - unclear    -> seizure_types must be ['unknown seizure type']
+    Addresses both N1 failure modes: hallucination on seizure-free letters and
+    the 'unknown seizure type' meta-label miss.
+    """
+    return "\n\n".join(
+        [
+            "Extract only benchmark fields from this epilepsy clinic letter.",
+            "Return JSON only with this shape:",
+            '{"current_seizure_status":"active|seizure_free|unclear","medication_names":[],"seizure_types":[],"epilepsy_diagnosis_type":null}',
+            (
+                "Set current_seizure_status first, then populate seizure_types accordingly:\n"
+                "- \"active\": patient is currently experiencing seizures. "
+                "List their specific current seizure types using only the allowed labels. "
+                "If seizures are occurring but the type is not described, use \"unknown seizure type\".\n"
+                "- \"seizure_free\": patient has had no recent seizures (explicitly stated or strongly implied). "
+                "Set seizure_types to [\"seizure free\"].\n"
+                "- \"unclear\": seizure status is ambiguous or not clearly stated. "
+                "Set seizure_types to [\"unknown seizure type\"].\n"
+                "Do not include historical seizure types that are no longer occurring. "
+                "Do not include aura, warning, symptom, or side effect labels as seizure types."
+            ),
+            "Medication names should include current anti-seizure medications only. Use generic drug names where possible.",
+            "Epilepsy diagnosis/type must use one allowed label or null. Do not invent a diagnosis if the letter does not support one.",
+            benchmark_label_block(),
+            f"## Harness\n{harness_id}",
+            "## Source Letter",
+            document["text"],
+        ]
+    )
+
+
 def benchmark_output_schema() -> dict[str, Any]:
     return {
         "name": "benchmark_fields",
