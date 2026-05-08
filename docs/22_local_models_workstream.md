@@ -528,12 +528,64 @@ The medication scaling law is steep; the seizure scaling law is shallow. This co
 that `unknown seizure type` is a structural annotation challenge (meta-label requiring
 inference about absence of information) that scale alone does not resolve.
 
-#### qwen3.6:35b results — IN PROGRESS
+#### qwen3.6:35b results (40-doc validation) — COMPLETE
 
 Architecture: hybrid transformer+SSM MoE (qwen35moe family). 256 experts, 8 active
-per token. embedding_length=2048, expert_feed_forward_length=512. Active compute per
-forward pass is closer to ~7-10B dense equivalent despite 36B total params. 256K context.
-Results to be added when validation completes.
+per token, embedding_length=2048 -- active compute ~7-10B dense equivalent.
+
+| System | Med F1 | Sz F1 collapsed | Dx Acc | Lat/doc |
+|--------|--------|-----------------|--------|---------|
+| GPT-4.1-mini S2 (frontier) | 0.852 | 0.610 | 0.725 | ~API |
+| GPT-4.1-mini E3 (frontier best) | 0.872 | 0.633 | 0.775 | ~API |
+| qwen3.5:9b H6fs (best 9b) | 0.839 | 0.602 | 0.825 | 12s |
+| gemma4:e4b H6 (best gemma4) | 0.849 | 0.593 | 0.825 | 28s |
+| qwen3.6:27b H6 | **0.885** | 0.578 | 0.800 | 34s |
+| **qwen3.6:35b H6** | **0.857** | 0.571 | 0.800 | **12s** |
+| **qwen3.6:35b H6fs** | **0.852** | **0.593** | 0.800 | **12s** |
+
+**qwen3.6:35b runs at 12s/doc -- same speed as qwen3.5:9b** despite being a 23 GB
+model. The MoE architecture (8 active experts from 256) delivers near-9b latency
+from a much larger parameter space. This is the most deployment-practical local model:
+frontier-level medication F1 (0.852 = S2 exactly on H6fs), near-frontier seizure
+(0.593, matching gemma4), at clinical throughput speeds.
+
+H6fs at 35b: medication stays high (0.852 vs H6 0.857, -0.5pp only), seizure
+improves (+2.2pp: 0.571->0.593). Unlike the dense 27b (where H6fs cost -4.7pp on
+medication), the MoE 35b tolerates H6fs without significant regression.
+
+Failure modes (H6): unk_sz_miss=14, halluc_empty=13 -- identical to all other
+models. The seizure type ceiling is not a scale problem.
+
+#### Definitive seizure-type finding across all scales
+
+The `unknown seizure type` miss count is consistently 13-15 across all models
+(qwen3.5:9b, qwen3.6:27b, qwen3.6:35b, gemma4:e4b) and all harnesses (H6, H6fs,
+H6v2, H6ev). Scale from 4B to 35B does not reduce this count.
+
+This is a structural annotation challenge: `unknown seizure type` is a meta-label
+used when the annotator cannot determine seizure type from the letter. Models
+consistently attempt to infer a specific type from context rather than producing
+the meta-label. Closing this gap requires either (a) a harness that teaches the
+meta-label semantics more effectively than H6fs achieved, or (b) recognition that
+the gap is a benchmark artefact rather than a clinical extraction failure.
+
+Hallucinations on empty-gold docs (12-14 consistently) reflect the same structural
+issue: models extract historically-mentioned seizure types when the annotators chose
+not to annotate them as current. The boundary between "currently relevant" and
+"historically mentioned" is a human judgement call that models approximate imperfectly.
+
+#### Complete best-of-model summary
+
+| Model | Best harness | Med F1 | Sz F1 | Dx Acc | Lat | Use case |
+|-------|-------------|--------|-------|--------|-----|----------|
+| qwen3.5:4b | H6 | 0.814 | 0.535 | 0.750 | 8s | Ultra-low VRAM |
+| qwen3.5:9b | H6fs | 0.839 | 0.602 | 0.825 | 12s | Best quality/speed 9b |
+| gemma4:e4b | H6 | 0.849 | 0.593 | 0.825 | 28s | Best diagnosis accuracy |
+| qwen3.6:35b | H6fs | 0.852 | 0.593 | 0.800 | 12s | Best speed at large scale |
+| qwen3.6:27b | H6 | 0.885 | 0.578 | 0.800 | 34s | Best medication F1 |
+
+**Recommended for clinical deployment:** qwen3.6:35b H6fs -- matches frontier
+medication F1 at 12s/doc with no API cost or internet requirement.
 
 ### N6 -- Frequency field (out of scope but noted)
 
