@@ -421,7 +421,71 @@ decisions.
 | qwen3.5:4b | H6 | 0.814 | 0.535 | 0.750 |
 | gemma4:e4b | **H6** | 0.849 | 0.593 | 0.825 |
 
-### N6 — Frequency field (out of scope but noted)
+### Variant C -- H6ev: Evidence-anchored seizure extraction — COMPLETE (2026-05-08)
+
+Adds a single `seizure_evidence` field: the model must copy the shortest direct quote
+from the letter confirming current seizure status, or set it to null. Constraint: if
+null, seizure_types must be []. Schema addition is minimal (one nullable string) to
+test whether gemma4's schema-extension aversion could be avoided.
+
+#### Results (40-doc validation)
+
+| System | Med F1 | Sz F1 collapsed | Dx Acc |
+|--------|--------|-----------------|--------|
+| qwen3.5:9b H6 (baseline) | 0.800 | 0.541 | 0.800 |
+| qwen3.5:9b H6fs (best) | 0.839 | 0.602 | 0.825 |
+| **qwen3.5:9b H6ev** | **0.800** | **0.602** | **0.800** |
+| gemma4:e4b H6 (baseline) | 0.849 | 0.593 | 0.825 |
+| **gemma4:e4b H6ev** | **0.827** | **0.528** | **0.825** |
+
+#### Evidence compliance
+
+- qwen3.5:9b: parse_error=0, evidence_null=7, evidence_present=33. The model follows the
+  schema correctly. 7 docs correctly suppressed seizure_types when no evidence found.
+- gemma4:e4b: parse_error=40, evidence_null=0, evidence_present=0. Gemma4 does not output
+  the seizure_evidence field in valid JSON -- same failure as H6qa (schema extension
+  silently dropped). The scoring pipeline recovers seizure_types via the lenient parser,
+  but the evidence constraint never fires.
+
+#### Failure mode analysis (qwen3.5:9b)
+
+| | H6 | H6fs | H6ev |
+|---|---|---|---|
+| Missing unknown_sz | 15 | 13 | **12** (best) |
+| Halluc on empty | 12 | 14 | 14 |
+| GTCS FPs | 11 | 7 | 7 |
+| focal seizure FPs | 11 | 9 | 9 |
+| unknown_sz FPs | 2 | 5 | 6 |
+
+H6ev achieves the same seizure F1 as H6fs (0.602) via a different mechanism: the evidence
+null-suppression reduces unknown_sz misses to 12 (best across all variants) while also
+reducing specific hallucination types. However, medication and diagnosis both regress to
+H6 baseline (0.800), making H6fs the better overall harness.
+
+#### Definitive gemma4 finding
+
+All three schema extension harnesses (H6v2, H6fs, H6qa, H6ev) regress gemma4 relative
+to H6 on seizure type F1. H6qa and H6ev both show parse_error=40 (the model does not
+follow schema extensions at all). gemma4:e4b performs best with the plain H6 harness.
+Schema additions that help qwen3.5 either have no effect or actively hurt gemma4.
+
+#### Cross-variant summary: best harness per model
+
+| Model | Best harness | Med F1 | Sz F1 | Dx Acc | Key advantage |
+|-------|-------------|--------|-------|--------|---------------|
+| qwen3.5:9b | **H6fs** | 0.839 | 0.602 | 0.825 | Few-shot examples guide calibration |
+| qwen3.5:4b | H6 | 0.814 | 0.535 | 0.750 | Only H6 tested at scale |
+| gemma4:e4b | **H6** | 0.849 | 0.593 | 0.825 | Already well-calibrated; extensions regress |
+
+#### Dissertation interpretation
+
+Prompt sensitivity is inversely correlated with model capability in this domain. The model
+that benefits most from guidance (qwen3.5:9b) needs examples to anchor behaviour that the
+larger model (gemma4:e4b) exhibits natively. For gemma4, the best strategy is a clean,
+minimal prompt -- any extra schema fields or structural constraints degrade performance.
+This argues for capability-appropriate prompt design rather than a universal harness.
+
+### N6 -- Frequency field (out of scope but noted)
 
 `current_seizure_frequency` was not scored in this workstream (the H6/H4 output schema
 does not include it). The H3 loose-text output does include it verbatim. If frequency
