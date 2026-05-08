@@ -25,12 +25,14 @@ from intake import DEFAULT_EXECT_ROOT, DEFAULT_SPLITS, preprocess_document
 from model_providers import ModelRequest, TokenUsage, adapter_for, estimate_cost, write_response_log
 from model_registry import DEFAULT_REGISTRY, load_model_specs, write_registry_snapshot
 from validate_extraction import DEFAULT_SCHEMA
+from validate_extraction import validate_extraction
 
 
 DEFAULT_HARNESS_MATRIX = Path("configs/harness_matrix.yaml")
 DEFAULT_OUTPUT_DIR = Path("runs/model_expansion/stage_a_smoke")
 DEFAULT_STAGE_B_OUTPUT_DIR = Path("runs/model_expansion/stage_b_dev_pilot")
-DEFAULT_STAGE_C_OUTPUT_DIR = Path("runs/model_expansion/stage_c_validation")
+DEFAULT_STAGE_C_OUTPUT_DIR = Path("runs/model_expansion/stage_c0_strict_validation")
+DEFAULT_STAGE_C1_OUTPUT_DIR = Path("runs/model_expansion/stage_c1_relaxed_projection")
 BENCHMARK_METRICS = ["medication_name_f1", "seizure_type_f1", "epilepsy_diagnosis_accuracy"]
 
 
@@ -417,6 +419,11 @@ def cost_frontier(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
         for row in rows
         if isinstance(row.get("benchmark_quality"), (int, float))
         and isinstance(row.get("mean_estimated_cost_usd"), (int, float))
+        and row.get("scoring_status") == "canonical_scored"
+        and row.get("availability_note") == "available"
+        and (to_float(row.get("call_success_rate")) or 0.0) >= 0.9
+        and (to_float(row.get("parse_success_rate")) or 0.0) >= 0.9
+        and (to_float(row.get("schema_valid_rate")) or 0.0) >= 0.9
     ]
     frontier = []
     for row in candidates:
@@ -899,11 +906,13 @@ def command_stage_c(args: argparse.Namespace) -> int:
         bootstrap_stage_c(all_scores, summaries_by_label, args.bootstrap_iterations, args.seed),
     )
     write_csv(output_dir / "cost_latency_table.csv", build_cost_latency_table(summaries, all_scores))
-    write_json(output_dir / "validation_decision.json", validation_decision(summaries, args.split))
+    decision = validation_decision(summaries, args.split)
+    write_json(output_dir / "validation_decision.json", decision)
+    write_json(output_dir / "strict_validation_decision.json", decision)
     write_json(
         output_dir / "stage_c_manifest.json",
         {
-            "stage": "stage_c_validation",
+            "stage": "stage_c0_strict_validation",
             "split": args.split,
             "stage_a_dir": args.stage_a_dir,
             "evaluation_conditions": args.evaluation_condition or [],
@@ -914,10 +923,379 @@ def command_stage_c(args: argparse.Namespace) -> int:
                 "bootstrap_intervals": str(output_dir / "bootstrap_intervals.json"),
                 "cost_latency_table": str(output_dir / "cost_latency_table.csv"),
                 "validation_decision": str(output_dir / "validation_decision.json"),
+                "strict_validation_decision": str(output_dir / "strict_validation_decision.json"),
             },
         },
     )
-    print(f"wrote Stage C validation matrix for {len(summaries)} scored conditions")
+    print(f"wrote Stage C0 strict validation matrix for {len(summaries)} scored conditions")
+    return 0
+
+
+def first_value(value: Any) -> str | None:
+    if value is None:
+        return None
+    if isinstance(value, list):
+        for item in value:
+            result = first_value(item)
+            if result:
+                return result
+        return None
+    if isinstance(value, dict):
+        for key in ["value", "name", "result", "text"]:
+            result = first_value(value.get(key))
+            if result:
+                return result
+        return None
+    text = str(value).strip()
+    if not text or text.lower() in {"not stated", "none", "null", "[]"}:
+        return None
+    return text
+
+
+def value_list(value: Any) -> list[str]:
+    if value is None:
+        return []
+    if isinstance(value, list):
+        items: list[str] = []
+        for item in value:
+            if isinstance(item, str):
+                items.extend(split_compact_list(item))
+            else:
+                nested = first_value(item)
+                if nested:
+                    items.append(nested)
+        return [item for item in items if item and item.lower() not in {"not stated", "none", "null"}]
+    if isinstance(value, dict):
+        nested = first_value(value)
+        return [nested] if nested else []
+    return split_compact_list(str(value))
+
+
+def split_compact_list(text: str) -> list[str]:
+    cleaned = text.strip().strip("[]")
+    if not cleaned or cleaned.lower() in {"not stated", "none", "null"}:
+        return []
+    parts = [cleaned]
+    if ";" in cleaned:
+        parts = cleaned.split(";")
+    return [part.strip(" -\t\n\r,") for part in parts if part.strip(" -\t\n\r,")]
+
+
+def parse_loose_sections(text: str) -> dict[str, Any]:
+    parsed = parse_json_response(text)
+    if isinstance(parsed.data, dict):
+        return parsed.data
+    sections: dict[str, Any] = {}
+    current_key: str | None = None
+    for raw_line in text.splitlines():
+        line = raw_line.strip()
+        if not line:
+            continue
+        line = line.lstrip("-*0123456789. ").strip()
+        line = line.replace("**", "")
+        if ":" not in line:
+            if current_key:
+                sections.setdefault(current_key, [])
+                if isinstance(sections[current_key], list):
+                    sections[current_key].append(line)
+            continue
+        label, value = line.split(":", 1)
+        label_key = label.strip().lower().replace("-", " ")
+        value = value.strip()
+        target_key = None
+        if "medication" in label_key:
+            target_key = "medication_names"
+        elif "seizure type" in label_key:
+            target_key = "seizure_types"
+        elif "epilepsy" in label_key or "diagnosis" in label_key:
+            target_key = "epilepsy_types"
+        elif "frequency" in label_key:
+            target_key = "seizure_frequency"
+        elif "eeg" in label_key:
+            target_key = "eeg"
+        elif "mri" in label_key:
+            target_key = "mri"
+        if not target_key:
+            current_key = None
+            continue
+        current_key = target_key
+        if value:
+            sections[target_key] = value
+        else:
+            sections.setdefault(target_key, [])
+    return sections
+
+
+def normalize_relaxed_payload(harness_id: str, text: str) -> tuple[dict[str, Any] | None, str | None]:
+    parsed = parse_json_response(text)
+    if harness_id == "H2_task_specific":
+        if not isinstance(parsed.data, dict):
+            return None, parsed.error or "H2 output did not parse as an object"
+        return parsed.data, None
+    if harness_id == "H3_loose_answer_then_parse":
+        sections = parse_loose_sections(text)
+        if not sections:
+            return None, parsed.error or "H3 output did not contain parseable sections"
+        return sections, None
+    return None, f"unsupported relaxed harness: {harness_id}"
+
+
+def medication_from_text(text: str) -> dict[str, Any]:
+    dose_match = re_search(r"\b(\d+(?:\.\d+)?)\s*(mg|mcg|g|ml)\b", text)
+    frequency_match = re_search(r"\b(once daily|twice daily|three times daily|four times daily|bd|od|tds|qds|daily|nocte)\b", text)
+    name = text
+    if dose_match:
+        name = text[: dose_match.start()].strip(" ,-")
+    name = name.split("(")[0].strip(" ,-")
+    return {
+        "name": name or text,
+        "dose": dose_match.group(1) if dose_match else None,
+        "dose_unit": dose_match.group(2) if dose_match else None,
+        "frequency": frequency_match.group(1) if frequency_match else None,
+        "status": "current",
+        "missingness": "present",
+        "temporality": "current",
+        "evidence": [],
+        "evidence_event_ids": [],
+    }
+
+
+def re_search(pattern: str, text: str):
+    import re
+
+    return re.search(pattern, text, flags=re.IGNORECASE)
+
+
+def scalar_field(value: str | None, temporality: str = "current") -> dict[str, Any]:
+    return {
+        "value": value,
+        "missingness": "present" if value else "not_stated",
+        "temporality": temporality if value else "uncertain",
+        "evidence": [] if value else None,
+        "evidence_event_ids": [],
+    }
+
+
+def investigation_field(value: str | None) -> dict[str, Any]:
+    text = (value or "").lower()
+    result = "abnormal" if "abnormal" in text else "normal" if "normal" in text else "not_stated"
+    status = "completed" if result in {"normal", "abnormal"} else "not_stated"
+    return {
+        "status": status,
+        "result": result,
+        "missingness": "present" if status == "completed" else "not_stated",
+        "temporality": "completed" if status == "completed" else "uncertain",
+        "evidence": [] if status == "completed" else None,
+        "evidence_event_ids": [],
+    }
+
+
+def projected_canonical(document_id: str, harness_id: str, model_label: str, payload: dict[str, Any], row: dict[str, str]) -> dict[str, Any]:
+    medications = value_list(
+        payload.get("medication_names")
+        or payload.get("current_anti_seizure_medications")
+        or payload.get("current anti-seizure medications")
+    )
+    seizure_types = value_list(payload.get("seizure_types") or payload.get("seizure_type"))
+    epilepsy = first_value(
+        payload.get("epilepsy_types")
+        or payload.get("epilepsy_diagnosis")
+        or payload.get("epilepsy_diagnosis_type")
+        or payload.get("epilepsy diagnosis/type")
+    )
+    frequency = first_value(payload.get("seizure_frequency") or payload.get("current_seizure_frequency"))
+    investigations = value_list(payload.get("investigations"))
+    eeg = first_value(payload.get("eeg") or payload.get("EEG_result"))
+    mri = first_value(payload.get("mri") or payload.get("MRI_result"))
+    for item in investigations:
+        lowered = item.lower()
+        if "eeg" in lowered and not eeg:
+            eeg = item
+        if ("mri" in lowered or "magnetic resonance" in lowered) and not mri:
+            mri = item
+
+    return {
+        "document_id": document_id,
+        "pipeline_id": f"{system_for_harness(harness_id)}_relaxed_projection",
+        "fields": {
+            "current_anti_seizure_medications": [medication_from_text(item) for item in medications],
+            "previous_anti_seizure_medications": [],
+            "current_seizure_frequency": {
+                **scalar_field(frequency),
+                "temporal_scope": "current" if frequency else None,
+                "seizure_type": seizure_types[0] if seizure_types else None,
+            },
+            "seizure_types": [scalar_field(item) for item in seizure_types],
+            "eeg": investigation_field(eeg),
+            "mri": investigation_field(mri),
+            "epilepsy_diagnosis": scalar_field(epilepsy),
+        },
+        "events": [],
+        "metadata": {
+            "model": row.get("provider_model_id") or model_label,
+            "model_label": model_label,
+            "harness_id": harness_id,
+            "format": "unknown",
+            "projection": "relaxed_v1_no_evidence",
+            "latency_ms": to_float(row.get("latency_ms")),
+            "input_tokens": int(to_float(row.get("input_tokens")) or 0),
+            "output_tokens": int(to_float(row.get("output_tokens")) or 0),
+            "estimated_cost_usd": to_float(row.get("estimated_cost")),
+        },
+    }
+
+
+def relaxed_projection_report(summaries: list[dict[str, Any]], projection_rows: list[dict[str, Any]], split: str) -> str:
+    projected = sum(1 for row in projection_rows if row["projection_success"])
+    total = len(projection_rows)
+    lines = [
+        "# Stage C1 Relaxed-Projection Report",
+        "",
+        f"Split: `{split}`",
+        "",
+        "## Projection Status",
+        "",
+        f"- Projected documents: {projected}/{total}",
+        "- Projection version: `relaxed_v1_no_evidence`",
+        "- Evidence quotes are not reconstructed; benchmark field scores are comparable, but strict evidence metrics are intentionally degraded.",
+        "",
+        "## Scored Conditions",
+        "",
+    ]
+    for row in summaries:
+        lines.append(
+            "- "
+            + f"`{row['condition']}`: quality={to_float(row.get('benchmark_quality')) or 0.0:.4f}, "
+            + f"projection_schema_valid={to_float(row.get('projection_schema_valid_rate')) or 0.0:.2f}, "
+            + f"docs={row.get('documents_available')}"
+        )
+    failures = [row for row in projection_rows if not row["projection_success"]]
+    if failures:
+        lines.extend(["", "## Failures", ""])
+        for row in failures[:20]:
+            lines.append(f"- `{row['model_label']}` / `{row['harness_id']}` / `{row['document_id']}`: {row['projection_error']}")
+    return "\n".join(lines) + "\n"
+
+
+def command_stage_c1(args: argparse.Namespace) -> int:
+    stage_a_dir = Path(args.stage_a_dir)
+    rows = read_csv(stage_a_dir / "provider_call_report.csv")
+    selected_harnesses = set(args.harnesses or ["H2_task_specific", "H3_loose_answer_then_parse"])
+    selected_models = set(args.models or [])
+    gold = load_gold(Path(args.markup_root), Path(args.exect_root))
+    output_dir = Path(args.output_dir)
+    all_scores: dict[str, list[dict[str, Any]]] = {}
+    metadata: dict[str, dict[str, Any]] = {}
+    projection_rows: list[dict[str, Any]] = []
+
+    for row in rows:
+        harness_id = row.get("harness_id", "")
+        model_label = row.get("model_label", "")
+        if harness_id not in selected_harnesses:
+            continue
+        if selected_models and model_label not in selected_models:
+            continue
+        document_id = row["document_id"]
+        label = condition_label(model_label, harness_id, system_for_harness(harness_id))
+        metadata.setdefault(
+            label,
+            {
+                "model_label": model_label,
+                "provider": row.get("provider"),
+                "provider_model_id": row.get("provider_model_id"),
+                "system": system_for_harness(harness_id),
+                "harness_id": harness_id,
+                "source": "relaxed_projection",
+                "call_rows": [],
+                "projection_schema_valid": 0,
+                "projection_count": 0,
+            },
+        )
+        metadata[label]["call_rows"].append(row)
+        raw_path = resolve_report_path(stage_a_dir, row, "raw_response_path")
+        text = raw_path.read_text(encoding="utf-8") if raw_path and raw_path.exists() else ""
+        payload, error = normalize_relaxed_payload(harness_id, text)
+        projection_success = payload is not None and row.get("status") == "success"
+        projection_path = output_dir / "projections" / model_label / harness_id / document_id / "canonical_projection.json"
+        projected = projected_canonical(document_id, harness_id, model_label, payload or {}, row) if projection_success else None
+        projection_schema_valid = False
+        if projected is not None:
+            try:
+                validate_extraction(projected, Path(args.schema), require_present_evidence=False)
+                projection_schema_valid = True
+            except Exception as exc:
+                error = str(exc)
+            write_json(projection_path, projected)
+            source_text = preprocess_document(document_id, Path(args.exect_root))["text"]
+            score = score_document(projected, source_text, gold.get(document_id, GoldDocument(document_id=document_id)), Path(args.schema))
+            score["document_id"] = document_id
+            score["system"] = label
+            all_scores.setdefault(label, []).append(score)
+        metadata[label]["projection_count"] += 1
+        metadata[label]["projection_schema_valid"] += 1 if projection_schema_valid else 0
+        projection_rows.append(
+            {
+                "model_label": model_label,
+                "provider": row.get("provider"),
+                "provider_model_id": row.get("provider_model_id"),
+                "harness_id": harness_id,
+                "document_id": document_id,
+                "call_status": row.get("status"),
+                "projection_success": projection_success,
+                "projection_schema_valid": projection_schema_valid,
+                "projection_error": error,
+                "projection_path": str(projection_path) if projected is not None else None,
+            }
+        )
+
+    summaries = []
+    for label, scores in sorted(all_scores.items()):
+        summary = summarize_condition(label, scores, metadata[label])
+        projection_count = metadata[label]["projection_count"]
+        summary["projection_success_rate"] = len(scores) / projection_count if projection_count else 0.0
+        summary["projection_schema_valid_rate"] = metadata[label]["projection_schema_valid"] / projection_count if projection_count else 0.0
+        summaries.append(summary)
+
+    write_csv(output_dir / "model_harness_table.csv", summaries)
+    write_csv(output_dir / "projection_rows.csv", projection_rows)
+    write_csv(output_dir / "field_prf_table.csv", build_field_prf_table(all_scores))
+    write_csv(output_dir / "cost_latency_table.csv", build_cost_latency_table(summaries, all_scores))
+    (output_dir / "projection_report.md").parent.mkdir(parents=True, exist_ok=True)
+    (output_dir / "projection_report.md").write_text(
+        relaxed_projection_report(summaries, projection_rows, args.split),
+        encoding="utf-8",
+    )
+    write_json(
+        output_dir / "relaxed_validation_decision.json",
+        {
+            "split": args.split,
+            "decision": "projection_ready_for_review" if summaries else "no_relaxed_projection_outputs",
+            "conditions": [row["condition"] for row in summaries],
+            "notes": [
+                "Projected relaxed outputs are benchmark-scoreable but do not reconstruct evidence quotes.",
+                "Use Stage C0 strict validation for final candidate selection until evidence audit policy is chosen.",
+            ],
+        },
+    )
+    write_json(
+        output_dir / "stage_c1_manifest.json",
+        {
+            "stage": "stage_c1_relaxed_projection",
+            "split": args.split,
+            "stage_a_dir": str(stage_a_dir),
+            "harnesses": sorted(selected_harnesses),
+            "models": sorted(selected_models) if selected_models else "all",
+            "outputs": {
+                "projection_report": str(output_dir / "projection_report.md"),
+                "model_harness_table": str(output_dir / "model_harness_table.csv"),
+                "projection_rows": str(output_dir / "projection_rows.csv"),
+                "field_prf_table": str(output_dir / "field_prf_table.csv"),
+                "cost_latency_table": str(output_dir / "cost_latency_table.csv"),
+                "relaxed_validation_decision": str(output_dir / "relaxed_validation_decision.json"),
+            },
+        },
+    )
+    print(f"wrote Stage C1 relaxed projection for {len(summaries)} scored conditions")
     return 0
 
 
@@ -966,7 +1344,8 @@ def main() -> int:
 
     stage_c = subparsers.add_parser(
         "stage-c-validation",
-        help="Build Stage C validation tables and candidate decision from scored validation artifacts.",
+        aliases=["stage-c0-strict-validation"],
+        help="Build Stage C0 strict validation tables and candidate decision from scored validation artifacts.",
     )
     stage_c.add_argument("--stage-a-dir", help="Stage A-style validation run directory to score canonical H0 outputs.")
     stage_c.add_argument("--registry", default=str(DEFAULT_REGISTRY))
@@ -989,6 +1368,20 @@ def main() -> int:
     stage_c.add_argument("--bootstrap-iterations", type=int, default=1000)
     stage_c.add_argument("--seed", type=int, default=1729)
     stage_c.set_defaults(func=command_stage_c)
+
+    stage_c1 = subparsers.add_parser(
+        "stage-c1-relaxed-projection",
+        help="Project H2/H3 relaxed outputs into canonical fields and score benchmark metrics.",
+    )
+    stage_c1.add_argument("--stage-a-dir", required=True, help="Stage A-style run directory containing H2/H3 outputs.")
+    stage_c1.add_argument("--harnesses", nargs="+", default=["H2_task_specific", "H3_loose_answer_then_parse"])
+    stage_c1.add_argument("--models", nargs="+")
+    stage_c1.add_argument("--output-dir", default=str(DEFAULT_STAGE_C1_OUTPUT_DIR))
+    stage_c1.add_argument("--exect-root", default=str(DEFAULT_EXECT_ROOT))
+    stage_c1.add_argument("--markup-root", default=str(DEFAULT_MARKUP_ROOT))
+    stage_c1.add_argument("--schema", default=str(DEFAULT_SCHEMA))
+    stage_c1.add_argument("--split", default="development", choices=["development", "validation", "test"])
+    stage_c1.set_defaults(func=command_stage_c1)
 
     args = parser.parse_args()
     return args.func(args)

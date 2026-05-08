@@ -161,14 +161,25 @@ build the Stage B pilot decision artifacts from that auditable call report:
   --output-dir runs/model_expansion/stage_b_dev_pilot
 ```
 
-After promoted validation artifacts exist, build the Stage C validation matrix:
+After promoted validation artifacts exist, build the Stage C0 strict validation
+matrix:
 
 ```bash
-.venv/bin/python src/model_expansion.py stage-c-validation \
+.venv/bin/python src/model_expansion.py stage-c0-strict-validation \
   --evaluation-condition gpt_4_1_mini_baseline:S2:H0_strict_canonical:runs/final_validation/evaluation \
   --evaluation-condition event_first_e2:E2:H0_strict_canonical:runs/final_validation/evaluation \
   --condition-model event_first_e2=gpt_4_1_mini_baseline \
-  --output-dir runs/model_expansion/stage_c_validation
+  --output-dir runs/model_expansion/stage_c0_strict_validation
+```
+
+For relaxed `H2`/`H3` development outputs, build the Stage C1 projection report
+only after the Stage B call report is merged with any retry runs:
+
+```bash
+.venv/bin/python src/model_expansion.py stage-c1-relaxed-projection \
+  --stage-a-dir runs/model_expansion/stage_b_merged_stage_a \
+  --output-dir runs/model_expansion/stage_c1_relaxed_projection \
+  --split development
 ```
 
 Then run the primary validation chain:
