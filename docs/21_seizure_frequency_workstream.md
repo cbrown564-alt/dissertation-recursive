@@ -1,15 +1,160 @@
 # Seizure Frequency Improvement Workstream
 
 **Date:** 2026-05-08  
-**Benchmark:** Fonferko-Shadrach et al. 2024 (J Biomed Semantics 15:17) — ExECTv2 achieves
-seizure frequency **per-item F1 = 0.66**, per-letter F1 = 0.68, using the same ExECTv2 dataset.
-Human inter-annotator agreement for seizure frequency was only **0.47** — the lowest of any
-annotated entity, lower than even complex fields like Patient History (0.57).  
-**Goal:** Reach or exceed per-letter F1 = 0.68 on the validation split using LLM-based extraction.
+**Primary benchmark:** Gan et al. 2026, *Reproducible Synthetic Clinical Letters for Seizure
+Frequency Information Extraction* — seizure-frequency-specific extraction with structured labels,
+evidence references, and category-level micro-F1. Scaled synthetic CoT fine-tuning achieved
+Pragmatic micro-F1 **0.847** with Qwen2.5-14B and **0.858** with MedGemma-4B on a clinician
+double-checked independent real-letter test set.
+
+**Secondary benchmark:** Fonferko-Shadrach et al. 2024 (J Biomed Semantics 15:17) — ExECTv2
+achieves seizure frequency **per-item F1 = 0.66**, per-letter F1 = 0.68, using the ExECTv2
+dataset. Human inter-annotator agreement for seizure frequency was only **0.47** — the lowest
+of any annotated entity.
+
+**Goal:** Use the Gan frequency task as the primary development and benchmark target. The
+practical target is **Pragmatic micro-F1 >= 0.85** on Gan-style category evaluation, with Purist
+micro-F1 reported as the harder secondary metric. ExECTv2 per-letter frequency remains a
+crosswalk metric for dissertation continuity.
+
+---
+
+## Benchmark Hierarchy
+
+Gan 2026 is better aligned with a seizure-frequency-specific evaluation than ExECTv2 because
+seizure frequency is the central task, not one field among many. The local dataset at
+`data/Gan (2026)/synthetic_data_subset_1500.json` contains 1,500 synthetic NHS-style clinic
+letters with normalized frequency labels, rationales, and evidence references.
+
+The important caveat is that the local synthetic subset is **not** the paper's clinician
+double-checked independent real test set. It is suitable for development, prompt comparison,
+normalization work, and synthetic benchmark reporting, but any claim that directly matches
+Gan's `0.847`/`0.858` result must state whether evaluation was performed on this released
+synthetic subset or on an independent real-letter test set.
+
+ExECTv2 remains useful because it preserves the dissertation's broader field-set continuity
+and provides a public epilepsy-letter comparator. However, for seizure frequency specifically,
+Gan should drive prompt design, normalization, model selection, and the headline frequency
+analysis.
+
+---
+
+## Critical Context from Gan 2026
+
+### What the benchmark measures
+
+The Gan headline score is **not exact string match** on normalized labels such as
+`2 per 5 month`. The paper evaluates category-level extraction after converting normalized
+frequency labels into seizures/month and then into evaluation bins.
+
+The paper evaluates two category mappings:
+
+1. **Purist:** fine-grained monthly-frequency categories:
+   - `<1/6M`
+   - `1/6M`
+   - `(1/6M,1/M)`
+   - `1/M`
+   - `(1/M,1/W)`
+   - `1/W`
+   - `(1/W,1/D)`
+   - `>=1/D`
+   - `UNK`
+   - `NS`
+
+2. **Pragmatic:** coarser clinically useful grouping:
+   - `infrequent`: `0 < x <= 1.1` seizures/month
+   - `frequent`: `1.1 < x <= 999` seizures/month
+   - `UNK`: unknown or no seizure-frequency reference
+   - `NS`: explicit no-seizure / seizure-free statements
+
+The main reported metric is **micro-F1**. For single-label multi-class classification this is
+equivalent to accuracy, but the paper also reports macro and weighted F1 because class
+distribution is imbalanced.
+
+### Published target
+
+The strongest published target to match is the pragmatic micro-F1 from scaled synthetic CoT
+fine-tuning:
+
+| Model / setting | Purist micro-F1 | Pragmatic micro-F1 |
+|---|---:|---:|
+| Qwen2.5-14B, 15,000 synthetic CoT letters | 0.788 | 0.847 |
+| MedGemma-4B, 15,000 synthetic CoT letters | 0.787 | 0.858 |
+
+Therefore, our practical target should be **Pragmatic micro-F1 >= 0.85**, with Purist
+micro-F1 reported as the harder secondary metric.
+
+### Local Gan subset distribution
+
+From the 1,500-example local subset:
+
+| Pragmatic class | Count |
+|---|---:|
+| frequent | 757 |
+| UNK | 264 |
+| infrequent | 256 |
+| NS | 223 |
+
+Purist classes are more granular and less balanced:
+
+| Purist class | Count |
+|---|---:|
+| `(1/W,1/D)` | 354 |
+| `UNK` | 264 |
+| `NS` | 223 |
+| `(1/M,1/W)` | 218 |
+| `(1/6M,1/M)` | 163 |
+| `>=1/D` | 142 |
+| `1/M` | 66 |
+| `1/W` | 43 |
+| `<1/6M` | 18 |
+| `1/6M` | 9 |
+
+### Local implementation
+
+`src/gan_frequency.py` implements:
+
+- loading the 1,500 local Gan examples;
+- converting normalized labels to approximate seizures/month;
+- mapping labels to Purist and Pragmatic categories;
+- producing micro/macro/weighted F1 classification reports for prediction files.
+
+Audit command:
+
+```bash
+.venv/bin/python src/gan_frequency.py audit --output-dir runs/gan_frequency/audit
+```
+
+Outputs:
+
+- `runs/gan_frequency/audit/gan_gold_labels.csv`
+- `runs/gan_frequency/audit/gan_gold_audit.json`
+
+Prediction evaluation command:
+
+```bash
+.venv/bin/python src/gan_frequency.py evaluate \
+  --predictions runs/gan_frequency/predictions.json \
+  --output-dir runs/gan_frequency/evaluation
+```
+
+`predictions.json` should be a JSON object keyed by Gan document ID, for example:
+
+```json
+{
+  "GAN11118": "2 cluster per month, 6 per cluster",
+  "GAN16750": "6 per 7 month"
+}
+```
 
 ---
 
 ## Critical Context from Fonferko-Shadrach 2024
+
+ExECTv2 is now treated as the **secondary crosswalk benchmark** for seizure frequency. It is
+still important because it uses the same broader epilepsy-letter corpus as the rest of the
+dissertation evaluation, but it is less focused and less label-rich than Gan for the specific
+frequency task.
 
 ### What the benchmark measures
 
@@ -78,7 +223,7 @@ Three options. Pick one before running any experiments.
 - **Implementation:** `current_seizure_frequency_per_letter_accuracy` — iterates all gold
   frequency annotations for the letter and returns 1 if any loose-match the extracted value.
 
-**Option 2 — Per-item multi-annotation (harder, matches primary benchmark)**
+**Option 2 — Per-item multi-annotation (harder, matches ExECTv2's primary item benchmark)**
 - Score: extract all frequency mentions; score F1 across all gold annotations.
 - Matches the paper's per-item F1 (0.66 target).
 - Requires schema and pipeline change: `seizure_frequencies` list, not a single value.
@@ -90,9 +235,9 @@ Three options. Pick one before running any experiments.
 - Cannot be directly compared to the 0.66/0.68 benchmark.
 - Only defensible if a crosswalk between the two metrics is documented.
 
-**Recommendation:** Implement Option 1 first (low cost, immediate benchmark comparability),
-then Option 2 if F3 shows per-letter accuracy well above 0.68 (meaning per-item is the
-remaining gap).
+**Recommendation:** Keep Option 1 as the ExECTv2 crosswalk metric. Do not optimize primarily
+against this metric now that Gan is the frequency-specific benchmark. Implement Option 2 only
+if the Gan-optimized system also needs an ExECTv2 per-item transfer analysis.
 
 ### F0-B: Gold data distribution audit
 
@@ -150,186 +295,243 @@ per-letter value. This establishes the true baseline against the 0.68 benchmark.
 - Updated `runs/recovery/corrected_metrics/*/evaluation_summary.json`
 
 **Decision rule:**
-- If existing best system already reaches ≥ 0.50 per-letter → the model capability gap is
-  smaller than expected; move directly to prompt engineering (Stage F3).
-- If existing best system is 0.20–0.49 → there is substantial headroom; run model sweep (F2).
-- If existing best system is < 0.20 → the issue is likely gold data loading, not model capability;
-  audit the gold loader before F2.
+- If existing best ExECTv2 per-letter score is low, use the failure analysis to inform Gan prompt
+  design, but do not block Gan work on ExECTv2.
+- If a Gan-optimized system later improves ExECTv2 per-letter score, report it as transfer.
+- If per-letter accuracy is ever below loose accuracy, audit the gold loader before using the
+  ExECTv2 crosswalk.
 
 ---
 
-## Stage F2: Model × Pipeline Sweep
+## Stage G0: Gan Gold Audit and Metric Lock
 
-**Purpose:** Establish whether larger frontier models and/or E3's constrained LLM aggregation
-materially improve per-letter frequency accuracy. GPT-4.1-mini has not been tested against
-larger models on this specific field; the human IAA ceiling of 0.47 is already exceeded by
-ExECTv2's rules, so stronger models should do better.
+**Purpose:** Treat Gan 2026 as the primary seizure-frequency task and lock the metric before
+running model calls. This stage is the Gan equivalent of ExECTv2 F0/F1: it makes sure we are
+comparing against the paper's category-level benchmark rather than exact-string labels.
+
+**Status:** Implemented in `src/gan_frequency.py`.
+
+**Actions:**
+
+1. Load all usable rows from `data/Gan (2026)/synthetic_data_subset_1500.json`.
+2. Extract the gold normalized label from `check__Seizure Frequency Number.seizure_frequency_number[0]`.
+3. Convert each label to approximate seizures/month.
+4. Map each label into:
+   - Purist category;
+   - Pragmatic category.
+5. Write distribution/audit artifacts.
+
+**Outputs:**
+
+- `runs/gan_frequency/audit/gan_gold_labels.csv`
+- `runs/gan_frequency/audit/gan_gold_audit.json`
+
+**Primary metric:** Pragmatic micro-F1.
+
+**Secondary metrics:** Purist micro-F1, macro F1, weighted F1, exact normalized-label match.
+
+**Benchmark target:** Pragmatic micro-F1 >= 0.85, interpreted carefully because the local
+1,500-example subset is synthetic and not Gan's clinician double-checked real test set.
+
+---
+
+## Stage G1: Gan Prediction Harness
+
+**Purpose:** Build a frequency-only extraction harness whose output can be scored by
+`src/gan_frequency.py evaluate`.
+
+**Required output format:** one normalized frequency label per Gan document ID.
+
+Example prediction file:
+
+```json
+{
+  "GAN11118": "2 cluster per month, 6 per cluster",
+  "GAN16750": "6 per 7 month"
+}
+```
+
+**Prompt target:** produce Gan-style labels, not the canonical ExECTv2 field:
+
+```
+Extract the current clinically relevant seizure frequency from this clinic letter.
+
+Return exactly one normalized label using these forms:
+- "<n> per <period>"
+- "<n1> to <n2> per <period>"
+- "<n> cluster per <period>, <m> per cluster"
+- "seizure free for <n> month"
+- "seizure free for multiple month"
+- "unknown"
+- "no seizure frequency reference"
+
+Use "unknown" when seizures are mentioned but no specific frequency can be determined.
+Use "no seizure frequency reference" when the letter does not mention seizure frequency.
+```
+
+**Implementation options:**
+
+- Add a Gan-specific command to `src/model_expansion.py`, or
+- create a small focused runner in `src/gan_frequency.py` / a companion script that reads Gan
+  examples, calls a model, and writes `predictions.json`.
+
+**Outputs:**
+
+- `runs/gan_frequency/<condition>/predictions.json`
+- `runs/gan_frequency/<condition>/gan_frequency_evaluation.json`
+- `runs/gan_frequency/<condition>/gan_frequency_predictions_scored.csv`
+
+---
+
+## Stage G2: Gan Model × Prompt Sweep
+
+**Purpose:** Establish whether stronger models, event-first reasoning, or Gan-style structured
+labels can approach the paper's pragmatic micro-F1 target.
 
 **Design:**
 
 | Axis | Values |
 |---|---|
 | Models | `gpt_4_1_mini` (baseline), `gpt_5_5`, `claude_sonnet_4_6` |
-| Pipelines | `S2` (direct extraction), `E3` (event-first + LLM aggregation) |
-| Harness | `H0_strict_canonical` |
-| Split | Development (15 docs) |
+| Harnesses | `Gan_direct_label`, `Gan_cot_label`, `Gan_evidence_label`, `Gan_two_pass` |
+| Dataset | Gan local synthetic subset |
+| Split | Deterministic development subset, e.g. 150 docs |
 | Repeats | 1 |
-| Primary metric | `current_seizure_frequency_per_letter_accuracy` (new) |
-| Secondary | `current_seizure_frequency_loose_accuracy` (old, for continuity) |
+| Primary metric | Pragmatic micro-F1 |
+| Secondary | Purist micro-F1, exact normalized-label accuracy, quote/evidence validity |
 
-**4 new conditions** (2 existing GPT-4.1-mini conditions are re-scored from existing runs):
-- `gpt_5_5` × S2
-- `gpt_5_5` × E3
-- `claude_sonnet_4_6` × S2
-- `claude_sonnet_4_6` × E3
+**Harness definitions:**
 
-**Why E3 specifically:** E3's constrained LLM aggregation step reviews all frequency events and
-selects the most relevant one. This is structurally better suited to multi-mention letters than
-S2's direct single-value extraction.
+- `Gan_direct_label`: single call; return only the normalized Gan label.
+- `Gan_cot_label`: single call; reason internally or in a structured analysis field, then return label.
+- `Gan_evidence_label`: return label plus exact evidence quote; score label and audit evidence.
+- `Gan_two_pass`: first quote relevant frequency evidence, then normalize to Gan label.
 
 **Outputs:**
-- `runs/frequency_workstream/stage_f2/comparison_table.csv`
-  (model, pipeline, freq_per_letter, freq_loose, sz_type_collapsed, med_name, cost_per_doc)
-- `runs/frequency_workstream/stage_f2/promotion_decision.md`
+
+- `runs/gan_frequency/stage_g2/comparison_table.csv`
+  (model, harness, pragmatic_micro_f1, purist_micro_f1, exact_label_accuracy, cost_per_doc)
+- `runs/gan_frequency/stage_g2/promotion_decision.md`
 
 **Decision rule:**
-- Promote the best model × pipeline to Stage F3 if per-letter accuracy ≥ 0.35 on dev.
-- If GPT-4.1-mini matches larger models → all subsequent stages use GPT-4.1-mini (cost saving).
+
+- Promote the best model × harness to Stage G3 if Pragmatic micro-F1 >= 0.75 on the development subset.
+- If GPT-4.1-mini is within 0.03 absolute Pragmatic micro-F1 of larger models, use it for subsequent prompt iteration.
 
 ---
 
-## Stage F3: Frequency-Focused Prompt Development
+## Stage G3: Gan Frequency-Focused Prompt Development
 
-**Purpose:** Design prompts specifically targeting frequency extraction. Run on the best model
-from Stage F2 across 15 dev docs. The key hypothesis is that the generic canonical extraction
-prompt allocates insufficient "attention" to frequency — a dedicated prompt should help.
+**Purpose:** Iterate the best Stage G2 model/harness on hard Gan patterns: clusters, ranges,
+seizure-free intervals below or above six months, unknown frequency, no-reference cases, and
+multiple concurrent seizure types.
 
-### F3-A: Dedicated Frequency Harness (`H_freq`)
+### G3-A: Dedicated Gan Label Harness (`Gan_direct_label`)
 
-Standalone prompt that extracts *only* seizure frequency (not embedded in the full canonical
-schema prompt). Removes competition with other fields.
+Standalone prompt that extracts only the Gan normalized label. This removes competition with
+the full canonical schema and aligns directly with the Gan paper's structured output setup.
 
 ```
 ## Task
-Extract ALL mentions of seizure frequency from this epilepsy clinic letter.
-Frequency includes: current rate, historical rate, seizure-free periods, and changes since
-the last visit.
+Extract the current clinically relevant seizure frequency from this epilepsy clinic letter.
 
 ## Output format
-Return a JSON array. For each mention:
-{"frequency": "<count> per <period> | seizure-free | <qualitative>",
- "seizure_type": "<type if specified> | all",
- "temporal": "current | historical | change",
- "quote": "<verbatim span from letter>"}
+Return JSON:
+{"seizure_frequency_number": "<normalized Gan label>",
+ "quote": "<verbatim supporting evidence>"}
 
-Return [] if no frequency information is stated.
+Use "unknown" when seizures are mentioned but no specific frequency can be determined.
+Use "no seizure frequency reference" when seizure frequency is not mentioned.
 
 ## Examples
-"2-3 GTCS per month" → {"frequency": "2-3 per month", "seizure_type": "GTCS", "temporal": "current", "quote": "2-3 GTCS per month"}
-"remains seizure-free" → {"frequency": "seizure-free", "seizure_type": "all", "temporal": "current", "quote": "remains seizure-free"}
-"fewer seizures since last clinic" → {"frequency": "reduced", "seizure_type": "all", "temporal": "change", "quote": "fewer seizures since last clinic"}
+"Two events over the last five months" → "2 per 5 month"
+"3-4 focal aware seizures per month" → "3 to 4 per month"
+"clusters twice monthly, six seizures per cluster" → "2 cluster per month, 6 per cluster"
+"seizure-free for 12 months" → "seizure free for 12 month"
+"seizures are sporadic but frequency unclear" → "unknown"
 
 ## Clinical letter
 {document_text}
 ```
 
-Scoring: per-letter binary — any extracted item that loose-matches any gold annotation → 1.
+Scoring: use `src/gan_frequency.py evaluate` for Purist and Pragmatic category metrics.
 
-### F3-B: Two-Pass Frequency Harness (`H7_freq`)
+### G3-B: Two-Pass Gan Harness (`Gan_two_pass`)
 
-Adapts H7 for frequency extraction specifically. Separates "find the text" from "parse the text."
+Separates "find the text" from "normalize the label."
 
-- **Pass 1 (extract)**: Quote every sentence or clause mentioning seizure frequency, rate,
-  seizure-free status, or frequency change. Return verbatim strings only.
-- **Pass 2 (normalize)**: Given the quoted text, normalize each mention to canonical form.
+- **Pass 1 (extract):** quote every sentence or clause mentioning seizure rate, seizure-free
+  status, clusters, unknown frequency, or absence of frequency reference.
+- **Pass 2 (normalize):** given only the quoted text plus clinic date when available, normalize
+  to exactly one Gan label.
 
-This worked well for seizure type (H7: 0.698 vs H0: 0.524 strict). The same principle applies
-here — local models and weaker frontier models can find the text even when they fail to
-normalize it.
+This is closest to Gan's evidence-grounded supervision and should make error review easier.
 
-### F3-C: Chain-of-Thought Prefix (`H_cot_freq`)
+### G3-C: Hard-Case Few-Shot (`Gan_fs_hard`)
 
-Add explicit reasoning steps before JSON output:
-
-```
-Step 1: Find all sentences that mention how often seizures occur, seizure rate,
-        seizure-free periods, or frequency changes.
-Step 2: For each, identify the seizure type (or "all"), whether it is current or historical,
-        and the count and period if stated.
-Step 3: Output the results as JSON.
-```
-
-### F3-D: Few-Shot with Hard Cases (`H_fs_freq`)
-
-Add 5 annotated examples covering the hardest patterns:
+Add examples covering the hardest Gan categories:
 
 ```
-## Examples
-
-"He continues to have 1-2 focal seizures per week"
-→ current, focal, 1-2/week
-
-"She has been seizure-free for 6 months"
-→ current, all, seizure-free (last seizure 6 months ago counts as seizure-free)
-
-"Seizure frequency has reduced since adding lamotrigine, from 4/month to 1-2/month"
-→ change + current; extract the most recent (1-2/month)
-
-"His GTCS are well controlled but he continues to have 3-4 absence seizures per day"
-→ two mentions: GTCS (controlled, seizure-free equivalent) and absences (3-4/day)
-
-"Frequency unchanged since last appointment at approximately weekly"
-→ current, all, ~1/week
+"No attacks since the last appointment three months ago" → "seizure free for multiple month"
+"No seizures for 14 months" → "seizure free for 14 month"
+"Sporadic jerks this year, exact count unclear" → "unknown"
+"The letter discusses epilepsy but gives no frequency" → "no seizure frequency reference"
+"Cluster days twice this month; typically six seizures in 24 h" → "2 cluster per month, 6 per cluster"
 ```
 
-### F3 Evaluation Design
+### G3 Evaluation Design
 
 | Condition | Harness | Model | Calls/doc |
 |---|---|---|---|
-| F3-A | H_freq | best from F2 | 1 |
-| F3-B | H7_freq | best from F2 | 2 |
-| F3-C | H_cot_freq | best from F2 | 1 |
-| F3-D | H_fs_freq | best from F2 | 1 |
-| Baseline | H0 | GPT-4.1-mini (re-scored) | 1 |
+| G3-A | Gan_direct_label | best from G2 | 1 |
+| G3-B | Gan_two_pass | best from G2 | 2 |
+| G3-C | Gan_fs_hard | best from G2 | 1 |
+| Baseline | H0 canonical projected to Gan labels | GPT-4.1-mini | 1 |
 
-**Split:** Development (15 docs), 1 repeat.  
-**Primary metric:** `current_seizure_frequency_per_letter_accuracy`.  
-**Decision rule:** Promote the highest per-letter accuracy condition to Stage F4.
+**Split:** Gan development subset, 1 repeat.  
+**Primary metric:** Pragmatic micro-F1.  
+**Decision rule:** Promote the highest Pragmatic micro-F1 condition to Stage G4.
 
 **Outputs:**
-- `runs/frequency_workstream/stage_f3/comparison_table.csv`
-- `runs/frequency_workstream/stage_f3/promotion_decision.md`
+
+- `runs/gan_frequency/stage_g3/comparison_table.csv`
+- `runs/gan_frequency/stage_g3/promotion_decision.md`
 
 ---
 
-## Stage F4: Validation-Scale Run
+## Stage G4: Gan Full-Subset Run
 
-**Purpose:** Formal evaluation of the best Stage F2+F3 combination on 40 validation documents.
-These are the dissertation numbers.
+**Purpose:** Formal evaluation of the best Gan model × prompt combination on the full 1,500
+local synthetic examples. These become the dissertation's seizure-frequency-specific synthetic
+benchmark numbers.
 
 **Design:**
 
 | Item | Value |
 |---|---|
-| System | Best model × pipeline × harness from F2/F3 |
-| Split | Validation (40 docs) |
+| System | Best model × harness from G2/G3 |
+| Split | Full local Gan subset (1,500 docs), or held-out deterministic split if prompts were tuned on part of it |
 | Repeats | 1 |
-| Primary metric | `current_seizure_frequency_per_letter_accuracy` |
-| Secondary | `current_seizure_frequency_loose_accuracy` (legacy continuity) |
-| Benchmark target | ≥ 0.68 per-letter F1 (ExECTv2, Fonferko-Shadrach 2024) |
+| Primary metric | Pragmatic micro-F1 |
+| Secondary | Purist micro-F1, exact label accuracy, evidence quote validity |
+| Benchmark target | >= 0.85 Pragmatic micro-F1, with caveat that Gan's published target used independent real letters |
 
-**Also run on test if per-letter accuracy ≥ 0.60 on validation** (within 12% of benchmark).
+**Also run an ExECTv2 crosswalk** if Gan Pragmatic micro-F1 >= 0.75, to quantify whether
+Gan-specific gains transfer to the dissertation's broader ExECTv2 validation set.
 
 **Outputs:**
-- `runs/frequency_workstream/stage_f4/evaluation_summary.json`
-- `runs/frequency_workstream/stage_f4/comparison_vs_baseline.csv`
+
+- `runs/gan_frequency/stage_g4/gan_frequency_evaluation.json`
+- `runs/gan_frequency/stage_g4/gan_frequency_predictions_scored.csv`
+- `runs/gan_frequency/stage_g4/comparison_vs_baseline.csv`
 - Update `docs/phase3_synthesis_report.md` §4 frequency rows
 
 ---
 
-## Stage F5: Per-Item Scoring (Conditional)
+## Stage F5: ExECTv2 Per-Item Scoring (Conditional Crosswalk)
 
-**Entry criterion:** Stage F4 per-letter accuracy ≥ 0.68 (has matched the easier benchmark).
+**Entry criterion:** Gan Stage G4 reaches strong performance and we need to understand transfer
+back to ExECTv2's multi-mention annotation scheme.
 
 **Purpose:** Attempt the harder per-item F1 target (0.66) — scoring every individual frequency
 mention, not just requiring one correct per letter.
@@ -354,11 +556,12 @@ This stage is explicitly conditional — do not run it if F4 hasn't beaten the p
 |---|---|---|
 | `current_seizure_frequency_per_letter_accuracy` | `src/evaluate.py` | Multi-gold per-letter binary score |
 | Gold frequency loader | `src/evaluate.py` or `src/intake.py` | Load all annotations per letter, not just first |
-| `H_freq` standalone harness | `src/model_expansion.py` | New `build_freq_prompt()` function; returns list |
-| `H7_freq` two-pass harness | `src/model_expansion.py` | Two-call pipeline; log both pass outputs |
-| `H_cot_freq` harness | `src/model_expansion.py` | Variant with CoT prefix |
-| `H_fs_freq` harness | `src/model_expansion.py` | Variant with 5-example few-shot |
-| Harness routing | `src/model_expansion.py` | Register new harness IDs |
+| Gan category evaluator | `src/gan_frequency.py` | Convert normalized labels to Purist/Pragmatic categories |
+| Gan prediction runner | `src/model_expansion.py` or `src/gan_frequency.py` | Run frequency-only prompts and write `predictions.json` |
+| `Gan_direct_label` harness | `src/model_expansion.py` or focused runner | Single-call normalized-label output |
+| `Gan_two_pass` harness | `src/model_expansion.py` or focused runner | Quote then normalize |
+| `Gan_fs_hard` harness | `src/model_expansion.py` or focused runner | Few-shot hard cases |
+| Harness routing | `src/model_expansion.py` | Register new Gan harness IDs if using model expansion |
 | (Conditional) `seizure_frequency_items` schema | `configs/schema.json` | Only if F5 is run |
 | (Conditional) `seizure_frequency_items_f1` scorer | `src/evaluate.py` | Only if F5 is run |
 
@@ -373,52 +576,63 @@ important implementation step. Without it, the per-letter metric cannot be compu
 
 | Source | Score | Method | Dataset |
 |---|---|---|---|
+| Gan 2026 — Qwen2.5-14B CoT(15000) | 0.788 Purist / **0.847 Pragmatic micro-F1** | Synthetic CoT fine-tuning | Clinician double-checked real-letter test set |
+| Gan 2026 — MedGemma-4B CoT(15000) | 0.787 Purist / **0.858 Pragmatic micro-F1** | Synthetic CoT fine-tuning | Clinician double-checked real-letter test set |
 | Fonferko-Shadrach 2024 — human IAA | 0.47 per-item | Expert annotators (consensus) | ExECTv2 synthetic letters |
 | Fonferko-Shadrach 2024 — ExECTv2 | **0.66** per-item / **0.68** per-letter | Rule-based GATE pipeline | ExECTv2 synthetic letters (same data) |
-| Our current best (GPT-4.1-mini, E3) | 0.125 loose (not comparable) | LLM extraction, single value | ExECTv2 validation split |
+| Our current best ExECTv2 crosswalk (GPT-4.1-mini, E3) | 0.15 per-letter / 0.125 loose | LLM extraction, single value | ExECTv2 validation split |
 
-The ExECTv2 rule-based pipeline, designed specifically for this dataset with domain-expert
-rules, achieves **0.66 per-item** — a score that already exceeds human annotator agreement
-(0.47). This sets the practical performance ceiling for pattern-based approaches on this
-data. LLMs should be competitive, but beating 0.66 per-item is not trivially expected.
+Gan supplies the best frequency-specific evaluation frame because it was designed around
+seizure-frequency normalization, structured labels, evidence spans, unknown/no-reference
+handling, seizure-free intervals, and cluster patterns. The dissertation frequency claim should
+therefore lead with Gan-style Pragmatic/Purist micro-F1.
 
-The per-letter target (0.68) is more achievable — it only requires getting at least one
-frequency mention right in each letter.
+ExECTv2 remains a crosswalk benchmark. Its rule-based pipeline, designed specifically for that
+dataset with domain-expert rules, achieves **0.66 per-item** and **0.68 per-letter**. This is
+still valuable for showing continuity with the broader extraction evaluation, but it should not
+be treated as the primary seizure-frequency benchmark now that Gan is available.
 
 ### Dissertation claim templates
 
-**If F4 per-letter ≥ 0.68 (matched or beat benchmark):**
-> "Using [best approach], our LLM-based system achieved per-letter seizure frequency F1 of
-> [X], matching ExECTv2 (0.68) on the same dataset. Unlike the rule-based ExECTv2 pipeline,
-> which was engineered specifically for this data, our approach requires no domain-expert
-> rule authoring and generalizes to new letter formats without modification."
+**If G4 Pragmatic micro-F1 ≥ 0.85 on the local Gan subset:**
+> "Using [best approach], our system achieved Gan-style Pragmatic seizure-frequency micro-F1
+> of [X] on the released synthetic Gan subset, meeting the performance range reported by
+> Gan et al. for scaled synthetic CoT fine-tuning on their independent real-letter test set
+> (0.847-0.858). Because our evaluation subset is synthetic rather than the paper's
+> clinician double-checked real test set, this result should be interpreted as a benchmark-aligned
+> synthetic-data comparison rather than a direct replication."
 
-**If F4 per-letter 0.50–0.67 (below benchmark, above human IAA):**
-> "Our best system achieved per-letter seizure frequency F1 of [X] — below the ExECTv2
-> rule-based benchmark (0.68) but above the human inter-annotator agreement (0.47). The
-> residual gap reflects the rule-based system's advantage of domain-engineered frequency
-> patterns tuned to this specific dataset. Seizure frequency remains the most difficult
-> extraction target, consistent with the original paper's finding that human annotators found
-> it harder than any other entity."
+**If G4 Pragmatic micro-F1 is 0.75-0.84:**
+> "Our best system achieved Gan-style Pragmatic seizure-frequency micro-F1 of [X] on the
+> released synthetic subset. This is below Gan et al.'s scaled fine-tuned target of 0.847-0.858
+> but substantially more benchmark-aligned than exact-string frequency scoring, and error
+> analysis shows the residual gap is concentrated in [clusters / seizure-free intervals /
+> unknown vs no-reference / range normalization]."
 
-**If F4 per-letter < 0.50 (below human IAA):**
-> "Seizure frequency extraction remains unsolved at this scale. Per-letter F1 of [X] falls
-> below human annotator agreement (0.47). The difficulty stems from [identified failure
-> modes from F0 and F3]. ExECTv2's rule-based approach (0.68) retains an advantage due to
-> hard-coded clinical frequency patterns. Future work on clinical frequency normalization
-> or task-specific fine-tuning may close this gap."
+**If G4 Pragmatic micro-F1 < 0.75:**
+> "Seizure-frequency extraction remains difficult even under Gan's structured label scheme.
+> Pragmatic micro-F1 of [X] falls well below the 0.847-0.858 scaled fine-tuning target,
+> suggesting that prompt-only extraction is insufficient for this task without either
+> task-specific fine-tuning, stronger normalization, or multi-pass evidence-grounded reasoning."
 
-All three outcomes produce a valid, benchmarked dissertation claim.
+**ExECTv2 crosswalk addendum if applicable:**
+> "On the ExECTv2 validation crosswalk, the same approach achieved per-letter seizure-frequency
+> accuracy of [Y] against the ExECTv2 rule-based benchmark of 0.68. This lower/higher transfer
+> result reflects differences between Gan's single-label normalized frequency task and
+> ExECTv2's multi-mention annotation scheme."
+
+All outcomes produce a valid, benchmarked dissertation claim as long as the metric and dataset
+are named precisely.
 
 ### Updated comparison table structure
 
-| System | Freq Loose | Freq Per-Letter | Benchmark Gap | Notes |
-|---|---|---|---|---|
-| Human IAA (Fonferko-Shadrach) | — | 0.47 | −0.21 | Human ceiling for this task |
-| ExECTv2 rule-based | — | 0.68 | 0.00 | **Target benchmark** |
-| S2 H0 GPT-4.1-mini (existing) | 0.075 (val) | TBD after F1 rescore | TBD | |
-| E3 H0 GPT-4.1-mini (existing) | 0.125 (val) | TBD after F1 rescore | TBD | |
-| [best F4 system] | TBD | TBD | TBD | |
+| System | Dataset | Pragmatic micro-F1 | Purist micro-F1 | ExECTv2 per-letter | Notes |
+|---|---|---:|---:|---:|---|
+| Gan 2026 Qwen2.5-14B CoT(15000) | real test set | 0.847 | 0.788 | — | Published target |
+| Gan 2026 MedGemma-4B CoT(15000) | real test set | 0.858 | 0.787 | — | Published target |
+| ExECTv2 rule-based | ExECTv2 | — | — | 0.68 | Crosswalk target |
+| E3 H0 GPT-4.1-mini existing | ExECTv2 validation | — | — | 0.15 | Current crosswalk baseline |
+| [best G4 system] | Gan local synthetic subset | TBD | TBD | optional | Main frequency result |
 
 ---
 
@@ -426,30 +640,30 @@ All three outcomes produce a valid, benchmarked dissertation claim.
 
 | Stage | Model calls | Est. cost |
 |---|---|---|
-| F0 (gold audit) | 0 | $0 |
-| F1 (rescore existing runs) | 0 | $0 |
-| F2 (4 new conditions × 15 docs) | 60 | ~$2–8 |
-| F3 (4 prompt conditions × 15 docs) | 60–120 (H7_freq is 2-call) | ~$1–4 |
-| F4 (1 condition × 40 docs) | 40–80 | ~$1–5 |
-| F5 (conditional × 40 docs) | 0 (re-score only if list already extracted) | $0 |
-| **Total** | | **~$4–17** |
+| F0/F1 ExECTv2 crosswalk audit/rescore | 0 | $0 |
+| G0 Gan audit/metric lock | 0 | $0 |
+| G1 runner implementation smoke | 5-20 | <$1 |
+| G2 Gan model × prompt sweep (e.g. 3 models × 4 harnesses × 150 docs) | 1,800 | model-dependent |
+| G3 focused prompt iteration (3 variants × 150 docs) | 450-900 | model-dependent |
+| G4 full local Gan subset (1 best condition × 1,500 docs) | 1,500-3,000 | model-dependent |
+| F5 ExECTv2 per-item crosswalk | 0-80 | $0 if re-scoring existing list outputs |
 
-Cost is dominated by GPT-5.5 / Claude Sonnet 4.6 calls in F2. If F2 shows no model gain over
-GPT-4.1-mini, F3–F5 run at <$2 total.
+Cost is now dominated by Gan full-subset model calls. Run G2 on a deterministic development
+subset first, and only promote one or two conditions to G4.
 
 ---
 
 ## Priority and Sequence
 
 ```
-F0 (gold audit + scoring decision, zero cost)
-  → F1 (implement per-letter scorer, rescore existing runs, zero cost)
-      → F2 (model × pipeline sweep)
-           → F3 (prompt engineering)
-                → F4 (validation scale, dissertation numbers)
-                      → F5 (per-item scoring, conditional)
+F0/F1 ExECTv2 crosswalk audit + rescore (done / zero cost)
+  → G0 Gan metric lock + local subset audit (done / zero cost)
+      → G1 Gan prediction runner
+          → G2 Gan model × prompt sweep
+              → G3 Gan hard-case prompt development
+                  → G4 Gan full-subset benchmark run
+                      → F5 ExECTv2 per-item crosswalk (conditional)
 ```
 
-F0 and F1 together take one coding session with no API calls. The actual benchmark target
-cannot be computed until F1 is done — the gap may be smaller than 0.075–0.175 loose
-accuracy implies.
+The benchmark target is now explicit: **Gan Pragmatic micro-F1 >= 0.85**. ExECTv2 per-letter
+frequency remains a secondary transfer/crosswalk metric rather than the main optimization target.
