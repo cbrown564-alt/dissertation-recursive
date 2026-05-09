@@ -28,7 +28,40 @@ DEFAULT_REGISTRY_PATH = DEFAULT_REGISTRY
 UNKNOWN_X = 1000.0
 MULTIPLE_VALUE = 2.0
 GAN_LABEL_FALLBACK = "unknown"
-GAN_HARNESSES = ["Gan_direct_label", "Gan_cot_label", "Gan_evidence_label", "Gan_two_pass", "Gan_fs_hard"]
+GAN_HARNESSES = [
+    "Gan_direct_label",
+    "Gan_cot_label",
+    "Gan_evidence_label",
+    "Gan_two_pass",
+    "Gan_fs_hard",
+    "Gan_h013_direct",
+    "Gan_h013_evidence_first",
+    "Gan_h008_guarded",
+    "Gan_g3_qwen",
+]
+TWO_PASS_HARNESSES = {"Gan_two_pass", "Gan_h013_evidence_first"}
+PARSER_CONTRACT = {
+    "multiple_value": MULTIPLE_VALUE,
+    "unknown_x_per_month": UNKNOWN_X,
+    "range_handling": "hyphens normalized to spaces then averaged; 'to' separator also supported",
+    "supported_label_forms": [
+        "<n> per <period>",
+        "<n1> to <n2> per <period>",
+        "<n1>-<n2> per <period> (normalized to 'to' form by averaging)",
+        "<n> cluster per <period>, <m> per cluster",
+        "seizure free for <n> month",
+        "seizure free for multiple month",
+        "unknown",
+        "no seizure frequency reference",
+    ],
+    "pragmatic_thresholds": {
+        "NS": "x == 0",
+        "infrequent": "0 < x <= 1.1 per month",
+        "frequent": "1.1 < x <= 999 per month",
+        "UNK": "x == 1000 (UNKNOWN_X) or parse failure",
+    },
+    "note": "MULTIPLE_VALUE=2.0 kept for Gan comparability; minimal-repo parser uses 3.0",
+}
 
 
 @dataclass(frozen=True)
@@ -103,6 +136,12 @@ def parse_quantity(value: str) -> float | None:
         parts = [parse_quantity(part) for part in value.split(" to ", 1)]
         if all(part is not None for part in parts):
             return sum(part for part in parts if part is not None) / 2
+    # Handle "N1 N2" — hyphen-range after normalize_label converted "-" to " "
+    split_parts = value.split()
+    if len(split_parts) == 2:
+        p1, p2 = parse_quantity(split_parts[0]), parse_quantity(split_parts[1])
+        if p1 is not None and p2 is not None:
+            return (p1 + p2) / 2
     try:
         return float(value)
     except ValueError:
@@ -411,6 +450,140 @@ Use "no seizure frequency reference" when the quoted evidence shows no seizure-f
 """
 
 
+def gan_h013_direct_prompt(example: GanExample) -> str:
+    return f"""## Task: Seizure Frequency Extraction
+Seizure frequency extraction is a focused, separate role. Do not summarize the letter. Extract only the current clinically relevant seizure frequency.
+
+Use the full letter context to identify the most recent and clinically relevant seizure rate. Prefer the frequency from the current visit over historical data. Do not infer a numeric rate from vague or qualitative descriptions.
+
+Return JSON only:
+{{"seizure_frequency_number": "<normalized label>", "quote": "<shortest exact supporting quote>"}}
+
+Normalized label contract:
+- "<n> per <period>" — e.g. "3 per month", "2 per week"
+- "<n1> to <n2> per <period>" — for ranges, e.g. "3 to 4 per month"
+- "<n> cluster per <period>, <m> per cluster" — for cluster patterns
+- "seizure free for <n> month" — e.g. "seizure free for 12 month"
+- "seizure free for multiple month" — if seizure-free but duration is vague
+- "unknown" — seizures are mentioned but no specific frequency can be determined
+- "no seizure frequency reference" — the letter does not mention seizure frequency
+
+Rules:
+- Do not infer a number from "occasional", "sporadic", "sometimes", "improved" — use "unknown"
+- A seizure-free statement overrides frequency history; report the seizure-free duration
+- For ranges, always use the "to" form (e.g. "3 to 4 per month"), never a hyphen
+- The quote must be verbatim text from the letter; never paraphrase
+
+## Clinical letter
+{example.text}
+"""
+
+
+def gan_h013_evidence_pass1_prompt(example: GanExample) -> str:
+    return f"""## Task: Extract candidate seizure frequency evidence
+Extract verbatim quotes that contain or imply seizure frequency, seizure-free status, clusters, unknown/unclear frequency, or absence of frequency information.
+
+Return JSON only:
+{{"evidence": ["<verbatim quote>", ...]}}
+
+Include every sentence or clause that a reader would use to determine seizure frequency. Include negations and qualitative descriptions ("sporadic", "occasional").
+
+## Clinical letter
+{example.text}
+"""
+
+
+def gan_h013_evidence_pass2_prompt(example: GanExample, evidence: list[str]) -> str:
+    evidence_text = "\n".join(f"- {item}" for item in evidence) if evidence else "- No evidence quoted"
+    return f"""## Task: Normalize seizure frequency from quoted evidence
+Normalize the quoted evidence to exactly one Gan-style label.
+
+Return JSON only:
+{{"seizure_frequency_number": "<normalized label>", "quote": "<shortest exact supporting quote from the list below>"}}
+
+Normalized label contract:
+- "<n> per <period>" — e.g. "3 per month"
+- "<n1> to <n2> per <period>" — for ranges, e.g. "3 to 4 per month"
+- "<n> cluster per <period>, <m> per cluster" — for cluster patterns
+- "seizure free for <n> month"
+- "seizure free for multiple month"
+- "unknown" — seizures mentioned but no specific frequency determinable
+- "no seizure frequency reference" — evidence shows no frequency reference
+
+Rules:
+- Do not infer a number from "occasional", "sporadic", "sometimes" — use "unknown"
+- A seizure-free statement overrides frequency history
+- The quote must be one of the verbatim quotes listed below
+
+## Evidence quotes
+{evidence_text}
+"""
+
+
+def gan_h008_guarded_prompt(example: GanExample) -> str:
+    return f"""Extract seizure frequency. Return JSON only.
+
+{{"seizure_frequency_number": "<label>", "quote": "<verbatim quote>"}}
+
+Label must be exactly one of:
+- "<n> per <period>" (e.g. "2 per month", "1 per week")
+- "<n1> to <n2> per <period>" (e.g. "3 to 4 per month")
+- "<n> cluster per <period>, <m> per cluster"
+- "seizure free for <n> month"
+- "seizure free for multiple month"
+- "unknown" (seizures mentioned, no count possible)
+- "no seizure frequency reference" (letter has no frequency information)
+
+Guards:
+- "occasional", "sporadic", "sometimes" with no count -> "unknown"
+- seizure-free statement -> "seizure free for ..." (not a frequency)
+- range like "3-4" -> "3 to 4 per period"
+- cluster description -> "N cluster per period, M per cluster"
+
+Letter:
+{example.text}
+"""
+
+
+def gan_g3_qwen_prompt(example: GanExample) -> str:
+    return f"""## Task: Seizure Frequency Extraction
+Extract the current clinically relevant seizure frequency. Return JSON only.
+
+{{"seizure_frequency_number": "<normalized label>", "quote": "<shortest exact supporting quote>"}}
+
+Normalized label contract:
+- "<n> per <period>" — e.g. "3 per month", "1 per 2 month"
+- "<n1> to <n2> per <period>" — for ranges in the COUNT, e.g. "3 to 4 per month"
+- "<n> cluster per <period>, <m> per cluster"
+- "seizure free for <n> month" — use the exact number from the letter
+- "seizure free for multiple month" — ONLY when duration is genuinely vague
+- "seizure free for multiple year" — ONLY when year-scale duration is genuinely vague
+- "unknown" — seizures mentioned but no specific frequency determinable
+- "no seizure frequency reference" — letter contains no seizure frequency information
+
+Critical rules:
+- COUNT vs PERIOD order: "1 per 2 month" means 1 seizure every 2 months — do NOT invert to "2 per month"
+- RANGE in period: "1 per 1 to 2 day" means 1 seizure per 1-to-2-day period — the range is on the PERIOD side
+- RANGE in count: "3 to 4 per month" means 3-to-4 seizures per month — the range is on the COUNT side
+- "multiple" is a valid count word — "multiple per week" is a valid label, NOT "unknown"
+- "multiple month/year" duration is valid — do NOT replace with a specific number
+- Use "unknown" only when vague qualitative language gives no quantity (e.g. "occasional", "sporadic")
+- Use "no seizure frequency reference" only when frequency is never mentioned, not when it is unclear
+
+Hard examples from observed errors:
+- "one seizure every two months" → "1 per 2 month" (NOT "2 per month")
+- "multiple seizures each week" → "multiple per week" (NOT "unknown")
+- "seizure-free for several months, exact duration unclear" → "seizure free for multiple month"
+- "has been seizure-free for a few years" → "seizure free for multiple year"
+- "one seizure every one to two days" → "1 per 1 to 2 day" (range on period side)
+- "three to four seizures per month" → "3 to 4 per month" (range on count side)
+- "sporadic events this year, impossible to quantify" → "unknown"
+
+## Clinical letter
+{example.text}
+"""
+
+
 def gan_prompt_for_harness(example: GanExample, harness: str) -> str:
     if harness == "Gan_direct_label":
         return gan_direct_label_prompt(example)
@@ -420,6 +593,12 @@ def gan_prompt_for_harness(example: GanExample, harness: str) -> str:
         return gan_evidence_label_prompt(example)
     if harness == "Gan_fs_hard":
         return gan_fs_hard_prompt(example)
+    if harness == "Gan_h013_direct":
+        return gan_h013_direct_prompt(example)
+    if harness == "Gan_h008_guarded":
+        return gan_h008_guarded_prompt(example)
+    if harness == "Gan_g3_qwen":
+        return gan_g3_qwen_prompt(example)
     raise ValueError(f"unsupported single-pass Gan harness: {harness}")
 
 
@@ -535,6 +714,58 @@ def sum_optional_numbers(values: list[Any]) -> float | int | None:
     return sum(numeric) if numeric else None
 
 
+def _has_4gram_overlap(quote: str, source: str) -> bool:
+    q_tokens = normalize_label(quote).split()
+    s_tokens = normalize_label(source).split()
+    if len(q_tokens) < 4:
+        return normalize_label(quote) in normalize_label(source)
+    s_ngrams: set[tuple[str, ...]] = set()
+    for i in range(len(s_tokens) - 3):
+        s_ngrams.add(tuple(s_tokens[i : i + 4]))
+    for i in range(len(q_tokens) - 3):
+        if tuple(q_tokens[i : i + 4]) in s_ngrams:
+            return True
+    return False
+
+
+def compute_evidence_metrics(
+    call_rows: list[dict[str, str]],
+    examples: dict[str, "GanExample"],
+) -> dict[str, Any]:
+    total = 0
+    quote_present = 0
+    quote_exact = 0
+    quote_overlap = 0
+    for row in call_rows:
+        doc_id = row.get("document_id", "")
+        if doc_id not in examples:
+            continue
+        total += 1
+        quote = (row.get("quote") or "").strip()
+        source_text = examples[doc_id].text
+        present = bool(quote)
+        if present:
+            quote_present += 1
+        exact = present and normalize_label(quote) in normalize_label(source_text)
+        if exact:
+            quote_exact += 1
+        if exact or (present and _has_4gram_overlap(quote, source_text)):
+            quote_overlap += 1
+    if total == 0:
+        return {
+            "documents_with_quotes_evaluated": 0,
+            "quote_presence_rate": None,
+            "quote_exact_rate": None,
+            "quote_overlap_or_exact_rate": None,
+        }
+    return {
+        "documents_with_quotes_evaluated": total,
+        "quote_presence_rate": round(quote_present / total, 4),
+        "quote_exact_rate": round(quote_exact / total, 4),
+        "quote_overlap_or_exact_rate": round(quote_overlap / total, 4),
+    }
+
+
 def command_predict(args: argparse.Namespace) -> int:
     examples = load_gan_examples(Path(args.gan_path))
     if args.document_ids:
@@ -558,13 +789,19 @@ def command_predict(args: argparse.Namespace) -> int:
 
     for example in examples:
         doc_dir = calls_dir / example.document_id
-        if args.harness == "Gan_two_pass":
+        if args.harness in TWO_PASS_HARNESSES:
+            if args.harness == "Gan_two_pass":
+                evidence_prompt = gan_two_pass_evidence_prompt(example)
+                normalize_prompt_fn = gan_two_pass_normalize_prompt
+            else:  # Gan_h013_evidence_first
+                evidence_prompt = gan_h013_evidence_pass1_prompt(example)
+                normalize_prompt_fn = gan_h013_evidence_pass2_prompt
             evidence_response = call_model(
                 adapter,
                 spec,
                 example,
                 args.harness,
-                gan_two_pass_evidence_prompt(example),
+                evidence_prompt,
                 gan_evidence_schema(),
                 args,
                 doc_dir,
@@ -576,7 +813,7 @@ def command_predict(args: argparse.Namespace) -> int:
                 spec,
                 example,
                 args.harness,
-                gan_two_pass_normalize_prompt(example, evidence_quotes),
+                normalize_prompt_fn(example, evidence_quotes),
                 gan_prediction_schema(),
                 args,
                 doc_dir,
@@ -685,15 +922,25 @@ def command_sweep(args: argparse.Namespace) -> int:
             scored = read_csv_rows_as_dicts(condition_dir / "gan_frequency_predictions_scored.csv")
             call_report = read_csv_rows_as_dicts(condition_dir / "call_report.csv")
             exact_matches = sum(1 for row in scored if str(row.get("exact_label_match")).lower() == "true")
+            parse_successes = sum(1 for row in call_report if not row.get("parse_error", "").strip())
+            provider_errors = sum(1 for row in call_report if row.get("provider_error", "").strip())
             total_cost = 0.0
             cost_count = 0
+            calls_per_doc_sum = 0.0
+            calls_per_doc_count = 0
             for row in call_report:
                 try:
                     total_cost += float(row.get("estimated_cost_usd") or 0.0)
                     cost_count += 1
                 except ValueError:
-                    continue
+                    pass
+                try:
+                    calls_per_doc_sum += float(row.get("calls_per_doc") or 0.0)
+                    calls_per_doc_count += 1
+                except ValueError:
+                    pass
             documents = int(evaluation.get("documents") or 0)
+            evidence_quality = evaluation.get("evidence_quality", {})
             rows.append(
                 {
                     "condition": condition,
@@ -703,6 +950,12 @@ def command_sweep(args: argparse.Namespace) -> int:
                     "pragmatic_micro_f1": evaluation["pragmatic"]["micro_f1"],
                     "purist_micro_f1": evaluation["purist"]["micro_f1"],
                     "exact_label_accuracy": exact_matches / len(scored) if scored else None,
+                    "parse_success_rate": parse_successes / len(call_report) if call_report else None,
+                    "provider_error_rate": provider_errors / len(call_report) if call_report else None,
+                    "avg_calls_per_doc": calls_per_doc_sum / calls_per_doc_count if calls_per_doc_count else None,
+                    "quote_presence_rate": evidence_quality.get("quote_presence_rate"),
+                    "quote_exact_rate": evidence_quality.get("quote_exact_rate"),
+                    "quote_overlap_or_exact_rate": evidence_quality.get("quote_overlap_or_exact_rate"),
                     "estimated_total_cost_usd": total_cost if cost_count else None,
                     "estimated_cost_per_doc": total_cost / documents if cost_count and documents else None,
                     "output_dir": str(condition_dir),
@@ -725,6 +978,8 @@ def command_sweep(args: argparse.Namespace) -> int:
                 f"Best condition: `{best['condition']}`",
                 f"Pragmatic micro-F1: {best['pragmatic_micro_f1']:.3f}",
                 f"Purist micro-F1: {best['purist_micro_f1']:.3f}",
+                f"Parse success rate: {best['parse_success_rate']}",
+                f"Evidence overlap-or-exact rate: {best['quote_overlap_or_exact_rate']}",
                 f"Promotion rule met: {'yes' if promoted else 'no'}",
                 "",
                 "Next action:",
@@ -814,15 +1069,105 @@ def command_evaluate(args: argparse.Namespace) -> int:
             }
         )
     output_dir = Path(args.output_dir)
+    call_report = read_csv_rows_as_dicts(output_dir / "call_report.csv")
+    evidence_metrics = compute_evidence_metrics(call_report, examples)
     report = {
         "documents": len(rows),
+        "parser_contract": PARSER_CONTRACT,
         "purist": classification_report(gold_purist, pred_purist),
         "pragmatic": classification_report(gold_pragmatic, pred_pragmatic),
+        "evidence_quality": evidence_metrics,
     }
     write_json(output_dir / "gan_frequency_evaluation.json", report)
     write_csv(output_dir / "gan_frequency_predictions_scored.csv", rows)
     print(f"wrote {output_dir / 'gan_frequency_evaluation.json'}")
     print(f"wrote {output_dir / 'gan_frequency_predictions_scored.csv'}")
+    return 0
+
+
+def classify_error_bucket(
+    gold_pragmatic: str,
+    pred_pragmatic: str,
+    gold_label: str,
+    predicted_label: str,
+    quote: str,
+) -> list[str]:
+    buckets = []
+    if gold_pragmatic == "NS" and pred_pragmatic == "UNK":
+        buckets.append("gold_NS_pred_UNK")
+    if gold_pragmatic == "NS" and pred_pragmatic == "frequent":
+        buckets.append("gold_NS_pred_frequent")
+    if gold_pragmatic == "UNK" and pred_pragmatic not in {"UNK", "NS"}:
+        buckets.append("gold_UNK_pred_numeric")
+    if gold_pragmatic == "UNK" and pred_pragmatic == "NS":
+        buckets.append("gold_UNK_pred_NS")
+    if gold_pragmatic == "infrequent" and pred_pragmatic == "frequent":
+        buckets.append("threshold_flip_infrequent_to_frequent")
+    if gold_pragmatic == "frequent" and pred_pragmatic == "infrequent":
+        buckets.append("threshold_flip_frequent_to_infrequent")
+    if "cluster" in gold_label and "cluster" not in predicted_label and predicted_label not in {"unknown", "no seizure frequency reference"}:
+        buckets.append("cluster_collapsed_to_plain_rate")
+    if " to " in gold_label and " to " not in predicted_label and predicted_label not in {"unknown", "no seizure frequency reference"}:
+        buckets.append("range_collapsed_to_single_value")
+    if gold_label == "no seizure frequency reference" and predicted_label == "unknown":
+        buckets.append("no_ref_confused_with_unknown")
+    if gold_label == "unknown" and predicted_label == "no seizure frequency reference":
+        buckets.append("unknown_confused_with_no_ref")
+    if not quote.strip():
+        buckets.append("quote_missing")
+    return buckets or ["other"]
+
+
+def command_errors(args: argparse.Namespace) -> int:
+    condition_dir = Path(args.condition_dir)
+    output_dir = Path(args.output_dir)
+    scored = read_csv_rows_as_dicts(condition_dir / "gan_frequency_predictions_scored.csv")
+    call_report = read_csv_rows_as_dicts(condition_dir / "call_report.csv")
+    if not scored:
+        raise ValueError(f"no scored predictions found in {condition_dir}")
+    quote_by_doc = {row["document_id"]: row.get("quote", "") for row in call_report}
+    error_rows = []
+    bucket_counts: dict[str, int] = {}
+    for row in scored:
+        gp = row.get("gold_pragmatic", "")
+        pp = row.get("predicted_pragmatic", "")
+        gl = row.get("gold_label", "")
+        pl = row.get("predicted_label", "")
+        if str(row.get("exact_label_match", "")).lower() == "true" and gp == pp:
+            continue
+        doc_id = row["document_id"]
+        quote = quote_by_doc.get(doc_id, "")
+        buckets = classify_error_bucket(gp, pp, gl, pl, quote)
+        for bucket in buckets:
+            bucket_counts[bucket] = bucket_counts.get(bucket, 0) + 1
+        error_rows.append(
+            {
+                "document_id": doc_id,
+                "gold_label": gl,
+                "predicted_label": pl,
+                "gold_pragmatic": gp,
+                "predicted_pragmatic": pp,
+                "gold_purist": row.get("gold_purist", ""),
+                "predicted_purist": row.get("predicted_purist", ""),
+                "quote": quote,
+                "error_buckets": "; ".join(buckets),
+            }
+        )
+    output_dir.mkdir(parents=True, exist_ok=True)
+    write_csv(output_dir / "error_rows.csv", error_rows)
+    bucket_summary = sorted(bucket_counts.items(), key=lambda item: -item[1])
+    summary: dict[str, Any] = {
+        "total_errors": len(error_rows),
+        "total_predictions": len(scored),
+        "error_rate": round(len(error_rows) / len(scored), 4) if scored else None,
+        "bucket_counts": dict(bucket_summary),
+        "top_buckets": [{"bucket": k, "count": v} for k, v in bucket_summary[:10]],
+    }
+    write_json(output_dir / "error_summary.json", summary)
+    print(f"wrote {output_dir / 'error_rows.csv'} ({len(error_rows)} errors from {len(scored)} predictions)")
+    print(f"wrote {output_dir / 'error_summary.json'}")
+    for bucket, count in bucket_summary[:10]:
+        print(f"  {bucket}: {count}")
     return 0
 
 
@@ -867,6 +1212,11 @@ def main() -> int:
     sweep.add_argument("--max-output-tokens", type=int, default=512)
     sweep.add_argument("--stub-calls", action="store_true", help="Use the stub adapter instead of calling configured providers.")
     sweep.set_defaults(func=command_sweep)
+
+    errors = subparsers.add_parser("errors", help="Audit error buckets from a completed G2/G3 condition.")
+    errors.add_argument("--condition-dir", required=True, help="Directory with gan_frequency_predictions_scored.csv and call_report.csv.")
+    errors.add_argument("--output-dir", required=True, help="Destination for error_rows.csv and error_summary.json.")
+    errors.set_defaults(func=command_errors)
 
     args = parser.parse_args()
     return args.func(args)
