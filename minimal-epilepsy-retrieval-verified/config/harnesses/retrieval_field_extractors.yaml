@@ -1,0 +1,19 @@
+{
+  "manifest_id": "retrieval_field_extractors.v1",
+  "harness_id": "retrieval_field_extractors",
+  "version": "1",
+  "architecture_family": "retrieval_field_pipeline",
+  "allowed_modules": ["normalization", "section_detection", "candidate_span_retrieval", "field_extractors", "aggregation"],
+  "prompt_versions": {"retrieval": "field_extractor_v1"},
+  "schema_version": "1.0.0",
+  "provider": "configurable",
+  "model_registry_entry": "",
+  "context_policy": {"input": "candidate_spans", "uses_document_interface": true},
+  "output_contract": {"payload": "final_extraction_v1"},
+  "repair_policy": {"enabled": true, "invalid_json": "record_invalid_output"},
+  "verifier_policy": {"enabled": false},
+  "aggregation_policy": {"enabled": true, "mode": "field_outputs_to_payload"},
+  "budget_limits": {"llm_calls_per_row": 5},
+  "gold_label_isolation": {"model_visible": false, "evaluation_only": true},
+  "artifact_retention": {"payload": true, "candidate_spans": true, "provider_response": true}
+}

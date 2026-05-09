@@ -579,6 +579,24 @@ comparison; expand to 150 docs if G3 prompt changes remain promising.
 - `runs/gan_frequency/stage_g3/comparison_table.csv`
 - `runs/gan_frequency/stage_g3/promotion_decision.md`
 
+**Result:**
+
+Stage G3 executed the new hard-case few-shot prompt on the same 50-document Gan development
+subset and carried forward the unchanged Stage G2 comparator conditions.
+
+| Rank | Condition | Stage note | Pragmatic micro-F1 | Purist micro-F1 | Exact label accuracy | Est. cost |
+|---:|---|---|---:|---:|---:|---:|
+| 1 | `gpt_5_5` + `Gan_cot_label` | G2 carry-forward | **0.80** | **0.76** | 0.54 | $0.62 |
+| 2 | `gpt_5_5` + `Gan_direct_label` | G2 carry-forward | 0.76 | **0.76** | **0.60** | $0.62 |
+| 3 | `claude_sonnet_4_6` + `Gan_direct_label` | G2 carry-forward | 0.76 | **0.76** | 0.58 | $0.30 |
+| 4 | `gpt_4_1_mini_baseline` + `Gan_direct_label` | G2 baseline carry-forward | 0.66 | 0.62 | 0.48 | $0.02 |
+| 5 | `gpt_5_5` + `Gan_fs_hard` | G3 new hard-case few-shot | 0.64 | 0.62 | 0.50 | $0.63 |
+
+Promotion decision: **promote `gpt_5_5` + `Gan_cot_label` to Stage G4**. The hard-case
+few-shot prompt reduced Pragmatic micro-F1 from 0.80 to 0.64 on the controlled subset, so the
+best Stage G2 prompt remains the best G3 candidate. Two-pass remained excluded from G3 because
+Stage G2 identified output-path parse failures and poor cost/performance.
+
 ---
 
 ## Stage G4: Gan Full-Subset Run

@@ -1,0 +1,28 @@
+# Frozen model registry — 2026-05-08
+# OpenAI models for real provider runs.
+# Frozen for canonical n25 architecture-ladder and model-matrix experiments.
+
+registry_version: "0.3"
+created: "2026-05-08"
+frozen_at: "2026-05-08"
+
+models:
+  - model_id: gpt-5.5-2026-04-23
+    display_name: GPT-5.5 (Apr 2026)
+    provider: openai
+    family: gpt-5
+    tier: frontier
+    context_window: 128000
+    cost_per_1k_input: 0.005
+    cost_per_1k_output: 0.015
+    notes: "Flagship OpenAI frontier model for work execution and agentic tasks."
+
+  - model_id: gpt-5.4-mini-2026-03-17
+    display_name: GPT-5.4 mini (Mar 2026)
+    provider: openai
+    family: gpt-5
+    tier: small
+    context_window: 128000
+    cost_per_1k_input: 0.0015
+    cost_per_1k_output: 0.006
+    notes: "Small-tier frontier model; cost-efficient comparator for architecture-ladder ablation."

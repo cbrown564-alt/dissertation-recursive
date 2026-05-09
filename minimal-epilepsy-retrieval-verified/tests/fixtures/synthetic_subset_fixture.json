@@ -1,0 +1,62 @@
+[
+  {
+    "source_row_index": 1,
+    "clinic_date": "Clinic letter A. Present seizure frequency: two seizures per month. Current medication is lamotrigine 100 mg twice daily.",
+    "labels_match_all_categories": true,
+    "quotes_ok_all_categories": true,
+    "row_ok": true,
+    "mismatch_categories": "",
+    "quote_issue_categories": "",
+    "check__Seizure Frequency Number": {
+      "analysis": "The letter states two seizures per month.",
+      "seizure_frequency_number": [
+        "2 per month",
+        "Present seizure frequency: two seizures per month."
+      ],
+      "reference": [
+        "2 per month",
+        "Present seizure frequency: two seizures per month."
+      ]
+    }
+  },
+  {
+    "source_row_index": 2,
+    "clinic_date": "Clinic letter B. He has been seizure free for 12 months. Continue levetiracetam unchanged.",
+    "labels_match_all_categories": true,
+    "quotes_ok_all_categories": true,
+    "row_ok": true,
+    "mismatch_categories": "",
+    "quote_issue_categories": "",
+    "check__Seizure Frequency Number": {
+      "analysis": "The letter states seizure free for 12 months.",
+      "seizure_frequency_number": [
+        "seizure free for 12 month",
+        "He has been seizure free for 12 months."
+      ],
+      "reference": [
+        "seizure free for 12 month",
+        "He has been seizure free for 12 months."
+      ]
+    }
+  },
+  {
+    "source_row_index": 3,
+    "clinic_date": "Clinic letter C. Events are described as unclear and no reliable recent seizure count is available.",
+    "labels_match_all_categories": false,
+    "quotes_ok_all_categories": false,
+    "row_ok": false,
+    "mismatch_categories": "Seizure Frequency Number",
+    "quote_issue_categories": "Seizure Frequency Number",
+    "check__Seizure Frequency Number": {
+      "analysis": "No reliable recent seizure count is available.",
+      "seizure_frequency_number": [
+        "unknown",
+        "no reliable recent seizure count is available"
+      ],
+      "reference": [
+        "unknown",
+        "no reliable recent seizure count is available"
+      ]
+    }
+  }
+]

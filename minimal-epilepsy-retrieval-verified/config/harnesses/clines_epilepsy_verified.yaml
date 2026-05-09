@@ -1,0 +1,19 @@
+{
+  "manifest_id": "clines_epilepsy_verified.v1",
+  "harness_id": "clines_epilepsy_verified",
+  "version": "1",
+  "architecture_family": "clines_inspired_modular",
+  "allowed_modules": ["normalization", "chunking", "field_extractors", "status_temporality", "value_normalization", "verification", "aggregation"],
+  "prompt_versions": {"field_extractor": "clines_inspired/field_extractor_v1", "verification": "clines_inspired/verification_v1"},
+  "schema_version": "1.0.0",
+  "provider": "configurable",
+  "model_registry_entry": "",
+  "context_policy": {"input": "semantic_chunks", "uses_document_interface": true},
+  "output_contract": {"payload": "final_extraction_v1"},
+  "repair_policy": {"enabled": true, "invalid_json": "record_invalid_output"},
+  "verifier_policy": {"enabled": true, "scope": "evidence_and_status_checks"},
+  "aggregation_policy": {"enabled": true, "mode": "verified_field_outputs_to_payload"},
+  "budget_limits": {"llm_calls_per_row": 5},
+  "gold_label_isolation": {"model_visible": false, "evaluation_only": true},
+  "artifact_retention": {"payload": true, "chunks": true, "verification": true, "provider_response": true}
+}

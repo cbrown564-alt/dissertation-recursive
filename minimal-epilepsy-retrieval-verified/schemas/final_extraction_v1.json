@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "final_extraction_v1",
+  "title": "Final Extraction v1",
+  "type": "object",
+  "required": [
+    "seizure_frequency",
+    "current_medications",
+    "investigations",
+    "seizure_types",
+    "seizure_features",
+    "seizure_pattern_modifiers",
+    "epilepsy_type",
+    "epilepsy_syndrome",
+    "citations",
+    "confidence",
+    "warnings"
+  ],
+  "properties": {
+    "seizure_frequency": {"type": "object"},
+    "current_medications": {"type": "array", "items": {"type": "object"}},
+    "investigations": {"type": "array", "items": {"type": "object"}},
+    "seizure_types": {"type": "array", "items": {"type": "object"}},
+    "seizure_features": {"type": "array", "items": {"type": "object"}},
+    "seizure_pattern_modifiers": {"type": "array", "items": {"type": "object"}},
+    "epilepsy_type": {"type": ["object", "null"]},
+    "epilepsy_syndrome": {"type": ["object", "null"]},
+    "citations": {"type": "array", "items": {"type": "object"}},
+    "confidence": {"type": "object", "additionalProperties": {"type": "number"}},
+    "warnings": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}
