@@ -237,3 +237,41 @@ models:
     billing_currency: local
     deprecation_or_alias_behavior: local_model_no_deprecation
     source_notes: "Gemma 4 E4B via Ollama. Google model family; 128K context; no extended thinking; multimodal (text+image+audio)."
+  gemma_26b_local:
+    provider: ollama
+    provider_model_id: gemma4:26b
+    api_surface: openai_compat
+    sdk_package: openai
+    sdk_version: null
+    context_window_tokens: 131072
+    max_output_tokens: 4096
+    structured_output: json_mode
+    temperature: 0.0
+    seed_supported: false
+    input_price_per_million: null
+    output_price_per_million: null
+    cache_read_price_per_million: null
+    cache_write_price_per_million: null
+    region: local
+    billing_currency: local
+    deprecation_or_alias_behavior: local_model_no_deprecation
+    source_notes: "Gemma 4 26B via Ollama at Q4_K_M (~14-16 GB). Google model family; 128K context; no extended thinking; multimodal. VRAM+RAM spillover on 8 GB GPU expected."
+  gemma_31b_local:
+    provider: ollama
+    provider_model_id: gemma4:31b
+    api_surface: openai_compat
+    sdk_package: openai
+    sdk_version: null
+    context_window_tokens: 131072
+    max_output_tokens: 4096
+    structured_output: json_mode
+    temperature: 0.0
+    seed_supported: false
+    input_price_per_million: null
+    output_price_per_million: null
+    cache_read_price_per_million: null
+    cache_write_price_per_million: null
+    region: local
+    billing_currency: local
+    deprecation_or_alias_behavior: local_model_no_deprecation
+    source_notes: "Gemma 4 31B via Ollama at Q4_K_M (~17-19 GB). Google model family; 128K context; no extended thinking; multimodal. VRAM+RAM spillover on 8 GB GPU expected."

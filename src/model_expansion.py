@@ -279,6 +279,77 @@ def build_h6ev_prompt(document: dict[str, Any], harness_id: str) -> str:
     )
 
 
+def _h6full_examples() -> str:
+    """Few-shot examples using the H6full schema (structured medications + investigations)."""
+    return "\n".join([
+        "## Examples",
+        "",
+        "Example 1 -- ongoing seizures, dose stated, EEG done:",
+        'Letter excerpt: "She continues to have approximately two episodes per month. EEG showed generalised discharges. Lamotrigine 100mg twice daily."',
+        '{"medications":[{"name":"lamotrigine","dose":"100","unit":"mg","frequency":"twice daily"}],'
+        '"seizure_types":["unknown seizure type"],"epilepsy_diagnosis_type":"epilepsy",'
+        '"current_seizure_frequency":"2 per month","investigations":{"eeg":"generalised discharges","mri":null}}',
+        "",
+        "Example 2 -- seizure-free, no investigations mentioned:",
+        'Letter excerpt: "He has been completely seizure-free for the past ten months since starting levetiracetam 1000mg twice daily."',
+        '{"medications":[{"name":"levetiracetam","dose":"1000","unit":"mg","frequency":"twice daily"}],'
+        '"seizure_types":["seizure free"],"epilepsy_diagnosis_type":"juvenile myoclonic epilepsy",'
+        '"current_seizure_frequency":null,"investigations":{"eeg":null,"mri":null}}',
+        "",
+        "Example 3 -- historical seizures only, now seizure-free, MRI normal:",
+        'Letter excerpt: "Previously had tonic clonic seizures, but has had no further events since sodium valproate was introduced two years ago. MRI was normal."',
+        '{"medications":[{"name":"sodium valproate","dose":null,"unit":null,"frequency":null}],'
+        '"seizure_types":["seizure free"],"epilepsy_diagnosis_type":"generalized epilepsy",'
+        '"current_seizure_frequency":null,"investigations":{"eeg":null,"mri":"normal"}}',
+    ])
+
+
+def build_h6full_prompt(document: dict[str, Any], harness_id: str) -> str:
+    """H6full: extends H6 with structured medication dose/unit/frequency,
+    explicit EEG/MRI investigations, and current seizure frequency.
+    Includes full-schema few-shot examples for calibration.
+    Tests whether larger models can follow a richer schema than H6/H6fs.
+    """
+    schema = (
+        '{"medications":[{"name":"...","dose":"...","unit":"...","frequency":"..."}],'
+        '"seizure_types":[],"epilepsy_diagnosis_type":null,'
+        '"current_seizure_frequency":null,'
+        '"investigations":{"eeg":null,"mri":null}}'
+    )
+    return "\n\n".join(
+        [
+            "Extract clinical fields from this epilepsy clinic letter.",
+            f"Return JSON only with this shape:\n{schema}",
+            (
+                "medications: list current anti-seizure medications only. "
+                "Each entry must have a name. Include dose (number only), unit (mg/mcg/g/ml), "
+                "and frequency (once daily / twice daily / three times daily / nocte / as required) "
+                "if stated; use null for any component not mentioned. "
+                "Use generic drug names where possible."
+            ),
+            (
+                "Seizure types must use only the allowed labels. "
+                "Do not include aura, warning, symptom, medication side effect, "
+                "investigation finding, or differential diagnosis labels as seizure types."
+            ),
+            "Epilepsy diagnosis/type must use one allowed label or null. Do not invent a diagnosis if the letter does not support one.",
+            (
+                'current_seizure_frequency: copy the frequency expression from the letter as a short string '
+                '(e.g. "2 per month", "daily", "every 6 weeks") or null if not stated or patient is seizure-free.'
+            ),
+            (
+                'investigations.eeg: result string (e.g. "normal", "abnormal", "generalised discharges") '
+                "or null if not performed or not mentioned. Same for investigations.mri."
+            ),
+            benchmark_label_block(),
+            _h6full_examples(),
+            f"## Harness\n{harness_id}",
+            "## Source Letter",
+            document["text"],
+        ]
+    )
+
+
 def benchmark_output_schema() -> dict[str, Any]:
     return {
         "name": "benchmark_fields",
@@ -1676,14 +1747,29 @@ def projected_canonical(
     require_present_evidence: bool = False,
 ) -> dict[str, Any]:
     use_evidence_items = harness_id in {"D3_candidate_plus_verifier", "H7_extract_then_normalize"}
-    medication_items = d3_medication_items(payload) if use_evidence_items else [
-        {"value": item, "quote": None}
-        for item in value_list(
-            payload.get("medication_names")
-            or payload.get("current_anti_seizure_medications")
-            or payload.get("current anti-seizure medications")
-        )
-    ]
+    # H6full outputs structured medication objects; all other harnesses use name strings.
+    _raw_meds = payload.get("medications")
+    _has_structured_meds = (
+        isinstance(_raw_meds, list)
+        and any(isinstance(m, dict) and m.get("name") for m in _raw_meds)
+    )
+    if _has_structured_meds:
+        medication_items = [
+            {"value": m["name"], "_structured": m, "quote": None}
+            for m in _raw_meds
+            if isinstance(m, dict) and m.get("name")
+        ]
+    elif use_evidence_items:
+        medication_items = d3_medication_items(payload)
+    else:
+        medication_items = [
+            {"value": item, "quote": None}
+            for item in value_list(
+                payload.get("medication_names")
+                or payload.get("current_anti_seizure_medications")
+                or payload.get("current anti-seizure medications")
+            )
+        ]
     raw_seizure_items = d3_seizure_items(payload) if use_evidence_items else [
         {"value": item, "quote": None}
         for item in value_list(payload.get("seizure_types") or payload.get("seizure_type"))
@@ -1718,22 +1804,44 @@ def projected_canonical(
             epilepsy = None
             epilepsy_item = {"value": None, "quote": None}
     frequency = first_value(payload.get("seizure_frequency") or payload.get("current_seizure_frequency"))
-    investigations = value_list(payload.get("investigations"))
-    eeg = first_value(payload.get("eeg") or payload.get("EEG_result"))
-    mri = first_value(payload.get("mri") or payload.get("MRI_result"))
-    for item in investigations:
-        lowered = item.lower()
-        if "eeg" in lowered and not eeg:
-            eeg = item
-        if ("mri" in lowered or "magnetic resonance" in lowered) and not mri:
-            mri = item
+    # H6full outputs investigations as a dict {"eeg": ..., "mri": ...}; other harnesses use a list.
+    _inv_payload = payload.get("investigations")
+    if isinstance(_inv_payload, dict):
+        eeg = first_value(_inv_payload.get("eeg") or payload.get("eeg") or payload.get("EEG_result"))
+        mri = first_value(_inv_payload.get("mri") or payload.get("mri") or payload.get("MRI_result"))
+    else:
+        investigations = value_list(_inv_payload)
+        eeg = first_value(payload.get("eeg") or payload.get("EEG_result"))
+        mri = first_value(payload.get("mri") or payload.get("MRI_result"))
+        for item in investigations:
+            lowered = item.lower()
+            if "eeg" in lowered and not eeg:
+                eeg = item
+            if ("mri" in lowered or "magnetic resonance" in lowered) and not mri:
+                mri = item
+
+    def _build_med(item: dict[str, Any]) -> dict[str, Any]:
+        if "_structured" in item:
+            m = item["_structured"]
+            return {
+                "name": m.get("name") or "",
+                "dose": str(m["dose"]) if m.get("dose") is not None else None,
+                "dose_unit": str(m.get("unit") or m.get("dose_unit") or "") or None,
+                "frequency": str(m["frequency"]) if m.get("frequency") else None,
+                "status": "current",
+                "missingness": "present",
+                "temporality": "current",
+                "evidence": [],
+                "evidence_event_ids": [],
+            }
+        return medication_from_item(item, document)
 
     return {
         "document_id": document_id,
         "pipeline_id": f"{system_for_harness(harness_id)}_{'evidence_projection' if use_evidence_items else 'relaxed_projection'}",
         "fields": {
             "current_anti_seizure_medications": [
-                medication_from_item(item, document) for item in medication_items if item.get("value")
+                _build_med(item) for item in medication_items if item.get("value")
             ],
             "previous_anti_seizure_medications": [],
             "current_seizure_frequency": {
