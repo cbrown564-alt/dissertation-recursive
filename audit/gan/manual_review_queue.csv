@@ -1,0 +1,138 @@
+check,priority,document_id,detail
+G1,high,GAN6216,label='4 per 6 week' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN9114,label='1 per 4 to 6 week' ref0='seizure free for multiple month' type=ref_seizure_free_label_rate
+G1,high,GAN5791,label='1 per month' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN7475,label='2 per 6 month' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN6395,label='1 to 2 per month' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN12963,label='unknown' ref0='7 per 5 month' type=ref_specific_label_unknown
+G1,high,GAN6775,label='1 per 5 month' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN7005,label='2 per 6 month' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN8264,label='seizure free for 4 month' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN6889,label='multiple per week' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN7316,label='1 to 2 per month' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN7859,label='unknown' ref0='seizure free for multiple month' type=ref_specific_label_unknown
+G1,high,GAN6252,label='2 to 4 per month' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN6836,label='1 per week' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN5764,label='3 per month' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN869,label='multiple per month' ref0='1 per year' type=ref_rate_differs
+G1,high,GAN3355,label='1 per 3 month' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN9096,label='unknown' ref0='seizure free for multiple month' type=ref_specific_label_unknown
+G1,high,GAN6209,label='multiple per day' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN5696,label='3 per 4 month' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN6377,label='3 per 6 month' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN6787,label='8 per 6 week' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN6330,label='multiple per month' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN5763,label='2 per month' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN5540,label='1 per 4 to 5 month' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN5866,label='4 per 6 week' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN6187,label='2 per week' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN6026,label='3 per 2 month' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN6952,label='2 per week' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN5766,label='multiple per week' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN13893,label='2 per year' ref0='seizure free for multiple month' type=ref_seizure_free_label_rate
+G1,high,GAN7232,"label='6 to 8 cluster per month, multiple per cluster' ref0='unknown' type=ref_unknown_label_specific"
+G1,high,GAN6288,label='2 per 10 week' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN6852,label='4 to 6 per month' ref0='seizure free for multiple month' type=ref_seizure_free_label_rate
+G1,high,GAN7386,label='7 per 8 week' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN6509,label='1 per week' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN1317,"label='unknown, multiple per cluster' ref0='multiple per day' type=ref_rate_differs"
+G1,high,GAN6180,label='multiple per week' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN10621,"label='multiple cluster per week, 4 to 6 per cluster' ref0='unknown' type=ref_unknown_label_specific"
+G1,high,GAN3380,label='5 per 3 month' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN10434,"label='multiple cluster per week, 2 to 3 per cluster' ref0='unknown' type=ref_unknown_label_specific"
+G1,high,GAN5873,label='multiple per week' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN4022,label='8 per month' ref0='1 per month' type=ref_rate_differs
+G1,high,GAN7196,label='1 per week' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN6684,label='3 per 4 month' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN4229,label='multiple per week' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN5837,"label='2 cluster per 3 week, multiple per cluster' ref0='unknown' type=ref_unknown_label_specific"
+G1,high,GAN5964,label='1 per week' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN8419,label='1 to 2 per week' ref0='seizure free for multiple month' type=ref_seizure_free_label_rate
+G1,high,GAN5829,label='4 per 3 month' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN5534,label='1 per multiple month' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN5305,label='2 per 6 month' ref0='seizure free for multiple month' type=ref_seizure_free_label_rate
+G1,high,GAN11334,label='1 per 2 month' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN3452,label='6 to 8 per month' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN7194,label='2 to 3 per week' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN4027,label='1 per 3 to 4 week' ref0='1 per month' type=ref_rate_differs
+G1,high,GAN7581,label='2 to 3 per week' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN7280,label='5 per month' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN5682,label='2 to 4 per month' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN5908,label='1 per 3 to 4 week' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN7431,label='1 per month' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN5954,label='2 per week' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN6929,label='multiple per week' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN7615,label='3 to 7 per month' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN6319,label='1 per week' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN9109,label='unknown' ref0='seizure free for multiple month' type=ref_specific_label_unknown
+G1,high,GAN5527,label='1 per year' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN8265,label='seizure free for 6 month' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN10445,"label='9 cluster per month, 2 to 4 per cluster' ref0='unknown' type=ref_unknown_label_specific"
+G1,high,GAN7318,label='1 per 2 to 3 week' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN5961,label='1 per 2 to 3 week' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN10517,"label='3 to 4 cluster per week, multiple per cluster' ref0='unknown' type=ref_unknown_label_specific"
+G1,high,GAN8432,label='1 per 2 to 3 month' ref0='seizure free for multiple month' type=ref_seizure_free_label_rate
+G1,high,GAN7420,label='1 to 2 per 2 week' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN6153,label='9 per month' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN7670,label='multiple per week' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN8799,label='unknown' ref0='seizure free for multiple month' type=ref_specific_label_unknown
+G1,high,GAN4243,label='1 per 2 to 3 week' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN6763,label='1 per week' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN7192,label='multiple per week' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN5714,label='2 per 8 week' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN6065,label='5 per month' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN7275,label='1 per month' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN5921,label='1 per 6 to 8 week' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN5957,label='3 per 8 week' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN7993,"label='unknown, 2 to 3 per cluster' ref0='seizure free for multiple month' type=ref_seizure_free_label_rate"
+G1,high,GAN6360,label='3 per week' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN6701,label='4 per 3 week' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN748,label='1 per 2 month' ref0='1 per day' type=ref_rate_differs
+G1,high,GAN5528,label='1 per month' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN6251,label='1 per 1 to 2 month' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN6677,label='3 per 4 month' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN5767,label='1 per 1 to 2 week' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN5906,"label='1 cluster per 3 week, multiple per cluster' ref0='unknown' type=ref_unknown_label_specific"
+G1,high,GAN6661,label='0.5 per week' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN7202,label='10 to 16 per month' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN6706,label='2 per 8 week' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN4250,label='3 to 4 per week' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN8375,label='unknown' ref0='seizure free for multiple month' type=ref_specific_label_unknown
+G1,high,GAN6002,label='4 per 6 week' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN6112,label='3 to 5 per month' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN6204,label='2 per month' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN13796,label='unknown' ref0='seizure free for multiple month' type=ref_specific_label_unknown
+G1,high,GAN6738,label='1 per 6 to 8 week' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN10630,"label='multiple cluster per 2 week, 5 per cluster' ref0='unknown' type=ref_unknown_label_specific"
+G1,high,GAN7401,"label='2 cluster per 6 week, 1 to 2 per cluster' ref0='unknown' type=ref_unknown_label_specific"
+G1,high,GAN7392,label='2 to 4 per week' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN7712,label='2 per 3 month' ref0='seizure free for multiple month' type=ref_seizure_free_label_rate
+G1,high,GAN6137,label='1 per 2 week' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN8002,label='1 per 6 to 8 week' ref0='seizure free for multiple month' type=ref_seizure_free_label_rate
+G1,high,GAN5827,label='multiple per week' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN9002,label='7 per year' ref0='seizure free for multiple month' type=ref_seizure_free_label_rate
+G1,high,GAN7573,label='1 per 2 week' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN8013,label='1 per 6 to 8 week' ref0='seizure free for multiple month' type=ref_seizure_free_label_rate
+G1,high,GAN6296,label='3 per 4 month' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN6022,label='2 to 4 per 6 week' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN7061,label='2 per 6 week' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN6358,label='seizure free for 15 to 16 months' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN7541,"label='1 cluster per 3 to 4 week, multiple per cluster' ref0='unknown' type=ref_unknown_label_specific"
+G1,high,GAN6094,label='3 per month' ref0='unknown' type=ref_unknown_label_specific
+G1,high,GAN9103,label='unknown' ref0='seizure free for multiple month' type=ref_specific_label_unknown
+G5,high,GAN14454,seizure_free_in_analysis_but_label_is_rate
+G5,high,GAN5791,arithmetic_mismatch
+G5,high,GAN13064,seizure_free_in_analysis_but_label_is_rate; historical_language_may_affect_current_label
+G5,high,GAN13051,seizure_free_in_analysis_but_label_is_rate
+G5,high,GAN6775,seizure_free_in_analysis_but_label_is_rate
+G5,high,GAN16750,seizure_free_in_analysis_but_label_is_rate
+G5,high,GAN14354,seizure_free_in_analysis_but_label_is_rate
+G5,high,GAN14581,seizure_free_in_analysis_but_label_is_rate
+G5,high,GAN3355,arithmetic_mismatch
+G5,high,GAN14611,seizure_free_in_analysis_but_label_is_rate
+G5,high,GAN14748,seizure_free_in_analysis_but_label_is_rate
+G5,high,GAN6153,arithmetic_mismatch
+G5,high,GAN14370,seizure_free_in_analysis_but_label_is_rate
+G5,high,GAN5763,arithmetic_mismatch
+G7,high,GAN7961,active_seizures_and_sf_in_same_letter
+G7,high,GAN7834,active_seizures_and_sf_in_same_letter

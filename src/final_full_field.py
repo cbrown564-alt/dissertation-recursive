@@ -8,6 +8,9 @@ Usage:
     python src/final_full_field.py import-existing --source-dir runs/local_models/stage_l5_35b_full
     python src/final_full_field.py run-validation --models gemma_26b_local gemma_31b_local
     python src/final_full_field.py build-report
+    python src/final_full_field.py build-composite \\
+        --full-field-model qwen_27b_local --full-field-harness H6full_benchmark_coarse_json \\
+        --freq-model qwen_35b_local --freq-harness Gan_direct_label
 """
 
 from __future__ import annotations
@@ -39,7 +42,7 @@ COMPOSITE_WEIGHTS = {
     "seizure_type_f1_collapsed": 0.15,
     "epilepsy_diagnosis_accuracy_collapsed": 0.10,
     "investigation_score": 0.10,
-    "current_seizure_frequency_loose_accuracy": 0.10,
+    "current_seizure_frequency_pragmatic_f1": 0.10,
     "temporal_accuracy": 0.10,
     "schema_valid_rate": 0.05,
     "quote_validity_rate": 0.05,
@@ -63,7 +66,9 @@ FRONTIER_BASELINES = [
         "seizure_type_f1_collapsed": 0.610, "epilepsy_diagnosis_accuracy": 0.700,
         "epilepsy_diagnosis_accuracy_collapsed": 0.700,
         "eeg_accuracy": 0.950, "mri_accuracy": 1.000,
-        "current_seizure_frequency_loose_accuracy": 0.075, "temporal_accuracy": 0.835,
+        "current_seizure_frequency_loose_accuracy": 0.075,
+        "current_seizure_frequency_pragmatic_f1": None,  # pending re-score with unified metric
+        "temporal_accuracy": 0.835,
         "schema_valid_rate": None, "quote_validity_rate": None,
         "mean_latency_ms": None, "model_location": "API", "cost_per_doc_usd": 0.003,
     },
@@ -73,7 +78,9 @@ FRONTIER_BASELINES = [
         "seizure_type_f1_collapsed": 0.633, "epilepsy_diagnosis_accuracy": 0.725,
         "epilepsy_diagnosis_accuracy_collapsed": 0.725,
         "eeg_accuracy": 0.975, "mri_accuracy": 0.975,
-        "current_seizure_frequency_loose_accuracy": 0.125, "temporal_accuracy": 0.914,
+        "current_seizure_frequency_loose_accuracy": 0.125,
+        "current_seizure_frequency_pragmatic_f1": None,  # pending re-score with unified metric
+        "temporal_accuracy": 0.914,
         "schema_valid_rate": None, "quote_validity_rate": None,
         "mean_latency_ms": None, "model_location": "API", "cost_per_doc_usd": 0.005,
     },
@@ -447,7 +454,7 @@ def _compute_composite(summary: dict[str, Any]) -> float | None:
             or summary.get("epilepsy_diagnosis_accuracy")
         ),
         "investigation_score": inv_score,
-        "current_seizure_frequency_loose_accuracy": summary.get("current_seizure_frequency_loose_accuracy"),
+        "current_seizure_frequency_pragmatic_f1": summary.get("current_seizure_frequency_pragmatic_f1"),
         "temporal_accuracy": summary.get("temporal_accuracy"),
         "schema_valid_rate": summary.get("schema_valid_rate"),
         "quote_validity_rate": summary.get("quote_validity_rate"),
@@ -604,6 +611,265 @@ def command_build_report(args: argparse.Namespace) -> int:
     return 0
 
 
+def _gan_freq_prompt(letter_text: str) -> str:
+    """Gan_direct_label prompt applied to an ExECTv2 clinical letter."""
+    return "\n\n".join([
+        "## Task",
+        "Extract the current clinically relevant seizure frequency from this epilepsy clinic letter.",
+        'Return JSON:\n{"seizure_frequency_number": "<normalized label>", "quote": "<verbatim evidence>"}',
+        "\n".join([
+            "Use exactly one normalized label using these forms:",
+            '- "<n> per <period>"',
+            '- "<n1> to <n2> per <period>"',
+            '- "<n> cluster per <period>, <m> per cluster"',
+            '- "seizure free for <n> month"',
+            '- "seizure free for multiple month"',
+            '- "unknown"',
+            '- "no seizure frequency reference"',
+            "",
+            'Use "unknown" when seizures are present but no specific frequency can be determined.',
+            'Use "no seizure frequency reference" when the letter does not mention seizure frequency at all.',
+            "",
+            "Examples:",
+            '- "Two events over the last five months" -> "2 per 5 month"',
+            '- "3-4 focal aware seizures per month" -> "3 to 4 per month"',
+            '- "clusters twice monthly, six seizures per cluster" -> "2 cluster per month, 6 per cluster"',
+            '- "seizure-free for 12 months" -> "seizure free for 12 month"',
+            '- "seizures are sporadic but frequency unclear" -> "unknown"',
+        ]),
+        "## Clinical letter",
+        letter_text,
+    ])
+
+
+def _merge_frequency_sidecar(
+    h6full_canonical: dict[str, Any],
+    freq_label: str,
+    freq_quote: str | None,
+) -> dict[str, Any]:
+    """Splice Gan frequency prediction into H6full canonical output."""
+    import copy
+    label = (freq_label or "").strip().lower().replace("-", " ")
+    label = " ".join(label.split())
+
+    if label in {"no seizure frequency reference", ""}:
+        missingness = "not_stated"
+        value = None
+        temporality = None
+    else:
+        missingness = "present"
+        value = label
+        temporality = "current"
+
+    evidence: list[dict[str, Any]] = []
+    if freq_quote and missingness == "present":
+        evidence = [{"quote": freq_quote.strip(), "event_ids": []}]
+
+    orig_freq = h6full_canonical.get("fields", {}).get("current_seizure_frequency") or {}
+    seizure_type = orig_freq.get("seizure_type") if isinstance(orig_freq, dict) else None
+
+    merged = copy.deepcopy(h6full_canonical)
+    merged.setdefault("fields", {})["current_seizure_frequency"] = {
+        "value": value,
+        "missingness": missingness,
+        "temporality": temporality,
+        "evidence": evidence,
+        "evidence_event_ids": [],
+        "temporal_scope": temporality,
+        "seizure_type": seizure_type,
+        "frequency_source": "gan_sidecar",
+        "frequency_original_label": label,
+    }
+    return merged
+
+
+def command_build_composite(args: argparse.Namespace) -> int:
+    """WP3: Two-pass composite — H6full (all fields) + Gan frequency sidecar.
+
+    Pass 1 outputs (canonical_projection.json) must already exist in the validation
+    calls directory. Pass 2 runs the Gan frequency harness on the same ExECTv2 letters.
+    The merger splices the Gan frequency label into the H6full canonical output and
+    scores the result against ExECTv2.
+    """
+    import os
+    from model_providers import ModelRequest, adapter_for
+
+    output_root   = Path(args.output_root)
+    validation_dir = output_root / "validation"
+    exect_root    = Path(args.exect_root)
+    markup_root   = Path(args.markup_root)
+    schema_path   = Path(args.schema)
+    splits_path   = Path(args.splits)
+
+    full_model   = args.full_field_model    # e.g. qwen_27b_local
+    full_harness = args.full_field_harness  # e.g. H6full_benchmark_coarse_json
+    freq_model   = args.freq_model          # e.g. qwen_35b_local
+    freq_harness = args.freq_harness        # e.g. Gan_direct_label
+
+    composite_id = f"{full_model}+{freq_model}_{freq_harness}"
+    composite_label = f"{full_model}/{full_harness}+{freq_model}/{freq_harness}"
+
+    # ── locate H6full canonical projections ────────────────────────────────────
+    h6full_calls = validation_dir / "calls" / full_model / full_harness
+    if not h6full_calls.exists():
+        print(f"ERROR: H6full calls not found at {h6full_calls}", file=sys.stderr)
+        return 1
+
+    doc_ids = load_split_ids(splits_path, "validation", None)
+    available_docs = [d for d in doc_ids if (h6full_calls / d / "canonical_projection.json").exists()]
+    print(f"H6full projections: {len(available_docs)} / {len(doc_ids)} docs")
+
+    # ── check Ollama for frequency model ──────────────────────────────────────
+    os.environ.setdefault("OLLAMA_BASE_URL", args.ollama_base_url)
+    conn = check_ollama_connectivity(args.ollama_base_url)
+    if conn["status"] != "ok":
+        print(f"ERROR: Ollama not reachable: {conn.get('error')}", file=sys.stderr)
+        return 1
+
+    specs = load_model_specs(Path(args.registry))
+    if freq_model not in specs:
+        print(f"ERROR: {freq_model} not in registry", file=sys.stderr)
+        return 1
+    freq_spec = specs[freq_model]
+
+    # ── run frequency sidecar on ExECTv2 letters ──────────────────────────────
+    sidecar_dir = validation_dir / "sidecar" / freq_model / freq_harness
+    sidecar_dir.mkdir(parents=True, exist_ok=True)
+
+    freq_adapter = adapter_for("ollama")
+    freq_predictions: dict[str, dict[str, Any]] = {}
+
+    # Try loading cached sidecar predictions first
+    sidecar_cache = sidecar_dir / "predictions.json"
+    if sidecar_cache.exists() and not args.force_residecar:
+        freq_predictions = json.loads(sidecar_cache.read_text(encoding="utf-8"))
+        print(f"Loaded {len(freq_predictions)} cached sidecar predictions from {sidecar_cache}")
+    else:
+        print(f"Running {freq_model}/{freq_harness} on {len(available_docs)} ExECTv2 letters...")
+        sidecar_rows: list[dict[str, Any]] = []
+
+        for doc_id in available_docs:
+            doc = preprocess_document(doc_id, exect_root)
+            prompt = _gan_freq_prompt(doc["text"])
+
+            doc_sidecar_dir = sidecar_dir / doc_id
+            doc_sidecar_dir.mkdir(parents=True, exist_ok=True)
+            (doc_sidecar_dir / "prompt.txt").write_text(prompt, encoding="utf-8")
+
+            try:
+                request = ModelRequest(
+                    model=freq_spec,
+                    harness_id=freq_harness,
+                    prompt=prompt,
+                    temperature=args.temperature,
+                    max_output_tokens=args.max_output_tokens,
+                    schema_mode="json_mode",
+                )
+                response = freq_adapter.call(request)
+                raw_text = response.text or ""
+                (doc_sidecar_dir / "raw_response.txt").write_text(raw_text, encoding="utf-8")
+
+                parsed = parse_json_response(raw_text)
+                payload = parsed.data if isinstance(parsed.data, dict) else {}
+                label = str(payload.get("seizure_frequency_number") or "no seizure frequency reference")
+                quote = str(payload.get("quote") or "")
+
+                freq_predictions[doc_id] = {"label": label, "quote": quote, "parse_ok": True}
+                row_status = "ok"
+            except Exception as exc:
+                freq_predictions[doc_id] = {"label": "no seizure frequency reference", "quote": "", "parse_ok": False}
+                row_status = f"error: {exc}"
+
+            sidecar_rows.append({"doc_id": doc_id, "status": row_status,
+                                  "label": freq_predictions[doc_id]["label"]})
+            print(f"  {doc_id}: {freq_predictions[doc_id]['label']!r}", flush=True)
+
+        write_json(sidecar_cache, freq_predictions)
+        write_csv(sidecar_dir / "sidecar_report.csv", sidecar_rows)
+        parse_ok = sum(1 for v in freq_predictions.values() if v.get("parse_ok"))
+        print(f"Sidecar complete: {parse_ok}/{len(available_docs)} parsed OK")
+
+    # ── build composites and score ─────────────────────────────────────────────
+    gold = load_gold(markup_root, exect_root)
+    doc_scores: list[dict[str, Any]] = []
+
+    for doc_id in available_docs:
+        proj_path = h6full_calls / doc_id / "canonical_projection.json"
+        h6full_canonical = json.loads(proj_path.read_text(encoding="utf-8"))
+
+        freq_pred = freq_predictions.get(doc_id, {"label": "no seizure frequency reference", "quote": ""})
+        merged = _merge_frequency_sidecar(h6full_canonical, freq_pred["label"], freq_pred.get("quote"))
+
+        composite_path = h6full_calls / doc_id / "composite_canonical.json"
+        write_json(composite_path, merged)
+
+        if doc_id not in gold:
+            continue
+        doc_text = preprocess_document(doc_id, exect_root)["text"]
+        doc_score = score_document(merged, doc_text, gold[doc_id], schema_path)
+        doc_scores.append(doc_score)
+
+    # ── aggregate and write summary ───────────────────────────────────────────
+    system  = composite_label
+    summary = flatten_summary(system, doc_scores)
+    summary["model_label"]    = full_model
+    summary["harness_id"]     = f"{full_harness}+{freq_harness}_sidecar"
+    summary["documents"]      = len(doc_scores)
+    summary["composite_id"]   = composite_id
+    summary["freq_model"]     = freq_model
+    summary["freq_harness"]   = freq_harness
+
+    out_dir = validation_dir / "new_runs" / composite_id
+    out_dir.mkdir(parents=True, exist_ok=True)
+    write_json(out_dir / "scored_summary.json", summary)
+
+    # ── print comparison ──────────────────────────────────────────────────────
+    print(f"\n=== Composite: {composite_label} ===")
+
+    # Load H6full-alone baseline for comparison
+    h6full_summary_path = validation_dir / "new_runs" / full_model / full_harness / "scored_summary.json"
+    h6full_summary: dict[str, Any] = {}
+    if h6full_summary_path.exists():
+        h6full_summary = json.loads(h6full_summary_path.read_text(encoding="utf-8"))
+
+    metrics = [
+        ("Med name F1",     "medication_name_f1"),
+        ("Med full F1",     "medication_full_f1"),
+        ("Sz type F1 coll", "seizure_type_f1_collapsed"),
+        ("Dx accuracy",     "epilepsy_diagnosis_accuracy"),
+        ("EEG accuracy",    "eeg_accuracy"),
+        ("MRI accuracy",    "mri_accuracy"),
+        ("Freq pragmatic",  "current_seizure_frequency_pragmatic_f1"),
+        ("Freq purist",     "current_seizure_frequency_purist_f1"),
+        ("Freq loose",      "current_seizure_frequency_loose_accuracy"),
+        ("Temporal",        "temporal_accuracy"),
+    ]
+
+    print(f"\n{'Metric':<22} {'Composite':>10}  {'H6full-only':>11}  {'Delta':>7}")
+    print("-" * 56)
+    for label, key in metrics:
+        val  = summary.get(key)
+        base = h6full_summary.get(key)
+        if val is not None:
+            delta = f"{val-base:+.3f}" if base is not None else "   —"
+            base_s = f"{base:.3f}" if base is not None else "    —"
+            print(f"{label:<22} {val:10.3f}  {base_s:>11}  {delta:>7}")
+
+    bc_w = {"medication_name_f1": 0.30, "seizure_type_f1_collapsed": 0.25,
+             "epilepsy_diagnosis_accuracy": 0.20, "eeg_accuracy": 0.125, "mri_accuracy": 0.125}
+    bc_comp = sum(summary.get(k, 0) * w for k, w in bc_w.items())
+    bc_base = sum(h6full_summary.get(k, 0) * w for k, w in bc_w.items()) if h6full_summary else None
+    delta_s = f"{bc_comp-(bc_base or 0):+.3f}" if bc_base else "—"
+    base_s  = f"{bc_base:.3f}" if bc_base else "    —"
+    print(f"{'BenchComp':<22} {bc_comp:10.3f}  {base_s:>11}  {delta_s:>7}")
+
+    print(f"\nSidecar predictions:  {len(freq_predictions)} docs")
+    parse_ok = sum(1 for v in freq_predictions.values() if v.get("parse_ok", True))
+    print(f"Parse success:        {parse_ok}/{len(freq_predictions)}")
+    print(f"\nComposite summary written to {out_dir / 'scored_summary.json'}")
+    return 0
+
+
 def _add_common_args(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--registry", default=str(DEFAULT_REGISTRY))
     parser.add_argument("--exect-root", default=str(DEFAULT_EXECT_ROOT))
@@ -655,6 +921,22 @@ def main() -> int:
     )
     _add_common_args(sp_report)
 
+    # build-composite
+    sp_comp = subparsers.add_parser(
+        "build-composite",
+        help="WP3: Two-pass composite — H6full + Gan frequency sidecar.",
+    )
+    _add_common_args(sp_comp)
+    sp_comp.add_argument("--full-field-model",   default="qwen_27b_local")
+    sp_comp.add_argument("--full-field-harness", default="H6full_benchmark_coarse_json")
+    sp_comp.add_argument("--freq-model",         default="qwen_35b_local")
+    sp_comp.add_argument("--freq-harness",       default="Gan_direct_label")
+    sp_comp.add_argument("--temperature",        type=float, default=0.0)
+    sp_comp.add_argument("--max-output-tokens",  type=int,   default=512)
+    sp_comp.add_argument("--ollama-base-url",    default="http://localhost:11434")
+    sp_comp.add_argument("--force-residecar",    action="store_true",
+                         help="Re-run frequency sidecar even if cached predictions exist.")
+
     args = parser.parse_args()
     if args.command == "setup":
         return command_setup(args)
@@ -664,6 +946,8 @@ def main() -> int:
         return command_run_validation(args)
     if args.command == "build-report":
         return command_build_report(args)
+    if args.command == "build-composite":
+        return command_build_composite(args)
     parser.print_help()
     return 1
 

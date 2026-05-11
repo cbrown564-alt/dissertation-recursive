@@ -1,7 +1,8 @@
-"""Smoke tests for gan_frequency label parser and category mappings.
+"""Smoke tests for gan_frequency label parser, category mappings, and retrieval harnesses.
 
-Covers the label forms listed in PARSER_CONTRACT and the edge cases
-from the minimal-repo comparison (WP2 acceptance criteria).
+Covers the label forms listed in PARSER_CONTRACT, the edge cases
+from the minimal-repo comparison (WP2 acceptance criteria), and
+the retrieval span selector and prompt constructors.
 """
 from __future__ import annotations
 
@@ -10,7 +11,15 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
-from gan_frequency import label_to_categories, label_to_monthly_frequency, UNKNOWN_X
+from gan_frequency import (
+    GanExample,
+    label_to_categories,
+    label_to_monthly_frequency,
+    retrieve_frequency_spans,
+    gan_retrieval_highlight_prompt,
+    gan_retrieval_only_ablation_prompt,
+    UNKNOWN_X,
+)
 
 
 def _cats(label: str) -> tuple[str, str]:
@@ -67,3 +76,74 @@ def test_2_per_month_is_frequent() -> None:
 
 def test_1_per_week_is_frequent() -> None:
     assert _cats("1 per week")[0] == "frequent"
+
+
+# --- Retrieval span selector ---
+
+_EXAMPLE = GanExample(
+    document_id="test_doc",
+    source_row_index=0,
+    text=(
+        "Dear Dr Smith,\n"
+        "Thank you for reviewing this patient.\n"
+        "She has been having 3 seizures per month.\n"
+        "She remains on levetiracetam 500mg twice daily.\n"
+        "She has been seizure-free for the last 6 months.\n"
+    ),
+    gold_label="3 per month",
+    evidence_reference="3 seizures per month",
+    analysis="",
+)
+
+_NO_FREQ_EXAMPLE = GanExample(
+    document_id="test_doc_no_freq",
+    source_row_index=1,
+    text="Dear Dr Jones,\nThank you for seeing this patient with epilepsy.\nMedication unchanged.",
+    gold_label="no seizure frequency reference",
+    evidence_reference="",
+    analysis="",
+)
+
+
+def test_retrieve_spans_finds_frequency_sentence() -> None:
+    spans = retrieve_frequency_spans(_EXAMPLE.text)
+    assert any("3 seizures per month" in s for s in spans), spans
+
+
+def test_retrieve_spans_finds_seizure_free_sentence() -> None:
+    spans = retrieve_frequency_spans(_EXAMPLE.text)
+    assert any("seizure-free" in s.lower() for s in spans), spans
+
+
+def test_retrieve_spans_empty_for_no_frequency_text() -> None:
+    spans = retrieve_frequency_spans(_NO_FREQ_EXAMPLE.text)
+    assert spans == [], spans
+
+
+def test_retrieval_highlight_prompt_includes_spans_and_full_letter() -> None:
+    spans = retrieve_frequency_spans(_EXAMPLE.text)
+    prompt = gan_retrieval_highlight_prompt(_EXAMPLE, spans)
+    assert "Retrieved candidate spans" in prompt
+    assert "Full clinical letter" in prompt
+    assert _EXAMPLE.text in prompt
+    for span in spans:
+        assert span in prompt
+
+
+def test_retrieval_highlight_prompt_no_spans_has_fallback_note() -> None:
+    prompt = gan_retrieval_highlight_prompt(_EXAMPLE, [])
+    assert "none found" in prompt
+    assert "Full clinical letter" in prompt
+
+
+def test_retrieval_only_ablation_with_spans_excludes_full_letter() -> None:
+    spans = ["She has been having 3 seizures per month."]
+    prompt = gan_retrieval_only_ablation_prompt(_EXAMPLE, spans, fallback_used=False)
+    assert "Retrieved seizure frequency spans" in prompt
+    assert _EXAMPLE.text not in prompt
+
+
+def test_retrieval_only_ablation_fallback_includes_full_letter() -> None:
+    prompt = gan_retrieval_only_ablation_prompt(_EXAMPLE, [], fallback_used=True)
+    assert "full-letter fallback" in prompt
+    assert _EXAMPLE.text in prompt

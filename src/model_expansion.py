@@ -24,6 +24,7 @@ from evaluate import DEFAULT_MARKUP_ROOT, GoldDocument, build_field_prf_table, f
 from intake import DEFAULT_EXECT_ROOT, DEFAULT_SPLITS, preprocess_document
 from model_providers import ModelRequest, TokenUsage, adapter_for, estimate_cost, write_response_log
 from model_registry import DEFAULT_REGISTRY, load_model_specs, write_registry_snapshot
+from normalization import canonical_investigation_result as _canonical_inv
 from validate_extraction import DEFAULT_SCHEMA, normalize_text
 from validate_extraction import validate_extraction
 
@@ -284,19 +285,26 @@ def _h6full_examples() -> str:
     return "\n".join([
         "## Examples",
         "",
-        "Example 1 -- ongoing seizures, dose stated, EEG done:",
+        "Example 1 -- named current seizure type, frequency stated, EEG done:",
+        'Letter excerpt: "She continues to have focal impaired awareness seizures approximately twice a month. '
+        'EEG showed left temporal spikes. Lamotrigine 100mg twice daily."',
+        '{"medications":[{"name":"lamotrigine","dose":"100","unit":"mg","frequency":"twice daily"}],'
+        '"seizure_types":["focal seizure"],"epilepsy_diagnosis_type":"focal epilepsy",'
+        '"current_seizure_frequency":"2 per month","investigations":{"eeg":"abnormal","mri":null}}',
+        "",
+        "Example 2 -- seizures ongoing but type not specified in letter:",
         'Letter excerpt: "She continues to have approximately two episodes per month. EEG showed generalised discharges. Lamotrigine 100mg twice daily."',
         '{"medications":[{"name":"lamotrigine","dose":"100","unit":"mg","frequency":"twice daily"}],'
         '"seizure_types":["unknown seizure type"],"epilepsy_diagnosis_type":"epilepsy",'
-        '"current_seizure_frequency":"2 per month","investigations":{"eeg":"generalised discharges","mri":null}}',
+        '"current_seizure_frequency":"2 per month","investigations":{"eeg":"abnormal","mri":null}}',
         "",
-        "Example 2 -- seizure-free, no investigations mentioned:",
+        "Example 3 -- currently seizure-free, no investigations mentioned:",
         'Letter excerpt: "He has been completely seizure-free for the past ten months since starting levetiracetam 1000mg twice daily."',
         '{"medications":[{"name":"levetiracetam","dose":"1000","unit":"mg","frequency":"twice daily"}],'
         '"seizure_types":["seizure free"],"epilepsy_diagnosis_type":"juvenile myoclonic epilepsy",'
         '"current_seizure_frequency":null,"investigations":{"eeg":null,"mri":null}}',
         "",
-        "Example 3 -- historical seizures only, now seizure-free, MRI normal:",
+        "Example 4 -- letter mentions past seizure type but patient is now seizure-free:",
         'Letter excerpt: "Previously had tonic clonic seizures, but has had no further events since sodium valproate was introduced two years ago. MRI was normal."',
         '{"medications":[{"name":"sodium valproate","dose":null,"unit":null,"frequency":null}],'
         '"seizure_types":["seizure free"],"epilepsy_diagnosis_type":"generalized epilepsy",'
@@ -329,6 +337,10 @@ def build_h6full_prompt(document: dict[str, Any], harness_id: str) -> str:
             ),
             (
                 "Seizure types must use only the allowed labels. "
+                "Include only the patient's CURRENT seizure types as documented in this letter — "
+                "do not include historical seizure types that are no longer occurring. "
+                "If the patient has seizures but the specific type is not described or is unclear in the letter, "
+                "use 'unknown seizure type'. "
                 "Do not include aura, warning, symptom, medication side effect, "
                 "investigation finding, or differential diagnosis labels as seizure types."
             ),
@@ -338,8 +350,9 @@ def build_h6full_prompt(document: dict[str, Any], harness_id: str) -> str:
                 '(e.g. "2 per month", "daily", "every 6 weeks") or null if not stated or patient is seizure-free.'
             ),
             (
-                'investigations.eeg: result string (e.g. "normal", "abnormal", "generalised discharges") '
-                "or null if not performed or not mentioned. Same for investigations.mri."
+                'investigations.eeg: normalized result — use "normal", "abnormal", or null. '
+                "Do not copy the raw EEG description; classify it as normal or abnormal. "
+                "Same for investigations.mri."
             ),
             benchmark_label_block(),
             _h6full_examples(),
@@ -1619,8 +1632,8 @@ def scalar_field(value: str | None, temporality: str = "current") -> dict[str, A
 
 
 def investigation_field(value: str | None) -> dict[str, Any]:
-    text = (value or "").lower()
-    result = "abnormal" if "abnormal" in text else "normal" if "normal" in text else "not_stated"
+    normalized = _canonical_inv(value)
+    result = normalized if normalized in {"normal", "abnormal", "uncertain"} else "not_stated"
     status = "completed" if result in {"normal", "abnormal"} else "not_stated"
     return {
         "status": status,

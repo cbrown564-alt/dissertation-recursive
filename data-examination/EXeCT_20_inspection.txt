@@ -1,0 +1,259 @@
+## Bottom line
+
+**The labels are useful but not uniformly high quality.** They look clinically informed and often capture the right entity class and normalized concept, but the uploaded 20 JSON files contain enough span-boundary defects, duplicate/conflicting labels, under-specified CUIPhrases, missing attributes, and clinically meaningful inconsistencies that I would **not treat them as clean gold labels without review**.
+
+The source paper describes a manually reviewed synthetic epilepsy clinic-letter corpus: 200 synthetic letters, double annotated by clinicians/researchers using Markup and a UMLS-based epilepsy concept list, then reviewed into a gold-standard set. It also reports that human inter-annotator agreement was only F1 0.73, emphasizing that the task is intrinsically difficult. ([PubMed][1])
+
+For the 20 uploaded files, I found **218 annotations**:
+
+| Entity type      | Count |
+| ---------------- | ----: |
+| PatientHistory   |    61 |
+| Diagnosis        |    55 |
+| SeizureFrequency |    32 |
+| Prescription     |    30 |
+| Investigations   |    25 |
+| BirthHistory     |     7 |
+| Onset            |     4 |
+| EpilepsyCause    |     2 |
+| WhenDiagnosed    |     2 |
+
+## Main quality judgement
+
+I would grade these labels as:
+
+**Conceptual/clinical coverage: moderate to good**
+They cover the expected epilepsy-letter domains: diagnoses, seizure types/frequency, medications, investigations, causes, onset, birth/febrile seizure history, and comorbidities.
+
+**Span quality: mixed to poor in places**
+A surprisingly large fraction of labels include partial words, trailing separators, or start mid-token.
+
+**Attribute quality: mixed**
+Most attributes are present and structured, but there are meaningful conflicts, missing CUIs, under-specified CUIPhrases, and some incorrect drug names/doses.
+
+**Training-data suitability: acceptable only after cleaning**
+For coarse entity recognition, the files may be usable. For high-precision clinical NLP, temporal seizure-frequency extraction, dose extraction, or CUI-level normalization, they need audit and correction.
+
+---
+
+# 1. Span-boundary errors are frequent
+
+All 218 annotations have internally consistent `end_index - start_index == len(text)`, so the JSON is structurally coherent. The problem is that many selected spans appear poorly bounded.
+
+I found:
+
+| Span issue                   | Count |
+| ---------------------------- | ----: |
+| Ends with hyphen/separator   |    37 |
+| Ends in a truncated word     |     9 |
+| Starts mid-word              |     3 |
+| Starts with hyphen/separator |     2 |
+
+Some trailing hyphens may reflect whitespace converted to hyphen during export, but they still degrade label quality if these are used for exact-span training.
+
+Examples:
+
+* EA0181 has a SeizureFrequency span `"ocal-dyscognitive-seizures"` starting one character late, while the corresponding Diagnosis span is correctly `"focal-dyscognitive-seizures"`; this is a clear boundary error. 
+* EA0184 has `"typical-absenc"` and `"typical-absen"` for Diagnosis and SeizureFrequency, both truncated rather than selecting the full phrase `"typical absences"`. 
+* EA0188 has a PatientHistory label over `"eiz"` and a Diagnosis label over `"ondary-generalised-seiz"`, both start/end mid-token. 
+* EA0186 includes `"epileps"` for WhenDiagnosed, `"seizur"` for SeizureFrequency, and `"focal-to-bilateral-convulsive-seizur"` for SeizureFrequency; all are truncated spans. 
+* EA0200 has `"loss-of-consciousnes"` rather than `"loss-of-consciousness"`. 
+
+**Impact:** These errors matter most if the task is token/span extraction. A model trained on these boundaries may learn to output partial words, omit first/last characters, or include punctuation/separators.
+
+---
+
+# 2. Duplicate or overlapping labels create ambiguity
+
+Some overlap is legitimate: the same phrase can be both a **Diagnosis** and a **SeizureFrequency** anchor. For example, a phrase like “focal seizures” may identify both seizure type and frequency. But some duplicates are problematic because the same span receives conflicting attributes.
+
+Examples:
+
+* EA0183 contains two overlapping Prescription labels on `"Sodium-Valproate"` / `"Sodium-Valproate-"`, but one has `DrugDose: 800` and the other has `DrugDose: 700`. That is not just boundary variation; it is a dose conflict. 
+* EA0195 contains overlapping Tegretol labels: one span `"Tegretol-"` has `DrugDose: 600`, while `"Tegretol-400mg-in-the-morning"` has `DrugDose: 400`. This may reflect morning plus total daily dose, but the shorter span does not itself support 600 mg, so it is ambiguous and risky for training. 
+* EA0194 has two SeizureFrequency labels on the exact same span `"Focal-to-bilateral-convulsive-seizures"`: one says `NumberOfSeizures: 0` since 23/5/2019, while another says `LowerNumberOfSeizures: 1`, `UpperNumberOfSeizures: 2` per year. These cannot both describe the same time window unless there are two separate temporal contexts not represented in the span. 
+* EA0198 has two Onset labels on `"epilepsy"`: one says onset age 23 years, another says 15 years. That may be reconcilable if the patient is 38, but the annotation itself gives two different representations on the same mention. 
+
+**Impact:** These are high-severity errors for supervised learning because they create contradictory labels for the same evidence span.
+
+---
+
+# 3. CUIPhrase quality is inconsistent
+
+Many CUIPhrases are good and clinically meaningful: `lamotrigine`, `complex-partial-seizures`, `focal-to-bilateral-convulsive-seizures`, `mri-normal`, `eeg-abnormal`, etc.
+
+But I found repeated under-specification:
+
+| Example                                                           | Problem                                          |
+| ----------------------------------------------------------------- | ------------------------------------------------ |
+| `"generalised-tonic-clonic-seizures"` → CUIPhrase `"generalised"` | Too broad                                        |
+| `"drug-refractory"` → CUIPhrase `"drug"`                          | Incorrectly reduced to non-clinical generic term |
+| `"occipital-lobe)-epilepsy"` → CUIPhrase `"Occipital"`            | Too broad/anatomical only                        |
+| `"focal-motor-seizures"` → CUIPhrase `"focal"`                    | Loses seizure-type specificity                   |
+| `"ischaemic-damage"` as EpilepsyCause → CUIPhrase `"brain"`       | Clinically too vague                             |
+| `"transient-loss-of-consciousness"` → CUIPhrase `"Transient"`     | Not a meaningful normalized clinical concept     |
+
+Concrete examples appear in EA0188, where `"drug-refractory"` is normalized as `"drug"`, `"focal-"` as `"focal"`, and `"occipital-lobe)-epilepsy"` as `"Occipital"`.  EA0186 similarly maps an EpilepsyCause span `"ischaemic-damage"` to CUIPhrase `"brain"`. 
+
+**Impact:** This is especially problematic for ontology-linked NLP. A model may learn the entity boundary but not the correct normalized concept.
+
+---
+
+# 4. Medication labels contain meaningful errors
+
+The Prescription annotations are often clinically useful, but they include dose conflicts, spelling issues, and too-narrow spans.
+
+Examples:
+
+* EA0183 has the same sodium valproate mention labelled with two different doses, 800 mg and 700 mg. 
+* EA0195 has Tegretol labelled once as 600 mg and again as 400 mg in the morning. This may reflect a total daily dose plus morning dose, but the JSON does not make that distinction explicit. 
+* EA0193 has `"Topiramate"` but `DrugName: "top"`, which is plainly noncanonical. 
+* EA0188 includes `"Brivitiracetam"` with CUIPhrase `"brivaracetam"` and DrugName `"brivitiracetam"`; the normalization is probably intended to correct a misspelling, but the raw DrugName preserves the erroneous spelling. 
+* EA0194 has `"Briviteracetam"` normalized to brivaracetam; again this is probably clinically intended, but it mixes misspelled surface form and canonical concept. 
+
+I also found **17 Prescription labels where `DrugDose` is present but the labelled span contains no number**. That is not necessarily wrong if the annotation design allows attributes to use nearby context, but it makes the label less self-contained. For example, EA0181 labels only `"lamotrigine"` but assigns dose 150 mg twice daily. 
+
+**Impact:** Medication extraction requires exact dose/frequency linkage. These labels need dose-level adjudication before use in medication IE training.
+
+---
+
+# 5. Seizure-frequency labels are the most clinically complex and error-prone
+
+Seizure frequency is inherently difficult because the text may mention:
+
+* current frequency,
+* historical frequency,
+* frequency since last clinic,
+* frequency since surgery,
+* no seizures since a date,
+* seizure-free intervals,
+* ranges,
+* different seizure types with different frequencies,
+* improvement/worsening after drug changes.
+
+The labels attempt to encode this richness with fields such as `NumberOfSeizures`, `LowerNumberOfSeizures`, `UpperNumberOfSeizures`, `TimePeriod`, `NumberOfTimePeriods`, `PointInTime`, and `TimeSince_or_TimeOfEvent`.
+
+Good examples include seizure-free labels such as `"seizure-free-for-three-years"` with `NumberOfSeizures: 0`, `NumberOfTimePeriods: 3`, `TimePeriod: Year`. 
+
+But there are several important problems:
+
+* EA0181 labels `"seizures-"` with 10–15 seizures over 2 days, but another related SeizureFrequency label on `"ocal-dyscognitive-seizures"` only says `FrequencyChange: Frequent`, and the span starts mid-word. 
+* EA0188 has a SeizureFrequency label `"secondary-generalised-seizure"` as 1 per month, but the overlapping Diagnosis span is `"ondary-generalised-seiz"`, which is a truncated partial span. 
+* EA0193 has a SeizureFrequency label for `"Bilateral-convulsive-seizures"` with `NumberOfSeizures: 0` since a date but no CUI or CUIPhrase, while the matching Diagnosis span does have CUI/CUIPhrase. 
+* EA0194 gives the same seizure type both “0 since 2019” and “1–2 per year” on the same span, which is a serious temporal-normalization ambiguity. 
+
+**Impact:** For seizure-frequency modelling, these labels are not clean enough without resolving temporal scope. The biggest risk is not entity recognition; it is wrong normalization of “current” vs “historical” seizure burden.
+
+---
+
+# 6. Diagnosis labels are often clinically reasonable, but some are too broad or oddly normalized
+
+The Diagnosis labels generally capture epilepsy and seizure-type concepts: focal epilepsy, temporal lobe epilepsy, complex partial seizures, generalized tonic-clonic seizures, focal-to-bilateral convulsive seizures, etc.
+
+However:
+
+* EA0184 has raw text `"generalised-tonic-tonic-seizures"` normalized to `"generalised-tonic-clonic-seizures"`. If the letter really says “tonic-tonic,” the annotation may be correcting a typo; if not, the span is wrong. Either way, it is ambiguous. 
+* EA0188 splits/labels `"probable-occipital-lobe-onset"`, `"focal-"`, `"drug-refractory"`, and `"occipital-lobe)-epilepsy"` in a way that creates multiple partial/under-specified diagnosis concepts. 
+* EA0195 maps `"generalised-tonic-clonic-seizures"` to CUIPhrase `"generalised"`, losing the clinically important seizure-type specificity. 
+
+**Impact:** Diagnosis category assignment is mostly plausible, but CUI/CUIPhrase specificity is uneven.
+
+---
+
+# 7. Investigation labels are mostly coherent, with boundary noise
+
+Investigations are one of the stronger categories. Labels such as MRI normal/abnormal, EEG normal/abnormal, CT normal/abnormal are generally structured consistently.
+
+Examples:
+
+* EA0181 has `CT-scan` with abnormal CT and MRI with normal MRI. 
+* EA0182 distinguishes an abnormal EEG and a later normal sleep-deprived EEG. 
+* EA0186 contains abnormal MRI and abnormal EEG annotations. 
+
+The main weakness is again span boundary: many investigation spans are `"EEG-"`, `"MRI-"`, etc. That is probably export whitespace/separator noise, but it should be cleaned.
+
+---
+
+# 8. Negation/certainty handling is mostly good, but not perfect
+
+Most entity types consistently include `Negation` and `Certainty`. For example, febrile seizures are often correctly negated where the text says there is no febrile seizure history. EA0183 has `"febrile-seizures"` with `Negation: Negated` and low certainty. 
+
+But there are gaps:
+
+* One EpilepsyCause label in EA0181 lacks `Negation`, while the same span as PatientHistory has `Negation: Affirmed`. 
+* Some SeizureFrequency labels contain `Negation` and `Certainty`, but most do not; that may be schema-intended, but it is inconsistent if downstream systems expect every clinical assertion to carry assertion status.
+
+**Impact:** Assertion status is mostly usable for PatientHistory/Diagnosis, less consistent for causal/frequency labels.
+
+---
+
+# 9. Some apparent “errors” may actually reflect annotation-design choices
+
+A few patterns should not be over-called as mistakes:
+
+1. **Same span as Diagnosis and SeizureFrequency**
+   This can be valid. A phrase such as “focal seizures” can identify both the seizure type and the event whose frequency is being described.
+
+2. **Attributes not visible inside the selected text**
+   For Prescription and SeizureFrequency, the selected entity span may be only the anchor term, while dose/frequency is taken from surrounding context. That can be legitimate if the original full letter is available. But the uploaded JSON alone does not preserve enough evidence to verify it.
+
+3. **Spelling correction via normalization**
+   Labels like `"Zonismaide"` → zonisamide may be acceptable if the synthetic letter intentionally contains misspellings and the goal is normalized concept extraction. 
+
+4. **Historical vs current seizure frequency**
+   Apparent contradictions may be resolvable in the full letter if separate time anchors exist. The problem is that several labels attach conflicting temporal interpretations to the same or overlapping spans, making that resolution unavailable in the JSON alone.
+
+---
+
+# 10. File-level concern summary
+
+| File   | Main concerns                                                                                              |
+| ------ | ---------------------------------------------------------------------------------------------------------- |
+| EA0181 | Mid-word SeizureFrequency span; missing Negation on EpilepsyCause; dose attached to drug-only span.        |
+| EA0182 | Truncated PatientHistory `"seizur"`; several trailing-separator spans; otherwise coherent.                 |
+| EA0183 | Conflicting sodium valproate doses; leading hyphen in `-seizures`; broad CUIPhrase `"generalised"`.        |
+| EA0184 | Truncated `typical absence` spans; possible typo/normalization issue in generalized tonic-clonic seizure.  |
+| EA0185 | Mostly coherent from visible labels.                                                                       |
+| EA0186 | Multiple truncated spans; broad EpilepsyCause CUIPhrase `"brain"`; overlapping frequency/diagnosis labels. |
+| EA0187 | Small file; trailing separator on seizure frequency.                                                       |
+| EA0188 | Several severe span defects; under-specified CUIPhrases; misspelled medication normalization.              |
+| EA0189 | Mostly coherent, but CUIPhrase `"Transient"` is too broad.                                                 |
+| EA0190 | Duplicate hippocampectomy span; several trailing separators; broad seizure CUIPhrases.                     |
+| EA0191 | Mostly coherent; prescription spans sometimes omit numeric dose.                                           |
+| EA0192 | Seizure spans overlap with PatientHistory; mostly manageable.                                              |
+| EA0193 | Missing CUI/CUIPhrase in a SeizureFrequency label; `DrugName: top` for Topiramate.                         |
+| EA0194 | Serious seizure-frequency contradiction on the same span; broad CUIPhrase `"focal"` in frequency labels.   |
+| EA0195 | Tegretol dose conflict/ambiguity; broad CUIPhrases for diagnosis.                                          |
+| EA0196 | Boundary noise around MRI/EEG/seizures.                                                                    |
+| EA0197 | Boundary noise; otherwise fairly straightforward.                                                          |
+| EA0198 | Conflicting onset representation on same epilepsy span.                                                    |
+| EA0199 | Medication spelling variation; likely acceptable if normalized intentionally.                              |
+| EA0200 | Truncated `"loss-of-consciousnes"`; otherwise broadly coherent.                                            |
+
+---
+
+## Are they “high quality”?
+
+**For clinical concept discovery:** yes, moderately. The labels identify many meaningful epilepsy concepts and broadly align with the paper’s goal of publicly available annotated synthetic epilepsy clinic letters.
+
+**For exact NER span training:** no, not without cleaning. The number of partial/trailing/mid-word spans is too high.
+
+**For normalized CUI training:** mixed. Many CUIs are useful, but some CUIPhrases are under-specific or inconsistent.
+
+**For seizure-frequency extraction:** promising but risky. The schema captures clinically important temporal information, but contradictions and ambiguous time anchoring need adjudication.
+
+**For medication extraction:** needs manual review. Dose conflicts and drug-name inconsistencies are clinically meaningful.
+
+## Recommended cleaning/adjudication before use
+
+1. Strip or re-align boundary artifacts: trailing hyphens, leading hyphens, mid-token starts, truncated endings.
+2. Resolve exact-span duplicate conflicts, especially prescriptions and seizure frequencies.
+3. Standardize CUIPhrase granularity: avoid `"focal"`, `"generalised"`, `"drug"`, `"brain"`, `"Transient"` when a more specific concept is available.
+4. Require CUI/CUIPhrase on all SeizureFrequency labels where the seizure type is known.
+5. Separate current, historical, post-surgery, post-drug-change, and since-last-clinic frequencies into explicit temporal scopes.
+6. Add evidence text/context around each annotation, not just the entity span, for dose/frequency verification.
+7. Run a clinician adjudication pass on all frequency and medication labels, as those are the highest-risk categories.
+
+**Final assessment:** these labels are **valuable but not clean gold-standard labels in their uploaded JSON form**. They are best treated as a clinically informed annotation set requiring normalization and adjudication before high-stakes NLP model training or evaluation.
+
+[1]: https://pubmed.ncbi.nlm.nih.gov/39277770/?utm_source=chatgpt.com "Annotation of epilepsy clinic letters for natural language ..."

@@ -1,0 +1,106 @@
+{
+  "total_records": 1500,
+  "sample_size": 500,
+  "label_distribution": {
+    "unknown": 179,
+    "seizure free for multiple month": 108,
+    "1 per day": 55,
+    "no seizure frequency reference": 54,
+    "1 per month": 44,
+    "multiple per week": 43,
+    "seizure free for multiple year": 24,
+    "multiple per day": 21,
+    "1 per week": 20,
+    "1 per 2 month": 16,
+    "2 per week": 15,
+    "seizure free for 6 month": 14,
+    "1 per 2 day": 14,
+    "4 per week": 11,
+    "1 per 3 month": 11,
+    "4 per day": 10,
+    "2 per 3 month": 10,
+    "3 per week": 10,
+    "multiple per month": 10,
+    "2 per day": 10,
+    "2 to 3 per week": 10,
+    "1 per 2 week": 10,
+    "5 per month": 9,
+    "3 per day": 9,
+    "9 per month": 9,
+    "1 per year": 9,
+    "seizure free for 1 year": 9,
+    "1 cluster per week, multiple per cluster": 8,
+    "1 cluster per month, multiple per cluster": 8,
+    "seizure free for 12 month": 8
+  },
+  "pragmatic_distribution": {
+    "frequent": 757,
+    "infrequent": 256,
+    "UNK": 264,
+    "NS": 223
+  },
+  "G1_reference_consistency": {
+    "total_records": 1500,
+    "mismatches": 197,
+    "mismatch_rate": 0.1313,
+    "category_changing_mismatches": 121,
+    "by_mismatch_type": {
+      "ref_unknown_label_specific": 111,
+      "ref_rate_differs": 67,
+      "ref_seizure_free_label_rate": 11,
+      "ref_specific_label_unknown": 8
+    }
+  },
+  "G2_label_parsability": {
+    "total_records": 1500,
+    "unparsable_labels": 31,
+    "unparsable_rate": 0.0207,
+    "category_paradoxes": 0
+  },
+  "G3_seizure_free_precision": {
+    "total_multiple_month_year": 132,
+    "with_specific_duration_in_evidence": 126,
+    "precision_opportunity_rate": 0.9545
+  },
+  "G4_multiple_count_precision": {
+    "total_multiple_count_labels": 74,
+    "with_specific_count_in_evidence": 5,
+    "precision_opportunity_rate": 0.0676
+  },
+  "G5_analysis_consistency": {
+    "sample_size": 500,
+    "with_any_issue": 56,
+    "issue_rate": 0.112,
+    "arithmetic_mismatches": 4,
+    "seizure_free_conflicts": 10,
+    "by_issue_type": {
+      "historical_language_may_affect_current_label": 41,
+      "seizure_free_in_analysis_but_label_is_rate": 10,
+      "arithmetic_mismatch": 4,
+      "label_seizure_free_but_analysis_has_active_seizures": 2
+    }
+  },
+  "G6_cluster_handling": {
+    "sample_size": 500,
+    "cluster_mention_cases": 145,
+    "cluster_mention_rate": 0.29,
+    "category_changing_collapses": 0
+  },
+  "G7_letter_contradictions": {
+    "sample_size": 500,
+    "irresolvable": 2,
+    "annotator_dependent": 40,
+    "irresolvable_rate": 0.004,
+    "by_severity": {
+      "acceptable": 458,
+      "annotator_dependent": 40,
+      "irresolvable": 2
+    }
+  },
+  "G8_encoding_artefacts": {
+    "total_records": 1500,
+    "with_encoding_artefacts": 1243,
+    "artefact_rate": 0.8287,
+    "pronoun_mismatches": 14
+  }
+}

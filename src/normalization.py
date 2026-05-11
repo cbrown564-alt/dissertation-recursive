@@ -399,7 +399,10 @@ def canonical_investigation_result(value: Any) -> str:
         return ""
     if any(term in text for term in ["no abnormality", "no abnormalities", "unremarkable", "within normal", "nad"]):
         return "normal"
-    if any(term in text for term in ["abnormal", "epileptiform", "slowing", "lesion", "sclerosis"]):
+    if any(term in text for term in [
+        "abnormal", "epileptiform", "slowing", "lesion", "sclerosis",
+        "spike", "polyspike", "discharge", "photosensitivity",
+    ]):
         return "abnormal"
     if "normal" in text:
         return "normal"

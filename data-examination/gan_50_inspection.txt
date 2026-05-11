@@ -1,0 +1,124 @@
+## Verdict
+
+The labels are **useful but not consistently high quality enough to treat as gold labels without review**. In my audit of the 50-letter JSON sample, about **30/50 look robust**, **8/50 have material or likely label errors**, and **12/50 have ambiguity, evidence-field mismatches, or clinical-text contradictions that would make them risky for training/evaluation without adjudication**. The uploaded file is `random_sample_50_letters_trimmed.json`. 
+
+The paper’s intended scheme is sensible: labels should cover `unknown`, `no seizure frequency reference`, seizure-free durations, rate expressions, cluster expressions, and “unknown frequency but known per-cluster count.” The paper also says the evidence/rationale format is intended to let reviewers verify whether the label is supported by the letter. ([arXiv][1]) In this sample, that auditability works well: the errors are discoverable from the label/evidence pairs, but there are enough of them that I would not call the sample fully label-faithful.
+
+## Main quality findings
+
+**Strong cases.** Many labels are excellent: direct numeric rates like `4 to 5 per month`, `2 per week`, `5 to 7 per 2 week`, `1 per day`, `10 per week`, `7 per month`; clear unknown cases where the letter explicitly says frequency cannot be quantified; and administrative/no-seizure-reference letters. These are exactly what the paper’s structured label scheme is designed to capture. ([arXiv][1])
+
+**Weak cases.** The most important weaknesses are not simple extraction failures. They are **temporal normalization and clinical interpretation failures**: clusters treated as single seizures, “no events since last assessment” converted into “multiple months” without a date, diary dates interpreted under an ambiguous date convention, and “since 2015”/“this year” windows converted too aggressively.
+
+**Evidence quality.** The evidence spans are often helpful, but several records have a mismatch between the final label and the `reference[0]` value. I found at least four clear metadata/reference inconsistencies: source rows **8264, 5906, 10630, and 7316**. These do not always make the final label wrong, but they undermine the purpose of evidence-grounded supervision.
+
+## Most meaningful errors and ambiguities
+
+|         Sample | Label given                                           | Issue                                                                                                                                                                                                              | Better interpretation                                                                                                            |
+| -------------: | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------- |
+| 10 / row 16394 | `1 per 2 to 4 day`                                    | The letter says seizures occur **in clusters every 2–4 days**. The label treats each cluster as one seizure and loses the cluster structure.                                                                       | `1 cluster per 2 to 4 day, multiple per cluster`, or unknown per-cluster if strict.                                              |
+| 15 / row 16618 | `1 per 5 day`                                         | “Clusters spaced 5 days apart” plus “brief periods of daily seizures.” Label again collapses clusters into single seizures and ignores daily periods.                                                              | Likely `1 cluster per 5 day, multiple per cluster`; possibly `1 per day` if daily periods are treated as current highest burden. |
+|  20 / row 5906 | `1 cluster per 3 week, multiple per cluster`          | Two nocturnal cluster occasions over six weeks are captured, but there is also a separate workplace event. The evidence reference says `unknown`, not the final label.                                             | Cluster label may be partially acceptable, but total burden is incomplete; reference field should match.                         |
+| 24 / row 13069 | `2 per 5 month`                                       | The letter says one GTC occurred after five seizure-free months, **preceded by a cluster of absences**. Counting this as “2” appears to count the cluster as one seizure, which likely undercounts.                | `1 cluster per 5 month, multiple per cluster` plus one GTC cannot be cleanly represented in a single label; needs adjudication.  |
+| 28 / row 15262 | `multiple cluster per 13 month, multiple per cluster` | Serious temporal error. “Last convulsive seizure was June 2018” gives a 13-month interval to July 2019, but “occasional clusters of myoclonic jerks persisting” does **not** mean multiple clusters per 13 months. | `unknown` or possibly `unknown, multiple per cluster` if cluster size is inferable, which it is not clearly.                     |
+| 30 / row 15317 | `2 to 3 per 15 month`                                 | “No further tonic-clonic seizures since Jan-2015, although 2 to 3 single jerks remain.” The phrase “remain” is not clearly a 15-month count.                                                                       | Probably `unknown`, or `2 to 3 per unknown period` if the schema allowed it.                                                     |
+|  33 / row 4378 | `3 per 2 month`                                       | The label depends on interpreting diary dates as July 3, July 8, Sept 5. In a UK-style letter, `07-03, 07-08, 09-05` may mean 7 March, 7 August, 9 May. The text also says “this year.”                            | More conservative: `3 per year-to-date` is not representable; `3 per multiple month` or `unknown` would be safer.                |
+|  43 / row 8006 | `seizure free for multiple month`                     | The letter explicitly says no blackouts or focal impaired-awareness episodes **over the past six months**.                                                                                                         | `seizure free for 6 month`.                                                                                                      |
+
+## Important borderline cases
+
+Several labels are not clearly wrong, but they encode an assumption that should be documented.
+
+|         Sample | Label given                       | Why it is borderline                                                                                                                                                                                                         |
+| -------------: | --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|   4 / row 9251 | `seizure free for multiple month` | Patient does **not have epilepsy**; the only explicit 12-month statement refers to syncope, not epileptic seizures. “No epileptic events since last contact” lacks a duration.                                               |
+|  7 / row 15766 | `4 per week`                      | “Absence seizures occur on four days of the week” means seizure-days, not necessarily seizure-count. The label may undercount if multiple absences occur on those days.                                                      |
+|   9 / row 8568 | `seizure free for multiple month` | “No events since last assessment” has no last-assessment date. The label assumes a multi-month interval.                                                                                                                     |
+|  19 / row 5430 | `seizure free for multiple month` | There are ongoing dissociative/non-epileptic episodes 2–3/week, but no definite epileptic convulsions. Correct if the task excludes non-epileptic events; confusing if “event frequency” is desired.                         |
+|  35 / row 8858 | `seizure free for multiple month` | Seizure cessation since levetiracetam in July 2024 and clinic date Oct 2025 implies about 15 months; label is conservative but imprecise.                                                                                    |
+|  36 / row 5136 | `seizure free for multiple month` | “No recurrence” is clear, but interval is not explicit.                                                                                                                                                                      |
+|  40 / row 8790 | `seizure free for multiple month` | The letter explicitly says no events over 8 weeks / two months. A more exact label would be `seizure free for 2 month`.                                                                                                      |
+| 46 / row 12584 | `1 per week`                      | The letter contains contradictory text: weekly absences persist, yet later says no reported episodes since last visit. The label follows the detailed frequency paragraph, but the letter itself is internally inconsistent. |
+| 49 / row 12645 | `1 per day`                       | Daily absences are clearly the highest frequency, but the letter also says “since the last clinic visit, no further seizures have been reported,” which contradicts the frequency paragraph.                                 |
+
+## Evidence-span and JSON-quality problems
+
+The paper’s Format 4 relies on the final label, rationale, and evidence being mutually consistent; this is central because reviewers should be able to distinguish evidence-localisation failures from temporal-normalisation failures. ([arXiv][1]) In this sample, I found four clear consistency failures:
+
+| Source row | Final label                                  | `reference[0]` problem         |
+| ---------: | -------------------------------------------- | ------------------------------ |
+|       8264 | `seizure free for 4 month`                   | `reference[0]` says `unknown`. |
+|       5906 | `1 cluster per 3 week, multiple per cluster` | `reference[0]` says `unknown`. |
+|      10630 | `multiple cluster per 2 week, 5 per cluster` | `reference[0]` says `unknown`. |
+|       7316 | `1 to 2 per month`                           | `reference[0]` says `unknown`. |
+
+There are also synthetic-letter artefacts that should not be ignored: encoding corruption such as `Ã‚Â·`, `ï¿½`, and `â€`; pronoun/sex mismatches; odd wording like “None Epilepsy”; and clinically awkward contradictions such as “daily absences” followed by “no further seizures.” These do not always break the label, but they reduce the realism and may teach models brittle shortcuts.
+
+## Full 50-sample audit
+
+|  # | Source row | Given label                                           | Audit                                                                                            |
+| -: | ---------: | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+|  0 |      16977 | `4 to 5 per month`                                    | Good. Directly supported.                                                                        |
+|  1 |       6967 | `unknown`                                             | Good. Patient cannot recall timing/frequency.                                                    |
+|  2 |       8264 | `seizure free for 4 month`                            | Label good; `reference[0]` incorrectly says `unknown`.                                           |
+|  3 |      10942 | `2 cluster per month, 5 per cluster`                  | Good. Direct cluster count.                                                                      |
+|  4 |       9251 | `seizure free for multiple month`                     | Borderline. Non-epilepsy/syncope case; duration for epileptic events not explicit.               |
+|  5 |      16674 | `7 per 6 month`                                       | Good. Counts April, July, September events.                                                      |
+|  6 |      10487 | `4 cluster per month, multiple per cluster`           | Good. Per-cluster count unknown.                                                                 |
+|  7 |      15766 | `4 per week`                                          | Acceptable but imprecise: “four days/week” not necessarily four seizures/week.                   |
+|  8 |        848 | `1 per year`                                          | Good. “Yearly seizures.”                                                                         |
+|  9 |       8568 | `seizure free for multiple month`                     | Borderline. “Since last assessment” lacks date.                                                  |
+| 10 |      16394 | `1 per 2 to 4 day`                                    | Likely wrong. Should preserve cluster structure.                                                 |
+| 11 |      17006 | `2 per week`                                          | Good.                                                                                            |
+| 12 |      16108 | `12 per 4 month`                                      | Good. Monthly counts sum to 12.                                                                  |
+| 13 |      11660 | `no seizure frequency reference`                      | Good. Administrative letter.                                                                     |
+| 14 |        364 | `1 per week`                                          | Acceptable minimal interpretation of “events every week.”                                        |
+| 15 |      16618 | `1 per 5 day`                                         | Likely wrong/undercount. Cluster structure and daily periods lost.                               |
+| 16 |       2435 | `5 to 7 per 2 week`                                   | Good.                                                                                            |
+| 17 |       2812 | `1 per day`                                           | Good. “At least one drop attack daily.”                                                          |
+| 18 |      13183 | `1 per 8 month`                                       | Acceptable. One relapse after 8 months seizure-free.                                             |
+| 19 |       5430 | `seizure free for multiple month`                     | Clinically ambiguous: ongoing dissociative events but no definite epileptic convulsions.         |
+| 20 |       5906 | `1 cluster per 3 week, multiple per cluster`          | Partially wrong/incomplete; misses separate workplace event and reference mismatch.              |
+| 21 |      15997 | `10 per 3 month`                                      | Good. Nov + Jan events.                                                                          |
+| 22 |      10737 | `unknown`                                             | Good. Frequency explicitly not established.                                                      |
+| 23 |      17167 | `1 per week`                                          | Good. Weekly myoclonic jerks.                                                                    |
+| 24 |      13069 | `2 per 5 month`                                       | Likely wrong. Cluster of absences counted as one event.                                          |
+| 25 |      12643 | `1 per day`                                           | Good highest-frequency label, though text later contradicts itself.                              |
+| 26 |       4919 | `seizure free for 2 year`                             | Good.                                                                                            |
+| 27 |       3711 | `10 per week`                                         | Good.                                                                                            |
+| 28 |      15262 | `multiple cluster per 13 month, multiple per cluster` | Material error. 13-month interval refers to last convulsive seizure, not myoclonic cluster rate. |
+| 29 |       3831 | `7 per month`                                         | Good. Correctly parses “sz xseven/mo.”                                                           |
+| 30 |      15317 | `2 to 3 per 15 month`                                 | Likely wrong/over-inferred. “2–3 single jerks remain” not clearly over 15 months.                |
+| 31 |      10298 | `unknown`                                             | Good. Insufficient data.                                                                         |
+| 32 |      15513 | `1 cluster per 4 to 5 day, 2 to 3 per cluster`        | Mostly good. Derived from 4–5 seizure-free days then batch of 2–3.                               |
+| 33 |       4378 | `3 per 2 month`                                       | Questionable. Ambiguous diary dates and “this year” wording.                                     |
+| 34 |      14002 | `unknown`                                             | Good. “Several seizures” but interval unclear.                                                   |
+| 35 |       8858 | `seizure free for multiple month`                     | Acceptable but imprecise; likely about 15 months from July 2024 to Oct 2025.                     |
+| 36 |       5136 | `seizure free for multiple month`                     | Borderline. “No recurrence” but no explicit interval.                                            |
+| 37 |      10553 | `unknown, 2 to 3 per cluster`                         | Good. Per-cluster count known; cluster frequency untracked.                                      |
+| 38 |       3468 | `unknown`                                             | Good. Perimenstrual-only pattern but no count.                                                   |
+| 39 |       8596 | `seizure free for 11 month`                           | Good.                                                                                            |
+| 40 |       8790 | `seizure free for multiple month`                     | Minor error/imprecision. Explicitly two months / 8 weeks.                                        |
+| 41 |      10630 | `multiple cluster per 2 week, 5 per cluster`          | Label plausible, but `reference[0]` says `unknown`; evidence metadata inconsistent.              |
+| 42 |      11765 | `no seizure frequency reference`                      | Good. Attendance/administrative letter.                                                          |
+| 43 |       8006 | `seizure free for multiple month`                     | Minor error. Explicit six months should be `seizure free for 6 month`.                           |
+| 44 |       7316 | `1 to 2 per month`                                    | Label good; `reference[0]` incorrectly says `unknown`.                                           |
+| 45 |      16962 | `2 per week`                                          | Good if highest frequency is absence seizures; “no more than twice weekly” supports it.          |
+| 46 |      12584 | `1 per week`                                          | Label follows weekly absences, but letter internally contradicts itself.                         |
+| 47 |       8127 | `seizure free for 18 month`                           | Good.                                                                                            |
+| 48 |      12866 | `10 per 5 month`                                      | Good. “2020 so far” at 22 May supports ~5 months.                                                |
+| 49 |      12645 | `1 per day`                                           | Good highest-frequency label, but letter contains contradictory “no further seizures” sentence.  |
+
+## Bottom line
+
+The labels are **not bad**; many are impressive and clinically useful. But the sample is **not clean gold-standard supervision**. The highest-risk failure modes are:
+
+1. **Cluster normalization errors**: cluster frequency is often collapsed into seizure frequency.
+2. **Over-inferred time windows**: labels infer months from nearby dates even when the text does not clearly bind the count to that interval.
+3. **Ambiguous seizure-free durations**: “no recurrence” and “since last assessment” are often converted to “multiple months.”
+4. **Evidence metadata mismatches**: several labels are correct but their `reference` field says `unknown`.
+5. **Synthetic narrative contradictions**: some letters contain mutually inconsistent frequency statements.
+
+For training, I would use this dataset only after an adjudication pass that flags cluster cases, seizure-free cases without explicit durations, ambiguous date formats, non-epileptic event cases, and all records where `reference[0]` does not equal the final label.
+
+[1]: https://arxiv.org/pdf/2603.11407 "Reproducible Synthetic Clinical Letters for Seizure Frequency Information Extraction"

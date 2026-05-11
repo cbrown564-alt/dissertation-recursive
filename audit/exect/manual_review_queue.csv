@@ -1,0 +1,234 @@
+check,priority,doc_id,detail
+E1,high,EA0008,PatientHistory mismatch: ann='sseizures-' src='seizures h'
+E1,high,EA0008,SeizureFrequency mismatch: ann='seizures-have-returned' src='eizures have returned.'
+E1,high,EA0013,Prescription mismatch: ann='Kepra-' src='Keppra'
+E1,high,EA0013,SeizureFrequency mismatch: ann='-seizure' src='l seizur'
+E1,high,EA0014,Prescription mismatch: ann='zobisamide' src='Zonisamide'
+E1,high,EA0014,PatientHistory mismatch: ann='chronic-daily-headaches' src='onic daily headaches. T'
+E1,high,EA0021,Diagnosis mismatch: ann='-generalised-tonic-clonic-seizures' src='h generalised tonic clonic seizure'
+E1,high,EA0021,PatientHistory mismatch: ann='-febrile-seizures' src='f febrile seizure'
+E1,high,EA0031,Prescription mismatch: ann='Eplim-' src='Epilim'
+E1,high,EA0031,Prescription mismatch: ann='Eplim' src='Epili'
+E1,high,EA0033,Diagnosis mismatch: ann='epilepsy-' src='pilepsy s'
+E1,high,EA0033,Onset mismatch: ann='epileps' src='pilepsy'
+E1,high,EA0037,"PatientHistory mismatch: ann='non--epileptic-attacks-disorder' src='non-epileptic attacks disorder
+'"
+E1,high,EA0037,Investigations mismatch: ann='EEG' src='EG('
+E1,high,EA0037,PatientHistory mismatch: ann='cluster-of-seizures' src='luster of seizures.'
+E1,high,EA0037,PatientHistory mismatch: ann='she-get-a-seizure' src='he gets a seizure'
+E1,high,EA0040,Diagnosis mismatch: ann='secondly-generalised-seizures' src='secondarily generalised seizu'
+E1,high,EA0040,PatientHistory mismatch: ann='left-frontal-cortical-dysplasia' src='s: left frontal cortical dyspla'
+E1,high,EA0040,PatientHistory mismatch: ann='anxiety-' src='s: anxie'
+E1,high,EA0040,PatientHistory mismatch: ann='depression' src='nd depress'
+E1,high,EA0040,Investigations mismatch: ann='EEG' src='s: '
+E1,high,EA0040,"Investigations mismatch: ann='MRI-' src='al
+M'"
+E1,high,EA0040,PatientHistory mismatch: ann='frontal-cortical-dysplasia' src='ft frontal cortical dyspla'
+E1,high,EA0040,"Prescription mismatch: ann='Medication-levetiracetam-750mg-twice-a-d' src='a
+
+Medication levetiracetam 750mg twice '"
+E1,high,EA0040,"Prescription mismatch: ann='Lamotrigine-50-mg-twice-a-day' src='ay
+Lamotrigine 50 mg twice a '"
+E1,high,EA0040,PatientHistory mismatch: ann='seizures' src='is seizu'
+E1,high,EA0043,"Diagnosis mismatch: ann='epilepsy-with-tonic---clonic-seizures-al' src='epilepsy with tonic 
+clonic seizures alo'"
+E1,high,EA0046,Diagnosis mismatch: ann='Symptomatic-structural-focal-epilepsy' src='Symptomatic structural epilepsy'
+E1,high,EA0049,Onset mismatch: ann='epilepsy-started-at-the-each-of-12' src='epilepsy started at the age of 12.'
+E1,high,EA0049,Diagnosis mismatch: ann='myoclonic-seizures' src='yoclonic seizures.'
+E1,high,EA0049,SeizureFrequency mismatch: ann='myoclonic-jerks-' src='yoclonic jerks b'
+E1,high,EA0049,Diagnosis mismatch: ann='generalised-tonic-chronic-seizures' src='eneralised tonic chronic seizures.'
+E1,high,EA0049,SeizureFrequency mismatch: ann='generalised-tonic-clonic-seizur' src='eneralised tonic clonic seizure'
+E1,high,EA0049,SeizureFrequency mismatch: ann='generalised-tonic-clonic-seizure' src='eneralised tonic clonic seizures'
+E1,high,EA0049,PatientHistory mismatch: ann='clusters-of-seizures' src='lusters of seizures.'
+E1,high,EA0049,Diagnosis mismatch: ann='juvenile-myoclonic-epilepsy' src='uvenile myoclonic epilepsy.'
+E1,high,EA0049,PatientHistory mismatch: ann='seizures' src='eizures.'
+E1,high,EA0049,Diagnosis mismatch: ann='epilepsy-' src='pilepsy i'
+E1,high,EA0055,BirthHistory mismatch: ann='perinatal-insult' src='erinatal insult)'
+E1,high,EA0055,EpilepsyCause mismatch: ann='perinatal-insult' src='erinatal insult)'
+E1,high,EA0055,PatientHistory mismatch: ann='headache' src='eadache.'
+E1,high,EA0055,Prescription mismatch: ann='She-currently-takes-150mg-lamotrigine-tw' src='he currently takes 150mg lamotrigine twi'
+E1,high,EA0056,Prescription mismatch: ann='Oxcarbazine-' src='Oxcarbazepin'
+E1,high,EA0056,Onset mismatch: ann='epilepsy' src='s epilep'
+E1,high,EA0056,Diagnosis mismatch: ann='epileps' src='s epile'
+E1,high,EA0056,PatientHistory mismatch: ann='brain-surgery' src='g brain surge'
+E1,high,EA0056,Diagnosis mismatch: ann='partial-motor-seizures' src='s partial motor seizur'
+E1,high,EA0056,SeizureFrequency mismatch: ann='partial-motor-seizures' src='s partial motor seizur'
+E1,high,EA0056,Diagnosis mismatch: ann='secondary-generalised-seizures' src='d secondary generalised seizur'
+E1,high,EA0056,SeizureFrequency mismatch: ann='secondary-generalised-seizures' src='d secondary generalised seizur'
+E1,high,EA0056,SeizureFrequency mismatch: ann='secondary-generalised-seizure' src='d secondary generalised seizu'
+E1,high,EA0056,Investigations mismatch: ann='EEG' src='n E'
+E1,high,EA0056,PatientHistory mismatch: ann='non-epileptic-psychogenic-seizures' src='f non-epileptic psychogenic seizur'
+E1,high,EA0056,PatientHistory mismatch: ann='hypertension' src='s hypertensi'
+E1,high,EA0056,PatientHistory mismatch: ann='anxiety-' src='s anxiet'
+E1,high,EA0056,PatientHistory mismatch: ann='depression' src='d depressi'
+E1,high,EA0056,PatientHistory mismatch: ann='non-epileptic-attacks' src='e non-epileptic attac'
+E1,high,EA0059,PatientHistory mismatch: ann='-sseizure' src=' seizures'
+E1,high,EA0059,SeizureFrequency mismatch: ann='seizures-' src='eizures a'
+E1,high,EA0072,Prescription mismatch: ann='Lamotrigne' src='Lamotrigin'
+E1,high,EA0078,PatientHistory mismatch: ann='seizres' src='seizure'
+E1,high,EA0081,Diagnosis mismatch: ann='focal-to-bilateral-convulsive-epileptic-' src='ocal to bilateral convulsive epileptic s'
+E1,high,EA0081,Diagnosis mismatch: ann='focal-seizures-with-altered-awareness-' src='ocal seizures with altered awareness ('
+E1,high,EA0081,PatientHistory mismatch: ann='febriles-seizures' src='febrile seizures '
+E1,high,EA0086,SeizureFrequency mismatch: ann='focal-seziures' src='focal seizures'
+E1,high,EA0086,Diagnosis mismatch: ann='focal-seziures' src='focal seizures'
+E1,high,EA0087,SeizureFrequency mismatch: ann='generalised-tonic-clinic-seizure' src='generalised tonic clonic seizure'
+E1,high,EA0087,Diagnosis mismatch: ann='generalised-tonic-clinic-seizures' src='generalised tonic clonic seizures'
+E1,high,EA0087,SeizureFrequency mismatch: ann='generalised-tonic-clinic-seizures' src='generalised tonic clonic seizures'
+E1,high,EA0101,Prescription mismatch: ann='Eplim-chrono' src='Epilim chron'
+E1,high,EA0103,Prescription mismatch: ann='Lamictal' src='ictal 15'
+E1,high,EA0103,Prescription mismatch: ann='levitiracetam' src='etiracetam 12'
+E1,high,EA0103,SeizureFrequency mismatch: ann='helped-her-seizures' src='ped her seizures an'
+E1,high,EA0103,PatientHistory mismatch: ann='seizures-' src='zures and'
+E1,high,EA0103,"PatientHistory mismatch: ann='depression' src='ression.
+
+'"
+E1,high,EA0117,Prescription mismatch: ann='Lacosmaide' src='Lacosamide'
+E1,high,EA0124,PatientHistory mismatch: ann='measles' src='les. Sh'
+E1,high,EA0124,PatientHistory mismatch: ann='absence-' src='nce even'
+E1,high,EA0124,SeizureFrequency mismatch: ann='absenc' src='nce ev'
+E1,high,EA0124,"SeizureFrequency mismatch: ann='generalised-tonic-clonic-seizure' src='ralised tonic clonic seizures, t'"
+E1,high,EA0124,PatientHistory mismatch: ann='atrophy' src='phy and'
+E1,high,EA0124,PatientHistory mismatch: ann='seizures-' src='ures I su'
+E1,high,EA0124,Diagnosis mismatch: ann='epilepsy-' src='epsy was '
+E1,high,EA0124,Prescription mismatch: ann='Medication:-sodium-valproate-500-milligr' src='Medication: sodium valproate 500 milligr'
+E1,high,EA0124,"Prescription mismatch: ann='Zonisamide-50mg-bd' src='samide 50mg bd
+
+Ou'"
+E1,high,EA0124,"Diagnosis mismatch: ann='generalised-tonic-clonic-seizures' src='ralised tonic clonic seizures, th'"
+E1,high,EA0124,PatientHistory mismatch: ann='learning-difficulties' src='ning difficulties whi'
+E1,high,EA0124,Investigations mismatch: ann='MRI-brain' src='brain sca'
+E1,high,EA0124,Diagnosis mismatch: ann='epilepsy-' src='epsy and '
+E1,high,EA0124,WhenDiagnosed mismatch: ann='epileps' src='epsy an'
+E1,high,EA0124,"PatientHistory mismatch: ann='measles' src='les.
+
+S'"
+E1,high,EA0124,PatientHistory mismatch: ann='-measles' src='les. She'
+E1,high,EA0124,EpilepsyCause mismatch: ann='easle' src='s. Sh'
+E1,high,EA0125,PatientHistory mismatch: ann='seizures' src='eizures.'
+E1,high,EA0125,SeizureFrequency mismatch: ann='iincreasing-seizures' src='increasing seizures.'
+E1,high,EA0126,PatientHistory mismatch: ann='seizures' src='eizures.'
+E1,high,EA0126,WhenDiagnosed mismatch: ann='epileps' src='pilepsy'
+E1,high,EA0126,Diagnosis mismatch: ann='epilepsy-' src='pilepsy w'
+E1,high,EA0126,Diagnosis mismatch: ann='epilepsy-' src='pilepsy i'
+E1,high,EA0126,SeizureFrequency mismatch: ann='Focal-frontal-lobe-seizure' src='ocal frontal lobe seizures'
+E1,high,EA0126,SeizureFrequency mismatch: ann='focal-to-bilateral-convulsive-seizure' src='ocal to bilateral convulsive seizures'
+E1,high,EA0127,Investigations mismatch: ann='-MRI' src='RI-n'
+E1,high,EA0127,Investigations mismatch: ann='-EEG' src='G 20'
+E1,high,EA0127,Prescription mismatch: ann='Sodium-valproate-400mg' src='m valproate 400mg twic'
+E1,high,EA0127,SeizureFrequency mismatch: ann='seizures-free.' src=' free. His las'
+E1,high,EA0127,SeizureFrequency mismatch: ann='seizure' src='was in '
+E1,high,EA0127,PatientHistory mismatch: ann='seizure' src='was in '
+E1,high,EA0128,Onset mismatch: ann='-eepileps' src=' epilepsy'
+E1,high,EA0128,Diagnosis mismatch: ann='epilepsy-' src='pilepsy s'
+E1,high,EA0128,PatientHistory mismatch: ann='myoclonic-jerks' src='yoclonic jerks.'
+E1,high,EA0128,Diagnosis mismatch: ann='generalised-tonic-clonic-seizure' src='eneralised tonic clonic seizures'
+E1,high,EA0135,"PatientHistory mismatch: ann='Dissociative-​seizures' src='Dissociative seizures
+'"
+E1,high,EA0138,Diagnosis mismatch: ann='Focal-seizures-with-altered-awarenss' src='Focal seizures with altered awarenes'
+E1,high,EA0138,SeizureFrequency mismatch: ann='Focal-seizures-with-altered-awarens' src='Focal seizures with altered awarene'
+E1,high,EA0142,Prescription mismatch: ann='Current-medication:-------Lamictal-100mg' src='Current medication:       Lamictal 100mg'
+E1,high,EA0147,Prescription mismatch: ann='levetiraetam-' src='levetiracetam'
+E1,high,EA0150,PatientHistory mismatch: ann='traumatic-sub-arachnoid-heamorrahge' src='traumatic sub arachnoid haemorrhage'
+E1,high,EA0152,Prescription mismatch: ann='Carbmazapine-' src='Carbamazapine'
+E1,high,EA0157,Diagnosis mismatch: ann='generalised-tonic-clonc-seizure.' src='generalised tonic clonic seizure'
+E1,high,EA0161,SeizureFrequency mismatch: ann='tonic-clonic-seizures' src='clonic seizures in th'
+E1,high,EA0161,Onset mismatch: ann='absence-seizure' src='e seizures at a'
+E1,high,EA0161,Diagnosis mismatch: ann='absence-seizures' src='e seizures at ar'
+E1,high,EA0161,SeizureFrequency mismatch: ann='absences-' src='es contin'
+E1,high,EA0161,PatientHistory mismatch: ann='absences' src='es conti'
+E1,high,EA0161,Investigations mismatch: ann='EEG-' src='st y'
+E1,high,EA0161,Investigations mismatch: ann='normal-MRI' src=' MRI of he'
+E1,high,EA0161,Onset mismatch: ann='generalised-tonic-clonic-seizur' src='lised tonic clonic seizure at t'
+E1,high,EA0161,Prescription mismatch: ann='Levetiracetam-' src='vetiracetam 25'
+E1,high,EA0161,SeizureFrequency mismatch: ann='seizure-' src='e freque'
+E1,high,EA0161,Diagnosis mismatch: ann='tonic-clonic-seizure' src='clonic seizures in t'
+E1,high,EA0161,Diagnosis mismatch: ann='generalised-tonic-clonic-seizure' src='lised tonic clonic seizure at th'
+E1,high,EA0161,SeizureFrequency mismatch: ann='onic-clonic-seizur' src='lonic seizures in '
+E1,high,EA0170,EpilepsyCause mismatch: ann='right-hemisphere-intracerebral-haemorhha' src='right hemisphere intracerebral haemorrha'
+E1,high,EA0170,PatientHistory mismatch: ann='right-hemisphere-intracerebral-haemorhha' src='right hemisphere intracerebral haemorrha'
+E1,high,EA0171,Prescription mismatch: ann='Current-anti-seizure-medication:--------' src='Current anti-seizure medication:        '
+E1,high,EA0172,Diagnosis mismatch: ann='refactory-focal-epilepsy' src='refractory focal epileps'
+E1,high,EA0177,PatientHistory mismatch: ann='seizurs-' src='seizures'
+E1,high,EA0179,PatientHistory mismatch: ann='episodes-of-loss-of-consciousness' src='pisodes of loss of consciousness.'
+E1,high,EA0179,PatientHistory mismatch: ann='episodes-of-loss-of-consciousness' src='episode of loss of consciousness '
+E1,high,EA0179,Investigations mismatch: ann='EEG-' src='EG t'
+E1,high,EA0180,SeizureFrequency mismatch: ann='seizrue-free' src='eizure free '
+E1,high,EA0180,PatientHistory mismatch: ann='seizur' src='eizure'
+E1,high,EA0184,Diagnosis mismatch: ann='generalised-tonic-tonic-seizures' src='generalised tonic clonic seizure'
+E1,high,EA0184,SeizureFrequency mismatch: ann='generalised-tonic-tonic-seizure' src='generalised tonic clonic seizur'
+E1,high,EA0186,PatientHistory mismatch: ann='seizure-' src='eizure I'
+E1,high,EA0187,"Prescription mismatch: ann='Medication:-------Levetiracetam-1250mg-b' src='
+Medication:       Levetiracetam 1250mg '"
+E1,high,EA0187,Diagnosis mismatch: ann='Refactory-epilepsy' src='Refractory epileps'
+E1,high,EA0188,PatientHistory mismatch: ann='eiz' src='ure'
+E1,high,EA0188,Diagnosis mismatch: ann='epilepsy' src='lepsy hi'
+E1,high,EA0188,PatientHistory mismatch: ann='hypertensions' src='ertensions. S'
+E1,high,EA0188,PatientHistory mismatch: ann='seizure-' src='zure but'
+E1,high,EA0188,Diagnosis mismatch: ann='focal-' src='al (oc'
+E1,high,EA0188,Diagnosis mismatch: ann='drug-refractory' src='g refractory fo'
+E1,high,EA0188,PatientHistory mismatch: ann='seizure' src='zures s'
+E1,high,EA0188,"Diagnosis mismatch: ann='occipital-lobe)-epilepsy' src='ipital lobe) epilepsy.
+ '"
+E1,high,EA0188,PatientHistory mismatch: ann='seizures-' src='zures con'
+E1,high,EA0188,Diagnosis mismatch: ann='ondary-generalised-seiz' src='ary generalised seizure'
+E1,high,EA0190,PatientHistory mismatch: ann='seizures-' src='eizures c'
+E1,high,EA0190,Diagnosis mismatch: ann='focal-onset-seizur' src='ocal onset seizure'
+E1,high,EA0190,PatientHistory mismatch: ann='seizures-' src='eizures s'
+E1,high,EA0199,Prescription mismatch: ann='EPlim' src='Epili'
+E2,high,EA0002,Diagnosis conflict: Certainty — a=Certainty=5 b=Certainty=4
+E2,high,EA0004,Diagnosis conflict: Certainty — a=Certainty=5 b=Certainty=4
+E2,high,EA0007,Prescription conflict: DrugDose — a=DrugDose=750 b=DrugDose=500
+E2,high,EA0019,Prescription conflict: DrugDose — a=DrugDose=300 b=DrugDose=600
+E2,high,EA0021,Prescription conflict: DrugDose — a=DrugDose=800 b=DrugDose=700
+E2,high,EA0025,Prescription conflict: DrugDose — a=DrugDose=100 b=DrugDose=175
+E2,high,EA0031,Prescription conflict: DrugDose — a=DrugDose=1.5 b=DrugDose=1
+E2,high,EA0035,Diagnosis conflict: Certainty — a=Certainty=5 b=Certainty=4
+E2,high,EA0036,Prescription conflict: DrugDose — a=DrugDose=200 b=DrugDose=400
+E2,high,EA0038,Prescription conflict: DrugDose — a=DrugDose=400 b=DrugDose=200
+E2,high,EA0038,Prescription conflict: DrugDose — a=DrugDose=400 b=DrugDose=200
+E2,high,EA0056,SeizureFrequency conflict: NumberOfSeizures — a=NumberOfSeizures=1 b=NumberOfSeizures=0
+E2,high,EA0061,Diagnosis conflict: Certainty — a=Certainty=5 b=Certainty=4
+E2,high,EA0065,Prescription conflict: DrugDose — a=DrugDose=1250 b=DrugDose=400
+E2,high,EA0069,Prescription conflict: DrugDose — a=DrugDose=50 b=DrugDose=75
+E2,high,EA0087,Prescription conflict: DrugDose — a=DrugDose=50 b=DrugDose=75
+E2,high,EA0088,Prescription conflict: DrugDose — a=DrugDose=100 b=DrugDose=200
+E2,high,EA0090,Prescription conflict: DrugDose — a=DrugDose=150 b=DrugDose=200
+E2,high,EA0095,Prescription conflict: DrugDose — a=DrugDose=300 b=DrugDose=500
+E2,high,EA0096,Prescription conflict: DrugDose — a=DrugDose=75 b=DrugDose=60
+E2,high,EA0107,Prescription conflict: DrugDose — a=DrugDose=1 b=DrugDose=750
+E2,high,EA0113,SeizureFrequency conflict: NumberOfSeizures — a=NumberOfSeizures=1 b=NumberOfSeizures=3
+E2,high,EA0122,Diagnosis conflict: Certainty — a=Certainty=5 b=Certainty=4
+E2,high,EA0123,Prescription conflict: DrugDose — a=DrugDose=200 b=DrugDose=400
+E2,high,EA0124,Prescription conflict: DrugDose — a=DrugDose=500 b=DrugDose=700
+E2,high,EA0141,Diagnosis conflict: Certainty — a=Certainty=4 b=Certainty=5
+E2,high,EA0171,Diagnosis conflict: Certainty — a=Certainty=4 b=Certainty=5
+E2,high,EA0178,Prescription conflict: DrugDose — a=DrugDose=300 b=DrugDose=200
+E2,high,EA0183,Prescription conflict: DrugDose — a=DrugDose=800 b=DrugDose=700
+E2,high,EA0195,Prescription conflict: DrugDose — a=DrugDose=600 b=DrugDose=400
+E5,high,EA0005,SF contradiction: seizure-free 'Generalised-tonic-clonic-seizure-' vs active 'seizures-'
+E5,high,EA0011,SF contradiction: seizure-free 'Focal-to-bilateral-convulsive-seizure' vs active 'ocal-seizures-with-altered-awarenes'
+E5,high,EA0011,SF contradiction: seizure-free 'ocal-to-bilateral-convulsive-seizures' vs active 'ocal-seizures-with-altered-awarenes'
+E5,high,EA0011,SF contradiction: seizure-free 'convulsive-seizur' vs active 'ocal-seizures-with-altered-awarenes'
+E5,high,EA0054,SF contradiction: seizure-free 'focal-to-bilateral-convulsive-seizure' vs active 'focal-seizures-with-altered-awareness'
+E5,high,EA0054,SF contradiction: seizure-free 'focal-to-bilateral-convulsive-seizure' vs active 'Focal-to-bilateral-convulsive-seizure'
+E5,high,EA0054,SF contradiction: seizure-free 'focal-to-bilateral-convulsive-seizure' vs active 'Focal-to-bilateral-convulsive-seizur'
+E5,high,EA0054,SF contradiction: seizure-free 'focal-to-bilateral-convulsive-seizure' vs active 'focal-seizures-with-altered-awareness'
+E5,high,EA0056,SF contradiction: seizure-free 'secondary-generalised-seizure' vs active 'partial-motor-seizures'
+E5,high,EA0056,SF contradiction: seizure-free 'secondary-generalised-seizure' vs active 'secondary-generalised-seizures'
+E5,high,EA0058,SF contradiction: seizure-free 'focal-to-bilateral-convulsive-seizures' vs active 'focal-seizures-with-altered-awareness'
+E5,high,EA0065,SF contradiction: seizure-free 'secondarily-generalised-seizures' vs active 'complex-partial-seizures'
+E5,high,EA0070,SF contradiction: seizure-free 'Bilateral-convulsive-seizures' vs active 'seizures'
+E5,high,EA0098,SF contradiction: seizure-free 'Focal-onset-convulsive-seizure' vs active 'seizur'
+E5,high,EA0106,SF contradiction: seizure-free 'Focal-to-bilateral-convulsive-seizures' vs active 'focal-motor-seizures'
+E5,high,EA0124,SF contradiction: seizure-free 'generalised-tonic-clonic-seizure' vs active 'absenc'
+E5,high,EA0126,SF contradiction: seizure-free 'focal-to-bilateral-convulsive-seizure' vs active 'Focal-frontal-lobe-seizure'
+E5,high,EA0133,SF contradiction: seizure-free 'Focal-to-bilateral-convulsive-seizure' vs active 'Focal-motor-seizure'
+E5,high,EA0137,SF contradiction: seizure-free 'seizur' vs active 'secondary-generalised-seizure'
+E5,high,EA0138,SF contradiction: seizure-free 'Focal-to-bilateral-convulsive-seizure' vs active 'Focal-seizures-with-altered-awarens'
+E5,high,EA0144,SF contradiction: seizure-free '(secondary-generalised-seizures' vs active 'Complex-partial-seizure'
+E5,high,EA0144,SF contradiction: seizure-free 'Secondary-generalised-seizure' vs active 'Complex-partial-seizure'
+E5,high,EA0186,SF contradiction: seizure-free 'focal-motor-seizures' vs active 'focal-to-bilateral-convulsive-seizur'
+E5,high,EA0186,SF contradiction: seizure-free 'focal-motor-seizures' vs active 'seizur'
+E5,high,EA0194,SF contradiction: seizure-free 'Focal-to-bilateral-convulsive-seizures' vs active 'Focal-dyscognitive-seizures'
+E5,high,EA0194,SF contradiction: seizure-free 'Focal-to-bilateral-convulsive-seizures' vs active 'Focal-to-bilateral-convulsive-seizures'
+E5,high,EA0195,SF contradiction: seizure-free 'seizure-free-for-three-years' vs active 'seizure-'

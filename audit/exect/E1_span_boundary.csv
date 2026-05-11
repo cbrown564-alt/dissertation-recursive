@@ -1,0 +1,2118 @@
+doc_id,ann_id,entity_type,start,end,span_text,source_slice,issue_type,severity,missing_chars
+EA0001,T1,Diagnosis,21,73,"symptomatic,-structural-right-temporal-lobe-epilepsy","symptomatic, structural right temporal lobe epilepsy",clean,ok,0
+EA0001,T4,Diagnosis,51,73,temporal-lobe-epilepsy,temporal lobe epilepsy,clean,ok,0
+EA0001,T6,PatientHistory,74,98,Subarachnoid-haemorrhage,Subarachnoid haemorrhage,clean,ok,0
+EA0001,T8,Prescription,152,181,lamotrigine-75-mg-twice-a-day,amotrigine 75 mg twice a day ,partial_overlap,medium,0
+EA0001,T10,Diagnosis,239,276,focal-seizures-with-loss-of-awareness,focal seizures with loss of awareness,clean,ok,0
+EA0001,T12,SeizureFrequency,239,276,focal-seizures-with-loss-of-awareness,focal seizures with loss of awareness,clean,ok,0
+EA0001,T14,Investigations,341,348,CT-head,CT head,clean,ok,0
+EA0001,T22,PatientHistory,493,501,absences,absences,clean,ok,0
+EA0001,T16,Diagnosis,513,527,focal-seizures,focal seizures,clean,ok,0
+EA0001,T18,PatientHistory,731,739,seizure-,seizure ,clean,ok,0
+EA0001,T20,PatientHistory,779,787,seizures,seizures,clean,ok,0
+EA0002,T2,Diagnosis,21,35,focal-epilepsy,focal epilepsy,clean,ok,0
+EA0002,T4,Diagnosis,27,53,epilepsy-Probable-temporal,epilepsy-Probable temporal,clean,ok,0
+EA0002,T8,Prescription,88,102,carbamazepine-,carbamazepine ,clean,ok,0
+EA0002,T6,Prescription,121,141,Topiramate-100-mg-BD,Topiramate 100 mg BD,clean,ok,0
+EA0002,T102,Diagnosis,250,264,focal-seizures,focal seizures,clean,ok,0
+EA0002,T12,SeizureFrequency,250,264,focal-seizures,focal seizures,clean,ok,0
+EA0002,T14,Diagnosis,345,375,secondary-generalised-seizures,secondary generalised seizures,clean,ok,0
+EA0002,T16,SeizureFrequency,345,375,secondary-generalised-seizures,secondary generalised seizures,clean,ok,0
+EA0002,T18,Diagnosis,388,402,focal-seizures,focal seizures,clean,ok,0
+EA0002,T10,PatientHistory,611,630,convulsive-seizures,convulsive seizures,clean,ok,0
+EA0002,T22,Investigations,839,847,MRI-scan,MRI scan,clean,ok,0
+EA0003,T2,Diagnosis,30,50,generalised-epilepsy,generalised epilepsy,clean,ok,0
+EA0003,T4,Prescription,52,123,Current-antiepileptic-medication:-sodium-valproate-600-mg-bd-(to-reduce,Current antiepileptic medication: sodium valproate 600 mg bd (to reduce,clean,ok,0
+EA0003,T6,Prescription,153,167,levetiracetam-,levetiracetam ,clean,ok,0
+EA0003,T8,SeizureFrequency,206,226,generalised-seizures,generalised seizures,clean,ok,0
+EA0003,T10,Diagnosis,206,226,generalised-seizures,generalised seizures,clean,ok,0
+EA0003,T12,PatientHistory,264,273,myoclonus,myoclonus,clean,ok,0
+EA0003,T14,SeizureFrequency,391,400,seizures-,seizures ,clean,ok,0
+EA0003,T16,PatientHistory,391,400,seizures-,seizures ,clean,ok,0
+EA0003,T18,PatientHistory,457,465,seizures,seizures,clean,ok,0
+EA0003,T20,Diagnosis,860,869,epilepsy-,epilepsy ,clean,ok,0
+EA0003,T22,Onset,860,868,epilepsy,epilepsy,clean,ok,0
+EA0003,T24,SeizureFrequency,952,960,seizures,seizures,clean,ok,0
+EA0003,T9,PatientHistory,952,960,seizures,seizures,clean,ok,0
+EA0004,T2,Diagnosis,21,30,epilepsy-,epilepsy ,clean,ok,0
+EA0004,T4,Diagnosis,21,46,epilepsy-–-probable-focal,epilepsy – probable focal,clean,ok,0
+EA0004,T6,Prescription,48,120,Current-antiepileptic-medication:-Lamotrigine-125-milligrams-twice-a-day,Current antiepileptic medication: Lamotrigine 125 milligrams twice a day,clean,ok,0
+EA0004,T9,SeizureFrequency,166,208,seizures-since-the-last-clinic-appointment,seizures since the last clinic appointment,clean,ok,0
+EA0004,T10,PatientHistory,318,326,seizures,seizures,clean,ok,0
+EA0004,T20,PatientHistory,397,406,seizures-,seizures ,clean,ok,0
+EA0004,T12,SeizureFrequency,476,485,seizures-,seizures ,clean,ok,0
+EA0004,T14,PatientHistory,476,485,seizures-,seizures ,clean,ok,0
+EA0004,T16,Investigations,523,527,MRI-,MRI ,clean,ok,0
+EA0004,T18,Investigations,547,551,EEG-,EEG ,clean,ok,0
+EA0005,T2,Diagnosis,21,49,genetic-generalised-epilepsy,genetic generalised epilepsy,clean,ok,0
+EA0005,T4,Diagnosis,50,104,epilepsy-with-generalised-tonic-chronic-seizures-alone,epilepsy with generalised tonic chronic seizures alone,clean,ok,0
+EA0005,T6,Prescription,107,162,Current-medication:-sodium-valproate-500-mg-twice-a-day,Current medication: sodium valproate 500 mg twice a day,clean,ok,0
+EA0005,T8,Prescription,163,195,Carbamazepine-200-mg-twice-a-day,Carbamazepine 200 mg twice a day,clean,ok,0
+EA0005,T10,Diagnosis,224,257,-Generalised-tonic-clonic-seizure, Generalised tonic clonic seizure,clean,ok,0
+EA0005,T12,SeizureFrequency,225,258,Generalised-tonic-clonic-seizure-,Generalised tonic clonic seizure-,clean,ok,0
+EA0005,T14,Investigations,327,342,MRI-2012-normal,MRI 2012 normal,clean,ok,0
+EA0005,T16,Investigations,344,348,EEG-,EEG ,clean,ok,0
+EA0005,T18,PatientHistory,450,458,seizure-,seizure ,clean,ok,0
+EA0005,T20,PatientHistory,524,533,seizures-,seizures ,clean,ok,0
+EA0005,T22,SeizureFrequency,576,585,seizures-,seizures ,clean,ok,0
+EA0005,T24,PatientHistory,576,585,seizures-,seizures ,clean,ok,0
+EA0005,T26,Diagnosis,884,918,generalised-tonic-chronic-seizures,generalised tonic chronic seizures,clean,ok,0
+EA0005,T28,Diagnosis,950,1002,epilepsy-with-generalised-tonic-clonic-seizure-alone,epilepsy with generalised tonic clonic seizure alone,clean,ok,0
+EA0006,T2,Diagnosis,21,30,Epilepsy-,Epilepsy ,clean,ok,0
+EA0006,T4,Diagnosis,55,66,generalised,generalised,clean,ok,0
+EA0006,T6,Prescription,69,135,Current-antiepileptic-medication:-levetiracetam-500-mg-twice-a-day,Current antiepileptic medication: levetiracetam 500 mg twice a day,clean,ok,0
+EA0006,T8,Diagnosis,234,267,generalised-tonic-clonic-seizures,generalised tonic clonic seizures,clean,ok,0
+EA0006,T10,SeizureFrequency,234,272,generalised-tonic-clonic-seizures-2014,generalised tonic clonic seizures 2014,clean,ok,0
+EA0006,T9,SeizureFrequency,274,295,absence-like-seizures,absence like seizures,clean,ok,0
+EA0006,T11,PatientHistory,274,295,absence-like-seizures,absence like seizures,clean,ok,0
+EA0006,T12,Investigations,318,333,MRI-2015-normal,MRI 2015 normal,clean,ok,0
+EA0006,T14,Investigations,335,350,EEG-2015-normal,EEG 2015 normal,clean,ok,0
+EA0006,T16,SeizureFrequency,498,541,2-generalised-tonic-clonic-seizures-in-2014,2 generalised tonic clonic seizures in 2014,clean,ok,0
+EA0006,T18,Diagnosis,500,533,generalised-tonic-clonic-seizures,generalised tonic clonic seizures,clean,ok,0
+EA0006,T13,PatientHistory,643,666,“absence-like”-episodes,“absence-like” episodes,clean,ok,0
+EA0006,T20,PatientHistory,875,891,febrile-seizures,febrile seizures,clean,ok,0
+EA0007,T2,Diagnosis,21,30,epilepsy-,epilepsy ,clean,ok,0
+EA0007,T4,PatientHistory,47,55,Diabetes,Diabetes,clean,ok,0
+EA0007,T6,PatientHistory,57,71,hypothyroidism,hypothyroidism,clean,ok,0
+EA0007,T8,Prescription,107,121,levetiracetam-,levetiracetam ,clean,ok,0
+EA0007,T10,Prescription,107,121,levetiracetam-,levetiracetam ,clean,ok,0
+EA0007,T12,Prescription,151,161,Phenytoin-,Phenytoin ,clean,ok,0
+EA0007,T14,PatientHistory,288,297,seizures-,seizures ,clean,ok,0
+EA0007,T16,SeizureFrequency,288,298,seizures-e,seizures e,clean,ok,0
+EA0007,T18,Diagnosis,326,337,focal-onset,focal onset,clean,ok,0
+EA0007,T20,Investigations,363,378,MRI-2011-Normal,MRI 2011 Normal,clean,ok,0
+EA0007,T22,PatientHistory,468,477,seizures-,seizures ,clean,ok,0
+EA0007,T24,Diagnosis,513,522,epilepsy-,epilepsy ,clean,ok,0
+EA0007,T26,SeizureFrequency,558,567,seizures-,seizures ,clean,ok,0
+EA0007,T28,PatientHistory,558,566,seizures,seizures,clean,ok,0
+EA0007,T30,PatientHistory,591,600,diabetes-,diabetes ,clean,ok,0
+EA0007,T32,PatientHistory,674,683,seizures-,seizures ,clean,ok,0
+EA0007,T34,PatientHistory,772,781,seizures-,seizures ,clean,ok,0
+EA0008,T2,Diagnosis,21,58,symptomatic-structural-focal-epilepsy,symptomatic structural focal epilepsy,clean,ok,0
+EA0008,T11,PatientHistory,69,89,meningioma-resection,meningioma resection,clean,ok,0
+EA0008,T6,Diagnosis,136,173,focal-seizures-with-altered-awareness,focal seizures with altered awareness,clean,ok,0
+EA0008,T8,SeizureFrequency,136,172,focal-seizures-with-altered-awarenes,focal seizures with altered awarenes,clean,ok,0
+EA0008,T10,Prescription,189,254,Current-anti-epileptic-medication:-lamotrigine-75mg-bd-(to-reduce,Current anti-epileptic medication: lamotrigine 75mg bd (to reduce,clean,ok,0
+EA0008,T14,PatientHistory,451,461,sseizures-,seizures h,mismatch,high,0
+EA0008,T12,SeizureFrequency,452,474,seizures-have-returned,eizures have returned.,mismatch,high,0
+EA0009,T2,PatientHistory,105,114,seizures-,seizures ,clean,ok,0
+EA0009,T4,PatientHistory,168,179,craniotomy-,craniotomy ,clean,ok,0
+EA0009,T6,PatientHistory,187,212,frontal-lobe-brain-tumour,frontal lobe brain tumour,clean,ok,0
+EA0009,T8,PatientHistory,226,235,seizures-,seizures ,clean,ok,0
+EA0009,T12,Diagnosis,390,418,bilateral-convulsive-seizure,bilateral convulsive seizure,clean,ok,0
+EA0009,T14,PatientHistory,483,492,seizures-,seizures ,clean,ok,0
+EA0009,T16,SeizureFrequency,483,490,seizure,seizure,clean,ok,0
+EA0009,T18,SeizureFrequency,528,547,cluster-of-seizures,cluster of seizures,clean,ok,0
+EA0009,T24,PatientHistory,528,546,cluster-of-seizure,cluster of seizure,clean,ok,0
+EA0009,T20,PatientHistory,582,591,seizures-,seizures ,clean,ok,0
+EA0009,T22,SeizureFrequency,582,589,seizure,seizure,clean,ok,0
+EA0009,T28,BirthHistory,624,637,born-normally,born normally,clean,ok,0
+EA0009,T26,PatientHistory,653,669,febrile-seizures,febrile seizures,clean,ok,0
+EA0009,T30,Prescription,732,746,levetiracetam-,levetiracetam ,clean,ok,0
+EA0009,T32,Prescription,776,788,lamotrigine-,lamotrigine ,clean,ok,0
+EA0009,T34,Investigations,818,822,MRI-,MRI ,clean,ok,0
+EA0009,T10,PatientHistory,861,869,gliosis-,gliosis ,clean,ok,0
+EA0009,T11,PatientHistory,891,901,craniotomy,craniotomy,clean,ok,0
+EA0009,T36,PatientHistory,990,999,seizures-,seizures ,clean,ok,0
+EA0010,T2,PatientHistory,21,29,migraine,migraine,clean,ok,0
+EA0010,T4,Diagnosis,62,99,Symptomatic-structural-focal-epilepsy,Symptomatic structural focal epilepsy,clean,ok,0
+EA0010,T11,BirthHistory,110,126,perinatal-insult,perinatal insult,clean,ok,0
+EA0010,T13,EpilepsyCause,111,126,erinatal-insult,erinatal insult,clean,ok,0
+EA0010,T12,PatientHistory,205,215,migraines-,migraines ,clean,ok,0
+EA0010,T20,Prescription,432,444,lamotrigine-,lamotrigine ,clean,ok,0
+EA0010,T15,SeizureFrequency,467,476,seizures-,seizures ,clean,ok,0
+EA0010,T19,PatientHistory,467,474,seizure,seizure,clean,ok,0
+EA0010,T17,Diagnosis,538,576,focal-to-bilateral-convulsive-seizures,focal to bilateral convulsive seizures,clean,ok,0
+EA0010,T23,BirthHistory,697,719,Special-care-baby-Unit,Special care baby Unit,clean,ok,0
+EA0010,T21,PatientHistory,731,747,febrile-seizures,febrile seizures,clean,ok,0
+EA0010,T25,PatientHistory,802,818,viral-meningitis,viral meningitis,clean,ok,0
+EA0010,T27,Investigations,898,907,MRI-brain,MRI brain,clean,ok,0
+EA0010,T16,BirthHistory,1036,1052,perinatal-insult,perinatal insult,clean,ok,0
+EA0010,T29,PatientHistory,1083,1092,migraine-,migraine ,clean,ok,0
+EA0010,T31,Diagnosis,1323,1331,epilepsy,epilepsy,clean,ok,0
+EA0011,T2,Diagnosis,12,34,Temporal-lobe-epilepsy,Temporal lobe epilepsy,clean,ok,0
+EA0011,T4,Diagnosis,66,103,Focal-seizures-with-altered-awareness,Focal seizures with altered awareness,clean,ok,0
+EA0011,T6,SeizureFrequency,67,102,ocal-seizures-with-altered-awarenes,ocal seizures with altered awarenes,clean,ok,0
+EA0011,T8,Diagnosis,134,172,Focal-to-bilateral-convulsive-seizures,Focal to bilateral convulsive seizures,clean,ok,0
+EA0011,T10,SeizureFrequency,134,171,Focal-to-bilateral-convulsive-seizure,Focal to bilateral convulsive seizure,clean,ok,0
+EA0011,T14,Prescription,244,259,eslicarbazepine,eslicarbazepine,clean,ok,0
+EA0011,T12,Prescription,279,307,Zonisamide-75-mg-twice-a-day,Zonisamide 75 mg twice a day,clean,ok,0
+EA0011,T9,Diagnosis,578,587,epilepsy-,epilepsy ,clean,ok,0
+EA0011,T11,PatientHistory,605,613,seizures,seizures,clean,ok,0
+EA0011,T24,PatientHistory,605,612,seizure,seizure,clean,ok,0
+EA0011,T13,Diagnosis,670,708,focal-to-bilateral-convulsive-seizures,focal to bilateral convulsive seizures,clean,ok,0
+EA0011,T5,SeizureFrequency,671,708,ocal-to-bilateral-convulsive-seizures,ocal to bilateral convulsive seizures,clean,ok,0
+EA0011,T17,SeizureFrequency,672,708,cal-to-bilateral-convulsive-seizures,cal to bilateral convulsive seizures,clean,ok,0
+EA0011,T7,BirthHistory,818,831,born-normally,born normally,clean,ok,0
+EA0011,T21,PatientHistory,854,870,febrile-seizures,febrile seizures,clean,ok,0
+EA0011,T23,PatientHistory,971,989,severe-head-injury,severe head injury,clean,ok,0
+EA0011,T27,SeizureFrequency,1019,1036,convulsive-seizur,convulsive seizur,clean,ok,0
+EA0011,T20,PatientHistory,1019,1035,convulsive-seizu,convulsive seizu,clean,ok,0
+EA0011,T29,Investigations,1090,1099,MRI-brain,MRI brain,clean,ok,0
+EA0011,T19,PatientHistory,1134,1142,gliosis-,gliosis ,clean,ok,0
+EA0011,T31,Investigations,1183,1187,EEG-,EEG ,clean,ok,0
+EA0012,T2,Diagnosis,62,71,epilepsy-,epilepsy ,clean,ok,0
+EA0012,T8,Prescription,130,144,Levetiracetam-,Levetiracetam ,clean,ok,0
+EA0012,T4,Prescription,156,176,Zonisamide-150-mg-BD,Zonisamide 150 mg BD,clean,ok,0
+EA0012,T6,Prescription,178,199,Tegretol-600-mg-daily,Tegretol 600 mg daily,clean,ok,0
+EA0013,T2,Diagnosis,64,84,intractable-epilepsy,intractable epilepsy,clean,ok,0
+EA0013,T6,Prescription,96,102,Kepra-,Keppra,mismatch,high,0
+EA0013,T4,Prescription,123,152,Zonisamide-125-mg-twice-a-day, Zonisamide 125 mg twice a da,span_longer_than_source,medium,0
+EA0013,T9,SeizureFrequency,213,221,-seizure,l seizur,mismatch,high,0
+EA0013,T8,PatientHistory,214,222,seizures, seizure,span_longer_than_source,medium,0
+EA0014,T2,Diagnosis,65,85,intractable-epilepsy,intractable epilepsy,clean,ok,0
+EA0014,T4,Prescription,103,130,She-is-on-Keppra-1000-mg-BD,She is on Keppra 1000 mg BD,clean,ok,0
+EA0014,T6,Prescription,132,142,zobisamide,Zonisamide,mismatch,high,0
+EA0014,T8,Diagnosis,200,224,complex-partial-seizures,complex partial seizures,clean,ok,0
+EA0014,T10,PatientHistory,304,327,chronic-daily-headaches,onic daily headaches. T,mismatch,high,0
+EA0015,T9,PatientHistory,60,85,sub-arachnoid-haemorrhage,sub-arachnoid haemorrhage,clean,ok,0
+EA0015,T13,Diagnosis,146,155,epileptic,epileptic,clean,ok,0
+EA0015,T8,Prescription,227,269,Currently-she-is-taking-Tegretol-500-mg-BD,Currently she is taking Tegretol 500 mg BD,clean,ok,0
+EA0015,T10,Prescription,274,297,levetiracetam-250-mg-BD,levetiracetam 250 mg BD,clean,ok,0
+EA0015,T12,PatientHistory,330,341,depression-,depression ,clean,ok,0
+EA0016,T2,Diagnosis,41,54,focal-seizure,focal seizure,clean,ok,0
+EA0016,T4,PatientHistory,55,59,CVA-,CVA	,clean,ok,0
+EA0016,T6,PatientHistory,70,82,hemiparesis-,hemiparesis ,clean,ok,0
+EA0016,T8,PatientHistory,557,563,stroke,stroke,clean,ok,0
+EA0016,T10,PatientHistory,764,775,hemiparesis,hemiparesis,clean,ok,0
+EA0016,T14,Investigations,814,821,CT-scan,CT scan,clean,ok,0
+EA0016,T12,PatientHistory,858,865,infarct,infarct,clean,ok,0
+EA0016,T16,Diagnosis,920,933,focal-seizure,focal seizure,clean,ok,0
+EA0016,T18,EpilepsyCause,955,961,stroke,stroke,clean,ok,0
+EA0016,T20,PatientHistory,955,960,strok,strok,clean,ok,0
+EA0016,T22,PatientHistory,1160,1168,seizure-,seizure ,clean,ok,0
+EA0017,T2,Diagnosis,45,59,focal-epilepsy,focal epilepsy,clean,ok,0
+EA0017,T4,SeizureFrequency,80,92,seizure-free,seizure free,clean,ok,0
+EA0017,T9,PatientHistory,166,174,seizures,seizures,clean,ok,0
+EA0017,T6,Prescription,184,224,She-is-currently-taking-Keppra-750-mg-BD,She is currently taking Keppra 750 mg BD,clean,ok,0
+EA0017,T11,Prescription,229,255,folic-acid-5-mg-once-a-day,folic acid 5 mg once-a-day,clean,ok,0
+EA0017,T8,Investigations,260,263,MRI,MRI,clean,ok,0
+EA0018,T2,Diagnosis,48,56,epilepsy,epilepsy,clean,ok,0
+EA0018,T6,Diagnosis,353,366,temporal-lobe,temporal lobe,clean,ok,0
+EA0018,T4,Diagnosis,373,387,focal-seizures,focal seizures,clean,ok,0
+EA0018,T8,Diagnosis,511,534,occipital-lobe-seizures,occipital lobe seizures,clean,ok,0
+EA0018,T10,Prescription,537,596,Currently-she-is-taking-sodium-valproate-500-mg-twice-a-day,Currently she is taking sodium valproate 500 mg twice a day,clean,ok,0
+EA0018,T12,Prescription,601,634,levetiracetam-1000-mg-twice-today,levetiracetam 1000 mg twice today,clean,ok,0
+EA0019,T2,Diagnosis,43,71,primary-generalised-epilepsy,primary generalised epilepsy,clean,ok,0
+EA0019,T4,Prescription,96,133,He-is-on-Epilim-300-mg-in-the-morning,He is on Epilim 300 mg in the morning,clean,ok,0
+EA0019,T8,Prescription,105,112,Epilim-,Epilim ,clean,ok,0
+EA0019,T6,Prescription,164,186,carbamazepine-300mg-bd,carbamazepine 300mg bd,clean,ok,0
+EA0019,T11,Diagnosis,274,306,generalised-tonic-clonic-seizure,generalised tonic clonic seizure,clean,ok,0
+EA0019,T13,SeizureFrequency,274,305,generalised-tonic-clonic-seizur,generalised tonic clonic seizur,clean,ok,0
+EA0019,T14,PatientHistory,322,330,seizure-,seizure ,clean,ok,0
+EA0019,T9,PatientHistory,454,462,-seizure, seizure,clean,ok,0
+EA0020,T2,Diagnosis,36,45,epilepsy-,epilepsy ,clean,ok,0
+EA0020,T7,SeizureFrequency,117,150,generalised-tonic-clonic-seizures,generalised tonic clonic seizures,clean,ok,0
+EA0020,T9,SeizureFrequency,189,197,absences,absences,clean,ok,0
+EA0020,T11,Prescription,220,255,She-takes-Keppra-500-mg-twice-a-day,She takes Keppra 500 mg twice a day,clean,ok,0
+EA0021,T1,Prescription,224,240,Sodium-Valproate, Sodium Valproat,span_longer_than_source,medium,0
+EA0021,T2,Onset,286,294,epilepsy, epileps,span_longer_than_source,medium,0
+EA0021,T10,Diagnosis,336,370,-generalised-tonic-clonic-seizures,h generalised tonic clonic seizure,mismatch,high,0
+EA0021,T3,PatientHistory,875,892,-febrile-seizures,f febrile seizure,mismatch,high,0
+EA0021,T4,Diagnosis,286,294,epilepsy, epileps,span_longer_than_source,medium,0
+EA0021,T6,Investigations,815,818,MRI, MR,span_longer_than_source,medium,0
+EA0021,T8,Investigations,731,734,EEG, EE,span_longer_than_source,medium,0
+EA0021,T9,Prescription,212,261,Medication:-Sodium-Valproate-700mg-in-the-morning,"
+Medication: Sodium Valproate 700mg in the mornin",span_longer_than_source,medium,0
+EA0021,T11,Diagnosis,168,211,secondary-generalised-tonic-clonic-seizures, secondary generalised tonic clonic seizure,span_longer_than_source,medium,0
+EA0021,T12,PatientHistory,464,472,seizures, seizure,span_longer_than_source,medium,0
+EA0021,T13,Diagnosis,138,162,Complex-partial-seizures, Complex partial seizure,span_longer_than_source,medium,0
+EA0021,T14,BirthHistory,839,851,normal-birth, normal birt,span_longer_than_source,medium,0
+EA0022,T3,PatientHistory,21,32,head-injury,head injury,clean,ok,0
+EA0022,T5,PatientHistory,36,57,Dissociative-seizures,Dissociative seizures,clean,ok,0
+EA0022,T7,Diagnosis,61,75,Focal-epilepsy,Focal epilepsy,clean,ok,0
+EA0022,T8,Diagnosis,177,191,focal-seizures,focal seizures,clean,ok,0
+EA0022,T10,SeizureFrequency,177,191,focal-seizures,focal seizures,clean,ok,0
+EA0022,T11,Prescription,236,248,lamotrigine-,lamotrigine ,clean,ok,0
+EA0022,T14,Investigations,488,556,EEG-she-had-some-of-these-episodes-and-there-was-no-epileptiform-EEG,EEG she had some of these episodes and there was no epileptiform EEG,clean,ok,0
+EA0022,T9,SeizureFrequency,693,701,seizures,seizures,clean,ok,0
+EA0023,T3,PatientHistory,133,154,loss-of-consciousness,loss of consciousness,clean,ok,0
+EA0024,T12,PatientHistory,34,43,blackouts,blackouts,clean,ok,0
+EA0024,T2,PatientHistory,76,83,Anxiety,Anxiety,clean,ok,0
+EA0024,T4,PatientHistory,123,130,alcohol,alcohol,clean,ok,0
+EA0024,T6,PatientHistory,725,741,febrile-seizures,febrile seizures,clean,ok,0
+EA0024,T8,PatientHistory,1099,1120,loss-of-consciousness,loss of consciousness,clean,ok,0
+EA0025,T2,Diagnosis,45,78,generalised-tonic-clonic-seizures,generalised tonic clonic seizures,clean,ok,0
+EA0025,T4,PatientHistory,84,99,myoclonic-jerks,myoclonic jerks,clean,ok,0
+EA0025,T6,Diagnosis,110,113,JME,JME,clean,ok,0
+EA0025,T8,Prescription,115,159,Anti-convulsant-medication:-epilim-500-mg-BD,Anti-convulsant medication: epilim 500 mg BD,clean,ok,0
+EA0025,T10,Prescription,160,190,Lamictal-100-mg-in-the-morning,Lamictal 100 mg in the morning,clean,ok,0
+EA0025,T12,Prescription,160,169,Lamictal-,Lamictal ,clean,ok,0
+EA0025,T14,Diagnosis,395,429,generalised-tonic-chronic-seizures,generalised tonic chronic seizures,clean,ok,0
+EA0025,T11,SeizureFrequency,395,428,generalised-tonic-chronic-seizure,generalised tonic chronic seizure,clean,ok,0
+EA0025,T18,PatientHistory,486,501,myoclonic-jerks,myoclonic jerks,clean,ok,0
+EA0025,T20,SeizureFrequency,486,500,myoclonic-jerk,myoclonic jerk,clean,ok,0
+EA0025,T22,PatientHistory,555,578,drinks-too-much-alcohol,drinks too much alcohol,clean,ok,0
+EA0026,T2,Diagnosis,71,104,generalised-tonic-clonic-seizures,generalised tonic clonic seizures,clean,ok,0
+EA0026,T4,PatientHistory,110,125,myoclonic-jerks,myoclonic jerks,clean,ok,0
+EA0026,T6,Diagnosis,136,139,JME,JME,clean,ok,0
+EA0026,T8,Investigations,157,160,EEG,EEG,clean,ok,0
+EA0026,T10,Investigations,207,210,MRI,MRI,clean,ok,0
+EA0026,T17,Prescription,231,254,sodium-valproate-700-mg,sodium valproate 700 mg,clean,ok,0
+EA0026,T18,Prescription,280,290,topiramate,topiramate,clean,ok,0
+EA0026,T9,SeizureFrequency,357,365,seizures,seizures,clean,ok,0
+EA0026,T16,PatientHistory,357,365,seizures,seizures,clean,ok,0
+EA0027,T2,PatientHistory,88,94,jerks-,jerks ,clean,ok,0
+EA0027,T6,PatientHistory,493,499,jerks-,jerks ,clean,ok,0
+EA0027,T11,Diagnosis,675,683,epilepsy,epilepsy,clean,ok,0
+EA0028,T5,SeizureFrequency,96,104,seizures,seizures,clean,ok,0
+EA0028,T2,Prescription,153,167,levetiracetam-,levetiracetam ,clean,ok,0
+EA0029,T3,Diagnosis,11,45,generalised-tonic-chronic-seizures,generalised tonic chronic seizures,clean,ok,0
+EA0029,T27,Onset,11,44,generalised-tonic-chronic-seizure,generalised tonic chronic seizure,clean,ok,0
+EA0029,T29,PatientHistory,47,56,absences-,absences ,clean,ok,0
+EA0029,T31,PatientHistory,60,75,myoclonic-jerks,myoclonic jerks,clean,ok,0
+EA0029,T9,Diagnosis,97,100,JME,JME,clean,ok,0
+EA0029,T11,Prescription,103,153,Medication:-lamotrigine-150-milligrams-twice-a-day,Medication: lamotrigine 150 milligrams twice a day,clean,ok,0
+EA0029,T13,Prescription,154,188,Keppra-1000-milligrams-twice-a-day,Keppra 1000 milligrams twice a day,clean,ok,0
+EA0029,T19,Onset,194,201,epileps,epileps,clean,ok,0
+EA0029,T15,Diagnosis,258,285,juvenile-myoclonic-epilepsy,juvenile myoclonic epilepsy,clean,ok,0
+EA0029,T21,Investigations,308,312,EEG-,EEG ,clean,ok,0
+EA0029,T23,Diagnosis,358,367,epilepsy-,epilepsy ,clean,ok,0
+EA0030,T2,Diagnosis,20,23,JME,JME,clean,ok,0
+EA0030,T4,Investigations,41,44,EEG,EEG,clean,ok,0
+EA0030,T6,Investigations,107,111,MRI-,MRI ,clean,ok,0
+EA0030,T9,PatientHistory,122,140,cerebellar-atrophy,cerebellar atrophy,clean,ok,0
+EA0030,T8,Prescription,142,192,Medication:-lamotrigine-250-milligrams-twice-a-day,Medication: lamotrigine 250 milligrams twice a day,clean,ok,0
+EA0030,T10,Prescription,193,227,Keppra-1000-milligrams-twice-a-day,Keppra 1000 milligrams twice a day,clean,ok,0
+EA0031,T2,Diagnosis,42,69,Juvenile-Myoclonic-Epilepsy,Juvenile Myoclonic Epilepsy,clean,ok,0
+EA0031,T6,Prescription,83,89,Eplim-,Epilim,mismatch,high,0
+EA0031,T8,Prescription,83,88,Eplim,Epili,mismatch,high,0
+EA0031,T4,Prescription,126,151,Clobazam-10-mg-once-a-day,"
+Clobazam 10 mg once-a-da",span_longer_than_source,medium,0
+EA0031,T10,Investigations,169,179,MRI-normal, MRI norma,span_longer_than_source,medium,0
+EA0031,T12,Investigations,180,184,EEG-,"
+EEG",clean,ok,0
+EA0031,T9,PatientHistory,232,248,photosensitivity, photosensitivit,span_longer_than_source,medium,0
+EA0031,T14,Diagnosis,261,269,epilepsy, epileps,span_longer_than_source,medium,0
+EA0031,T16,PatientHistory,382,390,seizure-, seizure,clean,ok,0
+EA0031,T18,PatientHistory,474,489,myoclonic-jerks, myoclonic jerk,span_longer_than_source,medium,0
+EA0031,T11,SeizureFrequency,474,488,myoclonic-jerk, myoclonic jer,span_longer_than_source,medium,0
+EA0032,T2,PatientHistory,86,95,seizures-,seizures ,clean,ok,0
+EA0032,T4,PatientHistory,222,237,myoclonic-jerks,myoclonic jerks,clean,ok,0
+EA0032,T6,Diagnosis,249,282,generalised-tonic-clonic-seizures,generalised tonic clonic seizures,clean,ok,0
+EA0032,T8,Investigations,297,309,abnormal-EEG,abnormal EEG,clean,ok,0
+EA0032,T10,Prescription,374,390,sodium-valproate,sodium valproate,clean,ok,0
+EA0032,T12,Prescription,418,426,clobazam,clobazam,clean,ok,0
+EA0032,T14,PatientHistory,576,584,seizures,seizures,clean,ok,0
+EA0033,T2,Diagnosis,11,38,juvenile-myoclonic-epilepsy,juvenile myoclonic epilepsy,clean,ok,0
+EA0033,T4,Prescription,72,88,sodium-valproate,sodium valproate,clean,ok,0
+EA0033,T6,Prescription,105,114,Clobazam-,Clobazam ,clean,ok,0
+EA0033,T8,Investigations,148,159,MRI–-normal,MRI– normal,clean,ok,0
+EA0033,T5,Investigations,160,163,EEG,EEG,clean,ok,0
+EA0033,T10,PatientHistory,212,228,photosensitivity,photosensitivity,clean,ok,0
+EA0033,T12,Diagnosis,323,332,epilepsy-,pilepsy s,mismatch,high,0
+EA0033,T14,Onset,323,330,epileps,pilepsy,mismatch,high,0
+EA0033,T16,Diagnosis,384,411,juvenile-myoclonic-epilepsy,juvenile myoclonic epilepsy,clean,ok,0
+EA0033,T18,Diagnosis,428,461,generalised-tonic-clonic-seizures,generalised tonic clonic seizures,clean,ok,0
+EA0033,T20,PatientHistory,463,471,absences,absences,clean,ok,0
+EA0033,T22,PatientHistory,476,491,myoclonic-jerks,myoclonic jerks,clean,ok,0
+EA0033,T24,PatientHistory,622,630,anxiety-,anxiety ,clean,ok,0
+EA0033,T26,PatientHistory,816,831,myoclonic-jerks,myoclonic jerks,clean,ok,0
+EA0034,T2,Diagnosis,11,43,focal-onset-epilepsy-(occipital),focal onset epilepsy (occipital),clean,ok,0
+EA0034,T4,Diagnosis,11,43,focal-onset-epilepsy-(occipital),focal onset epilepsy (occipital),clean,ok,0
+EA0034,T6,Prescription,79,111,-levetiracetam-750mg-twice-a-day, levetiracetam 750mg twice a day,clean,ok,0
+EA0034,T8,Diagnosis,141,155,focal-seizures,focal seizures,clean,ok,0
+EA0034,T10,Diagnosis,174,211,focal-to-bilateral-convulsive-seizure,focal to bilateral convulsive seizure,clean,ok,0
+EA0034,T14,Investigations,233,270,MRI-2019-right-occipital-lobe-infarct,MRI 2019 right occipital lobe infarct,clean,ok,0
+EA0034,T3,PatientHistory,248,270,occipital-lobe-infarct,occipital lobe infarct,clean,ok,0
+EA0034,T16,SeizureFrequency,377,440,not-had-any-further-seizures-since-increasing-the-levetiracetam,not had any further seizures since increasing the levetiracetam,clean,ok,0
+EA0035,T2,Diagnosis,11,19,epilepsy,epilepsy,clean,ok,0
+EA0035,T4,Diagnosis,11,41,"epilepsy,-probably-generalised","epilepsy, probably generalised",clean,ok,0
+EA0035,T6,Diagnosis,42,95,Epilepsy-with-generalised-tonic-clonic-seizures-alone,Epilepsy with generalised tonic clonic seizures alone,clean,ok,0
+EA0035,T11,Prescription,97,166,Current-antiepileptic-medication:-sodium-valproate-(epilim)-400-mg-BD,Current antiepileptic medication: sodium valproate (epilim) 400 mg BD,clean,ok,0
+EA0035,T10,Diagnosis,196,229,generalised-tonic-clonic-seizures,generalised tonic clonic seizures,clean,ok,0
+EA0035,T12,SeizureFrequency,196,259,"generalised-tonic-clonic-seizures,-last-seizure-four-years-ago.","generalised tonic clonic seizures, last seizure four years ago.",clean,ok,0
+EA0035,T9,PatientHistory,236,243,seizure,seizure,clean,ok,0
+EA0035,T14,Diagnosis,346,378,she’s-got-long-standing-epilepsy,she’s got long-standing epilepsy,clean,ok,0
+EA0035,T16,Investigations,521,524,MRI,MRI,clean,ok,0
+EA0035,T18,Diagnosis,789,801,her-epilepsy,her epilepsy,clean,ok,0
+EA0036,T2,Diagnosis,24,33,-epilepsy, epilepsy,clean,ok,0
+EA0036,T4,Diagnosis,35,68,generalised-tonic-clonic-seizures,generalised tonic clonic seizures,clean,ok,0
+EA0036,T6,Prescription,81,132,"-Epilim-200mg-in-the-morning,-400-mg-in-the-evening"," Epilim 200mg in the morning, 400 mg in the evening",clean,ok,0
+EA0036,T8,Prescription,82,132,"Epilim-200mg-in-the-morning,-400-mg-in-the-evening","Epilim 200mg in the morning, 400 mg in the evening",clean,ok,0
+EA0036,T10,WhenDiagnosed,192,235,diagnosed-with-epilepsy-around-10-years-ago,diagnosed with epilepsy around 10 years ago,clean,ok,0
+EA0036,T12,Diagnosis,207,215,epilepsy,epilepsy,clean,ok,0
+EA0036,T14,Diagnosis,246,279,generalised-tonic-clonic-seizures,generalised tonic clonic seizures,clean,ok,0
+EA0036,T16,BirthHistory,369,393,Birth-history-was-normal,Birth history was normal,clean,ok,0
+EA0036,T18,PatientHistory,431,461,no-history-of-febrile-seizures,no history of febrile seizures,clean,ok,0
+EA0037,T2,PatientHistory,91,122,non--epileptic-attacks-disorder,"non-epileptic attacks disorder
+",mismatch,high,0
+EA0037,T4,Diagnosis,123,137,Focal-seizures,ocal seizures ,partial_overlap,medium,0
+EA0037,T6,Diagnosis,123,167,Focal-seizures-with-secondary-generalisation,"ocal seizures with secondary generalisation
+",partial_overlap,medium,0
+EA0037,T8,Prescription,169,210,Medication:-lamotrigine-125mg-twice-a-day,"edication: lamotrigine 125mg twice a day
+",partial_overlap,medium,0
+EA0037,T10,Prescription,213,240,Clobazam-10mg-once-at-night,"lobazam 10mg once at night
+",partial_overlap,medium,0
+EA0037,T11,Investigations,242,245,EEG,EG(,mismatch,high,0
+EA0037,T14,Investigations,323,376,MRI-(February-2011)-non-specific-white-matter-changes,"RI (February 2011) non-specific white-matter changes
+",partial_overlap,medium,0
+EA0037,T16,PatientHistory,508,527,cluster-of-seizures,luster of seizures.,mismatch,high,0
+EA0037,T18,PatientHistory,770,787,she-get-a-seizure,he gets a seizure,mismatch,high,0
+EA0037,T12,PatientHistory,936,958,e-nonepileptic-attacks,e nonepileptic attacks,clean,ok,0
+EA0037,T20,PatientHistory,938,982,nonepileptic-attacks-(dissociative-seizures),nonepileptic attacks (dissociative seizures),clean,ok,0
+EA0038,T2,Diagnosis,92,116,complex-partial-seizures,complex partial seizures,clean,ok,0
+EA0038,T4,Diagnosis,117,160,Secondary-generalised-tonic-clonic-seizures,Secondary generalised tonic clonic seizures,clean,ok,0
+EA0038,T6,PatientHistory,161,201,Psychogenic-nonepileptic-attack-disorder,Psychogenic nonepileptic attack disorder,clean,ok,0
+EA0038,T8,PatientHistory,202,210,Diabetes,Diabetes,clean,ok,0
+EA0038,T14,Prescription,248,261,Carbamazepine,Carbamazepine,clean,ok,0
+EA0038,T16,Prescription,248,267,Carbamazepine-400mg,Carbamazepine 400mg,clean,ok,0
+EA0038,T18,Prescription,248,280,Carbamazepine-400mg/400-mg/200mg,Carbamazepine 400mg/400 mg/200mg,clean,ok,0
+EA0038,T10,Prescription,281,309,Zonisamide-50-mg-twice-a-day,Zonisamide 50 mg twice a day,clean,ok,0
+EA0038,T12,Prescription,310,327,Clobazam-10-mg-BD,Clobazam 10 mg BD,clean,ok,0
+EA0038,T20,Diagnosis,400,433,generalised-tonic-chronic-seizure,generalised tonic chronic seizure,clean,ok,0
+EA0038,T9,SeizureFrequency,400,433,generalised-tonic-chronic-seizure,generalised tonic chronic seizure,clean,ok,0
+EA0039,T2,PatientHistory,104,135,transient-loss-of-consciousness,transient loss of consciousness,clean,ok,0
+EA0039,T4,PatientHistory,148,164,probable-syncope,probable syncope,clean,ok,0
+EA0039,T16,Diagnosis,176,184,epilepsy,epilepsy,clean,ok,0
+EA0039,T6,Onset,264,294,epilepsy-since-the-age-of-four,epilepsy since the age of four,clean,ok,0
+EA0039,T9,Diagnosis,264,273,epilepsy-,epilepsy ,clean,ok,0
+EA0039,T11,Diagnosis,300,309,epilepsy-,epilepsy ,clean,ok,0
+EA0039,T8,SeizureFrequency,363,412,convulsive-seizure-approximately-every-five-years,convulsive seizure approximately every five years,clean,ok,0
+EA0039,T13,PatientHistory,363,382,convulsive-seizure-,convulsive seizure ,clean,ok,0
+EA0039,T15,PatientHistory,1027,1035,seizures,seizures,clean,ok,0
+EA0039,T18,BirthHistory,1198,1215,born-prematurely-,born prematurely ,clean,ok,0
+EA0039,T12,Diagnosis,1639,1647,epilepsy,epilepsy,clean,ok,0
+EA0039,T14,PatientHistory,1681,1691,-syncopal-, syncopal ,clean,ok,0
+EA0040,T2,Diagnosis,91,111,symptomatic-epilepsy,symptomatic epilepsy,clean,ok,0
+EA0040,T4,Diagnosis,117,141,complex-partial-seizures,complex partial seizures,clean,ok,0
+EA0040,T6,Diagnosis,146,175,secondly-generalised-seizures,secondarily generalised seizu,mismatch,high,0
+EA0040,T8,PatientHistory,192,223,left-frontal-cortical-dysplasia,s: left frontal cortical dyspla,mismatch,high,0
+EA0040,T11,PatientHistory,252,260,anxiety-,s: anxie,mismatch,high,0
+EA0040,T13,PatientHistory,264,274,depression,nd depress,mismatch,high,0
+EA0040,T12,Investigations,292,295,EEG,s: ,mismatch,high,0
+EA0040,T16,Investigations,337,341,MRI-,"al
+M",mismatch,high,0
+EA0040,T17,PatientHistory,367,393,frontal-cortical-dysplasia,ft frontal cortical dyspla,mismatch,high,0
+EA0040,T18,Prescription,395,437,Medication-levetiracetam-750mg-twice-a-day,"a
+
+Medication levetiracetam 750mg twice a ",mismatch,high,0
+EA0040,T20,Prescription,438,467,Lamotrigine-50-mg-twice-a-day,"ay
+Lamotrigine 50 mg twice a ",mismatch,high,0
+EA0040,T22,PatientHistory,842,850,seizures,is seizu,mismatch,high,0
+EA0041,T2,Diagnosis,94,114,focal-onset-epilepsy,focal onset epilepsy,clean,ok,0
+EA0041,T18,PatientHistory,116,123,Anxiety,Anxiety,clean,ok,0
+EA0041,T20,PatientHistory,125,142,Episodic-migraine,Episodic migraine,clean,ok,0
+EA0041,T4,Prescription,144,224,Current-medication-levetiracetam-750mg-twice-a-day-(to-change-as-detailed-below),Current medication levetiracetam 750mg twice a day (to change as detailed below),clean,ok,0
+EA0041,T6,Diagnosis,400,408,epilepsy,epilepsy,clean,ok,0
+EA0041,T8,PatientHistory,1264,1303,ebrile-seizures-at-the-age-of-12-and-18,ebrile seizures at the age of 12 and 18,clean,ok,0
+EA0041,T11,BirthHistory,1319,1356,born-slightly-prematurely-at-34-weeks,born slightly prematurely at 34 weeks,clean,ok,0
+EA0041,T10,Investigations,1691,1702,Normal-MRI-,Normal MRI ,clean,ok,0
+EA0041,T13,Investigations,1724,1729,EEGs-,EEGs ,clean,ok,0
+EA0041,T14,Diagnosis,1835,1853,epileptic-seizures,epileptic seizures,clean,ok,0
+EA0041,T16,Diagnosis,1941,1979,focal-to-bilateral-convulsive-seizures,focal to bilateral convulsive seizures,clean,ok,0
+EA0042,T2,Diagnosis,91,111,focal-onset-epilepsy,focal onset epilepsy,clean,ok,0
+EA0042,T4,PatientHistory,113,120,Anxiety,Anxiety,clean,ok,0
+EA0042,T6,PatientHistory,122,139,Episodic-migraine,Episodic migraine,clean,ok,0
+EA0042,T8,Prescription,141,189,Current-medication-Brivaracetam-75mg-twice-a-day,Current medication Brivaracetam 75mg twice a day,clean,ok,0
+EA0042,T10,Diagnosis,452,466,focal-seizures,focal seizures,clean,ok,0
+EA0042,T12,SeizureFrequency,452,508,focal-seizures-now-happen-around-once-or-twice-per-month,focal seizures now happen around once or twice per month,clean,ok,0
+EA0042,T14,PatientHistory,551,559,seizures,seizures,clean,ok,0
+EA0043,T2,PatientHistory,90,121,transient-loss-of-consciousness,transient loss of consciousness,clean,ok,0
+EA0043,T4,Diagnosis,133,142,-Epilepsy, Epilepsy,clean,ok,0
+EA0043,T6,PatientHistory,144,152,Diabetes,Diabetes,clean,ok,0
+EA0043,T9,PatientHistory,741,750,diabetic-,diabetic ,clean,ok,0
+EA0043,T8,PatientHistory,1239,1254,febrile-seizure,febrile seizure,clean,ok,0
+EA0043,T10,Diagnosis,1584,1602,epileptic-seizures,epileptic seizures,clean,ok,0
+EA0043,T12,Diagnosis,1704,1747,epilepsy-with-tonic---clonic-seizures-alone.,"epilepsy with tonic 
+clonic seizures alone.",mismatch,high,0
+EA0044,T2,Diagnosis,85,138,Generalised-Epilepsy-with-tonic-clonic-seizures-alone,Generalised Epilepsy with tonic-clonic seizures alone,clean,ok,0
+EA0044,T4,PatientHistory,140,148,Diabetes,Diabetes,clean,ok,0
+EA0044,T6,Prescription,150,190,Medication:-lamotrigine-75mg-twice-a-day,Medication: lamotrigine 75mg twice a day,clean,ok,0
+EA0044,T8,Investigations,208,211,MRI,MRI,clean,ok,0
+EA0044,T10,Investigations,226,229,EEG,EEG,clean,ok,0
+EA0044,T11,PatientHistory,268,284,photosensitivity,photosensitivity,clean,ok,0
+EA0044,T12,SeizureFrequency,395,403,seizures,seizures,clean,ok,0
+EA0044,T14,SeizureFrequency,395,403,seizures,seizures,clean,ok,0
+EA0044,T9,Investigations,770,774,EEG-,EEG ,clean,ok,0
+EA0044,T16,PatientHistory,798,814,photosensitivity,photosensitivity,clean,ok,0
+EA0045,T9,PatientHistory,55,72,altered-awareness,altered awareness,clean,ok,0
+EA0045,T2,Diagnosis,101,115,Focal-epilepsy,Focal epilepsy,clean,ok,0
+EA0045,T12,BirthHistory,992,1021,no-problems-when-he-was-born-,no problems when he was born ,clean,ok,0
+EA0045,T4,PatientHistory,1042,1058,febrile-seizures,febrile seizures,clean,ok,0
+EA0045,T6,Investigations,1354,1357,MRI,MRI,clean,ok,0
+EA0045,T8,Diagnosis,1437,1457,focal-onset-epilepsy,focal onset epilepsy,clean,ok,0
+EA0045,T10,Diagnosis,1484,1521,focal-seizures-with-altered-awareness,focal seizures with altered awareness,clean,ok,0
+EA0045,T13,Diagnosis,1556,1594,focal-to-bilateral-convulsive-seizures,focal to bilateral convulsive seizures,clean,ok,0
+EA0045,T11,Diagnosis,1645,1653,epilepsy,epilepsy,clean,ok,0
+EA0046,T2,Diagnosis,91,122,Symptomatic-structural-focal-epilepsy,Symptomatic structural epilepsy,mismatch,high,0
+EA0046,T4,PatientHistory,180,207,traumatic-brain-injury-2005,traumatic brain injury 2005,clean,ok,0
+EA0046,T36,EpilepsyCause,180,207,traumatic-brain-injury-2005,traumatic brain injury 2005,clean,ok,0
+EA0046,T6,Diagnosis,270,308,Focal-to-bilateral-convulsive-seizures,Focal to bilateral convulsive seizures,clean,ok,0
+EA0046,T8,SeizureFrequency,270,308,Focal-to-bilateral-convulsive-seizures,Focal to bilateral convulsive seizures,clean,ok,0
+EA0046,T9,Prescription,403,425,Levetiracetam-750mg-bd,Levetiracetam 750mg bd,clean,ok,0
+EA0046,T12,Prescription,458,505,Phenytoin-100mg-od-(reducing-as-detailed-below),Phenytoin 100mg od (reducing as detailed below),clean,ok,0
+EA0046,T10,Investigations,564,567,MRI,MRI,clean,ok,0
+EA0046,T11,PatientHistory,592,599,gliosis,gliosis,clean,ok,0
+EA0046,T18,PatientHistory,736,756,brain-injury-in-2005,brain injury in 2005,clean,ok,0
+EA0046,T20,PatientHistory,1076,1092,unusual-episodes,unusual episodes,clean,ok,0
+EA0046,T13,Investigations,1693,1697,MRI-,MRI ,clean,ok,0
+EA0046,T24,PatientHistory,1995,2011,febrile-seizures,febrile seizures,clean,ok,0
+EA0046,T26,PatientHistory,2063,2075,encephalitis,encephalitis,clean,ok,0
+EA0046,T28,Investigations,2167,2170,MRI,MRI,clean,ok,0
+EA0046,T30,PatientHistory,2195,2202,gliosis,gliosis,clean,ok,0
+EA0046,T14,PatientHistory,2220,2233,brain-injury-,brain injury ,clean,ok,0
+EA0046,T32,Investigations,2240,2243,EEG,EEG,clean,ok,0
+EA0046,T34,Diagnosis,2319,2333,focal-epilepsy,focal epilepsy,clean,ok,0
+EA0046,T38,PatientHistory,2351,2373,traumatic-brain-injury,traumatic brain injury,clean,ok,0
+EA0046,T40,EpilepsyCause,2351,2373,traumatic-brain-injury,traumatic brain injury,clean,ok,0
+EA0046,T16,Diagnosis,2416,2425,epilepsy-,epilepsy ,clean,ok,0
+EA0047,T2,Diagnosis,72,108,probable-juvenile-myoclonic-epilepsy,probable juvenile myoclonic epilepsy,clean,ok,0
+EA0047,T4,Prescription,109,145,Current-medication:-Clobazam-10mg-on,Current medication: Clobazam 10mg on,clean,ok,0
+EA0047,T6,Prescription,146,247,Sodium-Valproate-200-mg-twice-a-day-(to-be-increased-to-300-mg-BD-in-steps-of-10,Sodium Valproate 200 mg twice a day (to be increased to 300 mg BD in steps of 10,clean,ok,0
+EA0047,T9,PatientHistory,309,318,seizures-,seizures ,clean,ok,0
+EA0047,T12,Diagnosis,348,380,generalised-seizures-once-a-week,generalised seizures once a week,clean,ok,0
+EA0047,T14,SeizureFrequency,348,380,generalised-seizures-once-a-week,generalised seizures once a week,clean,ok,0
+EA0047,T21,SeizureFrequency,386,394,absences,absences,clean,ok,0
+EA0047,T11,Diagnosis,474,495,generalised-seizures-,generalised seizures ,clean,ok,0
+EA0047,T8,Prescription,526,567,She-is-currently-taking-clobazam-10-mg-od,She is currently taking clobazam 10 mg od,clean,ok,0
+EA0047,T10,Prescription,572,598,sodium-valproate-200-mg-BD,sodium valproate 200 mg BD,clean,ok,0
+EA0047,T30,PatientHistory,631,639,seizures,seizures,clean,ok,0
+EA0048,T2,Diagnosis,83,110,juvenile-myoclonic-epilepsy,juvenile myoclonic epilepsy,clean,ok,0
+EA0048,T4,Prescription,111,152,Medication:-Topiramate-100-mg-twice-a-day,Medication: Topiramate 100 mg twice a day,clean,ok,0
+EA0048,T6,Prescription,153,178,Epilim-400-mg-twice-a-day,Epilim 400 mg twice a day,clean,ok,0
+EA0048,T8,PatientHistory,409,414,jerks,jerks,clean,ok,0
+EA0048,T10,Diagnosis,450,471,tonic-clonic-seizures,tonic clonic seizures,clean,ok,0
+EA0048,T12,SeizureFrequency,450,471,tonic-clonic-seizures,tonic clonic seizures,clean,ok,0
+EA0049,T2,Diagnosis,74,101,juvenile-myoclonic-epilepsy,juvenile myoclonic epilepsy,clean,ok,0
+EA0049,T4,Diagnosis,131,165,generalised-tonic-clonic-seizures-,generalised tonic clonic seizures ,clean,ok,0
+EA0049,T6,SeizureFrequency,131,165,generalised-tonic-clonic-seizures-,generalised tonic clonic seizures ,clean,ok,0
+EA0049,T8,PatientHistory,184,199,Myoclonic-jerks,Myoclonic jerks,clean,ok,0
+EA0049,T10,SeizureFrequency,184,199,Myoclonic-jerks,Myoclonic jerks,clean,ok,0
+EA0049,T9,PatientHistory,218,226,absences,absences,clean,ok,0
+EA0049,T11,SeizureFrequency,218,225,absence,absence,clean,ok,0
+EA0049,T12,Prescription,265,286,lamotrigine-250-mg-BD,lamotrigine 250 mg BD,clean,ok,0
+EA0049,T14,Prescription,287,313,Sodium-valproate-700-mg-BD,Sodium valproate 700 mg BD,clean,ok,0
+EA0049,T16,Investigations,331,334,MRI,MRI,clean,ok,0
+EA0049,T18,Investigations,347,350,EEG,EEG,clean,ok,0
+EA0049,T20,Diagnosis,480,488,epilepsy,epilepsy,clean,ok,0
+EA0049,T13,Diagnosis,536,545,-epilepsy, epilepsy,clean,ok,0
+EA0049,T22,Onset,537,571,epilepsy-started-at-the-each-of-12,epilepsy started at the age of 12.,mismatch,high,0
+EA0049,T24,Diagnosis,672,690,myoclonic-seizures,yoclonic seizures.,mismatch,high,0
+EA0049,T26,Onset,709,742,generalised-tonic-chronic-seizure,eneralised tonic chronic seizure ,partial_overlap,medium,0
+EA0049,T28,Diagnosis,709,742,generalised-tonic-chronic-seizure,eneralised tonic chronic seizure ,partial_overlap,medium,0
+EA0049,T30,PatientHistory,780,795,myoclonic-jerks,yoclonic jerks ,partial_overlap,medium,0
+EA0049,T15,SeizureFrequency,780,796,myoclonic-jerks-,yoclonic jerks b,mismatch,high,0
+EA0049,T32,Diagnosis,807,841,generalised-tonic-chronic-seizures,eneralised tonic chronic seizures.,mismatch,high,0
+EA0049,T34,Diagnosis,856,889,generalised-tonic-clonic-seizures,eneralised tonic clonic seizures ,partial_overlap,medium,0
+EA0049,T17,SeizureFrequency,856,887,generalised-tonic-clonic-seizur,eneralised tonic clonic seizure,mismatch,high,0
+EA0049,T36,Diagnosis,972,1005,generalised-tonic-clonic-seizures,eneralised tonic clonic seizures ,partial_overlap,medium,0
+EA0049,T1,SeizureFrequency,972,1004,generalised-tonic-clonic-seizure,eneralised tonic clonic seizures,mismatch,high,0
+EA0049,T40,PatientHistory,1087,1094,anxiety,nxiety ,partial_overlap,medium,0
+EA0049,T42,PatientHistory,1198,1218,clusters-of-seizures,lusters of seizures.,mismatch,high,0
+EA0049,T44,Diagnosis,1343,1370,juvenile-myoclonic-epilepsy,uvenile myoclonic epilepsy.,mismatch,high,0
+EA0049,T46,PatientHistory,1556,1563,anxiety,nxiety ,partial_overlap,medium,0
+EA0049,T242,PatientHistory,1686,1694,seizures,eizures.,mismatch,high,0
+EA0049,T222,Diagnosis,1786,1795,epilepsy-,pilepsy i,mismatch,high,0
+EA0050,T2,Diagnosis,75,102,juvenile-myoclonic-epilepsy,juvenile myoclonic epilepsy,clean,ok,0
+EA0050,T4,Diagnosis,132,165,generalised-tonic-clonic-seizures,generalised tonic clonic seizures,clean,ok,0
+EA0050,T6,SeizureFrequency,132,165,generalised-tonic-clonic-seizures,generalised tonic clonic seizures,clean,ok,0
+EA0050,T8,PatientHistory,196,211,Myoclonic-jerks,Myoclonic jerks,clean,ok,0
+EA0050,T10,SeizureFrequency,196,211,Myoclonic-jerks,Myoclonic jerks,clean,ok,0
+EA0050,T11,PatientHistory,230,238,absences,absences,clean,ok,0
+EA0050,T12,SeizureFrequency,230,238,absences,absences,clean,ok,0
+EA0050,T13,Prescription,277,298,lamotrigine-100-mg-BD,lamotrigine 100 mg BD,clean,ok,0
+EA0050,T14,Prescription,299,325,Sodium-valproate-700-mg-BD,Sodium valproate 700 mg BD,clean,ok,0
+EA0050,T16,Investigations,343,347,MRI-,MRI ,clean,ok,0
+EA0050,T18,Investigations,359,362,EEG,EEG,clean,ok,0
+EA0050,T20,PatientHistory,482,491,-seizures, seizures,clean,ok,0
+EA0050,T22,SeizureFrequency,482,491,-seizures, seizures,clean,ok,0
+EA0050,T24,PatientHistory,605,612,anxiety,anxiety,clean,ok,0
+EA0050,T26,Diagnosis,641,649,epilepsy,epilepsy,clean,ok,0
+EA0051,T2,Diagnosis,98,120,temporal-lobe-epilepsy,temporal lobe epilepsy,clean,ok,0
+EA0051,T10,Prescription,158,172,Eslicarbazine-,Eslicarbazine ,clean,ok,0
+EA0051,T4,Prescription,183,202,Zonisamide-100mg-bd,Zonisamide 100mg bd,clean,ok,0
+EA0051,T8,PatientHistory,287,296,-seizures, seizures,clean,ok,0
+EA0051,T5,PatientHistory,378,386,seizures,seizures,clean,ok,0
+EA0051,T14,PatientHistory,541,549,seizures,seizures,clean,ok,0
+EA0051,T12,Diagnosis,623,648,complex-partial-seizures.,complex partial seizures.,clean,ok,0
+EA0051,T16,PatientHistory,682,690,seizures,seizures,clean,ok,0
+EA0051,T13,SeizureFrequency,723,736,seizures-free,seizures free,clean,ok,0
+EA0051,T20,PatientHistory,929,944,type-2-diabetes,type 2 diabetes,clean,ok,0
+EA0051,T22,PatientHistory,949,961,hypertension,hypertension,clean,ok,0
+EA0051,T24,BirthHistory,983,1006,normal-vaginal-delivery,normal vaginal delivery,clean,ok,0
+EA0051,T26,BirthHistory,998,1014,delivery-at-term,delivery at term,clean,ok,0
+EA0051,T28,PatientHistory,1090,1106,febrile-seizures,febrile seizures,clean,ok,0
+EA0051,T15,Diagnosis,1224,1233,epilepsy-,epilepsy ,clean,ok,0
+EA0051,T30,Investigations,1380,1383,MRI,MRI,clean,ok,0
+EA0051,T32,Investigations,1416,1419,EEG,EEG,clean,ok,0
+EA0052,T2,Diagnosis,94,116,temporal-lobe-epilepsy,temporal lobe epilepsy,clean,ok,0
+EA0052,T4,Prescription,154,214,Carbamazepine-400mg-bd-(to-change-to-eslicarbazine-as-below),Carbamazepine 400mg bd (to change to eslicarbazine as below),clean,ok,0
+EA0052,T6,Prescription,217,236,Zonisamide-100mg-bd,Zonisamide 100mg bd,clean,ok,0
+EA0053,T2,Diagnosis,93,120,juvenile-myoclonic-epilepsy,juvenile myoclonic epilepsy,clean,ok,0
+EA0053,T4,BirthHistory,581,594,born-normally,born normally,clean,ok,0
+EA0053,T6,PatientHistory,613,629,febrile-seizures,febrile seizures,clean,ok,0
+EA0053,T9,PatientHistory,828,839,depression-,depression ,clean,ok,0
+EA0053,T7,Investigations,1087,1091,EEG-,EEG ,clean,ok,0
+EA0053,T10,PatientHistory,1151,1167,photosensitivity,photosensitivity,clean,ok,0
+EA0053,T12,Investigations,1172,1175,MRI,MRI,clean,ok,0
+EA0053,T11,PatientHistory,1224,1238,arachnoid-cyst,arachnoid cyst,clean,ok,0
+EA0053,T13,PatientHistory,1269,1274,jerks,jerks,clean,ok,0
+EA0053,T14,Diagnosis,1279,1297,myoclonic-seizures,myoclonic seizures,clean,ok,0
+EA0053,T16,Investigations,1336,1339,EEG,EEG,clean,ok,0
+EA0053,T18,Diagnosis,1363,1390,Juvenile-Myoclonic-Epilepsy,Juvenile Myoclonic Epilepsy,clean,ok,0
+EA0054,T2,Diagnosis,134,178,symptomatic-structural-frontal-lobe-epilepsy,symptomatic structural frontal lobe epilepsy,clean,ok,0
+EA0054,T4,Diagnosis,157,178,frontal-lobe-epilepsy,frontal lobe epilepsy,clean,ok,0
+EA0054,T6,PatientHistory,205,223,cortical-dysplasia,cortical dysplasia,clean,ok,0
+EA0054,T8,Diagnosis,252,289,focal-seizures-with-altered-awareness,focal seizures with altered awareness,clean,ok,0
+EA0054,T10,SeizureFrequency,252,289,focal-seizures-with-altered-awareness,focal seizures with altered awareness,clean,ok,0
+EA0054,T12,Diagnosis,330,369,Focal-to-bilateral-convulsive-seizures-,Focal to bilateral convulsive seizures ,clean,ok,0
+EA0054,T11,SeizureFrequency,330,367,Focal-to-bilateral-convulsive-seizure,Focal to bilateral convulsive seizure,clean,ok,0
+EA0054,T13,SeizureFrequency,330,366,Focal-to-bilateral-convulsive-seizur,Focal to bilateral convulsive seizur,clean,ok,0
+EA0054,T16,Prescription,400,440,Current-medication:-Lamotrigine-150mg-bd,Current medication: Lamotrigine 150mg bd,clean,ok,0
+EA0054,T18,Diagnosis,752,789,focal-seizures-with-altered-awareness,focal seizures with altered awareness,clean,ok,0
+EA0054,T20,SeizureFrequency,752,789,focal-seizures-with-altered-awareness,focal seizures with altered awareness,clean,ok,0
+EA0054,T22,Diagnosis,900,937,focal-to-bilateral-convulsive-seizure,focal to bilateral convulsive seizure,clean,ok,0
+EA0054,T24,SeizureFrequency,900,937,focal-to-bilateral-convulsive-seizure,focal to bilateral convulsive seizure,clean,ok,0
+EA0054,T26,Investigations,1224,1227,MRI,MRI,clean,ok,0
+EA0054,T15,PatientHistory,1418,1436,cortical-dysplasia,cortical dysplasia,clean,ok,0
+EA0055,T2,PatientHistory,139,147,Headache,Headache,clean,ok,0
+EA0055,T4,PatientHistory,163,180,Episodic-migraine,"pisodic migraine
+",partial_overlap,medium,0
+EA0055,T6,Diagnosis,186,223,Symptomatic-structural-focal-epilepsy,ymptomatic structural focal epilepsy ,partial_overlap,medium,0
+EA0055,T8,BirthHistory,225,241,perinatal-insult,erinatal insult),mismatch,high,0
+EA0055,T10,EpilepsyCause,225,241,perinatal-insult,erinatal insult),mismatch,high,0
+EA0055,T11,PatientHistory,314,322,headache,eadache.,mismatch,high,0
+EA0055,T12,PatientHistory,341,349,headache,eadache ,partial_overlap,medium,0
+EA0055,T14,Diagnosis,527,545,epileptic-seizures,pileptic seizures ,partial_overlap,medium,0
+EA0055,T16,Onset,527,545,epileptic-seizures,pileptic seizures ,partial_overlap,medium,0
+EA0055,T18,PatientHistory,645,652,seizure,eizure ,partial_overlap,medium,0
+EA0055,T20,SeizureFrequency,645,652,seizure,eizure ,partial_overlap,medium,0
+EA0055,T13,Prescription,671,745,She-currently-takes-150mg-lamotrigine-twice-a-day-without-any-side-effects,he currently takes 150mg lamotrigine twice a day without any side effects.,mismatch,high,0
+EA0055,T22,BirthHistory,957,981,born-6-weeks-prematurely,orn 6 weeks prematurely ,partial_overlap,medium,0
+EA0055,T24,PatientHistory,1195,1205,meningitis,eningitis ,partial_overlap,medium,0
+EA0055,T26,Investigations,1321,1324,MRI,RI ,partial_overlap,medium,0
+EA0055,T9,BirthHistory,1371,1388,perinatal-hypoxia,erinatal hypoxia ,partial_overlap,medium,0
+EA0055,T28,Investigations,1416,1419,EEG,EG ,partial_overlap,medium,0
+EA0055,T32,Diagnosis,1506,1514,epilepsy,pilepsy ,partial_overlap,medium,0
+EA0055,T30,BirthHistory,1535,1554,hypoxic-birth-injury,ypoxic birth injury,partial_overlap,medium,0
+EA0055,T34,EpilepsyCause,1535,1554,hypoxic-birth-injury,ypoxic birth injury,partial_overlap,medium,0
+EA0055,T17,SeizureFrequency,1612,1624,seizure-free,seizure free,clean,ok,0
+EA0055,T15,PatientHistory,1704,1712,migraine,migraine,clean,ok,0
+EA0056,T2,PatientHistory,139,173,Non-epileptic-psychogenic-seizures,Non-epileptic psychogenic seizures,clean,ok,0
+EA0056,T4,Diagnosis,179,208,Localisation-related-epilepsy,Localisation related epilepsy,clean,ok,0
+EA0056,T6,EpilepsyCause,231,246,cerebral-abcess,cerebral abcess,clean,ok,0
+EA0056,T8,PatientHistory,231,246,cerebral-abcess,cerebral abcess,clean,ok,0
+EA0056,T10,Prescription,260,283,Levetiracetam-1000mg-bd,Levetiracetam 1000mg bd,clean,ok,0
+EA0056,T9,Prescription,286,298,Oxcarbazine-,Oxcarbazepin,mismatch,high,0
+EA0056,T13,Onset,373,381,epilepsy,s epilep,mismatch,high,0
+EA0056,T12,Diagnosis,373,380,epileps,s epile,mismatch,high,0
+EA0056,T14,PatientHistory,433,446,brain-surgery,g brain surge,mismatch,high,0
+EA0056,T16,Diagnosis,500,522,partial-motor-seizures,s partial motor seizur,mismatch,high,0
+EA0056,T18,SeizureFrequency,500,522,partial-motor-seizures,s partial motor seizur,mismatch,high,0
+EA0056,T20,Diagnosis,620,650,secondary-generalised-seizures,d secondary generalised seizur,mismatch,high,0
+EA0056,T22,SeizureFrequency,620,650,secondary-generalised-seizures,d secondary generalised seizur,mismatch,high,0
+EA0056,T17,SeizureFrequency,620,649,secondary-generalised-seizure,d secondary generalised seizu,mismatch,high,0
+EA0056,T26,Investigations,975,978,EEG,n E,mismatch,high,0
+EA0056,T28,PatientHistory,1063,1097,non-epileptic-psychogenic-seizures,f non-epileptic psychogenic seizur,mismatch,high,0
+EA0056,T30,PatientHistory,1107,1119,hypertension,s hypertensi,mismatch,high,0
+EA0056,T21,PatientHistory,1163,1171,anxiety-,s anxiet,mismatch,high,0
+EA0056,T222,PatientHistory,1175,1185,depression,d depressi,mismatch,high,0
+EA0056,T24,PatientHistory,1494,1515,non-epileptic-attacks,e non-epileptic attac,mismatch,high,0
+EA0057,T2,PatientHistory,140,161,Dissociative-seizures,Dissociative seizures,clean,ok,0
+EA0057,T7,PatientHistory,163,184,non-epileptic-attacks,non-epileptic attacks,clean,ok,0
+EA0057,T4,Diagnosis,191,222,Symptomatic-structural-epilepsy,Symptomatic structural epilepsy,clean,ok,0
+EA0057,T6,PatientHistory,245,260,cerebral-abcess,cerebral abcess,clean,ok,0
+EA0057,T8,EpilepsyCause,245,260,cerebral-abcess,cerebral abcess,clean,ok,0
+EA0057,T10,Prescription,274,297,Levetiracetam-1000mg-bd,Levetiracetam 1000mg bd,clean,ok,0
+EA0057,T3,Diagnosis,443,451,-epileps, epileps,clean,ok,0
+EA0057,T12,Onset,444,452,epilepsy,epilepsy,clean,ok,0
+EA0057,T14,PatientHistory,497,510,brain-surgery,brain surgery,clean,ok,0
+EA0057,T5,PatientHistory,551,563,brain-abcess,brain abcess,clean,ok,0
+EA0057,T16,Diagnosis,581,601,focal-motor-seizures,focal motor seizures,clean,ok,0
+EA0057,T18,SeizureFrequency,581,601,focal-motor-seizures,focal motor seizures,clean,ok,0
+EA0057,T20,Diagnosis,818,856,focal-to-bilateral-convulsive-seizures,focal to bilateral convulsive seizures,clean,ok,0
+EA0057,T1,SeizureFrequency,818,856,focal-to-bilateral-convulsive-seizures,focal to bilateral convulsive seizures,clean,ok,0
+EA0057,T9,PatientHistory,919,940,dissociative-seizures,dissociative seizures,clean,ok,0
+EA0057,T11,Diagnosis,999,1016,epilepsy-seizures,epilepsy seizures,clean,ok,0
+EA0057,T13,PatientHistory,1099,1120,dissociative-seizures,dissociative seizures,clean,ok,0
+EA0057,T15,BirthHistory,1154,1167,born-normally,born normally,clean,ok,0
+EA0057,T17,PatientHistory,1184,1200,febrile-seizures,febrile seizures,clean,ok,0
+EA0057,T19,PatientHistory,1251,1264,brain-abscess,brain abscess,clean,ok,0
+EA0057,T21,PatientHistory,1305,1320,brain-operation,brain operation,clean,ok,0
+EA0057,T23,PatientHistory,1678,1689,hemiparesis,hemiparesis,clean,ok,0
+EA0057,T25,Investigations,1748,1751,MRI,MRI,clean,ok,0
+EA0057,T27,PatientHistory,1784,1791,gliosis,gliosis,clean,ok,0
+EA0057,T29,Diagnosis,1883,1891,epilepsy,epilepsy,clean,ok,0
+EA0057,T24,EpilepsyCause,1911,1924,brain-surgery,brain surgery,clean,ok,0
+EA0057,T26,PatientHistory,1911,1924,brain-surgery,brain surgery,clean,ok,0
+EA0057,T30,Diagnosis,1956,1974,epileptic-seizures,epileptic seizures,clean,ok,0
+EA0057,T33,PatientHistory,2074,2095,dissociative-seizures,dissociative seizures,clean,ok,0
+EA0058,T2,Diagnosis,187,218,Symptomatic-structural-epilepsy,Symptomatic structural epilepsy,clean,ok,0
+EA0058,T4,EpilepsyCause,259,269,meningitis,meningitis,clean,ok,0
+EA0058,T6,PatientHistory,259,269,meningitis,meningitis,clean,ok,0
+EA0058,T8,PatientHistory,273,294,learning-difficulties,learning difficulties,clean,ok,0
+EA0058,T10,Prescription,308,331,Levetiracetam-1000mg-bd,Levetiracetam 1000mg bd,clean,ok,0
+EA0058,T12,Prescription,334,354,Lamotrigine-200mg-bd,Lamotrigine 200mg bd,clean,ok,0
+EA0058,T14,Diagnosis,665,703,focal-to-bilateral-convulsive-seizures,focal to bilateral convulsive seizures,clean,ok,0
+EA0058,T16,SeizureFrequency,665,703,focal-to-bilateral-convulsive-seizures,focal to bilateral convulsive seizures,clean,ok,0
+EA0058,T18,Diagnosis,748,785,focal-seizures-with-altered-awareness,focal seizures with altered awareness,clean,ok,0
+EA0058,T20,SeizureFrequency,748,785,focal-seizures-with-altered-awareness,focal seizures with altered awareness,clean,ok,0
+EA0058,T22,PatientHistory,958,968,meningitis,meningitis,clean,ok,0
+EA0058,T24,EpilepsyCause,958,968,meningitis,meningitis,clean,ok,0
+EA0058,T26,Diagnosis,1019,1027,epilepsy,epilepsy,clean,ok,0
+EA0058,T28,Investigations,1063,1066,MRI,MRI,clean,ok,0
+EA0058,T9,PatientHistory,1104,1117,brain-atrophy,brain atrophy,clean,ok,0
+EA0058,T30,Investigations,1158,1161,EEG,EEG,clean,ok,0
+EA0059,T2,Diagnosis,187,218,Symptomatic-structural-epilepsy,Symptomatic structural epilepsy,clean,ok,0
+EA0059,T4,PatientHistory,259,269,meningitis,meningitis,clean,ok,0
+EA0059,T6,EpilepsyCause,259,269,meningitis,meningitis,clean,ok,0
+EA0059,T10,PatientHistory,273,294,learning-difficulties,learning difficulties,clean,ok,0
+EA0059,T8,Prescription,308,340,Brivaracetam--1000mg-twice-daily,Brivaracetam  1000mg twice daily,clean,ok,0
+EA0059,T13,Prescription,343,363,Lamotrigine-200mg-bd,Lamotrigine 200mg bd,clean,ok,0
+EA0059,T12,Diagnosis,393,431,focal-to-bilateral-convulsive-seizures,focal to bilateral convulsive seizures,clean,ok,0
+EA0059,T14,SeizureFrequency,393,431,focal-to-bilateral-convulsive-seizures,focal to bilateral convulsive seizures,clean,ok,0
+EA0059,T16,Diagnosis,449,486,Focal-seizures-with-altered-awareness,Focal seizures with altered awareness,clean,ok,0
+EA0059,T18,SeizureFrequency,449,486,Focal-seizures-with-altered-awareness,Focal seizures with altered awareness,clean,ok,0
+EA0059,T20,Investigations,521,524,MRI,MRI,clean,ok,0
+EA0059,T17,PatientHistory,546,559,brain-atrophy,brain atrophy,clean,ok,0
+EA0059,T22,Investigations,596,599,EEG,EEG,clean,ok,0
+EA0059,T15,PatientHistory,907,916,-sseizure, seizures,mismatch,high,0
+EA0059,T9,SeizureFrequency,909,918,seizures-,eizures a,mismatch,high,0
+EA0060,T2,Diagnosis,191,217,Symptomatic-focal-epilepsy,Symptomatic focal epilepsy,clean,ok,0
+EA0060,T4,PatientHistory,223,231,Dementia,Dementia,clean,ok,0
+EA0060,T6,Prescription,245,299,Levetiracetam-250mg-bd-(to-increase-as-detailed-below),Levetiracetam 250mg bd (to increase as detailed below),clean,ok,0
+EA0060,T11,Prescription,302,318,Buccal-midazolam,Buccal midazolam,clean,ok,0
+EA0060,T13,Diagnosis,436,473,focal-seizures-with-altered-awareness,focal seizures with altered awareness,clean,ok,0
+EA0060,T15,Diagnosis,478,508,secondary-generalised-seizures,secondary generalised seizures,clean,ok,0
+EA0060,T12,SeizureFrequency,500,511,"seizures,-l","seizures, l",clean,ok,0
+EA0060,T8,Investigations,547,550,CT-,CT ,clean,ok,0
+EA0060,T10,PatientHistory,583,596,brain-atrophy,brain atrophy,clean,ok,0
+EA0060,T24,PatientHistory,681,700,convulsive-seizures,convulsive seizures,clean,ok,0
+EA0060,T21,PatientHistory,959,967,dementia,dementia,clean,ok,0
+EA0060,T26,PatientHistory,1097,1114,“blank”-episodes-,“blank” episodes ,clean,ok,0
+EA0060,T28,Diagnosis,1260,1268,epilepsy,epilepsy,clean,ok,0
+EA0060,T30,EpilepsyCause,1312,1320,dementia,dementia,clean,ok,0
+EA0060,T14,PatientHistory,1312,1320,dementia,dementia,clean,ok,0
+EA0060,T32,Diagnosis,1371,1408,focal-seizures-with-altered-awareness,focal seizures with altered awareness,clean,ok,0
+EA0060,T16,Diagnosis,1578,1587,epilepsy-,epilepsy ,clean,ok,0
+EA0061,T2,Diagnosis,164,178,focal-epilepsy,focal epilepsy,clean,ok,0
+EA0061,T4,Diagnosis,164,197,"focal-epilepsy,-probable-parietal","focal epilepsy, probable parietal",clean,ok,0
+EA0061,T6,Diagnosis,233,270,-focal-seizures-with-altered-awarenes, focal seizures with altered awarenes,clean,ok,0
+EA0061,T8,SeizureFrequency,234,271,focal-seizures-with-altered-awareness,focal seizures with altered awareness,clean,ok,0
+EA0061,T10,Diagnosis,320,347,focal-to-bilateral-seizures,focal to bilateral seizures,clean,ok,0
+EA0061,T12,SeizureFrequency,320,346,focal-to-bilateral-seizure,focal to bilateral seizure,clean,ok,0
+EA0061,T14,Prescription,429,449,lamtorigine-250mg-bd,lamtorigine 250mg bd,clean,ok,0
+EA0061,T16,Investigations,546,549,MRI,MRI,clean,ok,0
+EA0061,T18,PatientHistory,572,590,cortical-dysplasia,cortical dysplasia,clean,ok,0
+EA0061,T20,Diagnosis,820,828,epilepsy,epilepsy,clean,ok,0
+EA0061,T22,Onset,820,828,epilepsy,epilepsy,clean,ok,0
+EA0061,T24,PatientHistory,872,887,febrile-seizure,febrile seizure,clean,ok,0
+EA0061,T26,PatientHistory,925,933,migraine,migraine,clean,ok,0
+EA0061,T28,PatientHistory,1054,1062,seizures,seizures,clean,ok,0
+EA0061,T30,PatientHistory,1206,1214,seizures,seizures,clean,ok,0
+EA0061,T13,Investigations,1527,1531,MRI-,MRI ,clean,ok,0
+EA0062,T10,PatientHistory,697,706,seizures-,seizures ,clean,ok,0
+EA0062,T16,BirthHistory,786,799,born-normally,born normally,clean,ok,0
+EA0062,T6,Investigations,1002,1004,CT,CT,clean,ok,0
+EA0062,T13,Diagnosis,1181,1189,epilepsy,epilepsy,clean,ok,0
+EA0063,T2,Diagnosis,171,180,epilepsy-,epilepsy ,clean,ok,0
+EA0063,T3,Prescription,193,224,Medication:-Lamotrigine-75mg-bd,Medication: Lamotrigine 75mg bd,clean,ok,0
+EA0063,T4,PatientHistory,314,322,seizures,seizures,clean,ok,0
+EA0063,T10,SeizureFrequency,314,322,seizures,seizures,clean,ok,0
+EA0063,T8,SeizureFrequency,393,400,seizure,seizure,clean,ok,0
+EA0063,T9,PatientHistory,393,400,seizure,seizure,clean,ok,0
+EA0063,T14,PatientHistory,581,588,seizure,seizure,clean,ok,0
+EA0064,T2,Diagnosis,120,146,symptomatic-focal-epilepsy,symptomatic focal epilepsy,clean,ok,0
+EA0064,T4,BirthHistory,162,180,premature-delivery,premature delivery,clean,ok,0
+EA0064,T6,EpilepsyCause,162,180,premature-delivery,premature delivery,clean,ok,0
+EA0064,T8,PatientHistory,405,413,seizures,seizures,clean,ok,0
+EA0064,T10,SeizureFrequency,405,412,seizure,seizure,clean,ok,0
+EA0064,T12,SeizureFrequency,405,411,seizur,seizur,clean,ok,0
+EA0064,T9,Prescription,514,527,carbamazapine,carbamazapine,clean,ok,0
+EA0065,T7,Diagnosis,135,166,Probable-temporal-lobe-epilepsy,Probable temporal lobe epilepsy,clean,ok,0
+EA0065,T4,Onset,291,299,epilepsy,epilepsy,clean,ok,0
+EA0065,T9,Diagnosis,291,299,epilepsy,epilepsy,clean,ok,0
+EA0065,T11,PatientHistory,451,459,seizures,seizures,clean,ok,0
+EA0065,T5,Diagnosis,491,515,complex-partial-seizures,complex partial seizures,clean,ok,0
+EA0065,T15,SeizureFrequency,491,515,complex-partial-seizures,complex partial seizures,clean,ok,0
+EA0065,T17,Diagnosis,654,686,secondarily-generalised-seizures,secondarily generalised seizures,clean,ok,0
+EA0065,T19,SeizureFrequency,654,686,secondarily-generalised-seizures,secondarily generalised seizures,clean,ok,0
+EA0065,T21,Prescription,771,852,She-is-currently-taking-levetiracetam-1250mg-bd-as-well-as-carbamazepine-400mg-b,She is currently taking levetiracetam 1250mg bd as well as carbamazepine 400mg b,clean,ok,0
+EA0065,T10,Prescription,830,843,carbamazepine,carbamazepine,clean,ok,0
+EA0065,T25,Investigations,930,933,MRI,MRI,clean,ok,0
+EA0065,T27,PatientHistory,963,984,hippocampal-sclerosis,hippocampal sclerosis,clean,ok,0
+EA0065,T29,Investigations,989,992,EEG,EEG,clean,ok,0
+EA0065,T12,BirthHistory,1068,1081,born-normally,born normally,clean,ok,0
+EA0065,T14,BirthHistory,1068,1089,born-normally-at-term,born normally at term,clean,ok,0
+EA0065,T33,PatientHistory,1104,1120,febrile-seizures,febrile seizures,clean,ok,0
+EA0065,T35,Diagnosis,1648,1670,temporal-lobe-epilepsy,temporal lobe epilepsy,clean,ok,0
+EA0065,T37,PatientHistory,1703,1724,hippocampal-sclerosis,hippocampal sclerosis,clean,ok,0
+EA0065,T39,EpilepsyCause,1703,1724,hippocampal-sclerosis,hippocampal sclerosis,clean,ok,0
+EA0065,T13,Diagnosis,1921,1929,epilepsy,epilepsy,clean,ok,0
+EA0066,T2,Diagnosis,183,209,Focal-symptomatic-epilepsy,Focal symptomatic epilepsy,clean,ok,0
+EA0066,T4,PatientHistory,226,250,cerebrovascular-dissease,cerebrovascular dissease,clean,ok,0
+EA0066,T8,EpilepsyCause,226,250,cerebrovascular-dissease,cerebrovascular dissease,clean,ok,0
+EA0066,T6,Prescription,252,283,Medication:-Lamotrigine-75mg-bd,Medication: Lamotrigine 75mg bd,clean,ok,0
+EA0066,T10,Investigations,301,305,MRI-,MRI ,clean,ok,0
+EA0066,T11,PatientHistory,367,375,seizures,seizures,clean,ok,0
+EA0066,T12,SeizureFrequency,367,374,seizure,seizure,clean,ok,0
+EA0066,T13,Diagnosis,486,506,tonic-clonic-seizure,tonic clonic seizure,clean,ok,0
+EA0066,T14,SeizureFrequency,665,673,seizures,seizures,clean,ok,0
+EA0066,T16,PatientHistory,701,703,MI,MI,clean,ok,0
+EA0066,T18,BirthHistory,831,848,-birth-was-normal, birth was normal,clean,ok,0
+EA0066,T20,PatientHistory,931,947,febrile-seizures,febrile seizures,clean,ok,0
+EA0066,T9,PatientHistory,1056,1064,seizures,seizures,clean,ok,0
+EA0067,T1,PatientHistory,588,596,seizures,seizures,clean,ok,0
+EA0067,T2,Prescription,269,284,Brivetiracetam-,Brivetiracetam ,clean,ok,0
+EA0067,T3,Diagnosis,190,212,Temporal-lobe-epilepsy,Temporal lobe epilepsy,clean,ok,0
+EA0067,T4,PatientHistory,214,230,Chronic-migraine,Chronic migraine,clean,ok,0
+EA0067,T5,SeizureFrequency,440,470,Secondary-generalised-seizures,Secondary generalised seizures,clean,ok,0
+EA0067,T6,Diagnosis,440,470,Secondary-generalised-seizures,Secondary generalised seizures,clean,ok,0
+EA0067,T7,Prescription,232,266,Medication:-Carbamazepine-400mg-bd,Medication: Carbamazepine 400mg bd,clean,ok,0
+EA0067,T8,Investigations,341,344,MRI,MRI,clean,ok,0
+EA0067,T9,Investigations,375,379,EEGs,EEGs,clean,ok,0
+EA0068,T20,SeizureFrequency,173,198,Infrequent-focal-seizures,Infrequent focal seizures,clean,ok,0
+EA0068,T16,Diagnosis,184,198,focal-seizures,focal seizures,clean,ok,0
+EA0068,T18,PatientHistory,201,214,Hydrocephalus,Hydrocephalus,clean,ok,0
+EA0068,T22,SeizureFrequency,340,356,further-seizures,further seizures,clean,ok,0
+EA0069,T1,Prescription,256,275,Lamotrigine-50mg-am,Lamotrigine 50mg am,clean,ok,0
+EA0069,T2,Diagnosis,175,202,Juvenile-Myoclonic-Epilepsy,Juvenile Myoclonic Epilepsy,clean,ok,0
+EA0069,T3,SeizureFrequency,665,698,generalised-tonic-clinic-seizures,generalised tonic clinic seizures,clean,ok,0
+EA0069,T4,SeizureFrequency,483,498,myoclonic-jerks,myoclonic jerks,clean,ok,0
+EA0069,T5,Prescription,216,253,Levetiracetam-1500mg-bd-(50mg/kg/day),Levetiracetam 1500mg bd (50mg/kg/day),clean,ok,0
+EA0069,T6,Prescription,256,268,Lamotrigine-,Lamotrigine ,clean,ok,0
+EA0069,T7,PatientHistory,483,498,myoclonic-jerks,myoclonic jerks,clean,ok,0
+EA0069,T8,Diagnosis,665,698,generalised-tonic-clinic-seizures,generalised tonic clinic seizures,clean,ok,0
+EA0069,T9,SeizureFrequency,665,698,generalised-tonic-clinic-seizures,generalised tonic clinic seizures,clean,ok,0
+EA0069,T10,Diagnosis,994,1026,generalised-tonic-clonic-seizure,generalised tonic clonic seizure,clean,ok,0
+EA0070,T1,PatientHistory,1243,1251,seizures,seizures,clean,ok,0
+EA0070,T2,Diagnosis,161,169,Epilepsy,Epilepsy,clean,ok,0
+EA0070,T3,Diagnosis,213,242,Bilateral-convulsive-seizures,Bilateral convulsive seizures,clean,ok,0
+EA0070,T8,SeizureFrequency,1353,1361,seizures,seizures,clean,ok,0
+EA0070,T11,SeizureFrequency,1353,1361,seizures,seizures,clean,ok,0
+EA0070,T4,PatientHistory,1421,1431,depression,depression,clean,ok,0
+EA0070,T5,PatientHistory,1353,1361,seizures,seizures,clean,ok,0
+EA0070,T6,Diagnosis,1177,1206,convulsive-epileptic-seizures,convulsive epileptic seizures,clean,ok,0
+EA0070,T9,PatientHistory,672,679,seizure,seizure,clean,ok,0
+EA0070,T10,Investigations,439,442,MRI,MRI,clean,ok,0
+EA0070,T7,Prescription,305,365,Lamotrigine-75mg-twice-a-day-(to-increase-as-detailed-below),Lamotrigine 75mg twice a day (to increase as detailed below),clean,ok,0
+EA0070,T12,Investigations,499,502,EEG,EEG,clean,ok,0
+EA0070,T13,SeizureFrequency,213,242,Bilateral-convulsive-seizures,Bilateral convulsive seizures,clean,ok,0
+EA0070,T15,PatientHistory,1666,1682,febrile-seizures,febrile seizures,clean,ok,0
+EA0070,T14,PatientHistory,1721,1732,head-injury,head injury,clean,ok,0
+EA0071,T1,PatientHistory,288,295,seizure,seizure,clean,ok,0
+EA0071,T6,SeizureFrequency,288,295,seizure,seizure,clean,ok,0
+EA0071,T4,PatientHistory,316,323,seizure,seizure,clean,ok,0
+EA0071,T2,Prescription,589,634,Helena-is-taking-lamotrigine-75mg-twice-a-day,Helena is taking lamotrigine 75mg twice a day,clean,ok,0
+EA0072,T1,Diagnosis,543,563,focal-motor-seizure-, focal motor seizure,clean,ok,0
+EA0072,T2,PatientHistory,266,274,Dementia,Dementia,clean,ok,0
+EA0072,T3,PatientHistory,277,307,Moderate-learning-difficulties,Moderate learning difficulties,clean,ok,0
+EA0072,T4,Diagnosis,403,433,secondary-generalised-seizures, secondary generalised seizure,span_longer_than_source,medium,0
+EA0072,T5,Diagnosis,224,250,Symptomatic-focal-epilepsy,Symptomatic focal epilepsy,clean,ok,0
+EA0072,T6,SeizureFrequency,543,562,focal-motor-seizure, focal motor seizur,span_longer_than_source,medium,0
+EA0072,T7,Diagnosis,378,398,Focal-motor-seizures,	Focal motor seizure,span_longer_than_source,medium,0
+EA0072,T8,Prescription,320,342,Levetiracetam-500mg-bd,Levetiracetam 500mg bd,clean,ok,0
+EA0072,T9,Prescription,345,355,Lamotrigne,Lamotrigin,mismatch,high,0
+EA0072,T10,PatientHistory,253,263,Trisomy-21,Trisomy 21,clean,ok,0
+EA0073,T5,PatientHistory,390,398,collapse,collapse,clean,ok,0
+EA0073,T1,PatientHistory,449,472,ischaemic-heart-disease,ischaemic heart disease,clean,ok,0
+EA0073,T2,PatientHistory,492,500,diabetes,diabetes,clean,ok,0
+EA0073,T3,PatientHistory,474,486,hypertension,hypertension,clean,ok,0
+EA0073,T4,Investigations,1334,1336,CT,CT,clean,ok,0
+EA0074,T4,PatientHistory,883,891,collapse,collapse,clean,ok,0
+EA0074,T1,BirthHistory,1506,1521,normal-delivery,normal delivery,clean,ok,0
+EA0074,T2,BirthHistory,1491,1500,full-term,full term,clean,ok,0
+EA0074,T3,Diagnosis,1710,1737,Juvenile-Myoclonic-Epilepsy,Juvenile Myoclonic Epilepsy,clean,ok,0
+EA0075,T1,Prescription,1656,1699,Continue-Sodium-Valproate-400mg-twice-daily,Continue Sodium Valproate 400mg twice daily,clean,ok,0
+EA0075,T2,Diagnosis,530,550,generalised-seizures,generalised seizures,clean,ok,0
+EA0075,T3,SeizureFrequency,766,797,she-has-had-no-further-seizures,she has had no further seizures,clean,ok,0
+EA0075,T4,Investigations,905,908,EEG,EEG,clean,ok,0
+EA0075,T5,Diagnosis,456,464,Epilepsy,Epilepsy,clean,ok,0
+EA0075,T6,Investigations,891,894,MRI,MRI,clean,ok,0
+EA0075,T7,WhenDiagnosed,456,464,Epilepsy,Epilepsy,clean,ok,0
+EA0076,T10,PatientHistory,232,250,-altered-awareness, altered awareness,clean,ok,0
+EA0076,T1,Investigations,1064,1067,MRI,MRI,clean,ok,0
+EA0076,T2,Investigations,1087,1090,EEG,EEG,clean,ok,0
+EA0076,T3,BirthHistory,874,887,born-normally,born normally,clean,ok,0
+EA0076,T4,PatientHistory,282,303,dissociative-seizures,dissociative seizures,clean,ok,0
+EA0076,T5,PatientHistory,995,1003,migraine,migraine,clean,ok,0
+EA0076,T6,PatientHistory,336,343,anxiety,anxiety,clean,ok,0
+EA0076,T7,PatientHistory,1248,1269,dissociative-seizures, dissociative seizure,span_longer_than_source,medium,0
+EA0076,T8,PatientHistory,907,922,ebrile-seizures,ebrile seizures,clean,ok,0
+EA0076,T9,PatientHistory,414,426,seizure-like,seizure-like,clean,ok,0
+EA0077,T1,Prescription,401,418,Tegretol-400mg-bd,Tegretol 400mg bd,clean,ok,0
+EA0077,T2,SeizureFrequency,240,248,seizures,seizures,clean,ok,0
+EA0077,T3,Prescription,364,377,Levetiracetam,Levetiracetam,clean,ok,0
+EA0078,T1,PatientHistory,277,284,seizres,seizure,mismatch,high,0
+EA0079,T1,Diagnosis,292,335,nocturnal-generalised-tonic-clonic-seizures,nocturnal generalised tonic clonic seizures,clean,ok,0
+EA0079,T2,SeizureFrequency,621,651,generlised-tonic-clonic-seizur,generlised tonic clonic seizur,clean,ok,0
+EA0079,T4,Investigations,419,423,EEGs,EEGs,clean,ok,0
+EA0079,T5,Diagnosis,621,652,generlised-tonic-clonic-seizure,generlised tonic clonic seizure,clean,ok,0
+EA0079,T6,Diagnosis,397,417,symptomatic-epilepsy,symptomatic epilepsy,clean,ok,0
+EA0079,T7,Prescription,730,785,he-is-currently-taking-levetiracetam-1250mg-twice-a-day,he is currently taking levetiracetam 1250mg twice a day,clean,ok,0
+EA0079,T8,Diagnosis,245,253,epilepsy,epilepsy,clean,ok,0
+EA0079,T9,Prescription,790,821,carbamazepine-400mg-twice-a-day,carbamazepine 400mg twice a day,clean,ok,0
+EA0079,T10,Onset,245,253,epilepsy,epilepsy,clean,ok,0
+EA0079,T11,Diagnosis,551,560,epilepsy-,epilepsy ,clean,ok,0
+EA0079,T12,Diagnosis,292,302,nocturnal-,nocturnal ,clean,ok,0
+EA0080,T1,Diagnosis,219,252,generalised-tonic-clonic-seizures,generalised tonic clonic seizures,clean,ok,0
+EA0080,T2,Prescription,292,314,Carbamazepine-600mg-bd,Carbamazepine 600mg bd,clean,ok,0
+EA0080,T3,Diagnosis,193,213,intractable-epilepsy,intractable epilepsy,clean,ok,0
+EA0080,T4,Prescription,266,289,Levetiracetam-1250mg-bd,Levetiracetam 1250mg bd,clean,ok,0
+EA0080,T5,SeizureFrequency,350,382,generalised-tonic-clonic-seizure,generalised tonic clonic seizure,clean,ok,0
+EA0080,T6,Diagnosis,350,382,generalised-tonic-clonic-seizure,generalised tonic clonic seizure,clean,ok,0
+EA0081,T15,PatientHistory,876,893,altered-awareness,altered awareness,clean,ok,0
+EA0081,T1,PatientHistory,1550,1593,episodes-of-transient-loss-of-consciousness,pisodes of transient loss of consciousness ,partial_overlap,medium,0
+EA0081,T2,BirthHistory,1292,1304,3-week-early,3 week early,clean,ok,0
+EA0081,T3,Diagnosis,1599,1647,focal-to-bilateral-convulsive-epileptic-seizures,ocal to bilateral convulsive epileptic seizures.,mismatch,high,0
+EA0081,T4,Diagnosis,272,292,focal-onset-epilepsy,focal onset epilepsy,clean,ok,0
+EA0081,T5,Diagnosis,3103,3115,his-epilepsy,is epilepsy ,partial_overlap,medium,0
+EA0081,T6,PatientHistory,386,429,episodes-of-transient-loss-of-consciousness,episodes of transient loss of consciousness,clean,ok,0
+EA0081,T7,Investigations,1212,1219,CT-head,CT head,clean,ok,0
+EA0081,T8,PatientHistory,1057,1069,hypertension,hypertension,clean,ok,0
+EA0081,T9,PatientHistory,1179,1200,myocardial-infarction,myocardial infarction,clean,ok,0
+EA0081,T10,Diagnosis,981,1018,focal-seizures-with-altered-awareness,focal seizures with altered awareness,clean,ok,0
+EA0081,T11,Diagnosis,1692,1730,focal-seizures-with-altered-awareness-,ocal seizures with altered awareness (,mismatch,high,0
+EA0081,T12,PatientHistory,219,250,transient-loss-of-consciousness,transient loss of consciousness,clean,ok,0
+EA0081,T13,Diagnosis,1666,1674,epilepsy,pilepsy ,partial_overlap,medium,0
+EA0081,T14,PatientHistory,1395,1412,febriles-seizures,febrile seizures ,mismatch,high,0
+EA0082,T1,Investigations,346,349,MRI,MRI,clean,ok,0
+EA0082,T2,Investigations,382,385,EEG,EEG,clean,ok,0
+EA0082,T3,Prescription,310,328,Zonisamide-50mg-bd,Zonisamide 50mg bd,clean,ok,0
+EA0082,T4,Prescription,291,307,Clobazam-10mg-od,Clobazam 10mg od,clean,ok,0
+EA0082,T10,SeizureFrequency,512,520,absences,absences,clean,ok,0
+EA0082,T11,SeizureFrequency,512,520,absences,absences,clean,ok,0
+EA0082,T5,Diagnosis,586,619,generalised-tonic-clonic-seizure-,generalised tonic clonic seizure ,clean,ok,0
+EA0082,T6,PatientHistory,228,249,Dissociative-seizures,Dissociative seizures,clean,ok,0
+EA0082,T7,SeizureFrequency,586,617,generalised-tonic-clonic-seizur,generalised tonic clonic seizur,clean,ok,0
+EA0082,T9,Investigations,364,367,EEG,EEG,clean,ok,0
+EA0082,T15,Diagnosis,200,225,Juvenile-absence-epilepsy,Juvenile absence epilepsy,clean,ok,0
+EA0082,T16,Prescription,263,288,Sodium-valproate-500mg-bd,Sodium valproate 500mg bd,clean,ok,0
+EA0082,T12,PatientHistory,672,688,photosensitivity,photosensitivity,clean,ok,0
+EA0082,T13,PatientHistory,512,520,absences,absences,clean,ok,0
+EA0082,T14,PatientHistory,772,780,absences,absences,clean,ok,0
+EA0083,T1,Prescription,310,359,·-Brivaracetam-100mgs-bd-to-increase-to-100mgs-an,· Brivaracetam 100mgs bd to increase to 100mgs an,clean,ok,0
+EA0083,T2,Diagnosis,719,740,tonic-clonic-seizures,tonic clonic seizures,clean,ok,0
+EA0083,T3,SeizureFrequency,719,740,tonic-clonic-seizures,tonic clonic seizures,clean,ok,0
+EA0083,T4,SeizureFrequency,673,681,seizures,seizures,clean,ok,0
+EA0083,T5,Prescription,287,309,·-Zonisamide-250mgs-bd,· Zonisamide 250mgs bd,clean,ok,0
+EA0083,T6,Investigations,261,264,MRI,MRI,clean,ok,0
+EA0083,T7,Diagnosis,150,175,Refractory-focal-epilepsy,Refractory focal epilepsy,clean,ok,0
+EA0083,T8,PatientHistory,638,646,seizures,seizures,clean,ok,0
+EA0083,T9,Investigations,241,244,EEG,EEG,clean,ok,0
+EA0083,T10,SeizureFrequency,638,645,seizure,seizure,clean,ok,0
+EA0083,T11,Diagnosis,181,190,Nocturnal,Nocturnal,clean,ok,0
+EA0083,T12,Diagnosis,162,175,ocal-epilepsy,ocal epilepsy,clean,ok,0
+EA0083,T13,Diagnosis,181,224,Nocturnal-generalised-tonic-clonic-seizures,Nocturnal generalised tonic clonic seizures,clean,ok,0
+EA0084,T1,Prescription,193,216,·-Brivaracetam-50mgs-bd,· Brivaracetam 50mgs bd,clean,ok,0
+EA0084,T2,Diagnosis,165,179,Focal-epilepsy,Focal epilepsy,clean,ok,0
+EA0084,T3,PatientHistory,959,967,seizures,seizures,clean,ok,0
+EA0084,T4,SeizureFrequency,293,305,seizure-free,seizure free,clean,ok,0
+EA0085,T3,Diagnosis,114,141,Juvenile-myoclonic-epilepsy,Juvenile myoclonic epilepsy,clean,ok,0
+EA0085,T4,PatientHistory,469,477,-seizure, seizure,clean,ok,0
+EA0085,T5,PatientHistory,559,566,seizure,seizure,clean,ok,0
+EA0085,T6,SeizureFrequency,559,566,seizure,seizure,clean,ok,0
+EA0085,T10,PatientHistory,915,930,myoclonic-jerks,myoclonic jerks,clean,ok,0
+EA0085,T7,PatientHistory,1137,1156,febrile-convulsions,febrile convulsions,clean,ok,0
+EA0085,T8,Diagnosis,1318,1345,Juvenile-Myoclonic-Epilepsy,Juvenile Myoclonic Epilepsy,clean,ok,0
+EA0086,T1,SeizureFrequency,288,296,seizures,seizures,clean,ok,0
+EA0086,T2,SeizureFrequency,145,159,focal-seziures,focal seizures,mismatch,high,0
+EA0086,T3,Diagnosis,145,159,focal-seziures,focal seizures,mismatch,high,0
+EA0087,T1,SeizureFrequency,642,674,generalised-tonic-clinic-seizure,generalised tonic clonic seizure,mismatch,high,0
+EA0087,T2,Diagnosis,642,675,generalised-tonic-clinic-seizures,generalised tonic clonic seizures,mismatch,high,0
+EA0087,T3,Diagnosis,143,170,Juvenile-myoclonic-epilepsy,Juvenile myoclonic epilepsy,clean,ok,0
+EA0087,T4,Prescription,225,244,Lamotrigine-50mg-am,Lamotrigine 50mg am,clean,ok,0
+EA0087,T5,SeizureFrequency,450,465,myoclonic-jerks,myoclonic jerks,clean,ok,0
+EA0087,T6,Diagnosis,971,1003,generalised-tonic-clonic-seizure,generalised tonic clonic seizure,clean,ok,0
+EA0087,T7,Prescription,225,236,Lamotrigine,Lamotrigine,clean,ok,0
+EA0087,T8,Prescription,173,222,Medication:-Levetiracetam-1500mg-bd-(60mg/kg/day),Medication: Levetiracetam 1500mg bd (60mg/kg/day),clean,ok,0
+EA0087,T9,SeizureFrequency,642,675,generalised-tonic-clinic-seizures,generalised tonic clonic seizures,mismatch,high,0
+EA0087,T10,PatientHistory,450,465,myoclonic-jerks,myoclonic jerks,clean,ok,0
+EA0088,T1,Prescription,171,205,Medication:-Carbamazepine-100mg-am,Medication: Carbamazepine 100mg am,clean,ok,0
+EA0088,T2,Prescription,183,196,Carbamazepine,Carbamazepine,clean,ok,0
+EA0088,T3,Diagnosis,147,168,Frontal-lobe-epilepsy,Frontal lobe epilepsy,clean,ok,0
+EA0088,T10,SeizureFrequency,311,324,-seizure-free, seizure free,clean,ok,0
+EA0089,T1,PatientHistory,340,348,seizure-,seizure ,clean,ok,0
+EA0089,T2,Diagnosis,145,159,Focal-epilepsy,Focal epilepsy,clean,ok,0
+EA0089,T3,Investigations,1083,1086,MRI,MRI,clean,ok,0
+EA0089,T4,PatientHistory,1176,1183,seizure,seizure,clean,ok,0
+EA0090,T1,Prescription,204,217,Carbamazepine,Carbamazepine,clean,ok,0
+EA0090,T2,Prescription,204,217,Carbamazepine,Carbamazepine,clean,ok,0
+EA0090,T3,Diagnosis,146,160,Focal-seizures,Focal seizures,clean,ok,0
+EA0090,T4,PatientHistory,591,600,migraines,migraines,clean,ok,0
+EA0090,T5,Diagnosis,166,190,secondary-generalisation,secondary generalisation,clean,ok,0
+EA0090,T6,SeizureFrequency,358,389,generalised-tonic-clonic-seizur,generalised tonic clonic seizur,clean,ok,0
+EA0090,T7,Diagnosis,358,390,generalised-tonic-clonic-seizure,generalised tonic clonic seizure,clean,ok,0
+EA0091,T1,Diagnosis,149,163,focal-seizures,focal seizures,clean,ok,0
+EA0091,T2,Prescription,177,190,Carbamazepine,Carbamazepine,clean,ok,0
+EA0092,T1,PatientHistory,157,160,ASD,ASD,clean,ok,0
+EA0092,T2,Prescription,163,211,Medication:-Levetiracetam-500mg-bd-(36mg/kg/day),Medication: Levetiracetam 500mg bd (36mg/kg/day),clean,ok,0
+EA0092,T3,PatientHistory,750,769,cluster-of-seizures,cluster of seizures,clean,ok,0
+EA0092,T4,Diagnosis,138,154,Genetic-epilepsy,Genetic epilepsy,clean,ok,0
+EA0092,T5,Diagnosis,448,472,complex-partial-seizures,complex partial seizures,clean,ok,0
+EA0092,T6,Prescription,212,297,Lamotrigine-50mg-bd-increasing-by-5mg-each-dose-every-2-weeks-to-75mg-bd-(7mg/kg,Lamotrigine 50mg bd increasing by 5mg each dose every 2 weeks to 75mg bd (7mg/kg,clean,ok,0
+EA0093,T1,Diagnosis,138,166,Primary-generalised-epilepsy,Primary generalised epilepsy,clean,ok,0
+EA0093,T5,Prescription,213,228,-Episenta-500mg, Episenta 500mg,clean,ok,0
+EA0093,T10,SeizureFrequency,418,426,seizures,seizures,clean,ok,0
+EA0094,T1,Diagnosis,162,186,Benign-Rolandic-Epilepsy,Benign Rolandic Epilepsy,clean,ok,0
+EA0094,T2,Diagnosis,1085,1117,generalised-tonic-clonic-seizure,generalised tonic clonic seizure,clean,ok,0
+EA0094,T3,PatientHistory,141,159,Nocturnal-seizures,Nocturnal seizures,clean,ok,0
+EA0094,T5,Investigations,1446,1449,EEG,EEG,clean,ok,0
+EA0094,T6,Diagnosis,397,430,generalised-tonic-clonic-seizures,generalised tonic clonic seizures,clean,ok,0
+EA0094,T7,Diagnosis,1504,1528,Benign-Rolandic-Epilepsy,Benign Rolandic Epilepsy,clean,ok,0
+EA0094,T9,PatientHistory,1779,1787,seizures,seizures,clean,ok,0
+EA0095,T1,Diagnosis,111,136,Juvenile-absence-epilepsy,Juvenile absence epilepsy,clean,ok,0
+EA0095,T2,Prescription,164,180,Sodium-Valproate,Sodium Valproate,clean,ok,0
+EA0095,T3,Prescription,150,189,(As-reported)-Sodium-Valproate-500mg-am,(As reported) Sodium Valproate 500mg am,clean,ok,0
+EA0096,T1,Prescription,238,270,Phenytoin-120mg-bd-(10mg/kg/day),Phenytoin 120mg bd (10mg/kg/day),clean,ok,0
+EA0096,T2,Prescription,195,205,Topiramate,Topiramate,clean,ok,0
+EA0096,T3,Prescription,153,192,Sodium-Valproate-440mg-bd-(30mg/kg/day),Sodium Valproate 440mg bd (30mg/kg/day),clean,ok,0
+EA0096,T4,Prescription,195,213,Topiramate-60mg-am,Topiramate 60mg am,clean,ok,0
+EA0096,T9,SeizureFrequency,610,643,generalised-tonic-clonic-seizures,generalised tonic clonic seizures,clean,ok,0
+EA0096,T5,PatientHistory,680,688,absences,absences,clean,ok,0
+EA0096,T6,Diagnosis,610,643,generalised-tonic-clonic-seizures,generalised tonic clonic seizures,clean,ok,0
+EA0096,T7,Diagnosis,109,117,epilepsy,epilepsy,clean,ok,0
+EA0096,T8,PatientHistory,120,139,Learning-disability,Learning disability,clean,ok,0
+EA0096,T14,SeizureFrequency,680,688,absences,absences,clean,ok,0
+EA0097,T6,PatientHistory,117,148,transient-loss-of-consciousness,transient loss of consciousness,clean,ok,0
+EA0097,T1,Diagnosis,170,190,focal-onset-epilepsy,focal onset epilepsy,clean,ok,0
+EA0097,T2,PatientHistory,347,368,loss-of-consciousness,loss of consciousness,clean,ok,0
+EA0097,T4,Diagnosis,825,843,epileptic-seizures,epileptic seizures,clean,ok,0
+EA0097,T5,Diagnosis,896,904,epilepsy,epilepsy,clean,ok,0
+EA0098,T15,PatientHistory,140,151,lobe-damage,lobe damage,clean,ok,0
+EA0098,T13,PatientHistory,351,358,seizure,seizure,clean,ok,0
+EA0098,T10,SeizureFrequency,794,801,seizure,seizure,clean,ok,0
+EA0098,T1,Diagnosis,1151,1159,epilepsy,epilepsy,clean,ok,0
+EA0098,T2,SeizureFrequency,281,311,Focal-onset-convulsive-seizure,Focal onset convulsive seizure,clean,ok,0
+EA0098,T3,SeizureFrequency,630,636,seizur,seizur,clean,ok,0
+EA0098,T4,Diagnosis,281,311,Focal-onset-convulsive-seizure,Focal onset convulsive seizure,clean,ok,0
+EA0098,T6,PatientHistory,794,801,seizure,seizure,clean,ok,0
+EA0098,T7,PatientHistory,630,637,seizure,seizure,clean,ok,0
+EA0098,T8,Prescription,198,250,Lamotrigine-100mg-bd-(to-increase-as-detailed-below),Lamotrigine 100mg bd (to increase as detailed below),clean,ok,0
+EA0098,T9,SeizureFrequency,351,359,seizure-,seizure ,clean,ok,0
+EA0098,T14,PatientHistory,154,161,Anxiety,Anxiety,clean,ok,0
+EA0098,T11,Diagnosis,96,116,Focal-onset-epilepsy,Focal onset epilepsy,clean,ok,0
+EA0098,T12,PatientHistory,949,956,anxiety,anxiety,clean,ok,0
+EA0099,T15,PatientHistory,139,150,lobe-damage,lobe damage,clean,ok,0
+EA0099,T1,PatientHistory,153,160,Anxiety,Anxiety,clean,ok,0
+EA0099,T2,Diagnosis,622,630,epilepsy,epilepsy,clean,ok,0
+EA0099,T3,Prescription,197,264,Levetiracetam-750mg-bd-(To-change-to-lamotrigine-as-detailed-below),Levetiracetam 750mg bd (To change to lamotrigine as detailed below),clean,ok,0
+EA0099,T4,SeizureFrequency,447,455,seizures,seizures,clean,ok,0
+EA0099,T5,Diagnosis,295,325,Focal-onset-convulsive-seizure,Focal onset convulsive seizure,clean,ok,0
+EA0099,T7,SeizureFrequency,295,325,Focal-onset-convulsive-seizure,Focal onset convulsive seizure,clean,ok,0
+EA0099,T8,Diagnosis,746,754,epilepsy,epilepsy,clean,ok,0
+EA0099,T9,Diagnosis,95,115,Focal-onset-epilepsy,Focal onset epilepsy,clean,ok,0
+EA0099,T10,Investigations,780,783,MRI,MRI,clean,ok,0
+EA0100,T12,PatientHistory,93,124,Transient-loss-of-consciousness,Transient loss of consciousness,clean,ok,0
+EA0100,T15,PatientHistory,144,151,seizure,seizure,clean,ok,0
+EA0100,T14,PatientHistory,240,272,-transient-loss-of-consciousness, transient loss of consciousness,clean,ok,0
+EA0100,T9,BirthHistory,940,953,born-normally,born normally,clean,ok,0
+EA0100,T10,PatientHistory,964,997,febrile-seizures-at-the-ages-of-3,febrile seizures at the ages of 3,clean,ok,0
+EA0100,T13,PatientHistory,1194,1202,diabetes,diabetes,clean,ok,0
+EA0100,T19,Investigations,1471,1478,CT-head,CT head,clean,ok,0
+EA0100,T17,PatientHistory,1527,1534,seizure,seizure,clean,ok,0
+EA0100,T11,PatientHistory,1584,1592,seizure-,seizure ,clean,ok,0
+EA0101,T2,Diagnosis,95,103,Epilepsy,Epilepsy,clean,ok,0
+EA0101,T4,Prescription,117,129,Eplim-chrono,Epilim chron,mismatch,high,0
+EA0101,T6,SeizureFrequency,141,153,Seizure-free,	Seizure fre,span_longer_than_source,medium,0
+EA0101,T8,Diagnosis,1112,1121,epilepsy-, epilepsy,clean,ok,0
+EA0102,T15,PatientHistory,92,126,non-epileptic-psychogenic-seizures,non-epileptic psychogenic seizures,clean,ok,0
+EA0102,T4,PatientHistory,129,136,anxiety,anxiety,clean,ok,0
+EA0102,T6,Prescription,150,155,Eplim,Eplim,clean,ok,0
+EA0102,T17,PatientHistory,255,290,-non-epileptic-psychogenic-seizures, non epileptic psychogenic seizures,clean,ok,0
+EA0102,T9,Investigations,313,316,EEG,EEG,clean,ok,0
+EA0102,T10,Investigations,343,353,normal-MRI,normal MRI,clean,ok,0
+EA0102,T12,PatientHistory,381,388,anxiety,anxiety,clean,ok,0
+EA0102,T14,SeizureFrequency,405,417,seizure-free,seizure free,clean,ok,0
+EA0102,T16,Prescription,555,571,sodium-valproate,sodium valproate,clean,ok,0
+EA0102,T18,PatientHistory,837,844,anxiety,anxiety,clean,ok,0
+EA0102,T20,PatientHistory,907,929,non-epileptic-seizures,non epileptic seizures,clean,ok,0
+EA0103,T2,Diagnosis,130,139,epilepsy-,epilepsy ,clean,ok,0
+EA0103,T4,PatientHistory,159,169,cavernoma-,cavernoma ,clean,ok,0
+EA0103,T9,EpilepsyCause,159,194,cavernoma-in-the-right-temporal-lob,cavernoma in the right temporal lob,clean,ok,0
+EA0103,T6,Diagnosis,235,252,-partial-seizures, partial seizures,clean,ok,0
+EA0103,T10,Prescription,327,335,Lamictal,ictal 15,mismatch,high,0
+EA0103,T12,Prescription,349,362,levitiracetam,etiracetam 12,mismatch,high,0
+EA0103,T16,SeizureFrequency,426,445,helped-her-seizures,ped her seizures an,mismatch,high,0
+EA0103,T14,PatientHistory,437,446,seizures-,zures and,mismatch,high,0
+EA0103,T19,PatientHistory,533,543,depression,"ression.
+
+",mismatch,high,0
+EA0104,T2,Diagnosis,97,120,Simple-partial-seizures,Simple partial seizures,clean,ok,0
+EA0104,T4,Diagnosis,137,161,secondary-generalisation,secondary generalisation,clean,ok,0
+EA0104,T8,Investigations,162,166,MRI-,MRI ,clean,ok,0
+EA0104,T6,PatientHistory,186,195,cavernoma,cavernoma,clean,ok,0
+EA0104,T18,PatientHistory,218,228,Depression,Depression,clean,ok,0
+EA0104,T10,Prescription,248,260,Lamotrigine-,Lamotrigine ,clean,ok,0
+EA0104,T12,PatientHistory,442,451,seizures-,seizures ,clean,ok,0
+EA0104,T14,Prescription,883,895,lamotrigine-,lamotrigine ,clean,ok,0
+EA0104,T9,PatientHistory,996,1005,seizures-,seizures ,clean,ok,0
+EA0104,T16,PatientHistory,1052,1063,depression-,depression ,clean,ok,0
+EA0105,T3,Diagnosis,67,93,Focal-post-stroke-epilepsy,Focal post stroke epilepsy,clean,ok,0
+EA0105,T2,Diagnosis,73,94,post-stroke-epilepsy-,post stroke epilepsy ,clean,ok,0
+EA0105,T5,Diagnosis,110,143,generalised-tonic-clonic-seizures,generalised tonic clonic seizures,clean,ok,0
+EA0105,T7,PatientHistory,172,180,infarct-,infarct ,clean,ok,0
+EA0105,T9,PatientHistory,202,210,diabetes,diabetes,clean,ok,0
+EA0105,T10,PatientHistory,211,223,Hypertension,Hypertension,clean,ok,0
+EA0105,T11,PatientHistory,237,248,depression-,depression ,clean,ok,0
+EA0105,T13,Diagnosis,315,324,epilepsy-,epilepsy ,clean,ok,0
+EA0105,T12,PatientHistory,346,352,stroke,stroke,clean,ok,0
+EA0105,T15,Prescription,390,406,sodium-valproate,sodium valproate,clean,ok,0
+EA0105,T17,PatientHistory,433,441,seizures,seizures,clean,ok,0
+EA0105,T19,SeizureFrequency,433,434,s,s,clean,ok,0
+EA0105,T21,SeizureFrequency,581,600,cluster-of-seizures,cluster of seizures,clean,ok,0
+EA0105,T14,PatientHistory,581,600,cluster-of-seizures,cluster of seizures,clean,ok,0
+EA0105,T23,PatientHistory,670,678,seizures,seizures,clean,ok,0
+EA0105,T25,PatientHistory,891,899,diabetes,diabetes,clean,ok,0
+EA0105,T27,PatientHistory,1046,1054,seizures,seizures,clean,ok,0
+EA0106,T1,Diagnosis,73,104,symptomatic-structural-epilepsy,symptomatic structural epilepsy,clean,ok,0
+EA0106,T4,PatientHistory,175,186,meningioma-,meningioma ,clean,ok,0
+EA0106,T13,EpilepsyCause,175,186,meningioma-,meningioma ,clean,ok,0
+EA0106,T6,PatientHistory,187,196,resected-,resected ,clean,ok,0
+EA0106,T8,PatientHistory,250,257,anxiety,anxiety,clean,ok,0
+EA0106,T10,Prescription,276,315,Current-medication-Lamotrigine-150mg-bd,Current medication Lamotrigine 150mg bd,clean,ok,0
+EA0106,T12,Diagnosis,376,396,focal-motor-seizures,focal motor seizures,clean,ok,0
+EA0106,T14,SeizureFrequency,376,396,focal-motor-seizures,focal motor seizures,clean,ok,0
+EA0106,T16,SeizureFrequency,464,502,Focal-to-bilateral-convulsive-seizures,Focal to bilateral convulsive seizures,clean,ok,0
+EA0106,T11,Diagnosis,464,502,Focal-to-bilateral-convulsive-seizures,Focal to bilateral convulsive seizures,clean,ok,0
+EA0106,T18,Investigations,544,548,MRI-,MRI ,clean,ok,0
+EA0106,T20,PatientHistory,594,605,meningioma-,meningioma ,clean,ok,0
+EA0106,T17,PatientHistory,615,623,surgery-,surgery ,clean,ok,0
+EA0106,T22,SeizureFrequency,999,1016,frequent-seizures,frequent seizures,clean,ok,0
+EA0106,T19,PatientHistory,1007,1016,-seizures, seizures,clean,ok,0
+EA0106,T24,Diagnosis,1283,1291,epilepsy,epilepsy,clean,ok,0
+EA0107,T2,Diagnosis,192,220,primary-generalised-epilepsy,primary generalised epilepsy,clean,ok,0
+EA0107,T4,Prescription,258,271,Levetiracetam,Levetiracetam,clean,ok,0
+EA0107,T6,Prescription,258,272,Levetiracetam-,Levetiracetam ,clean,ok,0
+EA0107,T8,Prescription,312,324,Lamotrigine-,Lamotrigine ,clean,ok,0
+EA0107,T10,Diagnosis,373,406,generalised-tonic-clonic-seizures,generalised tonic clonic seizures,clean,ok,0
+EA0107,T12,SeizureFrequency,373,406,generalised-tonic-clonic-seizures,generalised tonic clonic seizures,clean,ok,0
+EA0107,T14,Diagnosis,436,456,generalised-seizures,generalised seizures,clean,ok,0
+EA0107,T16,PatientHistory,769,776,seizure,seizure,clean,ok,0
+EA0107,T18,Diagnosis,911,931,intractable-epilepsy,intractable epilepsy,clean,ok,0
+EA0107,T20,Investigations,937,944,CT-scan,CT scan,clean,ok,0
+EA0108,T3,Diagnosis,133,153,Symptomatic-epilepsy,Symptomatic epilepsy,clean,ok,0
+EA0108,T5,Diagnosis,170,190,focal-motor-seizures,focal motor seizures,clean,ok,0
+EA0108,T7,Diagnosis,196,239,secondary-generalised-tonic-clonic-seizures,secondary generalised tonic clonic seizures,clean,ok,0
+EA0108,T9,PatientHistory,245,248,AVM,AVM,clean,ok,0
+EA0108,T1,Prescription,265,287,Levetiracetam-500mg-bd,Levetiracetam 500mg bd,clean,ok,0
+EA0108,T13,Prescription,293,315,Carbamazepine-300mg-bd,Carbamazepine 300mg bd,clean,ok,0
+EA0108,T11,PatientHistory,445,456,haemorrhage,haemorrhage,clean,ok,0
+EA0108,T17,PatientHistory,473,499,arteriovenous-malformation,arteriovenous malformation,clean,ok,0
+EA0108,T19,PatientHistory,571,580,seizures-,seizures ,clean,ok,0
+EA0108,T21,Diagnosis,631,639,epilepsy,epilepsy,clean,ok,0
+EA0108,T23,SeizureFrequency,694,702,seizure-,seizure ,clean,ok,0
+EA0108,T10,PatientHistory,694,702,seizure-,seizure ,clean,ok,0
+EA0108,T25,SeizureFrequency,736,745,seizures-,seizures ,clean,ok,0
+EA0108,T12,PatientHistory,736,745,seizures-,seizures ,clean,ok,0
+EA0108,T27,Diagnosis,881,905,tonic-clonic-convulsion.,tonic clonic convulsion.,clean,ok,0
+EA0108,T29,PatientHistory,1076,1083,seizure,seizure,clean,ok,0
+EA0108,T31,Diagnosis,1215,1223,epilepsy,epilepsy,clean,ok,0
+EA0108,T33,SeizureFrequency,1322,1330,seizures,seizures,clean,ok,0
+EA0108,T14,PatientHistory,1322,1330,seizures,seizures,clean,ok,0
+EA0109,T2,Diagnosis,36,50,Focal-Seizures,Focal Seizures,clean,ok,0
+EA0109,T4,Diagnosis,61,74,temporal-lobe,temporal lobe,clean,ok,0
+EA0109,T9,PatientHistory,320,327,déjà-vu,déjà vu,clean,ok,0
+EA0109,T6,PatientHistory,673,696,ischaemic-heart-disease,ischaemic heart disease,clean,ok,0
+EA0109,T8,Diagnosis,1109,1131,temporal-lobe-seizures,temporal lobe seizures,clean,ok,0
+EA0110,T2,PatientHistory,248,256,seizures,seizures,clean,ok,0
+EA0110,T4,SeizureFrequency,574,583,seizures-,seizures ,clean,ok,0
+EA0110,T9,SeizureFrequency,636,643,cluster,cluster,clean,ok,0
+EA0110,T7,PatientHistory,978,994,febrile-seizures,febrile seizures,clean,ok,0
+EA0110,T8,Diagnosis,1512,1545,generalised-tonic-clonic-seizures,generalised tonic clonic seizures,clean,ok,0
+EA0110,T10,Diagnosis,1562,1573,focal-onset,focal onset,clean,ok,0
+EA0110,T5,Diagnosis,1611,1635,complex-partial-seizures,complex partial seizures,clean,ok,0
+EA0110,T14,Prescription,1660,1676,Sodium-Valproate,Sodium Valproate,clean,ok,0
+EA0110,T12,PatientHistory,1691,1706,seizure-cluster,seizure cluster,clean,ok,0
+EA0110,T15,PatientHistory,2034,2043,seizures-,seizures ,clean,ok,0
+EA0110,T16,PatientHistory,2289,2297,seizures,seizures,clean,ok,0
+EA0111,T4,Diagnosis,138,163,Refractory-focal-epilepsy,Refractory focal epilepsy,clean,ok,0
+EA0111,T2,Diagnosis,149,163,focal-epilepsy,focal epilepsy,clean,ok,0
+EA0111,T6,Diagnosis,179,212,generalised-tonic-clonic-seizures,generalised tonic clonic seizures,clean,ok,0
+EA0111,T8,Investigations,229,246,EEG-abnormalities,EEG abnormalities,clean,ok,0
+EA0111,T10,Investigations,249,261,MRI-negative,MRI negative,clean,ok,0
+EA0111,T12,Prescription,277,297,Zonisamide-200mgs-bd,Zonisamide 200mgs bd,clean,ok,0
+EA0111,T14,Prescription,300,347,Brivaracetam-100mgs-bd-to-increase-to-100mgs-am,Brivaracetam 100mgs bd to increase to 100mgs am,clean,ok,0
+EA0111,T16,SeizureFrequency,626,634,seizures,seizures,clean,ok,0
+EA0111,T22,PatientHistory,626,634,seizures,seizures,clean,ok,0
+EA0111,T18,SeizureFrequency,661,670,seizures-,seizures ,clean,ok,0
+EA0111,T24,PatientHistory,661,669,seizures,seizures,clean,ok,0
+EA0111,T20,Diagnosis,707,728,tonic-clonic-seizures,tonic clonic seizures,clean,ok,0
+EA0112,T4,Diagnosis,126,140,Focal-epilepsy,Focal epilepsy,clean,ok,0
+EA0112,T2,Prescription,156,178,Brivaracetam-75-mgs-bd,Brivaracetam 75 mgs bd,clean,ok,0
+EA0112,T6,SeizureFrequency,255,267,seizure-free,seizure free,clean,ok,0
+EA0112,T8,PatientHistory,921,930,seizures-,seizures ,clean,ok,0
+EA0113,T2,Diagnosis,121,148,Juvenile-myoclonic-epilepsy,Juvenile myoclonic epilepsy,clean,ok,0
+EA0113,T4,PatientHistory,477,485,seizure-,seizure ,clean,ok,0
+EA0113,T6,SeizureFrequency,566,573,seizure,seizure,clean,ok,0
+EA0113,T8,SeizureFrequency,566,573,seizure,seizure,clean,ok,0
+EA0113,T16,PatientHistory,566,574,seizure-,seizure ,clean,ok,0
+EA0113,T10,PatientHistory,922,937,myoclonic-jerks,myoclonic jerks,clean,ok,0
+EA0113,T12,PatientHistory,1144,1163,febrile-convulsions,febrile convulsions,clean,ok,0
+EA0113,T14,Diagnosis,1330,1357,Juvenile-Myoclonic-Epilepsy,Juvenile Myoclonic Epilepsy,clean,ok,0
+EA0114,T2,Diagnosis,83,97,Focal-epilepsy,Focal epilepsy,clean,ok,0
+EA0114,T4,Diagnosis,106,125,temporal-lobe-onset,temporal lobe onset,clean,ok,0
+EA0114,T6,Prescription,140,163,Levetiracetam-750mgs-bd,Levetiracetam 750mgs bd,clean,ok,0
+EA0114,T8,Prescription,166,231,Carbamazepine-Controlled-Release-400mgs-bd-to-reduce-to-200mgs-am,Carbamazepine Controlled Release 400mgs bd to reduce to 200mgs am,clean,ok,0
+EA0114,T10,Diagnosis,428,461,focal-impaired-awareness-seizures,focal impaired awareness seizures,clean,ok,0
+EA0114,T12,Investigations,578,582,EEG-,EEG ,clean,ok,0
+EA0114,T14,PatientHistory,776,784,seizures,seizures,clean,ok,0
+EA0115,T2,Diagnosis,83,92,Epilepsy-,Epilepsy ,clean,ok,0
+EA0115,T4,Diagnosis,112,145,generalised-tonic-clonic-seizures,generalised tonic clonic seizures,clean,ok,0
+EA0115,T6,Prescription,160,231,Levetiracetam-250mgs-od-increasing-by-250mgs-every-2-weeks-to-500mgs-bd,Levetiracetam 250mgs od increasing by 250mgs every 2 weeks to 500mgs bd,clean,ok,0
+EA0115,T13,PatientHistory,332,339,seizure,seizure,clean,ok,0
+EA0115,T11,PatientHistory,509,527,lost-consciousness,lost consciousness,clean,ok,0
+EA0115,T12,PatientHistory,868,887,febrile-convulsions,febrile convulsions,clean,ok,0
+EA0115,T14,Investigations,1067,1076,MRI-brain,MRI brain,clean,ok,0
+EA0115,T10,Diagnosis,1169,1202,generalised-tonic-clonic-seizures,generalised tonic clonic seizures,clean,ok,0
+EA0116,T5,Diagnosis,153,211,epilepsy-with-generalised-tonic-clonic-seizures-from-sleep,epilepsy with generalised tonic clonic seizures from sleep,clean,ok,0
+EA0116,T10,PatientHistory,214,229,Type-1-diabetes,Type 1 diabetes,clean,ok,0
+EA0116,T7,Prescription,255,286,Levetiracetam-250mgs-once-a-day,Levetiracetam 250mgs once a day,clean,ok,0
+EA0116,T14,PatientHistory,1104,1119,type-1-diabetes,type 1 diabetes,clean,ok,0
+EA0116,T11,Diagnosis,1462,1495,generalised-tonic-clonic-seizures,generalised tonic clonic seizures,clean,ok,0
+EA0116,T13,Diagnosis,1550,1555,focal,focal,clean,ok,0
+EA0116,T12,Diagnosis,1557,1575,frontal-lobe-onset,frontal lobe onset,clean,ok,0
+EA0117,T2,Diagnosis,117,131,focal-epilepsy,focal epilepsy,clean,ok,0
+EA0117,T12,PatientHistory,136,157,dissociative-seizures,dissociative seizures,clean,ok,0
+EA0117,T6,Prescription,173,183,Lacosmaide,Lacosamide,mismatch,high,0
+EA0117,T8,Prescription,196,207,Perampanel-,Perampanel ,clean,ok,0
+EA0117,T10,PatientHistory,293,301,seizures,seizures,clean,ok,0
+EA0117,T13,SeizureFrequency,293,301,seizures,seizures,clean,ok,0
+EA0117,T22,Diagnosis,371,404,focal-impaired-awareness-seizures,focal impaired awareness seizures,clean,ok,0
+EA0117,T19,PatientHistory,409,430,dissociative-seizures,dissociative seizures,clean,ok,0
+EA0117,T18,Diagnosis,897,930,focal-impaired-awareness-seizures,focal impaired awareness seizures,clean,ok,0
+EA0117,T16,PatientHistory,935,956,dissociative-seizures,dissociative seizures,clean,ok,0
+EA0117,T24,Investigations,985,989,EEG-,EEG ,clean,ok,0
+EA0118,T4,Diagnosis,108,141,generalised-tonic-clonic-seizures,generalised tonic clonic seizures,clean,ok,0
+EA0118,T6,PatientHistory,334,355,loss-of-consciousness,loss of consciousness,clean,ok,0
+EA0118,T8,Diagnosis,1112,1144,generalised-tonic-clonic-seizure,generalised tonic clonic seizure,clean,ok,0
+EA0119,T3,Diagnosis,58,72,focal-epilepsy,focal epilepsy,clean,ok,0
+EA0119,T7,SeizureFrequency,104,112,seizure-,seizure ,clean,ok,0
+EA0119,T15,PatientHistory,104,111,seizure,seizure,clean,ok,0
+EA0119,T9,SeizureFrequency,126,134,seizure-,seizure ,clean,ok,0
+EA0119,T17,PatientHistory,126,133,seizure,seizure,clean,ok,0
+EA0119,T5,Diagnosis,146,183,Focal-seizures-with-altered-awareness,Focal seizures with altered awareness,clean,ok,0
+EA0119,T11,Prescription,186,255,Current-anti-epileptic-medication:-Levetiracetam-1500-milligrammes-BD,Current anti epileptic medication: Levetiracetam 1500 milligrammes BD,clean,ok,0
+EA0119,T13,Prescription,256,307,Lamotrigine-75MG-BD-(to-increase-as-detailed-below),Lamotrigine 75MG BD (to increase as detailed below),clean,ok,0
+EA0119,T19,SeizureFrequency,576,584,seizures,seizures,clean,ok,0
+EA0119,T21,PatientHistory,576,584,seizures,seizures,clean,ok,0
+EA0119,T23,PatientHistory,613,622,seizures-,seizures ,clean,ok,0
+EA0119,T25,PatientHistory,688,696,seizure-,seizure ,clean,ok,0
+EA0119,T27,Investigations,785,795,normal-MRI,normal MRI,clean,ok,0
+EA0119,T29,Investigations,802,812,normal-eeg,normal eeg,clean,ok,0
+EA0119,T31,SeizureFrequency,882,891,seizures-,seizures ,clean,ok,0
+EA0119,T12,PatientHistory,882,889,seizure,seizure,clean,ok,0
+EA0120,T12,PatientHistory,57,78,Dissociative-seizures,Dissociative seizures,clean,ok,0
+EA0120,T4,PatientHistory,81,112,Post-traumatic-stress-disorders,Post traumatic stress disorders,clean,ok,0
+EA0120,T6,Prescription,114,156,Medication:-lamotrigine-75mg-bd-(to-reduce,Medication: lamotrigine 75mg bd (to reduce,clean,ok,0
+EA0120,T9,SeizureFrequency,369,378,seizures-,seizures ,clean,ok,0
+EA0120,T14,PatientHistory,559,579,dissociative-seizure,dissociative seizure,clean,ok,0
+EA0121,T4,Diagnosis,64,93,Drug-resistant-focal-epilepsy,Drug resistant focal epilepsy,clean,ok,0
+EA0121,T2,Diagnosis,79,93,focal-epilepsy,focal epilepsy,clean,ok,0
+EA0121,T6,PatientHistory,99,127,Severe-learning-difficulties,Severe learning difficulties,clean,ok,0
+EA0121,T8,Prescription,163,186,Levetiracetam-1500mg-bd,Levetiracetam 1500mg bd,clean,ok,0
+EA0121,T10,Prescription,191,209,Phenytoin-350mg-od,Phenytoin 350mg od,clean,ok,0
+EA0121,T12,Prescription,214,233,Zonisamide-200mg-bd,Zonisamide 200mg bd,clean,ok,0
+EA0121,T14,Prescription,238,249,Perampanel-,Perampanel ,clean,ok,0
+EA0121,T9,Prescription,260,270,Midazolam-,Midazolam ,clean,ok,0
+EA0121,T16,SeizureFrequency,482,499,frequent-seizures,frequent seizures,clean,ok,0
+EA0121,T18,PatientHistory,491,500,seizures-,seizures ,clean,ok,0
+EA0121,T20,Diagnosis,750,787,focal-seizures-with-altered-awareness,focal seizures with altered awareness,clean,ok,0
+EA0121,T22,Diagnosis,886,924,focal-to-bilateral-convulsive-seizures,focal to bilateral convulsive seizures,clean,ok,0
+EA0121,T24,SeizureFrequency,886,923,focal-to-bilateral-convulsive-seizure,focal to bilateral convulsive seizure,clean,ok,0
+EA0121,T26,Diagnosis,1052,1061,epilepsy-,epilepsy ,clean,ok,0
+EA0122,T12,Diagnosis,286,319,generalised-tonic-clonic-seizures,generalised tonic clonic seizures,clean,ok,0
+EA0122,T1,Diagnosis,434,443,epilepsy-,epilepsy ,clean,ok,0
+EA0122,T2,SeizureFrequency,326,334,seizure-,seizure ,clean,ok,0
+EA0122,T3,Diagnosis,59,67,Epilepsy,Epilepsy,clean,ok,0
+EA0122,T4,Prescription,180,205,Sodium-valproate-400mg-BD,Sodium valproate 400mg BD,clean,ok,0
+EA0122,T8,Onset,434,443,epilepsy-,epilepsy ,clean,ok,0
+EA0122,T5,PatientHistory,774,783,seizures-,seizures ,clean,ok,0
+EA0122,T14,Diagnosis,788,810,bilateral-tonic-clonic,bilateral tonic-clonic,clean,ok,0
+EA0122,T6,Diagnosis,1257,1277,generalised-epilepsy,generalised epilepsy,clean,ok,0
+EA0122,T7,Diagnosis,59,89,"Epilepsy,-probable-generalised","Epilepsy, probable generalised",clean,ok,0
+EA0122,T9,PatientHistory,326,333,seizure,seizure,clean,ok,0
+EA0122,T10,SeizureFrequency,479,488,seizures-,seizures ,clean,ok,0
+EA0122,T11,PatientHistory,627,636,seizures-,seizures ,clean,ok,0
+EA0122,T15,SeizureFrequency,512,520,seizure-,seizure ,clean,ok,0
+EA0122,T13,Investigations,825,828,MRI,MRI,clean,ok,0
+EA0122,T18,Diagnosis,91,143,epilepsy-with-generalised-tonic-clinic-seizure-alone,epilepsy with generalised tonic clinic seizure alone,clean,ok,0
+EA0122,T17,PatientHistory,512,518,seizur,seizur,clean,ok,0
+EA0123,T1,Diagnosis,279,288,epilepsy-,epilepsy ,clean,ok,0
+EA0123,T2,SeizureFrequency,1443,1487,infrequent-generalised-tonic-clonic-seizures,infrequent generalised tonic-clonic seizures,clean,ok,0
+EA0123,T3,Diagnosis,85,118,generalised-tonic-clonic-seizures,generalised tonic clonic seizures,clean,ok,0
+EA0123,T4,PatientHistory,653,669,febrile-seizures,febrile seizures,clean,ok,0
+EA0123,T5,PatientHistory,431,440,seizures-,seizures ,clean,ok,0
+EA0123,T6,BirthHistory,580,596,birth-was-normal,birth was normal,clean,ok,0
+EA0123,T7,Diagnosis,71,80,epilepsy-,epilepsy ,clean,ok,0
+EA0123,T8,Investigations,841,848,CT-scan,CT scan,clean,ok,0
+EA0123,T9,Prescription,121,171,Medication:-epilim-200-milligrammes-in-the-morning,Medication: epilim 200 milligrammes in the morning,clean,ok,0
+EA0123,T10,WhenDiagnosed,279,286,epileps,epileps,clean,ok,0
+EA0123,T11,Diagnosis,1454,1487,generalised-tonic-clonic-seizures,generalised tonic-clonic seizures,clean,ok,0
+EA0123,T12,Investigations,871,875,eeg-,eeg ,clean,ok,0
+EA0123,T13,SeizureFrequency,1034,1042,seizure-,seizure ,clean,ok,0
+EA0123,T14,SeizureFrequency,974,1003,seizure-frequency-has-reduced,seizure frequency has reduced,clean,ok,0
+EA0123,T15,Diagnosis,354,387,generalised-tonic-clonic-seizures,generalised tonic clonic seizures,clean,ok,0
+EA0123,T16,Prescription,133,140,epilim-,epilim ,clean,ok,0
+EA0123,T17,PatientHistory,1034,1040,-seizu,seizur,truncated_span,medium,1
+EA0124,T10,PatientHistory,114,121,measles,measles,clean,ok,0
+EA0124,T12,PatientHistory,570,577,measles,les. Sh,mismatch,high,0
+EA0124,T1,PatientHistory,909,917,absence-,nce even,mismatch,high,0
+EA0124,T2,SeizureFrequency,909,915,absenc,nce ev,mismatch,high,0
+EA0124,T3,SeizureFrequency,821,853,generalised-tonic-clonic-seizure,"ralised tonic clonic seizures, t",mismatch,high,0
+EA0124,T14,PatientHistory,1341,1348,atrophy,phy and,mismatch,high,0
+EA0124,T4,PatientHistory,1563,1572,seizures-,ures I su,mismatch,high,0
+EA0124,T5,Diagnosis,733,742,epilepsy-,epsy was ,mismatch,high,0
+EA0124,T6,Prescription,124,197,Medication:-sodium-valproate-500-milligrammes-mane-700-milligrammes-nocte,"Medication: sodium valproate 500 milligrams mane 700 milligrams nocte 
+Zo",mismatch,high,0
+EA0124,T7,Prescription,199,217,Zonisamide-50mg-bd,"samide 50mg bd
+
+Ou",mismatch,high,0
+EA0124,T8,Diagnosis,821,854,generalised-tonic-clonic-seizures,"ralised tonic clonic seizures, th",mismatch,high,0
+EA0124,T9,PatientHistory,593,614,learning-difficulties,ning difficulties whi,mismatch,high,0
+EA0124,T19,Investigations,1295,1304,MRI-brain,brain sca,mismatch,high,0
+EA0124,T11,Diagnosis,490,499,epilepsy-,epsy and ,mismatch,high,0
+EA0124,T20,Prescription,136,152,sodium-valproate,sodium valproate,clean,ok,0
+EA0124,T13,PatientHistory,72,93,Learning-difficulties,Learning difficulties,clean,ok,0
+EA0124,T21,Diagnosis,58,66,epilepsy,epilepsy,clean,ok,0
+EA0124,T15,WhenDiagnosed,490,497,epileps,epsy an,mismatch,high,0
+EA0124,T16,PatientHistory,650,657,measles,"les.
+
+S",mismatch,high,0
+EA0124,T17,PatientHistory,776,784,-measles,les. She,mismatch,high,0
+EA0124,T18,EpilepsyCause,778,783,easle,s. Sh,mismatch,high,0
+EA0125,T1,PatientHistory,115,124,absences-,absences ,clean,ok,0
+EA0125,T2,PatientHistory,128,143,myoclonic-jerks,myoclonic jerks,clean,ok,0
+EA0125,T3,Diagnosis,87,113,generalised-tonic-seizures,generalised tonic seizures,clean,ok,0
+EA0125,T4,Prescription,194,241,Medication:-epilim-400-milligrammes-twice-a-day,Medication: epilim 400 milligrammes twice a day,clean,ok,0
+EA0125,T5,Diagnosis,391,400,epilepsy-,epilepsy ,clean,ok,0
+EA0125,T6,PatientHistory,334,342,seizures,seizures,clean,ok,0
+EA0125,T7,PatientHistory,682,697,febrile-seizure,febrile seizure,clean,ok,0
+EA0125,T8,Diagnosis,67,71,JME-,JME ,clean,ok,0
+EA0125,T9,Diagnosis,864,891,juvenile-myoclonic-epilepsy,juvenile myoclonic epilepsy,clean,ok,0
+EA0125,T10,PatientHistory,308,316,seizures,eizures.,mismatch,high,0
+EA0125,T11,SeizureFrequency,296,316,iincreasing-seizures,increasing seizures.,mismatch,high,0
+EA0126,T1,Diagnosis,57,71,Focal-epilepsy,Focal epilepsy,clean,ok,0
+EA0126,T15,EpilepsyCause,85,103,Tuberous-sclerosis,Tuberous sclerosis,clean,ok,0
+EA0126,T22,PatientHistory,356,374,tuberous-sclerosis,tuberous sclerosis,clean,ok,0
+EA0126,T31,PatientHistory,1453,1471,tuberous-sclerosis,tuberous sclerosis,clean,ok,0
+EA0126,T2,PatientHistory,1454,1472,tuberous-sclerosis,uberous sclerosis ,partial_overlap,medium,0
+EA0126,T3,Investigations,494,502,MRI-scan,RI scan ,partial_overlap,medium,0
+EA0126,T4,PatientHistory,633,641,seizures,eizures.,mismatch,high,0
+EA0126,T5,Prescription,143,167,Eslicarbazepine-800mg-od,Eslicarbazepine 800mg od,clean,ok,0
+EA0126,T6,WhenDiagnosed,385,392,epileps,pilepsy,mismatch,high,0
+EA0126,T7,Diagnosis,643,670,Focal-frontal-lobe-seizures,ocal frontal lobe seizures ,partial_overlap,medium,0
+EA0126,T11,Diagnosis,385,394,epilepsy-,pilepsy w,mismatch,high,0
+EA0126,T12,Diagnosis,643,648,Focal,ocal ,partial_overlap,medium,0
+EA0126,T13,Prescription,105,142,Medication:-Sodium-valproate-500mg-bd,Medication: Sodium valproate 500mg bd,clean,ok,0
+EA0126,T14,Diagnosis,804,842,focal-to-bilateral-convulsive-seizures,ocal to bilateral convulsive seizures ,partial_overlap,medium,0
+EA0126,T16,Diagnosis,1425,1434,epilepsy-,pilepsy i,mismatch,high,0
+EA0126,T17,SeizureFrequency,643,669,Focal-frontal-lobe-seizure,ocal frontal lobe seizures,mismatch,high,0
+EA0126,T18,SeizureFrequency,804,841,focal-to-bilateral-convulsive-seizure,ocal to bilateral convulsive seizures,mismatch,high,0
+EA0126,T19,EpilepsyCause,1454,1472,tuberous-sclerosis,uberous sclerosis ,partial_overlap,medium,0
+EA0127,T3,Diagnosis,20,44,Complex-partial-seizures,Complex partial seizures,clean,ok,0
+EA0127,T5,Diagnosis,49,93,-secondary-generalised-tonic-clonic-seizures, secondary generalised tonic clonic seizures,clean,ok,0
+EA0127,T7,Investigations,114,118,-MRI,RI-n,mismatch,high,0
+EA0127,T9,Investigations,155,159,-EEG,G 20,mismatch,high,0
+EA0127,T11,Prescription,233,255,Sodium-valproate-400mg,m valproate 400mg twic,mismatch,high,0
+EA0127,T13,Prescription,292,309,Lamotrigine-100mg,Lamotrigine 100mg,clean,ok,0
+EA0127,T15,SeizureFrequency,412,426,seizures-free., free. His las,mismatch,high,0
+EA0127,T17,SeizureFrequency,436,443,seizure,was in ,mismatch,high,0
+EA0127,T10,PatientHistory,436,443,seizure,was in ,mismatch,high,0
+EA0128,T1,Diagnosis,101,134,generalised-tonic-clonic-seizures,generalised tonic clonic seizures,clean,ok,0
+EA0128,T10,SeizureFrequency,694,709,yoclonic-jerks.,yoclonic jerks.,clean,ok,0
+EA0128,T19,BirthHistory,938,955,perinatal-hypoxia,perinatal hypoxia,clean,ok,0
+EA0128,T3,Onset,303,312,-eepileps, epilepsy,mismatch,high,0
+EA0128,T4,Diagnosis,144,147,JME,JME,clean,ok,0
+EA0128,T13,PatientHistory,975,996,learning-disabilities,learning disabilities,clean,ok,0
+EA0128,T5,Diagnosis,1282,1309,juvenile-myoclonic-epilepsy,juvenile myoclonic epilepsy,clean,ok,0
+EA0128,T6,PatientHistory,385,400,myoclonic-jerks,myoclonic jerks,clean,ok,0
+EA0128,T7,PatientHistory,1087,1103,febrile-seizures,febrile seizures,clean,ok,0
+EA0128,T8,Diagnosis,1486,1494,epilepsy,epilepsy,clean,ok,0
+EA0128,T9,PatientHistory,81,96,myoclonic-jerks,myoclonic jerks,clean,ok,0
+EA0128,T20,Diagnosis,347,380,generalised-tonic-clonic-seizures,generalised tonic clonic seizures,clean,ok,0
+EA0128,T11,Prescription,222,259,Medication:-epilim-800-mg-twice-a-day,Medication: epilim 800 mg twice a day,clean,ok,0
+EA0128,T12,Diagnosis,71,79,epilepsy,epilepsy,clean,ok,0
+EA0128,T21,Diagnosis,305,314,epilepsy-,pilepsy s,mismatch,high,0
+EA0128,T14,SeizureFrequency,580,613,generalised-tonic-clonic-seizures,generalised tonic clonic seizures,clean,ok,0
+EA0128,T15,PatientHistory,164,185,learning-disabilities,learning disabilities,clean,ok,0
+EA0128,T16,Onset,347,379,generalised-tonic-clonic-seizure,generalised tonic clonic seizure,clean,ok,0
+EA0128,T17,PatientHistory,694,709,myoclonic-jerks,yoclonic jerks.,mismatch,high,0
+EA0128,T18,Diagnosis,581,613,generalised-tonic-clonic-seizure,eneralised tonic clonic seizures,mismatch,high,0
+EA0129,T1,Diagnosis,127,136,epilepsy-,epilepsy ,clean,ok,0
+EA0129,T2,PatientHistory,946,963,minor-head-injury,minor head injury,clean,ok,0
+EA0129,T3,WhenDiagnosed,127,134,epileps,epileps,clean,ok,0
+EA0129,T4,PatientHistory,186,195,seizures-,seizures ,clean,ok,0
+EA0129,T5,Investigations,689,693,EEG-,EEG ,clean,ok,0
+EA0129,T6,BirthHistory,818,834,birth-was-normal,birth was normal,clean,ok,0
+EA0129,T7,PatientHistory,781,790,seizures-,seizures ,clean,ok,0
+EA0129,T8,PatientHistory,1322,1351,non-epileptic-attack-disorder,non epileptic attack disorder,clean,ok,0
+EA0129,T9,PatientHistory,895,911,febrile-seizures,febrile seizures,clean,ok,0
+EA0129,T10,Investigations,639,647,CT-scan-,CT scan ,clean,ok,0
+EA0129,T11,SeizureFrequency,781,789,seizures,seizures,clean,ok,0
+EA0129,T12,PatientHistory,1218,1227,seizures-,seizures ,clean,ok,0
+EA0129,T13,PatientHistory,1027,1038,depression-,depression ,clean,ok,0
+EA0129,T14,PatientHistory,1060,1085,consumed-too-much-alcohol,consumed too much alcohol,clean,ok,0
+EA0130,T1,SeizureFrequency,353,362,seizures-,seizures ,clean,ok,0
+EA0130,T2,Prescription,132,166,Sodium-Valproate-300mg-twice-a-day,Sodium Valproate 300mg twice a day,clean,ok,0
+EA0130,T3,Diagnosis,59,86,Juvenile-myoclonic-epilepsy,Juvenile myoclonic epilepsy,clean,ok,0
+EA0130,T4,Prescription,100,129,Lamotrigine-150mg-twice-a-day,Lamotrigine 150mg twice a day,clean,ok,0
+EA0131,T1,Diagnosis,274,283,epilepsy-,epilepsy ,clean,ok,0
+EA0131,T2,Diagnosis,513,546,generalised-tonic-clonic-seizures,generalised tonic clonic seizures,clean,ok,0
+EA0131,T3,Prescription,358,374,sodium-valproate,sodium valproate,clean,ok,0
+EA0131,T4,Investigations,180,197,EEG-abnormalities,EEG abnormalities,clean,ok,0
+EA0131,T5,SeizureFrequency,439,446,eizures,eizures,clean,ok,0
+EA0131,T6,Diagnosis,137,165,primary-generalised-epilepsy,primary generalised epilepsy,clean,ok,0
+EA0131,T7,PatientHistory,438,445,seizure,seizure,clean,ok,0
+EA0131,T8,Investigations,208,212,MRI-,MRI ,clean,ok,0
+EA0132,T1,Investigations,442,457,EEG-is-abnormal,EEG is abnormal,clean,ok,0
+EA0132,T2,Investigations,211,215,MRI-,MRI ,clean,ok,0
+EA0132,T10,PatientHistory,592,610,altered-awareness-,altered awareness ,clean,ok,0
+EA0132,T12,PatientHistory,767,799,episode-of-loss-of-consciousness,episode of loss of consciousness,clean,ok,0
+EA0132,T3,Diagnosis,834,871,focal-to-bilateral-convulsive-seizure,focal to bilateral convulsive seizure,clean,ok,0
+EA0132,T4,Diagnosis,923,937,focal-seizures,focal seizures,clean,ok,0
+EA0132,T5,Diagnosis,969,978,epilepsy-,epilepsy ,clean,ok,0
+EA0132,T6,Diagnosis,137,174,Focal-seizures-with-altered-awareness,Focal seizures with altered awareness,clean,ok,0
+EA0132,T7,Investigations,235,239,EEG-,EEG ,clean,ok,0
+EA0132,T8,Diagnosis,93,107,focal-epilepsy,focal epilepsy,clean,ok,0
+EA0132,T9,SeizureFrequency,137,173,Focal-seizures-with-altered-awarenes,Focal seizures with altered awarenes,clean,ok,0
+EA0132,T13,Investigations,986,990,EEG-,EEG ,clean,ok,0
+EA0132,T11,Diagnosis,1054,1063,epilepsy-,epilepsy ,clean,ok,0
+EA0133,T112,PatientHistory,122,133,MCA-infarct,MCA infarct,clean,ok,0
+EA0133,T14,PatientHistory,348,369,MCA-terrority-infarct,MCA terrority infarct,clean,ok,0
+EA0133,T1,Diagnosis,683,697,focal-seizures,focal seizures,clean,ok,0
+EA0133,T10,Diagnosis,763,778,-focal-seizures, focal seizures,clean,ok,0
+EA0133,T2,PatientHistory,1076,1084,migraine,migraine,clean,ok,0
+EA0133,T11,PatientHistory,1314,1331,febrile-seizures-,febrile seizures ,clean,ok,0
+EA0133,T13,PatientHistory,1314,1330,febrile-seizures,febrile seizures,clean,ok,0
+EA0133,T3,PatientHistory,1579,1586,stroke-,stroke ,clean,ok,0
+EA0133,T5,Diagnosis,1850,1864,focal-seizures,focal seizures,clean,ok,0
+EA0133,T7,SeizureFrequency,168,187,Focal-motor-seizure,Focal motor seizure,clean,ok,0
+EA0133,T8,Diagnosis,223,261,Focal-to-bilateral-convulsive-seizures,Focal to bilateral convulsive seizures,clean,ok,0
+EA0133,T9,Diagnosis,1835,1844,epilepsy-,epilepsy ,clean,ok,0
+EA0133,T111,Diagnosis,554,563,epilepsy-,epilepsy ,clean,ok,0
+EA0133,T12,Prescription,408,433,Sodium-Valproate-500mg-bd,Sodium Valproate 500mg bd,clean,ok,0
+EA0133,T24,WhenDiagnosed,554,562,epilepsy,epilepsy,clean,ok,0
+EA0133,T144,Prescription,383,405,Carbamazepine-400mg-bd,Carbamazepine 400mg bd,clean,ok,0
+EA0133,T15,Diagnosis,611,628,epileptic-seizure,epileptic seizure,clean,ok,0
+EA0133,T16,Diagnosis,168,188,Focal-motor-seizures,Focal motor seizures,clean,ok,0
+EA0133,T17,Investigations,296,303,CT-Head,CT Head,clean,ok,0
+EA0133,T18,BirthHistory,1230,1242,prematurely-,prematurely ,clean,ok,0
+EA0133,T19,PatientHistory,1421,1444,significant-head-injury,significant head injury,clean,ok,0
+EA0133,T20,Diagnosis,82,113,Symptomatic-structural-epilepsy,Symptomatic structural epilepsy,clean,ok,0
+EA0133,T21,SeizureFrequency,223,260,Focal-to-bilateral-convulsive-seizure,Focal to bilateral convulsive seizure,clean,ok,0
+EA0133,T22,PatientHistory,313,321,gliosis-,gliosis ,clean,ok,0
+EA0133,T23,PatientHistory,999,1022,cerebrovascular-disease,cerebrovascular disease,clean,ok,0
+EA0134,T1,BirthHistory,267,280,born-normally,born normally,clean,ok,0
+EA0134,T22,PatientHistory,584,592,collapse,collapse,clean,ok,0
+EA0134,T2,WhenDiagnosed,1056,1063,epileps,epileps,clean,ok,0
+EA0134,T3,Diagnosis,1056,1065,epilepsy-,epilepsy ,clean,ok,0
+EA0134,T4,Prescription,1225,1239,levetiracetam-,levetiracetam ,clean,ok,0
+EA0134,T5,PatientHistory,861,887,acute-symptomatic-seizures,acute symptomatic seizures,clean,ok,0
+EA0134,T12,PatientHistory,1252,1259,seizure,seizure,clean,ok,0
+EA0134,T10,PatientHistory,1252,1259,seizure,seizure,clean,ok,0
+EA0134,T222,PatientHistory,2068,2075,gliosis,gliosis,clean,ok,0
+EA0134,T6,Investigations,2106,2110,EEG-,EEG ,clean,ok,0
+EA0134,T7,PatientHistory,767,791,subarachnoid-haemorrhage,subarachnoid haemorrhage,clean,ok,0
+EA0134,T8,EpilepsyCause,2268,2292,sub-arachnoid-haemorrhag,sub-arachnoid haemorrhag,clean,ok,0
+EA0134,T9,PatientHistory,1596,1609,hypertension-,hypertension ,clean,ok,0
+EA0134,T23,PatientHistory,348,364,viral-meningitis,viral meningitis,clean,ok,0
+EA0134,T11,PatientHistory,2268,2293,sub-arachnoid-haemorrhage,sub-arachnoid haemorrhage,clean,ok,0
+EA0134,T24,Diagnosis,2209,2240,symptomatic-structural-epilepsy,symptomatic structural epilepsy,clean,ok,0
+EA0134,T13,PatientHistory,652,673,ruptured-ACA-aneurysm,ruptured ACA aneurysm,clean,ok,0
+EA0134,T14,PatientHistory,617,642,sub-arachnoid-haemorrhage,sub-arachnoid haemorrhage,clean,ok,0
+EA0134,T15,Investigations,1980,1983,CT-,CT ,clean,ok,0
+EA0134,T16,PatientHistory,950,981,transient-loss-of-consciousness,transient loss of consciousness,clean,ok,0
+EA0134,T17,SeizureFrequency,1252,1260,seizure-,seizure ,clean,ok,0
+EA0134,T18,PatientHistory,294,309,febrile-seizure,febrile seizure,clean,ok,0
+EA0134,T19,Diagnosis,199,208,epilepsy-,epilepsy ,clean,ok,0
+EA0134,T20,PatientHistory,740,748,seizure-,seizure ,clean,ok,0
+EA0134,T21,Diagnosis,1007,1028,tonic-clonic-seizures,tonic-clonic seizures,clean,ok,0
+EA0135,T1,Prescription,199,213,Levetiracetam-,Levetiracetam ,clean,ok,0
+EA0135,T14,SeizureFrequency,416,435,cluster-of-seizures,cluster of seizures,clean,ok,0
+EA0135,T10,Diagnosis,735,744,epileptic,epileptic,clean,ok,0
+EA0135,T12,PatientHistory,748,786,dissociative-(non-epileptic)-seizures-,dissociative (non-epileptic) seizures ,clean,ok,0
+EA0135,T2,Diagnosis,829,847,epileptic-seizures,epileptic seizures,clean,ok,0
+EA0135,T3,Prescription,171,195,Eslicarbazepine-800mg-od,Eslicarbazepine 800mg od,clean,ok,0
+EA0135,T4,PatientHistory,139,149,Depression,Depression,clean,ok,0
+EA0135,T5,Prescription,226,242,Clobazam-10mg-od,Clobazam 10mg od,clean,ok,0
+EA0135,T6,PatientHistory,81,103,Dissociative-​seizures,"Dissociative seizures
+",mismatch,high,0
+EA0135,T7,Diagnosis,105,125,Focal-onset-epilepsy,Focal onset epilepsy,clean,ok,0
+EA0135,T8,PatientHistory,128,136,Migraine,Migraine,clean,ok,0
+EA0135,T9,PatientHistory,416,435,cluster-of-seizures,cluster of seizures,clean,ok,0
+EA0136,T1,SeizureFrequency,214,221,seizure,seizure,clean,ok,0
+EA0136,T2,Prescription,409,421,Eplim-Chrono,Eplim Chrono,clean,ok,0
+EA0136,T3,SeizureFrequency,266,289,generalised-convulsions,generalised convulsions,clean,ok,0
+EA0136,T4,SeizureFrequency,497,516,generalised-seizure,generalised seizure,clean,ok,0
+EA0136,T5,Diagnosis,90,110,Generalised-epilepsy,Generalised epilepsy,clean,ok,0
+EA0136,T6,PatientHistory,214,223,seizures-,seizures ,clean,ok,0
+EA0136,T7,Diagnosis,497,517,generalised-seizures,generalised seizures,clean,ok,0
+EA0137,T1,BirthHistory,128,145,-perinatal-trauma, perinatal trauma,clean,ok,0
+EA0137,T11,EpilepsyCause,129,145,perinatal-trauma,perinatal trauma,clean,ok,0
+EA0137,T2,Diagnosis,220,228,epilepsy,epilepsy,clean,ok,0
+EA0137,T17,BirthHistory,295,328,hypoxia-during-a-difficult-birth.,hypoxia during a difficult birth.,clean,ok,0
+EA0137,T22,EpilepsyCause,295,328,hypoxia-during-a-difficult-birth.,hypoxia during a difficult birth.,clean,ok,0
+EA0137,T3,Diagnosis,361,391,secondary-generalised-seizures,secondary generalised seizures,clean,ok,0
+EA0137,T4,SeizureFrequency,406,412,seizur,seizur,clean,ok,0
+EA0137,T5,WhenDiagnosed,220,227,epileps,epileps,clean,ok,0
+EA0137,T6,Investigations,927,931,MRI-,MRI ,clean,ok,0
+EA0137,T7,Prescription,579,595,sodium-valproate,sodium valproate,clean,ok,0
+EA0137,T8,SeizureFrequency,361,390,secondary-generalised-seizure,secondary generalised seizure,clean,ok,0
+EA0137,T9,Prescription,695,706,lamotrigine,lamotrigine,clean,ok,0
+EA0137,T12,Diagnosis,265,274,epilepsy-,epilepsy ,clean,ok,0
+EA0137,T13,PatientHistory,406,414,seizure-,seizure ,clean,ok,0
+EA0137,T14,PatientHistory,946,954,gliosis-,gliosis ,clean,ok,0
+EA0137,T15,PatientHistory,898,906,anxiety-,anxiety ,clean,ok,0
+EA0137,T16,PatientHistory,785,794,seizures-,seizures ,clean,ok,0
+EA0137,T21,Diagnosis,85,115,Secondary-generalised-seizures,Secondary generalised seizures,clean,ok,0
+EA0137,T19,BirthHistory,1019,1035,perinatal-injury,perinatal injury,clean,ok,0
+EA0137,T18,Investigations,1043,1047,EEG-,EEG ,clean,ok,0
+EA0137,T20,PatientHistory,910,920,depression,depression,clean,ok,0
+EA0138,T1,Investigations,594,598,MRI-,	MRI,clean,ok,0
+EA0138,T10,PatientHistory,616,629,brain-atrophy, brain atroph,span_longer_than_source,medium,0
+EA0138,T12,PatientHistory,646,653,gliosis, gliosi,span_longer_than_source,medium,0
+EA0138,T2,EpilepsyCause,860,869,meningiti, meningit,span_longer_than_source,medium,0
+EA0138,T3,Diagnosis,114,136,temporal-lobe-epilepsy,temporal lobe epilepsy,clean,ok,0
+EA0138,T4,Prescription,251,280,Lamotrigine-200mg-twice-a-day,Lamotrigine 200mg twice a day,clean,ok,0
+EA0138,T5,Diagnosis,1000,1008,epilepsy, epileps,span_longer_than_source,medium,0
+EA0138,T6,PatientHistory,860,871,meningitis-, meningitis,clean,ok,0
+EA0138,T7,PatientHistory,187,189,MI,MI,clean,ok,0
+EA0138,T8,PatientHistory,1032,1048,febrile-seizures, febrile seizure,span_longer_than_source,medium,0
+EA0138,T9,Diagnosis,418,454,Focal-seizures-with-altered-awarenss,Focal seizures with altered awarenes,mismatch,high,0
+EA0138,T14,Investigations,562,566,EEG-,	EEG,clean,ok,0
+EA0138,T11,Diagnosis,479,517,Focal-to-bilateral-convulsive-seizures,	Focal to bilateral convulsive seizure,span_longer_than_source,medium,0
+EA0138,T18,Prescription,284,312,Zonisamide-100mg-twice-a-day,Zonisamide 100mg twice a day,clean,ok,0
+EA0138,T13,SeizureFrequency,479,516,Focal-to-bilateral-convulsive-seizure,	Focal to bilateral convulsive seizur,span_longer_than_source,medium,0
+EA0138,T15,Diagnosis,91,136,Symptomatic-structural-temporal-lobe-epilepsy,Symptomatic structural temporal lobe epilepsy,clean,ok,0
+EA0138,T16,PatientHistory,150,160,meningitis,meningitis,clean,ok,0
+EA0138,T17,SeizureFrequency,418,453,Focal-seizures-with-altered-awarens,Focal seizures with altered awarene,mismatch,high,0
+EA0139,T1,Prescription,284,330,At-present-he-is-taking-Carbamazepine-400mg-bd,At present he is taking Carbamazepine 400mg bd,clean,ok,0
+EA0139,T2,PatientHistory,270,281,head-injury,head injury,clean,ok,0
+EA0139,T3,Diagnosis,153,186,generalised-tonic-clonic-seizures,generalised tonic clonic seizures,clean,ok,0
+EA0139,T4,SeizureFrequency,153,185,generalised-tonic-clonic-seizure,generalised tonic clonic seizure,clean,ok,0
+EA0140,T10,EpilepsyCause,123,142,Herpes-encephalitis,Herpes encephalitis,clean,ok,0
+EA0140,T18,PatientHistory,123,142,Herpes-encephalitis,Herpes encephalitis,clean,ok,0
+EA0140,T1,PatientHistory,487,499,encephalitis,encephalitis,clean,ok,0
+EA0140,T3,Diagnosis,335,373,Focal-to-bilateral-convulsive-seizures,Focal to bilateral convulsive seizures,clean,ok,0
+EA0140,T5,SeizureFrequency,335,372,Focal-to-bilateral-convulsive-seizure,Focal to bilateral convulsive seizure,clean,ok,0
+EA0140,T6,SeizureFrequency,573,581,seizure-,seizure ,clean,ok,0
+EA0140,T7,Investigations,419,422,MRI,MRI,clean,ok,0
+EA0140,T8,Prescription,189,245,eslicarbazepine-800mg-od-(to-increase-as-detailed-below),eslicarbazepine 800mg od (to increase as detailed below),clean,ok,0
+EA0140,T11,Diagnosis,86,108,Temporal-lobe-epilepsy,Temporal lobe epilepsy,clean,ok,0
+EA0140,T9,PatientHistory,632,650,convulsive-seizure,convulsive seizure,clean,ok,0
+EA0140,T12,Diagnosis,817,825,epilepsy,epilepsy,clean,ok,0
+EA0140,T13,SeizureFrequency,632,650,convulsive-seizure,convulsive seizure,clean,ok,0
+EA0140,T16,EpilepsyCause,870,889,herpes-encephalitis,herpes encephalitis,clean,ok,0
+EA0140,T20,PatientHistory,870,889,herpes-encephalitis,herpes encephalitis,clean,ok,0
+EA0140,T14,Diagnosis,898,907,epilepsy-,epilepsy ,clean,ok,0
+EA0140,T15,WhenDiagnosed,817,824,epileps,epileps,clean,ok,0
+EA0141,T1,Diagnosis,164,183,"psy,-probable-focal","psy, probable focal",clean,ok,0
+EA0141,T2,PatientHistory,1592,1608,febrile-seizures,febrile seizures,clean,ok,0
+EA0141,T3,Diagnosis,159,167,Epilepsy,Epilepsy,clean,ok,0
+EA0141,T4,Diagnosis,1881,1899,epileptic-seizures,epileptic seizures,clean,ok,0
+EA0141,T5,BirthHistory,1560,1576,birth-was-normal,birth was normal,clean,ok,0
+EA0141,T6,Diagnosis,1991,1999,epilepsy,epilepsy,clean,ok,0
+EA0141,T7,PatientHistory,105,136,transient-loss-of-consciousness,transient loss of consciousness,clean,ok,0
+EA0141,T8,PatientHistory,1975,1983,seizures,seizures,clean,ok,0
+EA0141,T9,Investigations,1800,1807,CT-head,CT head,clean,ok,0
+EA0141,T10,Diagnosis,2716,2725,epilepsy-,epilepsy ,clean,ok,0
+EA0142,T6,PatientHistory,387,396,seizures.,seizures.,clean,ok,0
+EA0142,T1,Investigations,487,491,MRI-,MRI ,clean,ok,0
+EA0142,T2,SeizureFrequency,387,395,seizures,seizures,clean,ok,0
+EA0142,T3,Investigations,611,615,EEG-,EEG ,clean,ok,0
+EA0142,T4,Diagnosis,126,140,Focal-epilepsy,Focal epilepsy,clean,ok,0
+EA0142,T5,Prescription,141,184,Current-medication:-------Lamictal-100mg-BD,Current medication:       Lamictal 100mg BD,mismatch,high,0
+EA0143,T1,WhenDiagnosed,367,374,epileps, epilep,span_longer_than_source,medium,0
+EA0143,T2,Diagnosis,727,759,secondarily-generalised-seizures, secondarily generalised seizure,span_longer_than_source,medium,0
+EA0143,T3,Diagnosis,590,627,focal-seizures-with-altered-awareness, focal seizures with altered awarenes,span_longer_than_source,medium,0
+EA0143,T4,SeizureFrequency,1116,1124,seizure-, seizure,clean,ok,0
+EA0143,T5,Investigations,836,840,MRI-, MRI,clean,ok,0
+EA0143,T6,PatientHistory,306,314,seizures, seizure,span_longer_than_source,medium,0
+EA0143,T7,Diagnosis,367,376,epilepsy-, epilepsy,clean,ok,0
+EA0143,T8,SeizureFrequency,590,627,focal-seizures-with-altered-awareness, focal seizures with altered awarenes,span_longer_than_source,medium,0
+EA0143,T9,PatientHistory,442,451,seizures-, seizures,clean,ok,0
+EA0144,T1,Diagnosis,89,120,Symptomatic-structural-epilepsy,Symptomatic structural epilepsy,clean,ok,0
+EA0144,T12,SeizureFrequency,1074,1105,(secondary-generalised-seizures,(secondary generalised seizures,clean,ok,0
+EA0144,T2,PatientHistory,1192,1199,anxiety,anxiety,clean,ok,0
+EA0144,T3,Diagnosis,702,711,epilepsy-,epilepsy ,clean,ok,0
+EA0144,T4,PatientHistory,143,154,meningioma-,meningioma ,clean,ok,0
+EA0144,T5,Prescription,378,392,Levetiracetam-,Levetiracetam ,clean,ok,0
+EA0144,T6,SeizureFrequency,252,275,Complex-partial-seizure,Complex partial seizure,clean,ok,0
+EA0144,T7,PatientHistory,1479,1495,febrile-seizures,febrile seizures,clean,ok,0
+EA0144,T8,PatientHistory,1673,1682,seizures-,seizures ,clean,ok,0
+EA0144,T9,Diagnosis,252,275,Complex-partial-seizure,Complex partial seizure,clean,ok,0
+EA0144,T10,WhenDiagnosed,702,709,epileps,epileps,clean,ok,0
+EA0144,T11,PatientHistory,769,780,meningioma-,meningioma ,clean,ok,0
+EA0144,T21,Investigations,1532,1536,MRI-,MRI ,clean,ok,0
+EA0144,T13,Diagnosis,300,330,Secondary-generalised-seizures,Secondary generalised seizures,clean,ok,0
+EA0144,T14,PatientHistory,663,671,seizure-,seizure ,clean,ok,0
+EA0144,T15,PatientHistory,541,551,meningioma,meningioma,clean,ok,0
+EA0144,T16,PatientHistory,1177,1188,depression-,depression ,clean,ok,0
+EA0144,T17,Investigations,481,485,MRI-,MRI ,clean,ok,0
+EA0144,T18,Diagnosis,857,871,focal-seizures,focal seizures,clean,ok,0
+EA0144,T19,Diagnosis,206,228,Partial-motor-seizures,Partial motor seizures,clean,ok,0
+EA0144,T20,SeizureFrequency,300,329,Secondary-generalised-seizure,Secondary generalised seizure,clean,ok,0
+EA0145,T1,PatientHistory,293,307,Blank-episodes,Blank episodes,clean,ok,0
+EA0145,T2,Onset,219,226,epileps,epileps,clean,ok,0
+EA0145,T3,PatientHistory,846,857,depression-,depression ,clean,ok,0
+EA0145,T4,Investigations,1080,1085,EEGs-,EEGs ,clean,ok,0
+EA0145,T5,Investigations,1089,1093,MRIs,MRIs,clean,ok,0
+EA0145,T6,SeizureFrequency,442,459,Grand-mal-seizure,Grand mal seizure,clean,ok,0
+EA0145,T7,Prescription,797,817,lamotrigine-175mg-bd,lamotrigine 175mg bd,clean,ok,0
+EA0145,T8,Diagnosis,442,460,Grand-mal-seizures,Grand mal seizures,clean,ok,0
+EA0145,T9,PatientHistory,1161,1178,febriles-seizures,febriles seizures,clean,ok,0
+EA0145,T10,Prescription,756,792,Currently-she-takes-clobazam-20mg-bd,Currently she takes clobazam 20mg bd,clean,ok,0
+EA0145,T11,Diagnosis,219,228,epilepsy-,epilepsy ,clean,ok,0
+EA0146,T1,PatientHistory,174,195,Dissociative-seizures,Dissociative seizures,clean,ok,0
+EA0146,T2,Diagnosis,198,206,Epilepsy,Epilepsy,clean,ok,0
+EA0146,T3,Prescription,293,308,Clobazam-5mg-bd,Clobazam 5mg bd,clean,ok,0
+EA0146,T10,Diagnosis,596,604,grand-ma,grand ma,clean,ok,0
+EA0146,T4,Investigations,1308,1312,EEG-,EEG ,clean,ok,0
+EA0146,T5,Investigations,1259,1263,MRI-,MRI ,clean,ok,0
+EA0146,T6,PatientHistory,209,219,Depression,Depression,clean,ok,0
+EA0146,T7,Prescription,267,282,Brivetiracetam-,Brivetiracetam ,clean,ok,0
+EA0146,T8,Investigations,1267,1271,EEG-,EEG ,clean,ok,0
+EA0146,T9,Prescription,241,263,Carbamazepine-600mg-bd,Carbamazepine 600mg bd,clean,ok,0
+EA0146,T13,PatientHistory,1332,1350,jerk-like-episodes,jerk like episodes,clean,ok,0
+EA0146,T11,PatientHistory,1429,1450,dissociative-seizures,dissociative seizures,clean,ok,0
+EA0146,T12,PatientHistory,1124,1134,depression,depression,clean,ok,0
+EA0146,T15,PatientHistory,1505,1513,seizures,seizures,clean,ok,0
+EA0147,T11,PatientHistory,723,744,sub-dural-haemorrhage,sub dural haemorrhage,clean,ok,0
+EA0147,T1,PatientHistory,1017,1039,chronic-daily-headache, chronic daily headach,span_longer_than_source,medium,0
+EA0147,T2,EpilepsyCause,154,176,Traumatic-brain-injury,Traumatic brain injury,clean,ok,0
+EA0147,T3,Prescription,975,988,levetiraetam-,levetiracetam,mismatch,high,0
+EA0147,T4,Diagnosis,581,590,epilepsy-,epilepsy ,clean,ok,0
+EA0147,T5,PatientHistory,209,231,Chronic-daily-headache,Chronic daily headache,clean,ok,0
+EA0147,T6,Diagnosis,925,949,complex-partial-seizures,complex partial seizures,clean,ok,0
+EA0147,T7,Diagnosis,94,108,Focal-epilepsy,Focal epilepsy,clean,ok,0
+EA0147,T8,PatientHistory,610,639,severe-traumatic-brain-injury,severe traumatic brain injury,clean,ok,0
+EA0147,T9,Diagnosis,774,807,generalised-tonic-clonic-seizures,generalised tonic clonic seizures,clean,ok,0
+EA0147,T10,PatientHistory,154,175,Traumatic-brain-injur,Traumatic brain injur,clean,ok,0
+EA0147,T13,WhenDiagnosed,581,588,epileps,epileps,clean,ok,0
+EA0147,T12,SeizureFrequency,774,806,generalised-tonic-clonic-seizure,generalised tonic clonic seizure,clean,ok,0
+EA0148,T1,Diagnosis,95,104,epilepsy-,epilepsy ,clean,ok,0
+EA0148,T2,PatientHistory,433,441,seizures,seizures,clean,ok,0
+EA0148,T3,Diagnosis,1427,1435,epilepsy,epilepsy,clean,ok,0
+EA0148,T4,PatientHistory,993,1006,head-injuries,head injuries,clean,ok,0
+EA0148,T5,PatientHistory,1050,1065,febrile-seizure,febrile seizure,clean,ok,0
+EA0149,T2,Diagnosis,160,172,possible-TLE,possible TLE,clean,ok,0
+EA0149,T3,Diagnosis,143,157,Focal-seizures,Focal seizures,clean,ok,0
+EA0149,T10,PatientHistory,330,337,déjà-vu,déjà vu,clean,ok,0
+EA0149,T11,BirthHistory,549,564,birth-was-norma,birth was norma,clean,ok,0
+EA0149,T12,Investigations,773,776,EEG,EEG,clean,ok,0
+EA0149,T4,Diagnosis,1016,1039,temporal-lobe-epilepsy,temporal lobe epilepsy.,truncated_span,medium,1
+EA0149,T6,Prescription,173,216,Medication:-Carbamazepine-200mg-twice-a-day,Medication: Carbamazepine 200mg twice a day,clean,ok,0
+EA0149,T7,PatientHistory,590,606,febrile-seizures,febrile seizures,clean,ok,0
+EA0150,T1,Prescription,857,871,levetiracetam-,levetiracetam ,clean,ok,0
+EA0150,T2,Investigations,1367,1371,MRI-,MRI ,clean,ok,0
+EA0150,T3,PatientHistory,438,452,skull-fracture,skull fracture,clean,ok,0
+EA0150,T4,WhenDiagnosed,589,596,epileps,epileps,clean,ok,0
+EA0150,T5,Diagnosis,122,153,symptomatic-structural-epilepsy,symptomatic structural epilepsy,clean,ok,0
+EA0150,T6,Diagnosis,615,639,complex-partial-seizures,complex partial seizures,clean,ok,0
+EA0150,T7,PatientHistory,930,946,seizure-clusters,seizure clusters,clean,ok,0
+EA0150,T8,Diagnosis,589,598,epilepsy-,epilepsy ,clean,ok,0
+EA0150,T9,Investigations,1556,1560,EEG-,EEG ,clean,ok,0
+EA0150,T10,PatientHistory,549,558,seizures-,seizures ,clean,ok,0
+EA0150,T11,Diagnosis,188,197,epilepsy-,epilepsy ,clean,ok,0
+EA0150,T12,Diagnosis,688,718,secondary-generalised-seizures,secondary generalised seizures,clean,ok,0
+EA0150,T13,Prescription,917,925,clobazam,clobazam,clean,ok,0
+EA0150,T14,PatientHistory,215,237,traumatic-brain-injury,traumatic brain injury,clean,ok,0
+EA0150,T15,SeizureFrequency,803,833,secondary-generalised-seizures,secondary generalised seizures,clean,ok,0
+EA0150,T16,PatientHistory,1493,1505,brain-injury,brain injury,clean,ok,0
+EA0150,T17,EpilepsyCause,215,237,traumatic-brain-injury,traumatic brain injury,clean,ok,0
+EA0150,T18,Prescription,892,904,lamotrigine-,lamotrigine ,clean,ok,0
+EA0150,T20,PatientHistory,459,494,traumatic-sub-arachnoid-heamorrahge,traumatic sub arachnoid haemorrhage,mismatch,high,0
+EA0150,T21,Diagnosis,803,833,secondary-generalised-seizures,secondary generalised seizures,clean,ok,0
+EA0150,T22,SeizureFrequency,724,748,complex-partial-seizures,complex partial seizures,clean,ok,0
+EA0151,T8,SeizureFrequency,504,525,cluster-of-5-seizures,cluster of 5 seizures,clean,ok,0
+EA0151,T1,PatientHistory,578,587,seizures-,seizures ,clean,ok,0
+EA0151,T2,Diagnosis,1039,1047,epilepsy,epilepsy,clean,ok,0
+EA0151,T3,Diagnosis,79,99,Focal-onset-epilepsy,Focal onset epilepsy,clean,ok,0
+EA0151,T4,PatientHistory,727,735,seizures,seizures,clean,ok,0
+EA0151,T5,PatientHistory,504,525,cluster-of-5-seizures,cluster of 5 seizures,clean,ok,0
+EA0151,T6,Prescription,146,178,Medication:-Lamotrigine-125mg-bd,Medication: Lamotrigine 125mg bd,clean,ok,0
+EA0151,T7,PatientHistory,372,380,seizures,seizures,clean,ok,0
+EA0152,T1,PatientHistory,946,954,seizures, seizure,span_longer_than_source,medium,0
+EA0152,T2,Prescription,397,410,Carbmazapine-,Carbamazapine,mismatch,high,0
+EA0152,T3,SeizureFrequency,312,341,Secondary-generalised-seizure,Secondary generalised seizure,clean,ok,0
+EA0152,T4,Diagnosis,312,342,Secondary-generalised-seizures,Secondary generalised seizures,clean,ok,0
+EA0152,T5,Investigations,668,672,EEG-, EEG,clean,ok,0
+EA0152,T6,Prescription,451,460,Clobazam-, Clobazam,clean,ok,0
+EA0152,T7,WhenDiagnosed,793,800,epileps, epilep,span_longer_than_source,medium,0
+EA0152,T8,Investigations,561,565,MRI-, MRI,clean,ok,0
+EA0152,T9,Diagnosis,793,801,epilepsy, epileps,span_longer_than_source,medium,0
+EA0152,T10,Diagnosis,1001,1025,complex-partial-seizures, complex partial seizure,span_longer_than_source,medium,0
+EA0152,T11,Diagnosis,235,259,Complex-partial-seizures,Complex partial seizures,clean,ok,0
+EA0152,T12,PatientHistory,601,619,cortical-dysplasia, cortical dysplasi,span_longer_than_source,medium,0
+EA0152,T13,Diagnosis,90,121,Symptomatic-structural-epilepsy,Symptomatic structural epilepsy,clean,ok,0
+EA0152,T14,Diagnosis,834,864,secondary-generalised-seizures, secondary generalised seizure,span_longer_than_source,medium,0
+EA0152,T15,SeizureFrequency,234,258,-Complex-partial-seizure, Complex partial seizure,clean,ok,0
+EA0152,T16,PatientHistory,160,178,cortical-dysplasia,cortical dysplasia,clean,ok,0
+EA0153,T1,PatientHistory,1105,1121,febrile-seizures,febrile seizures,clean,ok,0
+EA0153,T2,Diagnosis,96,109,temporal-lobe,temporal lobe,clean,ok,0
+EA0153,T3,BirthHistory,1040,1056,born-prematurely,born prematurely,clean,ok,0
+EA0153,T4,Diagnosis,75,89,Focal-epilepsy,Focal epilepsy,clean,ok,0
+EA0153,T5,Diagnosis,1365,1402,focal-seizures-with-altered-awareness,focal seizures with altered awareness,clean,ok,0
+EA0153,T6,Diagnosis,1435,1443,epilepsy,epilepsy,clean,ok,0
+EA0153,T7,PatientHistory,843,852,migraine-,migraine ,clean,ok,0
+EA0153,T8,Diagnosis,1476,1484,epilepsy,epilepsy,clean,ok,0
+EA0154,T1,PatientHistory,264,273,seizures-,seizures ,clean,ok,0
+EA0154,T2,Investigations,645,649,MRI-,MRI ,clean,ok,0
+EA0154,T3,Diagnosis,250,258,epilepsy,epilepsy,clean,ok,0
+EA0154,T4,Prescription,58,148,Medication:-Currently-Lamotrigine-75mg-bd-to-increase-over-the-following-weeks-t,Medication: Currently Lamotrigine 75mg bd to increase over the following weeks t,clean,ok,0
+EA0154,T5,PatientHistory,1108,1116,seizures,seizures,clean,ok,0
+EA0154,T7,Diagnosis,34,56,Epilepsy---focal-onset,Epilepsy - focal onset,clean,ok,0
+EA0154,T8,SeizureFrequency,908,916,seizure-,seizure ,clean,ok,0
+EA0154,T9,Diagnosis,2022,2030,epilepsy,epilepsy,clean,ok,0
+EA0155,T1,PatientHistory,122,130,Migraine,Migraine,clean,ok,0
+EA0155,T2,Diagnosis,75,83,Epilepsy,Epilepsy,clean,ok,0
+EA0155,T3,Prescription,281,303,levetiracetam-750mg-bd,levetiracetam 750mg bd,clean,ok,0
+EA0155,T4,Prescription,231,276,He-is-currently-taking-carbamazepine-400mg-bd,He is currently taking carbamazepine 400mg bd,clean,ok,0
+EA0155,T6,SeizureFrequency,352,361,seizures-,seizures ,clean,ok,0
+EA0156,T1,SeizureFrequency,206,218,seizure-free,seizure free,clean,ok,0
+EA0156,T2,Prescription,93,128,Medication:-Levetiracetam-1250mg-BD,Medication: Levetiracetam 1250mg BD,clean,ok,0
+EA0156,T3,Investigations,387,391,MRI-,MRI ,clean,ok,0
+EA0156,T4,Investigations,395,410,EEG-were-normal,EEG were normal,clean,ok,0
+EA0156,T6,Prescription,130,148,Topiramate-75mg-BD,Topiramate 75mg BD,clean,ok,0
+EA0156,T7,Investigations,452,456,EEG-,EEG ,clean,ok,0
+EA0156,T8,Diagnosis,67,92,Juvenile-Absence-Epilepsy,Juvenile Absence Epilepsy,clean,ok,0
+EA0156,T12,Diagnosis,495,511,absence-seizures,absence seizures,clean,ok,0
+EA0157,T1,PatientHistory,98,106,Migraine,Migraine,clean,ok,0
+EA0157,T2,SeizureFrequency,282,289,seizure,seizure,clean,ok,0
+EA0157,T3,Diagnosis,489,521,generalised-tonic-clonc-seizure.,generalised tonic clonic seizure,mismatch,high,0
+EA0157,T4,Diagnosis,1251,1265,focal-epilepsy, focal epileps,span_longer_than_source,medium,0
+EA0157,T5,Diagnosis,79,93,focal-epilepsy,focal epilepsy,clean,ok,0
+EA0157,T6,PatientHistory,282,291,seizures-,seizures ,clean,ok,0
+EA0157,T7,Diagnosis,1284,1299,complex-partial, complex partia,span_longer_than_source,medium,0
+EA0157,T8,Diagnosis,1304,1334,secondary-generalised-seizures, secondary generalised seizure,span_longer_than_source,medium,0
+EA0158,T1,Diagnosis,520,540,generalised-seizures,generalised seizures,clean,ok,0
+EA0158,T2,Diagnosis,592,629,focal-seizures-with-altered-awareness,focal seizures with altered awareness,clean,ok,0
+EA0158,T3,Diagnosis,76,107,Symptomatic-structural-epilepsy,Symptomatic structural epilepsy,clean,ok,0
+EA0158,T4,Prescription,323,332,midazolam,midazolam,clean,ok,0
+EA0158,T5,SeizureFrequency,592,628,focal-seizures-with-altered-awarenes,focal seizures with altered awarenes,clean,ok,0
+EA0158,T6,PatientHistory,125,143,Tuberous-sclerosis,Tuberous sclerosis,clean,ok,0
+EA0158,T7,EpilepsyCause,125,143,Tuberous-sclerosis,Tuberous sclerosis,clean,ok,0
+EA0158,T8,PatientHistory,152,171,learning-difficulty,learning difficulty,clean,ok,0
+EA0158,T9,Prescription,192,218,Sodium-valproate-1000mg-bd,Sodium valproate 1000mg bd,clean,ok,0
+EA0158,T10,SeizureFrequency,520,539,generalised-seizure,generalised seizure,clean,ok,0
+EA0158,T11,Prescription,284,312,Clobazam-10mg-bd-as-required,Clobazam 10mg bd as required,clean,ok,0
+EA0158,T12,Prescription,246,257,Perampanel-,Perampanel ,clean,ok,0
+EA0158,T13,Diagnosis,741,761,focal-motor-seizures,focal motor seizures,clean,ok,0
+EA0158,T14,PatientHistory,429,438,seizures-,seizures ,clean,ok,0
+EA0158,T15,Prescription,222,242,Lamotrigine-100mg-bd,Lamotrigine 100mg bd,clean,ok,0
+EA0159,T1,PatientHistory,82,89,Anxiety,Anxiety,clean,ok,0
+EA0159,T2,PatientHistory,653,674,non-epileptic-attacks,non-epileptic attacks,clean,ok,0
+EA0159,T3,Prescription,170,191,Pregabalin-75-mgms-bd,Pregabalin 75 mgms bd,clean,ok,0
+EA0159,T4,PatientHistory,337,345,anxiety-,anxiety ,clean,ok,0
+EA0159,T5,Prescription,143,166,Lamotrigine-100-mgms-bd,Lamotrigine 100 mgms bd,clean,ok,0
+EA0159,T6,PatientHistory,436,444,anxiety-,anxiety ,clean,ok,0
+EA0159,T7,Diagnosis,56,78,Temporal-lobe-epilepsy,Temporal lobe epilepsy,clean,ok,0
+EA0159,T8,PatientHistory,468,476,absences,absences,clean,ok,0
+EA0159,T9,PatientHistory,93,122,Non-epileptic-attack-disorder,Non epileptic attack disorder,clean,ok,0
+EA0159,T10,PatientHistory,799,807,-anxiety, anxiety,clean,ok,0
+EA0159,T12,PatientHistory,1024,1031,anxiety,anxiety,clean,ok,0
+EA0160,T1,PatientHistory,82,89,Anxiety,Anxiety,clean,ok,0
+EA0160,T2,PatientHistory,653,674,non-epileptic-attacks,non-epileptic attacks,clean,ok,0
+EA0160,T3,Prescription,170,191,Pregabalin-75-mgms-bd,Pregabalin 75 mgms bd,clean,ok,0
+EA0160,T4,PatientHistory,337,345,anxiety-,anxiety ,clean,ok,0
+EA0160,T5,Prescription,143,166,Lamotrigine-100-mgms-bd,Lamotrigine 100 mgms bd,clean,ok,0
+EA0160,T6,PatientHistory,436,444,anxiety-,anxiety ,clean,ok,0
+EA0160,T7,Diagnosis,56,78,Temporal-lobe-epilepsy,Temporal lobe epilepsy,clean,ok,0
+EA0160,T8,PatientHistory,468,476,absences,absences,clean,ok,0
+EA0160,T9,PatientHistory,93,122,Non-epileptic-attack-disorder,Non epileptic attack disorder,clean,ok,0
+EA0160,T10,PatientHistory,800,807,anxiety,anxiety,clean,ok,0
+EA0160,T12,PatientHistory,1024,1031,anxiety,anxiety,clean,ok,0
+EA0161,T1,SeizureFrequency,632,653,tonic-clonic-seizures,clonic seizures in th,mismatch,high,0
+EA0161,T2,Diagnosis,64,84,Generalised-epilepsy,Generalised epilepsy,clean,ok,0
+EA0161,T3,Onset,375,390,absence-seizure,e seizures at a,mismatch,high,0
+EA0161,T4,Diagnosis,375,391,absence-seizures,e seizures at ar,mismatch,high,0
+EA0161,T5,Diagnosis,103,107,GTCS,GTCS,clean,ok,0
+EA0161,T6,PatientHistory,90,99,absences-,absences ,clean,ok,0
+EA0161,T7,SeizureFrequency,833,842,absences-,es contin,mismatch,high,0
+EA0161,T10,PatientHistory,833,841,absences,es conti,mismatch,high,0
+EA0161,T8,Investigations,935,939,EEG-,st y,mismatch,high,0
+EA0161,T9,Investigations,1053,1063,normal-MRI, MRI of he,mismatch,high,0
+EA0161,T17,Onset,502,533,generalised-tonic-clonic-seizur,lised tonic clonic seizure at t,mismatch,high,0
+EA0161,T11,Prescription,158,172,Levetiracetam-,vetiracetam 25,mismatch,high,0
+EA0161,T12,SeizureFrequency,764,772,seizure-,e freque,mismatch,high,0
+EA0161,T13,Diagnosis,632,652,tonic-clonic-seizure,clonic seizures in t,mismatch,high,0
+EA0161,T14,Diagnosis,502,534,generalised-tonic-clonic-seizure,lised tonic clonic seizure at th,mismatch,high,0
+EA0161,T15,Prescription,120,131,Lamotrigine,Lamotrigine,clean,ok,0
+EA0161,T16,SeizureFrequency,633,651,onic-clonic-seizur,lonic seizures in ,mismatch,high,0
+EA0162,T8,Diagnosis,106,124,status-epilepticus,status epilepticus,clean,ok,0
+EA0162,T1,SeizureFrequency,220,229,seizures-,seizures ,clean,ok,0
+EA0162,T3,PatientHistory,247,272,cluster-of-three-seizures,cluster of three seizures,clean,ok,0
+EA0162,T4,PatientHistory,80,83,ASD,ASD,clean,ok,0
+EA0162,T5,Prescription,470,484,carbamazepine-,carbamazepine ,clean,ok,0
+EA0162,T6,Diagnosis,69,77,Epilepsy,Epilepsy,clean,ok,0
+EA0163,T1,SeizureFrequency,179,188,seizures-, seizures,clean,ok,0
+EA0163,T2,Prescription,74,105,Medication:-Lamotrigine-50mg-bd,Medication: Lamotrigine 50mg bd,clean,ok,0
+EA0163,T3,Diagnosis,51,73,Temporal-lobe-epilepsy,Temporal lobe epilepsy,clean,ok,0
+EA0164,T1,PatientHistory,186,219,episodes-of-loss-of-consciousness,episodes of loss of consciousness,clean,ok,0
+EA0164,T2,PatientHistory,874,889,febrile-seizure,febrile seizure,clean,ok,0
+EA0164,T3,PatientHistory,1205,1236,transient-loss-of-consciousness,transient loss of consciousness,clean,ok,0
+EA0164,T4,PatientHistory,965,976,depression-,depression ,clean,ok,0
+EA0164,T5,Diagnosis,1241,1259,epileptic-seizures,epileptic seizures,clean,ok,0
+EA0164,T6,PatientHistory,786,796,depression,depression,clean,ok,0
+EA0164,T7,PatientHistory,641,652,depression-,depression ,clean,ok,0
+EA0164,T8,Diagnosis,85,93,epilepsy,epilepsy,clean,ok,0
+EA0164,T9,Diagnosis,1302,1310,epilepsy,epilepsy,clean,ok,0
+EA0164,T10,PatientHistory,42,73,transient-loss-of-consciousness,transient loss of consciousness,clean,ok,0
+EA0164,T11,Investigations,1132,1141,MRI-brain,MRI brain,clean,ok,0
+EA0164,T12,Investigations,1120,1127,CT-head,CT head,clean,ok,0
+EA0164,T13,BirthHistory,805,828,born-slightly-premature,born slightly premature,clean,ok,0
+EA0165,T1,Prescription,353,364,Lamotrigine,Lamotrigine,clean,ok,0
+EA0165,T2,Prescription,233,249,Clobazam-20mg-BD,Clobazam 20mg BD,clean,ok,0
+EA0165,T3,Prescription,250,275,Buccal-Midazolam-10mg-PRN,Buccal Midazolam 10mg PRN,clean,ok,0
+EA0165,T4,Prescription,173,202,Lamotrigine-200mg-twice-daily,Lamotrigine 200mg twice daily,clean,ok,0
+EA0165,T5,Diagnosis,89,103,Focal-Epilepsy,Focal Epilepsy,clean,ok,0
+EA0165,T6,Prescription,203,232,Brivaracetam-75mg-twice-daily,Brivaracetam 75mg twice daily,clean,ok,0
+EA0165,T7,Diagnosis,125,158,Generalised-Tonic-Clonic-Seizures,Generalised Tonic-Clonic Seizures,clean,ok,0
+EA0165,T8,Diagnosis,112,120,frontal-,frontal ,clean,ok,0
+EA0166,T1,Diagnosis,124,151,Juvenile-Myoclonic-Epilepsy,Juvenile Myoclonic Epilepsy,clean,ok,0
+EA0166,T2,PatientHistory,466,472,jerks-,jerks ,clean,ok,0
+EA0166,T3,Prescription,165,236,Lamotrigine-125mg-twice-daily-(please-increase-with-immediate-effect-in,Lamotrigine 125mg twice daily (please increase with immediate effect in,clean,ok,0
+EA0167,T11,EpilepsyCause,193,212,herpes-encephalitis,herpes encephalitis,clean,ok,0
+EA0167,T1,EpilepsyCause,974,986,encephalitis,encephalitis,clean,ok,0
+EA0167,T2,Prescription,214,332,He-is-currently-taking-carbamazepine-(Tegretol-retard)-400mg-twice-a-day-as-well,He is currently taking carbamazepine (Tegretol retard) 400mg twice a day as well,clean,ok,0
+EA0167,T3,Diagnosis,929,938,epilepsy-,epilepsy ,clean,ok,0
+EA0167,T4,PatientHistory,974,986,encephalitis,encephalitis,clean,ok,0
+EA0167,T5,PatientHistory,376,384,anxiety-,anxiety ,clean,ok,0
+EA0167,T6,Diagnosis,679,717,focal-seizures-with-altered-awareness-,focal seizures with altered awareness ,clean,ok,0
+EA0167,T7,Diagnosis,503,511,epilepsy,epilepsy,clean,ok,0
+EA0167,T8,Prescription,298,332,sodium-valproate-400mg-twice-a-day,sodium valproate 400mg twice a day,clean,ok,0
+EA0167,T9,PatientHistory,193,212,herpes-encephalitis,herpes encephalitis,clean,ok,0
+EA0167,T10,SeizureFrequency,619,628,seizures-,seizures ,clean,ok,0
+EA0167,T13,Diagnosis,124,169,symptomatic-structural-temporal-lobe-epilepsy,symptomatic structural temporal lobe epilepsy,clean,ok,0
+EA0167,T12,Diagnosis,146,169,-temporal-lobe-epilepsy, temporal lobe epilepsy,clean,ok,0
+EA0168,T1,PatientHistory,65,74,myoclonus,myoclonus,clean,ok,0
+EA0168,T8,PatientHistory,279,286,seizure,seizure,clean,ok,0
+EA0168,T2,PatientHistory,434,441,anxiety,anxiety,clean,ok,0
+EA0168,T3,PatientHistory,55,63,absences,absences,clean,ok,0
+EA0168,T4,SeizureFrequency,546,554,seizures,seizures,clean,ok,0
+EA0168,T5,Diagnosis,20,47,Juvenile-Myoclonic-Epilepsy,Juvenile Myoclonic Epilepsy,clean,ok,0
+EA0168,T6,PatientHistory,126,136,depression,depression,clean,ok,0
+EA0168,T7,SeizureFrequency,237,249,seizrue-free,seizrue free,clean,ok,0
+EA0168,T9,Diagnosis,79,112,generalised-tonic-clonic-seizures,generalised tonic clonic seizures,clean,ok,0
+EA0168,T10,PatientHistory,114,121,Anxiety,Anxiety,clean,ok,0
+EA0168,T11,PatientHistory,446,456,depression,depression,clean,ok,0
+EA0168,T12,SeizureFrequency,279,286,seizure,seizure,clean,ok,0
+EA0168,T13,Prescription,166,183,Sodium-valproate),Sodium valproate),clean,ok,0
+EA0169,T10,Diagnosis,92,112,symptomatic-epilepsy,symptomatic epilepsy,clean,ok,0
+EA0169,T14,PatientHistory,127,148,s-neurocysticercosis.,s neurocysticercosis.,clean,ok,0
+EA0169,T11,EpilepsyCause,129,148,neurocysticercosis.,neurocysticercosis.,clean,ok,0
+EA0169,T12,Investigations,342,344,CT,CT,clean,ok,0
+EA0169,T3,SeizureFrequency,248,256,seizures,seizures,clean,ok,0
+EA0169,T4,SeizureFrequency,158,194,frequent-focal-dyscognitive-seizures,frequent focal dyscognitive seizures,clean,ok,0
+EA0169,T15,PatientHistory,406,424,neurocysticercosis,neurocysticercosis,clean,ok,0
+EA0169,T13,Investigations,435,438,MRI,MRI,clean,ok,0
+EA0169,T5,Prescription,547,558,lamotrigine,lamotrigine,clean,ok,0
+EA0169,T6,Diagnosis,167,194,focal-dyscognitive-seizures,focal dyscognitive seizures,clean,ok,0
+EA0170,T1,SeizureFrequency,396,420,complex-partial-seizures,complex partial seizures,clean,ok,0
+EA0170,T3,Diagnosis,116,153,Symptomatic-structural-focal-epilepsy,Symptomatic structural focal epilepsy,clean,ok,0
+EA0170,T4,SeizureFrequency,396,420,complex-partial-seizures,complex partial seizures,clean,ok,0
+EA0170,T5,EpilepsyCause,71,113,right-hemisphere-intracerebral-haemorhhage,right hemisphere intracerebral haemorrhage,mismatch,high,0
+EA0170,T6,PatientHistory,184,206,cerebrovascular-events,cerebrovascular events,clean,ok,0
+EA0170,T7,Diagnosis,320,328,epilepsy,epilepsy,clean,ok,0
+EA0170,T8,Prescription,238,269,Carbamazepine-400mg-twice-a-day,Carbamazepine 400mg twice a day,clean,ok,0
+EA0170,T9,PatientHistory,71,113,right-hemisphere-intracerebral-haemorhhage,right hemisphere intracerebral haemorrhage,mismatch,high,0
+EA0170,T10,Diagnosis,396,420,complex-partial-seizures,complex partial seizures,clean,ok,0
+EA0171,T1,Investigations,282,292,EEG-normal,EEG normal,clean,ok,0
+EA0171,T2,Diagnosis,926,950,focal-epileptic-seizures,"ocal epileptic seizures
+",partial_overlap,medium,0
+EA0171,T3,Diagnosis,157,187,"Epilepsy,-probable-focal-onset","Epilepsy, probable focal onset",clean,ok,0
+EA0171,T4,Prescription,190,255,Current-anti-seizure-medication:--------------Lamotrigine-50mg-bd,Current anti-seizure medication:              Lamotrigine 50mg bd,mismatch,high,0
+EA0171,T5,PatientHistory,102,133,transient-loss-of-consciousness,transient loss of consciousness,clean,ok,0
+EA0171,T7,PatientHistory,502,533,transient-loss-of-consciousness,transient loss of consciousness,clean,ok,0
+EA0171,T8,Investigations,274,277,MRI,MRI,clean,ok,0
+EA0171,T9,Diagnosis,157,165,Epilepsy,Epilepsy,clean,ok,0
+EA0171,T13,Diagnosis,1478,1486,epilepsy,pilepsy ,partial_overlap,medium,0
+EA0172,T1,Diagnosis,16,40,refactory-focal-epilepsy,refractory focal epileps,mismatch,high,0
+EA0172,T2,Prescription,99,110,Lamotrigine,	Lamotrigin,span_longer_than_source,medium,0
+EA0172,T3,PatientHistory,43,61,Nocturnal-seizures-,	Nocturnal seizure,span_longer_than_source,medium,0
+EA0172,T4,PatientHistory,236,244,seizures, seizure,span_longer_than_source,medium,0
+EA0172,T6,Diagnosis,26,40,focal-epilepsy, focal epileps,span_longer_than_source,medium,0
+EA0172,T7,Prescription,122,132,Perampanel,	Perampane,span_longer_than_source,medium,0
+EA0172,T8,Prescription,75,87,Brivaracetam,	Brivaraceta,span_longer_than_source,medium,0
+EA0173,T1,PatientHistory,423,432,seizures-,seizures ,clean,ok,0
+EA0173,T2,SeizureFrequency,186,193,seizure,seizure,clean,ok,0
+EA0173,T3,Diagnosis,57,65,Epilepsy,Epilepsy,clean,ok,0
+EA0173,T4,PatientHistory,186,193,seizure,seizure,clean,ok,0
+EA0174,T1,Diagnosis,690,708,epileptic-seizures,epileptic seizures,clean,ok,0
+EA0174,T2,Prescription,104,117,Levetiracetam,Levetiracetam,clean,ok,0
+EA0174,T3,Diagnosis,50,59,Epilepsy-,Epilepsy ,clean,ok,0
+EA0174,T4,PatientHistory,349,357,seizures,seizures,clean,ok,0
+EA0174,T5,SeizureFrequency,349,357,seizures,seizures,clean,ok,0
+EA0174,T6,Prescription,84,94,Zonisamide,Zonisamide,clean,ok,0
+EA0175,T1,Prescription,207,230,Levetiracetam-1750mg-bd,Levetiracetam 1750mg bd,clean,ok,0
+EA0175,T2,PatientHistory,391,399,seizures,seizures,clean,ok,0
+EA0175,T3,SeizureFrequency,391,399,seizures,seizures,clean,ok,0
+EA0175,T4,Investigations,138,141,EEG,EEG,clean,ok,0
+EA0175,T5,Diagnosis,82,129,Generalised-tonic-clonic-seizures-whilst-asleey,Generalised tonic clonic seizures whilst asleey,clean,ok,0
+EA0175,T6,Investigations,157,161,MRI-,MRI ,clean,ok,0
+EA0175,T7,Diagnosis,65,79,focal-epilepsy,focal epilepsy,clean,ok,0
+EA0175,T8,PatientHistory,895,902,anxiety,anxiety,clean,ok,0
+EA0175,T9,Prescription,181,191,Perampanel,Perampanel,clean,ok,0
+EA0175,T10,Diagnosis,50,79,Drug-refactory-focal-epilepsy,Drug refactory focal epilepsy,clean,ok,0
+EA0176,T1,PatientHistory,129,139,Depression,Depression,clean,ok,0
+EA0176,T2,Investigations,670,673,MRI,MRI,clean,ok,0
+EA0176,T3,Investigations,724,727,EEG,EEG,clean,ok,0
+EA0176,T4,SeizureFrequency,256,269,-seizure-free,seizure free ,clean,ok,0
+EA0176,T5,PatientHistory,119,127,Diabetes,Diabetes,clean,ok,0
+EA0176,T6,Prescription,174,187,levetiracetam,levetiracetam,clean,ok,0
+EA0176,T7,Diagnosis,110,118,Epilepsy,Epilepsy,clean,ok,0
+EA0177,T2,Prescription,35,79,Medication:-carbamazepine-400mgs-twice-a-day,Medication: carbamazepine 400mgs twice a day,clean,ok,0
+EA0177,T6,SeizureFrequency,181,193,seizure-free,seizure free,clean,ok,0
+EA0177,T3,PatientHistory,261,269,seizurs-,seizures,mismatch,high,0
+EA0177,T4,Diagnosis,11,19,epilepsy,epilepsy,clean,ok,0
+EA0178,T20,PatientHistory,460,468,seizures,seizures,clean,ok,0
+EA0178,T2,SeizureFrequency,365,373,seizures,seizures,clean,ok,0
+EA0178,T4,Diagnosis,11,25,Focal-epilepsy,Focal epilepsy,clean,ok,0
+EA0178,T7,SeizureFrequency,322,330,seizures,seizures,clean,ok,0
+EA0178,T8,PatientHistory,322,330,seizures,seizures,clean,ok,0
+EA0178,T10,Diagnosis,31,74,secondary-generalised-tonic-clonic-seizures,secondary generalised tonic clonic seizures,clean,ok,0
+EA0178,T13,Diagnosis,682,692,eplilepsy-,eplilepsy ,clean,ok,0
+EA0178,T14,Prescription,151,160,Tegretaol,Tegretaol,clean,ok,0
+EA0178,T15,Prescription,151,160,Tegretaol,Tegretaol,clean,ok,0
+EA0178,T17,PatientHistory,365,373,seizures,seizures,clean,ok,0
+EA0178,T18,Prescription,77,121,Medicaiton:-Levetiracetam-1000mg-twice-a-day,Medicaiton: Levetiracetam 1000mg twice a day,clean,ok,0
+EA0179,T1,PatientHistory,1009,1030,learning-disabilities,earning disabilities ,partial_overlap,medium,0
+EA0179,T2,PatientHistory,893,926,episodes-of-loss-of-consciousness,pisodes of loss of consciousness.,mismatch,high,0
+EA0179,T3,PatientHistory,159,185,mild-learning-disabilities,mild learning disabilities,clean,ok,0
+EA0179,T4,PatientHistory,383,416,episodes-of-loss-of-consciousness,episode of loss of consciousness ,mismatch,high,0
+EA0179,T5,Diagnosis,63,89,?-complex-partial-seizures,? complex partial seizures,clean,ok,0
+EA0179,T6,Investigations,717,721,EEG-,EG t,mismatch,high,0
+EA0179,T7,PatientHistory,1054,1062,seizures,eizures ,partial_overlap,medium,0
+EA0179,T8,Investigations,595,598,MRI,RI ,partial_overlap,medium,0
+EA0179,T9,Diagnosis,1070,1078,epilepsy,pilepsy ,partial_overlap,medium,0
+EA0179,T10,Prescription,1137,1153,sodium-valproate,odium valproate ,partial_overlap,medium,0
+EA0179,T11,PatientHistory,54,62,?syncope,?syncope,clean,ok,0
+EA0179,T12,PatientHistory,980,987,syncope,yncope ,partial_overlap,medium,0
+EA0179,T13,PatientHistory,205,213,seizures,seizures,clean,ok,0
+EA0179,T14,PatientHistory,19,53,-Episodes-of-loss-of-consciousness, Episodes of loss of consciousness,clean,ok,0
+EA0179,T15,PatientHistory,277,296,febrile-convulsions,febrile convulsions,clean,ok,0
+EA0180,T1,Prescription,166,182,Sodium-valproate,Sodium valproate,clean,ok,0
+EA0180,T2,SeizureFrequency,238,250,seizrue-free,eizure free ,mismatch,high,0
+EA0180,T3,PatientHistory,126,136,depression,depression,clean,ok,0
+EA0180,T4,SeizureFrequency,279,286,seizure,seizure,clean,ok,0
+EA0180,T5,SeizureFrequency,547,560,seizures-free,eizures free ,partial_overlap,medium,0
+EA0180,T6,Diagnosis,20,47,Juvenile-Myoclonic-Epilepsy,Juvenile Myoclonic Epilepsy,clean,ok,0
+EA0180,T7,PatientHistory,434,441,anxiety,anxiety,clean,ok,0
+EA0180,T8,PatientHistory,55,63,absences,absences,clean,ok,0
+EA0180,T9,PatientHistory,446,456,depression,depression,clean,ok,0
+EA0180,T10,PatientHistory,65,74,myoclonus,myoclonus,clean,ok,0
+EA0180,T11,Diagnosis,79,112,generalised-tonic-clonic-seizures,generalised tonic clonic seizures,clean,ok,0
+EA0180,T12,PatientHistory,114,121,Anxiety,Anxiety,clean,ok,0
+EA0180,T13,PatientHistory,280,286,seizur,eizure,mismatch,high,0
+EA0181,T12,PatientHistory,129,147,neurocysticercosis,neurocysticercosis,clean,ok,0
+EA0181,T1,SeizureFrequency,248,257,seizures-,seizures ,clean,ok,0
+EA0181,T2,Diagnosis,167,194,focal-dyscognitive-seizures,focal dyscognitive seizures,clean,ok,0
+EA0181,T3,Diagnosis,92,112,symptomatic-epilepsy,symptomatic epilepsy,clean,ok,0
+EA0181,T4,Investigations,342,349,CT-scan,CT scan,clean,ok,0
+EA0181,T5,SeizureFrequency,168,194,ocal-dyscognitive-seizures,ocal dyscognitive seizures,clean,ok,0
+EA0181,T6,EpilepsyCause,129,147,neurocysticercosis,neurocysticercosis,clean,ok,0
+EA0181,T14,PatientHistory,406,424,neurocysticercosis,neurocysticercosis,clean,ok,0
+EA0181,T8,Prescription,547,558,lamotrigine,lamotrigine,clean,ok,0
+EA0181,T10,Investigations,435,438,MRI,MRI,clean,ok,0
+EA0182,T1,SeizureFrequency,287,295,seizure-,seizure ,clean,ok,0
+EA0182,T2,Prescription,802,858,She-is-taking-Lamotrigine-150-mg-bd-with-no-side-effects,She is taking Lamotrigine 150 mg bd with no side effects,clean,ok,0
+EA0182,T3,Prescription,155,187,Medication:-Lamotrigine-150mg-bd,Medication: Lamotrigine 150mg bd,clean,ok,0
+EA0182,T4,Investigations,643,647,EEG-,EEG ,clean,ok,0
+EA0182,T5,Diagnosis,150,153,TLE,TLE,clean,ok,0
+EA0182,T6,Investigations,1308,1312,EEG-,EEG ,clean,ok,0
+EA0182,T8,PatientHistory,350,359,seizures-,seizures ,clean,ok,0
+EA0182,T9,PatientHistory,287,293,seizur,seizur,clean,ok,0
+EA0182,T10,Diagnosis,122,146,Complex-Partial-Seizures,Complex Partial Seizures,clean,ok,0
+EA0183,T1,Prescription,224,241,Sodium-Valproate-, Sodium Valproate,clean,ok,0
+EA0183,T2,Diagnosis,286,294,epilepsy, epileps,span_longer_than_source,medium,0
+EA0183,T3,Onset,286,294,epilepsy, epileps,span_longer_than_source,medium,0
+EA0183,T11,PatientHistory,464,473,-seizures, seizures,clean,ok,0
+EA0183,T4,Investigations,815,818,MRI, MR,span_longer_than_source,medium,0
+EA0183,T5,PatientHistory,876,892,febrile-seizures, febrile seizure,span_longer_than_source,medium,0
+EA0183,T6,Prescription,224,240,Sodium-Valproate, Sodium Valproat,span_longer_than_source,medium,0
+EA0183,T8,Diagnosis,337,370,generalised-tonic-clonic-seizures, generalised tonic clonic seizure,span_longer_than_source,medium,0
+EA0183,T9,Investigations,731,734,EEG, EE,span_longer_than_source,medium,0
+EA0183,T10,BirthHistory,839,851,normal-birth, normal birt,span_longer_than_source,medium,0
+EA0183,T13,Diagnosis,168,211,secondary-generalised-tonic-clonic-seizures, secondary generalised tonic clonic seizure,span_longer_than_source,medium,0
+EA0183,T12,Diagnosis,138,162,Complex-partial-seizures, Complex partial seizure,span_longer_than_source,medium,0
+EA0184,T2,Diagnosis,53,61,epilepsy,epilepsy,clean,ok,0
+EA0184,T4,PatientHistory,91,102,head-injury,head injury,clean,ok,0
+EA0184,T6,Prescription,151,197,Currently-he-is-taking-carbamazepine-300-mg-BD,Currently he is taking carbamazepine 300 mg BD,clean,ok,0
+EA0184,T8,Prescription,199,234,He-also-takes-gabapentin-300-mg-tds,He also takes gabapentin 300 mg tds,clean,ok,0
+EA0184,T10,Diagnosis,275,307,generalised-tonic-tonic-seizures,generalised tonic clonic seizure,mismatch,high,0
+EA0184,T12,SeizureFrequency,275,306,generalised-tonic-tonic-seizure,generalised tonic clonic seizur,mismatch,high,0
+EA0184,T11,Diagnosis,324,338,typical-absenc, typical absen,span_longer_than_source,medium,0
+EA0184,T13,SeizureFrequency,324,337,typical-absen, typical abse,span_longer_than_source,medium,0
+EA0185,T10,PatientHistory,330,337,déjà-vu,déjà vu,clean,ok,0
+EA0185,T1,BirthHistory,549,565,birth-was-normal,birth was normal,clean,ok,0
+EA0185,T2,Diagnosis,1016,1039,temporal-lobe-epilepsy.,temporal lobe epilepsy.,clean,ok,0
+EA0185,T4,Investigations,773,776,EEG,EEG,clean,ok,0
+EA0185,T5,Prescription,173,216,Medication:-Carbamazepine-200mg-twice-a-day,Medication: Carbamazepine 200mg twice a day,clean,ok,0
+EA0185,T6,Diagnosis,169,172,TLE,TLE,clean,ok,0
+EA0185,T7,PatientHistory,590,606,febrile-seizures,febrile seizures,clean,ok,0
+EA0185,T8,Diagnosis,143,157,Focal-seizures,Focal seizures,clean,ok,0
+EA0186,T21,PatientHistory,137,180,ischaemic-damage-left-inferior-frontal-lobe,ischaemic damage left inferior frontal lobe,clean,ok,0
+EA0186,T1,Investigations,1319,1323,EEG-,EEG ,clean,ok,0
+EA0186,T2,WhenDiagnosed,1130,1137,epileps,epileps,clean,ok,0
+EA0186,T3,Diagnosis,89,126,Symptomatic-structural-focal-epilepsy,Symptomatic structural focal epilepsy,clean,ok,0
+EA0186,T4,PatientHistory,195,203,anxiety-,anxiety ,clean,ok,0
+EA0186,T5,Diagnosis,780,818,focal-to-bilateral-convulsive-seizures,focal to bilateral convulsive seizures,clean,ok,0
+EA0186,T6,PatientHistory,352,360,seizure-,seizure ,clean,ok,0
+EA0186,T7,PatientHistory,207,217,depression,depression,clean,ok,0
+EA0186,T8,PatientHistory,1444,1452,seizure-,eizure I,mismatch,high,0
+EA0186,T9,Diagnosis,1130,1139,epilepsy-,epilepsy ,clean,ok,0
+EA0186,T10,Diagnosis,314,323,epilepsy-,epilepsy ,clean,ok,0
+EA0186,T11,SeizureFrequency,1060,1096,focal-to-bilateral-convulsive-seizur,focal to bilateral convulsive seizur,clean,ok,0
+EA0186,T12,EpilepsyCause,1220,1236,ischaemic-damage,ischaemic damage,clean,ok,0
+EA0186,T13,SeizureFrequency,352,358,seizur,seizur,clean,ok,0
+EA0186,T14,Prescription,1370,1421,He-is-currently-taking-lamotrigine-75mg-twice-a-day,He is currently taking lamotrigine 75mg twice a day,clean,ok,0
+EA0186,T15,Diagnosis,1060,1097,focal-to-bilateral-convulsive-seizure,focal to bilateral convulsive seizure,clean,ok,0
+EA0186,T16,Investigations,1175,1179,MRI-,MRI ,clean,ok,0
+EA0186,T17,PatientHistory,1220,1236,ischaemic-damage,ischaemic damage,clean,ok,0
+EA0186,T18,SeizureFrequency,851,871,focal-motor-seizures,focal motor seizures,clean,ok,0
+EA0186,T19,Diagnosis,1306,1314,epilepsy,epilepsy,clean,ok,0
+EA0186,T20,Diagnosis,851,871,focal-motor-seizures,focal motor seizures,clean,ok,0
+EA0187,T1,SeizureFrequency,270,279,seizures-, seizures,clean,ok,0
+EA0187,T2,Prescription,32,73,Medication:-------Levetiracetam-1250mg-bd,"
+Medication:       Levetiracetam 1250mg b",mismatch,high,0
+EA0187,T3,SeizureFrequency,232,239,seizure, seizur,span_longer_than_source,medium,0
+EA0187,T4,Diagnosis,11,29,Refactory-epilepsy,Refractory epileps,mismatch,high,0
+EA0187,T5,Prescription,103,123,Lamotrigine-100mg-bd, Lamotrigine 100mg b,span_longer_than_source,medium,0
+EA0187,T6,PatientHistory,270,278,seizures, seizure,span_longer_than_source,medium,0
+EA0188,T1,SeizureFrequency,814,843,secondary-generalised-seizure,secondary generalised seizure,clean,ok,0
+EA0188,T2,SeizureFrequency,620,627,seizure,seizure,clean,ok,0
+EA0188,T3,PatientHistory,624,627,eiz,ure,mismatch,high,0
+EA0188,T4,Diagnosis,229,237,epilepsy,lepsy hi,mismatch,high,0
+EA0188,T5,Prescription,103,117,Brivitiracetam,Brivitiracetam,clean,ok,0
+EA0188,T6,PatientHistory,984,997,hypertensions,ertensions. S,mismatch,high,0
+EA0188,T7,Investigations,56,59,MRI,MRI,clean,ok,0
+EA0188,T8,PatientHistory,875,883,seizure-,zure but,mismatch,high,0
+EA0188,T9,Diagnosis,1296,1302,focal-,al (oc,mismatch,high,0
+EA0188,T10,Diagnosis,1280,1295,drug-refractory,g refractory fo,mismatch,high,0
+EA0188,T11,PatientHistory,418,425,seizure,zures s,mismatch,high,0
+EA0188,T12,Investigations,530,534,EEGs,EEGs,clean,ok,0
+EA0188,T13,Diagnosis,1303,1327,occipital-lobe)-epilepsy,"ipital lobe) epilepsy.
+ ",mismatch,high,0
+EA0188,T14,Diagnosis,10,25,"Focal-epilepsy,","Focal epilepsy,",clean,ok,0
+EA0188,T15,PatientHistory,651,660,seizures-,zures con,mismatch,high,0
+EA0188,T16,Diagnosis,26,55,probable-occipital-lobe-onset,probable occipital lobe onset,clean,ok,0
+EA0188,T17,BirthHistory,343,368,born-slightly-prematurely,born slightly prematurely,clean,ok,0
+EA0188,T18,Investigations,489,492,MRI,MRI,clean,ok,0
+EA0188,T19,Diagnosis,820,843,ondary-generalised-seiz,ary generalised seizure,mismatch,high,0
+EA0188,T20,Prescription,83,93,Zonismaide,Zonismaide,clean,ok,0
+EA0189,T1,Diagnosis,1103,1121,epileptic-seizures,epileptic seizures,clean,ok,0
+EA0189,T2,PatientHistory,20,51,transient-loss-of-consciousness,transient loss of consciousness,clean,ok,0
+EA0189,T3,BirthHistory,752,765,born-normally,born normally,clean,ok,0
+EA0189,T4,Investigations,980,982,CT,CT,clean,ok,0
+EA0189,T5,PatientHistory,72,79,seizure,seizure,clean,ok,0
+EA0189,T6,PatientHistory,97,102,jerks,jerks,clean,ok,0
+EA0189,T7,PatientHistory,778,793,febrile-seizure,febrile seizure,clean,ok,0
+EA0189,T8,PatientHistory,1592,1599,seizure,seizure,clean,ok,0
+EA0190,T16,PatientHistory,62,83,right-hippocampectomy,right hippocampectomy,clean,ok,0
+EA0190,T11,PatientHistory,67,83,-hippocampectomy, hippocampectomy,clean,ok,0
+EA0190,T2,PatientHistory,346,367,hippocampal-sclerosis,hippocampal sclerosis,clean,ok,0
+EA0190,T1,PatientHistory,387,396,seizures-,eizures c,mismatch,high,0
+EA0190,T3,SeizureFrequency,175,212,focal-seizures-with-altered-awareness,focal seizures with altered awareness,clean,ok,0
+EA0190,T4,Investigations,368,377,Video-EEG,Video EEG,clean,ok,0
+EA0190,T5,Diagnosis,175,212,focal-seizures-with-altered-awareness,focal seizures with altered awareness,clean,ok,0
+EA0190,T6,SeizureFrequency,240,278,focal-to-bilateral-convulsive-seizures,focal to bilateral convulsive seizures,clean,ok,0
+EA0190,T7,PatientHistory,549,565,febrile-seizures,febrile seizures,clean,ok,0
+EA0190,T8,BirthHistory,1061,1074,born-normally,born normally,clean,ok,0
+EA0190,T9,Diagnosis,623,641,focal-onset-seizur,ocal onset seizure,mismatch,high,0
+EA0190,T10,Prescription,91,144,Current-anti-seizure-medication:-lamotrigine-200mg-bd,Current anti-seizure medication: lamotrigine 200mg bd,clean,ok,0
+EA0190,T12,Onset,622,642,focal-onset-seizures,focal onset seizures,clean,ok,0
+EA0190,T13,Investigations,331,335,MRI-,MRI ,clean,ok,0
+EA0190,T14,Diagnosis,240,278,focal-to-bilateral-convulsive-seizures,focal to bilateral convulsive seizures,clean,ok,0
+EA0190,T15,SeizureFrequency,756,768,seizure-free,eizure free ,partial_overlap,medium,0
+EA0190,T17,PatientHistory,821,830,seizures-,eizures s,mismatch,high,0
+EA0190,T18,Diagnosis,11,33,temporal-lobe-epilepsy,temporal lobe epilepsy,clean,ok,0
+EA0191,T1,Diagnosis,11,25,focal-epilepsy,focal epilepsy,clean,ok,0
+EA0191,T2,Prescription,81,91,Zonisamide,Zonisamide,clean,ok,0
+EA0191,T3,Prescription,28,80,Current-medication:-Levetiracetam-1500mg-twice-daily,Current medication: Levetiracetam 1500mg twice daily,clean,ok,0
+EA0191,T4,Prescription,102,124,Carbamazepine-400mg-bd,Carbamazepine 400mg bd,clean,ok,0
+EA0191,T5,SeizureFrequency,290,298,seizures,seizures,clean,ok,0
+EA0191,T6,SeizureFrequency,135,153,seizure-frequency:,seizure frequency:,clean,ok,0
+EA0192,T1,Prescription,57,90,Carbamazepine-400mg-twice-per-day,Carbamazepine 400mg twice per day,clean,ok,0
+EA0192,T2,SeizureFrequency,420,428,seizures, seizure,span_longer_than_source,medium,0
+EA0192,T3,PatientHistory,420,427,seizure, seizur,span_longer_than_source,medium,0
+EA0192,T4,PatientHistory,145,152,seizure,seizure,clean,ok,0
+EA0192,T5,Diagnosis,11,35,Complex-partial-seizures,Complex partial seizures,clean,ok,0
+EA0192,T6,Investigations,549,552,MRI, MR,span_longer_than_source,medium,0
+EA0192,T7,SeizureFrequency,145,153,seizure-,seizure ,clean,ok,0
+EA0192,T8,Investigations,436,439,EEG, EE,span_longer_than_source,medium,0
+EA0193,T1,Prescription,82,92,Topiramate,Topiramate,clean,ok,0
+EA0193,T2,SeizureFrequency,429,458,Bilateral-convulsive-seizures,Bilateral convulsive seizures,clean,ok,0
+EA0193,T3,Prescription,192,203,Lamotrigine,Lamotrigine,clean,ok,0
+EA0193,T4,Diagnosis,24,32,epilepsy,epilepsy,clean,ok,0
+EA0193,T5,Investigations,659,662,MRI,MRI,clean,ok,0
+EA0193,T6,Diagnosis,429,458,Bilateral-convulsive-seizures,Bilateral convulsive seizures,clean,ok,0
+EA0194,T1,BirthHistory,945,958,born-normally,born normally,clean,ok,0
+EA0194,T2,SeizureFrequency,431,469,Focal-to-bilateral-convulsive-seizures,Focal to bilateral convulsive seizures,clean,ok,0
+EA0194,T3,Diagnosis,22,30,Epilepsy,Epilepsy,clean,ok,0
+EA0194,T4,SeizureFrequency,758,772,focal-seizures,focal seizures,clean,ok,0
+EA0194,T5,Diagnosis,758,773,focal-seizures-,focal seizures ,clean,ok,0
+EA0194,T6,PatientHistory,978,987,seizures-,seizures ,clean,ok,0
+EA0194,T7,PatientHistory,99,123,autism-spectrum-disorder,autism spectrum disorder,clean,ok,0
+EA0194,T8,PatientHistory,87,94,Anxiety,Anxiety,clean,ok,0
+EA0194,T9,Diagnosis,342,369,Focal-dyscognitive-seizures,Focal dyscognitive seizures,clean,ok,0
+EA0194,T10,Prescription,153,169,Sodium-valproate,Sodium valproate,clean,ok,0
+EA0194,T11,Prescription,238,252,Briviteracetam,Briviteracetam,clean,ok,0
+EA0194,T12,PatientHistory,1402,1409,seizure,seizure,clean,ok,0
+EA0194,T13,PatientHistory,1033,1049,febrile-seizures,febrile seizures,clean,ok,0
+EA0194,T14,Diagnosis,41,46,focal,focal,clean,ok,0
+EA0194,T15,SeizureFrequency,342,369,Focal-dyscognitive-seizures,Focal dyscognitive seizures,clean,ok,0
+EA0194,T16,SeizureFrequency,1402,1411,seizures-,seizures ,clean,ok,0
+EA0194,T17,PatientHistory,1232,1239,anxiety,anxiety,clean,ok,0
+EA0194,T18,Diagnosis,431,469,Focal-to-bilateral-convulsive-seizures,Focal to bilateral convulsive seizures,clean,ok,0
+EA0194,T19,SeizureFrequency,431,469,Focal-to-bilateral-convulsive-seizures,Focal to bilateral convulsive seizures,clean,ok,0
+EA0195,T1,PatientHistory,87,112,right-temporal-meningioma,right temporal meningioma,clean,ok,0
+EA0195,T2,PatientHistory,284,292,seizure-,seizure ,clean,ok,0
+EA0195,T3,Diagnosis,48,81,generalised-tonic-clonic-seizures,generalised tonic clonic seizures,clean,ok,0
+EA0195,T4,Diagnosis,22,42,Symptomatic-epilepsy,Symptomatic epilepsy,clean,ok,0
+EA0195,T6,SeizureFrequency,204,232,seizure-free-for-three-years,seizure free for three years,clean,ok,0
+EA0195,T7,Prescription,134,143,Tegretol-,Tegretol ,clean,ok,0
+EA0195,T8,Prescription,134,163,Tegretol-400mg-in-the-morning,Tegretol 400mg in the morning,clean,ok,0
+EA0195,T9,SeizureFrequency,284,292,seizure-,seizure ,clean,ok,0
+EA0196,T7,PatientHistory,823,836,hypoglycaemia,hypoglycaemia,clean,ok,0
+EA0196,T1,Prescription,1127,1138,lamotrigine,lamotrigine,clean,ok,0
+EA0196,T2,PatientHistory,474,482,seizures,seizures,clean,ok,0
+EA0196,T3,Investigations,346,350,MRI-,MRI ,clean,ok,0
+EA0196,T4,WhenDiagnosed,231,239,epilepsy,epilepsy,clean,ok,0
+EA0196,T5,PatientHistory,135,147,hypertension,hypertension,clean,ok,0
+EA0196,T6,Diagnosis,231,239,epilepsy,epilepsy,clean,ok,0
+EA0196,T8,Investigations,354,358,EEG-,EEG ,clean,ok,0
+EA0196,T9,PatientHistory,262,271,seizures-,seizures ,clean,ok,0
+EA0196,T10,PatientHistory,152,160,diabetes,diabetes,clean,ok,0
+EA0196,T11,PatientHistory,589,597,seizures,seizures,clean,ok,0
+EA0197,T5,PatientHistory,11,37,Insulin-dependent-diabetes,Insulin dependent diabetes,clean,ok,0
+EA0197,T1,SeizureFrequency,221,230,seizures-,seizures ,clean,ok,0
+EA0197,T2,Prescription,62,74,Lamotrigine-,Lamotrigine ,clean,ok,0
+EA0197,T8,PatientHistory,221,229,seizures,seizures,clean,ok,0
+EA0197,T10,PatientHistory,305,312,seizure,seizure,clean,ok,0
+EA0197,T3,Investigations,893,897,MRI-,MRI ,clean,ok,0
+EA0197,T4,SeizureFrequency,305,314,seizures-,seizures ,clean,ok,0
+EA0197,T6,Investigations,980,984,EEG-,EEG ,clean,ok,0
+EA0197,T7,Diagnosis,40,48,Epilepsy,Epilepsy,clean,ok,0
+EA0198,T1,Diagnosis,227,235,epilepsy,epilepsy,clean,ok,0
+EA0198,T2,PatientHistory,933,940,anxiety,anxiety,clean,ok,0
+EA0198,T3,SeizureFrequency,426,434,seizures,seizures,clean,ok,0
+EA0198,T4,Diagnosis,87,117,secondary-generalised-seizures,secondary generalised seizures,clean,ok,0
+EA0198,T5,Onset,227,235,epilepsy,epilepsy,clean,ok,0
+EA0198,T6,PatientHistory,20,54,non-epileptic-psychogenic-seizures,non-epileptic psychogenic seizures,clean,ok,0
+EA0198,T7,Diagnosis,57,81,Complex-partial-seizures,Complex partial seizures,clean,ok,0
+EA0198,T8,PatientHistory,287,304,minor-head-injury,minor head injury,clean,ok,0
+EA0198,T9,SeizureFrequency,337,344,seizure,seizure,clean,ok,0
+EA0198,T10,PatientHistory,535,543,seizures,seizures,clean,ok,0
+EA0198,T11,Onset,227,235,epilepsy,epilepsy,clean,ok,0
+EA0198,T12,PatientHistory,337,344,seizure,seizure,clean,ok,0
+EA0198,T13,Prescription,131,148,Sodium-valproate-,Sodium valproate ,clean,ok,0
+EA0199,T1,PatientHistory,252,261,seizures-, seizures,clean,ok,0
+EA0199,T2,Prescription,72,86,phenobarbitone,phenobarbitone,clean,ok,0
+EA0199,T3,PatientHistory,164,172,seizures, seizure,span_longer_than_source,medium,0
+EA0199,T4,SeizureFrequency,164,172,seizures, seizure,span_longer_than_source,medium,0
+EA0199,T5,Diagnosis,35,43,epilepsy,epilepsy,clean,ok,0
+EA0199,T6,Prescription,116,121,EPlim,Epili,mismatch,high,0
+EA0200,T12,PatientHistory,1553,1573,loss-of-consciousnes,loss of consciousnes,clean,ok,0
+EA0200,T1,Diagnosis,1703,1731,genetic-generalised-epilepsy,genetic generalised epilepsy,clean,ok,0
+EA0200,T2,BirthHistory,802,830,born-prematurely-at-32-weeks,born prematurely at 32 weeks,clean,ok,0
+EA0200,T3,PatientHistory,23,54,transient-loss-of-consciousness,transient loss of consciousness,clean,ok,0
+EA0200,T4,Diagnosis,1580,1613,generalised-tonic-clonic-seizures,generalised tonic-clonic seizures,clean,ok,0
+EA0200,T5,PatientHistory,863,879,febrile-seizures,febrile seizures,clean,ok,0
+EA0200,T6,Investigations,1416,1419,EEG,EEG,clean,ok,0
+EA0200,T7,Diagnosis,67,95,genetic-generalised-epilepsy,genetic generalised epilepsy,clean,ok,0
+EA0200,T8,Investigations,1370,1373,MRI,MRI,clean,ok,0
+EA0200,T9,Diagnosis,1686,1695,"epilepsy,","epilepsy,",clean,ok,0
+EA0200,T10,Prescription,974,985,lamotrigine,lamotrigine,clean,ok,0
+EA0200,T11,Investigations,1648,1651,EEG,EEG,clean,ok,0

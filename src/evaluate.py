@@ -28,6 +28,13 @@ from normalization import (
     parse_frequency_expression,
     singular_unit,
 )
+from gan_frequency import (
+    UNKNOWN_X,
+    classification_report as _freq_classification_report,
+    pragmatic_category_from_x,
+    purist_category_from_x,
+    rate_to_monthly,
+)
 from validate_extraction import DEFAULT_SCHEMA, check_quote_validity, validate_extraction
 
 
@@ -169,6 +176,30 @@ def load_gold(markup_root: Path = DEFAULT_MARKUP_ROOT, exect_root: Path = DEFAUL
         for annotation in load_gold_annotations(document_id, exect_root):
             add_span(document, annotation.label, str(annotation.char_start), str(annotation.char_end), annotation.label, annotation.annotation_text)
     return gold
+
+
+def _parts_to_monthly(parts: dict[str, str]) -> float:
+    """Convert parsed frequency parts to a monthly seizure rate for category scoring."""
+    cls = parts.get("class", "")
+    if cls == "seizure_free":
+        return 0.0
+    count = parts.get("count", "")
+    period_unit = parts.get("period_unit", "")
+    period_count = parts.get("period_count") or "1"
+    if count and period_unit:
+        x = rate_to_monthly(count, period_count, period_unit)
+        return x if x is not None else UNKNOWN_X
+    return UNKNOWN_X
+
+
+def _gold_annotation_to_monthly(item: dict[str, str | None]) -> float:
+    """Convert an ExECTv2 gold annotation to a monthly rate, falling back to surface text."""
+    parts = structured_frequency_parts(item)
+    if not parts.get("period_unit") and not parts.get("count"):
+        surface_parts = parse_frequency_expression(item.get("surface"))
+        if surface_parts.get("class") not in ("", "unparsed"):
+            parts = surface_parts
+    return _parts_to_monthly(parts)
 
 
 def structured_frequency_parts(item: dict[str, str | None]) -> dict[str, str]:
@@ -463,6 +494,27 @@ def score_document(data: Any | None, source_text: str, document_gold: GoldDocume
         "gold_values": gold_frequency_part_candidates_for_letter,
         "gold_annotation_count": len(document_gold.seizure_frequencies),
     }
+    # Pragmatic/Purist category scoring — same framework as Gan evaluation
+    pred_x = _parts_to_monthly(predicted_frequency_parts)
+    pred_pragmatic = pragmatic_category_from_x(pred_x)
+    pred_purist = purist_category_from_x(pred_x)
+    if document_gold.seizure_frequencies:
+        gold_x = _gold_annotation_to_monthly(document_gold.seizure_frequencies[0])
+        gold_pragmatic = pragmatic_category_from_x(gold_x)
+        gold_purist = purist_category_from_x(gold_x)
+    else:
+        gold_pragmatic = "UNK"
+        gold_purist = "UNK"
+    result["field_scores"]["current_seizure_frequency_pragmatic"] = {
+        "correct": pred_pragmatic == gold_pragmatic,
+        "predicted": pred_pragmatic,
+        "gold": gold_pragmatic,
+    }
+    result["field_scores"]["current_seizure_frequency_purist"] = {
+        "correct": pred_purist == gold_purist,
+        "predicted": pred_purist,
+        "gold": gold_purist,
+    }
     result["field_scores"]["seizure_frequency_value"] = {
         "correct": bool(
             predicted_frequency_parts.get("count")
@@ -606,6 +658,8 @@ def flatten_summary(system: str, document_scores: list[dict[str, Any]]) -> dict[
             "current_seizure_frequency_relaxed_accuracy": None,
             "current_seizure_frequency_loose_accuracy": None,
             "current_seizure_frequency_per_letter_accuracy": None,
+            "current_seizure_frequency_pragmatic_f1": None,
+            "current_seizure_frequency_purist_f1": None,
             "seizure_frequency_value_accuracy": None,
             "seizure_frequency_period_accuracy": None,
             "seizure_frequency_temporal_scope_accuracy": None,
@@ -676,6 +730,29 @@ def flatten_summary(system: str, document_scores: list[dict[str, Any]]) -> dict[
         for score in available
         if isinstance(score["cost_latency"].get("estimated_cost_usd"), (int, float))
     ]
+    # Collect (gold, pred) category pairs for corpus-level F1
+    pragma_gold_list = [
+        score["field_scores"]["current_seizure_frequency_pragmatic"]["gold"]
+        for score in available
+        if "current_seizure_frequency_pragmatic" in score.get("field_scores", {})
+    ]
+    pragma_pred_list = [
+        score["field_scores"]["current_seizure_frequency_pragmatic"]["predicted"]
+        for score in available
+        if "current_seizure_frequency_pragmatic" in score.get("field_scores", {})
+    ]
+    purist_gold_list = [
+        score["field_scores"]["current_seizure_frequency_purist"]["gold"]
+        for score in available
+        if "current_seizure_frequency_purist" in score.get("field_scores", {})
+    ]
+    purist_pred_list = [
+        score["field_scores"]["current_seizure_frequency_purist"]["predicted"]
+        for score in available
+        if "current_seizure_frequency_purist" in score.get("field_scores", {})
+    ]
+    pragma_report = _freq_classification_report(pragma_gold_list, pragma_pred_list) if pragma_gold_list else {}
+    purist_report = _freq_classification_report(purist_gold_list, purist_pred_list) if purist_gold_list else {}
     return {
         "system": system,
         "documents_expected": len(document_scores),
@@ -695,6 +772,8 @@ def flatten_summary(system: str, document_scores: list[dict[str, Any]]) -> dict[
         "current_seizure_frequency_relaxed_accuracy": accuracy("current_seizure_frequency_relaxed"),
         "current_seizure_frequency_loose_accuracy": accuracy("current_seizure_frequency_loose"),
         "current_seizure_frequency_per_letter_accuracy": accuracy("current_seizure_frequency_per_letter"),
+        "current_seizure_frequency_pragmatic_f1": pragma_report.get("micro_f1"),
+        "current_seizure_frequency_purist_f1": purist_report.get("micro_f1"),
         "seizure_frequency_value_accuracy": accuracy("seizure_frequency_value"),
         "seizure_frequency_period_accuracy": accuracy("seizure_frequency_period"),
         "seizure_frequency_temporal_scope_accuracy": accuracy("seizure_frequency_temporal_scope"),

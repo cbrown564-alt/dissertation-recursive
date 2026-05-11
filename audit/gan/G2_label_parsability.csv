@@ -1,0 +1,1501 @@
+document_id,source_row_index,gold_label,label,x_per_month,pragmatic,purist,matches_pattern,parse_returns_unknown_x,unparsable,category_paradox
+GAN11118,11118,"2 cluster per month, 6 per cluster","2 cluster per month, 6 per cluster",12.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN16750,16750,6 per 7 month,6 per 7 month,0.8571428571428571,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN14706,14706,2 per 5 month,2 per 5 month,0.4,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN12383,12383,4 per day,4 per day,120.0,frequent,>=1/D,True,False,False,False
+GAN5555,5555,multiple per week,multiple per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN6216,6216,4 per 6 week,4 per 6 week,2.6666666666666665,frequent,"(1/M,1/W)",True,False,False,False
+GAN10703,10703,"unknown, 2 to 3 per cluster","unknown, 2 to 3 per cluster",,UNK,UNK,False,True,True,False
+GAN10594,10594,"unknown, 2 per cluster","unknown, 2 per cluster",,UNK,UNK,False,True,True,False
+GAN14036,14036,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN4562,4562,1 per 6 week,1 per 6 week,0.6666666666666666,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN14369,14369,2 per 3 month,2 per 3 month,0.6666666666666666,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN9786,9786,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN9879,9879,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN8488,8488,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN13079,13079,2 per 8 month,2 per 8 month,0.25,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN16158,16158,13 per 4 month,13 per 4 month,3.25,frequent,"(1/M,1/W)",True,False,False,False
+GAN9278,9278,3 per week,3 per week,12.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN16356,16356,1 per 4 day,1 per 4 day,7.5,frequent,"(1/W,1/D)",True,False,False,False
+GAN16036,16036,13 per 2 month,13 per 2 month,6.5,frequent,"(1/W,1/D)",True,False,False,False
+GAN665,665,2 per 2 week,2 per 2 week,4.0,frequent,1/W,True,False,False,False
+GAN11434,11434,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN1165,1165,5 to 7 per 3 week,5 to 7 per 3 week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN10967,10967,"3 cluster per month, 4 to 5 per cluster","3 cluster per month, 4 to 5 per cluster",13.5,frequent,"(1/W,1/D)",True,False,False,False
+GAN280,280,multiple per day,multiple per day,60.0,frequent,>=1/D,True,False,False,False
+GAN11556,11556,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN7708,7708,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN4003,4003,1 per month,1 per month,1.0,infrequent,1/M,True,False,False,False
+GAN10010,10010,multiple per week,multiple per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN15376,15376,"1 cluster per 2 week, 4 to 6 per cluster","1 cluster per 2 week, 4 to 6 per cluster",10.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN3859,3859,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN8188,8188,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN1922,1922,7 per 3 month,7 per 3 month,2.3333333333333335,frequent,"(1/M,1/W)",True,False,False,False
+GAN15129,15129,4 per 15 month,4 per 15 month,0.26666666666666666,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN12111,12111,multiple per week,multiple per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN16253,16253,8 per 3 month,8 per 3 month,2.6666666666666665,frequent,"(1/M,1/W)",True,False,False,False
+GAN10968,10968,"3 cluster per month, 2 to 4 per cluster","3 cluster per month, 2 to 4 per cluster",9.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN2135,2135,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN10147,10147,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN1707,1707,multiple per week,multiple per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN10909,10909,"6 cluster per month, 4 per cluster","6 cluster per month, 4 per cluster",24.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN2356,2356,6 to 7 per week,6 to 7 per week,26.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN13485,13485,seizure free for multiple year,seizure free for multiple year,0.0,NS,NS,True,False,False,False
+GAN7047,7047,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN9496,9496,6 per 12 month,6 per 12 month,0.5,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN3237,3237,"4 cluster per month, 5 per cluster","4 cluster per month, 5 per cluster",20.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN4110,4110,1 per 1 to 2 day,1 per 1 to 2 day,20.0,frequent,"(1/W,1/D)",False,False,False,False
+GAN6321,6321,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN1378,1378,5 per month,5 per month,5.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN9354,9354,1 per 2 month,1 per 2 month,0.5,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN13385,13385,seizure free for 1.5 year,seizure free for 1.5 year,0.0,NS,NS,True,False,False,False
+GAN14040,14040,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN16685,16685,10 per 3 month,10 per 3 month,3.3333333333333335,frequent,"(1/M,1/W)",True,False,False,False
+GAN2776,2776,1 per week,1 per week,4.0,frequent,1/W,True,False,False,False
+GAN11765,11765,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN2267,2267,2 to 3 per 3 month,2 to 3 per 3 month,0.8333333333333334,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN6629,6629,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN10894,10894,"1 cluster per week, 4 per cluster","1 cluster per week, 4 per cluster",16.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN16839,16839,9 per 4 month,9 per 4 month,2.25,frequent,"(1/M,1/W)",True,False,False,False
+GAN16162,16162,11 per 3 month,11 per 3 month,3.6666666666666665,frequent,"(1/M,1/W)",True,False,False,False
+GAN10410,10410,"1 cluster per week, 3 to 4 per cluster","1 cluster per week, 3 to 4 per cluster",14.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN11254,11254,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN11733,11733,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN4967,4967,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN17239,17239,4 per week,4 per week,16.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN5082,5082,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN9114,9114,1 per 4 to 6 week,1 per 4 to 6 week,0.8,infrequent,"(1/6M,1/M)",False,False,False,False
+GAN12985,12985,3 per 5 month,3 per 5 month,0.6,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN11948,11948,5 to 6 per week,5 to 6 per week,22.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN14944,14944,1 per 2 month,1 per 2 month,0.5,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN14824,14824,1 per month,1 per month,1.0,infrequent,1/M,True,False,False,False
+GAN5136,5136,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN12826,12826,10 per 4 month,10 per 4 month,2.5,frequent,"(1/M,1/W)",True,False,False,False
+GAN4116,4116,1 per 1 to 2 day,1 per 1 to 2 day,20.0,frequent,"(1/W,1/D)",False,False,False,False
+GAN13912,13912,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN987,987,1 per 2 month,1 per 2 month,0.5,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN1923,1923,7 per 6 month,7 per 6 month,1.1666666666666667,frequent,"(1/M,1/W)",True,False,False,False
+GAN1357,1357,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN6025,6025,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN12130,12130,multiple per week,multiple per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN11576,11576,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN960,960,1 per 2 month,1 per 2 month,0.5,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN15876,15876,6 per week,6 per week,24.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN10954,10954,"3 cluster per month, 5 to 6 per cluster","3 cluster per month, 5 to 6 per cluster",16.5,frequent,"(1/W,1/D)",True,False,False,False
+GAN16050,16050,6 per 2 month,6 per 2 month,3.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN11889,11889,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN4978,4978,seizure free for 11 month,seizure free for 11 month,0.0,NS,NS,True,False,False,False
+GAN13517,13517,seizure free for 3 year,seizure free for 3 year,0.0,NS,NS,True,False,False,False
+GAN13753,13753,33 per 9 month,33 per 9 month,3.6666666666666665,frequent,"(1/M,1/W)",True,False,False,False
+GAN9202,9202,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN13889,13889,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN632,632,1 per 1 to 2 month,1 per 1 to 2 month,0.6666666666666666,infrequent,"(1/6M,1/M)",False,False,False,False
+GAN9601,9601,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN13591,13591,seizure free for multiple year,seizure free for multiple year,0.0,NS,NS,True,False,False,False
+GAN10003,10003,"1 cluster per week, multiple per cluster","1 cluster per week, multiple per cluster",8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN11196,11196,"3 cluster per month, 5 per cluster","3 cluster per month, 5 per cluster",15.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN9946,9946,"1 cluster per month, multiple per cluster","1 cluster per month, multiple per cluster",2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN4441,4441,6 per 11 month,6 per 11 month,0.5454545454545454,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN8938,8938,seizure free for 10 month,seizure free for 10 month,0.0,NS,NS,True,False,False,False
+GAN5791,5791,1 per month,1 per month,1.0,infrequent,1/M,True,False,False,False
+GAN6004,6004,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN7475,7475,2 per 6 month,2 per 6 month,0.3333333333333333,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN6395,6395,1 to 2 per month,1 to 2 per month,1.5,frequent,"(1/M,1/W)",True,False,False,False
+GAN5088,5088,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN9163,9163,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN12963,12963,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN4448,4448,5 to 6 per week,5 to 6 per week,22.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN14587,14587,2 per 3 month,2 per 3 month,0.6666666666666666,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN3048,3048,seizure free for 16 month,seizure free for 16 month,0.0,NS,NS,True,False,False,False
+GAN14821,14821,1 per month,1 per month,1.0,infrequent,1/M,True,False,False,False
+GAN11748,11748,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN15923,15923,8 per 2 month,8 per 2 month,4.0,frequent,1/W,True,False,False,False
+GAN8286,8286,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN11825,11825,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN441,441,2 per month,2 per month,2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN10213,10213,"unknown, 3 per cluster","unknown, 3 per cluster",,UNK,UNK,False,True,True,False
+GAN3999,3999,1 per month,1 per month,1.0,infrequent,1/M,True,False,False,False
+GAN2080,2080,multiple per month,multiple per month,2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN2549,2549,7 to 8 per 2 month,7 to 8 per 2 month,3.75,frequent,"(1/M,1/W)",True,False,False,False
+GAN8089,8089,seizure free for 16 month,seizure free for 16 month,0.0,NS,NS,True,False,False,False
+GAN5345,5345,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN6775,6775,1 per 5 month,1 per 5 month,0.2,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN234,234,1 per 2 month,1 per 2 month,0.5,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN3918,3918,9 per week,9 per week,36.0,frequent,>=1/D,True,False,False,False
+GAN6903,6903,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN15004,15004,1 per 3 month,1 per 3 month,0.3333333333333333,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN3469,3469,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN115,115,7 to 8 per month,7 to 8 per month,7.5,frequent,"(1/W,1/D)",True,False,False,False
+GAN16041,16041,9 per 3 month,9 per 3 month,3.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN10873,10873,"1 cluster per week, 6 per cluster","1 cluster per week, 6 per cluster",24.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN14370,14370,4 per 3 month,4 per 3 month,1.3333333333333333,frequent,"(1/M,1/W)",True,False,False,False
+GAN8808,8808,seizure free for 10 month,seizure free for 10 month,0.0,NS,NS,True,False,False,False
+GAN8813,8813,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN7721,7721,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN14489,14489,2 per 5 month,2 per 5 month,0.4,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN10578,10578,"unknown, 3 to 4 per cluster","unknown, 3 to 4 per cluster",,UNK,UNK,False,True,True,False
+GAN2495,2495,5 to 7 per 3 week,5 to 7 per 3 week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN11337,11337,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN11614,11614,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN12584,12584,1 per week,1 per week,4.0,frequent,1/W,True,False,False,False
+GAN4994,4994,seizure free for 6 month,seizure free for 6 month,0.0,NS,NS,True,False,False,False
+GAN7455,7455,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN531,531,12 to 30 per 3 month,12 to 30 per 3 month,7.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN5141,5141,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN187,187,1 per 7 to 9 day,1 per 7 to 9 day,3.75,frequent,"(1/M,1/W)",False,False,False,False
+GAN7005,7005,2 per 6 month,2 per 6 month,0.3333333333333333,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN13290,13290,4 per 6 month,4 per 6 month,0.6666666666666666,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN8264,8264,seizure free for 4 month,seizure free for 4 month,0.0,NS,NS,True,False,False,False
+GAN8127,8127,seizure free for 18 month,seizure free for 18 month,0.0,NS,NS,True,False,False,False
+GAN16436,16436,1 per 3 to 4 day,1 per 3 to 4 day,8.571428571428571,frequent,"(1/W,1/D)",False,False,False,False
+GAN3949,3949,4 per week,4 per week,16.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN16719,16719,7 per 6 month,7 per 6 month,1.1666666666666667,frequent,"(1/M,1/W)",True,False,False,False
+GAN3711,3711,10 per week,10 per week,40.0,frequent,>=1/D,True,False,False,False
+GAN6889,6889,multiple per week,multiple per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN7316,7316,1 to 2 per month,1 to 2 per month,1.5,frequent,"(1/M,1/W)",True,False,False,False
+GAN1591,1591,11 per month,11 per month,11.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN678,678,2 per 4 month,2 per 4 month,0.5,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN8160,8160,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN8721,8721,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN11596,11596,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN3261,3261,"2 cluster per month, 4 per cluster","2 cluster per month, 4 per cluster",8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN4592,4592,1 per 2 month,1 per 2 month,0.5,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN4258,4258,4 per week,4 per week,16.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN2543,2543,2 to 4 per 2 week,2 to 4 per 2 week,6.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN7346,7346,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN1790,1790,8 per 4 month,8 per 4 month,2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN10618,10618,"unknown, 4 to 6 per cluster","unknown, 4 to 6 per cluster",,UNK,UNK,False,True,True,False
+GAN128,128,17 per month,17 per month,17.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN9063,9063,seizure free for 8 month,seizure free for 8 month,0.0,NS,NS,True,False,False,False
+GAN466,466,21 to 28 per month,21 to 28 per month,24.5,frequent,"(1/W,1/D)",True,False,False,False
+GAN409,409,1 per month,1 per month,1.0,infrequent,1/M,True,False,False,False
+GAN12504,12504,3 per day,3 per day,90.0,frequent,>=1/D,True,False,False,False
+GAN14845,14845,1 per month,1 per month,1.0,infrequent,1/M,True,False,False,False
+GAN7892,7892,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN10326,10326,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN16824,16824,11 per 5 month,11 per 5 month,2.2,frequent,"(1/M,1/W)",True,False,False,False
+GAN2978,2978,seizure free for 9 month,seizure free for 9 month,0.0,NS,NS,True,False,False,False
+GAN11764,11764,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN12618,12618,1 per week,1 per week,4.0,frequent,1/W,True,False,False,False
+GAN15578,15578,"1 cluster per 4 day, 5 per cluster","1 cluster per 4 day, 5 per cluster",37.5,frequent,>=1/D,True,False,False,False
+GAN3995,3995,1 per month,1 per month,1.0,infrequent,1/M,True,False,False,False
+GAN15497,15497,"1 cluster per 4 to 5 day, 5 per cluster","1 cluster per 4 to 5 day, 5 per cluster",33.333333333333336,frequent,>=1/D,False,False,False,False
+GAN14485,14485,2 per 3 month,2 per 3 month,0.6666666666666666,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN3988,3988,multiple per week,multiple per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN8235,8235,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN3847,3847,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN14592,14592,3 per 5 month,3 per 5 month,0.6,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN14765,14765,1 per month,1 per month,1.0,infrequent,1/M,True,False,False,False
+GAN218,218,1 per 3 week,1 per 3 week,1.3333333333333333,frequent,"(1/M,1/W)",True,False,False,False
+GAN12791,12791,6 per month,6 per month,6.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN11852,11852,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN1687,1687,multiple per week,multiple per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN15715,15715,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN12548,12548,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN16429,16429,1 per 2 to 3 day,1 per 2 to 3 day,12.0,frequent,"(1/W,1/D)",False,False,False,False
+GAN1413,1413,9 per month,9 per month,9.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN11002,11002,"2 to 4 cluster per month, 5 per cluster","2 to 4 cluster per month, 5 per cluster",15.0,frequent,"(1/W,1/D)",False,False,False,False
+GAN7911,7911,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN16663,16663,5 per 5 month,5 per 5 month,1.0,infrequent,1/M,True,False,False,False
+GAN7859,7859,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN8794,8794,seizure free for 6 month,seizure free for 6 month,0.0,NS,NS,True,False,False,False
+GAN182,182,1 per 2 day,1 per 2 day,15.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN6252,6252,2 to 4 per month,2 to 4 per month,3.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN11044,11044,"1 cluster per 3 month, 2 to 4 per cluster","1 cluster per 3 month, 2 to 4 per cluster",1.0,infrequent,1/M,True,False,False,False
+GAN6836,6836,1 per week,1 per week,4.0,frequent,1/W,True,False,False,False
+GAN4951,4951,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN1706,1706,"multiple cluster per month, multiple per cluster","multiple cluster per month, multiple per cluster",4.0,frequent,1/W,False,False,False,False
+GAN16422,16422,1 per 2 to 3 day,1 per 2 to 3 day,12.0,frequent,"(1/W,1/D)",False,False,False,False
+GAN12041,12041,multiple per day,multiple per day,60.0,frequent,>=1/D,True,False,False,False
+GAN11590,11590,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN14096,14096,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN12080,12080,multiple per week,multiple per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN12674,12674,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN4694,4694,multiple per day,multiple per day,60.0,frequent,>=1/D,True,False,False,False
+GAN10244,10244,"4 cluster per month, multiple per cluster","4 cluster per month, multiple per cluster",8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN2404,2404,6 to 7 per month,6 to 7 per month,6.5,frequent,"(1/W,1/D)",True,False,False,False
+GAN9912,9912,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN103,103,2 to 4 per year,2 to 4 per year,0.25,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN9147,9147,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN2953,2953,seizure free for 6 month,seizure free for 6 month,0.0,NS,NS,True,False,False,False
+GAN12086,12086,multiple per week,multiple per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN2440,2440,5 to 7 per 2 month,5 to 7 per 2 month,3.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN4956,4956,seizure free for 7 month,seizure free for 7 month,0.0,NS,NS,True,False,False,False
+GAN5764,5764,3 per month,3 per month,3.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN722,722,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN10002,10002,"1 cluster per week, multiple per cluster","1 cluster per week, multiple per cluster",8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN13145,13145,3 per year,3 per year,0.25,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN11658,11658,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN1722,1722,3 per 2 month,3 per 2 month,1.5,frequent,"(1/M,1/W)",True,False,False,False
+GAN8144,8144,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN10298,10298,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN12060,12060,multiple per day,multiple per day,60.0,frequent,>=1/D,True,False,False,False
+GAN4996,4996,seizure free for 16 month,seizure free for 16 month,0.0,NS,NS,True,False,False,False
+GAN8124,8124,seizure free for 13 month,seizure free for 13 month,0.0,NS,NS,True,False,False,False
+GAN3214,3214,"1 cluster per month, 5 to 7 per cluster","1 cluster per month, 5 to 7 per cluster",6.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN1433,1433,4 per month,4 per month,4.0,frequent,1/W,True,False,False,False
+GAN12083,12083,multiple per week,multiple per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN1207,1207,21 to 28 per 3 month,21 to 28 per 3 month,8.166666666666666,frequent,"(1/W,1/D)",True,False,False,False
+GAN14137,14137,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN364,364,1 per week,1 per week,4.0,frequent,1/W,True,False,False,False
+GAN13721,13721,77 per 12 month,77 per 12 month,6.416666666666667,frequent,"(1/W,1/D)",True,False,False,False
+GAN11737,11737,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN11640,11640,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN15306,15306,2 to 3 per 15 month,2 to 3 per 15 month,0.16666666666666666,infrequent,1/6M,True,False,False,False
+GAN7141,7141,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN849,849,1 per year,1 per year,0.08333333333333333,infrequent,<1/6M,True,False,False,False
+GAN12378,12378,4 per day,4 per day,120.0,frequent,>=1/D,True,False,False,False
+GAN15861,15861,multiple per week,multiple per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN869,869,multiple per month,multiple per month,2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN14057,14057,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN10441,10441,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN16697,16697,3 per 6 month,3 per 6 month,0.5,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN16728,16728,4 per 6 month,4 per 6 month,0.6666666666666666,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN2824,2824,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN8005,8005,seizure free for 10 month,seizure free for 10 month,0.0,NS,NS,True,False,False,False
+GAN9877,9877,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN11401,11401,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN15927,15927,18 per 2 month,18 per 2 month,9.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN10057,10057,"2 to 3 cluster per 3 month, multiple per cluster","2 to 3 cluster per 3 month, multiple per cluster",1.6666666666666667,frequent,"(1/M,1/W)",False,False,False,False
+GAN13194,13194,1 per 3 month,1 per 3 month,0.3333333333333333,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN16780,16780,3 per 7 month,3 per 7 month,0.42857142857142855,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN2071,2071,multiple per week,multiple per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN14335,14335,3 to 4 per 2 month,3 to 4 per 2 month,1.75,frequent,"(1/M,1/W)",True,False,False,False
+GAN7290,7290,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN2789,2789,1 per week,1 per week,4.0,frequent,1/W,True,False,False,False
+GAN16084,16084,8 per 4 month,8 per 4 month,2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN7785,7785,seizure free for 12 month,seizure free for 12 month,0.0,NS,NS,True,False,False,False
+GAN5653,5653,1 per 2 day,1 per 2 day,15.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN3355,3355,1 per 3 month,1 per 3 month,0.3333333333333333,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN9096,9096,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN16704,16704,9 per 6 month,9 per 6 month,1.5,frequent,"(1/M,1/W)",True,False,False,False
+GAN10097,10097,"3 cluster per month, multiple per cluster","3 cluster per month, multiple per cluster",6.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN1695,1695,multiple per month,multiple per month,2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN17,17,2 per day,2 per day,60.0,frequent,>=1/D,True,False,False,False
+GAN14530,14530,2 per 2 month,2 per 2 month,1.0,infrequent,1/M,True,False,False,False
+GAN2609,2609,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN11824,11824,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN13841,13841,seizure free for 6 months,seizure free for 6 months,0.0,NS,NS,True,False,False,False
+GAN685,685,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN14965,14965,1 per 3 month,1 per 3 month,0.3333333333333333,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN15242,15242,"multiple cluster per 15 month, multiple per cluster","multiple cluster per 15 month, multiple per cluster",0.26666666666666666,infrequent,"(1/6M,1/M)",False,False,False,False
+GAN6209,6209,multiple per day,multiple per day,60.0,frequent,>=1/D,True,False,False,False
+GAN13590,13590,seizure free for multiple year,seizure free for multiple year,0.0,NS,NS,True,False,False,False
+GAN13266,13266,2 per 3 month,2 per 3 month,0.6666666666666666,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN8169,8169,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN8624,8624,seizure free for 13 month,seizure free for 13 month,0.0,NS,NS,True,False,False,False
+GAN5696,5696,3 per 4 month,3 per 4 month,0.75,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN13008,13008,4 per month,4 per month,4.0,frequent,1/W,True,False,False,False
+GAN12537,12537,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN4026,4026,1 per month,1 per month,1.0,infrequent,1/M,True,False,False,False
+GAN13645,13645,85 per 12 month,85 per 12 month,7.083333333333333,frequent,"(1/W,1/D)",True,False,False,False
+GAN15609,15609,2 to 3 per week,2 to 3 per week,10.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN16301,16301,17 per 4 month,17 per 4 month,4.25,frequent,"(1/W,1/D)",True,False,False,False
+GAN13064,13064,2 per 5 month,2 per 5 month,0.4,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN1773,1773,11 per 3 month,11 per 3 month,3.6666666666666665,frequent,"(1/M,1/W)",True,False,False,False
+GAN6377,6377,3 per 6 month,3 per 6 month,0.5,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN1772,1772,11 per 6 month,11 per 6 month,1.8333333333333333,frequent,"(1/M,1/W)",True,False,False,False
+GAN16355,16355,1 per 2 to 3 day,1 per 2 to 3 day,12.0,frequent,"(1/W,1/D)",False,False,False,False
+GAN6787,6787,8 per 6 week,8 per 6 week,5.333333333333333,frequent,"(1/W,1/D)",True,False,False,False
+GAN14483,14483,4 per 2 month,4 per 2 month,2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN6063,6063,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN6330,6330,multiple per month,multiple per month,2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN10794,10794,"3 cluster per month, multiple per cluster","3 cluster per month, multiple per cluster",6.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN7834,7834,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN3482,3482,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN3225,3225,"1 cluster per month, 3 to 10 per cluster","1 cluster per month, 3 to 10 per cluster",6.5,frequent,"(1/W,1/D)",True,False,False,False
+GAN5763,5763,2 per month,2 per month,2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN5540,5540,1 per 4 to 5 month,1 per 4 to 5 month,0.2222222222222222,infrequent,"(1/6M,1/M)",False,False,False,False
+GAN5866,5866,4 per 6 week,4 per 6 week,2.6666666666666665,frequent,"(1/M,1/W)",True,False,False,False
+GAN16195,16195,16 per 4 month,16 per 4 month,4.0,frequent,1/W,True,False,False,False
+GAN13471,13471,seizure free for 5 year,seizure free for 5 year,0.0,NS,NS,True,False,False,False
+GAN13574,13574,seizure free for multiple year,seizure free for multiple year,0.0,NS,NS,True,False,False,False
+GAN8790,8790,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN9336,9336,multiple per week,multiple per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN15834,15834,5 per week,5 per week,20.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN2804,2804,1 per week,1 per week,4.0,frequent,1/W,True,False,False,False
+GAN14237,14237,3 per month,3 per month,3.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN14383,14383,3 to 4 per 3 month,3 to 4 per 3 month,1.1666666666666667,frequent,"(1/M,1/W)",True,False,False,False
+GAN16286,16286,13 per 3 month,13 per 3 month,4.333333333333333,frequent,"(1/W,1/D)",True,False,False,False
+GAN3453,3453,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN10481,10481,"4 cluster per month, multiple per cluster","4 cluster per month, multiple per cluster",8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN659,659,2 per 4 day,2 per 4 day,15.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN9014,9014,seizure free for 11 month,seizure free for 11 month,0.0,NS,NS,True,False,False,False
+GAN16757,16757,13 per 6 month,13 per 6 month,2.1666666666666665,frequent,"(1/M,1/W)",True,False,False,False
+GAN13478,13478,seizure free for 1 year,seizure free for 1 year,0.0,NS,NS,True,False,False,False
+GAN15442,15442,"1 cluster per 4 day, 2 per cluster","1 cluster per 4 day, 2 per cluster",15.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN1070,1070,3 to 4 per week,3 to 4 per week,14.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN8684,8684,seizure free for 6 month,seizure free for 6 month,0.0,NS,NS,True,False,False,False
+GAN6187,6187,2 per week,2 per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN6026,6026,3 per 2 month,3 per 2 month,1.5,frequent,"(1/M,1/W)",True,False,False,False
+GAN15267,15267,3 per 14 month,3 per 14 month,0.21428571428571427,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN6952,6952,2 per week,2 per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN4378,4378,3 per 2 month,3 per 2 month,1.5,frequent,"(1/M,1/W)",True,False,False,False
+GAN9377,9377,1 per 2 week,1 per 2 week,2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN14454,14454,2 per 2 month,2 per 2 month,1.0,infrequent,1/M,True,False,False,False
+GAN10845,10845,"1 cluster per week, multiple per cluster","1 cluster per week, multiple per cluster",8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN9424,9424,10 per 9 month,10 per 9 month,1.1111111111111112,frequent,"(1/M,1/W)",True,False,False,False
+GAN2427,2427,3 to 5 per month,3 to 5 per month,4.0,frequent,1/W,True,False,False,False
+GAN2166,2166,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN15360,15360,"1 cluster per week, 4 to 8 per cluster","1 cluster per week, 4 to 8 per cluster",24.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN5766,5766,multiple per week,multiple per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN4690,4690,multiple per day,multiple per day,60.0,frequent,>=1/D,True,False,False,False
+GAN15847,15847,6 per week,6 per week,24.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN11262,11262,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN14317,14317,4 per 2 month,4 per 2 month,2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN14806,14806,1 per 2 month,1 per 2 month,0.5,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN2558,2558,3 to 4 per 2 month,3 to 4 per 2 month,1.75,frequent,"(1/M,1/W)",True,False,False,False
+GAN14857,14857,1 per month,1 per month,1.0,infrequent,1/M,True,False,False,False
+GAN2731,2731,1 per 2 week,1 per 2 week,2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN3131,3131,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN15240,15240,"multiple cluster per 12 month, multiple per cluster","multiple cluster per 12 month, multiple per cluster",0.3333333333333333,infrequent,"(1/6M,1/M)",False,False,False,False
+GAN2879,2879,2 per day,2 per day,60.0,frequent,>=1/D,True,False,False,False
+GAN14282,14282,multiple per month,multiple per month,2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN13944,13944,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN6087,6087,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN13893,13893,2 per year,2 per year,0.16666666666666666,infrequent,1/6M,True,False,False,False
+GAN5995,5995,1 per 3 months,1 per 3 months,,UNK,UNK,True,True,True,False
+GAN10459,10459,"4 cluster per month, multiple per cluster","4 cluster per month, multiple per cluster",8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN8354,8354,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN743,743,multiple per week,multiple per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN16091,16091,3 per 3 month,3 per 3 month,1.0,infrequent,1/M,True,False,False,False
+GAN8185,8185,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN198,198,1 per 4 week,1 per 4 week,1.0,infrequent,1/M,True,False,False,False
+GAN14635,14635,5 per 4 month,5 per 4 month,1.25,frequent,"(1/M,1/W)",True,False,False,False
+GAN15650,15650,3 to 4 per day,3 to 4 per day,105.0,frequent,>=1/D,True,False,False,False
+GAN8116,8116,seizure free for 12 month,seizure free for 12 month,0.0,NS,NS,True,False,False,False
+GAN11197,11197,"1 cluster per month, 4 to 6 per cluster","1 cluster per month, 4 to 6 per cluster",5.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN16220,16220,11 per 4 month,11 per 4 month,2.75,frequent,"(1/M,1/W)",True,False,False,False
+GAN8802,8802,seizure free for 12 month,seizure free for 12 month,0.0,NS,NS,True,False,False,False
+GAN14187,14187,2 to 3 per month,2 to 3 per month,2.5,frequent,"(1/M,1/W)",True,False,False,False
+GAN8844,8844,seizure free for 15 month,seizure free for 15 month,0.0,NS,NS,True,False,False,False
+GAN978,978,1 per 2 month,1 per 2 month,0.5,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN10994,10994,"3 to 4 cluster per month, 3 per cluster","3 to 4 cluster per month, 3 per cluster",10.5,frequent,"(1/W,1/D)",False,False,False,False
+GAN3623,3623,7 per week,7 per week,28.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN1736,1736,4 per 6 month,4 per 6 month,0.6666666666666666,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN5652,5652,1 per 8 day,1 per 8 day,3.75,frequent,"(1/M,1/W)",True,False,False,False
+GAN8730,8730,seizure free for 6 month,seizure free for 6 month,0.0,NS,NS,True,False,False,False
+GAN7905,7905,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN12901,12901,8 per 5 month,8 per 5 month,1.6,frequent,"(1/M,1/W)",True,False,False,False
+GAN14524,14524,2 per 6 month,2 per 6 month,0.3333333333333333,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN7232,7232,"6 to 8 cluster per month, multiple per cluster","6 to 8 cluster per month, multiple per cluster",14.0,frequent,"(1/W,1/D)",False,False,False,False
+GAN836,836,1 per year,1 per year,0.08333333333333333,infrequent,<1/6M,True,False,False,False
+GAN2678,2678,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN10673,10673,"1 cluster per month, multiple per cluster","1 cluster per month, multiple per cluster",2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN1979,1979,6 per 2 month,6 per 2 month,3.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN16512,16512,1 per multiple day,1 per multiple day,15.0,frequent,"(1/W,1/D)",False,False,False,False
+GAN5505,5505,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN16964,16964,2 per week,2 per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN379,379,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN16834,16834,7 per 5 month,7 per 5 month,1.4,frequent,"(1/M,1/W)",True,False,False,False
+GAN11632,11632,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN2643,2643,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN10751,10751,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN8695,8695,seizure free for multiple year,seizure free for multiple year,0.0,NS,NS,True,False,False,False
+GAN8791,8791,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN5584,5584,multiple per week,multiple per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN11864,11864,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN6288,6288,2 per 10 week,2 per 10 week,0.8,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN10993,10993,"2 cluster per month, 2 to 4 per cluster","2 cluster per month, 2 to 4 per cluster",6.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN4337,4337,3 per 3 month,3 per 3 month,1.0,infrequent,1/M,True,False,False,False
+GAN4410,4410,4 per 7 month,4 per 7 month,0.5714285714285714,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN3867,3867,3 per day,3 per day,90.0,frequent,>=1/D,True,False,False,False
+GAN8145,8145,seizure free for 6 month,seizure free for 6 month,0.0,NS,NS,True,False,False,False
+GAN6976,6976,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN3831,3831,7 per month,7 per month,7.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN1497,1497,3 per month,3 per month,3.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN6852,6852,4 to 6 per month,4 to 6 per month,5.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN9379,9379,1 per 2 week,1 per 2 week,2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN8512,8512,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN714,714,2 per day,2 per day,60.0,frequent,>=1/D,True,False,False,False
+GAN15428,15428,"1 cluster per 4 month, multiple per cluster","1 cluster per 4 month, multiple per cluster",0.5,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN2965,2965,seizure free for 16 month,seizure free for 16 month,0.0,NS,NS,True,False,False,False
+GAN12173,12173,multiple per week,multiple per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN4732,4732,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN9526,9526,4 per 8 month,4 per 8 month,0.5,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN16204,16204,5 per 3 month,5 per 3 month,1.6666666666666667,frequent,"(1/M,1/W)",True,False,False,False
+GAN16357,16357,1 per 2 day,1 per 2 day,15.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN10264,10264,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN5379,5379,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN31,31,4 per day,4 per day,120.0,frequent,>=1/D,True,False,False,False
+GAN4411,4411,7 per 9 month,7 per 9 month,0.7777777777777778,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN7386,7386,7 per 8 week,7 per 8 week,3.5,frequent,"(1/M,1/W)",True,False,False,False
+GAN3113,3113,seizure free for 14 month,seizure free for 14 month,0.0,NS,NS,True,False,False,False
+GAN11272,11272,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN3102,3102,seizure free for 14 month,seizure free for 14 month,0.0,NS,NS,True,False,False,False
+GAN1023,1023,1 per 3 month,1 per 3 month,0.3333333333333333,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN16021,16021,9 per 3 month,9 per 3 month,3.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN5395,5395,seizure free for 6 month,seizure free for 6 month,0.0,NS,NS,True,False,False,False
+GAN16727,16727,8 per 5 month,8 per 5 month,1.6,frequent,"(1/M,1/W)",True,False,False,False
+GAN16835,16835,10 per 7 month,10 per 7 month,1.4285714285714286,frequent,"(1/M,1/W)",True,False,False,False
+GAN1289,1289,5 to 6 per year,5 to 6 per year,0.4583333333333333,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN12246,12246,1 to 2 per day,1 to 2 per day,45.0,frequent,>=1/D,True,False,False,False
+GAN10316,10316,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN8593,8593,seizure free for 14 month,seizure free for 14 month,0.0,NS,NS,True,False,False,False
+GAN2226,2226,3 to 10 per 2 week,3 to 10 per 2 week,13.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN6509,6509,1 per week,1 per week,4.0,frequent,1/W,True,False,False,False
+GAN12788,12788,6 per 4 month,6 per 4 month,1.5,frequent,"(1/M,1/W)",True,False,False,False
+GAN1317,1317,"unknown, multiple per cluster","unknown, multiple per cluster",,UNK,UNK,False,True,True,False
+GAN10292,10292,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN3058,3058,seizure free for 12 month,seizure free for 12 month,0.0,NS,NS,True,False,False,False
+GAN6241,6241,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN17006,17006,2 per week,2 per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN6180,6180,multiple per week,multiple per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN12438,12438,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN1454,1454,7 per week,7 per week,28.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN8674,8674,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN12456,12456,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN1184,1184,6 to 14 per 3 month,6 to 14 per 3 month,3.3333333333333335,frequent,"(1/M,1/W)",True,False,False,False
+GAN10863,10863,"1 cluster per week, multiple per cluster","1 cluster per week, multiple per cluster",8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN824,824,1 per month,1 per month,1.0,infrequent,1/M,True,False,False,False
+GAN13608,13608,seizure free for multiple year,seizure free for multiple year,0.0,NS,NS,True,False,False,False
+GAN4173,4173,1 per 2 week,1 per 2 week,2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN11706,11706,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN9471,9471,7 per 11 month,7 per 11 month,0.6363636363636364,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN11606,11606,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN739,739,multiple per week,multiple per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN12810,12810,5 per 2 month,5 per 2 month,2.5,frequent,"(1/M,1/W)",True,False,False,False
+GAN14655,14655,2 per 2 month,2 per 2 month,1.0,infrequent,1/M,True,False,False,False
+GAN10795,10795,"2 cluster per month, multiple per cluster","2 cluster per month, multiple per cluster",4.0,frequent,1/W,True,False,False,False
+GAN10621,10621,"multiple cluster per week, 4 to 6 per cluster","multiple cluster per week, 4 to 6 per cluster",40.0,frequent,>=1/D,False,False,False,False
+GAN14662,14662,3 per 4 month,3 per 4 month,0.75,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN15483,15483,"1 cluster per 5 day, 2 per cluster","1 cluster per 5 day, 2 per cluster",12.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN16739,16739,5 per 6 month,5 per 6 month,0.8333333333333334,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN1887,1887,4 per 3 month,4 per 3 month,1.3333333333333333,frequent,"(1/M,1/W)",True,False,False,False
+GAN2698,2698,1 per 2 day,1 per 2 day,15.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN2486,2486,2 to 3 per 3 month,2 to 3 per 3 month,0.8333333333333334,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN15039,15039,multiple per 12 month,multiple per 12 month,0.16666666666666666,infrequent,1/6M,False,False,False,False
+GAN4731,4731,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN11660,11660,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN790,790,1 per 7 to 10 day,1 per 7 to 10 day,3.5294117647058822,frequent,"(1/M,1/W)",False,False,False,False
+GAN8241,8241,seizure free for 6 month,seizure free for 6 month,0.0,NS,NS,True,False,False,False
+GAN22,22,3 per day,3 per day,90.0,frequent,>=1/D,True,False,False,False
+GAN16618,16618,1 per 5 day,1 per 5 day,6.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN8109,8109,seizure free for 12 month,seizure free for 12 month,0.0,NS,NS,True,False,False,False
+GAN3380,3380,5 per 3 month,5 per 3 month,1.6666666666666667,frequent,"(1/M,1/W)",True,False,False,False
+GAN10434,10434,"multiple cluster per week, 2 to 3 per cluster","multiple cluster per week, 2 to 3 per cluster",20.0,frequent,"(1/W,1/D)",False,False,False,False
+GAN4925,4925,seizure free for 1 year,seizure free for 1 year,0.0,NS,NS,True,False,False,False
+GAN16990,16990,4 to 5 per week,4 to 5 per week,18.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN12296,12296,3 to 4 per day,3 to 4 per day,105.0,frequent,>=1/D,True,False,False,False
+GAN10677,10677,"1 cluster per month, multiple per cluster","1 cluster per month, multiple per cluster",2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN8540,8540,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN5873,5873,multiple per week,multiple per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN9368,9368,1 per 2 day,1 per 2 day,15.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN10200,10200,"unknown, 2 to 4 per cluster","unknown, 2 to 4 per cluster",,UNK,UNK,False,True,True,False
+GAN16523,16523,1 per 5 day,1 per 5 day,6.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN11409,11409,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN5645,5645,1 per 8 day,1 per 8 day,3.75,frequent,"(1/M,1/W)",True,False,False,False
+GAN3906,3906,4 per year,4 per year,0.3333333333333333,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN15831,15831,2 to 4 per day,2 to 4 per day,90.0,frequent,>=1/D,True,False,False,False
+GAN15672,15672,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN13349,13349,seizure free for multiple year,seizure free for multiple year,0.0,NS,NS,True,False,False,False
+GAN9397,9397,1 per month,1 per month,1.0,infrequent,1/M,True,False,False,False
+GAN5479,5479,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN12333,12333,multiple per week,multiple per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN816,816,1 per month,1 per month,1.0,infrequent,1/M,True,False,False,False
+GAN11804,11804,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN2435,2435,5 to 7 per 2 week,5 to 7 per 2 week,12.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN13970,13970,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN4022,4022,8 per month,8 per month,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN14332,14332,5 per 2 month,5 per 2 month,2.5,frequent,"(1/M,1/W)",True,False,False,False
+GAN15964,15964,11 per 3 month,11 per 3 month,3.6666666666666665,frequent,"(1/M,1/W)",True,False,False,False
+GAN2932,2932,seizure free for 9 month,seizure free for 9 month,0.0,NS,NS,True,False,False,False
+GAN2311,2311,5 to 7 per month,5 to 7 per month,6.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN892,892,1 per 2 day,1 per 2 day,15.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN4480,4480,3 to 5 per week,3 to 5 per week,16.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN7196,7196,1 per week,1 per week,4.0,frequent,1/W,True,False,False,False
+GAN7327,7327,2 per 4 months,2 per 4 months,,UNK,UNK,True,True,True,False
+GAN899,899,1 per 2 week,1 per 2 week,2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN5624,5624,1 per 10 day,1 per 10 day,3.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN6979,6979,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN4702,4702,multiple per day,multiple per day,60.0,frequent,>=1/D,True,False,False,False
+GAN1460,1460,7 per month,7 per month,7.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN4793,4793,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN240,240,1 per 2 to 3 month,1 per 2 to 3 month,0.4,infrequent,"(1/6M,1/M)",False,False,False,False
+GAN6684,6684,3 per 4 month,3 per 4 month,0.75,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN14562,14562,3 per 6 month,3 per 6 month,0.5,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN10266,10266,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN9801,9801,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN3888,3888,8 per year,8 per year,0.6666666666666666,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN12192,12192,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN14385,14385,4 per 3 month,4 per 3 month,1.3333333333333333,frequent,"(1/M,1/W)",True,False,False,False
+GAN9483,9483,8 per 6 month,8 per 6 month,1.3333333333333333,frequent,"(1/M,1/W)",True,False,False,False
+GAN13584,13584,seizure free for multiple year,seizure free for multiple year,0.0,NS,NS,True,False,False,False
+GAN8564,8564,seizure free for 6 month,seizure free for 6 month,0.0,NS,NS,True,False,False,False
+GAN2883,2883,2 per year,2 per year,0.16666666666666666,infrequent,1/6M,True,False,False,False
+GAN17131,17131,"4 cluster per week, multiple per cluster","4 cluster per week, multiple per cluster",32.0,frequent,>=1/D,True,False,False,False
+GAN7483,7483,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN9301,9301,3 to 5 per week,3 to 5 per week,16.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN1636,1636,5 per month,5 per month,5.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN3329,3329,2 to 3 per day,2 to 3 per day,75.0,frequent,>=1/D,True,False,False,False
+GAN15620,15620,3 per day,3 per day,90.0,frequent,>=1/D,True,False,False,False
+GAN3827,3827,7 per month,7 per month,7.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN1249,1249,2 to 4 per week,2 to 4 per week,12.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN15614,15614,3 per week,3 per week,12.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN6303,6303,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN5551,5551,multiple per day,multiple per day,60.0,frequent,>=1/D,True,False,False,False
+GAN4229,4229,multiple per week,multiple per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN9547,9547,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN17167,17167,1 per week,1 per week,4.0,frequent,1/W,True,False,False,False
+GAN2456,2456,6 to 7 per 2 week,6 to 7 per 2 week,13.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN8979,8979,seizure free for multiple year,seizure free for multiple year,0.0,NS,NS,True,False,False,False
+GAN16789,16789,7 per 5 month,7 per 5 month,1.4,frequent,"(1/M,1/W)",True,False,False,False
+GAN13611,13611,57 per 11 month,57 per 11 month,5.181818181818182,frequent,"(1/W,1/D)",True,False,False,False
+GAN16097,16097,17 per 4 month,17 per 4 month,4.25,frequent,"(1/W,1/D)",True,False,False,False
+GAN2749,2749,1 per month,1 per month,1.0,infrequent,1/M,True,False,False,False
+GAN11035,11035,"1 cluster per 3 month, 1 per cluster","1 cluster per 3 month, 1 per cluster",0.3333333333333333,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN8928,8928,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN3747,3747,3 per day,3 per day,90.0,frequent,>=1/D,True,False,False,False
+GAN725,725,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN15639,15639,2 per week,2 per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN4197,4197,1 per 2 day,1 per 2 day,15.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN3407,3407,multiple per week,multiple per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN2740,2740,1 per month,1 per month,1.0,infrequent,1/M,True,False,False,False
+GAN5837,5837,"2 cluster per 3 week, multiple per cluster","2 cluster per 3 week, multiple per cluster",5.333333333333333,frequent,"(1/W,1/D)",True,False,False,False
+GAN5040,5040,seizure free for 6 months,seizure free for 6 months,0.0,NS,NS,True,False,False,False
+GAN17146,17146,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN12366,12366,4 per day,4 per day,120.0,frequent,>=1/D,True,False,False,False
+GAN5964,5964,1 per week,1 per week,4.0,frequent,1/W,True,False,False,False
+GAN2684,2684,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN176,176,1 per 6 to 7 day,1 per 6 to 7 day,4.615384615384615,frequent,"(1/W,1/D)",False,False,False,False
+GAN8419,8419,1 to 2 per week,1 to 2 per week,6.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN6028,6028,1 per 3 months,1 per 3 months,,UNK,UNK,True,True,True,False
+GAN16281,16281,21 per 4 month,21 per 4 month,5.25,frequent,"(1/W,1/D)",True,False,False,False
+GAN735,735,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN61,61,4 per week,4 per week,16.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN7393,7393,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN10629,10629,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN8957,8957,seizure free for 8 month,seizure free for 8 month,0.0,NS,NS,True,False,False,False
+GAN8355,8355,seizure free for multiple year,seizure free for multiple year,0.0,NS,NS,True,False,False,False
+GAN827,827,1 per 4 to 5 week,1 per 4 to 5 week,0.8888888888888888,infrequent,"(1/6M,1/M)",False,False,False,False
+GAN17133,17133,"2 cluster per week, multiple per cluster","2 cluster per week, multiple per cluster",16.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN15544,15544,"1 cluster per 5 day, 2 to 4 per cluster","1 cluster per 5 day, 2 to 4 per cluster",18.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN16961,16961,2 per week,2 per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN1794,1794,8 per 2 month,8 per 2 month,4.0,frequent,1/W,True,False,False,False
+GAN16555,16555,1 per 3 day,1 per 3 day,10.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN9365,9365,1 per 2 day,1 per 2 day,15.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN12551,12551,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN14953,14953,1 per 2 month,1 per 2 month,0.5,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN1914,1914,7 per 3 month,7 per 3 month,2.3333333333333335,frequent,"(1/M,1/W)",True,False,False,False
+GAN13416,13416,seizure free for multiple year,seizure free for multiple year,0.0,NS,NS,True,False,False,False
+GAN3291,3291,9 per month,9 per month,9.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN4903,4903,seizure free for 1 year,seizure free for 1 year,0.0,NS,NS,True,False,False,False
+GAN5430,5430,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN5829,5829,4 per 3 month,4 per 3 month,1.3333333333333333,frequent,"(1/M,1/W)",True,False,False,False
+GAN15518,15518,"1 cluster per 5 day, 5 per cluster","1 cluster per 5 day, 5 per cluster",30.0,frequent,>=1/D,True,False,False,False
+GAN5534,5534,1 per multiple month,1 per multiple month,0.5,infrequent,"(1/6M,1/M)",False,False,False,False
+GAN11259,11259,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN5305,5305,2 per 6 month,2 per 6 month,0.3333333333333333,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN5385,5385,seizure free for 1 year,seizure free for 1 year,0.0,NS,NS,True,False,False,False
+GAN16161,16161,18 per 3 month,18 per 3 month,6.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN11334,11334,1 per 2 month,1 per 2 month,0.5,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN10807,10807,"2 cluster per month, multiple per cluster","2 cluster per month, multiple per cluster",4.0,frequent,1/W,True,False,False,False
+GAN7958,7958,seizure free for multiple year,seizure free for multiple year,0.0,NS,NS,True,False,False,False
+GAN9942,9942,"1 cluster per month, multiple per cluster","1 cluster per month, multiple per cluster",2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN7506,7506,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN12827,12827,5 per 5 month,5 per 5 month,1.0,infrequent,1/M,True,False,False,False
+GAN3452,3452,6 to 8 per month,6 to 8 per month,7.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN13908,13908,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN5210,5210,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN3082,3082,seizure free for 10 month,seizure free for 10 month,0.0,NS,NS,True,False,False,False
+GAN16807,16807,8 per 3 month,8 per 3 month,2.6666666666666665,frequent,"(1/M,1/W)",True,False,False,False
+GAN8736,8736,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN3371,3371,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN9238,9238,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN3534,3534,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN12169,12169,multiple per week,multiple per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN278,278,multiple per week,multiple per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN4992,4992,seizure free for 11 month,seizure free for 11 month,0.0,NS,NS,True,False,False,False
+GAN15982,15982,9 per 2 month,9 per 2 month,4.5,frequent,"(1/W,1/D)",True,False,False,False
+GAN12749,12749,3 to 4 per day,3 to 4 per day,105.0,frequent,>=1/D,True,False,False,False
+GAN8180,8180,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN12046,12046,multiple per day,multiple per day,60.0,frequent,>=1/D,True,False,False,False
+GAN15628,15628,multiple per week,multiple per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN12281,12281,2 to 3 per day,2 to 3 per day,75.0,frequent,>=1/D,True,False,False,False
+GAN8162,8162,seizure free for 7 month,seizure free for 7 month,0.0,NS,NS,True,False,False,False
+GAN1868,1868,8 per 2 month,8 per 2 month,4.0,frequent,1/W,True,False,False,False
+GAN15900,15900,12 per 2 month,12 per 2 month,6.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN10052,10052,"4 cluster per 3 month, multiple per cluster","4 cluster per 3 month, multiple per cluster",2.6666666666666665,frequent,"(1/M,1/W)",True,False,False,False
+GAN10408,10408,"1 cluster per week, 3 to 5 per cluster","1 cluster per week, 3 to 5 per cluster",16.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN3766,3766,8 per year,8 per year,0.6666666666666666,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN5110,5110,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN2220,2220,5 to 7 per 2 month,5 to 7 per 2 month,3.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN8724,8724,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN12643,12643,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN15513,15513,"1 cluster per 4 to 5 day, 2 to 3 per cluster","1 cluster per 4 to 5 day, 2 to 3 per cluster",16.666666666666668,frequent,"(1/W,1/D)",False,False,False,False
+GAN1223,1223,3 to 4 per week,3 to 4 per week,14.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN9065,9065,seizure free for 13 month,seizure free for 13 month,0.0,NS,NS,True,False,False,False
+GAN1854,1854,9 per 6 month,9 per 6 month,1.5,frequent,"(1/M,1/W)",True,False,False,False
+GAN766,766,1 per week,1 per week,4.0,frequent,1/W,True,False,False,False
+GAN3889,3889,8 per year,8 per year,0.6666666666666666,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN9704,9704,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN11867,11867,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN4936,4936,seizure free for 1 year,seizure free for 1 year,0.0,NS,NS,True,False,False,False
+GAN3806,3806,6 per month,6 per month,6.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN6365,6365,"unknown, 1 to 2 per cluster","unknown, 1 to 2 per cluster",,UNK,UNK,False,True,True,False
+GAN2116,2116,multiple per week,multiple per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN7897,7897,seizure free for 18 month,seizure free for 18 month,0.0,NS,NS,True,False,False,False
+GAN7194,7194,2 to 3 per week,2 to 3 per week,10.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN2577,2577,5 to 7 per 2 month,5 to 7 per 2 month,3.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN9251,9251,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN963,963,1 per 2 month,1 per 2 month,0.5,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN5476,5476,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN15730,15730,multiple per week,multiple per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN14354,14354,2 to 4 per 3 month,2 to 4 per 3 month,1.0,infrequent,1/M,True,False,False,False
+GAN3643,3643,7 per week,7 per week,28.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN11131,11131,"2 cluster per month, 3 to 4 per cluster","2 cluster per month, 3 to 4 per cluster",7.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN12280,12280,4 per day,4 per day,120.0,frequent,>=1/D,True,False,False,False
+GAN7198,7198,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN7882,7882,seizure free for 6 month,seizure free for 6 month,0.0,NS,NS,True,False,False,False
+GAN6131,6131,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN12356,12356,3 per day,3 per day,90.0,frequent,>=1/D,True,False,False,False
+GAN7816,7816,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN10553,10553,"unknown, 2 to 3 per cluster","unknown, 2 to 3 per cluster",,UNK,UNK,False,True,True,False
+GAN3118,3118,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN17200,17200,1 per month,1 per month,1.0,infrequent,1/M,True,False,False,False
+GAN841,841,1 per year,1 per year,0.08333333333333333,infrequent,<1/6M,True,False,False,False
+GAN4027,4027,1 per 3 to 4 week,1 per 3 to 4 week,1.1428571428571428,frequent,"(1/M,1/W)",False,False,False,False
+GAN13011,13011,3 per 4 month,3 per 4 month,0.75,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN12679,12679,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN16883,16883,4 per 3 month,4 per 3 month,1.3333333333333333,frequent,"(1/M,1/W)",True,False,False,False
+GAN1980,1980,6 per 3 month,6 per 3 month,2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN1363,1363,3 per day,3 per day,90.0,frequent,>=1/D,True,False,False,False
+GAN4591,4591,1 per 5 month,1 per 5 month,0.2,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN7581,7581,2 to 3 per week,2 to 3 per week,10.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN1326,1326,multiple per day,multiple per day,60.0,frequent,>=1/D,True,False,False,False
+GAN1005,1005,multiple per 3 month,multiple per 3 month,0.6666666666666666,infrequent,"(1/6M,1/M)",False,False,False,False
+GAN14748,14748,2 per 3 month,2 per 3 month,0.6666666666666666,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN2354,2354,6 to 7 per week,6 to 7 per week,26.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN11389,11389,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN690,690,1 per year,1 per year,0.08333333333333333,infrequent,<1/6M,True,False,False,False
+GAN467,467,9 per month,9 per month,9.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN15021,15021,1 per 3 month,1 per 3 month,0.3333333333333333,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN10933,10933,"2 to 3 cluster per month, 5 per cluster","2 to 3 cluster per month, 5 per cluster",12.5,frequent,"(1/W,1/D)",False,False,False,False
+GAN8135,8135,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN6192,6192,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN16107,16107,8 per 3 month,8 per 3 month,2.6666666666666665,frequent,"(1/M,1/W)",True,False,False,False
+GAN9189,9189,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN14025,14025,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN3512,3512,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN14943,14943,1 per 3 month,1 per 3 month,0.3333333333333333,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN6607,6607,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN11585,11585,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN11918,11918,5 per week,5 per week,20.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN3224,3224,"1 cluster per month, 6 to 7 per cluster","1 cluster per month, 6 to 7 per cluster",6.5,frequent,"(1/W,1/D)",True,False,False,False
+GAN8342,8342,seizure free for 9 month,seizure free for 9 month,0.0,NS,NS,True,False,False,False
+GAN2765,2765,1 per month,1 per month,1.0,infrequent,1/M,True,False,False,False
+GAN8852,8852,seizure free for 8 month,seizure free for 8 month,0.0,NS,NS,True,False,False,False
+GAN5221,5221,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN17126,17126,"3 cluster per month, multiple per cluster","3 cluster per month, multiple per cluster",6.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN10159,10159,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN7280,7280,5 per month,5 per month,5.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN8581,8581,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN4092,4092,1 per 2 to 3 week,1 per 2 to 3 week,1.6,frequent,"(1/M,1/W)",False,False,False,False
+GAN3849,3849,3 per day,3 per day,90.0,frequent,>=1/D,True,False,False,False
+GAN11408,11408,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN5507,5507,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN11787,11787,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN13037,13037,8 per 4 month,8 per 4 month,2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN13267,13267,2 per 5 month,2 per 5 month,0.4,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN3297,3297,6 per month,6 per month,6.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN11681,11681,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN11841,11841,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN8222,8222,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN17216,17216,2 per day,2 per day,60.0,frequent,>=1/D,True,False,False,False
+GAN14645,14645,2 per 6 month,2 per 6 month,0.3333333333333333,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN2759,2759,1 per month,1 per month,1.0,infrequent,1/M,True,False,False,False
+GAN16718,16718,9 per 6 month,9 per 6 month,1.5,frequent,"(1/M,1/W)",True,False,False,False
+GAN5682,5682,2 to 4 per month,2 to 4 per month,3.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN16529,16529,1 per 5 day,1 per 5 day,6.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN17229,17229,2 per week,2 per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN1094,1094,3 to 5 per week,3 to 5 per week,16.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN212,212,1 per 3 to 4 week,1 per 3 to 4 week,1.1428571428571428,frequent,"(1/M,1/W)",False,False,False,False
+GAN10612,10612,"unknown, 5 per cluster","unknown, 5 per cluster",,UNK,UNK,False,True,True,False
+GAN3528,3528,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN1018,1018,1 per 3 to 4 month,1 per 3 to 4 month,0.2857142857142857,infrequent,"(1/6M,1/M)",False,False,False,False
+GAN5908,5908,1 per 3 to 4 week,1 per 3 to 4 week,1.1428571428571428,frequent,"(1/M,1/W)",False,False,False,False
+GAN8568,8568,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN12412,12412,2 per day,2 per day,60.0,frequent,>=1/D,True,False,False,False
+GAN13069,13069,2 per 5 month,2 per 5 month,0.4,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN11076,11076,"1 cluster per 2 months, 2 to 4 per cluster","1 cluster per 2 months, 2 to 4 per cluster",,UNK,UNK,True,True,True,False
+GAN8942,8942,seizure free for 8 month,seizure free for 8 month,0.0,NS,NS,True,False,False,False
+GAN1463,1463,3 per month,3 per month,3.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN9979,9979,"3 to 4 cluster per week, multiple per cluster","3 to 4 cluster per week, multiple per cluster",28.0,frequent,"(1/W,1/D)",False,False,False,False
+GAN7783,7783,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN2597,2597,2 per day,2 per day,60.0,frequent,>=1/D,True,False,False,False
+GAN11499,11499,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN5708,5708,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN1889,1889,4 per 6 month,4 per 6 month,0.6666666666666666,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN2374,2374,7 to 9 per month,7 to 9 per month,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN10862,10862,"1 cluster per week, multiple per cluster","1 cluster per week, multiple per cluster",8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN1060,1060,6 to 7 per month,6 to 7 per month,6.5,frequent,"(1/W,1/D)",True,False,False,False
+GAN1046,1046,3 to 5 per month,3 to 5 per month,4.0,frequent,1/W,True,False,False,False
+GAN1656,1656,5 per month,5 per month,5.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN934,934,1 per 2 week,1 per 2 week,2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN11562,11562,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN4602,4602,1 per 7 to 10 day,1 per 7 to 10 day,3.5294117647058822,frequent,"(1/M,1/W)",False,False,False,False
+GAN14214,14214,2 to 4 per month,2 to 4 per month,3.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN11734,11734,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN11380,11380,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN12362,12362,2 to 3 per day,2 to 3 per day,75.0,frequent,>=1/D,True,False,False,False
+GAN4615,4615,1 per 20 to 30 day,1 per 20 to 30 day,1.2,frequent,"(1/M,1/W)",False,False,False,False
+GAN3753,3753,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN9279,9279,1 to 2 per week,1 to 2 per week,6.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN15141,15141,4 to 5 per 15 month,4 to 5 per 15 month,0.3,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN16633,16633,10 per 4 month,10 per 4 month,2.5,frequent,"(1/M,1/W)",True,False,False,False
+GAN4771,4771,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN7431,7431,1 per month,1 per month,1.0,infrequent,1/M,True,False,False,False
+GAN243,243,1 per 4 month,1 per 4 month,0.25,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN5954,5954,2 per week,2 per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN79,79,6 to 7 per year,6 to 7 per year,0.5416666666666666,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN15385,15385,"1 cluster per 2 month, 3 per cluster","1 cluster per 2 month, 3 per cluster",1.5,frequent,"(1/M,1/W)",True,False,False,False
+GAN8474,8474,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN10074,10074,"5 cluster per month, multiple per cluster","5 cluster per month, multiple per cluster",10.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN12573,12573,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN13043,13043,2 per 5 month,2 per 5 month,0.4,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN1705,1705,"1 cluster per month, multiple per cluster","1 cluster per month, multiple per cluster",2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN149,149,19 per month,19 per month,19.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN13123,13123,1 per year,1 per year,0.08333333333333333,infrequent,<1/6M,True,False,False,False
+GAN1182,1182,6 to 14 per 3 month,6 to 14 per 3 month,3.3333333333333335,frequent,"(1/M,1/W)",True,False,False,False
+GAN14306,14306,4 per 2 month,4 per 2 month,2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN16368,16368,1 per 2 day,1 per 2 day,15.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN12392,12392,4 per day,4 per day,120.0,frequent,>=1/D,True,False,False,False
+GAN13922,13922,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN10542,10542,"unknown, 2 to 4 per cluster","unknown, 2 to 4 per cluster",,UNK,UNK,False,True,True,False
+GAN1629,1629,12 per month,12 per month,12.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN4892,4892,seizure free for 11 month,seizure free for 11 month,0.0,NS,NS,True,False,False,False
+GAN14145,14145,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN1185,1185,4 to 22 per 3 month,4 to 22 per 3 month,4.333333333333333,frequent,"(1/W,1/D)",True,False,False,False
+GAN15593,15593,"1 cluster per 5 day, 2 to 4 per cluster","1 cluster per 5 day, 2 to 4 per cluster",18.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN4624,4624,1 per 3 to 4 day,1 per 3 to 4 day,8.571428571428571,frequent,"(1/W,1/D)",False,False,False,False
+GAN4709,4709,multiple per day,multiple per day,60.0,frequent,>=1/D,True,False,False,False
+GAN6624,6624,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN9888,9888,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN2245,2245,7 to 8 per 3 week,7 to 8 per 3 week,10.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN12562,12562,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN16271,16271,13 per 3 month,13 per 3 month,4.333333333333333,frequent,"(1/W,1/D)",True,False,False,False
+GAN10538,10538,"unknown, 6 per cluster","unknown, 6 per cluster",,UNK,UNK,False,True,True,False
+GAN3507,3507,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN16991,16991,multiple per month,multiple per month,2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN2475,2475,3 to 4 per 3 month,3 to 4 per 3 month,1.1666666666666667,frequent,"(1/M,1/W)",True,False,False,False
+GAN16132,16132,15 per 3 month,15 per 3 month,5.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN16865,16865,11 per 5 month,11 per 5 month,2.2,frequent,"(1/M,1/W)",True,False,False,False
+GAN6077,6077,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN13765,13765,50 per 9 month,50 per 9 month,5.555555555555555,frequent,"(1/W,1/D)",True,False,False,False
+GAN2242,2242,6 to 8 per 3 month,6 to 8 per 3 month,2.3333333333333335,frequent,"(1/M,1/W)",True,False,False,False
+GAN14792,14792,1 per month,1 per month,1.0,infrequent,1/M,True,False,False,False
+GAN17279,17279,1 per 4 to 5 week,1 per 4 to 5 week,0.8888888888888888,infrequent,"(1/6M,1/M)",False,False,False,False
+GAN6408,6408,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN3864,3864,3 per day,3 per day,90.0,frequent,>=1/D,True,False,False,False
+GAN12127,12127,multiple per week,multiple per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN6592,6592,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN16108,16108,12 per 4 month,12 per 4 month,3.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN2282,2282,8 to 9 per month,8 to 9 per month,8.5,frequent,"(1/W,1/D)",True,False,False,False
+GAN11431,11431,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN16574,16574,1 per 4 day,1 per 4 day,7.5,frequent,"(1/W,1/D)",True,False,False,False
+GAN3325,3325,3 per week,3 per week,12.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN3327,3327,5 to 6 per year,5 to 6 per year,0.4583333333333333,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN12139,12139,multiple per week,multiple per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN5200,5200,seizure free for multiple year,seizure free for multiple year,0.0,NS,NS,True,False,False,False
+GAN8820,8820,seizure free for 7 month,seizure free for 7 month,0.0,NS,NS,True,False,False,False
+GAN1380,1380,5 per month,5 per month,5.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN8476,8476,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN13635,13635,47 per 7 month,47 per 7 month,6.714285714285714,frequent,"(1/W,1/D)",True,False,False,False
+GAN10047,10047,"2 cluster per 3 month, multiple per cluster","2 cluster per 3 month, multiple per cluster",1.3333333333333333,frequent,"(1/M,1/W)",True,False,False,False
+GAN10206,10206,"unknown, 2 to 4 per cluster","unknown, 2 to 4 per cluster",,UNK,UNK,False,True,True,False
+GAN2622,2622,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN15771,15771,3 per week,3 per week,12.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN16962,16962,2 per week,2 per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN1812,1812,12 per 3 month,12 per 3 month,4.0,frequent,1/W,True,False,False,False
+GAN16632,16632,6 per 6 month,6 per 6 month,1.0,infrequent,1/M,True,False,False,False
+GAN13732,13732,52 per 8 month,52 per 8 month,6.5,frequent,"(1/W,1/D)",True,False,False,False
+GAN14250,14250,2 per month,2 per month,2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN12502,12502,4 per day,4 per day,120.0,frequent,>=1/D,True,False,False,False
+GAN14390,14390,2 per 3 month,2 per 3 month,0.6666666666666666,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN8346,8346,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN6929,6929,multiple per week,multiple per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN17273,17273,1 per 2 day,1 per 2 day,15.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN14611,14611,2 per 4 month,2 per 4 month,0.5,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN3892,3892,3 per year,3 per year,0.25,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN12506,12506,4 per day,4 per day,120.0,frequent,>=1/D,True,False,False,False
+GAN13209,13209,1 per 8 month,1 per 8 month,0.125,infrequent,<1/6M,True,False,False,False
+GAN2812,2812,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN7615,7615,3 to 7 per month,3 to 7 per month,5.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN10063,10063,"3 cluster per 3 month, multiple per cluster","3 cluster per 3 month, multiple per cluster",2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN7126,7126,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN136,136,6 to 7 per month,6 to 7 per month,6.5,frequent,"(1/W,1/D)",True,False,False,False
+GAN16590,16590,1 per 4 to 5 day,1 per 4 to 5 day,6.666666666666667,frequent,"(1/W,1/D)",False,False,False,False
+GAN13190,13190,1 per 5 month,1 per 5 month,0.2,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN1190,1190,5 to 12 per 3 month,5 to 12 per 3 month,2.8333333333333335,frequent,"(1/M,1/W)",True,False,False,False
+GAN492,492,19 per month,19 per month,19.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN1290,1290,8 to 9 per year,8 to 9 per year,0.7083333333333333,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN5331,5331,seizure free for 12 month,seizure free for 12 month,0.0,NS,NS,True,False,False,False
+GAN7884,7884,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN6319,6319,1 per week,1 per week,4.0,frequent,1/W,True,False,False,False
+GAN4340,4340,6 per 6 month,6 per 6 month,1.0,infrequent,1/M,True,False,False,False
+GAN12330,12330,3 to 4 per week,3 to 4 per week,14.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN15203,15203,multiple per 13 month,multiple per 13 month,0.15384615384615385,infrequent,<1/6M,False,False,False,False
+GAN11221,11221,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN156,156,1 per 6 day,1 per 6 day,5.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN14877,14877,1 per month,1 per month,1.0,infrequent,1/M,True,False,False,False
+GAN12751,12751,4 per day,4 per day,120.0,frequent,>=1/D,True,False,False,False
+GAN1883,1883,4 per 3 month,4 per 3 month,1.3333333333333333,frequent,"(1/M,1/W)",True,False,False,False
+GAN3054,3054,seizure free for 16 month,seizure free for 16 month,0.0,NS,NS,True,False,False,False
+GAN9215,9215,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN959,959,1 per 2 month,1 per 2 month,0.5,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN174,174,1 per 1 to 3 day,1 per 1 to 3 day,15.0,frequent,"(1/W,1/D)",False,False,False,False
+GAN14567,14567,3 per 3 month,3 per 3 month,1.0,infrequent,1/M,True,False,False,False
+GAN15737,15737,2 to 3 per week,2 to 3 per week,10.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN1880,1880,8 per 2 month,8 per 2 month,4.0,frequent,1/W,True,False,False,False
+GAN10942,10942,"2 cluster per month, 5 per cluster","2 cluster per month, 5 per cluster",10.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN11750,11750,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN9109,9109,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN8932,8932,seizure free for 9 month,seizure free for 9 month,0.0,NS,NS,True,False,False,False
+GAN16753,16753,19 per 6 month,19 per 6 month,3.1666666666666665,frequent,"(1/M,1/W)",True,False,False,False
+GAN5092,5092,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN5406,5406,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN8858,8858,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN1422,1422,9 per week,9 per week,36.0,frequent,>=1/D,True,False,False,False
+GAN2262,2262,7 to 9 per 3 week,7 to 9 per 3 week,10.666666666666666,frequent,"(1/W,1/D)",True,False,False,False
+GAN4217,4217,1 per 2 day,1 per 2 day,15.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN2596,2596,2 per day,2 per day,60.0,frequent,>=1/D,True,False,False,False
+GAN7491,7491,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN6532,6532,"unknown, multiple per cluster","unknown, multiple per cluster",,UNK,UNK,False,True,True,False
+GAN14545,14545,2 per 3 month,2 per 3 month,0.6666666666666666,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN3682,3682,6 per month,6 per month,6.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN1573,1573,11 per week,11 per week,44.0,frequent,>=1/D,True,False,False,False
+GAN7167,7167,"1 cluster per 2 weeks, 2 to 4 per cluster","1 cluster per 2 weeks, 2 to 4 per cluster",,UNK,UNK,True,True,True,False
+GAN16977,16977,4 to 5 per month,4 to 5 per month,4.5,frequent,"(1/W,1/D)",True,False,False,False
+GAN6909,6909,1 per 2 to 3 weeks,1 per 2 to 3 weeks,,UNK,UNK,False,True,True,False
+GAN16593,16593,1 per 2 to 4 day,1 per 2 to 4 day,10.0,frequent,"(1/W,1/D)",False,False,False,False
+GAN17110,17110,"4 to 5 cluster per week, multiple per cluster","4 to 5 cluster per week, multiple per cluster",36.0,frequent,>=1/D,False,False,False,False
+GAN14092,14092,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN13627,13627,64 per 12 month,64 per 12 month,5.333333333333333,frequent,"(1/W,1/D)",True,False,False,False
+GAN2513,2513,2 to 3 per 2 week,2 to 3 per 2 week,5.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN13051,13051,2 per 8 month,2 per 8 month,0.25,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN11109,11109,"2 cluster per month, 5 per cluster","2 cluster per month, 5 per cluster",10.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN17189,17189,1 per month,1 per month,1.0,infrequent,1/M,True,False,False,False
+GAN10996,10996,"1 to 2 cluster per month, 4 per cluster","1 to 2 cluster per month, 4 per cluster",6.0,frequent,"(1/W,1/D)",False,False,False,False
+GAN5527,5527,1 per year,1 per year,0.08333333333333333,infrequent,<1/6M,True,False,False,False
+GAN5351,5351,seizure free for 18 month,seizure free for 18 month,0.0,NS,NS,True,False,False,False
+GAN3340,3340,2 to 3 per month,2 to 3 per month,2.5,frequent,"(1/M,1/W)",True,False,False,False
+GAN13843,13843,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN13473,13473,seizure free for 5 year,seizure free for 5 year,0.0,NS,NS,True,False,False,False
+GAN4073,4073,1 per 2 to 3 week,1 per 2 to 3 week,1.6,frequent,"(1/M,1/W)",False,False,False,False
+GAN13210,13210,1 per 5 month,1 per 5 month,0.2,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN3246,3246,"2 cluster per month, 4 per cluster","2 cluster per month, 4 per cluster",8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN1898,1898,4 per 6 month,4 per 6 month,0.6666666666666666,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN13600,13600,seizure free for multiple year,seizure free for multiple year,0.0,NS,NS,True,False,False,False
+GAN13513,13513,seizure free for 1.5 year,seizure free for 1.5 year,0.0,NS,NS,True,False,False,False
+GAN4842,4842,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN698,698,1 per week,1 per week,4.0,frequent,1/W,True,False,False,False
+GAN14031,14031,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN2425,2425,6 to 8 per month,6 to 8 per month,7.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN7863,7863,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN1153,1153,8 to 9 per 3 week,8 to 9 per 3 week,11.333333333333334,frequent,"(1/W,1/D)",True,False,False,False
+GAN5504,5504,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN11492,11492,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN9449,9449,4 per 6 month,4 per 6 month,0.6666666666666666,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN14540,14540,2 per 8 month,2 per 8 month,0.25,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN3242,3242,"2 cluster per month, 5 per cluster","2 cluster per month, 5 per cluster",10.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN13077,13077,2 per 3 month,2 per 3 month,0.6666666666666666,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN15766,15766,4 per week,4 per week,16.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN1911,1911,7 per 2 month,7 per 2 month,3.5,frequent,"(1/M,1/W)",True,False,False,False
+GAN10330,10330,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN3940,3940,4 per week,4 per week,16.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN8265,8265,seizure free for 6 month,seizure free for 6 month,0.0,NS,NS,True,False,False,False
+GAN13595,13595,seizure free for multiple year,seizure free for multiple year,0.0,NS,NS,True,False,False,False
+GAN8113,8113,seizure free for 14 month,seizure free for 14 month,0.0,NS,NS,True,False,False,False
+GAN16450,16450,1 per multiple day,1 per multiple day,15.0,frequent,"(1/W,1/D)",False,False,False,False
+GAN4496,4496,7 to 8 per 3 month,7 to 8 per 3 month,2.5,frequent,"(1/M,1/W)",True,False,False,False
+GAN9287,9287,3 to 5 per week,3 to 5 per week,16.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN2337,2337,8 to 10 per week,8 to 10 per week,36.0,frequent,>=1/D,True,False,False,False
+GAN2114,2114,multiple per month,multiple per month,2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN10728,10728,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN15404,15404,"1 cluster per 4 month, 3 to 4 per cluster","1 cluster per 4 month, 3 to 4 per cluster",0.875,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN7195,7195,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN8835,8835,seizure free for 10 month,seizure free for 10 month,0.0,NS,NS,True,False,False,False
+GAN17297,17297,1 per multiple week,1 per multiple week,2.0,frequent,"(1/M,1/W)",False,False,False,False
+GAN7328,7328,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN3262,3262,"2 cluster per month, 5 per cluster","2 cluster per month, 5 per cluster",10.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN10445,10445,"9 cluster per month, 2 to 4 per cluster","9 cluster per month, 2 to 4 per cluster",27.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN7318,7318,1 per 2 to 3 week,1 per 2 to 3 week,1.6,frequent,"(1/M,1/W)",False,False,False,False
+GAN16825,16825,10 per 6 month,10 per 6 month,1.6666666666666667,frequent,"(1/M,1/W)",True,False,False,False
+GAN7719,7719,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN13901,13901,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN7389,7389,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN4839,4839,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN5961,5961,1 per 2 to 3 week,1 per 2 to 3 week,1.6,frequent,"(1/M,1/W)",False,False,False,False
+GAN12079,12079,multiple per week,multiple per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN11207,11207,"2 cluster per month, 6 per cluster","2 cluster per month, 6 per cluster",12.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN13167,13167,1 per 3 month,1 per 3 month,0.3333333333333333,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN12403,12403,2 to 3 per day,2 to 3 per day,75.0,frequent,>=1/D,True,False,False,False
+GAN12314,12314,3 per week,3 per week,12.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN610,610,1 per 2 to 3 month,1 per 2 to 3 month,0.4,infrequent,"(1/6M,1/M)",False,False,False,False
+GAN10031,10031,"1 cluster per week, multiple per cluster","1 cluster per week, multiple per cluster",8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN15429,15429,"1 cluster per 2 month, 4 per cluster","1 cluster per 2 month, 4 per cluster",2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN14002,14002,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN15642,15642,2 to 4 per week,2 to 4 per week,12.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN16203,16203,9 per 3 month,9 per 3 month,3.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN9462,9462,7 per 11 month,7 per 11 month,0.6363636363636364,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN503,503,11 to 28 per 3 month,11 to 28 per 3 month,6.5,frequent,"(1/W,1/D)",True,False,False,False
+GAN7935,7935,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN10517,10517,"3 to 4 cluster per week, multiple per cluster","3 to 4 cluster per week, multiple per cluster",28.0,frequent,"(1/W,1/D)",False,False,False,False
+GAN14499,14499,3 per 8 month,3 per 8 month,0.375,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN8398,8398,seizure free for multiple year,seizure free for multiple year,0.0,NS,NS,True,False,False,False
+GAN11523,11523,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN8432,8432,1 per 2 to 3 month,1 per 2 to 3 month,0.4,infrequent,"(1/6M,1/M)",False,False,False,False
+GAN15986,15986,11 per 3 month,11 per 3 month,3.6666666666666665,frequent,"(1/M,1/W)",True,False,False,False
+GAN7961,7961,seizure free for multiple year,seizure free for multiple year,0.0,NS,NS,True,False,False,False
+GAN12665,12665,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN2781,2781,1 per week,1 per week,4.0,frequent,1/W,True,False,False,False
+GAN7420,7420,1 to 2 per 2 week,1 to 2 per 2 week,3.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN6153,6153,9 per month,9 per month,9.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN5684,5684,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN15407,15407,"1 cluster per 4 month, 2 to 3 per cluster","1 cluster per 4 month, 2 to 3 per cluster",0.625,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN3353,3353,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN51,51,5 per week,5 per week,20.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN7670,7670,multiple per week,multiple per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN13174,13174,1 per 4 month,1 per 4 month,0.25,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN7894,7894,seizure free for multiple year,seizure free for multiple year,0.0,NS,NS,True,False,False,False
+GAN2489,2489,2 to 4 per 3 week,2 to 4 per 3 week,4.0,frequent,1/W,True,False,False,False
+GAN12919,12919,5 per 5 month,5 per 5 month,1.0,infrequent,1/M,True,False,False,False
+GAN1633,1633,12 per week,12 per week,48.0,frequent,>=1/D,True,False,False,False
+GAN8203,8203,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN4011,4011,1 per month,1 per month,1.0,infrequent,1/M,True,False,False,False
+GAN14029,14029,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN14076,14076,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN11399,11399,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN6073,6073,1 per 3 to 4 weeks,1 per 3 to 4 weeks,,UNK,UNK,False,True,True,False
+GAN11411,11411,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN8799,8799,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN15785,15785,multiple per day,multiple per day,60.0,frequent,>=1/D,True,False,False,False
+GAN4243,4243,1 per 2 to 3 week,1 per 2 to 3 week,1.6,frequent,"(1/M,1/W)",False,False,False,False
+GAN6273,6273,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN17258,17258,1 per 4 day,1 per 4 day,7.5,frequent,"(1/W,1/D)",True,False,False,False
+GAN8924,8924,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN6387,6387,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN8400,8400,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN8723,8723,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN15396,15396,"1 cluster per 2 month, 4 per cluster","1 cluster per 2 month, 4 per cluster",2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN4113,4113,1 per 1 to 2 day,1 per 1 to 2 day,20.0,frequent,"(1/W,1/D)",False,False,False,False
+GAN16394,16394,1 per 2 to 4 day,1 per 2 to 4 day,10.0,frequent,"(1/W,1/D)",False,False,False,False
+GAN6763,6763,1 per week,1 per week,4.0,frequent,1/W,True,False,False,False
+GAN3791,3791,10 per year,10 per year,0.8333333333333333,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN9294,9294,3 to 4 per week,3 to 4 per week,14.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN6034,6034,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN16432,16432,1 per 2 day,1 per 2 day,15.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN10189,10189,"unknown, 3 to 4 per cluster","unknown, 3 to 4 per cluster",,UNK,UNK,False,True,True,False
+GAN1030,1030,1 to 3 per month,1 to 3 per month,2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN493,493,11 per month,11 per month,11.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN3436,3436,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN12494,12494,1 to 2 per day,1 to 2 per day,45.0,frequent,>=1/D,True,False,False,False
+GAN4076,4076,1 per 2 to 3 week,1 per 2 to 3 week,1.6,frequent,"(1/M,1/W)",False,False,False,False
+GAN14858,14858,1 per month,1 per month,1.0,infrequent,1/M,True,False,False,False
+GAN17292,17292,1 per 3 week,1 per 3 week,1.3333333333333333,frequent,"(1/M,1/W)",True,False,False,False
+GAN4926,4926,seizure free for 1 year,seizure free for 1 year,0.0,NS,NS,True,False,False,False
+GAN12090,12090,multiple per week,multiple per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN4597,4597,1 per 3 week,1 per 3 week,1.3333333333333333,frequent,"(1/M,1/W)",True,False,False,False
+GAN11282,11282,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN2007,2007,6 per 3 month,6 per 3 month,2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN12667,12667,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN6967,6967,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN2725,2725,1 per 2 week,1 per 2 week,2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN2795,2795,1 per week,1 per week,4.0,frequent,1/W,True,False,False,False
+GAN4478,4478,19 per week,19 per week,76.0,frequent,>=1/D,True,False,False,False
+GAN3706,3706,6 per week,6 per week,24.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN16310,16310,10 per 3 month,10 per 3 month,3.3333333333333335,frequent,"(1/M,1/W)",True,False,False,False
+GAN15768,15768,2 to 3 per week,2 to 3 per week,10.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN11285,11285,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN15127,15127,5 per 13 month,5 per 13 month,0.38461538461538464,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN7192,7192,multiple per week,multiple per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN6699,6699,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN13336,13336,seizure free for 1.5 year,seizure free for 1.5 year,0.0,NS,NS,True,False,False,False
+GAN4269,4269,6 per week,6 per week,24.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN1429,1429,4 per week,4 per week,16.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN13823,13823,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN5714,5714,2 per 8 week,2 per 8 week,1.0,infrequent,1/M,True,False,False,False
+GAN2554,2554,1 to 10 per 2 month,1 to 10 per 2 month,2.75,frequent,"(1/M,1/W)",True,False,False,False
+GAN10237,10237,"4 cluster per month, multiple per cluster","4 cluster per month, multiple per cluster",8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN180,180,1 per 7 day,1 per 7 day,4.285714285714286,frequent,"(1/W,1/D)",True,False,False,False
+GAN2094,2094,multiple per month,multiple per month,2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN750,750,multiple per week,multiple per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN4100,4100,1 per 2 to 3 week,1 per 2 to 3 week,1.6,frequent,"(1/M,1/W)",False,False,False,False
+GAN4631,4631,1 per 14 to 21 day,1 per 14 to 21 day,1.7142857142857142,frequent,"(1/M,1/W)",False,False,False,False
+GAN10245,10245,"3 cluster per month, multiple per cluster","3 cluster per month, multiple per cluster",6.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN12778,12778,8 per 3 month,8 per 3 month,2.6666666666666665,frequent,"(1/M,1/W)",True,False,False,False
+GAN12258,12258,1 to 2 per day,1 to 2 per day,45.0,frequent,>=1/D,True,False,False,False
+GAN16674,16674,7 per 6 month,7 per 6 month,1.1666666666666667,frequent,"(1/M,1/W)",True,False,False,False
+GAN16774,16774,19 per 7 month,19 per 7 month,2.7142857142857144,frequent,"(1/M,1/W)",True,False,False,False
+GAN9259,9259,seizure free for 1 year,seizure free for 1 year,0.0,NS,NS,True,False,False,False
+GAN3934,3934,9 per week,9 per week,36.0,frequent,>=1/D,True,False,False,False
+GAN14590,14590,2 per 6 month,2 per 6 month,0.3333333333333333,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN15327,15327,"1 cluster per 2 week, 3 to 6 per cluster","1 cluster per 2 week, 3 to 6 per cluster",9.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN1017,1017,1 per 3 month,1 per 3 month,0.3333333333333333,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN190,190,1 per 4 week,1 per 4 week,1.0,infrequent,1/M,True,False,False,False
+GAN4574,4574,1 per 4 week,1 per 4 week,1.0,infrequent,1/M,True,False,False,False
+GAN13450,13450,seizure free for 1 year,seizure free for 1 year,0.0,NS,NS,True,False,False,False
+GAN10398,10398,"1 cluster per week, 2 per cluster","1 cluster per week, 2 per cluster",8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN12051,12051,multiple per day,multiple per day,60.0,frequent,>=1/D,True,False,False,False
+GAN5974,5974,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN8244,8244,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN2369,2369,3 to 4 per month,3 to 4 per month,3.5,frequent,"(1/M,1/W)",True,False,False,False
+GAN6065,6065,5 per month,5 per month,5.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN7168,7168,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN8805,8805,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN17207,17207,3 to 4 per day,3 to 4 per day,105.0,frequent,>=1/D,True,False,False,False
+GAN10487,10487,"4 cluster per month, multiple per cluster","4 cluster per month, multiple per cluster",8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN11842,11842,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN8922,8922,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN10934,10934,"2 to 4 cluster per month, 6 per cluster","2 to 4 cluster per month, 6 per cluster",18.0,frequent,"(1/W,1/D)",False,False,False,False
+GAN4239,4239,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN12877,12877,10 per 4 month,10 per 4 month,2.5,frequent,"(1/M,1/W)",True,False,False,False
+GAN9897,9897,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN3681,3681,9 per month,9 per month,9.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN11216,11216,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN5174,5174,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN1694,1694,"1 cluster per 2 week, 3 per cluster","1 cluster per 2 week, 3 per cluster",6.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN12882,12882,7 per 4 month,7 per 4 month,1.75,frequent,"(1/M,1/W)",True,False,False,False
+GAN16181,16181,15 per 4 month,15 per 4 month,3.75,frequent,"(1/M,1/W)",True,False,False,False
+GAN4919,4919,seizure free for 2 year,seizure free for 2 year,0.0,NS,NS,True,False,False,False
+GAN12590,12590,1 per week,1 per week,4.0,frequent,1/W,True,False,False,False
+GAN16717,16717,5 per 6 month,5 per 6 month,0.8333333333333334,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN2877,2877,2 per year,2 per year,0.16666666666666666,infrequent,1/6M,True,False,False,False
+GAN2274,2274,3 to 5 per 3 week,3 to 5 per 3 week,5.333333333333333,frequent,"(1/W,1/D)",True,False,False,False
+GAN2762,2762,1 per month,1 per month,1.0,infrequent,1/M,True,False,False,False
+GAN3774,3774,9 per year,9 per year,0.75,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN12645,12645,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN288,288,multiple per day,multiple per day,60.0,frequent,>=1/D,True,False,False,False
+GAN11436,11436,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN7275,7275,1 per month,1 per month,1.0,infrequent,1/M,True,False,False,False
+GAN15745,15745,2 to 3 per week,2 to 3 per week,10.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN12823,12823,9 per month,9 per month,9.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN11749,11749,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN5921,5921,1 per 6 to 8 week,1 per 6 to 8 week,0.5714285714285714,infrequent,"(1/6M,1/M)",False,False,False,False
+GAN15431,15431,"1 cluster per 4 month, 5 per cluster","1 cluster per 4 month, 5 per cluster",1.25,frequent,"(1/M,1/W)",True,False,False,False
+GAN12948,12948,7 per 5 month,7 per 5 month,1.4,frequent,"(1/M,1/W)",True,False,False,False
+GAN2652,2652,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN5490,5490,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN8523,8523,seizure free for 6 month,seizure free for 6 month,0.0,NS,NS,True,False,False,False
+GAN12335,12335,3 per week,3 per week,12.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN11405,11405,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN15302,15302,1 to 2 per 14 month,1 to 2 per 14 month,0.10714285714285714,infrequent,<1/6M,True,False,False,False
+GAN16585,16585,1 per 5 day,1 per 5 day,6.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN15094,15094,4 per 13 month,4 per 13 month,0.3076923076923077,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN8423,8423,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN16335,16335,7 per 3 month,7 per 3 month,2.3333333333333335,frequent,"(1/M,1/W)",True,False,False,False
+GAN6930,6930,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN11756,11756,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN12657,12657,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN7341,7341,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN2366,2366,2 to 4 per year,2 to 4 per year,0.25,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN14881,14881,1 per month,1 per month,1.0,infrequent,1/M,True,False,False,False
+GAN16772,16772,9 per 5 month,9 per 5 month,1.8,frequent,"(1/M,1/W)",True,False,False,False
+GAN4700,4700,multiple per day,multiple per day,60.0,frequent,>=1/D,True,False,False,False
+GAN11350,11350,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN5957,5957,3 per 8 week,3 per 8 week,1.5,frequent,"(1/M,1/W)",True,False,False,False
+GAN3600,3600,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN2459,2459,7 to 9 per 2 week,7 to 9 per 2 week,16.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN3839,3839,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN7993,7993,"unknown, 2 to 3 per cluster","unknown, 2 to 3 per cluster",,UNK,UNK,False,True,True,False
+GAN8079,8079,seizure free for 18 month,seizure free for 18 month,0.0,NS,NS,True,False,False,False
+GAN13587,13587,seizure free for multiple year,seizure free for multiple year,0.0,NS,NS,True,False,False,False
+GAN7872,7872,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN15966,15966,5 per 3 month,5 per 3 month,1.6666666666666667,frequent,"(1/M,1/W)",True,False,False,False
+GAN15802,15802,7 per week,7 per week,28.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN15148,15148,2 to 3 per 16 month,2 to 3 per 16 month,0.15625,infrequent,<1/6M,True,False,False,False
+GAN386,386,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN8690,8690,seizure free for 16 month,seizure free for 16 month,0.0,NS,NS,True,False,False,False
+GAN10896,10896,"1 cluster per week, 3 to 4 per cluster","1 cluster per week, 3 to 4 per cluster",14.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN9391,9391,1 per month,1 per month,1.0,infrequent,1/M,True,False,False,False
+GAN4679,4679,multiple per day,multiple per day,60.0,frequent,>=1/D,True,False,False,False
+GAN15268,15268,3 per 15 month,3 per 15 month,0.2,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN8596,8596,seizure free for 11 month,seizure free for 11 month,0.0,NS,NS,True,False,False,False
+GAN985,985,1 per 2 month,1 per 2 month,0.5,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN854,854,1 per year,1 per year,0.08333333333333333,infrequent,<1/6M,True,False,False,False
+GAN9300,9300,2 to 4 per week,2 to 4 per week,12.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN15519,15519,"1 cluster per 4 day, 3 per cluster","1 cluster per 4 day, 3 per cluster",22.5,frequent,"(1/W,1/D)",True,False,False,False
+GAN5197,5197,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN10941,10941,"6 cluster per month, 5 per cluster","6 cluster per month, 5 per cluster",30.0,frequent,>=1/D,True,False,False,False
+GAN12190,12190,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN16128,16128,10 per 3 month,10 per 3 month,3.3333333333333335,frequent,"(1/M,1/W)",True,False,False,False
+GAN12114,12114,multiple per week,multiple per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN891,891,1 per 2 day,1 per 2 day,15.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN16133,16133,18 per 4 month,18 per 4 month,4.5,frequent,"(1/W,1/D)",True,False,False,False
+GAN8577,8577,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN16557,16557,1 per 2 to 3 day,1 per 2 to 3 day,12.0,frequent,"(1/W,1/D)",False,False,False,False
+GAN12871,12871,5 per 2 month,5 per 2 month,2.5,frequent,"(1/M,1/W)",True,False,False,False
+GAN6360,6360,3 per week,3 per week,12.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN13178,13178,1 per 6 month,1 per 6 month,0.16666666666666666,infrequent,1/6M,True,False,False,False
+GAN10009,10009,"1 cluster per week, multiple per cluster","1 cluster per week, multiple per cluster",8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN9190,9190,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN10984,10984,"3 cluster per month, 3 to 4 per cluster","3 cluster per month, 3 to 4 per cluster",10.5,frequent,"(1/W,1/D)",True,False,False,False
+GAN666,666,2 per 2 to 3 month,2 per 2 to 3 month,0.8,infrequent,"(1/6M,1/M)",False,False,False,False
+GAN12145,12145,multiple per week,multiple per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN1295,1295,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN3293,3293,8 per month,8 per month,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN9955,9955,"1 cluster per month, multiple per cluster","1 cluster per month, multiple per cluster",2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN2306,2306,8 to 9 per month,8 to 9 per month,8.5,frequent,"(1/W,1/D)",True,False,False,False
+GAN15697,15697,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN4,4,5 per day,5 per day,150.0,frequent,>=1/D,True,False,False,False
+GAN16251,16251,14 per 4 month,14 per 4 month,3.5,frequent,"(1/M,1/W)",True,False,False,False
+GAN2938,2938,seizure free for 8 month,seizure free for 8 month,0.0,NS,NS,True,False,False,False
+GAN10583,10583,"unknown, 2 to 3 per cluster","unknown, 2 to 3 per cluster",,UNK,UNK,False,True,True,False
+GAN13006,13006,3 per 6 month,3 per 6 month,0.5,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN10509,10509,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN4004,4004,1 per month,1 per month,1.0,infrequent,1/M,True,False,False,False
+GAN11728,11728,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN1961,1961,5 per 2 month,5 per 2 month,2.5,frequent,"(1/M,1/W)",True,False,False,False
+GAN16420,16420,1 per 5 day,1 per 5 day,6.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN10447,10447,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN15113,15113,3 to 4 per 16 month,3 to 4 per 16 month,0.21875,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN15470,15470,"1 cluster per 5 day, multiple per cluster","1 cluster per 5 day, multiple per cluster",12.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN6701,6701,4 per 3 week,4 per 3 week,5.333333333333333,frequent,"(1/W,1/D)",True,False,False,False
+GAN14146,14146,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN748,748,1 per 2 month,1 per 2 month,0.5,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN9179,9179,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN1934,1934,7 per 2 month,7 per 2 month,3.5,frequent,"(1/M,1/W)",True,False,False,False
+GAN2233,2233,6 to 7 per 2 month,6 to 7 per 2 month,3.25,frequent,"(1/M,1/W)",True,False,False,False
+GAN598,598,1 per 8 month,1 per 8 month,0.125,infrequent,<1/6M,True,False,False,False
+GAN8954,8954,seizure free for 8 month,seizure free for 8 month,0.0,NS,NS,True,False,False,False
+GAN5528,5528,1 per month,1 per month,1.0,infrequent,1/M,True,False,False,False
+GAN4831,4831,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN3829,3829,5 per month,5 per month,5.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN16408,16408,1 per 3 day,1 per 3 day,10.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN763,763,1 per week,1 per week,4.0,frequent,1/W,True,False,False,False
+GAN14271,14271,2 to 3 per month,2 to 3 per month,2.5,frequent,"(1/M,1/W)",True,False,False,False
+GAN2822,2822,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN14888,14888,1 per month,1 per month,1.0,infrequent,1/M,True,False,False,False
+GAN2149,2149,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN3015,3015,seizure free for 12 month,seizure free for 12 month,0.0,NS,NS,True,False,False,False
+GAN5627,5627,1 per 5 day,1 per 5 day,6.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN6251,6251,1 per 1 to 2 month,1 per 1 to 2 month,0.6666666666666666,infrequent,"(1/6M,1/M)",False,False,False,False
+GAN13993,13993,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN7405,7405,1 per multiple months,1 per multiple months,,UNK,UNK,False,True,True,False
+GAN8473,8473,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN16947,16947,2 per week,2 per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN14503,14503,2 per 2 month,2 per 2 month,1.0,infrequent,1/M,True,False,False,False
+GAN9618,9618,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN2681,2681,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN6029,6029,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN12218,12218,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN13114,13114,1 per year,1 per year,0.08333333333333333,infrequent,<1/6M,True,False,False,False
+GAN12300,12300,3 per week,3 per week,12.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN12068,12068,multiple per day,multiple per day,60.0,frequent,>=1/D,True,False,False,False
+GAN6677,6677,3 per 4 month,3 per 4 month,0.75,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN8854,8854,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN4777,4777,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN9937,9937,"1 cluster per month, multiple per cluster","1 cluster per month, multiple per cluster",2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN5767,5767,1 per 1 to 2 week,1 per 1 to 2 week,2.6666666666666665,frequent,"(1/M,1/W)",False,False,False,False
+GAN10260,10260,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN12326,12326,4 per week,4 per week,16.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN6011,6011,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN6986,6986,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN16257,16257,7 per 3 month,7 per 3 month,2.3333333333333335,frequent,"(1/M,1/W)",True,False,False,False
+GAN3801,3801,9 per month,9 per month,9.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN1281,1281,5 to 7 per year,5 to 7 per year,0.5,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN8221,8221,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN3468,3468,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN12676,12676,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN4342,4342,5 per 3 month,5 per 3 month,1.6666666666666667,frequent,"(1/M,1/W)",True,False,False,False
+GAN1486,1486,3 per month,3 per month,3.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN13822,13822,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN12772,12772,6 per 3 month,6 per 3 month,2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN2487,2487,2 to 3 per 3 month,2 to 3 per 3 month,0.8333333333333334,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN14930,14930,1 per 3 month,1 per 3 month,0.3333333333333333,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN2541,2541,8 to 9 per 2 week,8 to 9 per 2 week,17.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN4809,4809,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN2746,2746,1 per month,1 per month,1.0,infrequent,1/M,True,False,False,False
+GAN10123,10123,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN4320,4320,8 per month,8 per month,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN15529,15529,"1 cluster per 3 day, 4 per cluster","1 cluster per 3 day, 4 per cluster",40.0,frequent,>=1/D,True,False,False,False
+GAN4910,4910,seizure free for 2 year,seizure free for 2 year,0.0,NS,NS,True,False,False,False
+GAN6571,6571,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN40,40,4 per week,4 per week,16.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN5996,5996,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN16820,16820,7 per 3 month,7 per 3 month,2.3333333333333335,frequent,"(1/M,1/W)",True,False,False,False
+GAN13058,13058,2 per 7 month,2 per 7 month,0.2857142857142857,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN9943,9943,"1 cluster per 4 to 5 week, multiple per cluster","1 cluster per 4 to 5 week, multiple per cluster",1.7777777777777777,frequent,"(1/M,1/W)",False,False,False,False
+GAN17001,17001,5 per week,5 per week,20.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN14468,14468,2 per 6 month,2 per 6 month,0.3333333333333333,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN12465,12465,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN17287,17287,1 per 1 to 2 day,1 per 1 to 2 day,20.0,frequent,"(1/W,1/D)",False,False,False,False
+GAN11995,11995,2 per day,2 per day,60.0,frequent,>=1/D,True,False,False,False
+GAN14628,14628,2 per 2 month,2 per 2 month,1.0,infrequent,1/M,True,False,False,False
+GAN14823,14823,1 per month,1 per month,1.0,infrequent,1/M,True,False,False,False
+GAN13019,13019,9 per 3 month,9 per 3 month,3.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN1866,1866,8 per 2 month,8 per 2 month,4.0,frequent,1/W,True,False,False,False
+GAN3710,3710,5 per week,5 per week,20.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN10383,10383,"1 cluster per week, 5 per cluster","1 cluster per week, 5 per cluster",20.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN15108,15108,3 to 4 per 15 month,3 to 4 per 15 month,0.23333333333333334,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN11711,11711,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN15174,15174,multiple per 15 month,multiple per 15 month,0.13333333333333333,infrequent,<1/6M,False,False,False,False
+GAN16938,16938,2 per week,2 per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN1938,1938,5 per 4 month,5 per 4 month,1.25,frequent,"(1/M,1/W)",True,False,False,False
+GAN17201,17201,4 per month,4 per month,4.0,frequent,1/W,True,False,False,False
+GAN13376,13376,seizure free for 2 year,seizure free for 2 year,0.0,NS,NS,True,False,False,False
+GAN15255,15255,"multiple cluster per 15 month, multiple per cluster","multiple cluster per 15 month, multiple per cluster",0.26666666666666666,infrequent,"(1/6M,1/M)",False,False,False,False
+GAN3514,3514,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN8949,8949,seizure free for 6 month,seizure free for 6 month,0.0,NS,NS,True,False,False,False
+GAN1511,1511,7 per month,7 per month,7.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN4424,4424,3 per 6 month,3 per 6 month,0.5,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN8208,8208,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN14872,14872,1 per month,1 per month,1.0,infrequent,1/M,True,False,False,False
+GAN2112,2112,multiple per week,multiple per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN11463,11463,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN1597,1597,12 per month,12 per month,12.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN7578,7578,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN15208,15208,"multiple cluster per 13 month, multiple per cluster","multiple cluster per 13 month, multiple per cluster",0.3076923076923077,infrequent,"(1/6M,1/M)",False,False,False,False
+GAN16225,16225,11 per 3 month,11 per 3 month,3.6666666666666665,frequent,"(1/M,1/W)",True,False,False,False
+GAN5976,5976,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN5906,5906,"1 cluster per 3 week, multiple per cluster","1 cluster per 3 week, multiple per cluster",2.6666666666666665,frequent,"(1/M,1/W)",True,False,False,False
+GAN6661,6661,0.5 per week,0.5 per week,2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN3630,3630,7 per week,7 per week,28.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN12348,12348,2 to 3 per week,2 to 3 per week,10.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN12468,12468,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN13162,13162,1 per 4 month,1 per 4 month,0.25,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN11874,11874,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN13109,13109,2 per year,2 per year,0.16666666666666666,infrequent,1/6M,True,False,False,False
+GAN12460,12460,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN12236,12236,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN6987,6987,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN7409,7409,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN1500,1500,3 per week,3 per week,12.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN7738,7738,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN15377,15377,"1 cluster per 3 month, 2 to 3 per cluster","1 cluster per 3 month, 2 to 3 per cluster",0.8333333333333333,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN3281,3281,8 per month,8 per month,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN1171,1171,7 to 9 per 3 week,7 to 9 per 3 week,10.666666666666666,frequent,"(1/W,1/D)",True,False,False,False
+GAN16833,16833,8 per 6 month,8 per 6 month,1.3333333333333333,frequent,"(1/M,1/W)",True,False,False,False
+GAN5213,5213,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN7202,7202,10 to 16 per month,10 to 16 per month,13.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN14672,14672,3 per 8 month,3 per 8 month,0.375,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN15997,15997,10 per 3 month,10 per 3 month,3.3333333333333335,frequent,"(1/M,1/W)",True,False,False,False
+GAN14887,14887,1 per month,1 per month,1.0,infrequent,1/M,True,False,False,False
+GAN7093,7093,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN10737,10737,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN17135,17135,"5 cluster per month, multiple per cluster","5 cluster per month, multiple per cluster",10.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN744,744,multiple per week,multiple per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN12949,12949,9 per 6 month,9 per 6 month,1.5,frequent,"(1/M,1/W)",True,False,False,False
+GAN2228,2228,3 to 5 per 2 week,3 to 5 per 2 week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN16469,16469,1 per 3 to 4 day,1 per 3 to 4 day,8.571428571428571,frequent,"(1/W,1/D)",False,False,False,False
+GAN2748,2748,1 per month,1 per month,1.0,infrequent,1/M,True,False,False,False
+GAN10371,10371,seizure free for multiple year,seizure free for multiple year,0.0,NS,NS,True,False,False,False
+GAN10386,10386,"1 cluster per week, 2 to 3 per cluster","1 cluster per week, 2 to 3 per cluster",10.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN3095,3095,seizure free for 12 month,seizure free for 12 month,0.0,NS,NS,True,False,False,False
+GAN10931,10931,"6 cluster per month, 4 per cluster","6 cluster per month, 4 per cluster",24.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN6706,6706,2 per 8 week,2 per 8 week,1.0,infrequent,1/M,True,False,False,False
+GAN2887,2887,2 per week,2 per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN4345,4345,4 per month,4 per month,4.0,frequent,1/W,True,False,False,False
+GAN694,694,1 per week,1 per week,4.0,frequent,1/W,True,False,False,False
+GAN15665,15665,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN5140,5140,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN12835,12835,4 per month,4 per month,4.0,frequent,1/W,True,False,False,False
+GAN15012,15012,1 per 2 month,1 per 2 month,0.5,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN3846,3846,2 per day,2 per day,60.0,frequent,>=1/D,True,False,False,False
+GAN5121,5121,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN2548,2548,5 to 6 per 2 month,5 to 6 per 2 month,2.75,frequent,"(1/M,1/W)",True,False,False,False
+GAN8631,8631,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN11844,11844,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN12641,12641,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN1683,1683,multiple per month,multiple per month,2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN3758,3758,2 per day,2 per day,60.0,frequent,>=1/D,True,False,False,False
+GAN4250,4250,3 to 4 per week,3 to 4 per week,14.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN7650,7650,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN8941,8941,seizure free for 9 month,seizure free for 9 month,0.0,NS,NS,True,False,False,False
+GAN12036,12036,multiple per day,multiple per day,60.0,frequent,>=1/D,True,False,False,False
+GAN8375,8375,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN5567,5567,multiple per week,multiple per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN11400,11400,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN11983,11983,2 to 3 per day,2 to 3 per day,75.0,frequent,>=1/D,True,False,False,False
+GAN13598,13598,seizure free for multiple year,seizure free for multiple year,0.0,NS,NS,True,False,False,False
+GAN13983,13983,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN14581,14581,2 per 3 month,2 per 3 month,0.6666666666666666,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN6002,6002,4 per 6 week,4 per 6 week,2.6666666666666665,frequent,"(1/M,1/W)",True,False,False,False
+GAN16324,16324,10 per 3 month,10 per 3 month,3.3333333333333335,frequent,"(1/M,1/W)",True,False,False,False
+GAN3638,3638,3 per week,3 per week,12.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN6112,6112,3 to 5 per month,3 to 5 per month,4.0,frequent,1/W,True,False,False,False
+GAN6204,6204,2 per month,2 per month,2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN15772,15772,2 per week,2 per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN13796,13796,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN12556,12556,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN9654,9654,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN9299,9299,5 per week,5 per week,20.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN3300,3300,9 per month,9 per month,9.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN8893,8893,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN13183,13183,1 per 8 month,1 per 8 month,0.125,infrequent,<1/6M,True,False,False,False
+GAN15193,15193,multiple per 13 month,multiple per 13 month,0.15384615384615385,infrequent,<1/6M,False,False,False,False
+GAN9891,9891,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN536,536,1 per 2 day,1 per 2 day,15.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN16867,16867,6 per 7 month,6 per 7 month,0.8571428571428571,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN9562,9562,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN15479,15479,"1 cluster per 4 to 5 day, 2 per cluster","1 cluster per 4 to 5 day, 2 per cluster",13.333333333333334,frequent,"(1/W,1/D)",False,False,False,False
+GAN6738,6738,1 per 6 to 8 week,1 per 6 to 8 week,0.5714285714285714,infrequent,"(1/6M,1/M)",False,False,False,False
+GAN9250,9250,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN16907,16907,9 per 6 month,9 per 6 month,1.5,frequent,"(1/M,1/W)",True,False,False,False
+GAN14810,14810,1 per month,1 per month,1.0,infrequent,1/M,True,False,False,False
+GAN6164,6164,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN10630,10630,"multiple cluster per 2 week, 5 per cluster","multiple cluster per 2 week, 5 per cluster",20.0,frequent,"(1/W,1/D)",False,False,False,False
+GAN2246,2246,7 to 8 per 3 week,7 to 8 per 3 week,10.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN4563,4563,1 per 4 month,1 per 4 month,0.25,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN8006,8006,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN4808,4808,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN10753,10753,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN7688,7688,seizure free for 1 year,seizure free for 1 year,0.0,NS,NS,True,False,False,False
+GAN12422,12422,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN14689,14689,3 per 2 month,3 per 2 month,1.5,frequent,"(1/M,1/W)",True,False,False,False
+GAN7401,7401,"2 cluster per 6 week, 1 to 2 per cluster","2 cluster per 6 week, 1 to 2 per cluster",2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN15029,15029,1 per 3 month,1 per 3 month,0.3333333333333333,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN13149,13149,3 per year,3 per year,0.25,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN17202,17202,4 per week,4 per week,16.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN3692,3692,9 per week,9 per week,36.0,frequent,>=1/D,True,False,False,False
+GAN10965,10965,"2 cluster per month, 4 to 5 per cluster","2 cluster per month, 4 to 5 per cluster",9.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN12979,12979,3 per 4 month,3 per 4 month,0.75,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN9815,9815,multiple per day,multiple per day,60.0,frequent,>=1/D,True,False,False,False
+GAN10977,10977,"4 cluster per month, 5 per cluster","4 cluster per month, 5 per cluster",20.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN10615,10615,"1 cluster per 2 to 3 weeks, 5 per cluster","1 cluster per 2 to 3 weeks, 5 per cluster",,UNK,UNK,False,True,True,False
+GAN7392,7392,2 to 4 per week,2 to 4 per week,12.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN3532,3532,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN9696,9696,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN7818,7818,seizure free for 2 years,seizure free for 2 years,0.0,NS,NS,True,False,False,False
+GAN14551,14551,2 per 2 month,2 per 2 month,1.0,infrequent,1/M,True,False,False,False
+GAN13327,13327,seizure free for multiple year,seizure free for multiple year,0.0,NS,NS,True,False,False,False
+GAN10183,10183,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN14236,14236,4 per month,4 per month,4.0,frequent,1/W,True,False,False,False
+GAN13858,13858,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN3493,3493,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN12005,12005,2 to 6 per day,2 to 6 per day,120.0,frequent,>=1/D,True,False,False,False
+GAN7712,7712,2 per 3 month,2 per 3 month,0.6666666666666666,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN15965,15965,13 per 2 month,13 per 2 month,6.5,frequent,"(1/W,1/D)",True,False,False,False
+GAN7987,7987,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN804,804,1 per month,1 per month,1.0,infrequent,1/M,True,False,False,False
+GAN15262,15262,"multiple cluster per 13 month, multiple per cluster","multiple cluster per 13 month, multiple per cluster",0.3076923076923077,infrequent,"(1/6M,1/M)",False,False,False,False
+GAN11988,11988,6 per day,6 per day,180.0,frequent,>=1/D,True,False,False,False
+GAN6137,6137,1 per 2 week,1 per 2 week,2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN15434,15434,"1 cluster per 5 day, 2 per cluster","1 cluster per 5 day, 2 per cluster",12.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN9566,9566,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN3675,3675,1 per month,1 per month,1.0,infrequent,1/M,True,False,False,False
+GAN17107,17107,"5 cluster per week, multiple per cluster","5 cluster per week, multiple per cluster",40.0,frequent,>=1/D,True,False,False,False
+GAN11372,11372,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN14243,14243,4 per month,4 per month,4.0,frequent,1/W,True,False,False,False
+GAN446,446,2 per week,2 per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN13122,13122,3 per year,3 per year,0.25,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN78,78,5 per year,5 per year,0.41666666666666663,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN14294,14294,2 to 3 per 2 month,2 to 3 per 2 month,1.25,frequent,"(1/M,1/W)",True,False,False,False
+GAN1596,1596,12 per week,12 per week,48.0,frequent,>=1/D,True,False,False,False
+GAN6380,6380,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN11752,11752,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN10,10,4 per day,4 per day,120.0,frequent,>=1/D,True,False,False,False
+GAN12319,12319,2 to 3 per week,2 to 3 per week,10.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN10514,10514,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN10908,10908,"4 cluster per month, 4 per cluster","4 cluster per month, 4 per cluster",16.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN1624,1624,12 per week,12 per week,48.0,frequent,>=1/D,True,False,False,False
+GAN6501,6501,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN3137,3137,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN8002,8002,1 per 6 to 8 week,1 per 6 to 8 week,0.5714285714285714,infrequent,"(1/6M,1/M)",False,False,False,False
+GAN14443,14443,4 per 2 month,4 per 2 month,2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN731,731,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN12866,12866,10 per 5 month,10 per 5 month,2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN15774,15774,2 per week,2 per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN15168,15168,multiple per 15 month,multiple per 15 month,0.13333333333333333,infrequent,<1/6M,False,False,False,False
+GAN2437,2437,2 to 3 per 2 month,2 to 3 per 2 month,1.25,frequent,"(1/M,1/W)",True,False,False,False
+GAN6954,6954,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN14009,14009,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN5248,5248,seizure free for multiple year,seizure free for multiple year,0.0,NS,NS,True,False,False,False
+GAN9588,9588,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN2039,2039,5 per month,5 per month,5.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN5827,5827,multiple per week,multiple per week,8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN10580,10580,"unknown, 4 to 6 per cluster","unknown, 4 to 6 per cluster",,UNK,UNK,False,True,True,False
+GAN2992,2992,seizure free for 7 month,seizure free for 7 month,0.0,NS,NS,True,False,False,False
+GAN2854,2854,2 per month,2 per month,2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN803,803,1 per month,1 per month,1.0,infrequent,1/M,True,False,False,False
+GAN6244,6244,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN11472,11472,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN15503,15503,"1 cluster per 5 day, 3 to 4 per cluster","1 cluster per 5 day, 3 to 4 per cluster",21.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN16681,16681,5 per 3 month,5 per 3 month,1.6666666666666667,frequent,"(1/M,1/W)",True,False,False,False
+GAN12836,12836,6 per month,6 per month,6.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN9002,9002,7 per year,7 per year,0.5833333333333333,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN11763,11763,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN16714,16714,5 per 6 month,5 per 6 month,0.8333333333333334,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN4112,4112,1 per 1 to 2 day,1 per 1 to 2 day,20.0,frequent,"(1/W,1/D)",False,False,False,False
+GAN14949,14949,1 per month,1 per month,1.0,infrequent,1/M,True,False,False,False
+GAN8645,8645,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN10829,10829,"2 cluster per month, multiple per cluster","2 cluster per month, multiple per cluster",4.0,frequent,1/W,True,False,False,False
+GAN10149,10149,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN13990,13990,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN3535,3535,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN338,338,multiple per month,multiple per month,2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN9926,9926,"1 cluster per month, multiple per cluster","1 cluster per month, multiple per cluster",2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN10527,10527,"unknown, 3 to 4 per cluster","unknown, 3 to 4 per cluster",,UNK,UNK,False,True,True,False
+GAN16758,16758,9 per 5 month,9 per 5 month,1.8,frequent,"(1/M,1/W)",True,False,False,False
+GAN10771,10771,"unknown, 6 per cluster","unknown, 6 per cluster",,UNK,UNK,False,True,True,False
+GAN9344,9344,multiple per day,multiple per day,60.0,frequent,>=1/D,True,False,False,False
+GAN6331,6331,2 per 6 weeks,2 per 6 weeks,,UNK,UNK,True,True,True,False
+GAN704,704,2 per month,2 per month,2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN16645,16645,5 per 7 month,5 per 7 month,0.7142857142857143,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN11936,11936,3 to 4 per week,3 to 4 per week,14.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN12484,12484,3 to 4 per day,3 to 4 per day,105.0,frequent,>=1/D,True,False,False,False
+GAN15399,15399,"1 cluster per 4 month, 2 to 4 per cluster","1 cluster per 4 month, 2 to 4 per cluster",0.75,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN16983,16983,2 to 3 per week,2 to 3 per week,10.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN13711,13711,76 per 12 month,76 per 12 month,6.333333333333333,frequent,"(1/W,1/D)",True,False,False,False
+GAN15685,15685,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN7573,7573,1 per 2 week,1 per 2 week,2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN2268,2268,5 to 6 per 3 month,5 to 6 per 3 month,1.8333333333333333,frequent,"(1/M,1/W)",True,False,False,False
+GAN11520,11520,no seizure frequency reference,no seizure frequency reference,,UNK,UNK,True,True,False,False
+GAN10865,10865,"1 cluster per week, multiple per cluster","1 cluster per week, multiple per cluster",8.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN4368,4368,5 per 2 month,5 per 2 month,2.5,frequent,"(1/M,1/W)",True,False,False,False
+GAN8013,8013,1 per 6 to 8 week,1 per 6 to 8 week,0.5714285714285714,infrequent,"(1/6M,1/M)",False,False,False,False
+GAN10186,10186,"unknown, 3 to 5 per cluster","unknown, 3 to 5 per cluster",,UNK,UNK,False,True,True,False
+GAN4352,4352,5 per 3 month,5 per 3 month,1.6666666666666667,frequent,"(1/M,1/W)",True,False,False,False
+GAN14284,14284,2 to 3 per month,2 to 3 per month,2.5,frequent,"(1/M,1/W)",True,False,False,False
+GAN9399,9399,1 per month,1 per month,1.0,infrequent,1/M,True,False,False,False
+GAN5491,5491,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN15317,15317,2 to 3 per 15 month,2 to 3 per 15 month,0.16666666666666666,infrequent,1/6M,True,False,False,False
+GAN14954,14954,1 per 2 month,1 per 2 month,0.5,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN3356,3356,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN2564,2564,3 to 5 per 2 month,3 to 5 per 2 month,2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN538,538,1 per 4 day,1 per 4 day,7.5,frequent,"(1/W,1/D)",True,False,False,False
+GAN2259,2259,6 to 8 per 3 month,6 to 8 per 3 month,2.3333333333333335,frequent,"(1/M,1/W)",True,False,False,False
+GAN15992,15992,7 per 2 month,7 per 2 month,3.5,frequent,"(1/M,1/W)",True,False,False,False
+GAN4402,4402,7 per 7 month,7 per 7 month,1.0,infrequent,1/M,True,False,False,False
+GAN938,938,1 per 2 week,1 per 2 week,2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN1640,1640,5 per week,5 per week,20.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN10268,10268,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN6368,6368,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN5977,5977,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN14375,14375,multiple per 3 month,multiple per 3 month,0.6666666666666666,infrequent,"(1/6M,1/M)",False,False,False,False
+GAN14081,14081,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN14598,14598,5 per 8 month,5 per 8 month,0.625,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN8494,8494,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN4707,4707,multiple per day,multiple per day,60.0,frequent,>=1/D,True,False,False,False
+GAN2023,2023,5 per month,5 per month,5.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN5034,5034,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN2907,2907,seizure free for 6 month,seizure free for 6 month,0.0,NS,NS,True,False,False,False
+GAN15250,15250,"multiple cluster per 15 month, multiple per cluster","multiple cluster per 15 month, multiple per cluster",0.26666666666666666,infrequent,"(1/6M,1/M)",False,False,False,False
+GAN8224,8224,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN7348,7348,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN15783,15783,2 to 3 per week,2 to 3 per week,10.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN1250,1250,2 to 4 per week,2 to 4 per week,12.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN14973,14973,1 per month,1 per month,1.0,infrequent,1/M,True,False,False,False
+GAN9212,9212,seizure free for 3 months,seizure free for 3 months,0.0,NS,NS,True,False,False,False
+GAN1584,1584,11 per month,11 per month,11.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN5151,5151,seizure free for 10 month,seizure free for 10 month,0.0,NS,NS,True,False,False,False
+GAN10884,10884,"1 cluster per week, 3 to 4 per cluster","1 cluster per week, 3 to 4 per cluster",14.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN10902,10902,"1 cluster per week, 4 per cluster","1 cluster per week, 4 per cluster",16.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN6296,6296,3 per 4 month,3 per 4 month,0.75,infrequent,"(1/6M,1/M)",True,False,False,False
+GAN6022,6022,2 to 4 per 6 week,2 to 4 per 6 week,2.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN7061,7061,2 per 6 week,2 per 6 week,1.3333333333333333,frequent,"(1/M,1/W)",True,False,False,False
+GAN11956,11956,4 per week,4 per week,16.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN419,419,2 per year,2 per year,0.16666666666666666,infrequent,1/6M,True,False,False,False
+GAN1534,1534,9 per month,9 per month,9.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN6358,6358,seizure free for 15 to 16 months,seizure free for 15 to 16 months,0.0,NS,NS,False,False,False,False
+GAN7541,7541,"1 cluster per 3 to 4 week, multiple per cluster","1 cluster per 3 to 4 week, multiple per cluster",2.2857142857142856,frequent,"(1/M,1/W)",False,False,False,False
+GAN13487,13487,seizure free for multiple year,seizure free for multiple year,0.0,NS,NS,True,False,False,False
+GAN2628,2628,1 per day,1 per day,30.0,frequent,>=1/D,True,False,False,False
+GAN8969,8969,seizure free for multiple month,seizure free for multiple month,0.0,NS,NS,True,False,False,False
+GAN17003,17003,3 to 4 per month,3 to 4 per month,3.5,frequent,"(1/M,1/W)",True,False,False,False
+GAN2536,2536,6 to 7 per 2 week,6 to 7 per 2 week,13.0,frequent,"(1/W,1/D)",True,False,False,False
+GAN8099,8099,seizure free for 18 month,seizure free for 18 month,0.0,NS,NS,True,False,False,False
+GAN6094,6094,3 per month,3 per month,3.0,frequent,"(1/M,1/W)",True,False,False,False
+GAN9103,9103,unknown,unknown,,UNK,UNK,True,True,False,False
+GAN12950,12950,7 per 3 month,7 per 3 month,2.3333333333333335,frequent,"(1/M,1/W)",True,False,False,False
+GAN848,848,1 per year,1 per year,0.08333333333333333,infrequent,<1/6M,True,False,False,False

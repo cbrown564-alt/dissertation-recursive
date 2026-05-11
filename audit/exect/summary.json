@@ -1,0 +1,184 @@
+{
+  "total_documents": 200,
+  "total_annotations": 2092,
+  "E1_span_boundary": {
+    "total_annotations": 2092,
+    "clean": 1810,
+    "with_issues": 282,
+    "issue_rate": 0.1348,
+    "by_issue_type": {
+      "mismatch": 161,
+      "span_longer_than_source": 72,
+      "partial_overlap": 47,
+      "truncated_span": 2
+    },
+    "by_entity_type": {
+      "PatientHistory": 83,
+      "Diagnosis": 76,
+      "SeizureFrequency": 39,
+      "Prescription": 36,
+      "Investigations": 22,
+      "Onset": 10,
+      "BirthHistory": 6,
+      "EpilepsyCause": 6,
+      "WhenDiagnosed": 4
+    }
+  },
+  "E2_conflicts": {
+    "tier1_numeric_conflicts": 30,
+    "tier2_cuiphrase_mismatch": 24,
+    "tier3_exact_duplicates": 13,
+    "total_pairs": 67,
+    "docs_with_tier1_conflict": 29
+  },
+  "E3_cuiphrase_quality": {
+    "total_annotations": 2092,
+    "by_class": {
+      "specific": 1602,
+      "generic": 483,
+      "missing": 7
+    },
+    "generic_rate": 0.2309,
+    "malformed_rate": 0.0,
+    "top_generic_phrases": [
+      "seizure",
+      "seizures",
+      "seizures",
+      "seizures",
+      "seizures",
+      "epilepsy",
+      "epilepsy",
+      "seizures",
+      "seizures",
+      "epilepsy",
+      "seizures",
+      "seizures",
+      "seizures",
+      "seizures",
+      "seizures",
+      "seizure",
+      "seizures",
+      "seizures",
+      "seizures",
+      "epilepsy"
+    ]
+  },
+  "E4_prescriptions": {
+    "total_prescriptions": 294,
+    "missing_dose": 6,
+    "missing_dose_rate": 0.0204,
+    "missing_unit": 6,
+    "missing_frequency": 0,
+    "dose_not_in_span": 103,
+    "dose_not_in_span_rate": 0.3503
+  },
+  "E5_seizure_frequency": {
+    "total_sf_annotations": 263,
+    "with_issues": 9,
+    "issue_rate": 0.0342,
+    "missing_cuiphrase": 2,
+    "sf_vs_active_contradictions": 30,
+    "contradiction_docs": 20
+  },
+  "E6_csv_ann_consistency": {
+    "total_mismatch_rows": 77,
+    "by_issue": {
+      "offset_mismatch": 57,
+      "entity_type_not_in_doc": 15,
+      "offset_near_match": 5
+    }
+  },
+  "E7_cross_doc_consistency": {
+    "by_entity_type": {
+      "Diagnosis": {
+        "total_annotations": 572,
+        "missing_negation": 3,
+        "missing_certainty": 0,
+        "missing_cui": 2,
+        "negation_population_rate": 0.995,
+        "certainty_population_rate": 1.0,
+        "cui_population_rate": 0.997
+      },
+      "PatientHistory": {
+        "total_annotations": 656,
+        "missing_negation": 0,
+        "missing_certainty": 0,
+        "missing_cui": 0,
+        "negation_population_rate": 1.0,
+        "certainty_population_rate": 1.0,
+        "cui_population_rate": 1.0
+      },
+      "Prescription": {
+        "total_annotations": 294,
+        "missing_negation": 0,
+        "missing_certainty": 294,
+        "missing_cui": 0,
+        "negation_population_rate": 1.0,
+        "certainty_population_rate": 0.0,
+        "cui_population_rate": 1.0
+      },
+      "SeizureFrequency": {
+        "total_annotations": 263,
+        "missing_negation": 0,
+        "missing_certainty": 261,
+        "missing_cui": 3,
+        "negation_population_rate": 1.0,
+        "certainty_population_rate": 0.008,
+        "cui_population_rate": 0.989
+      },
+      "Investigations": {
+        "total_annotations": 183,
+        "missing_negation": 0,
+        "missing_certainty": 183,
+        "missing_cui": 0,
+        "negation_population_rate": 1.0,
+        "certainty_population_rate": 0.0,
+        "cui_population_rate": 1.0
+      },
+      "Onset": {
+        "total_annotations": 24,
+        "missing_negation": 0,
+        "missing_certainty": 1,
+        "missing_cui": 0,
+        "negation_population_rate": 1.0,
+        "certainty_population_rate": 0.958,
+        "cui_population_rate": 1.0
+      },
+      "BirthHistory": {
+        "total_annotations": 47,
+        "missing_negation": 0,
+        "missing_certainty": 1,
+        "missing_cui": 0,
+        "negation_population_rate": 1.0,
+        "certainty_population_rate": 0.979,
+        "cui_population_rate": 1.0
+      },
+      "EpilepsyCause": {
+        "total_annotations": 36,
+        "missing_negation": 1,
+        "missing_certainty": 0,
+        "missing_cui": 0,
+        "negation_population_rate": 0.972,
+        "certainty_population_rate": 1.0,
+        "cui_population_rate": 1.0
+      },
+      "WhenDiagnosed": {
+        "total_annotations": 17,
+        "missing_negation": 0,
+        "missing_certainty": 0,
+        "missing_cui": 0,
+        "negation_population_rate": 1.0,
+        "certainty_population_rate": 1.0,
+        "cui_population_rate": 1.0
+      }
+    },
+    "outlier_docs": []
+  },
+  "E8_letter_quality": {
+    "total_docs": 200,
+    "with_encoding_artefacts": 0,
+    "artefact_rate": 0.0,
+    "pronoun_mismatch": 24,
+    "too_short": 0
+  }
+}

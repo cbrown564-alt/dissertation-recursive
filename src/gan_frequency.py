@@ -38,8 +38,11 @@ GAN_HARNESSES = [
     "Gan_h013_evidence_first",
     "Gan_h008_guarded",
     "Gan_g3_qwen",
+    "Gan_retrieval_highlight",
+    "Gan_retrieval_only_ablation",
 ]
 TWO_PASS_HARNESSES = {"Gan_two_pass", "Gan_h013_evidence_first"}
+RETRIEVAL_HARNESSES = {"Gan_retrieval_highlight", "Gan_retrieval_only_ablation"}
 PARSER_CONTRACT = {
     "multiple_value": MULTIPLE_VALUE,
     "unknown_x_per_month": UNKNOWN_X,
@@ -62,6 +65,20 @@ PARSER_CONTRACT = {
     },
     "note": "MULTIPLE_VALUE=2.0 kept for Gan comparability; minimal-repo parser uses 3.0",
 }
+
+_FREQUENCY_SENTENCE_PATTERNS = [
+    re.compile(r"\bper\s+(?:day|week|month|year|fortnight)\b", re.IGNORECASE),
+    re.compile(r"\b\d[\d.,]*\s*(?:to|-)\s*\d[\d.,]*\s+(?:per|a)\s+(?:day|week|month|year|fortnight)\b", re.IGNORECASE),
+    re.compile(r"\b(?:once|twice|three\s+times?|four\s+times?)\s+(?:a|per)\s+(?:day|week|month|year)\b", re.IGNORECASE),
+    re.compile(r"\bseizure[\s-]free\b", re.IGNORECASE),
+    re.compile(r"\battack[\s-]free\b", re.IGNORECASE),
+    re.compile(r"\bcluster\b", re.IGNORECASE),
+    re.compile(r"\b(?:daily|weekly|monthly)\s+(?:seizures?|attacks?|episodes?|fits?|events?)\b", re.IGNORECASE),
+    re.compile(r"\b(?:seizures?|attacks?|fits?|events?)\s+(?:are\s+)?(?:daily|weekly|monthly|yearly)\b", re.IGNORECASE),
+    re.compile(r"\bno\s+(?:further\s+)?(?:seizures?|attacks?|fits?|events?)\b", re.IGNORECASE),
+    re.compile(r"\bseizure\b.{0,40}\bfrequency\b|\bfrequency\b.{0,40}\bseizure\b", re.IGNORECASE),
+    re.compile(r"\b(?:multiple|several)\s+(?:seizures?|attacks?|fits?|episodes?)\b", re.IGNORECASE),
+]
 
 
 @dataclass(frozen=True)
@@ -293,6 +310,34 @@ def write_csv(path: Path, rows: list[dict[str, Any]]) -> None:
         writer = csv.DictWriter(handle, fieldnames=list(rows[0].keys()))
         writer.writeheader()
         writer.writerows(rows)
+
+
+def _split_sentences(text: str) -> list[str]:
+    """Split text into sentence-like chunks for retrieval span selection."""
+    chunks = []
+    for line in text.split("\n"):
+        line = line.strip()
+        if not line:
+            continue
+        for part in re.split(r"(?<=[.!?;])\s+", line):
+            part = part.strip()
+            if part:
+                chunks.append(part)
+    return chunks
+
+
+def retrieve_frequency_spans(text: str) -> list[str]:
+    """Return sentences likely to contain seizure frequency information.
+
+    Applies _FREQUENCY_SENTENCE_PATTERNS to each sentence-like chunk.
+    Returns an empty list when no candidate spans are found — callers
+    should treat an empty result as a sparse-context warning.
+    """
+    return [
+        sentence
+        for sentence in _split_sentences(text)
+        if any(pattern.search(sentence) for pattern in _FREQUENCY_SENTENCE_PATTERNS)
+    ]
 
 
 def gan_direct_label_prompt(example: GanExample) -> str:
@@ -584,6 +629,84 @@ Hard examples from observed errors:
 """
 
 
+def gan_retrieval_highlight_prompt(example: GanExample, spans: list[str]) -> str:
+    """Full-letter extraction with retrieved spans as salience cues.
+
+    Both the candidate spans and the full letter are passed. Spans are
+    produced by retrieve_frequency_spans() and highlight likely relevant
+    sentences; the model still has full-letter context for disambiguation.
+    """
+    spans_block = (
+        "\n".join(f"  - {s}" for s in spans)
+        if spans
+        else "  (none found — rely on the full letter below)"
+    )
+    return f"""## Task: Seizure Frequency Extraction
+Extract the current clinically relevant seizure frequency. Return JSON only.
+
+{{"seizure_frequency_number": "<normalized label>", "quote": "<shortest exact supporting quote>"}}
+
+Normalized label contract:
+- "<n> per <period>" — e.g. "3 per month", "1 per 2 month"
+- "<n1> to <n2> per <period>" — for ranges in the COUNT, e.g. "3 to 4 per month"
+- "<n> cluster per <period>, <m> per cluster"
+- "seizure free for <n> month" — use the exact number from the letter
+- "seizure free for multiple month" — ONLY when duration is genuinely vague
+- "seizure free for multiple year" — ONLY when year-scale duration is genuinely vague
+- "unknown" — seizures mentioned but no specific frequency determinable
+- "no seizure frequency reference" — letter contains no seizure frequency information
+
+Critical rules:
+- COUNT vs PERIOD order: "1 per 2 month" means 1 seizure every 2 months — do NOT invert
+- "multiple" is a valid count word — "multiple per week" is a valid label, NOT "unknown"
+- Use "unknown" only when vague qualitative language gives no quantity (e.g. "occasional", "sporadic")
+- Use "no seizure frequency reference" only when frequency is never mentioned
+
+## Retrieved candidate spans (salience cues — verify against the full letter)
+{spans_block}
+
+## Full clinical letter
+{example.text}
+"""
+
+
+def gan_retrieval_only_ablation_prompt(
+    example: GanExample, spans: list[str], fallback_used: bool
+) -> str:
+    """Spans-only extraction; full letter used only when no spans were found.
+
+    This is the ablation condition. fallback_used=True means retrieve_frequency_spans
+    returned nothing and the full letter is substituted. The expected production
+    winner is gan_retrieval_highlight_prompt, not this variant.
+    """
+    if fallback_used:
+        context_header = "## Full clinical letter (no candidate spans found; full-letter fallback)"
+        context_body = example.text
+        fallback_note = ""
+    else:
+        context_header = "## Retrieved seizure frequency spans"
+        context_body = "\n".join(f"  - {s}" for s in spans)
+        fallback_note = "\nNote: Answer based only on the spans above. If the spans are insufficient, use label 'unknown'.\n"
+    return f"""## Task: Seizure Frequency Extraction
+Extract the current clinically relevant seizure frequency. Return JSON only.
+
+{{"seizure_frequency_number": "<normalized label>", "quote": "<shortest exact supporting quote>"}}
+
+Normalized label contract:
+- "<n> per <period>" — e.g. "3 per month", "1 per 2 month"
+- "<n1> to <n2> per <period>" — for ranges in the COUNT
+- "<n> cluster per <period>, <m> per cluster"
+- "seizure free for <n> month"
+- "seizure free for multiple month"
+- "seizure free for multiple year"
+- "unknown"
+- "no seizure frequency reference"
+{fallback_note}
+{context_header}
+{context_body}
+"""
+
+
 def gan_prompt_for_harness(example: GanExample, harness: str) -> str:
     if harness == "Gan_direct_label":
         return gan_direct_label_prompt(example)
@@ -789,6 +912,7 @@ def command_predict(args: argparse.Namespace) -> int:
 
     for example in examples:
         doc_dir = calls_dir / example.document_id
+        retrieval_meta: dict[str, Any] = {}
         if args.harness in TWO_PASS_HARNESSES:
             if args.harness == "Gan_two_pass":
                 evidence_prompt = gan_two_pass_evidence_prompt(example)
@@ -823,6 +947,33 @@ def command_predict(args: argparse.Namespace) -> int:
             extra_parse_error = evidence_error
             calls_per_doc = 2
             pass_responses = [evidence_response, response]
+        elif args.harness in RETRIEVAL_HARNESSES:
+            spans = retrieve_frequency_spans(example.text)
+            fallback_used = (not spans) and (args.harness == "Gan_retrieval_only_ablation")
+            if args.harness == "Gan_retrieval_highlight":
+                prompt = gan_retrieval_highlight_prompt(example, spans)
+            else:
+                prompt = gan_retrieval_only_ablation_prompt(example, spans, fallback_used)
+            response = call_model(
+                adapter,
+                spec,
+                example,
+                args.harness,
+                prompt,
+                gan_prediction_schema(),
+                args,
+                doc_dir,
+                "pass1_label",
+            )
+            evidence_quotes = []
+            raw_response_path = doc_dir / "pass1_label" / "raw_response.txt"
+            extra_parse_error = ""
+            calls_per_doc = 1
+            pass_responses = [response]
+            retrieval_meta = {
+                "retrieval_span_count": len(spans),
+                "retrieval_fallback_used": fallback_used,
+            }
         else:
             response = call_model(
                 adapter,
@@ -869,6 +1020,7 @@ def command_predict(args: argparse.Namespace) -> int:
                 "output_tokens": output_tokens,
                 "estimated_cost_usd": estimated_cost_usd,
                 "raw_response_path": str(raw_response_path),
+                **retrieval_meta,
             }
         )
 
