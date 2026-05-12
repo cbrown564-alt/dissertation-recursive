@@ -9,9 +9,9 @@ Scoring includes the Efficiency-Adjusted BenchComp (EABC) metric:
   EABC = BenchComp / log(total_tokens + 1)
 
 Usage:
-    python src/multi_agent_exploration.py run-ma-a --base-harness H6fs --model qwen_35b_local --split validation
-    python src/multi_agent_exploration.py run-sas-long-cot --base-harness H6fs --model gpt_5_4_mini --split validation
-    python src/multi_agent_exploration.py run-sas-best-of-n --base-harness H6fs --model gpt_5_4_mini --n 3 --split validation
+    python src/multi_agent_exploration.py run-ma-a --base-harness H6full --model qwen_35b_local --split validation
+    python src/multi_agent_exploration.py run-sas-long-cot --base-harness H6full --model gpt_5_4_mini --split validation
+    python src/multi_agent_exploration.py run-sas-best-of-n --base-harness H6full --model gpt_5_4_mini --n 3 --split validation
     python src/multi_agent_exploration.py score --run-dir runs/multi_agent_exploration/...
 """
 
@@ -925,7 +925,7 @@ def build_parser() -> argparse.ArgumentParser:
     # Common args
     common = argparse.ArgumentParser(add_help=False)
     common.add_argument("--model", required=True, help="Model label from registry")
-    common.add_argument("--base-harness", default="H6fs", choices=["H6fs", "H6full", "E3"], help="Base single-agent harness")
+    common.add_argument("--base-harness", default="H6full", choices=["H6fs", "H6full", "E3"], help="Base single-agent harness")
     common.add_argument("--split", default="development", choices=["development", "validation", "test"])
     common.add_argument("--limit", type=int, help="Limit number of documents")
     common.add_argument("--stub-calls", action="store_true", help="Use stub provider (no real model calls)")
