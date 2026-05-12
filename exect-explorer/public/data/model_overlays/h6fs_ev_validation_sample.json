@@ -1,0 +1,631 @@
+{
+  "schema_version": "2026-05-12",
+  "artifact_class": "model_overlay",
+  "generated_at_utc": "2026-05-12T21:14:55.386881+00:00",
+  "source": {
+    "canonical_dir": "runs\\evidence_resolver\\scored_batch\\resolved",
+    "explorer_data_dir": "exect-explorer\\public\\data",
+    "comparison_report": {
+      "path": "runs\\evidence_resolver\\scored_batch\\comparison_report.json",
+      "exists": true,
+      "sha256": "e19696d03173033bf98fd7cfbb324585f56a8e9d6a4c4a61e3901e63f7b595e0"
+    }
+  },
+  "model": {
+    "model_id": "qwen3.6:35b",
+    "model_label": "qwen_35b_local",
+    "harness_id": "H6fs_benchmark_only_coarse_json",
+    "pipeline_id": "H6fs_benchmark_only_coarse_json_relaxed_projection"
+  },
+  "documents": [
+    {
+      "document_id": "EA0008",
+      "letter_path": "exect-explorer\\public\\data\\EA0008.json",
+      "canonical_path": "runs\\evidence_resolver\\scored_batch\\resolved\\EA0008.json",
+      "gold_entity_count": 7,
+      "model_field_count": 7,
+      "model_fields": [
+        {
+          "id": "current_anti_seizure_medications.0.name",
+          "field_path": "fields.current_anti_seizure_medications[0].name",
+          "field_group": "current_anti_seizure_medications",
+          "value": "lamotrigine",
+          "missingness": "present",
+          "temporality": "current",
+          "status": "current",
+          "evidence": [
+            {
+              "quote": "Current anti-epileptic medication: lamotrigine 75mg bd (to reduce and stop as detailed below)",
+              "char_start": 189,
+              "char_end": 282,
+              "valid_quote": true
+            }
+          ],
+          "gold_candidates": [
+            {
+              "id": "T10",
+              "type": "Prescription",
+              "start": 189,
+              "end": 254,
+              "text": "Current-anti-epileptic-medication:-lamotrigine-75mg-bd-(to-reduce",
+              "attributes": {
+                "DrugName": "lamotrigine",
+                "DrugDose": "75",
+                "DoseUnit": "mg",
+                "Frequency": "2",
+                "CUIPhrase": "lamotrigine",
+                "CUI": "C0064636"
+              }
+            }
+          ],
+          "alignment": {
+            "status": "overlaps_gold",
+            "note": "At least one evidence span overlaps a gold entity."
+          }
+        },
+        {
+          "id": "current_anti_seizure_medications.1.name",
+          "field_path": "fields.current_anti_seizure_medications[1].name",
+          "field_group": "current_anti_seizure_medications",
+          "value": "levetiracetam",
+          "missingness": "present",
+          "temporality": "current",
+          "status": "current",
+          "evidence": [
+            {
+              "quote": "To start levetiracetam as detailed below",
+              "char_start": 283,
+              "char_end": 323,
+              "valid_quote": true
+            }
+          ],
+          "gold_candidates": [],
+          "alignment": {
+            "status": "evidence_only",
+            "note": "Model has source evidence but no overlapping gold entity."
+          }
+        },
+        {
+          "id": "seizure_types.0.value",
+          "field_path": "fields.seizure_types[0].value",
+          "field_group": "seizure_types",
+          "value": "focal seizure",
+          "missingness": "present",
+          "temporality": "current",
+          "status": null,
+          "evidence": [
+            {
+              "quote": "Seizure type and frequency: focal seizures with altered awareness every 3 weeks",
+              "char_start": 108,
+              "char_end": 187,
+              "valid_quote": true
+            }
+          ],
+          "gold_candidates": [
+            {
+              "id": "T8",
+              "type": "SeizureFrequency",
+              "start": 136,
+              "end": 172,
+              "text": "focal-seizures-with-altered-awarenes",
+              "attributes": {
+                "NumberOfSeizures": "1",
+                "TimePeriod": "Week",
+                "NumberOfTimePeriods": "3",
+                "CUIPhrase": "focal-seizures-with-altered-awareness",
+                "CUI": "C0270834"
+              }
+            },
+            {
+              "id": "T6",
+              "type": "Diagnosis",
+              "start": 136,
+              "end": 173,
+              "text": "focal-seizures-with-altered-awareness",
+              "attributes": {
+                "DiagCategory": "MultipleSeizures",
+                "Certainty": "5",
+                "Negation": "Affirmed",
+                "CUIPhrase": "focal-seizures-with-altered-awareness",
+                "CUI": "C0270834"
+              }
+            }
+          ],
+          "alignment": {
+            "status": "overlaps_gold",
+            "note": "At least one evidence span overlaps a gold entity."
+          }
+        },
+        {
+          "id": "current_seizure_frequency.value",
+          "field_path": "fields.current_seizure_frequency.value",
+          "field_group": "current_seizure_frequency",
+          "value": null,
+          "missingness": "not_stated",
+          "temporality": "uncertain",
+          "status": null,
+          "evidence": [],
+          "gold_candidates": [],
+          "alignment": {
+            "status": "not_present",
+            "note": "Model did not mark this field present."
+          }
+        },
+        {
+          "id": "epilepsy_diagnosis.value",
+          "field_path": "fields.epilepsy_diagnosis.value",
+          "field_group": "epilepsy_diagnosis",
+          "value": "focal epilepsy",
+          "missingness": "present",
+          "temporality": "current",
+          "status": null,
+          "evidence": [
+            {
+              "quote": "Diagnosis: symptomatic structural focal epilepsy",
+              "char_start": 10,
+              "char_end": 58,
+              "valid_quote": true
+            }
+          ],
+          "gold_candidates": [
+            {
+              "id": "T2",
+              "type": "Diagnosis",
+              "start": 21,
+              "end": 58,
+              "text": "symptomatic-structural-focal-epilepsy",
+              "attributes": {
+                "DiagCategory": "Epilepsy",
+                "Certainty": "5",
+                "Negation": "Affirmed",
+                "CUIPhrase": "symptomatic-structural-focal-epilepsy",
+                "CUI": "C0472349"
+              }
+            }
+          ],
+          "alignment": {
+            "status": "overlaps_gold",
+            "note": "At least one evidence span overlaps a gold entity."
+          }
+        },
+        {
+          "id": "eeg.result",
+          "field_path": "fields.eeg.result",
+          "field_group": "eeg",
+          "value": "not_stated",
+          "missingness": "not_stated",
+          "temporality": "uncertain",
+          "status": "not_stated",
+          "evidence": [],
+          "gold_candidates": [],
+          "alignment": {
+            "status": "not_present",
+            "note": "Model did not mark this field present."
+          }
+        },
+        {
+          "id": "mri.result",
+          "field_path": "fields.mri.result",
+          "field_group": "mri",
+          "value": "not_stated",
+          "missingness": "not_stated",
+          "temporality": "uncertain",
+          "status": "not_stated",
+          "evidence": [],
+          "gold_candidates": [],
+          "alignment": {
+            "status": "not_present",
+            "note": "Model did not mark this field present."
+          }
+        }
+      ]
+    },
+    {
+      "document_id": "EA0016",
+      "letter_path": "exect-explorer\\public\\data\\EA0016.json",
+      "canonical_path": "runs\\evidence_resolver\\scored_batch\\resolved\\EA0016.json",
+      "gold_entity_count": 11,
+      "model_field_count": 5,
+      "model_fields": [
+        {
+          "id": "seizure_types.0.value",
+          "field_path": "fields.seizure_types[0].value",
+          "field_group": "seizure_types",
+          "value": "focal seizure",
+          "missingness": "present",
+          "temporality": "current",
+          "status": null,
+          "evidence": [
+            {
+              "quote": "Diagnosis:\t single focal seizure",
+              "char_start": 22,
+              "char_end": 54,
+              "valid_quote": true
+            }
+          ],
+          "gold_candidates": [
+            {
+              "id": "T2",
+              "type": "Diagnosis",
+              "start": 41,
+              "end": 54,
+              "text": "focal-seizure",
+              "attributes": {
+                "DiagCategory": "SingleSeizure",
+                "Certainty": "5",
+                "Negation": "Affirmed",
+                "CUIPhrase": "focal-seizure",
+                "CUI": "C0751495"
+              }
+            }
+          ],
+          "alignment": {
+            "status": "overlaps_gold",
+            "note": "At least one evidence span overlaps a gold entity."
+          }
+        },
+        {
+          "id": "current_seizure_frequency.value",
+          "field_path": "fields.current_seizure_frequency.value",
+          "field_group": "current_seizure_frequency",
+          "value": null,
+          "missingness": "not_stated",
+          "temporality": "uncertain",
+          "status": null,
+          "evidence": [],
+          "gold_candidates": [],
+          "alignment": {
+            "status": "not_present",
+            "note": "Model did not mark this field present."
+          }
+        },
+        {
+          "id": "epilepsy_diagnosis.value",
+          "field_path": "fields.epilepsy_diagnosis.value",
+          "field_group": "epilepsy_diagnosis",
+          "value": null,
+          "missingness": "not_stated",
+          "temporality": "uncertain",
+          "status": null,
+          "evidence": [],
+          "gold_candidates": [],
+          "alignment": {
+            "status": "not_present",
+            "note": "Model did not mark this field present."
+          }
+        },
+        {
+          "id": "eeg.result",
+          "field_path": "fields.eeg.result",
+          "field_group": "eeg",
+          "value": "not_stated",
+          "missingness": "not_stated",
+          "temporality": "uncertain",
+          "status": "not_stated",
+          "evidence": [],
+          "gold_candidates": [],
+          "alignment": {
+            "status": "not_present",
+            "note": "Model did not mark this field present."
+          }
+        },
+        {
+          "id": "mri.result",
+          "field_path": "fields.mri.result",
+          "field_group": "mri",
+          "value": "not_stated",
+          "missingness": "not_stated",
+          "temporality": "uncertain",
+          "status": "not_stated",
+          "evidence": [],
+          "gold_candidates": [],
+          "alignment": {
+            "status": "not_present",
+            "note": "Model did not mark this field present."
+          }
+        }
+      ]
+    },
+    {
+      "document_id": "EA0018",
+      "letter_path": "exect-explorer\\public\\data\\EA0018.json",
+      "canonical_path": "runs\\evidence_resolver\\scored_batch\\resolved\\EA0018.json",
+      "gold_entity_count": 6,
+      "model_field_count": 8,
+      "model_fields": [
+        {
+          "id": "current_anti_seizure_medications.0.name",
+          "field_path": "fields.current_anti_seizure_medications[0].name",
+          "field_group": "current_anti_seizure_medications",
+          "value": "sodium valproate",
+          "missingness": "present",
+          "temporality": "current",
+          "status": "current",
+          "evidence": [
+            {
+              "quote": "Currently she is taking sodium valproate 500 mg twice a day and levetiracetam 1000 mg twice today. She has previously tried carbamazepine but this give her a rash. I explained the new MHRA rules on prescribing sodium valproate in women of child bearing age. Even though Mrs Williams has no plans for",
+              "char_start": 537,
+              "char_end": 836,
+              "valid_quote": true
+            }
+          ],
+          "gold_candidates": [
+            {
+              "id": "T10",
+              "type": "Prescription",
+              "start": 537,
+              "end": 596,
+              "text": "Currently-she-is-taking-sodium-valproate-500-mg-twice-a-day",
+              "attributes": {
+                "DrugName": "sodium-valproate",
+                "DrugDose": "500",
+                "DoseUnit": "mg",
+                "Frequency": "2",
+                "CUIPhrase": "sodium-valproate",
+                "CUI": "C0037567"
+              }
+            },
+            {
+              "id": "T12",
+              "type": "Prescription",
+              "start": 601,
+              "end": 634,
+              "text": "levetiracetam-1000-mg-twice-today",
+              "attributes": {
+                "DrugName": "levetiracetam",
+                "DrugDose": "1000",
+                "DoseUnit": "mg",
+                "Frequency": "2",
+                "CUIPhrase": "levetiracetam",
+                "CUI": "C0377265"
+              }
+            }
+          ],
+          "alignment": {
+            "status": "overlaps_gold",
+            "note": "At least one evidence span overlaps a gold entity."
+          }
+        },
+        {
+          "id": "current_anti_seizure_medications.1.name",
+          "field_path": "fields.current_anti_seizure_medications[1].name",
+          "field_group": "current_anti_seizure_medications",
+          "value": "levetiracetam",
+          "missingness": "present",
+          "temporality": "current",
+          "status": "current",
+          "evidence": [
+            {
+              "quote": "Currently she is taking sodium valproate 500 mg twice a day and levetiracetam 1000 mg twice today. She has previously tried carbamazepine but this give her a rash. I explained the new MHRA rules on prescribing sodium valproate in women of child bearing age. Even though Mrs Williams has no plans for",
+              "char_start": 537,
+              "char_end": 836,
+              "valid_quote": true
+            }
+          ],
+          "gold_candidates": [
+            {
+              "id": "T10",
+              "type": "Prescription",
+              "start": 537,
+              "end": 596,
+              "text": "Currently-she-is-taking-sodium-valproate-500-mg-twice-a-day",
+              "attributes": {
+                "DrugName": "sodium-valproate",
+                "DrugDose": "500",
+                "DoseUnit": "mg",
+                "Frequency": "2",
+                "CUIPhrase": "sodium-valproate",
+                "CUI": "C0037567"
+              }
+            },
+            {
+              "id": "T12",
+              "type": "Prescription",
+              "start": 601,
+              "end": 634,
+              "text": "levetiracetam-1000-mg-twice-today",
+              "attributes": {
+                "DrugName": "levetiracetam",
+                "DrugDose": "1000",
+                "DoseUnit": "mg",
+                "Frequency": "2",
+                "CUIPhrase": "levetiracetam",
+                "CUI": "C0377265"
+              }
+            }
+          ],
+          "alignment": {
+            "status": "overlaps_gold",
+            "note": "At least one evidence span overlaps a gold entity."
+          }
+        },
+        {
+          "id": "current_anti_seizure_medications.2.name",
+          "field_path": "fields.current_anti_seizure_medications[2].name",
+          "field_group": "current_anti_seizure_medications",
+          "value": "lamotrigine",
+          "missingness": "present",
+          "temporality": "current",
+          "status": "current",
+          "evidence": [
+            {
+              "quote": "Currently she is taking sodium valproate 500 mg twice a day and levetiracetam 1000 mg twice today. She has previously tried carbamazepine but this give her a rash. I explained the new MHRA rules on prescribing sodium valproate in women of child bearing age. Even though Mrs Williams has no plans for",
+              "char_start": 537,
+              "char_end": 836,
+              "valid_quote": true
+            }
+          ],
+          "gold_candidates": [
+            {
+              "id": "T10",
+              "type": "Prescription",
+              "start": 537,
+              "end": 596,
+              "text": "Currently-she-is-taking-sodium-valproate-500-mg-twice-a-day",
+              "attributes": {
+                "DrugName": "sodium-valproate",
+                "DrugDose": "500",
+                "DoseUnit": "mg",
+                "Frequency": "2",
+                "CUIPhrase": "sodium-valproate",
+                "CUI": "C0037567"
+              }
+            },
+            {
+              "id": "T12",
+              "type": "Prescription",
+              "start": 601,
+              "end": 634,
+              "text": "levetiracetam-1000-mg-twice-today",
+              "attributes": {
+                "DrugName": "levetiracetam",
+                "DrugDose": "1000",
+                "DoseUnit": "mg",
+                "Frequency": "2",
+                "CUIPhrase": "levetiracetam",
+                "CUI": "C0377265"
+              }
+            }
+          ],
+          "alignment": {
+            "status": "overlaps_gold",
+            "note": "At least one evidence span overlaps a gold entity."
+          }
+        },
+        {
+          "id": "seizure_types.0.value",
+          "field_path": "fields.seizure_types[0].value",
+          "field_group": "seizure_types",
+          "value": "focal seizure",
+          "missingness": "present",
+          "temporality": "current",
+          "status": null,
+          "evidence": [
+            {
+              "quote": "I reviewed this 42 year old lady with epilepsy, together with her husband, in clinic today. She tells me that she has been getting episodes around twice a week of an unusual thought. This was difficult to describe but it was like an overfamiliar or déjà vu feeling. These thoughts last for around 30",
+              "char_start": 10,
+              "char_end": 309,
+              "valid_quote": true
+            }
+          ],
+          "gold_candidates": [
+            {
+              "id": "T2",
+              "type": "Diagnosis",
+              "start": 48,
+              "end": 56,
+              "text": "epilepsy",
+              "attributes": {
+                "DiagCategory": "Epilepsy",
+                "Certainty": "5",
+                "Negation": "Affirmed",
+                "CUIPhrase": "epilepsy",
+                "CUI": "C0014544"
+              }
+            }
+          ],
+          "alignment": {
+            "status": "overlaps_gold",
+            "note": "At least one evidence span overlaps a gold entity."
+          }
+        },
+        {
+          "id": "current_seizure_frequency.value",
+          "field_path": "fields.current_seizure_frequency.value",
+          "field_group": "current_seizure_frequency",
+          "value": null,
+          "missingness": "not_stated",
+          "temporality": "uncertain",
+          "status": null,
+          "evidence": [],
+          "gold_candidates": [],
+          "alignment": {
+            "status": "not_present",
+            "note": "Model did not mark this field present."
+          }
+        },
+        {
+          "id": "epilepsy_diagnosis.value",
+          "field_path": "fields.epilepsy_diagnosis.value",
+          "field_group": "epilepsy_diagnosis",
+          "value": "focal epilepsy",
+          "missingness": "present",
+          "temporality": "current",
+          "status": null,
+          "evidence": [
+            {
+              "quote": "I think these are in keeping with temporal lobe onset focal seizures.",
+              "char_start": 319,
+              "char_end": 388,
+              "valid_quote": true
+            }
+          ],
+          "gold_candidates": [
+            {
+              "id": "T6",
+              "type": "Diagnosis",
+              "start": 353,
+              "end": 366,
+              "text": "temporal-lobe",
+              "attributes": {
+                "DiagCategory": "MultipleSeizures",
+                "Certainty": "4",
+                "Negation": "Affirmed",
+                "CUIPhrase": "temporal-lobe-seizure",
+                "CUI": "C0014556"
+              }
+            },
+            {
+              "id": "T4",
+              "type": "Diagnosis",
+              "start": 373,
+              "end": 387,
+              "text": "focal-seizures",
+              "attributes": {
+                "DiagCategory": "MultipleSeizures",
+                "Certainty": "4",
+                "Negation": "Affirmed",
+                "CUIPhrase": "focal-seizures",
+                "CUI": "C0751495"
+              }
+            }
+          ],
+          "alignment": {
+            "status": "overlaps_gold",
+            "note": "At least one evidence span overlaps a gold entity."
+          }
+        },
+        {
+          "id": "eeg.result",
+          "field_path": "fields.eeg.result",
+          "field_group": "eeg",
+          "value": "not_stated",
+          "missingness": "not_stated",
+          "temporality": "uncertain",
+          "status": "not_stated",
+          "evidence": [],
+          "gold_candidates": [],
+          "alignment": {
+            "status": "not_present",
+            "note": "Model did not mark this field present."
+          }
+        },
+        {
+          "id": "mri.result",
+          "field_path": "fields.mri.result",
+          "field_group": "mri",
+          "value": "not_stated",
+          "missingness": "not_stated",
+          "temporality": "uncertain",
+          "status": "not_stated",
+          "evidence": [],
+          "gold_candidates": [],
+          "alignment": {
+            "status": "not_present",
+            "note": "Model did not mark this field present."
+          }
+        }
+      ]
+    }
+  ]
+}

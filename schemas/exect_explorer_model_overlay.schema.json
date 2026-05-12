@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/dissertation-recursive/exect_explorer_model_overlay.schema.json",
+  "title": "ExECT Explorer Model Overlay Bundle",
+  "type": "object",
+  "required": ["schema_version", "artifact_class", "generated_at_utc", "source", "model", "documents"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "2026-05-12"
+    },
+    "artifact_class": {
+      "const": "model_overlay"
+    },
+    "generated_at_utc": {
+      "type": "string"
+    },
+    "source": {
+      "type": "object",
+      "required": ["canonical_dir", "explorer_data_dir", "comparison_report"],
+      "additionalProperties": false,
+      "properties": {
+        "canonical_dir": { "type": "string" },
+        "explorer_data_dir": { "type": "string" },
+        "comparison_report": { "$ref": "#/$defs/artifact_record" },
+        "run_manifest": { "$ref": "#/$defs/artifact_record" }
+      }
+    },
+    "model": {
+      "type": "object",
+      "required": ["model_id", "model_label", "harness_id", "pipeline_id"],
+      "additionalProperties": false,
+      "properties": {
+        "model_id": { "type": ["string", "null"] },
+        "model_label": { "type": ["string", "null"] },
+        "harness_id": { "type": ["string", "null"] },
+        "pipeline_id": { "type": ["string", "null"] }
+      }
+    },
+    "documents": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/document_overlay" }
+    }
+  },
+  "$defs": {
+    "artifact_record": {
+      "type": "object",
+      "required": ["path", "exists", "sha256"],
+      "additionalProperties": false,
+      "properties": {
+        "path": { "type": "string" },
+        "exists": { "type": "boolean" },
+        "sha256": { "type": ["string", "null"] }
+      }
+    },
+    "document_overlay": {
+      "type": "object",
+      "required": [
+        "document_id",
+        "letter_path",
+        "canonical_path",
+        "gold_entity_count",
+        "model_field_count",
+        "model_fields"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "document_id": { "type": "string" },
+        "letter_path": { "type": "string" },
+        "canonical_path": { "type": "string" },
+        "gold_entity_count": { "type": "integer", "minimum": 0 },
+        "model_field_count": { "type": "integer", "minimum": 0 },
+        "model_fields": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/model_field" }
+        }
+      }
+    },
+    "model_field": {
+      "type": "object",
+      "required": [
+        "id",
+        "field_path",
+        "field_group",
+        "value",
+        "missingness",
+        "temporality",
+        "evidence",
+        "gold_candidates",
+        "alignment"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string" },
+        "field_path": { "type": "string" },
+        "field_group": { "type": "string" },
+        "value": { "type": ["string", "null"] },
+        "missingness": { "type": ["string", "null"] },
+        "temporality": { "type": ["string", "null"] },
+        "status": { "type": ["string", "null"] },
+        "evidence": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/evidence_span" }
+        },
+        "gold_candidates": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/gold_candidate" }
+        },
+        "alignment": {
+          "type": "object",
+          "required": ["status", "note"],
+          "additionalProperties": false,
+          "properties": {
+            "status": {
+              "enum": ["overlaps_gold", "evidence_only", "ungrounded", "not_present"]
+            },
+            "note": { "type": "string" }
+          }
+        }
+      }
+    },
+    "evidence_span": {
+      "type": "object",
+      "required": ["quote", "char_start", "char_end", "valid_quote"],
+      "additionalProperties": false,
+      "properties": {
+        "quote": { "type": "string" },
+        "char_start": { "type": ["integer", "null"], "minimum": 0 },
+        "char_end": { "type": ["integer", "null"], "minimum": 0 },
+        "valid_quote": { "type": "boolean" }
+      }
+    },
+    "gold_candidate": {
+      "type": "object",
+      "required": ["id", "type", "start", "end", "text", "attributes"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string" },
+        "type": { "type": "string" },
+        "start": { "type": "integer", "minimum": 0 },
+        "end": { "type": "integer", "minimum": 0 },
+        "text": { "type": "string" },
+        "attributes": {
+          "type": "object",
+          "additionalProperties": {
+            "type": ["string", "number", "boolean", "null"]
+          }
+        }
+      }
+    }
+  }
+}

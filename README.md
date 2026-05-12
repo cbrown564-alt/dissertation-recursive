@@ -19,6 +19,31 @@ The most important active candidates are:
 - Frequency workstream: GPT-5.5 with Gan retrieval-highlight, pending larger-scale confirmation.
 - Audit surface: `exect-explorer/`.
 
+## Maintained Local Candidate
+
+The canonical local deployment path is H6fs extraction plus the Option-C
+evidence resolver, scored with the corrected ExECTv2 scorer:
+
+```bash
+python scripts/run_evidence_resolver_scored_batch.py \
+  --canonical-dir runs/local_models/stage_l5_35b_full/calls/qwen_35b_local/H6fs_benchmark_only_coarse_json \
+  --split validation \
+  --limit 40 \
+  --output-dir runs/evidence_resolver/scored_batch
+```
+
+Use `--fallback` only when an Ollama fallback model should be allowed to locate
+quotes for values that deterministic matching cannot ground. The maintained
+output contract is:
+
+- `comparison_report.json` - baseline versus resolved scoring summary.
+- `run_manifest.json` - inputs, prompt/projection/scorer versions, resolver mode, and mutation policy.
+- `resolved/*.json` - one evidence-resolved canonical extraction per processed document.
+
+The evidence resolver is additive: it may populate `evidence` arrays, but it
+must not change extracted values, missingness, temporality, or non-evidence
+metadata.
+
 ## Documentation Map
 
 - [Proposal review](docs/proposal_review.md) - strengths, risks, and immediate decisions from the tightened proposal.

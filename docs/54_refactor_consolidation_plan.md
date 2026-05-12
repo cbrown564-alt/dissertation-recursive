@@ -105,7 +105,7 @@ Target:
 - One clean CLI for `H6fs + evidence resolver`. **Partially completed by standardizing `scripts/run_evidence_resolver_scored_batch.py` as the maintained scored runner.**
 - One scored output directory shape. **Partially completed: scored runner writes `comparison_report.json`, `run_manifest.json`, and `resolved/*.json`.**
 - One manifest describing model, harness, resolver mode, prompt hashes, scorer version, and run inputs. **Completed for the scored evidence-resolver runner.**
-- Evidence resolver remains additive: it may only mutate evidence arrays. **Recorded in the run manifest; a direct mutation-policy regression test still remains.**
+- Evidence resolver remains additive: it may only mutate evidence arrays. **Completed: recorded in the run manifest and covered by a direct mutation-policy regression test.**
 
 ### 4.5 Experiment Archive Boundary
 
@@ -166,15 +166,17 @@ Status: partially completed.
 
 Status: partially completed.
 
-- Add contract tests for H6/H6fs/H6full, evidence resolver fallback, and MA verifier/corrector prompts. **Completed for H6/H6fs/H6full; remaining for evidence-resolver fallback prompt and MA prompts.**
-- Add token-budget exhaustion alarms for reasoning-model calls.
+- Add contract tests for H6/H6fs/H6full, evidence resolver fallback, and MA verifier/corrector prompts. **Completed.**
+- Add token-budget exhaustion alarms for reasoning-model calls. **Completed in provider response metadata.**
 - Add medication tuple preservation tests. **Completed for H6full projection.**
 
 ### Milestone E: Explorer Data Contract
 
-- Define the JSON shape for ExECT Explorer model overlays.
-- Export one small, representative model-vs-gold bundle.
-- Keep annotation-mode local-storage behavior separate from canonical model artifacts.
+Status: completed.
+
+- Define the JSON shape for ExECT Explorer model overlays. **Completed via `schemas/exect_explorer_model_overlay.schema.json`.**
+- Export one small, representative model-vs-gold bundle. **Completed at `exect-explorer/public/data/model_overlays/h6fs_ev_validation_sample.json`.**
+- Keep annotation-mode local-storage behavior separate from canonical model artifacts. **Completed in `docs/55_exect_explorer_data_contract.md` and regression tests.**
 
 ### Milestone F: Archive or Rename Legacy Entrypoints
 
@@ -186,7 +188,7 @@ Status: partially completed.
 
 ## 6. Immediate Next Step
 
-Milestones A and B are complete. The next implementation step is to finish Milestone C by making the H6fs local candidate runner fully first-class: define the canonical invocation in README/docs, add mutation-policy tests for the evidence resolver, and confirm the scored output shape against a small representative run artifact. After that, continue Milestone D with prompt-freeze coverage for evidence-resolver fallback and multi-agent verifier/corrector prompts.
+Milestones A through E are now complete for the maintained local candidate and Explorer data-contract path. The next implementation step is Milestone F: mark frozen experiment scripts as archival, update docs and README to point new work at maintained commands, and preserve historical run reproducibility.
 
 ---
 
@@ -212,3 +214,35 @@ Completed on 2026-05-12:
   - `python -m pytest -q tests` -> 54 passed.
   - `python -m compileall -q src scripts` -> passed.
   - `python scripts/run_evidence_resolver_scored_batch.py --help` -> passed.
+
+Completed on 2026-05-12:
+
+- Made the maintained H6fs evidence-resolver runner first-class:
+  - documented the canonical invocation and output contract in `README.md`;
+  - added `validate_scored_output_shape()` to `scripts/run_evidence_resolver_scored_batch.py`;
+  - added a representative scored-runner output-shape regression test.
+- Added direct resolver mutation-policy coverage proving non-evidence content is unchanged.
+- Added prompt-contract coverage for:
+  - `prompts/recovery/evidence_resolver_fallback.md`;
+  - `prompts/multi_agent_v2/verifier.md`;
+  - `prompts/multi_agent_v2/corrector.md`.
+- Added provider-level token-budget exhaustion alarms in `src/model_providers.py`.
+- Verification completed:
+  - `python -m pytest -q tests` -> 60 passed.
+  - `python -m compileall -q src scripts` -> passed.
+  - `python scripts/run_evidence_resolver_scored_batch.py --help` -> passed.
+
+Completed on 2026-05-12:
+
+- Added the ExECT Explorer model-overlay data contract:
+  - `schemas/exect_explorer_model_overlay.schema.json`
+  - `docs/55_exect_explorer_data_contract.md`
+- Added `exect-explorer/scripts/build_model_overlay.py` to export canonical model outputs into Explorer-ready overlay bundles.
+- Exported a representative H6fs + evidence-resolver sample:
+  - `exect-explorer/public/data/model_overlays/h6fs_ev_validation_sample.json`
+- Added regression tests:
+  - `tests/test_exect_explorer_model_overlay.py`
+- Verification completed:
+  - `python -m pytest -q tests` -> 62 passed.
+  - `python -m compileall -q src scripts exect-explorer/scripts` -> passed.
+  - `python exect-explorer/scripts/build_model_overlay.py --help` -> passed.

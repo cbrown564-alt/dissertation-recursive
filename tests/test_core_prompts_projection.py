@@ -8,6 +8,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
+from core.manifests import sha256_text
 from core.prompts import build_h6_prompt, build_h6fs_prompt, build_h6full_prompt
 from core.projection import RELAXED_PROJECTION_VERSION, projected_canonical
 from model_expansion import (
@@ -56,6 +57,32 @@ def test_h6fs_prompt_freezes_few_shot_status_contract() -> None:
     assert '"unknown seizure type"' in prompt
     assert '"seizure free"' in prompt
     assert "Allowed seizure_type labels:" in prompt
+
+
+def test_evidence_resolver_fallback_prompt_contract_is_frozen() -> None:
+    template = Path("prompts/recovery/evidence_resolver_fallback.md").read_text(encoding="utf-8")
+
+    assert "Do NOT change, normalise, interpret, or drop any value." in template
+    assert "Evidence quotes must be **exact contiguous text copied from the source letter**." in template
+    assert '"quote": null' in template
+    assert "{source_text}" in template
+    assert "{values_json}" in template
+    assert sha256_text(template)
+
+
+def test_multi_agent_verifier_and_corrector_prompt_contracts_are_frozen() -> None:
+    verifier = Path("prompts/multi_agent_v2/verifier.md").read_text(encoding="utf-8")
+    corrector = Path("prompts/multi_agent_v2/corrector.md").read_text(encoding="utf-8")
+
+    assert "Only flag problems" in verifier
+    assert '"flags": []' in verifier
+    assert "Current medications with generic names are correct" in verifier
+    assert "Benchmark-normalized labels are CORRECT" in verifier
+
+    assert "Only change flagged fields" in corrector
+    assert "return the original extraction unchanged" in corrector
+    assert "Return the **complete canonical JSON**" in corrector
+    assert "Medication names" in corrector and "generic names" in corrector
 
 
 def test_projection_preserves_h6full_medication_tuple_and_investigations() -> None:

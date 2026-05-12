@@ -360,6 +360,18 @@ def test_inject_evidence_dedupes() -> None:
 # End-to-end hybrid (deterministic-only, no model)
 # ---------------------------------------------------------------------------
 
+def _without_evidence_values(value):
+    if isinstance(value, dict):
+        return {
+            key: _without_evidence_values(item)
+            for key, item in value.items()
+            if key != "evidence"
+        }
+    if isinstance(value, list):
+        return [_without_evidence_values(item) for item in value]
+    return value
+
+
 def test_resolve_evidence_hybrid_deterministic_only() -> None:
     resolved, stats = resolve_evidence_hybrid(
         SAMPLE_CANONICAL, SAMPLE_LETTER, model_call=None
@@ -378,6 +390,32 @@ def test_resolve_evidence_hybrid_deterministic_only() -> None:
     meds = resolved["fields"]["current_anti_seizure_medications"]
     assert len(meds[0]["evidence"]) > 0
     assert len(meds[1]["evidence"]) > 0
+
+
+def test_resolve_evidence_hybrid_mutates_only_evidence_arrays() -> None:
+    original = json.loads(json.dumps(SAMPLE_CANONICAL))
+    resolved, _stats = resolve_evidence_hybrid(
+        original,
+        SAMPLE_LETTER,
+        model_call=lambda _prompt: {
+            "text": json.dumps(
+                {
+                    "groundings": [
+                        {
+                            "path": "fields.current_anti_seizure_medications[0].name",
+                            "quote": "lamotrigine 75 mg twice a day",
+                        }
+                    ]
+                }
+            ),
+            "tokens_in": 10,
+            "tokens_out": 10,
+            "latency_ms": 1,
+        },
+    )
+
+    assert original == SAMPLE_CANONICAL
+    assert _without_evidence_values(resolved) == _without_evidence_values(SAMPLE_CANONICAL)
 
 
 # ---------------------------------------------------------------------------

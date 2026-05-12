@@ -32,6 +32,83 @@ from model_registry import DEFAULT_REGISTRY, load_model_specs
 from validate_extraction import DEFAULT_SCHEMA, validate_extraction
 
 
+REQUIRED_COMPARISON_SECTIONS = ("baseline", "resolved")
+REQUIRED_COMPARISON_METRICS = (
+    "quote_presence",
+    "quote_validity",
+    "medication_name_f1",
+    "seizure_type_f1",
+    "seizure_type_f1_collapsed",
+    "epilepsy_diagnosis_accuracy",
+)
+REQUIRED_RESOLVED_METRICS = (
+    "deterministic_hits",
+    "fallback_hits",
+    "ungrounded",
+    "total_values",
+    "total_fallback_latency_ms",
+)
+
+
+def validate_scored_output_shape(output_dir: Path) -> dict:
+    """Validate the public output contract for the maintained scored runner."""
+    report_path = output_dir / "comparison_report.json"
+    manifest_path = output_dir / "run_manifest.json"
+    resolved_dir = output_dir / "resolved"
+
+    missing = [
+        str(path)
+        for path in (report_path, manifest_path, resolved_dir)
+        if not path.exists()
+    ]
+    if missing:
+        raise FileNotFoundError(f"missing scored runner output(s): {missing}")
+    if not resolved_dir.is_dir():
+        raise NotADirectoryError(f"resolved output is not a directory: {resolved_dir}")
+
+    report = json.loads(report_path.read_text(encoding="utf-8"))
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+
+    if not isinstance(report.get("documents"), int) or report["documents"] < 1:
+        raise ValueError("comparison_report.json must contain documents >= 1")
+    for section in REQUIRED_COMPARISON_SECTIONS:
+        if section not in report or not isinstance(report[section], dict):
+            raise ValueError(f"comparison_report.json missing section: {section}")
+        for metric in REQUIRED_COMPARISON_METRICS:
+            if metric not in report[section]:
+                raise ValueError(f"comparison_report.json missing {section}.{metric}")
+    for metric in REQUIRED_RESOLVED_METRICS:
+        if metric not in report["resolved"]:
+            raise ValueError(f"comparison_report.json missing resolved.{metric}")
+
+    required_manifest_keys = {
+        "manifest_version",
+        "created_at_utc",
+        "name",
+        "pipeline_id",
+        "inputs",
+        "outputs",
+        "components",
+        "metrics",
+    }
+    missing_manifest = required_manifest_keys.difference(manifest)
+    if missing_manifest:
+        raise ValueError(f"run_manifest.json missing keys: {sorted(missing_manifest)}")
+
+    components = manifest.get("components", {})
+    resolver = components.get("evidence_resolver", {})
+    if resolver.get("mutation_policy") != "evidence arrays only":
+        raise ValueError("manifest must record evidence resolver mutation_policy")
+
+    resolved_files = sorted(resolved_dir.glob("*.json"))
+    if len(resolved_files) != report["documents"]:
+        raise ValueError(
+            f"resolved file count {len(resolved_files)} does not match documents {report['documents']}"
+        )
+
+    return {"report": report, "manifest": manifest, "resolved_files": [str(path) for path in resolved_files]}
+
+
 def make_ollama_call(model_id: str = "gemma4:e4b"):
     """Return a model_call callable for the evidence resolver."""
     registry = load_model_specs(DEFAULT_REGISTRY)
@@ -220,6 +297,7 @@ def run_scored_batch(args: argparse.Namespace) -> int:
         metrics=report,
     )
     manifest_path.write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    validate_scored_output_shape(output_dir)
 
     print("=" * 60)
     print("Evidence Resolver Scored Batch Comparison")

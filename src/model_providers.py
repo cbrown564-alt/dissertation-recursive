@@ -75,6 +75,14 @@ class ProviderAdapter:
         provider_metadata: dict[str, Any] | None = None,
         error: str | None = None,
     ) -> ModelResponse:
+        metadata = provider_metadata or {}
+        metadata["token_budget_alarm"] = detect_token_budget_alarm(
+            request=request,
+            text=text,
+            usage=usage or TokenUsage(),
+            stop_reason=stop_reason,
+            provider_metadata=metadata,
+        )
         return ModelResponse(
             provider=self.provider,
             model_label=request.model.label,
@@ -87,7 +95,7 @@ class ProviderAdapter:
             latency_ms=(time.perf_counter() - started) * 1000,
             stop_reason=stop_reason,
             retries=0,
-            provider_metadata=provider_metadata or {},
+            provider_metadata=metadata,
             raw_response_path=None,
             estimated_cost=estimate_cost(request.model, usage or TokenUsage()),
             request_metadata=request.metadata,
@@ -409,6 +417,69 @@ def truncate_to_context(prompt: str, model: ModelSpec) -> str:
         logging.warning("truncate_to_context: source letter truncated from %d to %d chars", len(suffix), target_suffix_chars)
         suffix = suffix[:target_suffix_chars]
     return prefix + suffix
+
+
+def _recursive_numeric_values(obj: Any, key: str) -> list[int | float]:
+    values: list[int | float] = []
+    if isinstance(obj, dict):
+        for item_key, item_value in obj.items():
+            if item_key == key and isinstance(item_value, (int, float)):
+                values.append(item_value)
+            values.extend(_recursive_numeric_values(item_value, key))
+    elif isinstance(obj, list):
+        for item in obj:
+            values.extend(_recursive_numeric_values(item, key))
+    return values
+
+
+def _recursive_string_values(obj: Any, key: str) -> list[str]:
+    values: list[str] = []
+    if isinstance(obj, dict):
+        for item_key, item_value in obj.items():
+            if item_key == key and isinstance(item_value, str):
+                values.append(item_value)
+            values.extend(_recursive_string_values(item_value, key))
+    elif isinstance(obj, list):
+        for item in obj:
+            values.extend(_recursive_string_values(item, key))
+    return values
+
+
+def detect_token_budget_alarm(
+    *,
+    request: ModelRequest,
+    text: str,
+    usage: TokenUsage,
+    stop_reason: str | None,
+    provider_metadata: dict[str, Any],
+) -> dict[str, Any]:
+    """Return a structured alarm when a response likely exhausted output budget."""
+    max_output = request.max_output_tokens or request.model.max_output_tokens
+    reasons: list[str] = []
+    output_tokens = usage.output_tokens
+    reasoning_tokens = max(_recursive_numeric_values(provider_metadata, "reasoning_tokens") or [0])
+    incomplete_reasons = {
+        value
+        for value in _recursive_string_values(provider_metadata, "reason")
+        if value in {"max_output_tokens", "max_tokens", "length"}
+    }
+
+    if stop_reason and stop_reason.lower() in {"length", "max_tokens", "max_output_tokens"}:
+        reasons.append(f"stop_reason={stop_reason}")
+    if incomplete_reasons:
+        reasons.extend(f"incomplete_reason={reason}" for reason in sorted(incomplete_reasons))
+    if max_output and output_tokens is not None and output_tokens >= max_output * 0.95:
+        reasons.append("output_tokens_near_max_output_tokens")
+    if not text.strip() and reasoning_tokens and max_output and reasoning_tokens >= max_output * 0.95:
+        reasons.append("empty_text_with_reasoning_tokens_near_budget")
+
+    return {
+        "triggered": bool(reasons),
+        "reasons": reasons,
+        "max_output_tokens": max_output,
+        "output_tokens": output_tokens,
+        "reasoning_tokens": reasoning_tokens or None,
+    }
 
 
 def estimate_cost(model: ModelSpec, usage: TokenUsage) -> dict[str, Any]:
