@@ -1,7 +1,7 @@
 # Refactor Consolidation Plan
 
 **Date:** 2026-05-12  
-**Status:** Initial consolidation plan  
+**Status:** Milestones A-B completed; Milestones C-D partially completed  
 **Purpose:** Convert the exploratory codebase into a maintainable dissertation and deployment codebase without losing the experimental record.
 
 ---
@@ -64,48 +64,48 @@ This path is narrow enough to stabilize first and important enough to anchor the
 Create a small shared layer under `src/core/` for low-risk utilities and stable contracts.
 
 Initial modules:
-- `core.io`: text, JSON, and CSV helpers.
-- `core.datasets`: split loading and dataset identifiers.
+- `core.io`: text, JSON, and CSV helpers. **Completed.**
+- `core.datasets`: split loading and dataset identifiers. **Completed.**
 
 Next modules:
-- `core.scoring`: reusable scoring API extracted from `src/evaluate.py`.
-- `core.projection`: H6/H6fs/H6full projection helpers extracted from `src/model_expansion.py`.
-- `core.prompts`: named prompt-contract assembly.
-- `core.manifests`: run metadata, freeze hashes, and condition identifiers.
+- `core.scoring`: reusable scoring API extracted from `src/evaluate.py`. **Completed.**
+- `core.projection`: H6/H6fs/H6full projection helpers extracted from `src/model_expansion.py`. **Completed for promoted relaxed/canonical projection path.**
+- `core.prompts`: named prompt-contract assembly. **Completed for H6/H6fs/H6full.**
+- `core.manifests`: run metadata, freeze hashes, and condition identifiers. **Initial helper layer completed.**
 
 ### 4.2 Scoring Extraction
 
 The corrected scorer is dissertation-critical and should become a stable API.
 
 Target:
-- Keep `src/evaluate.py` as a CLI wrapper.
-- Move pure scoring logic to `core.scoring`.
+- Keep `src/evaluate.py` as a CLI wrapper. **Completed.**
+- Move pure scoring logic to `core.scoring`. **Completed.**
 - Add regression tests for:
-  - gold-loader null-string fix
-  - ASM synonym expansion
-  - collapsed seizure labels
-  - medication component scoring
-  - frequency loose matching
+  - gold-loader null-string fix. **Completed.**
+  - ASM synonym expansion. **Completed.**
+  - collapsed seizure labels. **Completed.**
+  - medication component scoring. **Completed.**
+  - frequency loose matching. **Completed.**
 
 ### 4.3 Projection and Prompt Contracts
 
 The most fragile failures came from prompt/projection drift, especially the H7/D3 medication tuple collapse. Projection and prompt contracts should therefore be explicit and tested.
 
 Target:
-- Extract H6/H6fs/H6full prompt builders from `src/model_expansion.py`.
-- Treat allowed seizure and epilepsy labels as shared constants.
-- Add contract-freeze tests for all promoted prompt families.
-- Require structured medication objects where medication full-tuple scoring is expected.
+- Extract H6/H6fs/H6full prompt builders from `src/model_expansion.py`. **Completed.**
+- Treat allowed seizure and epilepsy labels as shared constants. **Completed via `core.labels`.**
+- Add contract-freeze tests for all promoted prompt families. **Completed for H6/H6fs/H6full; MA verifier/corrector prompt freeze remains.**
+- Require structured medication objects where medication full-tuple scoring is expected. **Partially completed via projection tests for H6full medication tuple preservation.**
 
 ### 4.4 Maintained Local Deployment Candidate
 
 Make the promoted local path first-class.
 
 Target:
-- One clean CLI for `H6fs + evidence resolver`.
-- One scored output directory shape.
-- One manifest describing model, harness, resolver mode, prompt hashes, scorer version, and run inputs.
-- Evidence resolver remains additive: it may only mutate evidence arrays.
+- One clean CLI for `H6fs + evidence resolver`. **Partially completed by standardizing `scripts/run_evidence_resolver_scored_batch.py` as the maintained scored runner.**
+- One scored output directory shape. **Partially completed: scored runner writes `comparison_report.json`, `run_manifest.json`, and `resolved/*.json`.**
+- One manifest describing model, harness, resolver mode, prompt hashes, scorer version, and run inputs. **Completed for the scored evidence-resolver runner.**
+- Evidence resolver remains additive: it may only mutate evidence arrays. **Recorded in the run manifest; a direct mutation-policy regression test still remains.**
 
 ### 4.5 Experiment Archive Boundary
 
@@ -136,33 +136,39 @@ Likely direction:
 
 ### Milestone A: Orientation and Low-Risk Core
 
-Status: started.
+Status: completed.
 
-- Add this consolidation plan.
-- Add `src/core/` helpers.
-- Replace duplicated IO/split helpers where safe.
-- Refresh README current-state guidance.
-- Run existing unit tests.
+- Add this consolidation plan. **Completed.**
+- Add `src/core/` helpers. **Completed for IO, datasets, labels, scoring, prompts, projection, and manifests.**
+- Replace duplicated IO/split helpers where safe. **Partially completed in `src/evaluate.py`; broader replacement remains intentionally incremental.**
+- Refresh README current-state guidance. **Completed.**
+- Run existing unit tests. **Completed: `python -m pytest -q tests`, 54 passed.**
 
 ### Milestone B: Scorer Stabilization
 
-- Extract scoring API.
-- Keep `evaluate.py` CLI-compatible.
-- Add scorer regression tests around known repaired failures.
-- Document scorer version and required metrics.
+Status: completed.
+
+- Extract scoring API. **Completed in `src/core/scoring.py`.**
+- Keep `evaluate.py` CLI-compatible. **Completed; legacy imports are preserved.**
+- Add scorer regression tests around known repaired failures. **Completed in `tests/test_core_scoring.py`.**
+- Document scorer version and required metrics. **Partially completed via `SCORER_VERSION`; metric documentation still belongs in methods docs.**
 
 ### Milestone C: Local Candidate Pipeline
 
-- Extract H6fs projection and prompt contract.
-- Add a maintained local candidate runner.
-- Integrate evidence resolver behind a stable option.
-- Emit a standardized run manifest.
+Status: partially completed.
+
+- Extract H6fs projection and prompt contract. **Completed via `core.prompts` and `core.projection`.**
+- Add a maintained local candidate runner. **Partially completed by standardizing the existing scored batch runner.**
+- Integrate evidence resolver behind a stable option. **Completed in existing runner with deterministic-only default and optional fallback.**
+- Emit a standardized run manifest. **Completed in `scripts/run_evidence_resolver_scored_batch.py`.**
 
 ### Milestone D: Prompt Contract Freeze
 
-- Add contract tests for H6/H6fs/H6full, evidence resolver fallback, and MA verifier/corrector prompts.
+Status: partially completed.
+
+- Add contract tests for H6/H6fs/H6full, evidence resolver fallback, and MA verifier/corrector prompts. **Completed for H6/H6fs/H6full; remaining for evidence-resolver fallback prompt and MA prompts.**
 - Add token-budget exhaustion alarms for reasoning-model calls.
-- Add medication tuple preservation tests.
+- Add medication tuple preservation tests. **Completed for H6full projection.**
 
 ### Milestone E: Explorer Data Contract
 
@@ -180,5 +186,29 @@ Status: started.
 
 ## 6. Immediate Next Step
 
-Complete Milestone A, then begin Milestone B by extracting scorer functions from `src/evaluate.py` without changing metric behavior.
+Milestones A and B are complete. The next implementation step is to finish Milestone C by making the H6fs local candidate runner fully first-class: define the canonical invocation in README/docs, add mutation-policy tests for the evidence resolver, and confirm the scored output shape against a small representative run artifact. After that, continue Milestone D with prompt-freeze coverage for evidence-resolver fallback and multi-agent verifier/corrector prompts.
 
+---
+
+## 7. Completed Implementation Log
+
+Completed on 2026-05-12:
+
+- Added the maintained shared modules:
+  - `src/core/scoring.py`
+  - `src/core/prompts.py`
+  - `src/core/projection.py`
+  - `src/core/manifests.py`
+- Kept compatibility wrappers/import surfaces:
+  - `src/evaluate.py` now delegates scoring logic to `core.scoring`.
+  - `src/model_expansion.py` delegates promoted H6/H6fs/H6full prompts and canonical projection to `core.prompts` / `core.projection`.
+- Added standardized manifest emission to `scripts/run_evidence_resolver_scored_batch.py`.
+- Updated `README.md` to identify `src/core/` as the maintained shared layer.
+- Added regression tests:
+  - `tests/test_core_scoring.py`
+  - `tests/test_core_prompts_projection.py`
+  - expanded `tests/test_core_helpers.py`
+- Verification completed:
+  - `python -m pytest -q tests` -> 54 passed.
+  - `python -m compileall -q src scripts` -> passed.
+  - `python scripts/run_evidence_resolver_scored_batch.py --help` -> passed.

@@ -10,6 +10,8 @@ The project is now at the end of its exploratory phase. The authoritative synthe
 
 The current consolidation goal is to preserve the experimental record while extracting a maintained pipeline spine for corrected scoring, local-model extraction, evidence resolution, and ExECT Explorer audit workflows. See [docs/54_refactor_consolidation_plan.md](docs/54_refactor_consolidation_plan.md).
 
+New work should treat `src/core/` as the maintained shared layer. The corrected ExECTv2 scoring API now lives in `src/core/scoring.py`; promoted prompt contracts live in `src/core/prompts.py`; canonical projection helpers live in `src/core/projection.py`. `src/evaluate.py` and selected `src/model_expansion.py` functions remain CLI-compatible wrappers and compatibility import surfaces for older experiment scripts.
+
 The most important active candidates are:
 
 - Frontier baselines: GPT-4.1-mini S2/E3.

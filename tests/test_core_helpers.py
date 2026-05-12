@@ -11,6 +11,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 from core.datasets import load_split_ids
 from core.io import read_csv_dicts, read_csv_rows, read_json, read_text, write_csv, write_json, write_text
 from core.labels import BENCHMARK_EPILEPSY_LABELS, BENCHMARK_SEIZURE_LABELS, benchmark_label_block
+from core.manifests import artifact_record, run_manifest, sha256_file, sha256_text
 
 
 def test_text_json_and_csv_helpers_round_trip(tmp_path: Path) -> None:
@@ -43,3 +44,25 @@ def test_benchmark_label_block_contains_shared_contract() -> None:
     assert "- focal epilepsy" in block
     assert len(BENCHMARK_SEIZURE_LABELS) == 10
     assert len(BENCHMARK_EPILEPSY_LABELS) == 5
+
+
+def test_manifest_helpers_record_hashes_and_components(tmp_path: Path) -> None:
+    payload = tmp_path / "payload.txt"
+    payload.write_bytes(b"manifest me\n")
+
+    record = artifact_record(payload)
+    manifest = run_manifest(
+        name="unit",
+        pipeline_id="pipeline",
+        inputs={"payload": record},
+        outputs={},
+        components={"scorer_version": "test"},
+        metrics={"documents": 1},
+    )
+
+    assert sha256_text("manifest me\n") == sha256_file(payload)
+    assert record["exists"] is True
+    assert record["sha256"] == sha256_file(payload)
+    assert manifest["manifest_version"] == "2026-05-12"
+    assert manifest["components"]["scorer_version"] == "test"
+    assert manifest["metrics"]["documents"] == 1

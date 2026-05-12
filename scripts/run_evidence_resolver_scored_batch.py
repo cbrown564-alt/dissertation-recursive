@@ -20,6 +20,10 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
+from core.manifests import artifact_record, run_manifest, sha256_text
+from core.projection import RELAXED_PROJECTION_VERSION
+from core.prompts import build_h6fs_prompt
+from core.scoring import SCORER_VERSION
 from evidence_resolver import ResolverStats, resolve_evidence_hybrid
 from evaluate import load_gold, score_document
 from intake import preprocess_document
@@ -181,6 +185,41 @@ def run_scored_batch(args: argparse.Namespace) -> int:
 
     summary_path = output_dir / "comparison_report.json"
     summary_path.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    manifest_path = output_dir / "run_manifest.json"
+    prompt_contract = build_h6fs_prompt({"text": "<SOURCE_LETTER>"}, "H6fs_benchmark_only_coarse_json")
+    manifest = run_manifest(
+        name="H6fs evidence-resolver scored batch",
+        pipeline_id="h6fs_option_c_evidence_resolver",
+        inputs={
+            "canonical_dir": str(canonical_dir),
+            "split": args.split,
+            "limit": args.limit,
+            "splits": artifact_record(Path(args.splits)),
+            "exect_root": str(Path(args.exect_root)),
+            "markup_root": str(Path(args.markup_root)),
+            "schema": artifact_record(schema_path),
+        },
+        outputs={
+            "output_dir": str(output_dir),
+            "comparison_report": artifact_record(summary_path),
+            "resolved_dir": str(output_dir / "resolved"),
+        },
+        components={
+            "base_harness": "H6fs_benchmark_only_coarse_json",
+            "prompt_contract_sha256": sha256_text(prompt_contract),
+            "projection_version": RELAXED_PROJECTION_VERSION,
+            "evidence_resolver": {
+                "mode": "hybrid_option_c",
+                "deterministic_sentence_expansion": True,
+                "fallback_enabled": bool(args.fallback),
+                "fallback_model": args.model if args.fallback else None,
+                "mutation_policy": "evidence arrays only",
+            },
+            "scorer_version": SCORER_VERSION,
+        },
+        metrics=report,
+    )
+    manifest_path.write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     print("=" * 60)
     print("Evidence Resolver Scored Batch Comparison")
@@ -207,6 +246,7 @@ def run_scored_batch(args: argparse.Namespace) -> int:
     print(f"  Ungrounded:       {report['resolved']['ungrounded']}")
     print(f"  Fallback latency: {report['resolved']['total_fallback_latency_ms']:.0f} ms")
     print(f"Wrote: {summary_path}")
+    print(f"Wrote: {manifest_path}")
     return 0
 
 
