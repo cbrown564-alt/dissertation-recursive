@@ -1,7 +1,7 @@
 # Refactor Consolidation Plan
 
 **Date:** 2026-05-12  
-**Status:** Milestones A-B completed; Milestones C-D partially completed  
+**Status:** Milestones A-F completed; maintained evidence-freeze work now follows  
 **Purpose:** Convert the exploratory codebase into a maintainable dissertation and deployment codebase without losing the experimental record.
 
 ---

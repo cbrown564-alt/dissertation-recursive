@@ -39,9 +39,10 @@ The canonical Explorer overlay export is:
 
 ```bash
 python exect-explorer/scripts/build_model_overlay.py \
-  --model-output-dir runs/evidence_resolver/scored_batch/resolved \
+  --canonical-dir runs/evidence_resolver/scored_batch/resolved \
   --comparison-report runs/evidence_resolver/scored_batch/comparison_report.json \
   --run-manifest runs/evidence_resolver/scored_batch/run_manifest.json \
+  --limit 40 \
   --output exect-explorer/public/data/model_overlays/h6fs_ev_validation.json
 ```
 

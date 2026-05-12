@@ -14,6 +14,11 @@ New work should treat `src/core/` as the maintained shared layer. The corrected 
 
 The post-consolidation entrypoint map is [docs/56_archival_entrypoints.md](docs/56_archival_entrypoints.md). It marks frozen phase scripts as archival while preserving their commands for historical run reproduction.
 
+The first post-consolidation evidence-freeze artifact is documented in
+[docs/57_dissertation_evidence_freeze.md](docs/57_dissertation_evidence_freeze.md).
+It freezes the maintained H6fs + evidence-resolver validation run and the full
+ExECT Explorer model overlay used for audit.
+
 The most important active candidates are:
 
 - Frontier baselines: GPT-4.1-mini S2/E3.
@@ -76,6 +81,7 @@ metadata.
 - [Evidence resolver implementation](docs/52_evidence_resolver_implementation.md) - local evidence-grounding implementation and validation results.
 - [Refactor consolidation plan](docs/54_refactor_consolidation_plan.md) - current cleanup and rationalization roadmap.
 - [Archived entrypoints and maintained commands](docs/56_archival_entrypoints.md) - post-consolidation routing for new work versus historical reproduction.
+- [Dissertation evidence freeze](docs/57_dissertation_evidence_freeze.md) - maintained validation artifact, headline metrics, and audit-pass guidance.
 
 ## Milestone 1 Exit Check
 
