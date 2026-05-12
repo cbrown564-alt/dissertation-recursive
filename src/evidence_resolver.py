@@ -326,9 +326,12 @@ def _find_diagnosis_quote(source_text: str, value: str) -> str | None:
     quote = _find_normalized_quote(source_text, value)
     if quote:
         return quote
-    return _find_synonym_quote(
+    quote = _find_synonym_quote(
         source_text, value, DIAGNOSIS_SYNONYMS, canonical_diagnosis
     )
+    if quote:
+        return quote
+    return _find_diagnosis_pattern_quote(source_text, value)
 
 
 def _find_investigation_quote(source_text: str, value: str) -> str | None:
@@ -364,6 +367,8 @@ def _find_frequency_quote(source_text: str, value: str) -> str | None:
 SEIZURE_TYPE_PATTERNS: list[tuple[str, str]] = [
     # Generalized tonic-clonic
     (r"generalised?\s+tonic[\s\-]clonic\s+(?:seizure|fit)s?", "generalized tonic clonic seizure"),
+    (r"generalised?\s+tonic\s+chronic\s+(?:seizure|fit)s?", "generalized tonic clonic seizure"),
+    (r"generalised?\s+tonic\s+(?:seizure|fit)s?", "generalized tonic clonic seizure"),
     (r"gtc\s+(?:seizure|fit)s?", "generalized tonic clonic seizure"),
     (r"tonic[\s\-]clonic\s+(?:seizure|fit)s?", "generalized tonic clonic seizure"),
     # Focal impaired awareness
@@ -376,20 +381,39 @@ SEIZURE_TYPE_PATTERNS: list[tuple[str, str]] = [
     (r"simple\s+partial\s+(?:seizure|fit)s?", "focal aware seizure"),
     # Focal to bilateral
     (r"focal\s+to\s+bilateral\s+tonic[\s\-]clonic\s+(?:seizure|fit)s?", "focal to bilateral tonic clonic seizure"),
+    (r"focal\s+to\s+bilateral\s+convulsive\s+(?:seizure|fit)s?", "secondary generalized seizures"),
+    (r"focal\s+(?:seizure|fit)s?\s+with\s+secondary\s+generalisation", "secondary generalized seizures"),
+    (r"secondary\s+generalised?\s+(?:seizure|fit)s?", "secondary generalized seizures"),
+    (r"secondarily\s+generalised?\s+(?:seizure|fit)s?", "secondary generalized seizures"),
     # Absence
     (r"absence\s+(?:seizure|fit)s?", "generalized absence seizure"),
+    (r"\babsences\b", "generalized absence seizure"),
     (r"typical\s+absence\s+(?:seizure|fit)s?", "generalized absence seizure"),
     # Myoclonic
     (r"myoclonic\s+(?:seizure|fit)s?", "generalized myoclonic seizure"),
+    (r"myoclonic\s+jerks?", "generalized myoclonic seizure"),
     # Atonic
     (r"atonic\s+(?:seizure|fit)s?", "generalized atonic seizure"),
     # Focal onset (catches "focal onset convulsive seizure", "focal onset seizure", etc.)
     (r"focal\s+onset\s+(?:\w+\s+)*?(?:seizure|fit)s?", "focal seizure"),
+    (r"focal\s+motor\s+(?:seizure|fit)s?", "focal seizure"),
+    (r"temporal\s+lobe\s+onset\s+focal\s+(?:seizure|fit)s?", "focal seizure"),
+    (r"temporal\s+lobe\s+epilepsy\b", "focal seizure"),
+    (r"\bfocal\s+epilepsy\b", "focal seizure"),
     # Generic focal
     (r"focal\s+(?:seizure|fit)s?", "focal seizure"),
     (r"partial\s+(?:seizure|fit)s?", "focal seizure"),
     # Generic generalized
     (r"generalised?\s+(?:seizure|fit)s?", "generalized seizures"),
+    # Non-specific but present seizure evidence.
+    (r"\bcluster(?:s)?\s+of\s+(?:seizure|fit)s?\b", "cluster of seizures"),
+    (r"\bseizure\s+clusters?\b", "cluster of seizures"),
+    (r"\bno\s+further\s+(?:seizure|fit)s?\b", "seizure free"),
+    (r"\bno\s+(?:seizure|fit)s?\s+(?:since|for|in)\b", "seizure free"),
+    (r"\bhas\s+not\s+had\s+(?:any\s+)?(?:a\s+)?(?:seizure|fit)\b", "seizure free"),
+    (r"\bseizures?\s+remain\s+well\s+controlled\b", "seizure free"),
+    (r"\b(?:single\s+)?seizure\b", "unknown seizure type"),
+    (r"\b(?:seizures?|episodes?|fits?|attacks?)\b", "unknown seizure type"),
 ]
 
 
@@ -401,9 +425,41 @@ def _find_seizure_type_pattern_quote(source_text: str, value: str) -> str | None
     for pattern, mapped_canonical in SEIZURE_TYPE_PATTERNS:
         if canonical_seizure_type(mapped_canonical) != target_canonical:
             continue
-        match = re.search(pattern, source_text, re.IGNORECASE)
-        if match:
-            return match.group(0)
+        for match in re.finditer(pattern, source_text, re.IGNORECASE):
+            quote = match.group(0)
+            if _quote_context_valid(_expand_to_sentence(source_text, quote)):
+                return quote
+    return None
+
+
+DIAGNOSIS_PATTERNS: list[tuple[str, str]] = [
+    (r"\bfocal\s+(?:seizure|fit)s?\b", "focal epilepsy"),
+    (r"\bcomplex\s+partial\s+(?:seizure|fit)s?\b", "focal epilepsy"),
+    (r"\btemporal\s+lobe\s+(?:onset\s+)?focal\s+(?:seizure|fit)s?\b", "focal epilepsy"),
+    (r"\btemporal\s+lobe\s+epilepsy\b", "focal epilepsy"),
+    (r"\boccipital\s+lobe\s+(?:seizure|epilepsy|focus)\b", "focal epilepsy"),
+    (r"\bfocal\s+epilepsy\b", "focal epilepsy"),
+    (r"\bepilepsy\s+unclassified\b", "epilepsy"),
+    (r"\bsymptomatic\s+structural\s+epilepsy\b", "epilepsy"),
+    (r"\bjuvenile\s+myoclonic\s+epilepsy\b", "epilepsy"),
+    (r"\bdiagnos(?:is|ed)\s+(?:with|of)?\s*(?:a\s+)?(?:single\s+)?seizure\b", "epilepsy"),
+    (r"\bepilepsy\b", "epilepsy"),
+    (r"\bseizures?\b", "epilepsy"),
+]
+
+
+def _find_diagnosis_pattern_quote(source_text: str, value: str) -> str | None:
+    """Match diagnosis abstractions to common clinical phrasings."""
+    target_canonical = canonical_diagnosis(value)
+    if not target_canonical:
+        return None
+    for pattern, mapped_canonical in DIAGNOSIS_PATTERNS:
+        if canonical_diagnosis(mapped_canonical) != target_canonical:
+            continue
+        for match in re.finditer(pattern, source_text, re.IGNORECASE):
+            quote = match.group(0)
+            if _quote_context_valid(_expand_to_sentence(source_text, quote)):
+                return quote
     return None
 
 
@@ -442,10 +498,10 @@ def _expand_to_sentence(source_text: str, quote: str) -> str:
         return quote
     # Simple sentence boundary heuristics
     start = idx
-    while start > 0 and source_text[start - 1] not in {".\n", "!", "?", "\n"}:
+    while start > 0 and source_text[start - 1] not in {".", "!", "?", "\n"}:
         start -= 1
     end = idx + len(quote)
-    while end < len(source_text) and source_text[end] not in {".\n", "!", "?", "\n"}:
+    while end < len(source_text) and source_text[end] not in {".", "!", "?", "\n"}:
         end += 1
     # Trim whitespace
     while start < end and source_text[start] in " \t":

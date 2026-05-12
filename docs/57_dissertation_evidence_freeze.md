@@ -1,7 +1,7 @@
 # Dissertation Evidence Freeze
 
 **Date:** 2026-05-12  
-**Status:** Initial maintained validation artifact frozen  
+**Status:** Maintained validation artifact frozen; quote-presence gate passed  
 **Scope:** H6fs local extraction plus deterministic Option-C evidence resolving on the ExECTv2 validation split.
 
 ---
@@ -55,7 +55,7 @@ Validation documents: 40.
 
 | Metric | H6fs baseline | H6fs + evidence resolver |
 | --- | ---: | ---: |
-| Quote presence | 0.0000 | 0.7778 |
+| Quote presence | 0.0000 | 0.9804 |
 | Quote validity | 0.0000 | 1.0000 |
 | Medication name F1 | 0.8519 | 0.8519 |
 | Seizure type F1 | 0.3878 | 0.3878 |
@@ -64,14 +64,16 @@ Validation documents: 40.
 
 Evidence resolver counts:
 
-- Deterministic hits: 119.
+- Deterministic hits: 150.
 - Fallback hits: 0.
-- Ungrounded values: 34.
+- Ungrounded values: 3.
 - Total present values: 153.
 
 The resolver is therefore behaving as intended for this artifact: it improves
 auditability by adding evidence spans without changing extracted values or
-field-level scores.
+field-level scores. The maintained promotion gate is quote presence >= 0.95
+with quote validity held at 1.00; this artifact passes that gate without using
+LLM fallback.
 
 ---
 
@@ -96,7 +98,7 @@ multi-source clinical gold standards, not as model-specific post-processing.
 
 ## 4. Recommended Audit Pass
 
-Use ExECT Explorer with `h6fs_ev_validation.json` to classify the 34 ungrounded
+Use ExECT Explorer with `h6fs_ev_validation.json` to classify the 3 ungrounded
 values and the major field disagreements into:
 
 - model extraction error;

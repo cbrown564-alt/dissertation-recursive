@@ -253,6 +253,54 @@ def test_deterministic_resolve_seizure_type() -> None:
     assert "complex partial" in (result.quote or "").lower()
 
 
+def test_deterministic_resolve_secondary_generalized_uk_phrase() -> None:
+    text = "Seizure type: focal motor seizures and secondary generalised seizures."
+    value = ResolvableValue(
+        path="fields.seizure_types[0].value",
+        category="seizure_type",
+        value="secondary generalized seizures",
+    )
+    result = deterministic_resolve(text, value, expand_sentence=True)
+    assert result is not None
+    assert "secondary generalised seizures" in (result.quote or "").lower()
+
+
+def test_deterministic_resolve_seizure_free_phrase() -> None:
+    text = "She is very well and has had no further seizures since her last review."
+    value = ResolvableValue(
+        path="fields.seizure_types[0].value",
+        category="seizure_type",
+        value="seizure free",
+    )
+    result = deterministic_resolve(text, value, expand_sentence=True)
+    assert result is not None
+    assert "no further seizures" in (result.quote or "").lower()
+
+
+def test_deterministic_resolve_focal_epilepsy_from_focal_seizures() -> None:
+    text = "Diagnosis: Focal seizures, probably temporal lobe."
+    value = ResolvableValue(
+        path="fields.epilepsy_diagnosis.value",
+        category="diagnosis",
+        value="focal epilepsy",
+    )
+    result = deterministic_resolve(text, value, expand_sentence=True)
+    assert result is not None
+    assert "focal seizures" in (result.quote or "").lower()
+
+
+def test_deterministic_resolve_focal_seizure_from_temporal_lobe_epilepsy() -> None:
+    text = "Diagnosis: temporal lobe epilepsy."
+    value = ResolvableValue(
+        path="fields.seizure_types[0].value",
+        category="seizure_type",
+        value="focal seizure",
+    )
+    result = deterministic_resolve(text, value, expand_sentence=True)
+    assert result is not None
+    assert "temporal lobe epilepsy" in (result.quote or "").lower()
+
+
 def test_deterministic_resolve_frequency() -> None:
     # Letter contains en-dash "2–3"; canonical value uses hyphen "2-3"
     value = ResolvableValue(
