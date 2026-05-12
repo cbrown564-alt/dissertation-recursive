@@ -436,8 +436,8 @@ def build_d3_verifier_prompt(document: dict[str, Any], harness_id: str, candidat
         [
             "Pass 2 of 2: verify candidate facts and drop unsupported or non-benchmark labels.",
             "Return JSON only with this shape:",
-            '{"medication_names":[{"name":"","quote":""}],"verified_seizure_type_mappings":[{"candidate":"","benchmark_label":null,"keep":true,"reason":"supported|unsupported|not_benchmark_relevant|too_specific","quote":""}],"seizure_types":[{"label":"","quote":""}],"epilepsy_diagnosis_type":{"label":null,"quote":""}}',
-            "Keep only current patient anti-seizure medication names.",
+            '{"medications":[{"name":"","dose":null,"unit":null,"frequency":null,"quote":""}],"verified_seizure_type_mappings":[{"candidate":"","benchmark_label":null,"keep":true,"reason":"supported|unsupported|not_benchmark_relevant|too_specific","quote":""}],"seizure_types":[{"label":"","quote":""}],"epilepsy_diagnosis_type":{"label":null,"quote":""}}',
+            "Keep only current patient anti-seizure medications. Extract name, dose, unit, and frequency from the source letter quote.",
             "For seizure types, keep only supported benchmark labels. Drop aura-only symptoms, non-patient history, investigation-only findings, and unsupported differentials. Map too-specific supported labels to the nearest allowed benchmark label.",
             "Every kept medication, seizure type, and epilepsy diagnosis/type must include an exact contiguous quote copied from the source letter.",
             "If no exact source quote supports a candidate, drop it rather than returning an unsupported field.",
@@ -456,8 +456,8 @@ def build_h7_normalize_prompt(document: dict[str, Any], harness_id: str, rich_fa
         [
             "Pass 2 of 2: map extracted clinical facts to benchmark labels and preserve evidence quotes.",
             "Use only the extracted facts and source letter. Return JSON only with this shape:",
-            '{"medication_names":[{"name":"","quote":""}],"seizure_type_mappings":[{"fact":"","benchmark_label":null,"decision":"supported|unsupported|too_specific|not_benchmark_relevant","quote":""}],"seizure_types":[{"label":"","quote":""}],"epilepsy_diagnosis_type":{"label":null,"quote":""},"epilepsy_diagnosis_decision":"supported|unsupported|too_specific|not_benchmark_relevant"}',
-            "Keep medication_names as current anti-seizure medication names only. Copy the quote directly from Pass 1 rich_facts for each kept item.",
+            '{"medications":[{"name":"","dose":null,"unit":null,"frequency":null,"quote":""}],"seizure_type_mappings":[{"fact":"","benchmark_label":null,"decision":"supported|unsupported|too_specific|not_benchmark_relevant","quote":""}],"seizure_types":[{"label":"","quote":""}],"epilepsy_diagnosis_type":{"label":null,"quote":""},"epilepsy_diagnosis_decision":"supported|unsupported|too_specific|not_benchmark_relevant"}',
+            "Keep medications as current anti-seizure medications. Extract name, dose, unit, and frequency from Pass 1 rich_facts or the source letter.",
             "For seizure_types, include only supported benchmark labels from mappings. Drop aura-only symptoms, non-patient facts, investigation-only findings, and unsupported differentials.",
             "Every kept medication_name, seizure_type, and epilepsy_diagnosis_type must include the exact quote from Pass 1 (or from the source letter if Pass 1 omitted it).",
             "If a fact is clinically specific, map it to the nearest allowed benchmark label and set decision=too_specific.",
@@ -1768,7 +1768,7 @@ def projected_canonical(
     )
     if _has_structured_meds:
         medication_items = [
-            {"value": m["name"], "_structured": m, "quote": None}
+            {"value": m["name"], "_structured": m, "quote": m.get("quote")}
             for m in _raw_meds
             if isinstance(m, dict) and m.get("name")
         ]
@@ -1836,7 +1836,7 @@ def projected_canonical(
     def _build_med(item: dict[str, Any]) -> dict[str, Any]:
         if "_structured" in item:
             m = item["_structured"]
-            return {
+            result = {
                 "name": m.get("name") or "",
                 "dose": str(m["dose"]) if m.get("dose") is not None else None,
                 "dose_unit": str(m.get("unit") or m.get("dose_unit") or "") or None,
@@ -1847,6 +1847,10 @@ def projected_canonical(
                 "evidence": [],
                 "evidence_event_ids": [],
             }
+            quote = item.get("quote") or m.get("quote")
+            if quote:
+                result["evidence"] = evidence_from_quote(document, quote)
+            return result
         return medication_from_item(item, document)
 
     return {

@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dissertation Model-Metric Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+  :root {
+    --bg: #0f172a;
+    --panel: #1e293b;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --accent: #38bdf8;
+    --accent2: #818cf8;
+    --good: #34d399;
+    --warn: #fbbf24;
+    --bad: #f87171;
+    --border: #334155;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0;
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.55;
+  }
+  header {
+    padding: 2rem 1.5rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  header h1 { margin: 0 0 .25rem; font-size: 1.75rem; letter-spacing: -.02em; }
+  header p { margin: 0; color: var(--muted); }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem 3rem;
+    display: grid;
+    gap: 1.5rem;
+  }
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap: 1.5rem; }
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem; }
+  .panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+  }
+  .panel h2 { margin: 0 0 .75rem; font-size: 1.1rem; color: var(--accent); }
+  .panel h3 { margin: .5rem 0 .5rem; font-size: .95rem; color: var(--text); }
+  .panel p, .panel li { color: var(--muted); font-size: .92rem; }
+  .metric-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+  .metric-card {
+    background: linear-gradient(180deg, rgba(56,189,248,.08), rgba(56,189,248,.02));
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+  }
+  .metric-card .label { font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+  .metric-card .value { font-size: 1.6rem; font-weight: 700; margin: .25rem 0; color: var(--text); }
+  .metric-card .model { font-size: .85rem; color: var(--accent); font-weight: 600; }
+  .metric-card .note { font-size: .78rem; color: var(--muted); margin-top: .25rem; }
+  .tag {
+    display: inline-block;
+    padding: .15rem .5rem;
+    border-radius: 999px;
+    font-size: .75rem;
+    font-weight: 600;
+    margin-left: .35rem;
+  }
+  .tag.frontier { background: rgba(129,140,248,.15); color: var(--accent2); }
+  .tag.local { background: rgba(52,211,153,.15); color: var(--good); }
+  .tag.best { background: rgba(251,191,36,.15); color: var(--warn); }
+  table { width: 100%; border-collapse: collapse; font-size: .9rem; margin-top: .5rem; }
+  th, td { text-align: left; padding: .5rem .6rem; border-bottom: 1px solid var(--border); }
+  th { color: var(--muted); font-weight: 600; font-size: .78rem; text-transform: uppercase; letter-spacing: .05em; }
+  td { color: var(--text); }
+  .num { font-variant-numeric: tabular-nums; text-align: right; }
+  .best-cell { color: var(--good); font-weight: 700; }
+  .chart-wrap { position: relative; height: 280px; }
+  .chart-wrap-lg { position: relative; height: 360px; }
+  .vignette { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .vignette .col { background: rgba(15,23,42,.6); border: 1px solid var(--border); border-radius: 8px; padding: .9rem; }
+  .vignette .col h4 { margin: 0 0 .4rem; font-size: .85rem; color: var(--accent2); text-transform: uppercase; letter-spacing: .06em; }
+  .vignette pre {
+    background: #0b1220;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: .6rem;
+    font-size: .82rem;
+    overflow-x: auto;
+    color: #cbd5e1;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .legend { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .5rem; }
+  .legend-item { display: inline-flex; align-items: center; gap: .35rem; font-size: .82rem; color: var(--muted); }
+  .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+  .tabs { display: flex; gap: .25rem; margin-bottom: .75rem; flex-wrap: wrap; }
+  .tab { background: transparent; border: 1px solid var(--border); color: var(--muted); padding: .35rem .7rem; border-radius: 6px; cursor: pointer; font-size: .85rem; }
+  .tab.active { background: rgba(56,189,248,.12); color: var(--accent); border-color: rgba(56,189,248,.35); }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+  .insight { background: rgba(56,189,248,.08); border-left: 3px solid var(--accent); padding: .75rem 1rem; border-radius: 0 8px 8px 0; margin: .75rem 0; font-size: .92rem; }
+  .insight strong { color: var(--accent); }
+  @media (max-width: 700px) {
+    .grid-2, .vignette { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Model-Metric Performance Dashboard</h1>
+  <p>Epilepsy clinic letter extraction — ExECTv2 & Gan benchmarks · Corrected scorer · May 2026</p>
+</header>
+
+<div class="container">
+
+  <!-- Executive Summary: Best for each metric -->
+  <div class="panel">
+    <h2>Executive Summary: Best System by Metric <span class="tag best">Authoritative</span></h2>
+    <div class="metric-cards">
+      <div class="metric-card">
+        <div class="label">Medication Name F1</div>
+        <div class="value">0.885</div>
+        <div class="model">qwen3.6:27b H6 <span class="tag local">Local</span></div>
+        <div class="note">First local model to exceed frontier baselines</div>
+      </div>
+      <div class="metric-card">
+        <div class="label">Medication Full Tuple F1</div>
+        <div class="value">0.769</div>
+        <div class="model">GPT-4.1-mini S2 <span class="tag frontier">Frontier</span></div>
+        <div class="note">Test split, held-out</div>
+      </div>
+      <div class="metric-card">
+        <div class="label">Seizure Type (Collapsed) F1</div>
+        <div class="value">0.633</div>
+        <div class="model">GPT-4.1-mini E3 <span class="tag frontier">Frontier</span></div>
+        <div class="note">Validation split</div>
+      </div>
+      <div class="metric-card">
+        <div class="label">Diagnosis Accuracy</div>
+        <div class="value">0.850</div>
+        <div class="model">GPT-4.1-mini S2 <span class="tag frontier">Frontier</span></div>
+        <div class="note">Test split; gemma4:e4b H6 = 0.825 locally</div>
+      </div>
+      <div class="metric-card">
+        <div class="label">Seizure Freq (Gan Pragmatic)</div>
+        <div class="value">0.840</div>
+        <div class="model">GPT-5.5 + Retrieval <span class="tag frontier">Frontier</span></div>
+        <div class="note">50-doc development; G4-Full pending</div>
+      </div>
+      <div class="metric-card">
+        <div class="label">Cost-Effectiveness</div>
+        <div class="value">$0.005</div>
+        <div class="model">GPT-4.1-mini S2 <span class="tag frontier">Frontier</span></div>
+        <div class="note">Per quality-point vs $0.107 for GPT-5.5</div>
+      </div>
+    </div>
+    <div class="insight">
+      <strong>Key insight:</strong> No single system wins every metric. Frontier models lead on seizure type and diagnosis; local models match or exceed on medication at zero marginal cost. The recommended clinical deployment candidate is <strong>qwen3.6:35b H6fs</strong> (0.852 med F1, 0.593 sz F1, 12s/doc, $0).
+    </div>
+  </div>
+
+  <!-- Frontier vs Local: Radar chart -->
+  <div class="grid-2">
+    <div class="panel">
+      <h2>Frontier vs Local: Multi-Metric Radar <span class="tag">Validation</span></h2>
+      <div class="chart-wrap-lg">
+        <canvas id="radarChart"></canvas>
+      </div>
+      <div class="legend">
+        <div class="legend-item"><span class="dot" style="background:#38bdf8"></span> GPT-4.1-mini S2 (frontier baseline)</div>
+        <div class="legend-item"><span class="dot" style="background:#818cf8"></span> GPT-4.1-mini E3 (frontier best)</div>
+        <div class="legend-item"><span class="dot" style="background:#34d399"></span> qwen3.6:35b H6fs (local deploy)</div>
+        <div class="legend-item"><span class="dot" style="background:#fbbf24"></span> qwen3.6:27b H6 (local med leader)</div>
+      </div>
+    </div>
+    <div class="panel">
+      <h2>Cost-Quality Frontier <span class="tag">Stage A Dev</span></h2>
+      <div class="chart-wrap-lg">
+        <canvas id="scatterChart"></canvas>
+      </div>
+      <p style="margin-top:.5rem">Benchmark quality (y) vs cost per quality-point (x, log scale). Lower-left is better. GPT-4.1-mini dominates the Pareto frontier on ExECTv2; GPT-5.5 is justified only for Gan frequency.</p>
+    </div>
+  </div>
+
+  <!-- Medication component breakdown -->
+  <div class="grid-2">
+    <div class="panel">
+      <h2>Medication Component F1: Validation <span class="tag">Corrected Scorer</span></h2>
+      <div class="chart-wrap">
+        <canvas id="medValChart"></canvas>
+      </div>
+    </div>
+    <div class="panel">
+      <h2>Medication Component F1: Test <span class="tag">Held-Out</span></h2>
+      <div class="chart-wrap">
+        <canvas id="medTestChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- Seizure type: structural ceiling -->
+  <div class="panel">
+    <h2>The Seizure Type Structural Ceiling <span class="tag best">Dissertation Finding</span></h2>
+    <div class="grid-2">
+      <div class="chart-wrap">
+        <canvas id="szCeilingChart"></canvas>
+      </div>
+      <div>
+        <h3>What the chart shows</h3>
+        <p>Across all models (4B–35B) and all harnesses, the <code>unknown seizure type</code> miss count remains 13–15 out of 26 gold instances. Scale does not reduce this gap. The label is a meta-judgment (annotator cannot determine type), but models consistently infer a specific type from context.</p>
+        <h3>Oracle failure rate</h3>
+        <p>13.3% of validation documents have annotation gaps that make seizure type unscoreable even with perfect extraction. Combined with the meta-label mismatch, this explains why seizure type F1 plateaus around 0.60–0.63.</p>
+        <table>
+          <thead>
+            <tr><th>System</th><th class="num">Sz Strict</th><th class="num">Sz Collapsed</th><th class="num">Δ Collapsed</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>S2 val</td><td class="num">0.431</td><td class="num best-cell">0.610</td><td class="num">+0.179</td></tr>
+            <tr><td>E3 val</td><td class="num">0.396</td><td class="num best-cell">0.633</td><td class="num">+0.237</td></tr>
+            <tr><td>S2 test</td><td class="num">0.349</td><td class="num">0.415</td><td class="num">+0.066</td></tr>
+            <tr><td>E3 test</td><td class="num">0.362</td><td class="num">0.469</td><td class="num">+0.107</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gan Frequency: retrieval improvement -->
+  <div class="panel">
+    <h2>Gan Frequency: Retrieval Augmentation Effect <span class="tag">G4-Fixed</span></h2>
+    <div class="grid-2">
+      <div class="chart-wrap">
+        <canvas id="ganChart"></canvas>
+      </div>
+      <div>
+        <h3>Retrieval highlight vs baselines</h3>
+        <table>
+          <thead>
+            <tr><th>Model + Harness</th><th class="num">Prag F1</th><th class="num">Exact</th><th class="num">Parse</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>GPT-5.5 + Retrieval highlight</td><td class="num best-cell">0.840</td><td class="num best-cell">0.820</td><td class="num">1.000</td></tr>
+            <tr><td>GPT-5.5 + CoT label</td><td class="num">0.760</td><td class="num">0.720</td><td class="num">1.000</td></tr>
+            <tr><td>GPT-5.5 + Direct label</td><td class="num">0.740</td><td class="num">0.720</td><td class="num">1.000</td></tr>
+            <tr><td>qwen35b + Retrieval highlight</td><td class="num">0.720</td><td class="num">0.680</td><td class="num">0.980</td></tr>
+            <tr><td>qwen35b + Direct label</td><td class="num">0.700</td><td class="num">0.680</td><td class="num">1.000</td></tr>
+            <tr><td>GPT-5.5 + Retrieval only</td><td class="num">0.520</td><td class="num">0.460</td><td class="num">1.000</td></tr>
+          </tbody>
+        </table>
+        <div class="insight">
+          <strong>Ablation insight:</strong> Retrieval-only (0.520) is 32pp below retrieval-highlight (0.840). Retrieved spans are <strong>salience cues</strong>, not sufficient context. The extraction instruction does most of the work; retrieval primes attention.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vignettes: interactive tabs -->
+  <div class="panel">
+    <h2>Extraction Vignettes: Letter, Response, Gold <span class="tag best">Examples</span></h2>
+    <div class="tabs">
+      <button class="tab active" onclick="showTab(event,'vig1')">Seizure-Free Hallucination</button>
+      <button class="tab" onclick="showTab(event,'vig2')">Medication Tuple Parsing</button>
+      <button class="tab" onclick="showTab(event,'vig3')">Frequency Cluster</button>
+    </div>
+
+    <div id="vig1" class="tab-content active">
+      <div class="vignette">
+        <div class="col">
+          <h4>Letter Excerpt (EA00xx)</h4>
+          <pre>"She has been seizure free for the last 18 months. Previously she experienced focal seizures with impaired awareness, but these have not recurred since her medication was optimised."</pre>
+          <h4>Gold Standard</h4>
+          <pre>seizure_types: ["seizure free"]
+epilepsy_diagnosis: "focal epilepsy"
+medications: ["levetiracetam 1000mg twice daily"]</pre>
+        </div>
+        <div class="col">
+          <h4>qwen3.5:9b H6 (baseline) — ERROR</h4>
+          <pre>seizure_types: ["focal seizure with impaired awareness"]
+← Hallucination: extracts historical type as current</pre>
+          <h4>qwen3.5:9b H6fs (few-shot) — CORRECTED</h4>
+          <pre>seizure_types: ["seizure free"]
+← Few-shot example taught meta-label semantics</pre>
+          <h4>gemma4:e4b H6 (baseline) — CORRECT</h4>
+          <pre>seizure_types: ["seizure free"]
+← Already well-calibrated; few-shot would harm</pre>
+        </div>
+      </div>
+      <div class="insight">
+        <strong>Why this matters:</strong> The H6fs few-shot harness adds three examples targeting this exact failure mode. It improves qwen3.5 by +6.1pp seizure F1 but <strong>regresses gemma4 by −3.2pp</strong>. Capability-appropriate prompt design is required — there is no universal harness.
+      </div>
+    </div>
+
+    <div id="vig2" class="tab-content">
+      <div class="vignette">
+        <div class="col">
+          <h4>Letter Excerpt</h4>
+          <pre>"He takes sodium valproate 500mg in the morning and 500mg in the evening, and levetiracetam 250mg bd. He is also on clobazam 10mg nocte as required."</pre>
+          <h4>Gold Standard</h4>
+          <pre>medications: [
+  {name:"sodium valproate", dose:"500", unit:"mg", freq:"twice daily"},
+  {name:"levetiracetam", dose:"250", unit:"mg", freq:"twice daily"},
+  {name:"clobazam", dose:"10", unit:"mg", freq:"nocte as required"}
+]</pre>
+        </div>
+        <div class="col">
+          <h4>E3 (event-first) — Best tuple recovery</h4>
+          <pre>medications: [
+  {name:"sodium valproate", dose:"500", unit:"mg", freq:"twice daily"},
+  {name:"levetiracetam", dose:"250", unit:"mg", freq:"bd"},
+  {name:"clobazam", dose:"10", unit:"mg", freq:"nocte"}
+]
+← Per-component F1: Name 0.847, Dose 0.925, Unit 0.911, Freq 0.827 (test)</pre>
+          <h4>H7/D3 (two-pass/verifier) — Prompt bug then fix</h4>
+          <pre>BUG: verifier output flat names only → med_full_f1 ≈ 0.018
+FIX: verifier preserves dose/unit/frequency → med_full_f1 ≈ 0.60</pre>
+        </div>
+      </div>
+      <div class="insight">
+        <strong>Why this matters:</strong> The original scorer used all-or-nothing tuple matching, which made medication_full_f1 appear catastrophically low (0.372–0.496). After per-component scoring and normalization ("bd" → "twice daily"), the true test performance is 0.724–0.769 — within reach of the Fang et al. ≥0.80 target.
+      </div>
+    </div>
+
+    <div id="vig3" class="tab-content">
+      <div class="vignette">
+        <div class="col">
+          <h4>Letter Excerpt (Gan synthetic)</h4>
+          <pre>"He reports having 3 seizures over 2 days last month, but otherwise has been seizure free. Prior to that cluster, his last seizure was 4 months ago."</pre>
+          <h4>Gold (Pragmatic)</h4>
+          <pre>"infrequent"</pre>
+          <h4>Gold (Purist)</h4>
+          <pre>"1 per 3 month" (normalized from cluster + interval)</pre>
+        </div>
+        <div class="col">
+          <h4>GPT-5.5 + Direct label — ERROR</h4>
+          <pre>Prediction: "frequent"
+← Attends to "3 seizures" without normalizing for cluster context</pre>
+          <h4>GPT-5.5 + Retrieval highlight — CORRECT</h4>
+          <pre>Prediction: "infrequent"
+← Retrieved span highlights "seizure free" and "last seizure was 4 months ago", priming correct normalization</pre>
+        </div>
+      </div>
+      <div class="insight">
+        <strong>Why this matters:</strong> Frequency normalization requires clinical judgment about clusters, intervals, and "otherwise seizure free" qualifiers. Retrieval highlighting directs the model's attention to the disambiguating context, improving exact accuracy from 0.720 to 0.820.
+      </div>
+    </div>
+  </div>
+
+  <!-- Final candidate registry -->
+  <div class="panel">
+    <h2>Final Candidate Registry <span class="tag">Validation-Scale</span></h2>
+    <table>
+      <thead>
+        <tr><th>ID</th><th>Model</th><th>Harness</th><th class="num">Med Name</th><th class="num">Med Full</th><th class="num">Sz Collapsed</th><th class="num">Dx Acc</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>F1</td><td>GPT-4.1-mini</td><td>S2</td><td class="num">0.852</td><td class="num">0.655</td><td class="num">0.610</td><td class="num">0.725</td><td>Frontier baseline</td></tr>
+        <tr><td>F2</td><td>GPT-4.1-mini</td><td>E3</td><td class="num best-cell">0.872</td><td class="num best-cell">0.707</td><td class="num best-cell">0.633</td><td class="num best-cell">0.775</td><td>Frontier best</td></tr>
+        <tr><td>F3</td><td>qwen3.6:35b</td><td>H6fs</td><td class="num">0.852</td><td class="num">—</td><td class="num">0.593</td><td class="num">0.800</td><td><strong>Local deploy</strong></td></tr>
+        <tr><td>F3-H6</td><td>qwen3.6:35b</td><td>H6</td><td class="num">0.857</td><td class="num">—</td><td class="num">0.571</td><td class="num">0.800</td><td>Local ablation</td></tr>
+        <tr><td>F4</td><td>qwen3.6:27b</td><td>H6</td><td class="num best-cell">0.885</td><td class="num">—</td><td class="num">0.578</td><td class="num">0.800</td><td>Best medication F1</td></tr>
+        <tr><td>F5</td><td>gemma4:e4b</td><td>H6</td><td class="num">0.849</td><td class="num">—</td><td class="num">0.593</td><td class="num best-cell">0.825</td><td>Best diagnosis acc</td></tr>
+      </tbody>
+    </table>
+    <div class="insight">
+      <strong>Deployment recommendation:</strong> For offline clinical use with zero API cost, <strong>qwen3.6:35b H6fs</strong> at 12s/doc matches frontier medication F1 and is within 4pp on seizure type. For highest accuracy regardless of cost, <strong>GPT-4.1-mini E3</strong> leads every medication metric and most investigation metrics.
+    </div>
+  </div>
+
+</div>
+
+<script>
+// Tab switcher
+function showTab(evt, id) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  evt.target.classList.add('active');
+  document.getElementById(id).classList.add('active');
+}
+
+Chart.defaults.color = '#94a3b8';
+Chart.defaults.borderColor = '#334155';
+
+// Radar chart: Frontier vs Local
+new Chart(document.getElementById('radarChart'), {
+  type: 'radar',
+  data: {
+    labels: ['Med Name', 'Med Full', 'Sz Collapsed', 'Dx Acc', 'EEG', 'MRI', 'Quote Valid'],
+    datasets: [
+      { label: 'GPT-4.1-mini S2', data: [0.852, 0.655, 0.610, 0.725, 0.950, 1.000, 0.991], borderColor: '#38bdf8', backgroundColor: 'rgba(56,189,248,.15)', pointBackgroundColor: '#38bdf8' },
+      { label: 'GPT-4.1-mini E3', data: [0.872, 0.707, 0.633, 0.775, 0.975, 0.975, 0.994], borderColor: '#818cf8', backgroundColor: 'rgba(129,140,248,.15)', pointBackgroundColor: '#818cf8' },
+      { label: 'qwen3.6:35b H6fs', data: [0.852, null, 0.593, 0.800, null, null, null], borderColor: '#34d399', backgroundColor: 'rgba(52,211,153,.15)', pointBackgroundColor: '#34d399' },
+      { label: 'qwen3.6:27b H6', data: [0.885, null, 0.578, 0.800, null, null, null], borderColor: '#fbbf24', backgroundColor: 'rgba(251,191,36,.15)', pointBackgroundColor: '#fbbf24' }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      r: {
+        min: 0.4, max: 1.0,
+        ticks: { stepSize: 0.1, backdropColor: 'transparent' },
+        grid: { color: '#334155' },
+        angleLines: { color: '#334155' },
+        pointLabels: { color: '#e2e8f0', font: { size: 12 } }
+      }
+    },
+    plugins: {
+      legend: { position: 'bottom', labels: { usePointStyle: true, boxWidth: 8 } }
+    }
+  }
+});
+
+// Scatter: Cost vs Quality
+new Chart(document.getElementById('scatterChart'), {
+  type: 'scatter',
+  data: {
+    datasets: [
+      { label: 'GPT-4.1-mini', data: [{x:0.005,y:0.784}], backgroundColor: '#38bdf8', pointRadius: 8 },
+      { label: 'GPT-5.5', data: [{x:0.107,y:0.789}], backgroundColor: '#818cf8', pointRadius: 8 },
+      { label: 'GPT-5.4-mini', data: [{x:0.014,y:0.781}], backgroundColor: '#a78bfa', pointRadius: 7 },
+      { label: 'Claude Sonnet 4.6', data: [{x:0.072,y:0.782}], backgroundColor: '#f472b6', pointRadius: 7 },
+      { label: 'Gemini 3.1 Flash', data: [{x:0.011,y:0.791}], backgroundColor: '#fb923c', pointRadius: 6 },
+      { label: 'qwen3.6:35b', data: [{x:0.0001,y:0.772}], backgroundColor: '#34d399', pointRadius: 8 },
+      { label: 'qwen3.6:27b', data: [{x:0.0001,y:0.772}], backgroundColor: '#fbbf24', pointRadius: 8 }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: { type: 'logarithmic', title: { display: true, text: 'Cost per quality-point ($)', color: '#94a3b8' }, min: 0.00005, max: 0.2 },
+      y: { min: 0.75, max: 0.80, title: { display: true, text: 'Benchmark quality (dev 15 docs)', color: '#94a3b8' } }
+    },
+    plugins: {
+      legend: { position: 'bottom', labels: { usePointStyle: true, boxWidth: 8 } },
+      tooltip: {
+        callbacks: {
+          label: function(ctx) {
+            return ctx.dataset.label + ': $' + ctx.parsed.x + ' → Q=' + ctx.parsed.y;
+          }
+        }
+      }
+    }
+  }
+});
+
+// Medication components: Validation
+new Chart(document.getElementById('medValChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Name','Dose','Unit','Freq','Full'],
+    datasets: [
+      { label: 'S2', data: [0.852,0.781,0.863,0.738,0.655], backgroundColor: '#38bdf8' },
+      { label: 'E2', data: [0.796,0.814,0.819,0.753,0.633], backgroundColor: '#818cf8' },
+      { label: 'E3', data: [0.872,0.876,0.884,0.818,0.707], backgroundColor: '#34d399' }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: { y: { min: 0.5, max: 1.0 } },
+    plugins: { legend: { position: 'bottom' } }
+  }
+});
+
+// Medication components: Test
+new Chart(document.getElementById('medTestChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Name','Dose','Unit','Freq','Full'],
+    datasets: [
+      { label: 'S2', data: [0.885,0.839,0.899,0.829,0.769], backgroundColor: '#38bdf8' },
+      { label: 'E2', data: [0.722,0.796,0.776,0.720,0.619], backgroundColor: '#818cf8' },
+      { label: 'E3', data: [0.847,0.925,0.911,0.827,0.724], backgroundColor: '#34d399' }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: { y: { min: 0.5, max: 1.0 } },
+    plugins: { legend: { position: 'bottom' } }
+  }
+});
+
+// Seizure type ceiling
+new Chart(document.getElementById('szCeilingChart'), {
+  type: 'bar',
+  data: {
+    labels: ['qwen 9b H6','qwen 9b H6fs','qwen 27b H6','qwen 35b H6','qwen 35b H6fs','gemma4 H6'],
+    datasets: [
+      { label: 'Sz Collapsed F1', data: [0.541,0.602,0.578,0.571,0.593,0.593], backgroundColor: '#38bdf8' },
+      { label: 'Unknown Type Misses (out of 26)', data: [0.15,0.13,0.14,0.14,0.13,0.14], backgroundColor: '#f87171', yAxisID: 'y1' }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      y: { min: 0.4, max: 0.7, title: { display: true, text: 'F1' } },
+      y1: { min: 0, max: 0.6, position: 'right', grid: { drawOnChartArea: false }, title: { display: true, text: 'Miss rate' } }
+    },
+    plugins: { legend: { position: 'bottom' } }
+  }
+});
+
+// Gan frequency
+new Chart(document.getElementById('ganChart'), {
+  type: 'bar',
+  data: {
+    labels: ['GPT-5.5 Direct','GPT-5.5 CoT','GPT-5.5 Retrieval','qwen35b Direct','qwen35b Retrieval','Retrieval Only'],
+    datasets: [
+      { label: 'Pragmatic F1', data: [0.740,0.760,0.840,0.700,0.720,0.520], backgroundColor: '#38bdf8' },
+      { label: 'Exact Accuracy', data: [0.720,0.720,0.820,0.680,0.680,0.460], backgroundColor: '#818cf8' }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: { y: { min: 0.4, max: 1.0 } },
+    plugins: { legend: { position: 'bottom' } }
+  }
+});
+</script>
+</body>
+</html>

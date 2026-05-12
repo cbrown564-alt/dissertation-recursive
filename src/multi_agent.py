@@ -268,6 +268,7 @@ def build_stage3_prompt(text: str, stage2: dict[str, dict[str, Any] | None]) -> 
         "consistency_flags": [],
     }, indent=2)
 
+    allowed_seizure_labels = "\n".join(f"- {label}" for label in BENCHMARK_SEIZURE_LABELS)
     return "\n\n".join([
         "You are a clinical verification agent. Review the extracted fields against the source letter.",
         f"Return JSON only with this shape:\n{schema}",
@@ -276,6 +277,12 @@ def build_stage3_prompt(text: str, stage2: dict[str, dict[str, Any] | None]) -> 
             "1. DROP any medication that is clearly historical or discontinued (not current).\n"
             "2. DROP any seizure type that comes from family history or describes a historical event "
             "no longer occurring in the patient.\n"
+            "   IMPORTANT: The following are ALL valid seizure_type labels (including meta-labels):\n"
+            f"{allowed_seizure_labels}\n"
+            "   - KEEP 'seizure free' when the patient is currently seizure-free.\n"
+            "   - KEEP 'unknown seizure type' when seizures are mentioned but no specific type is named.\n"
+            "   Do NOT drop 'seizure free' or 'unknown seizure type' just because they are not specific "
+            "clinical terms; they are required schema values.\n"
             "3. DROP any investigation result that has no supporting text in the letter.\n"
             "4. DROP any epilepsy diagnosis that is speculative or unsupported.\n"
             "5. MODIFY any field where the letter states a different value.\n"
@@ -421,7 +428,7 @@ def run_pipeline(
     # Stage 1: Segmentation
     resp1, seg = _call_stage(
         build_stage1_prompt(text), spec, adapter, "stage1_segmentation",
-        doc_id, run_root, max_tokens=256,
+        doc_id, run_root, max_tokens=1024,
     )
     all_responses.append(resp1)
     stage_outputs["stage1_segmentation"] = seg

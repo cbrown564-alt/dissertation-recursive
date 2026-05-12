@@ -408,6 +408,24 @@ def command_run_validation(args: argparse.Namespace) -> int:
     for model_label in model_labels:
         for harness_id in harness_ids:
             for doc_id in document_ids:
+                raw_path = validation_dir / "calls" / model_label / harness_id / doc_id / "raw_response.txt"
+                if args.skip_existing and raw_path.exists() and raw_path.stat().st_size > 0:
+                    # Re-read the existing provider_response.json to rebuild the row skeleton
+                    prov_path = raw_path.parent / "provider_response.json"
+                    if prov_path.exists():
+                        try:
+                            prov = json.loads(prov_path.read_text(encoding="utf-8"))
+                            row = {
+                                "model_label": model_label, "harness_id": harness_id,
+                                "document_id": doc_id, "status": "success",
+                                "error": None, "raw_response_path": str(raw_path),
+                                "latency_ms": prov.get("latency_ms"),
+                            }
+                            call_rows.append(row)
+                            print(f"skip (existing): {model_label} {harness_id} {doc_id}", flush=True)
+                            continue
+                        except Exception:
+                            pass  # fall through to re-run
                 row = run_local_one(
                     model_label, harness_id, doc_id, validation_dir,
                     Path(args.registry), Path(args.exect_root), Path(args.schema),
@@ -913,6 +931,8 @@ def main() -> int:
     sp_run.add_argument("--temperature", type=float, default=0.0)
     sp_run.add_argument("--max-output-tokens", type=int, default=4096)
     sp_run.add_argument("--ollama-base-url", default="http://localhost:11434/v1")
+    sp_run.add_argument("--skip-existing", action="store_true",
+                        help="Skip docs that already have a non-empty raw_response.txt (resume support).")
 
     # build-report
     sp_report = subparsers.add_parser(
