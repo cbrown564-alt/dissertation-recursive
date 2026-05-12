@@ -1,0 +1,2857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="An exhaustive, evidence-based audit of the ExECTv2 gold-standard annotations revealing systematic measurement bias in clinical NLP evaluation.">
+  <meta property="og:title" content="Gold-Standard Quality Audit | ExECTv2 Under Clinical Scrutiny">
+  <meta property="og:description" content="An exhaustive audit of 200 synthetic epilepsy clinic letters revealing that the gold standard is clinically informed but structurally loose.">
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2026-05-11">
+  <title>Gold-Standard Quality Audit | ExECTv2 Under Clinical Scrutiny</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <style>
+    :root {
+      --bg: #F7F5F0;
+      --bg-warm: #EFEBE3;
+      --fg: #1A1714;
+      --fg-muted: #6B6560;
+      --fg-subtle: #A39E98;
+      --accent-critical: #B52D3A;
+      --accent-warm: #C17817;
+      --accent-blue: #2F5496;
+      --accent-teal: #2A6B6B;
+      --border: rgba(26,23,20,0.08);
+      --border-strong: rgba(26,23,20,0.15);
+      --shadow-ambient: 0 2px 40px rgba(26,23,20,0.06);
+      --shadow-lifted: 0 8px 60px rgba(26,23,20,0.10);
+      --radius-outer: 2rem;
+      --radius-inner: calc(2rem - 0.5rem);
+      --font-display: 'Crimson Pro', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.65;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Noise texture overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      pointer-events: none;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 256px 256px;
+    }
+
+    ::selection {
+      background: rgba(181, 45, 58, 0.15);
+      color: var(--fg);
+    }
+
+    /* Accessibility */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10000;
+      padding: 0.75rem 1.5rem;
+      background: var(--fg);
+      color: var(--bg);
+      font-size: 0.875rem;
+      font-weight: 500;
+      border-radius: 0 0 var(--radius-inner) var(--radius-inner);
+      text-decoration: none;
+      transition: top 0.3s var(--ease-out-expo);
+    }
+    .skip-link:focus {
+      top: 0;
+    }
+    *:focus-visible {
+      outline: 2px solid var(--accent-blue);
+      outline-offset: 2px;
+    }
+    .nav a:focus-visible, .case-tab:focus-visible, .back-to-top:focus-visible {
+      outline: 2px solid var(--accent-blue);
+      outline-offset: 2px;
+      border-radius: 100px;
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      html { scroll-behavior: auto; }
+    }
+
+    /* Typography */
+    h1, h2, h3, h4 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    h1 { font-size: clamp(3rem, 7vw, 6rem); }
+    h2 { font-size: clamp(1.75rem, 3.5vw, 2.75rem); }
+    h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
+    h4 { font-size: 1.125rem; }
+
+    p {
+      max-width: 65ch;
+      font-size: 1.0625rem;
+      color: var(--fg-muted);
+    }
+
+    a {
+      color: var(--accent-blue);
+      text-decoration: none;
+      transition: opacity 0.3s var(--ease-out-quart);
+    }
+    a:hover { opacity: 0.7; }
+
+    /* Utility */
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-body);
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--fg-subtle);
+      margin-bottom: 1.25rem;
+    }
+    .eyebrow::before {
+      content: '';
+      display: block;
+      width: 1.5rem;
+      height: 1px;
+      background: currentColor;
+    }
+
+    .section {
+      padding: 8rem 1.5rem;
+      position: relative;
+    }
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Double Bezel Cards */
+    .bezel-outer {
+      padding: 0.5rem;
+      border-radius: var(--radius-outer);
+      background: rgba(26,23,20,0.03);
+      border: 1px solid var(--border);
+    }
+    .bezel-inner {
+      border-radius: var(--radius-inner);
+      background: var(--bg);
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.6), var(--shadow-ambient);
+      overflow: hidden;
+    }
+
+    /* Navigation */
+    .nav {
+      position: fixed;
+      top: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+      background: rgba(247,245,240,0.85);
+      backdrop-filter: blur(20px) saturate(1.2);
+      -webkit-backdrop-filter: blur(20px) saturate(1.2);
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-ambient);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      transition: all 0.5s var(--ease-out-expo);
+      opacity: 0;
+      transform: translateY(-20px);
+      translate: 0 -20px;
+    }
+    .nav.visible {
+      opacity: 1;
+      transform: translateY(0);
+      translate: 0 0;
+    }
+
+    /* Reading progress bar */
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      background: var(--accent-critical);
+      z-index: 1001;
+      width: 0%;
+      transition: width 0.1s linear;
+    }
+
+    /* Back to top */
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--fg);
+      color: var(--bg);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.4s var(--ease-out-expo);
+      z-index: 999;
+      box-shadow: var(--shadow-lifted);
+    }
+    .back-to-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .back-to-top:hover {
+      background: var(--accent-critical);
+      transform: translateY(-2px);
+    }
+    .back-to-top svg {
+      width: 18px;
+      height: 18px;
+    }
+    .nav a {
+      color: var(--fg-muted);
+      padding: 0.5rem 1rem;
+      border-radius: 100px;
+      transition: all 0.3s var(--ease-out-quart);
+      white-space: nowrap;
+    }
+    .nav a:hover {
+      color: var(--fg);
+      background: rgba(26,23,20,0.04);
+    }
+    .nav a.cta {
+      background: var(--fg);
+      color: var(--bg);
+      font-weight: 700;
+    }
+    .nav a.cta:hover {
+      background: var(--accent-critical);
+      opacity: 1;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 6rem 1.5rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .hero-bg .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.4;
+    }
+    .hero-bg .orb-1 {
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(194,120,23,0.25), transparent 70%);
+      top: -10%;
+      right: -5%;
+    }
+    .hero-bg .orb-2 {
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(47,84,150,0.18), transparent 70%);
+      bottom: 5%;
+      left: -5%;
+    }
+    .hero-bg .orb-3 {
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(181,45,58,0.12), transparent 70%);
+      top: 40%;
+      left: 30%;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+    }
+    .hero h1 {
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent-critical);
+      position: relative;
+    }
+    .hero h1 em::after {
+      content: '';
+      position: absolute;
+      bottom: 0.05em;
+      left: 0;
+      right: 0;
+      height: 0.08em;
+      background: var(--accent-critical);
+      opacity: 0.3;
+    }
+    .hero .subtitle {
+      font-size: clamp(1.125rem, 2vw, 1.375rem);
+      color: var(--fg-muted);
+      max-width: 55ch;
+      margin: 0 auto 3rem;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    .hero .meta {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      font-size: 0.8125rem;
+      color: var(--fg-subtle);
+      letter-spacing: 0.05em;
+      opacity: 0;
+    }
+    .hero .meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .hero .meta span::before {
+      content: '';
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--fg-subtle);
+    }
+
+    /* Hero Stats Floating */
+    .hero-stats {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .hero-stat {
+      position: absolute;
+      font-family: var(--font-display);
+      font-weight: 700;
+      line-height: 1;
+    }
+    .hero-stat .number {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      color: var(--fg);
+      opacity: 0.08;
+    }
+    .hero-stat .label {
+      font-family: var(--font-body);
+      font-size: 0.6875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--fg-subtle);
+      opacity: 0.15;
+      margin-top: 0.25rem;
+    }
+    .stat-1 { top: 15%; left: 5%; }
+    .stat-2 { top: 25%; right: 8%; }
+    .stat-3 { bottom: 20%; left: 10%; }
+    .stat-4 { bottom: 30%; right: 5%; }
+
+    /* Scroll hint */
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--fg-subtle);
+      font-size: 0.6875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      animation: float 3s ease-in-out infinite;
+      opacity: 0;
+    }
+    .scroll-hint .line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--fg-subtle), transparent);
+    }
+    @keyframes float {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* Key Findings Bento */
+    .findings-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+    .finding-card {
+      position: relative;
+      padding: 2rem;
+      border-radius: var(--radius-inner);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      transition: all 0.5s var(--ease-out-expo);
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    .finding-card:hover {
+      border-color: var(--border-strong);
+      box-shadow: var(--shadow-lifted);
+      transform: translateY(-4px);
+    }
+    .finding-card .finding-num {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 1rem;
+      color: var(--fg);
+      opacity: 0.15;
+    }
+    .finding-card h4 {
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+      color: var(--fg);
+      line-height: 1.3;
+    }
+    .finding-card p {
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      color: var(--fg-muted);
+      max-width: none;
+    }
+    .finding-card .severity {
+      display: inline-block;
+      font-size: 0.625rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.25rem 0.625rem;
+      border-radius: 100px;
+      margin-bottom: 1rem;
+    }
+    .severity-critical {
+      background: rgba(181,45,58,0.08);
+      color: var(--accent-critical);
+    }
+    .severity-high {
+      background: rgba(193,120,23,0.08);
+      color: var(--accent-warm);
+    }
+    .severity-moderate {
+      background: rgba(47,84,150,0.08);
+      color: var(--accent-blue);
+    }
+
+    .col-span-8 { grid-column: span 8; }
+    .col-span-6 { grid-column: span 6; }
+    .col-span-4 { grid-column: span 4; }
+    .col-span-12 { grid-column: span 12; }
+
+    @media (max-width: 768px) {
+      .finding-card,
+      .col-span-8, .col-span-6, .col-span-4, .col-span-12 {
+        grid-column: span 12;
+      }
+    }
+
+    /* The Paradox Section */
+    .paradox {
+      background: var(--fg);
+      color: var(--bg);
+      position: relative;
+      overflow: hidden;
+    }
+    .paradox::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(181,45,58,0.08), transparent 60%),
+                  radial-gradient(ellipse at 70% 50%, rgba(47,84,150,0.06), transparent 60%);
+      pointer-events: none;
+    }
+    .paradox h2 { color: var(--bg); }
+    .paradox p { color: rgba(247,245,240,0.65); }
+    .paradox .eyebrow { color: rgba(247,245,240,0.4); }
+    .paradox .eyebrow::before { background: rgba(247,245,240,0.4); }
+
+    .paradox-showcase {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 2rem;
+      align-items: center;
+      margin-top: 4rem;
+    }
+    .paradox-panel {
+      padding: 3rem;
+      border-radius: var(--radius-inner);
+      border: 1px solid rgba(247,245,240,0.1);
+      position: relative;
+      opacity: 0;
+    }
+    .paradox-panel.clinical {
+      background: rgba(42,107,107,0.1);
+      border-color: rgba(42,107,107,0.3);
+    }
+    .paradox-panel.gold {
+      background: rgba(181,45,58,0.08);
+      border-color: rgba(181,45,58,0.25);
+    }
+    .paradox-panel h4 {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+    }
+    .paradox-panel.clinical h4 { color: #5FA8A3; }
+    .paradox-panel.gold h4 { color: #D66A73; }
+    .paradox-panel .quote {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.25rem;
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+    }
+    .paradox-panel .label-set {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .paradox-panel .label-tag {
+      padding: 0.5rem 1rem;
+      border-radius: 100px;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+    .paradox-panel.clinical .label-tag {
+      background: rgba(42,107,107,0.2);
+      color: #8FD4CF;
+    }
+    .paradox-panel.gold .label-tag {
+      background: rgba(181,45,58,0.15);
+      color: #E89AA0;
+    }
+
+    .paradox-divider {
+      text-align: center;
+      opacity: 0;
+    }
+    .paradox-divider .f1-score {
+      font-family: var(--font-display);
+      font-size: clamp(4rem, 10vw, 7rem);
+      font-weight: 700;
+      line-height: 1;
+      color: var(--accent-critical);
+    }
+    .paradox-divider .f1-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: rgba(247,245,240,0.4);
+      margin-top: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .paradox-showcase {
+        grid-template-columns: 1fr;
+      }
+      .paradox-divider {
+        order: -1;
+        padding: 2rem 0;
+      }
+    }
+
+    /* Measurement Problem Diagram */
+    .diagram-container {
+      margin-top: 4rem;
+      position: relative;
+    }
+    .measurement-flow {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 2rem;
+      align-items: stretch;
+    }
+    .flow-column {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .flow-box {
+      padding: 1.5rem;
+      border-radius: var(--radius-inner);
+      border: 1px solid var(--border);
+      background: var(--bg);
+      transition: all 0.4s var(--ease-out-quart);
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .flow-box:hover {
+      border-color: var(--border-strong);
+      box-shadow: var(--shadow-ambient);
+    }
+    .flow-box h5 {
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+      color: var(--fg);
+    }
+    .flow-box p {
+      font-size: 0.9375rem;
+      margin: 0;
+    }
+    .flow-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+    }
+    .flow-arrow svg {
+      width: 40px;
+      height: 40px;
+      color: var(--fg-subtle);
+    }
+
+    /* Case Studies */
+    .case-studies {
+      margin-top: 4rem;
+    }
+    .case-tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .case-tab {
+      padding: 0.625rem 1.25rem;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      background: transparent;
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--fg-muted);
+      cursor: pointer;
+      transition: all 0.3s var(--ease-out-quart);
+    }
+    .case-tab:hover {
+      border-color: var(--border-strong);
+      color: var(--fg);
+    }
+    .case-tab.active {
+      background: var(--fg);
+      color: var(--bg);
+      border-color: var(--fg);
+    }
+    .case-content {
+      display: none;
+    }
+    .case-content.active {
+      display: block;
+      animation: fadeIn 0.5s var(--ease-out-quart);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    @media (max-width: 768px) {
+      .case-grid { grid-template-columns: 1fr; }
+    }
+    .case-card {
+      padding: 1.75rem;
+      border-radius: var(--radius-inner);
+      border: 1px solid var(--border);
+      background: var(--bg);
+      transition: all 0.4s var(--ease-out-quart);
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .case-card:hover {
+      box-shadow: var(--shadow-ambient);
+      border-color: var(--border-strong);
+    }
+    .case-card .case-id {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--fg);
+    }
+    .case-card .case-category {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent-blue);
+      margin-bottom: 1rem;
+    }
+    .case-card blockquote {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: var(--fg-muted);
+      border-left: 2px solid var(--border-strong);
+      padding-left: 1rem;
+      margin-bottom: 1rem;
+    }
+    .case-card .case-analysis {
+      font-size: 0.9375rem;
+      color: var(--fg-muted);
+      line-height: 1.6;
+    }
+    .case-card .case-analysis strong {
+      color: var(--fg);
+      font-weight: 600;
+    }
+
+    /* Data Tables Reimagined */
+    .data-table-wrapper {
+      margin-top: 3rem;
+      overflow-x: auto;
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 0.9375rem;
+    }
+    .data-table th {
+      text-align: left;
+      padding: 1rem 1.25rem;
+      font-family: var(--font-body);
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--fg-subtle);
+      border-bottom: 2px solid var(--border);
+      white-space: nowrap;
+    }
+    .data-table td {
+      padding: 1.125rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--fg-muted);
+      vertical-align: top;
+    }
+    .data-table tr:last-child td {
+      border-bottom: none;
+    }
+    .data-table td:first-child {
+      font-weight: 500;
+      color: var(--fg);
+    }
+    .data-table tr {
+      transition: background 0.3s var(--ease-out-quart);
+    }
+    .data-table tbody tr:hover {
+      background: rgba(26,23,20,0.02);
+    }
+
+    /* Charts */
+    .chart-container {
+      margin-top: 3rem;
+      padding: 2rem;
+      border-radius: var(--radius-inner);
+      border: 1px solid var(--border);
+      background: var(--bg);
+    }
+    .bar-chart {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .bar-row {
+      display: grid;
+      grid-template-columns: 200px 1fr 60px;
+      align-items: center;
+      gap: 1rem;
+    }
+    .bar-label {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--fg);
+      text-align: right;
+    }
+    .bar-track {
+      height: 28px;
+      background: rgba(26,23,20,0.04);
+      border-radius: 100px;
+      overflow: hidden;
+      position: relative;
+    }
+    .bar-fill {
+      height: 100%;
+      border-radius: 100px;
+      position: relative;
+      width: 0;
+      transition: width 1.2s var(--ease-out-expo);
+    }
+    .bar-fill.human { background: var(--fg-subtle); }
+    .bar-fill.system { background: var(--accent-blue); }
+    .bar-fill.gap-positive { background: var(--accent-teal); }
+    .bar-fill.gap-negative { background: var(--accent-critical); }
+    .bar-value {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--fg);
+      font-variant-numeric: tabular-nums;
+    }
+
+    @media (max-width: 768px) {
+      .bar-row {
+        grid-template-columns: 120px 1fr 50px;
+      }
+    }
+
+    /* Gauge Chart */
+    .gauge-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    @media (max-width: 768px) {
+      .gauge-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    .gauge-item {
+      text-align: center;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .gauge-svg {
+      width: 140px;
+      height: 80px;
+      margin: 0 auto 1rem;
+    }
+    .gauge-bg {
+      fill: none;
+      stroke: rgba(26,23,20,0.06);
+      stroke-width: 8;
+      stroke-linecap: round;
+    }
+    .gauge-fill {
+      fill: none;
+      stroke-width: 8;
+      stroke-linecap: round;
+      transition: stroke-dashoffset 1.5s var(--ease-out-expo);
+    }
+    .gauge-value {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .gauge-label {
+      font-size: 0.75rem;
+      color: var(--fg-muted);
+      line-height: 1.4;
+      max-width: 140px;
+      margin: 0 auto;
+    }
+
+    /* Recommendations */
+    .rec-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+    .rec-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1.5rem;
+      padding: 2rem;
+      border-radius: var(--radius-inner);
+      border: 1px solid var(--border);
+      background: var(--bg);
+      transition: all 0.4s var(--ease-out-quart);
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    .rec-item:hover {
+      box-shadow: var(--shadow-ambient);
+      border-color: var(--border-strong);
+    }
+    .rec-num {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--fg);
+      opacity: 0.12;
+      min-width: 2.5rem;
+      text-align: right;
+    }
+    .rec-content h4 {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--fg);
+    }
+    .rec-content p {
+      font-size: 0.9375rem;
+      margin: 0;
+    }
+    .rec-phase {
+      display: inline-block;
+      font-size: 0.625rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.25rem 0.625rem;
+      border-radius: 100px;
+      margin-bottom: 0.75rem;
+    }
+    .phase-immediate {
+      background: rgba(181,45,58,0.08);
+      color: var(--accent-critical);
+    }
+    .phase-medium {
+      background: rgba(193,120,23,0.08);
+      color: var(--accent-warm);
+    }
+    .phase-long {
+      background: rgba(47,84,150,0.08);
+      color: var(--accent-blue);
+    }
+
+    /* Pull Quote */
+    .pull-quote {
+      margin: 5rem auto;
+      max-width: 800px;
+      text-align: center;
+      position: relative;
+      padding: 3rem;
+    }
+    .pull-quote::before,
+    .pull-quote::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 1px;
+      background: var(--border-strong);
+    }
+    .pull-quote::before { top: 0; }
+    .pull-quote::after { bottom: 0; }
+    .pull-quote blockquote {
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--fg);
+      margin-bottom: 1.5rem;
+    }
+    .pull-quote cite {
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      font-style: normal;
+      color: var(--fg-subtle);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+
+    /* Footer / Conclusion */
+    .conclusion {
+      background: var(--fg);
+      color: var(--bg);
+      padding: 8rem 1.5rem;
+    }
+    .conclusion h2 { color: var(--bg); }
+    .conclusion p { color: rgba(247,245,240,0.7); }
+    .conclusion strong { color: var(--bg); }
+
+    /* Section transitions */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    /* Inline code */
+    code {
+      font-family: 'SF Mono', Monaco, monospace;
+      font-size: 0.85em;
+      background: rgba(26,23,20,0.04);
+      padding: 0.15em 0.4em;
+      border-radius: 4px;
+      color: var(--accent-critical);
+      font-weight: 500;
+    }
+    .paradox code {
+      background: rgba(247,245,240,0.08);
+      color: #E89AA0;
+    }
+
+    /* Letter Annotation Styles */
+    .letter-body .anno {
+      position: relative;
+      cursor: help;
+      border-radius: 2px;
+      padding: 0 2px;
+      transition: all 0.5s var(--ease-out-expo);
+    }
+    .letter-body .anno::after {
+      content: attr(data-gold);
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%) translateY(4px);
+      padding: 0.5rem 0.75rem;
+      background: var(--fg);
+      color: var(--bg);
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      border-radius: 6px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s var(--ease-out-quart);
+      z-index: 10;
+      box-shadow: var(--shadow-lifted);
+      font-weight: 500;
+      max-width: 320px;
+      white-space: normal;
+      line-height: 1.4;
+    }
+    .letter-body .anno:hover::after {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Gold view annotation styles */
+    .view-gold .anno.gold-seizure {
+      background: rgba(181,45,58,0.12);
+      border-bottom: 2px solid rgba(181,45,58,0.4);
+    }
+    .view-gold .anno.gold-diag {
+      background: rgba(47,84,150,0.10);
+      border-bottom: 2px solid rgba(47,84,150,0.35);
+    }
+    .view-gold .anno.gold-med {
+      background: rgba(193,120,23,0.10);
+      border-bottom: 2px solid rgba(193,120,23,0.35);
+    }
+    .view-gold .anno.gold-inv {
+      background: rgba(42,107,107,0.10);
+      border-bottom: 2px solid rgba(42,107,107,0.35);
+    }
+    .view-gold .anno.gold-hist {
+      background: rgba(107,101,96,0.08);
+      border-bottom: 2px solid rgba(107,101,96,0.3);
+    }
+
+    /* Clinical view annotation styles */
+    .view-clinical .anno.clinical-seizure-free {
+      background: rgba(42,107,107,0.18);
+      border-bottom: 2px solid var(--accent-teal);
+      font-weight: 600;
+    }
+    .view-clinical .anno.clinical-med {
+      background: rgba(193,120,23,0.10);
+      border-bottom: 2px solid rgba(193,120,23,0.4);
+    }
+    .view-clinical .anno.clinical-historical {
+      background: rgba(47,84,150,0.06);
+      border-bottom: 2px dashed rgba(47,84,150,0.3);
+      color: var(--fg-muted);
+    }
+    .view-clinical .anno.clinical-inv {
+      background: rgba(42,107,107,0.08);
+      border-bottom: 2px solid rgba(42,107,107,0.3);
+    }
+    .view-clinical .anno.clinical-diag-tentative {
+      background: rgba(47,84,150,0.06);
+      border-bottom: 2px dotted rgba(47,84,150,0.3);
+    }
+    .view-clinical .anno.clinical-excluded {
+      background: rgba(107,101,96,0.06);
+      border-bottom: 2px dotted rgba(107,101,96,0.3);
+      color: var(--fg-muted);
+    }
+
+    /* Annotations not visible in current view */
+    .view-gold .anno:not([class*="gold-"]) {
+      background: transparent !important;
+      border-bottom: none !important;
+    }
+    .view-clinical .anno:not([class*="clinical-"]) {
+      background: transparent !important;
+      border-bottom: none !important;
+    }
+
+    /* Toggle button active states */
+    .toggle-btn.active {
+      color: var(--fg) !important;
+      font-weight: 700 !important;
+    }
+    .toggle-btn:not(.active) {
+      color: var(--fg-muted) !important;
+    }
+
+    /* Comparison panel */
+    .comparison-panel {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    @media (max-width: 768px) {
+      .letter-document { padding: 2rem !important; }
+      .comparison-panel { grid-template-columns: 1fr !important; }
+      .comparison-panel > div:nth-child(2) { display: none; }
+      .letter-body { font-size: 1rem !important; }
+      .toggle-pill { flex-direction: column; width: 100%; }
+      .toggle-indicator { display: none; }
+      .toggle-btn { width: 100%; text-align: center; }
+    }
+
+    /* Code blocks */
+    .code-block {
+      background: #1E1C1A;
+      border-radius: var(--radius-inner);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      overflow-x: auto;
+      font-family: 'SF Mono', Monaco, monospace;
+      font-size: 0.8125rem;
+      line-height: 1.6;
+      color: #D4CFC8;
+    }
+    .code-block .kw { color: #E89AA0; }
+    .code-block .str { color: #8FD4CF; }
+    .code-block .fn { color: #9BB5E8; }
+    .code-block .cm { color: #6B6560; }
+
+    /* Annotation callout */
+    .callout {
+      padding: 1.5rem 2rem;
+      border-radius: var(--radius-inner);
+      border: 1px solid var(--border);
+      margin: 1.5rem 0;
+      position: relative;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .callout::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 1.5rem;
+      bottom: 1.5rem;
+      width: 3px;
+      border-radius: 0 3px 3px 0;
+    }
+    .callout-critical {
+      background: rgba(181,45,58,0.03);
+      border-color: rgba(181,45,58,0.1);
+    }
+    .callout-critical::before { background: var(--accent-critical); }
+    .callout-warn {
+      background: rgba(193,120,23,0.03);
+      border-color: rgba(193,120,23,0.1);
+    }
+    .callout-warn::before { background: var(--accent-warm); }
+    .callout-info {
+      background: rgba(47,84,150,0.03);
+      border-color: rgba(47,84,150,0.1);
+    }
+    .callout-info::before { background: var(--accent-blue); }
+
+    /* Print */
+    @media print {
+      .nav, .progress-bar, .back-to-top, .scroll-hint, .hero-stats, .hero-bg {
+        display: none !important;
+      }
+      .section { padding: 3rem 1.5rem; break-inside: avoid; }
+      .paradox { background: #fff !important; color: #000 !important; }
+      .paradox h2, .paradox p, .paradox .eyebrow { color: #000 !important; }
+      .conclusion { background: #fff !important; color: #000 !important; }
+      .conclusion h2, .conclusion p { color: #000 !important; }
+      .finding-card, .case-card, .flow-box, .rec-item {
+        break-inside: avoid;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      .code-block {
+        background: #f5f5f5 !important;
+        color: #000 !important;
+        border: 1px solid #ddd;
+      }
+      body::before { display: none; }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .section { padding: 4rem 1rem; }
+      .nav { display: none; }
+      .hero-stats { display: none; }
+      .measurement-flow {
+        grid-template-columns: 1fr;
+      }
+      .flow-arrow {
+        transform: rotate(90deg);
+        padding: 1rem 0;
+      }
+      .gauge-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+      }
+      .temporal-viz {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+      .defect-viz {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+      .cuip-map {
+        grid-template-columns: 1fr !important;
+        text-align: center;
+        gap: 0.5rem !important;
+      }
+      .cuip-map svg {
+        transform: rotate(90deg);
+        margin: 0.25rem 0;
+      }
+      .asymmetry-grid {
+        grid-template-columns: 1fr !important;
+      }
+      .paradox-showcase {
+        grid-template-columns: 1fr !important;
+      }
+      .paradox-divider {
+        order: -1;
+        padding: 2rem 0;
+      }
+      .bar-row {
+        grid-template-columns: 100px 1fr 50px;
+        gap: 0.5rem;
+      }
+      .bar-label {
+        font-size: 0.75rem;
+      }
+      .bar-value {
+        font-size: 0.75rem;
+      }
+      h1 { font-size: clamp(2rem, 10vw, 3rem); }
+      h2 { font-size: clamp(1.5rem, 6vw, 2rem); }
+    }
+  </style>
+</head>
+<body>
+  <a href="#findings" class="skip-link">Skip to content</a>
+
+  <!-- Reading Progress -->
+  <div class="progress-bar" id="progressBar"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <a href="#findings">Findings</a>
+    <a href="#paradox">The Paradox</a>
+    <a href="#cases">Case Studies</a>
+    <a href="#impact">Impact</a>
+    <a href="#recommendations" class="cta">Recommendations</a>
+  </nav>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 15l-6-6-6 6"/>
+    </svg>
+  </button>
+
+  <!-- Hero -->
+  <header class="hero" id="top">
+    <div class="hero-bg">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat stat-1">
+        <div class="number">0.73</div>
+        <div class="label">Human Agreement</div>
+      </div>
+      <div class="hero-stat stat-2">
+        <div class="number">200</div>
+        <div class="label">Documents Audited</div>
+      </div>
+      <div class="hero-stat stat-3">
+        <div class="number">25+</div>
+        <div class="label">Case Studies</div>
+      </div>
+      <div class="hero-stat stat-4">
+        <div class="number">0.0</div>
+        <div class="label">Paradox F1 Score</div>
+      </div>
+    </div>
+    <div class="hero-content">
+      <div class="eyebrow">ExECTv2 Quality Audit &mdash; 11 May 2026</div>
+      <h1 id="heroTitle">The Gold Standard Is <em>Clinically Informed</em> But Structurally Loose</h1>
+      <p class="subtitle">An exhaustive, evidence-based audit of 200 synthetic epilepsy clinic letters revealing a systematic measurement bias that punishes clinical accuracy and rewards extraction breadth.</p>
+      <div class="meta">
+        <span>Fonferko-Shadrach et al. (2024)</span>
+        <span>ExECTv2 Corpus</span>
+        <span>Manual Review v9 Guidelines</span>
+      </div>
+    </div>
+    <div class="scroll-hint" id="scrollHint">
+      <span>Explore the audit</span>
+      <div class="line"></div>
+    </div>
+  </header>
+
+  <!-- Executive Summary / Key Findings -->
+  <section class="section" id="findings">
+    <div class="section-inner">
+      <div class="eyebrow">Executive Summary</div>
+      <h2 class="reveal">Eight Critical Findings</h2>
+      <p class="reveal" style="margin-top: 1rem;">The central finding is that the gold standard is misaligned with the temporally aware, precision-oriented extraction system this project has built. The misalignment is not a minor implementation detail; it is a systematic measurement bias.</p>
+
+      <div class="findings-grid">
+        <div class="finding-card col-span-6">
+          <div class="severity severity-critical">Critical</div>
+          <div class="finding-num">01</div>
+          <h4>Temporally Flat by Construction</h4>
+          <p>Seizure types are harvested from <code>MarkupSeizureFrequency.csv</code> without temporal filtering. Historical seizure types from 2014, 2016, and 2017 are treated as current patient findings. A patient who is explicitly seizure-free today is gold-labelled with their historical seizure types.</p>
+        </div>
+        <div class="finding-card col-span-6">
+          <div class="severity severity-critical">Critical</div>
+          <div class="finding-num">02</div>
+          <h4>Guidelines Sanction Temporal Blindness</h4>
+          <p>Example 4 and Example 5 in the Diagnosis section instruct annotators to label negated/historical seizure mentions as affirmed diagnoses because "the history of having GTCS is affirmed." The guideline explicitly teaches annotators to ignore temporal scope.</p>
+        </div>
+        <div class="finding-card col-span-4">
+          <div class="severity severity-high">High</div>
+          <div class="finding-num">03</div>
+          <h4>Inter-Annotator Agreement Only F1 = 0.73</h4>
+          <p>Two trained human annotators disagree on more than one in four annotations. Prescriptions scored highest (0.87); "When Diagnosed" lowest (0.45).</p>
+        </div>
+        <div class="finding-card col-span-4">
+          <div class="severity severity-high">High</div>
+          <div class="finding-num">04</div>
+          <h4>Systematic Span Boundary Noise</h4>
+          <p>37 trailing-hyphen spans, 9 truncated endings, and 3 mid-word starts found in just 20 documents. Boundary defects degrade exact-span training quality.</p>
+        </div>
+        <div class="finding-card col-span-4">
+          <div class="severity severity-high">High</div>
+          <div class="finding-num">05</div>
+          <h4>Duplicate and Conflicting Annotations</h4>
+          <p>Seven spans carry contradictory attributes. Medication annotations include dose conflicts (sodium valproate labelled as both 700 mg and 800 mg on overlapping spans).</p>
+        </div>
+        <div class="finding-card col-span-6">
+          <div class="severity severity-moderate">Moderate</div>
+          <div class="finding-num">06</div>
+          <h4>Generic Seizure Terms Pollute the Label Set</h4>
+          <p><code>MarkupSeizureFrequency.csv</code> contains 111 entries where the seizure-type field is <code>seizures</code>, <code>seizure</code>, or <code>null</code>. These reveal a lack of type-level precision in source annotations.</p>
+        </div>
+        <div class="finding-card col-span-6">
+          <div class="severity severity-critical">Critical</div>
+          <div class="finding-num">07</div>
+          <h4>Extraction Systems Are More Precise Than Gold Allows</h4>
+          <p>MA_v1 correctly identifies EA0006 is seizure-free and excludes 2014 historical types; it scores F1 = 0.0. A broken pipeline that ignores temporality scores F1 = 1.0. This inversion is the defining symptom of a measurement problem, not a model problem.</p>
+        </div>
+        <div class="finding-card col-span-12">
+          <div class="severity severity-high">High</div>
+          <div class="finding-num">08</div>
+          <h4>The Oracle Failure Rate Is Partly an Artefact of Annotation Looseness</h4>
+          <p>Many "failures" occur because the model outputs <code>unknown seizure type</code> or <code>seizure free</code> while the gold expects a historical-specific type, or because the model correctly abstains where the gold incorrectly infers.</p>
+        </div>
+      </div>
+
+      <div class="callout callout-critical" style="margin-top: 3rem;">
+        <p style="color: var(--fg); font-weight: 600; margin: 0;">Bottom line: The seizure-type F1 ceiling of ~0.60&ndash;0.65 on validation is not primarily a model-capacity ceiling; it is a <strong style="color: var(--accent-critical);">gold-standard fidelity ceiling</strong>. The way forward is not more prompt engineering. It is better measurement.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Paradox -->
+  <section class="section paradox" id="paradox">
+    <div class="section-inner">
+      <div class="eyebrow">The Defining Symptom</div>
+      <h2 class="reveal">When Clinical Correctness Scores Zero</h2>
+      <p class="reveal" style="margin-top: 1rem; max-width: 65ch;">Document EA0006 encapsulates the entire audit in a single, devastating comparison. The patient is seizure-free. The gold standard says otherwise. The clinically precise pipeline is punished.</p>
+
+      <div class="paradox-showcase">
+        <div class="paradox-panel clinical reveal">
+          <h4>Clinical Reality</h4>
+          <p class="quote">&ldquo;I was pleased to hear that he remains seizure free and is now driving.&rdquo;</p>
+          <div class="label-set">
+            <span class="label-tag">seizure free</span>
+          </div>
+          <p style="margin-top: 1.5rem; font-size: 0.875rem; color: rgba(247,245,240,0.5);">MA_v1 post-repair output</p>
+        </div>
+
+        <div class="paradox-divider reveal">
+          <div class="f1-score">0.0</div>
+          <div class="f1-label">F1 Score</div>
+        </div>
+
+        <div class="paradox-panel gold reveal">
+          <h4>Gold Standard</h4>
+          <p class="quote">&ldquo;2 generalised tonic clonic seizures 2014, absence like seizures 2014&rdquo;</p>
+          <div class="label-set">
+            <span class="label-tag">generalized tonic clonic seizure</span>
+            <span class="label-tag">generalized absence seizure</span>
+          </div>
+          <p style="margin-top: 1.5rem; font-size: 0.875rem; color: rgba(247,245,240,0.5);">Derived from frequency CSV, no temporal filter</p>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-top: 4rem; background: rgba(247,245,240,0.03); border-color: rgba(247,245,240,0.1);">
+        <p style="color: rgba(247,245,240,0.8); margin: 0;">Meanwhile, the <strong style="color: var(--bg);">broken</strong> pipeline that extracts every mention indiscriminately &mdash; ignoring the 2014 dates and the "seizure free" statement &mdash; achieves <strong style="color: var(--bg);">F1 = 1.0</strong>. This is not a bug in the model. It is a bug in the measurement.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Annotated Letter -->
+  <section class="section" id="annotated-letter" style="background: var(--bg-warm);">
+    <div class="section-inner">
+      <div class="eyebrow">Centerpiece Evidence</div>
+      <h2 class="reveal">Document EA0006: The Annotated Letter</h2>
+      <p class="reveal" style="margin-top: 1rem; max-width: 65ch;">Read the full clinical letter with annotations overlaid. Toggle between the gold-standard view and the clinically accurate view to see how temporal scope changes every extraction.</p>
+
+      <!-- Toggle -->
+      <div class="letter-toggle reveal" style="display: flex; justify-content: center; margin-top: 3rem; margin-bottom: 3rem;">
+        <div class="toggle-pill" style="display: inline-flex; background: rgba(26,23,20,0.04); border-radius: 100px; padding: 4px; border: 1px solid var(--border); position: relative;">
+          <div class="toggle-indicator" id="toggleIndicator" style="position: absolute; top: 4px; left: 4px; width: calc(50% - 4px); height: calc(100% - 8px); background: var(--bg); border-radius: 100px; box-shadow: var(--shadow-ambient); transition: transform 0.5s var(--ease-out-expo); z-index: 0;"></div>
+          <button class="toggle-btn active" data-view="gold" id="btnGold" style="position: relative; z-index: 1; padding: 0.75rem 2rem; border-radius: 100px; border: none; background: transparent; font-family: var(--font-body); font-size: 0.9375rem; font-weight: 500; color: var(--fg); cursor: pointer; transition: color 0.3s;">
+            <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--accent-critical); margin-right: 8px; vertical-align: middle;"></span>Gold Standard
+          </button>
+          <button class="toggle-btn" data-view="clinical" id="btnClinical" style="position: relative; z-index: 1; padding: 0.75rem 2rem; border-radius: 100px; border: none; background: transparent; font-family: var(--font-body); font-size: 0.9375rem; font-weight: 500; color: var(--fg-muted); cursor: pointer; transition: color 0.3s;">
+            <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--accent-teal); margin-right: 8px; vertical-align: middle;"></span>Clinical Truth
+          </button>
+        </div>
+      </div>
+
+      <!-- Letter Document -->
+      <div class="letter-document reveal" id="letterDocument" style="max-width: 780px; margin: 0 auto; background: #FDFBF7; border: 1px solid rgba(26,23,20,0.08); border-radius: var(--radius-inner); box-shadow: 0 4px 60px rgba(26,23,20,0.06); padding: 3.5rem; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--accent-critical), var(--accent-warm), var(--accent-teal), var(--accent-blue)); opacity: 0.4;"></div>
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(26,23,20,0.06);">
+          <div>
+            <div style="font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--fg-subtle); margin-bottom: 0.5rem;">Epilepsy Clinic Letter</div>
+            <div style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--fg);">Document EA0006</div>
+          </div>
+          <div style="text-align: right;">
+            <div style="font-size: 0.8125rem; color: var(--fg-muted);">Patient: <strong style="color: var(--fg); font-weight: 600;">Mr Turko</strong></div>
+            <div style="font-size: 0.8125rem; color: var(--fg-muted); margin-top: 0.25rem;">Age: 26 years</div>
+          </div>
+        </div>
+
+        <div class="letter-body view-gold" id="letterBody" style="font-family: var(--font-display); font-size: 1.0625rem; line-height: 1.85; color: var(--fg); letter-spacing: 0.01em;">
+          <p style="margin-bottom: 1.25em;">Dear Dr,</p>
+
+          <p style="margin-bottom: 1.25em;">Diagnosis: <span class="anno gold-diag clinical-diag-tentative" data-gold="Diagnosis: Epilepsy, Certainty=5, Affirmed" data-clinical="Current diagnosis: Epilepsy (certainty=5)">Epilepsy</span> – unclassified, possibly <span class="anno gold-diag clinical-diag-tentative" data-gold="Diagnosis: generalised epilepsy, Certainty=3, Affirmed" data-clinical="Tentative diagnosis: possibly generalised (certainty=3)">generalised</span>.</p>
+
+          <p style="margin-bottom: 1.25em;"><span class="anno gold-med clinical-med" data-gold="Prescription: levetiracetam 500 mg, 2× daily" data-clinical="Current medication: levetiracetam 500 mg, 2× daily">Current antiepileptic medication: levetiracetam 500 mg twice a day</span></p>
+
+          <p style="margin-bottom: 1.25em; color: var(--fg-muted);">Previous antiepileptic medication: lamotrigine and carbamazepine.</p>
+
+          <p style="margin-bottom: 1.25em;">Seizure type and frequency: 2 <span class="anno gold-seizure clinical-historical" data-gold="SeizureFrequency: 2 GTCS → treated as CURRENT seizure type" data-clinical="Historical seizure: GTCS in 2014 (correctly excluded from current status)">generalised tonic clonic seizures 2014</span>, <span class="anno gold-seizure clinical-historical" data-gold="SeizureFrequency: 1 absence → treated as CURRENT seizure type" data-clinical="Historical seizure: absence-like in 2014 (correctly excluded)">absence like seizures 2014</span></p>
+
+          <p style="margin-bottom: 1.25em;">Investigations: <span class="anno gold-inv clinical-inv" data-gold="Investigation: MRI 2015, Normal" data-clinical="Investigation: MRI 2015, Normal">MRI 2015 normal</span>, <span class="anno gold-inv clinical-inv" data-gold="Investigation: EEG 2015, Normal" data-clinical="Investigation: EEG 2015, Normal">EEG 2015 normal</span>.</p>
+
+          <p style="margin-bottom: 1.25em;">I reviewed this 26 year old man alone in clinic today. I was pleased to hear that he <span class="anno clinical-seizure-free" data-gold="Not annotated in gold standard" data-clinical="Current status: SEIZURE FREE ✓ — the only finding that matters clinically">remains seizure free</span> and is now driving. As you know he had <span class="anno gold-seizure clinical-historical" data-gold="SeizureFrequency: 2 GTCS → treated as CURRENT seizure type" data-clinical="Historical seizure: GTCS in 2014 (correctly excluded)">2 generalised tonic clonic seizures in 2014</span> without warning. They may have been preceded by leg jerking. Around the same time he would also have <span class="anno gold-hist clinical-historical" data-gold="PatientHistory: absence-like episodes, 2014" data-clinical="Historical seizure: absence-like episodes in 2014">“absence-like” episodes</span>. During these he would stop and stare for a few seconds. He himself did not know that these were happening. He has not had any other episode which may resemble myoclonus or focal seizures.</p>
+
+          <p style="margin-bottom: 1.25em;">Mr Turko had some <span class="anno gold-hist clinical-historical" data-gold="PatientHistory: febrile seizures" data-clinical="Historical: febrile seizures in childhood">febrile seizures</span> when he was younger. There is <span class="anno clinical-excluded" data-gold="Not annotated — no family-history field exists" data-clinical="Correctly EXCLUDED: No family history of epilepsy">no family history of epilepsy</span> and both his sons are well and have not had seizures.</p>
+
+          <p style="margin-bottom: 0;">We had some discussion about epilepsy. Mr Turko has an ongoing tendency for seizures as such I would really recommend long-term treatment with anti epileptic medication. Mr Turko understands that convulsive seizures with loss of consciousness can rarely cause serious injury or even death(sudden death in epilepsy). He knows that he can contact us should he require an appointment in the future.</p>
+        </div>
+
+        <div style="margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(26,23,20,0.06); display: flex; justify-content: space-between; align-items: center;">
+          <div style="font-size: 0.75rem; color: var(--fg-subtle); text-transform: uppercase; letter-spacing: 0.1em;">End of letter</div>
+          <div style="font-size: 0.75rem; color: var(--fg-subtle);">ExECTv2 Synthetic Corpus</div>
+        </div>
+      </div>
+
+      <!-- Comparison Panel -->
+      <div class="comparison-panel reveal" style="max-width: 780px; margin: 3rem auto 0; display: grid; grid-template-columns: 1fr auto 1fr; gap: 1.5rem; align-items: stretch;">
+        <div class="compare-col gold-col" style="padding: 2rem; border-radius: var(--radius-inner); border: 1px solid rgba(181,45,58,0.12); background: rgba(181,45,58,0.02); transition: all 0.5s var(--ease-out-expo);">
+          <div style="font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent-critical); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
+            <span style="width: 8px; height: 8px; border-radius: 50%; background: var(--accent-critical); display: inline-block;"></span> Gold Standard Extraction
+          </div>
+          <div style="margin-bottom: 1.5rem;">
+            <div style="font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--fg-subtle); margin-bottom: 0.75rem;">Seizure Types</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+              <span style="padding: 0.375rem 0.875rem; border-radius: 100px; background: rgba(181,45,58,0.1); color: var(--accent-critical); font-size: 0.875rem; font-weight: 500;">generalized tonic clonic seizure</span>
+              <span style="padding: 0.375rem 0.875rem; border-radius: 100px; background: rgba(181,45,58,0.1); color: var(--accent-critical); font-size: 0.875rem; font-weight: 500;">generalized absence seizure</span>
+            </div>
+          </div>
+          <div style="margin-bottom: 1.5rem;">
+            <div style="font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--fg-subtle); margin-bottom: 0.75rem;">Diagnoses</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+              <span style="padding: 0.375rem 0.875rem; border-radius: 100px; background: rgba(47,84,150,0.1); color: var(--accent-blue); font-size: 0.875rem; font-weight: 500;">focal epilepsy</span>
+            </div>
+          </div>
+          <div style="margin-bottom: 1.5rem;">
+            <div style="font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--fg-subtle); margin-bottom: 0.75rem;">Medications</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+              <span style="padding: 0.375rem 0.875rem; border-radius: 100px; background: rgba(193,120,23,0.1); color: var(--accent-warm); font-size: 0.875rem; font-weight: 500;">levetiracetam 500 mg 2×</span>
+            </div>
+          </div>
+          <div style="padding-top: 1.5rem; border-top: 1px solid rgba(181,45,58,0.1);">
+            <div style="font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--fg-subtle); margin-bottom: 0.25rem;">vs. MA_v1 (post-repair)</div>
+            <div style="font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; color: var(--accent-critical); line-height: 1;">0.0</div>
+            <div style="font-size: 0.8125rem; color: var(--fg-muted); margin-top: 0.25rem;">F1 Score — clinically correct, scored as failure</div>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; justify-content: center;">
+          <div style="width: 1px; height: 100%; background: var(--border); position: relative;">
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 32px; height: 32px; border-radius: 50%; background: var(--bg); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--fg-subtle)" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="compare-col clinical-col" style="padding: 2rem; border-radius: var(--radius-inner); border: 1px solid rgba(42,107,107,0.12); background: rgba(42,107,107,0.02); transition: all 0.5s var(--ease-out-expo);">
+          <div style="font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent-teal); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
+            <span style="width: 8px; height: 8px; border-radius: 50%; background: var(--accent-teal); display: inline-block;"></span> Clinical Truth (MA_v1)
+          </div>
+          <div style="margin-bottom: 1.5rem;">
+            <div style="font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--fg-subtle); margin-bottom: 0.75rem;">Seizure Types</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+              <span style="padding: 0.375rem 0.875rem; border-radius: 100px; background: rgba(42,107,107,0.1); color: var(--accent-teal); font-size: 0.875rem; font-weight: 600;">seizure free</span>
+            </div>
+          </div>
+          <div style="margin-bottom: 1.5rem;">
+            <div style="font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--fg-subtle); margin-bottom: 0.75rem;">Diagnoses</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+              <span style="padding: 0.375rem 0.875rem; border-radius: 100px; background: rgba(47,84,150,0.08); color: var(--accent-blue); font-size: 0.875rem; font-weight: 500;">epilepsy — unclassified</span>
+            </div>
+          </div>
+          <div style="margin-bottom: 1.5rem;">
+            <div style="font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--fg-subtle); margin-bottom: 0.75rem;">Medications</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+              <span style="padding: 0.375rem 0.875rem; border-radius: 100px; background: rgba(193,120,23,0.08); color: var(--accent-warm); font-size: 0.875rem; font-weight: 500;">levetiracetam 500 mg 2×</span>
+            </div>
+          </div>
+          <div style="padding-top: 1.5rem; border-top: 1px solid rgba(42,107,107,0.1);">
+            <div style="font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--fg-subtle); margin-bottom: 0.25rem;">vs. Gold Standard</div>
+            <div style="font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; color: var(--accent-teal); line-height: 1;">0.0</div>
+            <div style="font-size: 0.8125rem; color: var(--fg-muted); margin-top: 0.25rem;">F1 Score — punished for temporal precision</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout callout-critical reveal" style="margin-top: 3rem; max-width: 780px; margin-left: auto; margin-right: auto;">
+        <p style="margin: 0; color: var(--fg);"><strong>The paradox in plain sight:</strong> Every 2014 date in the letter is ignored by the gold standard's seizure-type scorer. The phrase <code>seizure free</code> — the patient's actual clinical status — carries zero weight in the benchmark. A system that correctly reads the letter scores worse than a system that ignores every date.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Methodology -->
+  <section class="section" id="methodology">
+    <div class="section-inner">
+      <div class="eyebrow">Methodology</div>
+      <h2 class="reveal">How the Audit Was Conducted</h2>
+
+      <div class="measurement-flow" style="margin-top: 3rem;">
+        <div class="flow-column">
+          <div class="flow-box reveal">
+            <h5>Guideline Archaeology</h5>
+            <p>Extracted the full text of the v9 annotation guidelines and mapped every explicit rule, example, and admitted limitation to the corresponding evaluation field.</p>
+          </div>
+          <div class="flow-box reveal">
+            <h5>Corpus-Level Statistics</h5>
+            <p>Computed aggregate counts of temporal scopes, certainty levels, generic entries, duplicate spans, and boundary defects across all 200 documents.</p>
+          </div>
+          <div class="flow-box reveal">
+            <h5>Cross-Reference with Outputs</h5>
+            <p>Compared gold labels against MA_v1, S2, E3, and H6 system outputs to identify cases where clinically correct predictions are scored as false negatives.</p>
+          </div>
+        </div>
+        <div class="flow-arrow reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </div>
+        <div class="flow-column">
+          <div class="flow-box reveal">
+            <h5>Code-Level Gold Analysis</h5>
+            <p>Read <code>load_gold()</code> in <code>src/evaluate.py</code> line-by-line to identify where temporal attributes are dropped, where generic terms are filtered, and where label sets are flattened.</p>
+          </div>
+          <div class="flow-box reveal">
+            <h5>Case-Study Deep Dives</h5>
+            <p>Selected 25+ documents representing every major failure mode: temporal mismatch, medication ambiguity, diagnosis overlap, investigation noise, frequency contradiction, and boundary defects.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="data-table-wrapper reveal" style="margin-top: 4rem;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Source</th>
+              <th>Files</th>
+              <th>Role in Audit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Annotation guidelines</td><td>ExECT V2 .1 v9</td><td>Primary source for annotator instructions, examples, and admitted ambiguities</td></tr>
+            <tr><td>Source letters</td><td>Gold1-200/EA*.txt</td><td>Ground truth clinical text against which annotations were compared</td></tr>
+            <tr><td>BRAT annotations</td><td>EA*.ann</td><td>Entity spans and attributes in standoff format</td></tr>
+            <tr><td>JSON exports</td><td>Json/EA*.json</td><td>Machine-readable gold annotations used by external consumers</td></tr>
+            <tr><td>Markup CSVs</td><td>MarkupOutput_200/*.csv</td><td>Tabular exports driving src/evaluate.py gold loading</td></tr>
+            <tr><td>Scorer code</td><td>src/evaluate.py</td><td>Reveals how gold is transformed into evaluation targets</td></tr>
+            <tr><td>Prior inspection</td><td>EXeCT_20_inspection.txt</td><td>Independent audit of 20 documents (EA0181&ndash;EA0200)</td></tr>
+            <tr><td>Experiment record</td><td>34_full_experiment_record.md</td><td>Context on evaluation criteria, harness designs, and score trajectories</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Annotation Guidelines -->
+  <section class="section" style="background: var(--bg-warm);">
+    <div class="section-inner">
+      <div class="eyebrow">The Smoking Gun</div>
+      <h2 class="reveal">Guidelines That Teach Temporal Blindness</h2>
+      <p class="reveal" style="margin-top: 1rem;">The v9 guidelines are detailed, pragmatic, and critically, they contain explicit examples that teach annotators to ignore temporal scope for seizure types and to treat historical mentions as current diagnoses.</p>
+
+      <div style="margin-top: 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+        <div class="callout callout-critical reveal">
+          <p style="font-family: var(--font-display); font-style: italic; font-size: 1.125rem; margin-bottom: 1rem; color: var(--fg);">&ldquo;He has not had a generalised tonic clonic seizure for a while.&rdquo;</p>
+          <p style="margin-bottom: 0.5rem;"><strong>Diagnosis:</strong> <code>generalised tonic clonic seizure</code>, Certainty = 5, Negation = Affirmed</p>
+          <p style="font-size: 0.875rem; color: var(--fg-muted); margin: 0;">&ldquo;Although he is not having seizures now, he 'usually' does... it states that he has had gtcs.&rdquo;</p>
+        </div>
+        <div class="callout callout-critical reveal">
+          <p style="font-family: var(--font-display); font-style: italic; font-size: 1.125rem; margin-bottom: 1rem; color: var(--fg);">&ldquo;I was pleased to hear that she has not had any further generalised tonic clonic seizures since August 2016&rdquo;</p>
+          <p style="margin-bottom: 0.5rem;"><strong>Diagnosis:</strong> <code>generalised tonic clonic seizure</code>, Certainty = 5, Negation = Affirmed</p>
+          <p style="font-size: 0.875rem; color: var(--fg-muted); margin: 0;">&ldquo;Although the statement is negated the history of having generalised tonic clonic seizures is affirmed, so it should be annotated.&rdquo;</p>
+        </div>
+      </div>
+
+      <div class="callout callout-warn reveal" style="margin-top: 2rem;">
+        <p style="color: var(--fg); margin: 0;"><strong>Impact:</strong> When MA_v1 correctly segments EA0006 as "seizure free" and excludes the 2014 GTCS and absence-like seizures, it is behaving <em>against</em> the guideline's taught behavior. The pipeline's clinically correct output scores F1 = 0.0.</p>
+      </div>
+
+      <!-- Temporal Flatness Visual -->
+      <div style="margin-top: 5rem;">
+        <h3 class="reveal" style="text-align: center; margin-bottom: 3rem;">The Temporal Flattening Effect</h3>
+        <div class="temporal-viz reveal" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; align-items: end; max-width: 800px; margin: 0 auto;">
+          <div class="temporal-event" style="text-align: center; opacity: 0; transform: translateY(30px);">
+            <div style="height: 120px; display: flex; align-items: flex-end; justify-content: center;">
+              <div style="width: 60px; height: 80px; background: rgba(193,120,23,0.12); border: 1px solid rgba(193,120,23,0.3); border-radius: 8px 8px 0 0; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 0.875rem; color: var(--accent-warm);">2014</div>
+            </div>
+            <p style="font-size: 0.8125rem; margin-top: 0.75rem; color: var(--fg-muted);">GTCS<br>Absences</p>
+          </div>
+          <div class="temporal-event" style="text-align: center; opacity: 0; transform: translateY(30px);">
+            <div style="height: 120px; display: flex; align-items: flex-end; justify-content: center;">
+              <div style="width: 60px; height: 60px; background: rgba(47,84,150,0.12); border: 1px solid rgba(47,84,150,0.3); border-radius: 8px 8px 0 0; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 0.875rem; color: var(--accent-blue);">2016</div>
+            </div>
+            <p style="font-size: 0.8125rem; margin-top: 0.75rem; color: var(--fg-muted);">GTCS<br>Historical</p>
+          </div>
+          <div class="temporal-event" style="text-align: center; opacity: 0; transform: translateY(30px);">
+            <div style="height: 120px; display: flex; align-items: flex-end; justify-content: center;">
+              <div style="width: 60px; height: 45px; background: rgba(42,107,107,0.12); border: 1px solid rgba(42,107,107,0.3); border-radius: 8px 8px 0 0; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 0.875rem; color: var(--accent-teal);">2017</div>
+            </div>
+            <p style="font-size: 0.8125rem; margin-top: 0.75rem; color: var(--fg-muted);">Focal to<br>bilateral</p>
+          </div>
+          <div class="temporal-event" style="text-align: center; opacity: 0; transform: translateY(30px);">
+            <div style="height: 120px; display: flex; align-items: flex-end; justify-content: center;">
+              <div style="width: 60px; height: 30px; background: rgba(181,45,58,0.12); border: 1px solid rgba(181,45,58,0.3); border-radius: 8px 8px 0 0; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 0.875rem; color: var(--accent-critical);">Now</div>
+            </div>
+            <p style="font-size: 0.8125rem; margin-top: 0.75rem; color: var(--fg-muted);">Seizure<br>free</p>
+          </div>
+        </div>
+        <div style="max-width: 800px; margin: 2rem auto 0; position: relative; height: 60px;">
+          <div style="position: absolute; top: 0; left: 12.5%; right: 12.5%; height: 1px; background: var(--border-strong);"></div>
+          <div style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 8px solid transparent; border-right: 8px solid transparent; border-top: 10px solid var(--border-strong);"></div>
+          <div class="flat-label-box" style="position: absolute; top: 1.5rem; left: 50%; transform: translateX(-50%); padding: 1rem 2rem; background: var(--fg); color: var(--bg); border-radius: var(--radius-inner); font-family: var(--font-body); font-size: 0.875rem; font-weight: 500; white-space: nowrap; opacity: 0;">
+            Gold Standard Output: <span style="color: var(--accent-critical);">GTCS, Absences, Focal to bilateral</span> &mdash; all "current"
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Gold Construction -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="eyebrow">Construction Logic</div>
+      <h2 class="reveal">How <code>evaluate.py</code> Builds the Target</h2>
+      <p class="reveal" style="margin-top: 1rem;">Understanding how the scorer constructs its gold label sets is essential, because the construction logic itself introduces distortions beyond those present in the raw annotations.</p>
+
+      <div style="margin-top: 3rem;">
+        <div class="callout callout-critical reveal">
+          <h4 style="font-family: var(--font-body); font-size: 0.875rem; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.1em;">Seizure Types: Unconditional Harvest</h4>
+          <div class="code-block">
+<span class="cm"># src/evaluate.py, in load_gold()</span>
+<span class="kw">for</span> row <span class="kw">in</span> read_csv_rows(markup_root / <span class="str">"MarkupSeizureFrequency.csv"</span>):
+    ...
+    seizure_type = canonical_seizure_type(row[<span class="fn">5</span>] <span class="kw">if</span> row[<span class="fn">5</span>].lower() != <span class="str">"null"</span> <span class="kw">else</span> row[<span class="fn">4</span>])
+    ...
+    <span class="kw">if</span> seizure_type:
+        document.seizure_types.append(seizure_type)
+          </div>
+          <p style="margin-top: 1rem; color: var(--fg); margin-bottom: 0;">The <code>seizure_types</code> list is populated from <code>MarkupSeizureFrequency.csv</code>, not from <code>MarkupDiagnosis.csv</code>. Every row with a non-empty seizure-type value appends that type to the document's list <strong>regardless of temporal scope</strong>.</p>
+        </div>
+
+        <div class="callout callout-warn reveal" style="margin-top: 1.5rem;">
+          <h4 style="font-family: var(--font-body); font-size: 0.875rem; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.1em;">Medications: All Rows Treated as Current</h4>
+          <div class="code-block">
+<span class="kw">for</span> row <span class="kw">in</span> read_csv_rows(markup_root / <span class="str">"MarkupPrescriptions.csv"</span>):
+    document.medications.append({
+        <span class="str">"name"</span>: canonical_medication_name(row[<span class="fn">4</span>] <span class="kw">if</span> row[<span class="fn">4</span>].lower() != <span class="str">"null"</span> <span class="kw">else</span> row[<span class="fn">5</span>]),
+        <span class="str">"dose"</span>: normalize_dose(row[<span class="fn">6</span>]),
+        ...
+    })
+          </div>
+          <p style="margin-top: 1rem; color: var(--fg); margin-bottom: 0;">The Prescriptions CSV is loaded without any temporal filter. The guidelines say "only current prescriptions," but the scorer does not verify this.</p>
+        </div>
+
+        <div class="callout callout-info reveal" style="margin-top: 1.5rem;">
+          <h4 style="font-family: var(--font-body); font-size: 0.875rem; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.1em;">Investigations: Simple Keyword Matching</h4>
+          <div class="code-block">
+phrase = normalize_value(row[<span class="fn">4</span>])
+result = <span class="str">"abnormal"</span> <span class="kw">if</span> <span class="str">"abnormal"</span> <span class="kw">in</span> phrase <span class="kw">else</span> <span class="str">"normal"</span> <span class="kw">if</span> <span class="str">"normal"</span> <span class="kw">in</span> phrase <span class="kw">else</span> <span class="kw">None</span>
+<span class="kw">if</span> <span class="str">"eeg"</span> <span class="kw">in</span> phrase <span class="kw">and</span> result:
+    document.investigations[<span class="str">"eeg"</span>] = result
+          </div>
+          <p style="margin-top: 1rem; color: var(--fg); margin-bottom: 0;">The investigation loader does not use structured MRI_Results / EEG_Results columns. It keyword-matches the normalized phrase string. It cannot distinguish "abnormal EEG" from "no abnormal EEG."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Studies -->
+  <section class="section" id="cases">
+    <div class="section-inner">
+      <div class="eyebrow">Evidence</div>
+      <h2 class="reveal">Per-Category Case Studies</h2>
+      <p class="reveal" style="margin-top: 1rem;">Twenty-five documents representing every major failure mode, cross-referenced against system outputs to identify where clinically correct predictions are scored as false negatives.</p>
+
+      <div class="case-studies">
+        <div class="case-tabs reveal">
+          <button class="case-tab active" data-tab="seizure">Seizure Types</button>
+          <button class="case-tab" data-tab="medication">Medications</button>
+          <button class="case-tab" data-tab="diagnosis">Diagnosis</button>
+          <button class="case-tab" data-tab="frequency">Frequency</button>
+          <button class="case-tab" data-tab="investigations">Investigations</button>
+          <button class="case-tab" data-tab="boundary">Boundary Issues</button>
+        </div>
+
+        <div class="case-content active" id="tab-seizure">
+          <div class="case-grid">
+            <div class="case-card">
+              <div class="case-id">EA0006</div>
+              <div class="case-category">The Paradox Document</div>
+              <blockquote>&ldquo;I was pleased to hear that he remains seizure free and is now driving.&rdquo;</blockquote>
+              <p class="case-analysis"><strong>Gold:</strong> generalized tonic clonic seizure (×2), generalized absence seizure. <strong>Clinical reality:</strong> seizure-free since 2014. <strong>MA_v1 output:</strong> <code>['seizure free']</code>. <strong style="color: var(--accent-critical)">F1 = 0.0</strong>. The broken pipeline scores F1 = 1.0.</p>
+            </div>
+            <div class="case-card">
+              <div class="case-id">EA0004</div>
+              <div class="case-category">Genuine Success</div>
+              <blockquote>&ldquo;Seizure taking frequency: Uncertain, several seizures since the last clinic appointment&rdquo;</blockquote>
+              <p class="case-analysis"><strong>Gold:</strong> unknown seizure type (×2). <strong>MA_v1 output:</strong> <code>['unknown seizure type']</code>. <strong style="color: var(--accent-teal)">F1 = 1.0</strong>. This success is masked at the aggregate level by EA0006-type regressions.</p>
+            </div>
+            <div class="case-card">
+              <div class="case-id">EA0011</div>
+              <div class="case-category">Historical Secondary Generalization</div>
+              <blockquote>&ldquo;Focal to bilateral convulsive seizures, last event around Christmas 2017... his last one being around Christmas time in 2017&rdquo;</blockquote>
+              <p class="case-analysis"><strong>Gold:</strong> focal seizure, focal to bilateral convulsive seizure. Last convulsive seizure was 2017. The convulsive subtype is historical, yet the gold labels it current. <strong>F1 = 1.0</strong> reflects matching a flat label set, not clinical extraction.</p>
+            </div>
+            <div class="case-card">
+              <div class="case-id">EA0005</div>
+              <div class="case-category">Ambiguous Temporal Scope</div>
+              <blockquote>&ldquo;Generalised tonic clonic seizure-last event July 2016... he has had roughly two seizures per year since then.&rdquo;</blockquote>
+              <p class="case-analysis"><strong>Gold:</strong> generalized tonic clonic seizure. The letter mentions "last event July 2016" but also "two seizures per year since 2010." The gold's flat label set cannot represent this nuance. A temporally aware system faces an impossible target.</p>
+            </div>
+            <div class="case-card" style="grid-column: 1 / -1;">
+              <div class="case-id">Aggregate: The Meta-Label Ceiling</div>
+              <div class="case-category">Structural Benchmark Problem</div>
+              <p class="case-analysis">Across all models (4B to 35B) and all harnesses, the miss count for <code>unknown seizure type</code> is consistently <strong>13&ndash;15 out of 26 documents</strong> that have this gold label. Scale does not close this gap. The gold uses <code>unknown seizure type</code> as a catch-all for generic mentions, but guidelines do not clearly define when to use it. Models infer specific types from context, which is clinically correct but benchmark-incorrect.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-content" id="tab-medication">
+          <div class="case-grid">
+            <div class="case-card">
+              <div class="case-id">EA0017</div>
+              <div class="case-category">The null Drug Name</div>
+              <p class="case-analysis" style="margin-bottom: 1rem;"><code>EA0017.txt,229,255,C0016410,"null","folic-acid",5,mg,1,...</code></p>
+              <p class="case-analysis">The canonical <code>DrugName</code> field is <code>null</code>; the surface text is <code>folic-acid</code>. But folic acid is <strong>not an anti-seizure medication</strong>. The guidelines say "only current prescriptions for ASMs." Its inclusion is an annotator error. Our systems correctly exclude it, creating a false negative on the gold label.</p>
+            </div>
+            <div class="case-card">
+              <div class="case-id">EA0183</div>
+              <div class="case-category">Conflicting Doses</div>
+              <p class="case-analysis" style="margin-bottom: 1rem;">Two overlapping Prescription labels on <code>"Sodium-Valproate"</code>, one with <code>DrugDose: 800</code> and the other with <code>DrugDose: 700</code>.</p>
+              <p class="case-analysis">A system predicting <code>sodium valproate | 800 | mg | 2</code> would match one gold tuple but miss the other, producing a false negative (700) and a true positive (800). The system's precision is penalized for a gold-standard inconsistency.</p>
+            </div>
+            <div class="case-card">
+              <div class="case-id">EA0195</div>
+              <div class="case-category">Tegretol Dose Ambiguity</div>
+              <p class="case-analysis" style="margin-bottom: 1rem;">Overlapping Tegretol labels: <code>"Tegretol-"</code> with <code>DrugDose: 600</code>, while <code>"Tegretol-400mg-in-the-morning"</code> has <code>DrugDose: 400</code>.</p>
+              <p class="case-analysis">This may reflect total daily dose (600 mg) versus per-dose amount (400 mg morning). The JSON/CSV does not distinguish these concepts. A system predicting <code>carbamazepine | 400 | mg | 2</code> would miss the 600 mg tuple.</p>
+            </div>
+            <div class="case-card">
+              <div class="case-id">EA0188</div>
+              <div class="case-category">Misspelled Drug Name</div>
+              <p class="case-analysis" style="margin-bottom: 1rem;"><code>"Brivitiracetam"</code> with <code>DrugName: "brivitiracetam"</code> but <code>CUIPhrase: "brivaracetam"</code>.</p>
+              <p class="case-analysis">The surface text contains a misspelling. Our <code>canonical_medication_name()</code> normalizer maps <code>brivitiracetam</code> &rarr; <code>brivaracetam</code> (via <code>ASM_SYNONYMS</code>). Without that repair, the original scorer would have produced a false negative. <strong>The gold standard required scorer-side normalization repair to be scoreable at all.</strong></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-content" id="tab-diagnosis">
+          <div class="case-grid">
+            <div class="case-card">
+              <div class="case-id">EA0002</div>
+              <div class="case-category">Dual Diagnosis Overlap</div>
+              <p class="case-analysis" style="margin-bottom: 1rem;"><code>"focal-epilepsy"</code> (certainty 5) and <code>"epilepsy-Probable-temporal"</code> (certainty 4) on overlapping spans.</p>
+              <p class="case-analysis">Two overlapping spans annotate the same clinical concept with different specificity and different certainty. The first covers the definite part. The second covers the probable localization. Our scorer maps both to <code>focal epilepsy</code>. But a system predicting <code>temporal lobe epilepsy</code> might not match, even though the letter explicitly says "probably temporal."</p>
+            </div>
+            <div class="case-card">
+              <div class="case-id">EA0006</div>
+              <div class="case-category">Certainty = 3 for Generalised Epilepsy</div>
+              <blockquote>&ldquo;Diagnosis: Epilepsy &ndash; unclassified, possibly generalised.&rdquo;</blockquote>
+              <p class="case-analysis">The word "possibly" triggers certainty = 3. Our systems, prompted to extract only clear diagnoses, might exclude this. The gold includes it because <code>Negation = Affirmed</code>. The scorer ignores certainty. A precision-oriented system is penalized for correctly excluding a tentative diagnosis.</p>
+            </div>
+            <div class="case-card">
+              <div class="case-id">EA0003</div>
+              <div class="case-category">Generic Seizures as Diagnosis</div>
+              <p class="case-analysis" style="margin-bottom: 1rem;"><code>"generalised-seizures"</code> annotated as <code>DiagCategory = MultipleSeizures</code>, not <code>Epilepsy</code>.</p>
+              <p class="case-analysis">The term "generalised seizures" is generic &mdash; it does not specify tonic-clonic, absence, or myoclonic. The ILAE classification would not accept it as a specific type. Yet it appears in the gold seizure-type set via the frequency CSV. Our <code>canonical_seizure_type()</code> maps it to <code>generalized seizure</code>, which is acceptable at the benchmark level but imprecise clinically.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-content" id="tab-frequency">
+          <div class="case-grid">
+            <div class="case-card">
+              <div class="case-id">EA0194</div>
+              <div class="case-category">Direct Contradiction</div>
+              <p class="case-analysis" style="margin-bottom: 1rem;">Same span annotated twice: <code>NumberOfSeizures = 0</code> and <code>UpperNumberOfSeizures = 1, TimePeriod = Year</code>.</p>
+              <p class="case-analysis">These cannot both be true for the same clinical assertion. The presence of contradictory gold labels makes correct extraction statistically impossible.</p>
+            </div>
+            <div class="case-card">
+              <div class="case-id">EA0069</div>
+              <div class="case-category">Dual Interpretation</div>
+              <p class="case-analysis" style="margin-bottom: 1rem;">Same span: <code>FrequencyChange = Increased</code> and <code>NumberOfSeizures = 4, TimePeriod = Week</code>.</p>
+              <p class="case-analysis">Not contradictory &mdash; complementary. One captures change direction; the other captures rate. But the scorer expects a single <code>current_seizure_frequency.value</code> string. A system predicting "4 per week" would miss "Increased."</p>
+            </div>
+            <div class="case-card">
+              <div class="case-id">EA0070</div>
+              <div class="case-category">Qualitative vs Quantitative Split</div>
+              <p class="case-analysis" style="margin-bottom: 1rem;">Same span: <code>FrequencyChange = Infrequent</code> and <code>UpperNumberOfSeizures = 1, TimePeriod = Year</code>.</p>
+              <p class="case-analysis">Our pragmatic scorer maps "1 per year" to <code>infrequent</code> and scores a match. But the strict scorer requires exact string or parts match. The dual annotation creates a split target.</p>
+            </div>
+            <div class="case-card">
+              <div class="case-id">EA0010</div>
+              <div class="case-category">Seizure-Free Duration Encoding</div>
+              <p class="case-analysis" style="margin-bottom: 1rem;"><code>NumberOfSeizures = 0</code>, with <code>AgeLower = 13, AgeUpper = 19, AgeUnit = Year</code>.</p>
+              <p class="case-analysis">This represents "seizure-free for 13&ndash;19 years." The gold loader constructs the string <code>"0 per 13 year"</code>, which is clinically nonsensical. The underlying annotation structure (using Age fields for seizure-free duration) is semantically overloaded.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-content" id="tab-investigations">
+          <div class="case-grid">
+            <div class="case-card">
+              <div class="case-id">EA0022</div>
+              <div class="case-category">The 68-Character EEG Span</div>
+              <p class="case-analysis" style="margin-bottom: 1rem;"><code>"EEG-she-had-some-of-these-episodes-and-there-was-no-epileptiform-EEG"</code></p>
+              <p class="case-analysis">The annotated span is 68 characters long and contains the full sentence. "No epileptiform EEG" is negated, but the result is annotated as <code>Normal</code> &mdash; clinically correct. Yet the span includes a great deal of irrelevant text. A system extracting evidence quotes would produce a much shorter span, failing quote-validity checks.</p>
+            </div>
+            <div class="case-card">
+              <div class="case-id">Aggregate</div>
+              <div class="case-category">EEG Type Unpopulated</div>
+              <p class="case-analysis">Of 182 investigation annotations, <strong>104 have EEG_Type = null</strong> (57%). Only 78 have any value, and the majority of those are <code>Yes</code> (indicating EEG_Performed) rather than a specific type. The guidelines state type should be annotated "if stated (it should not be assumed)." The low population rate suggests most letters do not state the EEG type, or annotators missed it.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-content" id="tab-boundary">
+          <div class="case-grid">
+            <div class="case-card">
+              <div class="case-id">EA0188</div>
+              <div class="case-category">Severe Span Defects</div>
+              <p class="case-analysis">Prior inspection found <code>"eiz"</code> as a PatientHistory span (mid-word truncation), <code>"ondary-generalised-seiz"</code> as a Diagnosis span (mid-word start and end), <code>"drug-refractory"</code> mapped to CUIPhrase <code>"drug"</code>, and <code>"occipital-lobe)-epilepsy"</code> mapped to CUIPhrase <code>"Occipital"</code>. These are not minor formatting issues. A model trained on these spans would learn to output partial tokens.</p>
+            </div>
+            <div class="case-card">
+              <div class="case-id">EA0198</div>
+              <div class="case-category">Conflicting Onset Ages</div>
+              <p class="case-analysis">Two Onset labels on the same <code>"epilepsy"</code> span: one says onset age 23 years, another says 15 years. This may reflect two different clinical events (first seizure at 15, diagnosis at 23), but the annotation does not distinguish them. A system predicting either age would score a false negative on the other.</p>
+            </div>
+            <div class="case-card">
+              <div class="case-id">EA0184</div>
+              <div class="case-category">Truncated Absence Spans</div>
+              <p class="case-analysis"><code>"typical-absenc"</code> and <code>"typical-absen"</code> for Diagnosis and SeizureFrequency, both truncated rather than the full phrase <code>"typical absences"</code>. Truncated spans degrade exact-span training and evaluation.</p>
+            </div>
+            <div class="case-card">
+              <div class="case-id">EA0006</div>
+              <div class="case-category">Family History Is Invisible</div>
+              <blockquote>&ldquo;There is no family history of epilepsy and both his sons are well and have not had seizures.&rdquo;</blockquote>
+              <p class="case-analysis">No family history annotations exist (the category is not in the schema). A single-pass system might extract "epilepsy" and "seizures" from this sentence and incorrectly include them as patient findings. Fixing the family-history trap provides <strong>zero score improvement</strong>. The only visible effect is the temporal fix, which <em>lowers</em> the score.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Boundary Defects Visualization -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="eyebrow">Cross-Cutting Issues</div>
+      <h2 class="reveal">The Anatomy of a Noisy Span</h2>
+      <p class="reveal" style="margin-top: 1rem;">In just 20 documents, the prior inspection found 51 boundary defects across 218 annotations. These are not cosmetic issues; they are structural corruptions that degrade training signal.</p>
+
+      <div style="margin-top: 4rem; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; max-width: 900px; margin-left: auto; margin-right: auto;">
+        <div class="defect-viz reveal" style="text-align: center; opacity: 0; transform: translateY(30px);">
+          <div style="width: 100%; aspect-ratio: 1; border-radius: var(--radius-inner); border: 1px solid var(--border); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; background: var(--bg); position: relative; overflow: hidden;">
+            <div style="font-family: var(--font-display); font-size: 3rem; font-weight: 700; color: var(--accent-warm); line-height: 1;">37</div>
+            <div style="width: 40px; height: 2px; background: var(--border-strong);"></div>
+            <div style="font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--fg-muted);">Trailing Hyphens</div>
+            <div style="position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); font-size: 4rem; opacity: 0.04; font-family: var(--font-display);">-</div>
+          </div>
+        </div>
+        <div class="defect-viz reveal" style="text-align: center; opacity: 0; transform: translateY(30px);">
+          <div style="width: 100%; aspect-ratio: 1; border-radius: var(--radius-inner); border: 1px solid var(--border); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; background: var(--bg); position: relative; overflow: hidden;">
+            <div style="font-family: var(--font-display); font-size: 3rem; font-weight: 700; color: var(--accent-critical); line-height: 1;">9</div>
+            <div style="width: 40px; height: 2px; background: var(--border-strong);"></div>
+            <div style="font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--fg-muted);">Truncated Endings</div>
+            <div style="position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); font-size: 4rem; opacity: 0.04; font-family: var(--font-display);">&hellip;</div>
+          </div>
+        </div>
+        <div class="defect-viz reveal" style="text-align: center; opacity: 0; transform: translateY(30px);">
+          <div style="width: 100%; aspect-ratio: 1; border-radius: var(--radius-inner); border: 1px solid var(--border); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; background: var(--bg); position: relative; overflow: hidden;">
+            <div style="font-family: var(--font-display); font-size: 3rem; font-weight: 700; color: var(--accent-blue); line-height: 1;">3</div>
+            <div style="width: 40px; height: 2px; background: var(--border-strong);"></div>
+            <div style="font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--fg-muted);">Mid-Word Starts</div>
+            <div style="position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); font-size: 4rem; opacity: 0.04; font-family: var(--font-display);">iz</div>
+          </div>
+        </div>
+        <div class="defect-viz reveal" style="text-align: center; opacity: 0; transform: translateY(30px);">
+          <div style="width: 100%; aspect-ratio: 1; border-radius: var(--radius-inner); border: 1px solid var(--border); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; background: var(--bg); position: relative; overflow: hidden;">
+            <div style="font-family: var(--font-display); font-size: 3rem; font-weight: 700; color: var(--fg-subtle); line-height: 1;">2</div>
+            <div style="width: 40px; height: 2px; background: var(--border-strong);"></div>
+            <div style="font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--fg-muted);">Leading Hyphens</div>
+            <div style="position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); font-size: 4rem; opacity: 0.04; font-family: var(--font-display);">-</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout callout-warn reveal" style="margin-top: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+        <p style="margin: 0; color: var(--fg);"><strong>23.4% of annotations</strong> in the 20-document sample contain a boundary defect. These defects are likely caused by the Markup export process converting whitespace to hyphens. While they do not affect set-based scoring, they degrade the quality of JSON gold files for any external consumer doing span-level NER training.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUIPhrase Normalization Issues -->
+  <section class="section" style="background: var(--bg-warm);">
+    <div class="section-inner">
+      <div class="eyebrow">Normalization</div>
+      <h2 class="reveal">When Concepts Lose Their Meaning</h2>
+      <p class="reveal" style="margin-top: 1rem;">The CUIPhrase field is supposed to normalize surface text to a canonical UMLS concept. In practice, it frequently strips critical clinical specificity.</p>
+
+      <div style="margin-top: 4rem; display: flex; flex-direction: column; gap: 1rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+        <div class="cuip-map reveal" style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1.5rem; padding: 1.25rem 1.5rem; background: var(--bg); border-radius: var(--radius-inner); border: 1px solid var(--border); opacity: 0; transform: translateX(-20px);">
+          <code style="color: var(--fg); font-size: 0.9375rem;">generalised-tonic-clonic-seizures</code>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-critical)" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <code style="color: var(--accent-critical); font-size: 0.9375rem;">generalised</code>
+        </div>
+        <div class="cuip-map reveal" style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1.5rem; padding: 1.25rem 1.5rem; background: var(--bg); border-radius: var(--radius-inner); border: 1px solid var(--border); opacity: 0; transform: translateX(-20px);">
+          <code style="color: var(--fg); font-size: 0.9375rem;">drug-refractory</code>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-critical)" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <code style="color: var(--accent-critical); font-size: 0.9375rem;">drug</code>
+        </div>
+        <div class="cuip-map reveal" style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1.5rem; padding: 1.25rem 1.5rem; background: var(--bg); border-radius: var(--radius-inner); border: 1px solid var(--border); opacity: 0; transform: translateX(-20px);">
+          <code style="color: var(--fg); font-size: 0.9375rem;">occipital-lobe)-epilepsy</code>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-critical)" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <code style="color: var(--accent-critical); font-size: 0.9375rem;">Occipital</code>
+        </div>
+        <div class="cuip-map reveal" style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1.5rem; padding: 1.25rem 1.5rem; background: var(--bg); border-radius: var(--radius-inner); border: 1px solid var(--border); opacity: 0; transform: translateX(-20px);">
+          <code style="color: var(--fg); font-size: 0.9375rem;">focal-motor-seizures</code>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-critical)" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <code style="color: var(--accent-critical); font-size: 0.9375rem;">focal</code>
+        </div>
+        <div class="cuip-map reveal" style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1.5rem; padding: 1.25rem 1.5rem; background: var(--bg); border-radius: var(--radius-inner); border: 1px solid var(--border); opacity: 0; transform: translateX(-20px);">
+          <code style="color: var(--fg); font-size: 0.9375rem;">ischaemic-damage</code>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-critical)" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <code style="color: var(--accent-critical); font-size: 0.9375rem;">brain</code>
+        </div>
+        <div class="cuip-map reveal" style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1.5rem; padding: 1.25rem 1.5rem; background: var(--bg); border-radius: var(--radius-inner); border: 1px solid var(--border); opacity: 0; transform: translateX(-20px);">
+          <code style="color: var(--fg); font-size: 0.9375rem;">transient-loss-of-consciousness</code>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-critical)" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <code style="color: var(--accent-critical); font-size: 0.9375rem;">Transient</code>
+        </div>
+      </div>
+
+      <div class="callout callout-info reveal" style="margin-top: 3rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+        <p style="margin: 0; color: var(--fg);">The project's <code>canonical_seizure_type()</code> and <code>canonical_diagnosis()</code> normalizers override many of these issues by mapping to benchmark categories. But this repair is performed <strong>in the scorer</strong>, not in the gold data. The original scorer (before Phase 2/3) produced much lower scores because it did not have these normalizations.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Precision-Looseness Tension -->
+  <section class="section" style="background: var(--bg-warm);">
+    <div class="section-inner">
+      <div class="eyebrow">The Core Argument</div>
+      <h2 class="reveal">Precision vs. Looseness</h2>
+      <p class="reveal" style="margin-top: 1rem;">When a precise system meets a loose gold standard, the result is systematic under-scoring of correct behavior.</p>
+
+      <div class="measurement-flow" style="margin-top: 4rem;">
+        <div class="flow-column">
+          <div class="flow-box reveal" style="border-color: var(--accent-teal);">
+            <h5 style="color: var(--accent-teal);">Our Systems: Clinically Precise</h5>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem;">
+              <li style="font-size: 0.9375rem; color: var(--fg-muted); display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: var(--accent-teal);">&#10003;</span> Distinguish current from historical findings</li>
+              <li style="font-size: 0.9375rem; color: var(--fg-muted); display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: var(--accent-teal);">&#10003;</span> Distinguish patient from family history</li>
+              <li style="font-size: 0.9375rem; color: var(--fg-muted); display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: var(--accent-teal);">&#10003;</span> Require evidence quotes for every extraction</li>
+              <li style="font-size: 0.9375rem; color: var(--fg-muted); display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: var(--accent-teal);">&#10003;</span> Normalize to specific, clinically meaningful categories</li>
+              <li style="font-size: 0.9375rem; color: var(--fg-muted); display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: var(--accent-teal);">&#10003;</span> Abstain when text does not support inference</li>
+            </ul>
+          </div>
+        </div>
+        <div class="flow-arrow reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </div>
+        <div class="flow-column">
+          <div class="flow-box reveal" style="border-color: var(--accent-critical);">
+            <h5 style="color: var(--accent-critical);">Gold Standard: Clinically Loose</h5>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem;">
+              <li style="font-size: 0.9375rem; color: var(--fg-muted); display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: var(--accent-critical);">&#10007;</span> Treats historical seizure types as current diagnoses</li>
+              <li style="font-size: 0.9375rem; color: var(--fg-muted); display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: var(--accent-critical);">&#10007;</span> Has no family-history field</li>
+              <li style="font-size: 0.9375rem; color: var(--fg-muted); display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: var(--accent-critical);">&#10007;</span> Does not require evidence spans to be clinically meaningful</li>
+              <li style="font-size: 0.9375rem; color: var(--fg-muted); display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: var(--accent-critical);">&#10007;</span> Uses broad, sometimes contradictory categories</li>
+              <li style="font-size: 0.9375rem; color: var(--fg-muted); display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: var(--accent-critical);">&#10007;</span> Penalizes abstention</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="chart-container reveal" style="margin-top: 4rem;">
+        <h4 style="font-family: var(--font-body); font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--fg-subtle); margin-bottom: 2rem;">Score Patterns: Temporal Discrimination vs. F1</h4>
+        <div class="bar-chart">
+          <div class="bar-row">
+            <div class="bar-label">S2 (full-letter direct)</div>
+            <div class="bar-track"><div class="bar-fill system" data-width="61.0%"></div></div>
+            <div class="bar-value">0.610</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">E3 (event-first)</div>
+            <div class="bar-track"><div class="bar-fill system" data-width="63.3%"></div></div>
+            <div class="bar-value">0.633</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">H7 (two-pass normalize)</div>
+            <div class="bar-track"><div class="bar-fill system" data-width="69.8%"></div></div>
+            <div class="bar-value">0.698</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">D3 (candidate+verifier)</div>
+            <div class="bar-track"><div class="bar-fill system" data-width="68.2%"></div></div>
+            <div class="bar-value">0.682</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">MA_v1 (multi-agent)</div>
+            <div class="bar-track"><div class="bar-fill system" data-width="66.0%"></div></div>
+            <div class="bar-value">0.610&ndash;0.720</div>
+          </div>
+        </div>
+        <p style="margin-top: 1.5rem; font-size: 0.875rem; color: var(--fg-subtle);">The "best" scores come from systems that extract broadly (S2, E3). Systems that try to be precise (H7, D3, MA_v1) score lower or become unstable. This is not because they extract worse clinically; it is because they extract <strong>more carefully than the gold standard allows</strong>.</p>
+      </div>
+
+      <!-- Asymmetric Evaluation Visual -->
+      <div style="margin-top: 5rem;">
+        <h3 class="reveal" style="text-align: center; margin-bottom: 3rem;">The Asymmetry Problem</h3>
+        <p class="reveal" style="text-align: center; max-width: 55ch; margin: 0 auto 3rem;">The evaluation protocol is asymmetric. It can punish precision but cannot reward it. A system that fixes both temporal bleeding and family-history bleeding looks worse than a system that fixes neither.</p>
+        <div class="asymmetry-grid reveal" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; max-width: 700px; margin: 0 auto;">
+          <div class="asymmetry-card" style="padding: 2rem; border-radius: var(--radius-inner); border: 1px solid rgba(181,45,58,0.2); background: rgba(181,45,58,0.03); text-align: center; opacity: 0; transform: translateY(30px);">
+            <div style="font-size: 2rem; margin-bottom: 1rem;">&#8595;</div>
+            <h4 style="font-family: var(--font-body); font-size: 1rem; font-weight: 700; color: var(--accent-critical); margin-bottom: 0.75rem;">Punishes Temporal Precision</h4>
+            <p style="font-size: 0.9375rem; color: var(--fg-muted); margin: 0;">Excluding historical seizures lowers F1. The gold expects 2014 events as "current."</p>
+          </div>
+          <div class="asymmetry-card" style="padding: 2rem; border-radius: var(--radius-inner); border: 1px solid var(--border); background: var(--bg); text-align: center; opacity: 0; transform: translateY(30px);">
+            <div style="font-size: 2rem; margin-bottom: 1rem; opacity: 0.3;">&#8212;</div>
+            <h4 style="font-family: var(--font-body); font-size: 1rem; font-weight: 700; color: var(--fg-subtle); margin-bottom: 0.75rem;">Blind to Family-History Precision</h4>
+            <p style="font-size: 0.9375rem; color: var(--fg-muted); margin: 0;">Excluding family-history seizures has zero score effect. No field exists to reward this.</p>
+          </div>
+          <div class="asymmetry-card" style="padding: 2rem; border-radius: var(--radius-inner); border: 1px solid rgba(181,45,58,0.2); background: rgba(181,45,58,0.03); text-align: center; opacity: 0; transform: translateY(30px);">
+            <div style="font-size: 2rem; margin-bottom: 1rem;">&#8595;</div>
+            <h4 style="font-family: var(--font-body); font-size: 1rem; font-weight: 700; color: var(--accent-critical); margin-bottom: 0.75rem;">Penalizes Abstention</h4>
+            <p style="font-size: 0.9375rem; color: var(--fg-muted); margin: 0;">Outputting <code>unknown seizure type</code> is clinically safe but benchmark-penalized.</p>
+          </div>
+          <div class="asymmetry-card" style="padding: 2rem; border-radius: var(--radius-inner); border: 1px solid var(--border); background: var(--bg); text-align: center; opacity: 0; transform: translateY(30px);">
+            <div style="font-size: 2rem; margin-bottom: 1rem; opacity: 0.3;">&#8212;</div>
+            <h4 style="font-family: var(--font-body); font-size: 1rem; font-weight: 700; color: var(--fg-subtle); margin-bottom: 0.75rem;">Ignores Evidence Quality</h4>
+            <p style="font-size: 0.9375rem; color: var(--fg-muted); margin: 0;">Quote validity (&ge;0.96) does not feed the benchmark composite score.</p>
+          </div>
+        </div>
+        <div class="callout callout-critical reveal" style="margin-top: 3rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+          <p style="margin: 0; color: var(--fg);"><strong>This is the opposite of what a clinical evaluation should do.</strong> A system that fixes both temporal bleeding and family-history bleeding looks worse than a system that fixes neither.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quantified Impact -->
+  <section class="section" id="impact">
+    <div class="section-inner">
+      <div class="eyebrow">Quantified Impact</div>
+      <h2 class="reveal">What This Costs the Metrics</h2>
+
+      <div class="gauge-grid">
+        <div class="gauge-item">
+          <svg class="gauge-svg" viewBox="0 0 140 80">
+            <path class="gauge-bg" d="M 20 70 A 50 50 0 0 1 120 70"/>
+            <path class="gauge-fill" d="M 20 70 A 50 50 0 0 1 120 70" stroke="var(--accent-critical)" stroke-dasharray="157" stroke-dashoffset="157" data-target="35"/>
+          </svg>
+          <div class="gauge-value" style="color: var(--accent-critical);">5&ndash;10pp</div>
+          <div class="gauge-label">Temporal-scope bias depression of seizure-type F1</div>
+        </div>
+        <div class="gauge-item">
+          <svg class="gauge-svg" viewBox="0 0 140 80">
+            <path class="gauge-bg" d="M 20 70 A 50 50 0 0 1 120 70"/>
+            <path class="gauge-fill" d="M 20 70 A 50 50 0 0 1 120 70" stroke="var(--accent-warm)" stroke-dasharray="157" stroke-dashoffset="157" data-target="55"/>
+          </svg>
+          <div class="gauge-value" style="color: var(--accent-warm);">8&ndash;12pp</div>
+          <div class="gauge-label">Estimated F1 gain from meta-label standardization</div>
+        </div>
+        <div class="gauge-item">
+          <svg class="gauge-svg" viewBox="0 0 140 80">
+            <path class="gauge-bg" d="M 20 70 A 50 50 0 0 1 120 70"/>
+            <path class="gauge-fill" d="M 20 70 A 50 50 0 0 1 120 70" stroke="var(--accent-blue)" stroke-dasharray="157" stroke-dashoffset="157" data-target="45"/>
+          </svg>
+          <div class="gauge-value" style="color: var(--accent-blue);">5&ndash;8%</div>
+          <div class="gauge-label">True oracle failure rate for seizure type (vs. 13.3% reported)</div>
+        </div>
+        <div class="gauge-item">
+          <svg class="gauge-svg" viewBox="0 0 140 80">
+            <path class="gauge-bg" d="M 20 70 A 50 50 0 0 1 120 70"/>
+            <path class="gauge-fill" d="M 20 70 A 50 50 0 0 1 120 70" stroke="var(--accent-teal)" stroke-dasharray="157" stroke-dashoffset="157" data-target="25"/>
+          </svg>
+          <div class="gauge-value" style="color: var(--accent-teal);">0.92&ndash;0.95</div>
+          <div class="gauge-label">Implied achievable F1 ceiling (vs. 0.87)</div>
+        </div>
+      </div>
+
+      <div class="chart-container reveal" style="margin-top: 4rem;">
+        <h4 style="font-family: var(--font-body); font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--fg-subtle); margin-bottom: 2rem;">IAA vs. System Performance</h4>
+        <div class="bar-chart">
+          <div class="bar-row">
+            <div class="bar-label">Prescriptions</div>
+            <div class="bar-track">
+              <div class="bar-fill human" style="width: 87%; position: absolute; opacity: 0.5;"></div>
+              <div class="bar-fill system" data-width="89.0%"></div>
+            </div>
+            <div class="bar-value" style="color: var(--accent-teal);">+0.02</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">Seizure type (strict)</div>
+            <div class="bar-track">
+              <div class="bar-fill human" style="width: 60%; position: absolute; opacity: 0.5;"></div>
+              <div class="bar-fill system" data-width="43.0%"></div>
+            </div>
+            <div class="bar-value" style="color: var(--accent-critical);">&minus;0.17</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">Seizure type (collapsed)</div>
+            <div class="bar-track">
+              <div class="bar-fill human" style="width: 65%; position: absolute; opacity: 0.5;"></div>
+              <div class="bar-fill system" data-width="63.0%"></div>
+            </div>
+            <div class="bar-value" style="color: var(--accent-warm);">&minus;0.02</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">Seizure frequency</div>
+            <div class="bar-track">
+              <div class="bar-fill human" style="width: 66%; position: absolute; opacity: 0.5;"></div>
+              <div class="bar-fill system" data-width="18.0%"></div>
+            </div>
+            <div class="bar-value" style="color: var(--accent-critical);">&minus;0.48</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">Diagnosis</div>
+            <div class="bar-track">
+              <div class="bar-fill human" style="width: 70%; position: absolute; opacity: 0.5;"></div>
+              <div class="bar-fill system" data-width="78.0%"></div>
+            </div>
+            <div class="bar-value" style="color: var(--accent-teal);">+0.08</div>
+          </div>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.875rem; color: var(--fg-subtle);">Faded bars represent human IAA. Solid bars represent best system performance. Negative gaps indicate the gold standard is harder for precise systems than for humans.</p>
+      </div>
+
+      <div class="data-table-wrapper reveal" style="margin-top: 4rem;">
+        <h4 style="font-family: var(--font-body); font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--fg-subtle); margin-bottom: 1.5rem;">Oracle Failure Rate vs. Achievable Ceiling</h4>
+        <table class="data-table">
+          <thead>
+            <tr><th>Field</th><th>Reported Failure</th><th>Estimated True Failure</th><th>Implied F1 Ceiling</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Medication name</td><td>0.0%</td><td>0.0%</td><td>1.00</td></tr>
+            <tr><td>Medication full tuple</td><td>10.8%</td><td>10.8%</td><td>0.89</td></tr>
+            <tr><td>Seizure type</td><td>13.3%</td><td>5&ndash;8%</td><td>0.92&ndash;0.95</td></tr>
+            <tr><td>Epilepsy diagnosis</td><td>17.5%</td><td>12&ndash;15%</td><td>0.85&ndash;0.88</td></tr>
+            <tr><td>Seizure frequency</td><td>29.2%</td><td>25&ndash;29%</td><td>0.71&ndash;0.75</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recommendations -->
+  <section class="section" id="recommendations">
+    <div class="section-inner">
+      <div class="eyebrow">The Path Forward</div>
+      <h2 class="reveal">Recommendations</h2>
+
+      <div class="rec-list">
+        <div class="rec-item reveal">
+          <div class="rec-num">01</div>
+          <div class="rec-content">
+            <span class="rec-phase phase-immediate">Immediate</span>
+            <h4>Do not promote or demote systems based on seizure-type F1 alone</h4>
+            <p>The metric is confounded by gold-standard temporal blindness. Use benchmark composite as a guide, but weigh medication and diagnosis more heavily.</p>
+          </div>
+        </div>
+        <div class="rec-item reveal">
+          <div class="rec-num">02</div>
+          <div class="rec-content">
+            <span class="rec-phase phase-immediate">Immediate</span>
+            <h4>Run a temporal-scope-aware scorer audit on the full validation split</h4>
+            <p>For each document, manually tag whether each gold seizure type is current, historical, or unclear. Compute seizure_type_f1_collapsed_current and seizure_type_f1_collapsed_all. Quantify the bias.</p>
+          </div>
+        </div>
+        <div class="rec-item reveal">
+          <div class="rec-num">03</div>
+          <div class="rec-content">
+            <span class="rec-phase phase-immediate">Immediate</span>
+            <h4>Report dual metrics for seizure type in the dissertation</h4>
+            <p>Report both seizure_type_f1_collapsed_all (backward-compatible with literature) and seizure_type_f1_collapsed_current (the clinically meaningful metric). If MA_v1 or D3 outperforms on the current-only metric but underperforms on the all-mentions metric, frame this as a positive finding about temporal precision, not a failure.</p>
+          </div>
+        </div>
+        <div class="rec-item reveal">
+          <div class="rec-num">04</div>
+          <div class="rec-content">
+            <span class="rec-phase phase-immediate">Immediate</span>
+            <h4>Fix the Stage 3 verifier prompt</h4>
+            <p>Preserve seizure free and unknown seizure type meta-labels. This is a genuine bug fix (already done in src/multi_agent.py).</p>
+          </div>
+        </div>
+        <div class="rec-item reveal">
+          <div class="rec-num">05</div>
+          <div class="rec-content">
+            <span class="rec-phase phase-medium">Medium-Term</span>
+            <h4>Reframe the dissertation claim on multi-agent decomposition</h4>
+            <p>Instead of "multi-agent decomposition improves overall extraction quality," the supported claim is: "Multi-agent decomposition improves temporal precision and robustness to context bleeding, with mixed effects on aggregate F1 due to gold-standard temporal blindness. This trade-off is clinically desirable: a system that correctly reports a seizure-free patient is more useful than one that correctly matches a flat label set."</p>
+          </div>
+        </div>
+        <div class="rec-item reveal">
+          <div class="rec-num">06</div>
+          <div class="rec-content">
+            <span class="rec-phase phase-medium">Medium-Term</span>
+            <h4>Quantify the precision-looseness gap explicitly</h4>
+            <p>Add a section to the dissertation methods titled "Gold-Standard Fidelity and the Precision-Looseness Tension," citing this audit and the prior inspection. This is a genuine contribution to clinical NLP methodology.</p>
+          </div>
+        </div>
+        <div class="rec-item reveal">
+          <div class="rec-num">07</div>
+          <div class="rec-content">
+            <span class="rec-phase phase-long">Long-Term</span>
+            <h4>Propose a temporally structured extraction benchmark</h4>
+            <p>The ExECTv2 schema has temporal_scope for frequencies but not for types. Future benchmarks should require systems to report when a seizure type was observed, not just what it was.</p>
+          </div>
+        </div>
+        <div class="rec-item reveal">
+          <div class="rec-num">08</div>
+          <div class="rec-content">
+            <span class="rec-phase phase-long">Long-Term</span>
+            <h4>Advocate for evidence-grounded scoring</h4>
+            <p>The project's quote-validity metric (&ge;0.96 across all conditions) is a strong clinical safety signal. Future benchmarks should incorporate evidence overlap into primary metrics, not just as a secondary check.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Conclusion -->
+  <section class="conclusion" id="conclusion">
+    <div class="section-inner">
+      <div class="eyebrow">Conclusion</div>
+      <h2 class="reveal">Better Measurement, Not More Prompt Engineering</h2>
+
+      <div class="pull-quote reveal">
+        <blockquote>The project's true contribution is not achieving F1 = 0.76 on a noisy target. It is building extraction systems that know the difference between a seizure-free patient and a patient whose seizures were last mentioned in 2014 &mdash; and having the evidence to prove it.</blockquote>
+      </div>
+
+      <p class="reveal" style="max-width: 65ch; margin: 0 auto; text-align: center;">The ExECTv2 gold standard is a valuable and pioneering resource. However, <strong>it is not clean enough to serve as an unexamined target for precision-oriented extraction systems</strong>. The seizure-type F1 ceiling of ~0.60&ndash;0.65 is not a model-capacity ceiling. It is a gold-standard fidelity ceiling. The way forward is temporally scoped scoring, meta-label validation, explicit precision-looseness accounting, and honest reporting of the trade-off between matching a flat label set and extracting clinically truthful information.</p>
+
+      <div style="margin-top: 4rem; padding-top: 3rem; border-top: 1px solid rgba(247,245,240,0.1); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.8125rem; color: rgba(247,245,240,0.4);">
+        <span>Gold-Standard Quality Audit</span>
+        <span>ExECTv2 Under Clinical Scrutiny</span>
+        <span>11 May 2026</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Appendix -->
+  <section class="section" style="padding-bottom: 6rem;">
+    <div class="section-inner">
+      <div class="eyebrow">Appendix</div>
+      <h2 class="reveal">Document Case Study Index</h2>
+
+      <div class="data-table-wrapper reveal" style="margin-top: 2rem;">
+        <table class="data-table">
+          <thead>
+            <tr><th>Case</th><th>Document</th><th>Category</th><th>Primary Issue</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>EA0006</td><td>Seizure type</td><td>Historical types (2014) treated as current; seizure-free patient gold-labelled</td></tr>
+            <tr><td>2</td><td>EA0004</td><td>Seizure type</td><td>unknown seizure type meta-label correctly used; genuine success</td></tr>
+            <tr><td>3</td><td>EA0011</td><td>Seizure type</td><td>Last convulsive seizure 2017 gold-labelled as current type</td></tr>
+            <tr><td>4</td><td>EA0005</td><td>Seizure type</td><td>"Last event July 2016" ambiguous; gold flat label cannot represent uncertainty</td></tr>
+            <tr><td>5</td><td>Aggregate</td><td>Seizure type</td><td>unknown seizure type miss = 13&ndash;15/26 docs; structural meta-label ceiling</td></tr>
+            <tr><td>6</td><td>EA0017</td><td>Medication</td><td>Folic acid (non-ASM) in gold; precision filtering excludes it</td></tr>
+            <tr><td>7</td><td>EA0183</td><td>Medication</td><td>Conflicting sodium valproate doses (700 vs 800 mg)</td></tr>
+            <tr><td>8</td><td>EA0195</td><td>Medication</td><td>Tegretol dose ambiguity (600 total vs 400 morning)</td></tr>
+            <tr><td>9</td><td>EA0188</td><td>Medication</td><td>Misspelled brivitiracetam preserved; scorer normalization required</td></tr>
+            <tr><td>10</td><td>EA0002</td><td>Diagnosis</td><td>Dual overlapping diagnosis spans with different certainty</td></tr>
+            <tr><td>11</td><td>EA0006</td><td>Diagnosis</td><td>"Possibly generalised" (certainty = 3) included in gold</td></tr>
+            <tr><td>12</td><td>EA0003</td><td>Diagnosis</td><td>Generic generalised seizures as MultipleSeizures; lacks ILAE specificity</td></tr>
+            <tr><td>13</td><td>EA0022</td><td>Investigations</td><td>68-character EEG span with irrelevant text</td></tr>
+            <tr><td>14</td><td>EA0030</td><td>Investigations</td><td>Multiple investigation mentions; gold may not annotate all</td></tr>
+            <tr><td>15</td><td>Aggregate</td><td>Investigations</td><td>EEG type null in 104/182 annotations</td></tr>
+            <tr><td>16</td><td>EA0194</td><td>Seizure frequency</td><td>Same span annotated as both "0 since 2019" and "1 per year"</td></tr>
+            <tr><td>17</td><td>EA0069</td><td>Seizure frequency</td><td>Same span: FrequencyChange = Increased and 4 per week</td></tr>
+            <tr><td>18</td><td>EA0070</td><td>Seizure frequency</td><td>Same span: Infrequent and upper = 1 per year</td></tr>
+            <tr><td>19</td><td>EA0010</td><td>Seizure frequency</td><td>Seizure-free duration encoded as AgeLower = 13</td></tr>
+            <tr><td>20</td><td>Aggregate</td><td>Seizure frequency</td><td>258 rows have null temporal scope</td></tr>
+            <tr><td>21</td><td>EA0188</td><td>Patient History</td><td>"eiz" mid-word span; "ondary-generalised-seiz" truncated</td></tr>
+            <tr><td>22</td><td>EA0198</td><td>Onset</td><td>Same "epilepsy" span given onset ages 23 and 15 years</td></tr>
+            <tr><td>23</td><td>EA0184</td><td>Seizure type</td><td>"typical-absenc" truncated span</td></tr>
+            <tr><td>24</td><td>EA0006</td><td>Family history</td><td>Family-history mention in letter; no gold field exists</td></tr>
+            <tr><td>25</td><td>Aggregate</td><td>Span quality</td><td>37 trailing-hyphen, 9 truncated, 3 mid-word spans in 20-doc sample</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Register GSAP plugins
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Hero entrance animation
+    const heroTl = gsap.timeline({ delay: 0.3 });
+    heroTl.to('#heroTitle', { opacity: 1, y: 0, duration: 1.2, ease: 'expo.out' })
+          .to('.hero .subtitle', { opacity: 1, y: 0, duration: 1, ease: 'expo.out' }, '-=0.8')
+          .to('.hero .meta', { opacity: 1, duration: 0.8, ease: 'power2.out' }, '-=0.5')
+          .to('#scrollHint', { opacity: 1, duration: 0.6 }, '-=0.3');
+
+    // Nav show on scroll
+    ScrollTrigger.create({
+      trigger: '#findings',
+      start: 'top 80%',
+      onEnter: () => document.getElementById('nav').classList.add('visible'),
+      onLeaveBack: () => document.getElementById('nav').classList.remove('visible')
+    });
+
+    // Reveal animations
+    gsap.utils.toArray('.reveal').forEach(el => {
+      gsap.to(el, {
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 85%',
+          once: true
+        },
+        opacity: 1,
+        y: 0,
+        duration: 0.9,
+        ease: 'expo.out'
+      });
+    });
+
+    // Finding cards stagger
+    gsap.utils.toArray('.finding-card').forEach((el, i) => {
+      gsap.to(el, {
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 88%',
+          once: true
+        },
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        delay: i * 0.08,
+        ease: 'expo.out'
+      });
+    });
+
+    // Paradox panels
+    gsap.utils.toArray('.paradox-panel, .paradox-divider').forEach((el, i) => {
+      gsap.to(el, {
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 80%',
+          once: true
+        },
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: i * 0.15,
+        ease: 'expo.out'
+      });
+    });
+
+    // Case cards
+    gsap.utils.toArray('.case-card').forEach((el, i) => {
+      gsap.to(el, {
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 90%',
+          once: true
+        },
+        opacity: 1,
+        y: 0,
+        duration: 0.7,
+        delay: i * 0.06,
+        ease: 'expo.out'
+      });
+    });
+
+    // Flow boxes
+    gsap.utils.toArray('.flow-box').forEach((el, i) => {
+      gsap.to(el, {
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 88%',
+          once: true
+        },
+        opacity: 1,
+        y: 0,
+        duration: 0.7,
+        delay: i * 0.1,
+        ease: 'expo.out'
+      });
+    });
+
+    // Flow arrows
+    gsap.utils.toArray('.flow-arrow').forEach(el => {
+      gsap.to(el, {
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 85%',
+          once: true
+        },
+        opacity: 1,
+        duration: 0.8,
+        ease: 'power2.out'
+      });
+    });
+
+    // Callouts
+    gsap.utils.toArray('.callout').forEach((el, i) => {
+      gsap.to(el, {
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 88%',
+          once: true
+        },
+        opacity: 1,
+        y: 0,
+        duration: 0.7,
+        delay: i * 0.1,
+        ease: 'expo.out'
+      });
+    });
+
+    // Gauge animations
+    gsap.utils.toArray('.gauge-item').forEach((el, i) => {
+      gsap.to(el, {
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 85%',
+          once: true
+        },
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        delay: i * 0.1,
+        ease: 'expo.out'
+      });
+    });
+
+    // Gauge fills
+    gsap.utils.toArray('.gauge-fill').forEach(gauge => {
+      const target = parseFloat(gauge.dataset.target);
+      const offset = 157 - (157 * target / 100);
+      ScrollTrigger.create({
+        trigger: gauge,
+        start: 'top 85%',
+        once: true,
+        onEnter: () => {
+          gsap.to(gauge, {
+            strokeDashoffset: offset,
+            duration: 1.5,
+            ease: 'expo.out'
+          });
+        }
+      });
+    });
+
+    // Bar chart animations
+    gsap.utils.toArray('.bar-fill[data-width]').forEach(bar => {
+      const width = bar.dataset.width;
+      ScrollTrigger.create({
+        trigger: bar,
+        start: 'top 90%',
+        once: true,
+        onEnter: () => {
+          gsap.to(bar, {
+            width: width,
+            duration: 1.2,
+            ease: 'expo.out'
+          });
+        }
+      });
+    });
+
+    // Recommendation items
+    gsap.utils.toArray('.rec-item').forEach((el, i) => {
+      gsap.to(el, {
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 88%',
+          once: true
+        },
+        opacity: 1,
+        x: 0,
+        duration: 0.7,
+        delay: i * 0.08,
+        ease: 'expo.out'
+      });
+    });
+
+    // Case study tabs
+    document.querySelectorAll('.case-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = tab.dataset.tab;
+        document.querySelectorAll('.case-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.case-content').forEach(c => c.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById('tab-' + target).classList.add('active');
+      });
+    });
+
+    // Progress bar
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      document.getElementById('progressBar').style.width = progress + '%';
+    }, { passive: true });
+
+    // Back to top
+    const backToTop = document.getElementById('backToTop');
+    ScrollTrigger.create({
+      trigger: '#findings',
+      start: 'top 80%',
+      onEnter: () => backToTop.classList.add('visible'),
+      onLeaveBack: () => backToTop.classList.remove('visible')
+    });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('.nav a[href^="#"]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Hero stat entrance animation
+    gsap.utils.toArray('.hero-stat').forEach((stat, i) => {
+      gsap.from(stat, {
+        opacity: 0,
+        scale: 0.8,
+        duration: 1.2,
+        delay: 0.8 + i * 0.15,
+        ease: 'expo.out'
+      });
+    });
+
+    // Letter annotation toggle
+    const letterBody = document.getElementById('letterBody');
+    const btnGold = document.getElementById('btnGold');
+    const btnClinical = document.getElementById('btnClinical');
+    const toggleIndicator = document.getElementById('toggleIndicator');
+    const goldCol = document.querySelector('.gold-col');
+    const clinicalCol = document.querySelector('.clinical-col');
+
+    // Set initial state
+    letterBody.classList.add('view-gold');
+
+    function setView(view) {
+      if (view === 'gold') {
+        letterBody.classList.remove('view-clinical');
+        letterBody.classList.add('view-gold');
+        btnGold.classList.add('active');
+        btnClinical.classList.remove('active');
+        if (toggleIndicator) toggleIndicator.style.transform = 'translateX(0)';
+        if (goldCol) { goldCol.style.opacity = '1'; goldCol.style.filter = 'none'; }
+        if (clinicalCol) { clinicalCol.style.opacity = '0.4'; clinicalCol.style.filter = 'grayscale(0.3)'; }
+      } else {
+        letterBody.classList.remove('view-gold');
+        letterBody.classList.add('view-clinical');
+        btnClinical.classList.add('active');
+        btnGold.classList.remove('active');
+        if (toggleIndicator) toggleIndicator.style.transform = 'translateX(100%) translateX(4px)';
+        if (goldCol) { goldCol.style.opacity = '0.4'; goldCol.style.filter = 'grayscale(0.3)'; }
+        if (clinicalCol) { clinicalCol.style.opacity = '1'; clinicalCol.style.filter = 'none'; }
+      }
+
+      // Update tooltip content
+      document.querySelectorAll('.letter-body .anno').forEach(el => {
+        const goldLabel = el.dataset.gold;
+        const clinicalLabel = el.dataset.clinical;
+        if (view === 'gold' && goldLabel) {
+          el.style.setProperty('--tooltip-content', '"' + goldLabel + '"');
+          el.setAttribute('data-gold', goldLabel);
+        } else if (view === 'clinical' && clinicalLabel) {
+          el.setAttribute('data-gold', clinicalLabel);
+        }
+      });
+    }
+
+    if (btnGold) {
+      btnGold.addEventListener('click', () => setView('gold'));
+    }
+    if (btnClinical) {
+      btnClinical.addEventListener('click', () => setView('clinical'));
+    }
+
+    // Keyboard shortcut: press 'G' for gold, 'C' for clinical
+    document.addEventListener('keydown', (e) => {
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+      if (e.key === 'g' || e.key === 'G') setView('gold');
+      if (e.key === 'c' || e.key === 'C') setView('clinical');
+    });
+
+    // Temporal flatness animation
+    ScrollTrigger.create({
+      trigger: '.temporal-viz',
+      start: 'top 80%',
+      once: true,
+      onEnter: () => {
+        gsap.to('.temporal-event', {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.12,
+          ease: 'expo.out'
+        });
+        gsap.to('.flat-label-box', {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          delay: 0.6,
+          ease: 'expo.out'
+        });
+      }
+    });
+
+    // Boundary defects animation
+    ScrollTrigger.create({
+      trigger: '.defect-viz',
+      start: 'top 80%',
+      once: true,
+      onEnter: () => {
+        gsap.to('.defect-viz', {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.1,
+          ease: 'expo.out'
+        });
+        // Animate defect numbers
+        document.querySelectorAll('.defect-viz').forEach(viz => {
+          const numEl = viz.querySelector('.font-display, div[style*="font-size: 3rem"]');
+          if (numEl) {
+            const target = parseInt(numEl.textContent);
+            if (!isNaN(target)) {
+              const obj = { val: 0 };
+              gsap.to(obj, {
+                val: target,
+                duration: 1.5,
+                ease: 'power2.out',
+                onUpdate: () => {
+                  numEl.textContent = Math.round(obj.val);
+                }
+              });
+            }
+          }
+        });
+      }
+    });
+
+    // CUIPhrase map animation
+    ScrollTrigger.create({
+      trigger: '.cuip-map',
+      start: 'top 85%',
+      once: true,
+      onEnter: () => {
+        gsap.to('.cuip-map', {
+          opacity: 1,
+          x: 0,
+          duration: 0.7,
+          stagger: 0.1,
+          ease: 'expo.out'
+        });
+      }
+    });
+
+    // Asymmetry cards animation
+    ScrollTrigger.create({
+      trigger: '.asymmetry-grid',
+      start: 'top 85%',
+      once: true,
+      onEnter: () => {
+        gsap.to('.asymmetry-card', {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.12,
+          ease: 'expo.out'
+        });
+      }
+    });
+
+    // Keyboard navigation for case tabs
+    document.addEventListener('keydown', (e) => {
+      const activeTab = document.querySelector('.case-tab.active');
+      if (!activeTab) return;
+      const tabs = Array.from(document.querySelectorAll('.case-tab'));
+      const currentIndex = tabs.indexOf(activeTab);
+      let newIndex = currentIndex;
+      if (e.key === 'ArrowRight') {
+        newIndex = (currentIndex + 1) % tabs.length;
+      } else if (e.key === 'ArrowLeft') {
+        newIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+      }
+      if (newIndex !== currentIndex) {
+        tabs[newIndex].click();
+        tabs[newIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+    });
+
+    // Animated counters
+    const animateCounter = (el, target, duration = 2, suffix = '') => {
+      const obj = { val: 0 };
+      gsap.to(obj, {
+        val: target,
+        duration: duration,
+        ease: 'power2.out',
+        onUpdate: () => {
+          if (target % 1 !== 0) {
+            el.textContent = obj.val.toFixed(target.toString().split('.')[1]?.length || 2) + suffix;
+          } else {
+            el.textContent = Math.round(obj.val) + suffix;
+          }
+        }
+      });
+    };
+
+    ScrollTrigger.create({
+      trigger: '.finding-card .finding-num',
+      start: 'top 85%',
+      once: true,
+      onEnter: () => {
+        document.querySelectorAll('.finding-card .finding-num').forEach(num => {
+          const text = num.textContent.trim();
+          if (!isNaN(parseFloat(text))) {
+            const val = parseFloat(text);
+            num.textContent = '0';
+            animateCounter(num, val, 1.2);
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
