@@ -334,7 +334,11 @@ MA2 was re-run with both fixes on the full 40-document validation split. Qwen is
 | EEG accuracy | 0.925 | 0.925 | — |
 | MRI accuracy | 0.825 | **0.875** | +0.050 |
 
-**Promotion gates:** BenchComp > 0.810 ❌ (0.763); Seizure F1 collapsed ≥ 0.660 ❌ (0.588). **No promotion.**
+**Promotion gates:**
+- GPT-5.4-mini: BenchComp 0.763 ❌ (gate > 0.810); Seizure F1 collapsed 0.588 ❌ (gate ≥ 0.660)
+- Qwen: BenchComp 0.772 ❌ (gate > 0.810); Seizure F1 collapsed 0.610 ❌ (gate ≥ 0.660)
+
+**No promotion for either model.**
 
 ### What Changed at 40-Document Scale
 
@@ -384,8 +388,16 @@ The most significant improvement is **medication_full_f1: +0.065** (0.696 → 0.
 | gpt_5_4_mini | **0.903** | 0.692 | 1.000 | 0.900 | 1.000 | 1.000 |
 | qwen_35b_local | **0.849** | 0.640 | 0.947 | 0.900 | 0.900 | 0.900 |
 
-**MA2 results (post-fix, GPT-5.4-mini only, qwen pending):**
+**MA2 results (post-fix, both models, 40 val docs):**
 
 | Model | BenchComp | Sz F1 Collapsed | Med Name F1 | Med Full F1 | Dx Collapsed | EEG | MRI |
 |-------|-----------|-----------------|-------------|-------------|--------------|-----|-----|
 | gpt_5_4_mini | **0.763** | 0.588 | 0.870 | **0.761** | 0.650 | 0.925 | 0.875 |
+| qwen_35b_local | **0.772** | 0.610 | 0.852 | **0.701** | 0.725 | 0.925 | 0.825 |
+
+**Pre-fix MA2 baselines (for comparison):**
+
+| Model | BenchComp | Sz F1 Collapsed | Med Name F1 | Med Full F1 | Dx Collapsed | EEG | MRI |
+|-------|-----------|-----------------|-------------|-------------|--------------|-----|-----|
+| gpt_5_4_mini | 0.757 | 0.610 | 0.868 | 0.696 | 0.625 | 0.925 | 0.825 |
+| qwen_35b_local | 0.772 | 0.603 | 0.868 | 0.685 | 0.650 | 0.950 | 0.900 |
