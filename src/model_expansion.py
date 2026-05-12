@@ -2156,6 +2156,7 @@ def run_h6_h7_one(
     document: dict[str, Any],
     output_dir: Path,
 ) -> tuple[dict[str, Any], dict[str, Any] | None, str | None]:
+    google_thinking_budget = getattr(args, "google_thinking_budget", None)
     run_root = output_dir / "calls" / spec.label / harness_id / document_id
     run_root.mkdir(parents=True, exist_ok=True)
     if harness_id in {"H6_benchmark_only_coarse_json", "H4_provider_native_structured_output"}:
@@ -2172,6 +2173,7 @@ def run_h6_h7_one(
             if harness_id == "H4_provider_native_structured_output"
             else None,
             reasoning_effort=args.reasoning_effort,
+            google_thinking_budget=google_thinking_budget,
             metadata={"document_id": document_id, "stage": "h6_h7_clean_diagnostic"},
         )
         response = adapter.call(request)
@@ -2193,6 +2195,7 @@ def run_h6_h7_one(
             temperature=args.temperature if args.temperature is not None else spec.temperature,
             max_output_tokens=args.max_output_tokens or min(spec.max_output_tokens or 4096, 4096),
             reasoning_effort=args.reasoning_effort,
+            google_thinking_budget=google_thinking_budget,
             metadata={"document_id": document_id, "stage": "h4_h8_d3_clean_diagnostic", "pass": "extract"},
         )
         extract_response = adapter.call(extract_request)
@@ -2209,6 +2212,7 @@ def run_h6_h7_one(
             temperature=args.temperature if args.temperature is not None else spec.temperature,
             max_output_tokens=args.max_output_tokens or min(spec.max_output_tokens or 4096, 4096),
             reasoning_effort=args.reasoning_effort,
+            google_thinking_budget=google_thinking_budget,
             metadata={"document_id": document_id, "stage": "h4_h8_d3_clean_diagnostic", "pass": "evidence"},
         )
         evidence_response = adapter.call(evidence_request)
@@ -2237,6 +2241,7 @@ def run_h6_h7_one(
             temperature=args.temperature if args.temperature is not None else spec.temperature,
             max_output_tokens=args.max_output_tokens or min(spec.max_output_tokens or 4096, 4096),
             reasoning_effort=args.reasoning_effort,
+            google_thinking_budget=google_thinking_budget,
             metadata={"document_id": document_id, "stage": "h4_h8_d3_clean_diagnostic", "pass": "candidate"},
         )
         candidate_response = adapter.call(candidate_request)
@@ -2251,6 +2256,7 @@ def run_h6_h7_one(
             temperature=args.temperature if args.temperature is not None else spec.temperature,
             max_output_tokens=args.max_output_tokens or min(spec.max_output_tokens or 4096, 4096),
             reasoning_effort=args.reasoning_effort,
+            google_thinking_budget=google_thinking_budget,
             metadata={"document_id": document_id, "stage": "h4_h8_d3_clean_diagnostic", "pass": "verifier"},
         )
         verifier_response = adapter.call(verifier_request)
@@ -2280,6 +2286,7 @@ def run_h6_h7_one(
             temperature=args.temperature if args.temperature is not None else spec.temperature,
             max_output_tokens=args.max_output_tokens or min(spec.max_output_tokens or 4096, 4096),
             reasoning_effort=args.reasoning_effort,
+            google_thinking_budget=google_thinking_budget,
             metadata={"document_id": document_id, "stage": "h6_h7_clean_diagnostic", "pass": "extract"},
         )
         extract_response = adapter.call(extract_request)
@@ -2296,6 +2303,7 @@ def run_h6_h7_one(
             temperature=args.temperature if args.temperature is not None else spec.temperature,
             max_output_tokens=args.max_output_tokens or min(spec.max_output_tokens or 4096, 4096),
             reasoning_effort=args.reasoning_effort,
+            google_thinking_budget=google_thinking_budget,
             metadata={"document_id": document_id, "stage": "h6_h7_clean_diagnostic", "pass": "normalize"},
         )
         normalize_response = adapter.call(normalize_request)
@@ -2549,6 +2557,7 @@ def main() -> int:
         action="store_true",
         help="Validate projected canonical outputs as strict evidence-bearing extractions.",
     )
+    h6_h7.add_argument("--google-thinking-budget", type=int, help="Google thinking token budget. Use 0 or a small value for extraction smoke runs.")
     h6_h7.add_argument("--output-dir", default=str(DEFAULT_H6_H7_OUTPUT_DIR))
     h6_h7.set_defaults(func=command_h6_h7_diagnostic)
 
