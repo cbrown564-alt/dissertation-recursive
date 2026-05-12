@@ -3,7 +3,7 @@ import { Save, X, Trash2 } from "lucide-react";
 
 export default function AttributeForm({ annotation, draftType, selection, schema, onSave, onCancel, onDelete }) {
   const [values, setValues] = useState({});
-  const [type, setType] = useState(annotation?.type || "");
+  const [type, setType] = useState(annotation?.type || draftType || "");
 
   useEffect(() => {
     if (annotation) {
@@ -39,7 +39,9 @@ export default function AttributeForm({ annotation, draftType, selection, schema
     if (isEditing) {
       onSave(values);
     } else {
-      onSave(type, values);
+      const selectedType = type || draftType;
+      if (!selectedType) return;
+      onSave(selectedType, values);
     }
   };
 

@@ -97,7 +97,36 @@ const initialState = {
   showShortcuts: false,
 };
 
-export default function App() {
+class AppErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { error: null };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { error };
+  }
+
+  componentDidCatch(error, info) {
+    console.error("App render failed:", error, info);
+  }
+
+  render() {
+    if (this.state.error) {
+      return (
+        <div className="loading-screen">
+          <AlertTriangle size={32} className="load-err-icon" />
+          <p className="load-title">The app hit a render error</p>
+          <p className="load-sub">{this.state.error.message}</p>
+        </div>
+      );
+    }
+
+    return this.props.children;
+  }
+}
+
+function AppContent() {
   const [state, dispatch] = useReducer(appReducer, initialState);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -273,5 +302,13 @@ export default function App() {
         <ShortcutsModal onClose={() => dispatch({ type: "TOGGLE_SHORTCUTS" })} />
       )}
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <AppErrorBoundary>
+      <AppContent />
+    </AppErrorBoundary>
   );
 }

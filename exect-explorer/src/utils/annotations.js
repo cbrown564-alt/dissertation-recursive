@@ -96,7 +96,7 @@ export function scoreAnnotations(userEntities, goldEntities) {
 
     const matched = [];
     const unmatchedUser = [];
-    const unmatchedGold = [...gold];
+    let unmatchedGold = [...gold];
 
     for (const u of user) {
       let bestMatch = null;

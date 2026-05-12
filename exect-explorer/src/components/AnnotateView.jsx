@@ -91,6 +91,7 @@ export default function AnnotateView({ data, visibleLayers }) {
     };
     setAnnotations((prev) => [...prev, newAnn]);
     setSelection(null);
+    setDraftType(null);
     window.getSelection()?.removeAllRanges();
   };
 
@@ -199,73 +200,75 @@ export default function AnnotateView({ data, visibleLayers }) {
           </div>
         </div>
 
-        {selection && !editingId && (
+        {selection && !editingId && !draftType && (
           <SelectionToolbar
             selection={selection}
             position={toolbarPos}
             onSelectType={(type) => {
               setDraftType(type);
-              setEditingId(`new-${type}-${Date.now()}`);
             }}
             onDismiss={() => {
               setSelection(null);
+              setDraftType(null);
               window.getSelection()?.removeAllRanges();
             }}
           />
         )}
       </div>
 
-      {showGuidelines && (
-        <GuidelinesPanel
-          onClose={() => setShowGuidelines(false)}
-        />
-      )}
+      <div className="annotate-side-rail">
+        {showScore && scoreResult ? (
+          <ScoringView
+            result={scoreResult}
+            userAnnotations={annotations}
+            goldEntities={data.entities}
+            colours={TYPE_COLOURS}
+            onClose={() => setShowScore(false)}
+            onHighlightGold={(id) => {
+              setShowGold(true);
+              setHoveredId(id);
+            }}
+          />
+        ) : (
+          <>
+            {(editingId || draftType) ? (
+              <AttributeForm
+                key={editingId || "new"}
+                annotation={editingAnnotation}
+                draftType={draftType}
+                selection={selection}
+                schema={ENTITY_SCHEMAS[editingAnnotation?.type || draftType] || null}
+                onSave={editingAnnotation
+                  ? (attrs) => handleUpdateAnnotation(editingAnnotation.id, { attributes: attrs })
+                  : handleAddAnnotation
+                }
+                onCancel={() => {
+                  setEditingId(null);
+                  setSelection(null);
+                  setDraftType(null);
+                }}
+                onDelete={editingAnnotation ? () => handleDeleteAnnotation(editingAnnotation.id) : null}
+              />
+            ) : showGuidelines ? (
+              <GuidelinesPanel
+                onClose={() => setShowGuidelines(false)}
+              />
+            ) : null}
 
-      {!showGuidelines && !showScore && !editingId && !selection && (
-        <UserAnnotationsPanel
-          annotations={annotations}
-          colours={TYPE_COLOURS}
-          onSelect={handleSelectEntity}
-          onDelete={handleDeleteAnnotation}
-          onClearAll={() => {
-            if (confirm("Clear all annotations for this letter?")) {
-              setAnnotations([]);
-            }
-          }}
-        />
-      )}
-
-      {(editingId || selection) && !showScore && (
-        <AttributeForm
-          key={editingId || "new"}
-          annotation={editingAnnotation}
-          selection={selection}
-          schema={ENTITY_SCHEMAS[editingAnnotation?.type] || null}
-          onSave={editingAnnotation
-            ? (attrs) => handleUpdateAnnotation(editingAnnotation.id, { attributes: attrs })
-            : handleAddAnnotation
-          }
-          onCancel={() => {
-            setEditingId(null);
-            setSelection(null);
-          }}
-          onDelete={editingAnnotation ? () => handleDeleteAnnotation(editingAnnotation.id) : null}
-        />
-      )}
-
-      {showScore && scoreResult && (
-        <ScoringView
-          result={scoreResult}
-          userAnnotations={annotations}
-          goldEntities={data.entities}
-          colours={TYPE_COLOURS}
-          onClose={() => setShowScore(false)}
-          onHighlightGold={(id) => {
-            setShowGold(true);
-            setHoveredId(id);
-          }}
-        />
-      )}
+            <UserAnnotationsPanel
+              annotations={annotations}
+              colours={TYPE_COLOURS}
+              onSelect={handleSelectEntity}
+              onDelete={handleDeleteAnnotation}
+              onClearAll={() => {
+                if (confirm("Clear all annotations for this letter?")) {
+                  setAnnotations([]);
+                }
+              }}
+            />
+          </>
+        )}
+      </div>
     </div>
   );
 }
