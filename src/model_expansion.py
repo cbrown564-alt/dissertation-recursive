@@ -11,6 +11,7 @@ from typing import Any
 
 import yaml
 
+from core.labels import BENCHMARK_EPILEPSY_LABELS, BENCHMARK_SEIZURE_LABELS, benchmark_label_block
 from direct_baselines import (
     build_prompt as build_direct_prompt,
     load_split_ids,
@@ -37,25 +38,6 @@ DEFAULT_STAGE_C1_OUTPUT_DIR = Path("runs/model_expansion/stage_c1_relaxed_projec
 DEFAULT_H6_H7_OUTPUT_DIR = Path("runs/model_expansion/stage_d_h6_h7_diagnostic")
 BENCHMARK_METRICS = ["medication_name_f1", "seizure_type_f1", "epilepsy_diagnosis_accuracy"]
 RELAXED_PROJECTION_VERSION = "relaxed_v2_benchmark_seizure_labels_no_evidence"
-BENCHMARK_SEIZURE_LABELS = [
-    "focal seizure",
-    "secondary generalized seizures",
-    "generalized tonic clonic seizure",
-    "generalized absence seizure",
-    "generalized myoclonic seizure",
-    "generalized seizures",
-    "convulsive seizure",
-    "cluster of seizures",
-    "seizure free",
-    "unknown seizure type",
-]
-BENCHMARK_EPILEPSY_LABELS = [
-    "epilepsy",
-    "focal epilepsy",
-    "generalized epilepsy",
-    "juvenile myoclonic epilepsy",
-    "status epilepticus",
-]
 
 
 def load_harnesses(path: Path) -> dict[str, dict[str, Any]]:
@@ -98,18 +80,6 @@ def build_loose_prompt(document: dict[str, Any], harness_id: str) -> str:
             f"## Harness\n{harness_id}",
             "## Source Letter",
             document["text"],
-        ]
-    )
-
-
-def benchmark_label_block() -> str:
-    return "\n".join(
-        [
-            "Allowed seizure_type labels:",
-            *[f"- {label}" for label in BENCHMARK_SEIZURE_LABELS],
-            "",
-            "Allowed epilepsy_diagnosis_type labels:",
-            *[f"- {label}" for label in BENCHMARK_EPILEPSY_LABELS],
         ]
     )
 

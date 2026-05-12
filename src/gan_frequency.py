@@ -9,13 +9,13 @@ benchmark-shaped layer for the released synthetic subset in this repository.
 from __future__ import annotations
 
 import argparse
-import csv
 import json
 import re
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
+from core.io import read_csv_dicts, write_csv, write_json
 from direct_baselines import parse_json_response
 from intake import read_text
 from model_providers import ModelRequest, adapter_for, write_response_log
@@ -294,22 +294,6 @@ def classification_report(gold: list[str], predicted: list[str]) -> dict[str, An
         "support": total,
         "classes": rows,
     }
-
-
-def write_json(path: Path, value: Any) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(value, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-
-
-def write_csv(path: Path, rows: list[dict[str, Any]]) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    if not rows:
-        path.write_text("", encoding="utf-8")
-        return
-    with path.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=list(rows[0].keys()))
-        writer.writeheader()
-        writer.writerows(rows)
 
 
 def _split_sentences(text: str) -> list[str]:
@@ -1045,8 +1029,7 @@ def safe_condition_name(value: str) -> str:
 def read_csv_rows_as_dicts(path: Path) -> list[dict[str, str]]:
     if not path.exists():
         return []
-    with path.open("r", encoding="utf-8", newline="") as handle:
-        return list(csv.DictReader(handle))
+    return read_csv_dicts(path)
 
 
 def command_sweep(args: argparse.Namespace) -> int:

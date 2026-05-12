@@ -10,6 +10,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
+from core.io import read_csv_rows
 from direct_baselines import load_split_ids, write_json
 from intake import DEFAULT_EXECT_ROOT, DEFAULT_SPLITS, load_gold_annotations, read_text
 from normalization import (
@@ -67,11 +68,6 @@ class GoldDocument:
 
 def document_id_from_filename(filename: str) -> str:
     return Path(filename).stem
-
-
-def read_csv_rows(path: Path) -> list[list[str]]:
-    with path.open("r", encoding="utf-8", newline="") as handle:
-        return [[cell.strip() for cell in row] for row in csv.reader(handle)]
 
 
 def ensure_gold(gold: dict[str, GoldDocument], document_id: str) -> GoldDocument:

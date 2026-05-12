@@ -14,6 +14,8 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
+from core.datasets import load_split_ids
+from core.io import write_json, write_text
 from intake import DEFAULT_EXECT_ROOT, DEFAULT_SPLITS, preprocess_document, read_text
 from validate_extraction import (
     DEFAULT_SCHEMA,
@@ -63,27 +65,11 @@ class ParseResult:
     error: str | None
 
 
-def write_text(path: Path, value: str) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(value, encoding="utf-8")
-
-
-def write_json(path: Path, value: Any) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(value, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-
-
 def append_jsonl(path: Path, value: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with JSONL_LOCK:
         with path.open("a", encoding="utf-8") as handle:
             handle.write(json.dumps(value, ensure_ascii=False) + "\n")
-
-
-def load_split_ids(split_path: Path, split: str, limit: int | None) -> list[str]:
-    split_data = json.loads(read_text(split_path))
-    ids = split_data[split]
-    return ids[:limit] if limit is not None else ids
 
 
 def compact_schema_text(schema_path: Path) -> str:

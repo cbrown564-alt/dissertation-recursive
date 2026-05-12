@@ -4,6 +4,19 @@ Working materials for a dissertation on reliable, event-first information extrac
 
 The current proposal is [proposal_tight.md](proposal_tight.md). It narrows the project to a training-free reliability evaluation: compare direct structured extraction with an event-first, evidence-grounded pipeline, then evaluate JSON/YAML and open/closed model differences as secondary factors.
 
+## Current State
+
+The project is now at the end of its exploratory phase. The authoritative synthesis is [docs/50_synthesis_report.md](docs/50_synthesis_report.md), with the complete experiment trail in [docs/34_full_experiment_record.md](docs/34_full_experiment_record.md).
+
+The current consolidation goal is to preserve the experimental record while extracting a maintained pipeline spine for corrected scoring, local-model extraction, evidence resolution, and ExECT Explorer audit workflows. See [docs/54_refactor_consolidation_plan.md](docs/54_refactor_consolidation_plan.md).
+
+The most important active candidates are:
+
+- Frontier baselines: GPT-4.1-mini S2/E3.
+- Local deployment candidate: qwen3.6:35b H6fs plus the Option-C evidence resolver.
+- Frequency workstream: GPT-5.5 with Gan retrieval-highlight, pending larger-scale confirmation.
+- Audit surface: `exect-explorer/`.
+
 ## Documentation Map
 
 - [Proposal review](docs/proposal_review.md) - strengths, risks, and immediate decisions from the tightened proposal.
@@ -29,6 +42,10 @@ The current proposal is [proposal_tight.md](proposal_tight.md). It narrows the p
 - [Performance recovery roadmap](docs/18_performance_recovery_roadmap.md) - benchmark recovery plan after weak initial final results.
 - [Benchmark crosswalk](docs/19_benchmark_crosswalk.md) - Fang et al. benchmark mapping to local fields and metrics.
 - [Powerful model expansion roadmap](docs/20_powerful_model_expansion_roadmap.md) - cost-aware plan for testing stronger models and looser harnesses.
+- [Full experiment record](docs/34_full_experiment_record.md) - complete phase-by-phase research log and authoritative run trail.
+- [Synthesis report](docs/50_synthesis_report.md) - final cross-cutting findings and deployment recommendations.
+- [Evidence resolver implementation](docs/52_evidence_resolver_implementation.md) - local evidence-grounding implementation and validation results.
+- [Refactor consolidation plan](docs/54_refactor_consolidation_plan.md) - current cleanup and rationalization roadmap.
 
 ## Milestone 1 Exit Check
 
@@ -128,9 +145,9 @@ workflow still need product work before it should be treated as a mature
 analysis surface. See the [dashboard product plan](docs/16_dashboard_product_plan.md)
 for the intended full design and backlog.
 
-## Current Priority
+## Historical Experiment Priority
 
-Implementation is complete, and the first final results are now a baseline
+The older milestone commands below are retained for reproducibility. Implementation is complete, and the first final results are now a baseline
 observation rather than the end of the project. The current priority is to use
 the [performance recovery roadmap](docs/18_performance_recovery_roadmap.md)
 and the [powerful model expansion roadmap](docs/20_powerful_model_expansion_roadmap.md)

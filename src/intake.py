@@ -18,6 +18,8 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any
 
+from core.io import read_text, write_json
+
 
 DEFAULT_EXECT_ROOT = Path("data/ExECT 2 (2025)/Gold1-200_corrected_spelling")
 DEFAULT_MANIFEST = Path("data/manifests/dataset_manifest.json")
@@ -44,10 +46,6 @@ class GoldAnnotation:
     attributes: dict[str, str]
     normalized_match_by_offset: bool
     normalized_match_in_document: bool
-
-
-def read_text(path: Path) -> str:
-    return path.read_text(encoding="utf-8")
 
 
 def document_ids(exect_root: Path = DEFAULT_EXECT_ROOT) -> list[str]:
@@ -236,11 +234,6 @@ def count_json_records(path: Path) -> int | None:
             if isinstance(data.get(key), list):
                 return len(data[key])
     return None
-
-
-def write_json(path: Path, value: Any) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(value, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
 def command_build_artifacts(args: argparse.Namespace) -> int:
