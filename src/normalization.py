@@ -54,6 +54,7 @@ ASM_SYNONYMS = {
     "rivotril": "clonazepam",
     # Eslicarbazepine
     "eslicarbazepine": "eslicarbazepine",
+    "eslicarbazine": "eslicarbazepine",  # misspelling
     "zebinix": "eslicarbazepine",
     "aptiom": "eslicarbazepine",
     # Ethosuximide
@@ -169,6 +170,7 @@ SEIZURE_TYPE_SYNONYMS = {
 DIAGNOSIS_SYNONYMS = {
     "epilepsy": "epilepsy",
     "focal epilepsy": "focal epilepsy",
+    "focal onset epilepsy": "focal epilepsy",
     "generalised epilepsy": "generalized epilepsy",
     "generalized epilepsy": "generalized epilepsy",
     "idiopathic generalized epilepsy": "generalized epilepsy",

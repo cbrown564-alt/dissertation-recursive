@@ -63,3 +63,15 @@ harnesses:
     require_present_evidence: false
     allow_repair: true
     score_locally: true
+  H6fs_ev_resolver:
+    family: evidence_resolver
+    description: H6fs extraction followed by the Option-C hybrid evidence resolver (deterministic + LLM fallback).
+    output_contract: benchmark_json_with_evidence
+    require_present_evidence: false
+    allow_repair: true
+    score_locally: true
+    parent_harness: H6fs_benchmark_only_coarse_json
+    resolver_config:
+      deterministic_only: false
+      fallback_model: gemma4:e4b
+      expand_sentence: true

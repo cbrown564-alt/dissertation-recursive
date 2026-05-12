@@ -59,7 +59,13 @@ from validate_extraction import DEFAULT_SCHEMA
 LOCAL_MODEL_LABELS = ["qwen_9b_local", "qwen_4b_local", "gemma_4b_local"]
 LOCAL_HARNESSES_L1 = ["H0_strict_canonical"]
 LOCAL_HARNESSES_L2 = ["H4_provider_native_structured_output"]
-LOCAL_HARNESSES_L3 = ["H6_benchmark_only_coarse_json", "H3_loose_answer_then_parse", "H7_extract_then_normalize"]
+LOCAL_HARNESSES_L3 = [
+    "H6_benchmark_only_coarse_json",
+    "H6fs_benchmark_only_coarse_json",
+    "H6fs_ev_resolver",
+    "H3_loose_answer_then_parse",
+    "H7_extract_then_normalize",
+]
 
 DEFAULT_LOCAL_OUTPUT_ROOT = Path("runs/local_models")
 
@@ -107,6 +113,8 @@ def _build_local_prompt(
         prompt = build_loose_prompt(document, harness_id)
     elif harness_id == "H7_extract_then_normalize":
         prompt = build_h7_extract_prompt(document, harness_id)
+    elif harness_id == "H6fs_ev_resolver":
+        prompt = build_h6fs_prompt(document, harness_id)
     else:
         raise ValueError(f"unsupported local harness: {harness_id}")
     if vocab_preamble:
@@ -222,6 +230,55 @@ def run_local_one(
     return row
 
 
+def _resolve_evidence_for_projection(
+    projected: dict[str, Any],
+    document: dict[str, Any],
+    model_id: str = "qwen3.6:35b",
+) -> dict[str, Any]:
+    """Run the Option-C evidence resolver on a canonical projection."""
+    import time
+    from evidence_resolver import resolve_evidence_hybrid
+    from model_providers import ModelRequest, OllamaAdapter
+    from model_registry import DEFAULT_REGISTRY, load_model_specs
+
+    registry = load_model_specs(DEFAULT_REGISTRY)
+    model = None
+    for label, m in registry.items():
+        if m.provider_model_id == model_id:
+            model = m
+            break
+    if model is None:
+        return projected
+
+    adapter = OllamaAdapter()
+
+    def model_call(prompt: str) -> dict:
+        request = ModelRequest(
+            prompt=prompt,
+            model=model,
+            harness_id="evidence_resolver_fallback",
+            temperature=0.0,
+            max_output_tokens=2048,
+            schema_mode="json_mode",
+        )
+        response = adapter.call(request)
+        return {
+            "text": response.text,
+            "tokens_in": response.token_usage.input_tokens or 0,
+            "tokens_out": response.token_usage.output_tokens or 0,
+            "latency_ms": response.latency_ms,
+            "error": response.error,
+        }
+
+    resolved, _stats = resolve_evidence_hybrid(
+        projected,
+        document["text"],
+        model_call=model_call,
+        expand_sentence=True,
+    )
+    return resolved
+
+
 def score_local_rows(
     rows: list[dict[str, Any]],
     output_dir: Path,
@@ -230,6 +287,7 @@ def score_local_rows(
     schema_path: Path,
     registry: Path,
     require_present_evidence: bool = False,
+    resolver_model_id: str | None = None,
 ) -> dict[tuple[str, str, bool], dict[str, Any]]:
     """Project payloads to canonical form and score benchmark metrics for local model rows."""
     gold = load_gold(markup_root, exect_root)
@@ -263,12 +321,26 @@ def score_local_rows(
                 continue
             document = preprocess_document(document_id, exect_root)
             projection_row = {k: "" if v is None else str(v) for k, v in row.items()}
+            # Use the parent harness for canonical projection so the resolver harness
+            # is treated as a standard benchmark-only extractor.
+            projection_harness_id = harness_id
+            if harness_id == "H6fs_ev_resolver":
+                projection_harness_id = "H6fs_benchmark_only_coarse_json"
             projected = projected_canonical(
-                document_id, harness_id, model_label, payload, projection_row, document,
+                document_id, projection_harness_id, model_label, payload, projection_row, document,
                 require_present_evidence=require_present_evidence,
             )
             proj_path = run_root / "canonical_projection.json"
             write_json(proj_path, projected)
+
+            # Apply evidence resolver if configured for this harness
+            if harness_id == "H6fs_ev_resolver" and resolver_model_id:
+                projected = _resolve_evidence_for_projection(
+                    projected, document, model_id=resolver_model_id,
+                )
+                resolved_path = run_root / "resolved_canonical_projection.json"
+                write_json(resolved_path, projected)
+
             doc_score = score_document(projected, document["text"], gold[document_id], schema_path)
             doc_scores.append(doc_score)
         if doc_scores:
@@ -345,6 +417,7 @@ def _run_stage(
     ollama_base_url: str,
     vocab_preamble: bool = False,
     require_present_evidence: bool = False,
+    resolver_model_id: str | None = None,
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     """Run all model × harness × document combinations and return (call_rows, summaries)."""
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -363,7 +436,8 @@ def _run_stage(
     write_csv(output_dir / "call_report.csv", call_rows)
 
     scores = score_local_rows(
-        call_rows, output_dir, exect_root, markup_root, schema_path, registry, require_present_evidence,
+        call_rows, output_dir, exect_root, markup_root, schema_path, registry,
+        require_present_evidence, resolver_model_id,
     )
 
     by_condition: dict[tuple[str, str, bool], list[dict[str, Any]]] = {}
@@ -505,6 +579,7 @@ def command_l3(args: argparse.Namespace) -> int:
         "stage_l3_simplified_harnesses", model_labels, harness_ids, document_ids,
         output_dir, Path(args.registry), Path(args.exect_root), Path(args.markup_root),
         Path(args.schema), args.temperature, args.max_output_tokens, args.ollama_base_url,
+        resolver_model_id=args.resolver_model,
     )
     promoted = [s for s in summaries if _passes_l3_gate(s)]
     decision_lines = [
@@ -602,6 +677,7 @@ def command_l5(args: argparse.Namespace) -> int:
         Path(args.schema), args.temperature, args.max_output_tokens, args.ollama_base_url,
         vocab_preamble=args.vocab_preamble,
         require_present_evidence=args.require_present_evidence,
+        resolver_model_id=args.resolver_model,
     )
     # Comparison vs frontier baseline numbers from the workstream plan
     frontier_baselines = [
@@ -690,6 +766,7 @@ def _add_common_args(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--temperature", type=float, default=0.0)
     parser.add_argument("--max-output-tokens", type=int, default=4096)
     parser.add_argument("--ollama-base-url", default="http://localhost:11434/v1")
+    parser.add_argument("--resolver-model", default=None, help="Ollama model tag for evidence-resolver fallback (e.g. qwen3.6:35b).")
 
 
 def main() -> int:
