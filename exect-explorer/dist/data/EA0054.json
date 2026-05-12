@@ -1,0 +1,641 @@
+{
+  "id": "EA0054",
+  "text": "NHS No 226 885 8754\nDate: \t13/10/2018\nChristian Moon. D.O.B. 13/7/1995\n34, Hamersmith Road, Cwmafan, SA87 4GT\nDear Doctor,\nDiagnosis: symptomatic structural frontal lobe epilepsy\n\t\tLeft frontal lobe focal cortical dysplasia\nSeizure type and frequency: focal seizures with altered awareness (right arm movement)\n\t\t\t\t1 per week\n\t\t\t\tFocal to bilateral convulsive seizures August 2014 and September 2015\nCurrent medication: Lamotrigine 150mg bd\nPrevious medications tried: Levetiracetam (mood disturbance)\nI reviewed Mr Moon by telephone today. I was pleased to hear that he is feeling much better in himself since stopping the levetiracetam and switching to the lamotrigine. His mood is far better and he feels more alert. Unfortunately he still gets his focal seizures with altered awareness where he gets twitching of his right arm. These happen around once per week. He has not had one of his bigger focal to bilateral convulsive seizure for three years now.\nWe discussed various treatment options. In the first instance I recommend increasing the lamotrigine by 25mg every fortnight until he is on a dose of 175mg bd. The dose can be increased further after this if necessary in a similar way.\nAs you know he has now had 2 MRI scans. They have both shown a small hyperintensity in the posterior frontal lobe on the left. We discussed these scans at our neuroradiology meeting and the consensus was that this is focal cortical dysplasia. This might mean that there is a surgical option for Mr Moon and so I wil request an up to date EEG and we can discuss further in the next appointment.\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 134,
+      "end": 178,
+      "text": "symptomatic-structural-frontal-lobe-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "symptomatic-structural-focal-epilepsy",
+        "CUI": "C0472349"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Diagnosis",
+      "start": 157,
+      "end": 178,
+      "text": "frontal-lobe-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "frontal-lobe-epilepsy",
+        "CUI": "C0085541"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "start": 205,
+      "end": 223,
+      "text": "cortical-dysplasia",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "cortical-dysplasia",
+        "CUI": "C0431380"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Diagnosis",
+      "start": 252,
+      "end": 289,
+      "text": "focal-seizures-with-altered-awareness",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-seizures-with-altered-awareness",
+        "CUI": "C0270834"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "SeizureFrequency",
+      "start": 252,
+      "end": 289,
+      "text": "focal-seizures-with-altered-awareness",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "TimePeriod": "Week",
+        "NumberOfTimePeriods": "1",
+        "CUIPhrase": "focal-seizures-with-altered-awareness",
+        "CUI": "C0270834"
+      }
+    },
+    {
+      "id": "T13",
+      "type": "SeizureFrequency",
+      "start": 330,
+      "end": 366,
+      "text": "Focal-to-bilateral-convulsive-seizur",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "MonthDate": "9",
+        "YearDate": "2015",
+        "TimeSince_or_TimeOfEvent": "During",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizures"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "SeizureFrequency",
+      "start": 330,
+      "end": 367,
+      "text": "Focal-to-bilateral-convulsive-seizure",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "MonthDate": "8",
+        "YearDate": "2014",
+        "TimeSince_or_TimeOfEvent": "During",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizures",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "Diagnosis",
+      "start": 330,
+      "end": 369,
+      "text": "Focal-to-bilateral-convulsive-seizures-",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizures",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "id": "T16",
+      "type": "Prescription",
+      "start": 400,
+      "end": 440,
+      "text": "Current-medication:-Lamotrigine-150mg-bd",
+      "attributes": {
+        "DrugName": "lamotrigine",
+        "DrugDose": "150",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "id": "T18",
+      "type": "Diagnosis",
+      "start": 752,
+      "end": 789,
+      "text": "focal-seizures-with-altered-awareness",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-seizures-with-altered-awareness",
+        "CUI": "C0270834"
+      }
+    },
+    {
+      "id": "T20",
+      "type": "SeizureFrequency",
+      "start": 752,
+      "end": 789,
+      "text": "focal-seizures-with-altered-awareness",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "TimePeriod": "Week",
+        "NumberOfTimePeriods": "1",
+        "CUIPhrase": "focal-seizures-with-altered-awareness",
+        "CUI": "C0270834"
+      }
+    },
+    {
+      "id": "T22",
+      "type": "Diagnosis",
+      "start": 900,
+      "end": 937,
+      "text": "focal-to-bilateral-convulsive-seizure",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizure",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "id": "T24",
+      "type": "SeizureFrequency",
+      "start": 900,
+      "end": 937,
+      "text": "focal-to-bilateral-convulsive-seizure",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "3",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizure",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "id": "T26",
+      "type": "Investigations",
+      "start": 1224,
+      "end": 1227,
+      "text": "MRI",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Abnormal",
+        "CUIPhrase": "abnormal-mri",
+        "CUI": "C1319851"
+      }
+    },
+    {
+      "id": "T15",
+      "type": "PatientHistory",
+      "start": 1418,
+      "end": 1436,
+      "text": "cortical-dysplasia",
+      "attributes": {
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "cortical-dysplasia",
+        "CUI": "C0431380"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "134",
+      "end_index": "178",
+      "text": "symptomatic-structural-frontal-lobe-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "symptomatic-structural-focal-epilepsy",
+        "CUI": "C0472349"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "157",
+      "end_index": "178",
+      "text": "frontal-lobe-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "frontal-lobe-epilepsy",
+        "CUI": "C0085541"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "205",
+      "end_index": "223",
+      "text": "cortical-dysplasia",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "cortical-dysplasia",
+        "CUI": "C0431380"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "252",
+      "end_index": "289",
+      "text": "focal-seizures-with-altered-awareness",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-seizures-with-altered-awareness",
+        "CUI": "C0270834"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "252",
+      "end_index": "289",
+      "text": "focal-seizures-with-altered-awareness",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "TimePeriod": "Week",
+        "NumberOfTimePeriods": "1",
+        "CUIPhrase": "focal-seizures-with-altered-awareness",
+        "CUI": "C0270834"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "330",
+      "end_index": "369",
+      "text": "Focal-to-bilateral-convulsive-seizures-",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizures",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "330",
+      "end_index": "367",
+      "text": "Focal-to-bilateral-convulsive-seizure",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "MonthDate": "8",
+        "YearDate": "2014",
+        "TimeSince_or_TimeOfEvent": "During",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizures",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "330",
+      "end_index": "366",
+      "text": "Focal-to-bilateral-convulsive-seizur",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "MonthDate": "9",
+        "YearDate": "2015",
+        "TimeSince_or_TimeOfEvent": "During",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizures",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "400",
+      "end_index": "440",
+      "text": "Current-medication:-Lamotrigine-150mg-bd",
+      "attributes": {
+        "DrugName": "lamotrigine",
+        "DrugDose": "150",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "752",
+      "end_index": "789",
+      "text": "focal-seizures-with-altered-awareness",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-seizures-with-altered-awareness",
+        "CUI": "C0270834"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "752",
+      "end_index": "789",
+      "text": "focal-seizures-with-altered-awareness",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "TimePeriod": "Week",
+        "NumberOfTimePeriods": "1",
+        "CUIPhrase": "focal-seizures-with-altered-awareness",
+        "CUI": "C0270834"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "900",
+      "end_index": "937",
+      "text": "focal-to-bilateral-convulsive-seizure",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizure",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "900",
+      "end_index": "937",
+      "text": "focal-to-bilateral-convulsive-seizure",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "3",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizure",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "1224",
+      "end_index": "1227",
+      "text": "MRI",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Abnormal",
+        "CUIPhrase": "abnormal-mri",
+        "CUI": "C1319851"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1418",
+      "end_index": "1436",
+      "text": "cortical-dysplasia",
+      "attributes": {
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "cortical-dysplasia",
+        "CUI": "C0431380"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 252,
+      "end": 289,
+      "text": "focal-seizures-with-altered-awareness",
+      "entity_types": [
+        "Diagnosis",
+        "SeizureFrequency"
+      ],
+      "entity_ids": [
+        "T8",
+        "T10"
+      ]
+    },
+    {
+      "start": 752,
+      "end": 789,
+      "text": "focal-seizures-with-altered-awareness",
+      "entity_types": [
+        "Diagnosis",
+        "SeizureFrequency"
+      ],
+      "entity_ids": [
+        "T18",
+        "T20"
+      ]
+    },
+    {
+      "start": 900,
+      "end": 937,
+      "text": "focal-to-bilateral-convulsive-seizure",
+      "entity_types": [
+        "Diagnosis",
+        "SeizureFrequency"
+      ],
+      "entity_ids": [
+        "T22",
+        "T24"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "text": "cortical-dysplasia",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T16",
+      "type": "Prescription",
+      "text": "Current-medication:-Lamotrigine-150mg-bd",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T15",
+      "type": "PatientHistory",
+      "text": "cortical-dysplasia",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T10",
+      "type": "SeizureFrequency",
+      "text": "focal-seizures-with-altered-awareness",
+      "start": 252,
+      "end": 289,
+      "year": null,
+      "period": "Week",
+      "num_periods": "1",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "1"
+    },
+    {
+      "id": "T13",
+      "type": "SeizureFrequency",
+      "text": "Focal-to-bilateral-convulsive-seizur",
+      "start": 330,
+      "end": 366,
+      "year": "2015",
+      "period": null,
+      "num_periods": null,
+      "time_since": "During",
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "1"
+    },
+    {
+      "id": "T11",
+      "type": "SeizureFrequency",
+      "text": "Focal-to-bilateral-convulsive-seizure",
+      "start": 330,
+      "end": 367,
+      "year": "2014",
+      "period": null,
+      "num_periods": null,
+      "time_since": "During",
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "1"
+    },
+    {
+      "id": "T20",
+      "type": "SeizureFrequency",
+      "text": "focal-seizures-with-altered-awareness",
+      "start": 752,
+      "end": 789,
+      "year": null,
+      "period": "Week",
+      "num_periods": "1",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "1"
+    },
+    {
+      "id": "T24",
+      "type": "SeizureFrequency",
+      "text": "focal-to-bilateral-convulsive-seizure",
+      "start": 900,
+      "end": 937,
+      "year": null,
+      "period": "Year",
+      "num_periods": "3",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 6,
+    "PatientHistory": 2,
+    "SeizureFrequency": 5,
+    "Prescription": 1,
+    "Investigations": 1
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "3 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 252,
+          "end": 289,
+          "text": "focal-seizures-with-altered-awareness",
+          "entity_types": [
+            "Diagnosis",
+            "SeizureFrequency"
+          ],
+          "entity_ids": [
+            "T8",
+            "T10"
+          ]
+        },
+        {
+          "start": 752,
+          "end": 789,
+          "text": "focal-seizures-with-altered-awareness",
+          "entity_types": [
+            "Diagnosis",
+            "SeizureFrequency"
+          ],
+          "entity_ids": [
+            "T18",
+            "T20"
+          ]
+        },
+        {
+          "start": 900,
+          "end": 937,
+          "text": "focal-to-bilateral-convulsive-seizure",
+          "entity_types": [
+            "Diagnosis",
+            "SeizureFrequency"
+          ],
+          "entity_ids": [
+            "T22",
+            "T24"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "3 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T6",
+          "type": "PatientHistory",
+          "text": "cortical-dysplasia",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T16",
+          "type": "Prescription",
+          "text": "Current-medication:-Lamotrigine-150mg-bd",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T15",
+          "type": "PatientHistory",
+          "text": "cortical-dysplasia",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [
+    {
+      "id": "T15",
+      "type": "PatientHistory",
+      "text": "cortical-dysplasia",
+      "certainty": 4
+    }
+  ],
+  "has_unknown_seizure": false
+}

@@ -1,0 +1,394 @@
+{
+  "id": "EA0041",
+  "text": "Clinic date 7th February 2018\n\nRe. Mr John John Jones D.O.B.: 20/10/1996\n\nDiagnosis: probable focal onset epilepsy\n\tAnxiety\n\tEpisodic migraine\n\nCurrent medication levetiracetam 750mg twice a day (to change as detailed below)\nDispersible aspirin and triptans for migraine\n\nI reviewed this 22 year old man together with his partner in clinic today. He has previously been treated by dr Richins for his epilepsy. To recount the history: at the age of 19 whilst at college: he suddenly felt lightheaded and felt strange before blacking out. He woke up in the ambulance and was taken to hospital where sodium valproate was started. He continued to get similar episodes whenever he forgot to take his medication.\n\nWith hindsight, Mr Jones’s probably got similar events when he was a teenager. He continues to get episodes every week. During these episodes he feels “Out of his body”, is trapped and is unable to move. Before episodes of complete loss of consciousness he has the same”out of his body” feeling. Unfortunately, he put on a great deal of weight with the sodium valproate and so it was switched to the levetiracetam. He does feel as if his mood is not what it used to be but it is difficult to know if this is down to the medication or not.\n\nMr Jones had 2 febrile seizures at the age of 12 and 18 months. He was born slightly prematurely at 34 weeks. He has never had any significant head injuries. He has not had meningitis or encephalitis. His mother’s brother has epilepsy and is taking lamotrigne. He currently smokes 20 cigarettes per day and some cannabis on the weekend. He binge drinks 20 pints of lager on most weekends but doesn’t drink alcohol during the week.\n\nI note the Normal MRI in 2017. Two previous EEGs have shown left-sided sharpened waveforms which are suspicious.\n\nImpression: I think on balance these are epileptic seizures given the sterotyped nature of the “out of body” experiences. There have probably been focal to bilateral convulsive seizures as well.\n\nComments:\nAs Mr Jones is getting some potential mood effects from the levetiracetam I suggest changing to Brivaracetam at a dose of 75 mg twice a day.\nI will ask our epilepsy nurse specialists to contact Mr Jones.\nI will review him again in four months time but he can contact our helpline should he have any problems before then.\n\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 94,
+      "end": 114,
+      "text": "focal-onset-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-onset-epilepsy",
+        "CUI": "C0014547"
+      }
+    },
+    {
+      "id": "T18",
+      "type": "PatientHistory",
+      "start": 116,
+      "end": 123,
+      "text": "Anxiety",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "anxiety",
+        "CUI": "C0003467"
+      }
+    },
+    {
+      "id": "T20",
+      "type": "PatientHistory",
+      "start": 125,
+      "end": 142,
+      "text": "Episodic-migraine",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "migraine",
+        "CUI": "C0149931"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "start": 144,
+      "end": 224,
+      "text": "Current-medication-levetiracetam-750mg-twice-a-day-(to-change-as-detailed-below)",
+      "attributes": {
+        "DrugName": "levetiracetam",
+        "DrugDose": "750",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "levetiracetam",
+        "CUI": "C0377265"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Diagnosis",
+      "start": 400,
+      "end": 408,
+      "text": "epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "start": 1264,
+      "end": 1303,
+      "text": "ebrile-seizures-at-the-age-of-12-and-18",
+      "attributes": {
+        "AgeUnit": "Month",
+        "AgeLower": "12",
+        "AgeUpper": "18",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "febrile-seizure",
+        "CUI": "C0009952"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "BirthHistory",
+      "start": 1319,
+      "end": 1356,
+      "text": "born-slightly-prematurely-at-34-weeks",
+      "attributes": {
+        "PrematureBirth": "34to<37_LatePretermBirth",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "late-preterm-birth",
+        "CUI": "C3829315"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "Investigations",
+      "start": 1691,
+      "end": 1702,
+      "text": "Normal-MRI-",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Normal",
+        "CUIPhrase": "normal-mri",
+        "CUI": "C0436481"
+      }
+    },
+    {
+      "id": "T13",
+      "type": "Investigations",
+      "start": 1724,
+      "end": 1729,
+      "text": "EEGs-",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Abnormal",
+        "CUIPhrase": "eeg-abnormal",
+        "CUI": "C0151611"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "Diagnosis",
+      "start": 1835,
+      "end": 1853,
+      "text": "epileptic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epileptic-seizures",
+        "CUI": "C4317109"
+      }
+    },
+    {
+      "id": "T16",
+      "type": "Diagnosis",
+      "start": 1941,
+      "end": 1979,
+      "text": "focal-to-bilateral-convulsive-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizures",
+        "CUI": "C0877017"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "94",
+      "end_index": "114",
+      "text": "focal-onset-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-onset-epilepsy",
+        "CUI": "C0014547"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "116",
+      "end_index": "123",
+      "text": "Anxiety",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "anxiety",
+        "CUI": "C0003467"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "125",
+      "end_index": "142",
+      "text": "Episodic-migraine",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "migraine",
+        "CUI": "C0149931"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "144",
+      "end_index": "224",
+      "text": "Current-medication-levetiracetam-750mg-twice-a-day-(to-change-as-detailed-below)",
+      "attributes": {
+        "DrugName": "levetiracetam",
+        "DrugDose": "750",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "levetiracetam",
+        "CUI": "C0377265"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "400",
+      "end_index": "408",
+      "text": "epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1264",
+      "end_index": "1303",
+      "text": "ebrile-seizures-at-the-age-of-12-and-18",
+      "attributes": {
+        "AgeUnit": "Month",
+        "AgeLower": "12",
+        "AgeUpper": "18",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "febrile-seizure",
+        "CUI": "C0009952"
+      }
+    },
+    {
+      "entity": "BirthHistory",
+      "start_index": "1319",
+      "end_index": "1356",
+      "text": "born-slightly-prematurely-at-34-weeks",
+      "attributes": {
+        "PrematureBirth": "34to<37_LatePretermBirth",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "late-preterm-birth",
+        "CUI": "C3829315"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "1691",
+      "end_index": "1702",
+      "text": "Normal-MRI-",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Normal",
+        "CUIPhrase": "normal-mri",
+        "CUI": "C0436481"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "1724",
+      "end_index": "1729",
+      "text": "EEGs-",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Abnormal",
+        "CUIPhrase": "eeg-abnormal",
+        "CUI": "C0151611"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1835",
+      "end_index": "1853",
+      "text": "epileptic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epileptic-seizures",
+        "CUI": "C4317109"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1941",
+      "end_index": "1979",
+      "text": "focal-to-bilateral-convulsive-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizures",
+        "CUI": "C0877017"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T18",
+      "type": "PatientHistory",
+      "text": "Anxiety",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T20",
+      "type": "PatientHistory",
+      "text": "Episodic-migraine",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "text": "Current-medication-levetiracetam-750mg-twice-a-day-(to-change-as-detailed-below)",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "text": "ebrile-seizures-at-the-age-of-12-and-18",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [],
+  "type_counts": {
+    "Diagnosis": 4,
+    "PatientHistory": 3,
+    "Prescription": 1,
+    "BirthHistory": 1,
+    "Investigations": 2
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "4 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T18",
+          "type": "PatientHistory",
+          "text": "Anxiety",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T20",
+          "type": "PatientHistory",
+          "text": "Episodic-migraine",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T4",
+          "type": "Prescription",
+          "text": "Current-medication-levetiracetam-750mg-twice-a-day-(to-change-as-detailed-below)",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T8",
+          "type": "PatientHistory",
+          "text": "ebrile-seizures-at-the-age-of-12-and-18",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "text": "focal-onset-epilepsy",
+      "certainty": 4
+    },
+    {
+      "id": "T14",
+      "type": "Diagnosis",
+      "text": "epileptic-seizures",
+      "certainty": 4
+    },
+    {
+      "id": "T16",
+      "type": "Diagnosis",
+      "text": "focal-to-bilateral-convulsive-seizures",
+      "certainty": 4
+    }
+  ],
+  "has_unknown_seizure": false
+}

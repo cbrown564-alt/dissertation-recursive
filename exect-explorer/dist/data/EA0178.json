@@ -1,0 +1,517 @@
+{
+  "id": "EA0178",
+  "text": "Diagnosis: Focal epilepsy with secondary generalised tonic clonic seizures\n \nMedicaiton: Levetiracetam 1000mg twice a day\n                             Tegretaol 200mg in the morning and 300mg nocte (to increase to 300mg bd)\n \nI spoke to Hannah this morning in my telephone clinic. Increasing her tegretol has improved her seizures. Hannah thinks that she has had 2 seizures in the last five months which is good for her. Hannah becomes unresponsive during her seizures  before loosing consciousness. She does feel very tired after them.\n \nWe discussed safety and inparticualr taking a shower and not having a bath due to the rare but real risk of drowning. Hannah has explained her eplilepsy to her flat mate and understands basic first aid meaures. Currently Hannah doesn't drive.\n \nI will arrange to see her in clinic in four months time but Hannah knows that she can contact us before then if theere are any issues.\n \n",
+  "entities": [
+    {
+      "id": "T4",
+      "type": "Diagnosis",
+      "start": 11,
+      "end": 25,
+      "text": "Focal-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "CUI": "C0014547",
+        "CUIPhrase": "focal-epilepsy",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "Diagnosis",
+      "start": 31,
+      "end": 74,
+      "text": "secondary-generalised-tonic-clonic-seizures",
+      "attributes": {
+        "CUIPhrase": "secondary-generalised-tonic-clonic-seizures",
+        "DiagCategory": "MultipleSeizures",
+        "CUI": "C0877017",
+        "Negation": "Affirmed",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T18",
+      "type": "Prescription",
+      "start": 77,
+      "end": 121,
+      "text": "Medicaiton:-Levetiracetam-1000mg-twice-a-day",
+      "attributes": {
+        "DrugName": "levetiracetam",
+        "CUIPhrase": "levetiracetam",
+        "Frequency": "2",
+        "DrugDose": "1000",
+        "CUI": "C0377265",
+        "DoseUnit": "mg"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "Prescription",
+      "start": 151,
+      "end": 160,
+      "text": "Tegretaol",
+      "attributes": {
+        "DrugDose": "300",
+        "CUIPhrase": "tegretol",
+        "Frequency": "1",
+        "DrugName": "Carbamazepine",
+        "DoseUnit": "mg",
+        "CUI": "C0700087"
+      }
+    },
+    {
+      "id": "T15",
+      "type": "Prescription",
+      "start": 151,
+      "end": 160,
+      "text": "Tegretaol",
+      "attributes": {
+        "CUI": "C0700087",
+        "DrugDose": "200",
+        "Frequency": "1",
+        "DrugName": "Carbamazepine",
+        "CUIPhrase": "tegretol",
+        "DoseUnit": "mg"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "SeizureFrequency",
+      "start": 322,
+      "end": 330,
+      "text": "seizures",
+      "attributes": {
+        "PointInTime": "DrugChange",
+        "CUIPhrase": "seizures",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "FrequencyChange": "Decreased",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "start": 322,
+      "end": 330,
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "CUIPhrase": "seizures",
+        "Negation": "Affirmed",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "SeizureFrequency",
+      "start": 365,
+      "end": 373,
+      "text": "seizures",
+      "attributes": {
+        "CUI": "C0036572",
+        "TimePeriod": "Month",
+        "NumberOfTimePeriods": "5",
+        "NumberOfSeizures": "2",
+        "CUIPhrase": "seizures"
+      }
+    },
+    {
+      "id": "T17",
+      "type": "PatientHistory",
+      "start": 365,
+      "end": 373,
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T20",
+      "type": "PatientHistory",
+      "start": 460,
+      "end": 468,
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T13",
+      "type": "Diagnosis",
+      "start": 682,
+      "end": 692,
+      "text": "eplilepsy-",
+      "attributes": {
+        "CUI": "C0014544",
+        "CUIPhrase": "epilepsy",
+        "DiagCategory": "Epilepsy",
+        "Negation": "Affirmed",
+        "Certainty": "5"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "PatientHistory",
+      "start_index": "460",
+      "end_index": "468",
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "365",
+      "end_index": "373",
+      "text": "seizures",
+      "attributes": {
+        "CUI": "C0036572",
+        "TimePeriod": "Month",
+        "NumberOfTimePeriods": "5",
+        "NumberOfSeizures": "2",
+        "CUIPhrase": "seizures"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "11",
+      "end_index": "25",
+      "text": "Focal-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "CUI": "C0014547",
+        "CUIPhrase": "focal-epilepsy",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "322",
+      "end_index": "330",
+      "text": "seizures",
+      "attributes": {
+        "PointInTime": "DrugChange",
+        "CUIPhrase": "seizures",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "FrequencyChange": "Decreased",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "322",
+      "end_index": "330",
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "CUIPhrase": "seizures",
+        "Negation": "Affirmed",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "31",
+      "end_index": "74",
+      "text": "secondary-generalised-tonic-clonic-seizures",
+      "attributes": {
+        "CUIPhrase": "secondary-generalised-tonic-clonic-seizures",
+        "DiagCategory": "MultipleSeizures",
+        "CUI": "C0877017",
+        "Negation": "Affirmed",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "682",
+      "end_index": "692",
+      "text": "eplilepsy-",
+      "attributes": {
+        "CUI": "C0014544",
+        "CUIPhrase": "epilepsy",
+        "DiagCategory": "Epilepsy",
+        "Negation": "Affirmed",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "151",
+      "end_index": "160",
+      "text": "Tegretaol",
+      "attributes": {
+        "DrugDose": "300",
+        "CUIPhrase": "tegretol",
+        "Frequency": "1",
+        "DrugName": "Carbamazepine",
+        "DoseUnit": "mg",
+        "CUI": "C0700087"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "151",
+      "end_index": "160",
+      "text": "Tegretaol",
+      "attributes": {
+        "CUI": "C0700087",
+        "DrugDose": "200",
+        "Frequency": "1",
+        "DrugName": "Carbamazepine",
+        "CUIPhrase": "tegretol",
+        "DoseUnit": "mg"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "365",
+      "end_index": "373",
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "77",
+      "end_index": "121",
+      "text": "Medicaiton:-Levetiracetam-1000mg-twice-a-day",
+      "attributes": {
+        "DrugName": "levetiracetam",
+        "CUIPhrase": "levetiracetam",
+        "Frequency": "2",
+        "DrugDose": "1000",
+        "CUI": "C0377265",
+        "DoseUnit": "mg"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 151,
+      "end": 160,
+      "text": "Tegretaol",
+      "entity_types": [
+        "Prescription",
+        "Prescription"
+      ],
+      "entity_ids": [
+        "T14",
+        "T15"
+      ]
+    },
+    {
+      "start": 322,
+      "end": 330,
+      "text": "seizures",
+      "entity_types": [
+        "SeizureFrequency",
+        "PatientHistory"
+      ],
+      "entity_ids": [
+        "T7",
+        "T8"
+      ]
+    },
+    {
+      "start": 365,
+      "end": 373,
+      "text": "seizures",
+      "entity_types": [
+        "SeizureFrequency",
+        "PatientHistory"
+      ],
+      "entity_ids": [
+        "T2",
+        "T17"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T18",
+      "type": "Prescription",
+      "text": "Medicaiton:-Levetiracetam-1000mg-twice-a-day",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T14",
+      "type": "Prescription",
+      "text": "Tegretaol",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T15",
+      "type": "Prescription",
+      "text": "Tegretaol",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "text": "seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T17",
+      "type": "PatientHistory",
+      "text": "seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T20",
+      "type": "PatientHistory",
+      "text": "seizures",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T7",
+      "type": "SeizureFrequency",
+      "text": "seizures",
+      "start": 322,
+      "end": 330,
+      "year": null,
+      "period": null,
+      "num_periods": null,
+      "time_since": "Since",
+      "point_in_time": "DrugChange",
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": null
+    },
+    {
+      "id": "T2",
+      "type": "SeizureFrequency",
+      "text": "seizures",
+      "start": 365,
+      "end": 373,
+      "year": null,
+      "period": "Month",
+      "num_periods": "5",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "2"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 3,
+    "Prescription": 3,
+    "SeizureFrequency": 2,
+    "PatientHistory": 3
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "3 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 151,
+          "end": 160,
+          "text": "Tegretaol",
+          "entity_types": [
+            "Prescription",
+            "Prescription"
+          ],
+          "entity_ids": [
+            "T14",
+            "T15"
+          ]
+        },
+        {
+          "start": 322,
+          "end": 330,
+          "text": "seizures",
+          "entity_types": [
+            "SeizureFrequency",
+            "PatientHistory"
+          ],
+          "entity_ids": [
+            "T7",
+            "T8"
+          ]
+        },
+        {
+          "start": 365,
+          "end": 373,
+          "text": "seizures",
+          "entity_types": [
+            "SeizureFrequency",
+            "PatientHistory"
+          ],
+          "entity_ids": [
+            "T2",
+            "T17"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "6 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T18",
+          "type": "Prescription",
+          "text": "Medicaiton:-Levetiracetam-1000mg-twice-a-day",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T14",
+          "type": "Prescription",
+          "text": "Tegretaol",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T15",
+          "type": "Prescription",
+          "text": "Tegretaol",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T8",
+          "type": "PatientHistory",
+          "text": "seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T17",
+          "type": "PatientHistory",
+          "text": "seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T20",
+          "type": "PatientHistory",
+          "text": "seizures",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

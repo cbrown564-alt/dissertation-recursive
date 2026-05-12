@@ -1,0 +1,744 @@
+{
+  "id": "EA0009",
+  "text": "Dear Dr ,\nI reviewed this 42-year-old woman in the clinic this morning.  As you know she has experienced seizures since around 4 weeks after her operation.  This was a craniotomy for her frontal lobe brain tumour.  During her seizures she typically has a left-handed stiffness which progresses to her shoulder.  Around 50% of the time she will then lose consciousness before going in to  a bilateral convulsive seizure.\nHer seizure frequency does vary.  Currently she get around 2-4 seizures per month.  Although she did have a cluster of seizures in August, 2017 where she had 6-9 seizures every week for 3 weeks.  She was born normally but did have 2 febrile seizures at the age of 2 months and 34 months.\nShe is currently taking levetiracetam 750 mg twice a day as well as lamotrigine 100 mg twice a day.  Her last MRI in January, 2018 did show frontal lobe gliosis and signs of previous craniotomy which would be consistent with her previous surgery.\n \nGiven that she is having ongoing seizures I would suggest increasing the lamotrigine in the 1st instance by 25 mg every fortnight until she is on a target dose of 150 mg twice a day\n\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "start": 105,
+      "end": 114,
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "start": 168,
+      "end": 179,
+      "text": "craniotomy-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "craniotomy",
+        "CUI": "C0010280"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "start": 187,
+      "end": 212,
+      "text": "frontal-lobe-brain-tumour",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "brain-tumour",
+        "CUI": "C0006118"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "start": 226,
+      "end": 235,
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "Diagnosis",
+      "start": 390,
+      "end": 418,
+      "text": "bilateral-convulsive-seizure",
+      "attributes": {
+        "DiagCategory": "SingleSeizure",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "bilateral-convulsive-seizure",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "id": "T16",
+      "type": "SeizureFrequency",
+      "start": 483,
+      "end": 490,
+      "text": "seizure",
+      "attributes": {
+        "LowerNumberOfSeizures": "2",
+        "UpperNumberOfSeizures": "4",
+        "TimePeriod": "Month",
+        "NumberOfTimePeriods": "1",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "start": 483,
+      "end": 492,
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T24",
+      "type": "PatientHistory",
+      "start": 528,
+      "end": 546,
+      "text": "cluster-of-seizure",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "cluster-of-seizures",
+        "CUI": "C3203523"
+      }
+    },
+    {
+      "id": "T18",
+      "type": "SeizureFrequency",
+      "start": 528,
+      "end": 547,
+      "text": "cluster-of-seizures",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "MonthDate": "8",
+        "YearDate": "2017",
+        "TimeSince_or_TimeOfEvent": "During",
+        "CUIPhrase": "cluster-of-seizures",
+        "CUI": "C3203523"
+      }
+    },
+    {
+      "id": "T22",
+      "type": "SeizureFrequency",
+      "start": 582,
+      "end": 589,
+      "text": "seizure",
+      "attributes": {
+        "LowerNumberOfSeizures": "6",
+        "UpperNumberOfSeizures": "9",
+        "TimePeriod": "Week",
+        "NumberOfTimePeriods": "1",
+        "MonthDate": "8",
+        "YearDate": "2017",
+        "TimeSince_or_TimeOfEvent": "During",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T20",
+      "type": "PatientHistory",
+      "start": 582,
+      "end": 591,
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T28",
+      "type": "BirthHistory",
+      "start": 624,
+      "end": 637,
+      "text": "born-normally",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "born-normally",
+        "CUI": "C3665337"
+      }
+    },
+    {
+      "id": "T26",
+      "type": "PatientHistory",
+      "start": 653,
+      "end": 669,
+      "text": "febrile-seizures",
+      "attributes": {
+        "AgeUnit": "Month",
+        "AgeLower": "2",
+        "AgeUpper": "34",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "febrile-seizures",
+        "CUI": "C0009952"
+      }
+    },
+    {
+      "id": "T30",
+      "type": "Prescription",
+      "start": 732,
+      "end": 746,
+      "text": "levetiracetam-",
+      "attributes": {
+        "DrugName": "Levetiracetam",
+        "DrugDose": "750",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "levetiracetam",
+        "CUI": "C0377265"
+      }
+    },
+    {
+      "id": "T32",
+      "type": "Prescription",
+      "start": 776,
+      "end": 788,
+      "text": "lamotrigine-",
+      "attributes": {
+        "DrugName": "Lamotrigine",
+        "DrugDose": "100",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "id": "T34",
+      "type": "Investigations",
+      "start": 818,
+      "end": 822,
+      "text": "MRI-",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Abnormal",
+        "CUIPhrase": "mri-abnormal",
+        "CUI": "C1319851"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "start": 861,
+      "end": 869,
+      "text": "gliosis-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "gliosis",
+        "CUI": "C0017639"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "PatientHistory",
+      "start": 891,
+      "end": 901,
+      "text": "craniotomy",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "craniotomy",
+        "CUI": "C0010280"
+      }
+    },
+    {
+      "id": "T36",
+      "type": "PatientHistory",
+      "start": 990,
+      "end": 999,
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "PatientHistory",
+      "start_index": "105",
+      "end_index": "114",
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "168",
+      "end_index": "179",
+      "text": "craniotomy-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "craniotomy",
+        "CUI": "C0010280"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "187",
+      "end_index": "212",
+      "text": "frontal-lobe-brain-tumour",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "brain-tumour",
+        "CUI": "C0006118"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "226",
+      "end_index": "235",
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "390",
+      "end_index": "418",
+      "text": "bilateral-convulsive-seizure",
+      "attributes": {
+        "DiagCategory": "SingleSeizure",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "bilateral-convulsive-seizure",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "483",
+      "end_index": "492",
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "483",
+      "end_index": "490",
+      "text": "seizure",
+      "attributes": {
+        "LowerNumberOfSeizures": "2",
+        "UpperNumberOfSeizures": "4",
+        "TimePeriod": "Month",
+        "NumberOfTimePeriods": "1",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "528",
+      "end_index": "547",
+      "text": "cluster-of-seizures",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "MonthDate": "8",
+        "YearDate": "2017",
+        "TimeSince_or_TimeOfEvent": "During",
+        "CUIPhrase": "cluster-of-seizures",
+        "CUI": "C3203523"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "528",
+      "end_index": "546",
+      "text": "cluster-of-seizure",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "cluster-of-seizures",
+        "CUI": "C3203523"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "582",
+      "end_index": "591",
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "582",
+      "end_index": "589",
+      "text": "seizure",
+      "attributes": {
+        "LowerNumberOfSeizures": "6",
+        "UpperNumberOfSeizures": "9",
+        "TimePeriod": "Week",
+        "NumberOfTimePeriods": "1",
+        "MonthDate": "8",
+        "YearDate": "2017",
+        "TimeSince_or_TimeOfEvent": "During",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "BirthHistory",
+      "start_index": "624",
+      "end_index": "637",
+      "text": "born-normally",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "born-normally",
+        "CUI": "C3665337"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "653",
+      "end_index": "669",
+      "text": "febrile-seizures",
+      "attributes": {
+        "AgeUnit": "Month",
+        "AgeLower": "2",
+        "AgeUpper": "34",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "febrile-seizures",
+        "CUI": "C0009952"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "732",
+      "end_index": "746",
+      "text": "levetiracetam-",
+      "attributes": {
+        "DrugName": "Levetiracetam",
+        "DrugDose": "750",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "levetiracetam",
+        "CUI": "C0377265"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "776",
+      "end_index": "788",
+      "text": "lamotrigine-",
+      "attributes": {
+        "DrugName": "Lamotrigine",
+        "DrugDose": "100",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "818",
+      "end_index": "822",
+      "text": "MRI-",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Abnormal",
+        "CUIPhrase": "mri-abnormal",
+        "CUI": "C1319851"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "861",
+      "end_index": "869",
+      "text": "gliosis-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "gliosis",
+        "CUI": "C0017639"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "891",
+      "end_index": "901",
+      "text": "craniotomy",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "craniotomy",
+        "CUI": "C0010280"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "990",
+      "end_index": "999",
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "text": "seizures-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "text": "craniotomy-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "text": "frontal-lobe-brain-tumour",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "text": "seizures-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "text": "seizures-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T24",
+      "type": "PatientHistory",
+      "text": "cluster-of-seizure",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T20",
+      "type": "PatientHistory",
+      "text": "seizures-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T26",
+      "type": "PatientHistory",
+      "text": "febrile-seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T30",
+      "type": "Prescription",
+      "text": "levetiracetam-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T32",
+      "type": "Prescription",
+      "text": "lamotrigine-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "text": "gliosis-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T11",
+      "type": "PatientHistory",
+      "text": "craniotomy",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T36",
+      "type": "PatientHistory",
+      "text": "seizures-",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T16",
+      "type": "SeizureFrequency",
+      "text": "seizure",
+      "start": 483,
+      "end": 490,
+      "year": null,
+      "period": "Month",
+      "num_periods": "1",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": "2",
+      "upper_seizures": "4",
+      "num_seizures": null
+    },
+    {
+      "id": "T18",
+      "type": "SeizureFrequency",
+      "text": "cluster-of-seizures",
+      "start": 528,
+      "end": 547,
+      "year": "2017",
+      "period": null,
+      "num_periods": null,
+      "time_since": "During",
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "1"
+    },
+    {
+      "id": "T22",
+      "type": "SeizureFrequency",
+      "text": "seizure",
+      "start": 582,
+      "end": 589,
+      "year": "2017",
+      "period": "Week",
+      "num_periods": "1",
+      "time_since": "During",
+      "point_in_time": null,
+      "lower_seizures": "6",
+      "upper_seizures": "9",
+      "num_seizures": null
+    }
+  ],
+  "type_counts": {
+    "PatientHistory": 11,
+    "Diagnosis": 1,
+    "SeizureFrequency": 3,
+    "BirthHistory": 1,
+    "Prescription": 2,
+    "Investigations": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "13 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T2",
+          "type": "PatientHistory",
+          "text": "seizures-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T4",
+          "type": "PatientHistory",
+          "text": "craniotomy-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T6",
+          "type": "PatientHistory",
+          "text": "frontal-lobe-brain-tumour",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T8",
+          "type": "PatientHistory",
+          "text": "seizures-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T14",
+          "type": "PatientHistory",
+          "text": "seizures-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T24",
+          "type": "PatientHistory",
+          "text": "cluster-of-seizure",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T20",
+          "type": "PatientHistory",
+          "text": "seizures-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T26",
+          "type": "PatientHistory",
+          "text": "febrile-seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T30",
+          "type": "Prescription",
+          "text": "levetiracetam-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T32",
+          "type": "Prescription",
+          "text": "lamotrigine-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T10",
+          "type": "PatientHistory",
+          "text": "gliosis-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T11",
+          "type": "PatientHistory",
+          "text": "craniotomy",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T36",
+          "type": "PatientHistory",
+          "text": "seizures-",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

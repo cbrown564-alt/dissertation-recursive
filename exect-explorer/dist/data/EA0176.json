@@ -1,0 +1,261 @@
+{
+  "id": "EA0176",
+  "text": "Re\tMrs Edwina Gurty\tD.O.B 09/09/1992\n\nI am writing regarding the above lady. She has the following diagnoses:\nEpilepsy\nDiabetes \nDepression\nCurrent medication is 500mg bd of levetiracetam.\nEdwina contacted our helpline last weeks. She say that she remains seizure free but is struggling with her mental health. She was upset and tearful at times and understandably worried about everything.\nEdwina had concerns about taking anti-depressant medication and the risk of increased seizures. However I explained that anti-depressants are not contraindicatied in epilepsy and there is some evidence that they might reduced seizures frequency.\nAs you know she has had a normal MRI scan last year and previously has had an abnormal EEG with some generalised (spike and wave) abnormalities.\nThanks very much for your help\n\n",
+  "entities": [
+    {
+      "id": "T7",
+      "type": "Diagnosis",
+      "start": 110,
+      "end": 118,
+      "text": "Epilepsy",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C0014544",
+        "CUIPhrase": "epilepsy",
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "PatientHistory",
+      "start": 119,
+      "end": 127,
+      "text": "Diabetes",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0011847",
+        "CUIPhrase": "diabetes",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "PatientHistory",
+      "start": 129,
+      "end": 139,
+      "text": "Depression",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C0011570",
+        "CUIPhrase": "depression",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "start": 174,
+      "end": 187,
+      "text": "levetiracetam",
+      "attributes": {
+        "DrugDose": "500",
+        "DoseUnit": "mg",
+        "DrugName": "Levetiracetam",
+        "Frequency": "2",
+        "CUI": "C0377265",
+        "CUIPhrase": "levetiracetam"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "SeizureFrequency",
+      "start": 256,
+      "end": 269,
+      "text": "-seizure-free",
+      "attributes": {
+        "CUI": "C1299590",
+        "CUIPhrase": "seizure free",
+        "NumberOfSeizures": "0",
+        "FrequencyChange": "Same"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "Investigations",
+      "start": 670,
+      "end": 673,
+      "text": "MRI",
+      "attributes": {
+        "CUI": "C0436481",
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Normal",
+        "CUIPhrase": "mri-normal"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "Investigations",
+      "start": 724,
+      "end": 727,
+      "text": "EEG",
+      "attributes": {
+        "CUI": "C0151611",
+        "EEG_Performed": "Yes",
+        "CUIPhrase": "eeg-abnormal",
+        "EEG_Results": "Abnormal"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "PatientHistory",
+      "start_index": "129",
+      "end_index": "139",
+      "text": "Depression",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C0011570",
+        "CUIPhrase": "depression",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "670",
+      "end_index": "673",
+      "text": "MRI",
+      "attributes": {
+        "CUI": "C0436481",
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Normal",
+        "CUIPhrase": "mri-normal"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "724",
+      "end_index": "727",
+      "text": "EEG",
+      "attributes": {
+        "CUI": "C0151611",
+        "EEG_Performed": "Yes",
+        "CUIPhrase": "eeg-abnormal",
+        "EEG_Results": "Abnormal"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "256",
+      "end_index": "269",
+      "text": "-seizure-free",
+      "attributes": {
+        "CUI": "C1299590",
+        "CUIPhrase": "seizure",
+        "NumberOfSeizures": "0",
+        "FrequencyChange": "Same"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "119",
+      "end_index": "127",
+      "text": "Diabetes",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0011847",
+        "CUIPhrase": "diabetes",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "174",
+      "end_index": "187",
+      "text": "levetiracetam",
+      "attributes": {
+        "DrugDose": "500",
+        "DoseUnit": "mg",
+        "DrugName": "Levetiracetam",
+        "Frequency": "2",
+        "CUI": "C0377265",
+        "CUIPhrase": "levetiracetam"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "110",
+      "end_index": "118",
+      "text": "Epilepsy",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C0014544",
+        "CUIPhrase": "epilepsy",
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T5",
+      "type": "PatientHistory",
+      "text": "Diabetes",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T1",
+      "type": "PatientHistory",
+      "text": "Depression",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "text": "levetiracetam",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T4",
+      "type": "SeizureFrequency",
+      "text": "-seizure-free",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [],
+  "type_counts": {
+    "Diagnosis": 1,
+    "PatientHistory": 2,
+    "Prescription": 1,
+    "SeizureFrequency": 1,
+    "Investigations": 2
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "4 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T5",
+          "type": "PatientHistory",
+          "text": "Diabetes",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T1",
+          "type": "PatientHistory",
+          "text": "Depression",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T6",
+          "type": "Prescription",
+          "text": "levetiracetam",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T4",
+          "type": "SeizureFrequency",
+          "text": "-seizure-free",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

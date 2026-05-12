@@ -1,0 +1,203 @@
+{
+  "id": "EA0097",
+  "text": "Date 25/02/2019\nNHS No: 564 555 8777\n\nDear Dr\n\nRe: \tRichard Lewis\tD.O.B. 23/02/1974\n\nProblems:\tRecurrent episodes of transient loss of consciousness\n\nDiagnosis:\tProbable focal onset epilepsy\n\nMedication:\tTo start levetiracetam as detailed below\n\nI reviewed this 45-year-old gentleman by telephone consultation today. He continues to get events of loss of consciousness which are difficult to remember for him. Perhaps his last event was in early January.\n\nI did manage to speak with his Wife today. She has seen several events, during these Mr Lewis’ right arm will go stiff before he will collapse to the floor. He shakes and makes unusual guttural noises which can last several minutes. He can sometimes bite his tongue and it takes a few hours for him to recover.\n\nThe description of these events today is in keeping with epileptic seizures. I think that Mr Lewis does therefore probably have epilepsy.\n\nI would be grateful if you could start levetiracetam at 250mg once a day increasing by 250mg every two weeks until he is taking 500mg twice a day. I explained that levetiracetam can cause mood disturbance and tiredness, I’ve enclosed an information leaflet about levetiracetam with this letter.\nI will ask the epilepsy nurses to go through the new diagnosis and I have reminded Mr Lewis about the DVLA driving regulations.\n\n\nYours sincerely\n",
+  "entities": [
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "start": 117,
+      "end": 148,
+      "text": "transient-loss-of-consciousness",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "transient-loss-of-consciousness",
+        "CUI": "C4087400"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "Diagnosis",
+      "start": 170,
+      "end": 190,
+      "text": "focal-onset-epilepsy",
+      "attributes": {
+        "CUIPhrase": "focal-onset-epilepsy",
+        "DiagCategory": "Epilepsy",
+        "Certainty": "4",
+        "CUI": "C0014547",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "start": 347,
+      "end": 368,
+      "text": "loss-of-consciousness",
+      "attributes": {
+        "CUIPhrase": "loss-of-consciousness",
+        "CUI": "C0041657",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Diagnosis",
+      "start": 825,
+      "end": 843,
+      "text": "epileptic-seizures",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "epileptic-seizures",
+        "CUI": "C4317109",
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "4"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "Diagnosis",
+      "start": 896,
+      "end": 904,
+      "text": "epilepsy",
+      "attributes": {
+        "Certainty": "4",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544",
+        "DiagCategory": "Epilepsy",
+        "Negation": "Affirmed"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "PatientHistory",
+      "start_index": "117",
+      "end_index": "148",
+      "text": "transient-loss-of-consciousness",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "transient-loss-of-consciousness",
+        "CUI": "C4087400"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "170",
+      "end_index": "190",
+      "text": "focal-onset-epilepsy",
+      "attributes": {
+        "CUIPhrase": "focal-onset-epilepsy",
+        "DiagCategory": "Epilepsy",
+        "Certainty": "4",
+        "CUI": "C0014547",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "347",
+      "end_index": "368",
+      "text": "loss-of-consciousness",
+      "attributes": {
+        "CUIPhrase": "loss-of-consciousness",
+        "CUI": "C0041657",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "825",
+      "end_index": "843",
+      "text": "epileptic-seizures",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "epileptic-seizures",
+        "CUI": "C4317109",
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "4"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "896",
+      "end_index": "904",
+      "text": "epilepsy",
+      "attributes": {
+        "Certainty": "4",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544",
+        "DiagCategory": "Epilepsy",
+        "Negation": "Affirmed"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "text": "transient-loss-of-consciousness",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "text": "loss-of-consciousness",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [],
+  "type_counts": {
+    "PatientHistory": 2,
+    "Diagnosis": 3
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "2 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T6",
+          "type": "PatientHistory",
+          "text": "transient-loss-of-consciousness",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T2",
+          "type": "PatientHistory",
+          "text": "loss-of-consciousness",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [
+    {
+      "id": "T1",
+      "type": "Diagnosis",
+      "text": "focal-onset-epilepsy",
+      "certainty": 4
+    },
+    {
+      "id": "T4",
+      "type": "Diagnosis",
+      "text": "epileptic-seizures",
+      "certainty": 4
+    },
+    {
+      "id": "T5",
+      "type": "Diagnosis",
+      "text": "epilepsy",
+      "certainty": 4
+    }
+  ],
+  "has_unknown_seizure": false
+}

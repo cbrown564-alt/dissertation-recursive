@@ -1,0 +1,513 @@
+{
+  "id": "EA0167",
+  "text": "Dear Dr Pooled\n\nRe: Mr Jason Spirits\tD.O.B. 18/08/1949\n\nI reviewed this 65 year old man in clinic today. As you know he has symptomatic structural temporal lobe epilepsy caused by his previous herpes encephalitis. He is currently taking carbamazepine (Tegretol retard) 400mg twice a day as well as sodium valproate 400mg twice a day.\n\nJason has been having some problems with anxiety recently and I note that you have started him on sertraline for this which seems to have helped a bit. In terms of his epilepsy, things are relatively stable. His sister (who was with him in clinic today) said that he has had around 5 seizures in the last year which is good for him. Jason gets focal seizures with altered awareness where he will have an abnormal sensation on the right side of his body and then find it difficult to talk. He might pick at his clothes during these according to his sister.\n\nWe had a chat about the cause of his epilepsy which happened because of his nasty encephalitis infection a few years ago (herpes encephalitis). We discussed various treatment options and it may be worth increasing the carbamazepine slightly to help with the seizures and the anxiety. I would increase it to 600mg in the morning and 400mg in the evening and then to 600mg bd after a few weeks if tolerated.\n\nWe will keep Jason under review in this clinic\n",
+  "entities": [
+    {
+      "id": "T13",
+      "type": "Diagnosis",
+      "start": 124,
+      "end": 169,
+      "text": "symptomatic-structural-temporal-lobe-epilepsy",
+      "attributes": {
+        "Negation": "Affirmed",
+        "DiagCategory": "Epilepsy",
+        "CUI": "C0472349",
+        "Certainty": "5",
+        "CUIPhrase": "symptomatic-structural-focal-epilepsy"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "Diagnosis",
+      "start": 146,
+      "end": 169,
+      "text": "-temporal-lobe-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "CUI": "C0014556",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUIPhrase": "temporal-lobe-epilepsy"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "EpilepsyCause",
+      "start": 193,
+      "end": 212,
+      "text": "herpes-encephalitis",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "herpes-encephalitis",
+        "CUI": "C0276226"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "start": 193,
+      "end": 212,
+      "text": "herpes-encephalitis",
+      "attributes": {
+        "CUI": "C0014038",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUIPhrase": "encephalitis"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "Prescription",
+      "start": 214,
+      "end": 332,
+      "text": "He-is-currently-taking-carbamazepine-(Tegretol-retard)-400mg-twice-a-day-as-well-as-sodium-valproate-400mg-twice-a-day",
+      "attributes": {
+        "DrugName": "carbamazepine",
+        "CUIPhrase": "carbamazepine",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUI": "C0006949",
+        "DrugDose": "400"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Prescription",
+      "start": 298,
+      "end": 332,
+      "text": "sodium-valproate-400mg-twice-a-day",
+      "attributes": {
+        "DrugDose": "400",
+        "DrugName": "SodiumValproate",
+        "Frequency": "2",
+        "DoseUnit": "mg",
+        "CUI": "C0037567",
+        "CUIPhrase": "sodium-valproate"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "PatientHistory",
+      "start": 376,
+      "end": 384,
+      "text": "anxiety-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUI": "C0003467",
+        "CUIPhrase": "anxiety"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "Diagnosis",
+      "start": 503,
+      "end": 511,
+      "text": "epilepsy",
+      "attributes": {
+        "CUI": "C0014544",
+        "Certainty": "5",
+        "CUIPhrase": "epilepsy",
+        "Negation": "Affirmed",
+        "DiagCategory": "Epilepsy"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "SeizureFrequency",
+      "start": 619,
+      "end": 628,
+      "text": "seizures-",
+      "attributes": {
+        "PointInTime": "Last_Year",
+        "TimeSince_or_TimeOfEvent": "During",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572",
+        "NumberOfSeizures": "5"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Diagnosis",
+      "start": 679,
+      "end": 717,
+      "text": "focal-seizures-with-altered-awareness-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-seizures-with-altered-awareness",
+        "CUI": "C0270834",
+        "DiagCategory": "MultipleSeizures"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "Diagnosis",
+      "start": 929,
+      "end": 938,
+      "text": "epilepsy-",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0014544",
+        "Negation": "Affirmed",
+        "DiagCategory": "Epilepsy",
+        "CUIPhrase": "epilepsy"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "EpilepsyCause",
+      "start": 974,
+      "end": 986,
+      "text": "encephalitis",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0014038",
+        "Negation": "Affirmed",
+        "CUIPhrase": "encephalitis"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "start": 974,
+      "end": 986,
+      "text": "encephalitis",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "encephalitis",
+        "Certainty": "5",
+        "CUI": "C0014038"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "EpilepsyCause",
+      "start_index": "193",
+      "end_index": "212",
+      "text": "herpes-encephalitis",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "herpes-encephalitis",
+        "CUI": "C0276226"
+      }
+    },
+    {
+      "entity": "EpilepsyCause",
+      "start_index": "974",
+      "end_index": "986",
+      "text": "encephalitis",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0014038",
+        "Negation": "Affirmed",
+        "CUIPhrase": "encephalitis"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "214",
+      "end_index": "332",
+      "text": "He-is-currently-taking-carbamazepine-(Tegretol-retard)-400mg-twice-a-day-as-well-as-sodium-valproate-400mg-twice-a-day",
+      "attributes": {
+        "DrugName": "carbamazepine",
+        "CUIPhrase": "carbamazepine",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUI": "C0006949",
+        "DrugDose": "400"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "929",
+      "end_index": "938",
+      "text": "epilepsy-",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0014544",
+        "Negation": "Affirmed",
+        "DiagCategory": "Epilepsy",
+        "CUIPhrase": "epilepsy"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "974",
+      "end_index": "986",
+      "text": "encephalitis",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "encephalitis",
+        "Certainty": "5",
+        "CUI": "C0014038"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "376",
+      "end_index": "384",
+      "text": "anxiety-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUI": "C0003467",
+        "CUIPhrase": "anxiety"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "679",
+      "end_index": "717",
+      "text": "focal-seizures-with-altered-awareness-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-seizures-with-altered-awareness",
+        "CUI": "C0270834",
+        "DiagCategory": "MultipleSeizures"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "503",
+      "end_index": "511",
+      "text": "epilepsy",
+      "attributes": {
+        "CUI": "C0014544",
+        "Certainty": "5",
+        "CUIPhrase": "epilepsy",
+        "Negation": "Affirmed",
+        "DiagCategory": "Epilepsy"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "298",
+      "end_index": "332",
+      "text": "sodium-valproate-400mg-twice-a-day",
+      "attributes": {
+        "DrugDose": "400",
+        "DrugName": "SodiumValproate",
+        "Frequency": "2",
+        "DoseUnit": "mg",
+        "CUI": "C0037567",
+        "CUIPhrase": "sodium-valproate"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "193",
+      "end_index": "212",
+      "text": "herpes-encephalitis",
+      "attributes": {
+        "CUI": "C0014038",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUIPhrase": "encephalitis"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "619",
+      "end_index": "628",
+      "text": "seizures-",
+      "attributes": {
+        "PointInTime": "Last_Year",
+        "TimeSince_or_TimeOfEvent": "During",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572",
+        "NumberOfSeizures": "5"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "124",
+      "end_index": "169",
+      "text": "symptomatic-structural-temporal-lobe-epilepsy",
+      "attributes": {
+        "Negation": "Affirmed",
+        "DiagCategory": "Epilepsy",
+        "CUI": "C0472349",
+        "Certainty": "5",
+        "CUIPhrase": "symptomatic-structural-focal-epilepsy"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "146",
+      "end_index": "169",
+      "text": "-temporal-lobe-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "CUI": "C0014556",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUIPhrase": "temporal-lobe-epilepsy"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 193,
+      "end": 212,
+      "text": "herpes-encephalitis",
+      "entity_types": [
+        "EpilepsyCause",
+        "PatientHistory"
+      ],
+      "entity_ids": [
+        "T11",
+        "T9"
+      ]
+    },
+    {
+      "start": 974,
+      "end": 986,
+      "text": "encephalitis",
+      "entity_types": [
+        "EpilepsyCause",
+        "PatientHistory"
+      ],
+      "entity_ids": [
+        "T1",
+        "T4"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "text": "herpes-encephalitis",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T2",
+      "type": "Prescription",
+      "text": "He-is-currently-taking-carbamazepine-(Tegretol-retard)-400mg-twice-a-day-as-well-as-sodium-valproate-400mg-twice-a-day",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T8",
+      "type": "Prescription",
+      "text": "sodium-valproate-400mg-twice-a-day",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T5",
+      "type": "PatientHistory",
+      "text": "anxiety-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "text": "encephalitis",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T10",
+      "type": "SeizureFrequency",
+      "text": "seizures-",
+      "start": 619,
+      "end": 628,
+      "year": null,
+      "period": null,
+      "num_periods": null,
+      "time_since": "During",
+      "point_in_time": "Last_Year",
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "5"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 5,
+    "EpilepsyCause": 2,
+    "PatientHistory": 3,
+    "Prescription": 2,
+    "SeizureFrequency": 1
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "2 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 193,
+          "end": 212,
+          "text": "herpes-encephalitis",
+          "entity_types": [
+            "EpilepsyCause",
+            "PatientHistory"
+          ],
+          "entity_ids": [
+            "T11",
+            "T9"
+          ]
+        },
+        {
+          "start": 974,
+          "end": 986,
+          "text": "encephalitis",
+          "entity_types": [
+            "EpilepsyCause",
+            "PatientHistory"
+          ],
+          "entity_ids": [
+            "T1",
+            "T4"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "5 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T9",
+          "type": "PatientHistory",
+          "text": "herpes-encephalitis",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T2",
+          "type": "Prescription",
+          "text": "He-is-currently-taking-carbamazepine-(Tegretol-retard)-400mg-twice-a-day-as-well-as-sodium-valproate-400mg-twice-a-day",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T8",
+          "type": "Prescription",
+          "text": "sodium-valproate-400mg-twice-a-day",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T5",
+          "type": "PatientHistory",
+          "text": "anxiety-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T4",
+          "type": "PatientHistory",
+          "text": "encephalitis",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

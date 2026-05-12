@@ -1,0 +1,596 @@
+{
+  "id": "EA0082",
+  "text": "Epilepsy service\nOur ref:\tRE/AS/Q12453\nNHS No:\t4785326658\nDate: \t\t10/03/2017\nClinic Date \t10/03/2017\n\n\nDear Dr\n\nre: Mr Hebert Llewelyn D.O.B: 3/1/1997\n53, Rich Terrace, Hightown. CF10 8DJ\n\nDiagnosis:\tJuvenile absence epilepsy\n\t\tDissociative seizures\n\nMedication:\tSodium valproate 500mg bd\n\t\tClobazam 10mg od\n\t\tZonisamide 50mg bd\n\nInvestigations:\tMRI 2016 normal\n\t\tEEG 2016 normal\n\t\tEEG 2015 frequent generalised spike and wave\n\nI reviewed this 20-year-old man today in clinic. He is relatively well although the absences continue fairly frequent, he probably gets 2-3 per day. His last generalised tonic clonic seizure was two years ago. He continues to get some clinical photosensitivity where sunlight through trees can make him feel uncomfortable and sometimes trigger absences. Changing the levetiracetam to zonisamide has helped his mood.\n\nHe understands the DVLA laws on driving with epilepsy. I was glad to hear that Herbert is going to study engineering in college shortly and I wish him luck with that. In the mean time I would suggest increasing the zonismaide to 75mg bd. If he has further clusters then the clobazam can also be increased.\n\nYours\n",
+  "entities": [
+    {
+      "id": "T15",
+      "type": "Diagnosis",
+      "start": 200,
+      "end": 225,
+      "text": "Juvenile-absence-epilepsy",
+      "attributes": {
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "DiagCategory": "Epilepsy",
+        "CUIPhrase": "juvenile-absence-epilepsy",
+        "CUI": "C4317339"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "start": 228,
+      "end": 249,
+      "text": "Dissociative-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUI": "C0349245",
+        "CUIPhrase": "dissociative-seizures"
+      }
+    },
+    {
+      "id": "T16",
+      "type": "Prescription",
+      "start": 263,
+      "end": 288,
+      "text": "Sodium-valproate-500mg-bd",
+      "attributes": {
+        "CUI": "C0037567",
+        "DrugDose": "500",
+        "CUIPhrase": "sodium-valproate",
+        "Frequency": "2",
+        "DrugName": "sodium-valproate",
+        "DoseUnit": "mg"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "start": 291,
+      "end": 307,
+      "text": "Clobazam-10mg-od",
+      "attributes": {
+        "DrugName": "clobazam",
+        "CUI": "C0055891",
+        "DoseUnit": "mg",
+        "Frequency": "1",
+        "CUIPhrase": "clobazam",
+        "DrugDose": "10"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "Prescription",
+      "start": 310,
+      "end": 328,
+      "text": "Zonisamide-50mg-bd",
+      "attributes": {
+        "CUIPhrase": "zonisamide",
+        "Frequency": "2",
+        "CUI": "C0078844",
+        "DrugName": "zonisamide",
+        "DoseUnit": "mg",
+        "DrugDose": "50"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "Investigations",
+      "start": 346,
+      "end": 349,
+      "text": "MRI",
+      "attributes": {
+        "CUIPhrase": "mri-normal",
+        "MRI_Results": "Normal",
+        "MRI_Performed": "Yes",
+        "CUI": "C0436481"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "Investigations",
+      "start": 364,
+      "end": 367,
+      "text": "EEG",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "CUIPhrase": "eeg-normal",
+        "EEG_Results": "Normal",
+        "CUI": "C0560017"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "Investigations",
+      "start": 382,
+      "end": 385,
+      "text": "EEG",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Abnormal",
+        "CUIPhrase": "abnormal-eeg",
+        "CUI": "C0151611"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "SeizureFrequency",
+      "start": 512,
+      "end": 520,
+      "text": "absences",
+      "attributes": {
+        "LowerNumberOfSeizures": "2",
+        "UpperNumberOfSeizures": "3",
+        "TimePeriod": "Day",
+        "NumberOfTimePeriods": "1",
+        "TimeSince_or_TimeOfEvent": "During",
+        "CUIPhrase": "absences",
+        "CUI": "C0563606"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "SeizureFrequency",
+      "start": 512,
+      "end": 520,
+      "text": "absences",
+      "attributes": {
+        "FrequencyChange": "Frequent",
+        "CUIPhrase": "absences",
+        "CUI": "C0563606"
+      }
+    },
+    {
+      "id": "T13",
+      "type": "PatientHistory",
+      "start": 512,
+      "end": 520,
+      "text": "absences",
+      "attributes": {
+        "CUI": "C0563606",
+        "CUIPhrase": "absences",
+        "Negation": "Affirmed",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "SeizureFrequency",
+      "start": 586,
+      "end": 617,
+      "text": "generalised-tonic-clonic-seizur",
+      "attributes": {
+        "TimePeriod": "Year",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "generalised tonic clonic seizure",
+        "CUI": "C0494475",
+        "NumberOfSeizures": "0",
+        "NumberOfTimePeriods": "2"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "Diagnosis",
+      "start": 586,
+      "end": 619,
+      "text": "generalised-tonic-clonic-seizure-",
+      "attributes": {
+        "CUIPhrase": "generalised-tonic-clonic-seizure",
+        "DiagCategory": "MultipleSeizures",
+        "Negation": "Affirmed",
+        "CUI": "C0494475",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "start": 672,
+      "end": 688,
+      "text": "photosensitivity",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "photosensitivity",
+        "Certainty": "5",
+        "CUI": "C3552821"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "start": 772,
+      "end": 780,
+      "text": "absences",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "absences",
+        "Certainty": "5",
+        "CUI": "C0563606"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Investigations",
+      "start_index": "346",
+      "end_index": "349",
+      "text": "MRI",
+      "attributes": {
+        "CUIPhrase": "mri-normal",
+        "MRI_Results": "Normal",
+        "MRI_Performed": "Yes",
+        "CUI": "C0436481"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "382",
+      "end_index": "385",
+      "text": "EEG",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Abnormal",
+        "CUIPhrase": "abnormal-eeg",
+        "CUI": "C0151611"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "310",
+      "end_index": "328",
+      "text": "Zonisamide-50mg-bd",
+      "attributes": {
+        "CUIPhrase": "zonisamide",
+        "Frequency": "2",
+        "CUI": "C0078844",
+        "DrugName": "zonisamide",
+        "DoseUnit": "mg",
+        "DrugDose": "50"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "291",
+      "end_index": "307",
+      "text": "Clobazam-10mg-od",
+      "attributes": {
+        "DrugName": "clobazam",
+        "CUI": "C0055891",
+        "DoseUnit": "mg",
+        "Frequency": "1",
+        "CUIPhrase": "clobazam",
+        "DrugDose": "10"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "512",
+      "end_index": "520",
+      "text": "absences",
+      "attributes": {
+        "LowerNumberOfSeizures": "2",
+        "UpperNumberOfSeizures": "3",
+        "TimePeriod": "Day",
+        "NumberOfTimePeriods": "1",
+        "TimeSince_or_TimeOfEvent": "During",
+        "CUIPhrase": "absences",
+        "CUI": "C0563606"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "512",
+      "end_index": "520",
+      "text": "absences",
+      "attributes": {
+        "FrequencyChange": "Frequent",
+        "CUIPhrase": "absences",
+        "CUI": "C0563606"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "586",
+      "end_index": "619",
+      "text": "generalised-tonic-clonic-seizure-",
+      "attributes": {
+        "CUIPhrase": "generalised-tonic-clonic-seizure",
+        "DiagCategory": "MultipleSeizures",
+        "Negation": "Affirmed",
+        "CUI": "C0494475",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "228",
+      "end_index": "249",
+      "text": "Dissociative-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUI": "C0349245",
+        "CUIPhrase": "dissociative-seizures"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "586",
+      "end_index": "617",
+      "text": "generalised-tonic-clonic-seizur",
+      "attributes": {
+        "TimePeriod": "Year",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "generalised",
+        "CUI": "C0494475",
+        "NumberOfSeizures": "0",
+        "NumberOfTimePeriods": "2"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "364",
+      "end_index": "367",
+      "text": "EEG",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "CUIPhrase": "eeg-normal",
+        "EEG_Results": "Normal",
+        "CUI": "C0560017"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "200",
+      "end_index": "225",
+      "text": "Juvenile-absence-epilepsy",
+      "attributes": {
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "DiagCategory": "Epilepsy",
+        "CUIPhrase": "juvenile-absence-epilepsy",
+        "CUI": "C4317339"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "263",
+      "end_index": "288",
+      "text": "Sodium-valproate-500mg-bd",
+      "attributes": {
+        "CUI": "C0037567",
+        "DrugDose": "500",
+        "CUIPhrase": "sodium-valproate",
+        "Frequency": "2",
+        "DrugName": "sodium-valproate",
+        "DoseUnit": "mg"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "672",
+      "end_index": "688",
+      "text": "photosensitivity",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "photosensitivity",
+        "Certainty": "5",
+        "CUI": "C3552821"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "512",
+      "end_index": "520",
+      "text": "absences",
+      "attributes": {
+        "CUI": "C0563606",
+        "CUIPhrase": "absences",
+        "Negation": "Affirmed",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "772",
+      "end_index": "780",
+      "text": "absences",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "absences",
+        "Certainty": "5",
+        "CUI": "C0563606"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 512,
+      "end": 520,
+      "text": "absences",
+      "entity_types": [
+        "SeizureFrequency",
+        "SeizureFrequency",
+        "PatientHistory"
+      ],
+      "entity_ids": [
+        "T10",
+        "T11",
+        "T13"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "text": "Dissociative-seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T16",
+      "type": "Prescription",
+      "text": "Sodium-valproate-500mg-bd",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "text": "Clobazam-10mg-od",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T3",
+      "type": "Prescription",
+      "text": "Zonisamide-50mg-bd",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T11",
+      "type": "SeizureFrequency",
+      "text": "absences",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T13",
+      "type": "PatientHistory",
+      "text": "absences",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "text": "photosensitivity",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "text": "absences",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T10",
+      "type": "SeizureFrequency",
+      "text": "absences",
+      "start": 512,
+      "end": 520,
+      "year": null,
+      "period": "Day",
+      "num_periods": "1",
+      "time_since": "During",
+      "point_in_time": null,
+      "lower_seizures": "2",
+      "upper_seizures": "3",
+      "num_seizures": null
+    },
+    {
+      "id": "T7",
+      "type": "SeizureFrequency",
+      "text": "generalised-tonic-clonic-seizur",
+      "start": 586,
+      "end": 617,
+      "year": null,
+      "period": "Year",
+      "num_periods": "2",
+      "time_since": "Since",
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 2,
+    "PatientHistory": 4,
+    "Prescription": 3,
+    "Investigations": 3,
+    "SeizureFrequency": 3
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "1 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 512,
+          "end": 520,
+          "text": "absences",
+          "entity_types": [
+            "SeizureFrequency",
+            "SeizureFrequency",
+            "PatientHistory"
+          ],
+          "entity_ids": [
+            "T10",
+            "T11",
+            "T13"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "8 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T6",
+          "type": "PatientHistory",
+          "text": "Dissociative-seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T16",
+          "type": "Prescription",
+          "text": "Sodium-valproate-500mg-bd",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T4",
+          "type": "Prescription",
+          "text": "Clobazam-10mg-od",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T3",
+          "type": "Prescription",
+          "text": "Zonisamide-50mg-bd",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T11",
+          "type": "SeizureFrequency",
+          "text": "absences",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T13",
+          "type": "PatientHistory",
+          "text": "absences",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T12",
+          "type": "PatientHistory",
+          "text": "photosensitivity",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T14",
+          "type": "PatientHistory",
+          "text": "absences",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

@@ -1,0 +1,949 @@
+{
+  "id": "EA0134",
+  "text": "Clinic Date 5/10/2016\n\nDear Dr,\n\nRe: \tMrs Sylvia Lorenzo. DOB 18/02/1954\n\nI reviewed this 52-year-old woman in clinic today, together with her husband. She was referred for ongoing management of her epilepsy and so I will recap her epilepsy history.\n\nMrs Lorenzo was born normally. She had one febrile seizure at the age of 3 years. She had a mild viral meningitis at the age of 18 years but has not had any encephalitis or significant head injuries.  She had three A-levels and studied law at university before going on to work as a paralegal. At the age of 32 she had a significant collapse and was found to have a sub-arachnoid haemorrhage due to a ruptured ACA aneurysm. This was treated with endovascular coiling. She possibly had one seizure at the time of the subarachnoid haemorrhage but was not started on medication as it was thought that this was an acute symptomatic seizures.\n\nThree years later, at the age of 35 she had two episodes of transient loss of consciousness which were thought to be tonic-clonic seizures and she was diagnosed with epilepsy at the age of 36. Initially she was treated with phenytoin but this was switched to levetiracetam 2 years ago. Currently she is taking 750mg twice a day of the levetiracetam and her last seizure was 2 years ago. She has returned to work and is driving. She lives with her husband and two sons. He youngest son had 2 febrile seizures and had childhood absence epilepsy although he is now seizure free. She doesn’t smoke but drinks around 12 units of alcohol (6 cans of lager) a week.\n\nApart from the epilepsy she takes ramipril for hypertension and simvastatin for hypercolestrolaemia.\n\nMrs Lorenzo does find that she is very irritable and short tempered since starting the levetiracetam. This seems to be having an effect on her quality of life and she would be very keen to change this.\n\nHer neurological examination today was essentially normal. Blood pressure was 126/67, her pulse was 68 and regular.\n\nA recent CT scan on 3/7/2016 is degraded but the artefact from the coil but does show an area of gliosis in the right frontal lobe. An EEG from 1990 shows slow waves with ocassional right sided sharp waves.\n\nI agree with the diagnosis of symptomatic structural epilepsy, secondary to the previous sub-arachnoid haemorrhage. Given the significant modd changes which are likely due to side effects of the levetiracetam I would suggest changing to brivetiracetam. This can be done with a straight switch to 75mg bd of the brivetiracetam. I went through the DVLA guideance on driving when switching medication.\n\nI will review her in clinic in 6 months time and will ask for an epilepsy nurse review.\n\nYours\n\n\n",
+  "entities": [
+    {
+      "id": "T19",
+      "type": "Diagnosis",
+      "start": 199,
+      "end": 208,
+      "text": "epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUI": "C0014544",
+        "CUIPhrase": "epilepsy"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "BirthHistory",
+      "start": 267,
+      "end": 280,
+      "text": "born-normally",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "born-normally",
+        "CUI": "C3665337"
+      }
+    },
+    {
+      "id": "T18",
+      "type": "PatientHistory",
+      "start": 294,
+      "end": 309,
+      "text": "febrile-seizure",
+      "attributes": {
+        "CUI": "C0009952",
+        "CUIPhrase": "febrile-seizure",
+        "Age": "3",
+        "Certainty": "5",
+        "AgeUnit": "Year",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T23",
+      "type": "PatientHistory",
+      "start": 348,
+      "end": 364,
+      "text": "viral-meningitis",
+      "attributes": {
+        "CUI": "C0025289",
+        "CUIPhrase": "meningitis",
+        "Age": "18",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "AgeUnit": "Year"
+      }
+    },
+    {
+      "id": "T22",
+      "type": "PatientHistory",
+      "start": 584,
+      "end": 592,
+      "text": "collapse",
+      "attributes": {
+        "AgeUnit": "Year",
+        "Age": "32",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "collapse",
+        "CUI": "C0344329"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "start": 617,
+      "end": 642,
+      "text": "sub-arachnoid-haemorrhage",
+      "attributes": {
+        "CUI": "C0038525",
+        "Age": "32",
+        "Certainty": "5",
+        "CUIPhrase": "subarachnoid-haemorrhage",
+        "AgeUnit": "Year",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T13",
+      "type": "PatientHistory",
+      "start": 652,
+      "end": 673,
+      "text": "ruptured-ACA-aneurysm",
+      "attributes": {
+        "CUI": "C0242084",
+        "CUIPhrase": "ruptured cerebral aneurysm",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "AgeUnit": "Year",
+        "Age": "32"
+      }
+    },
+    {
+      "id": "T20",
+      "type": "PatientHistory",
+      "start": 740,
+      "end": 748,
+      "text": "seizure-",
+      "attributes": {
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572",
+        "Certainty": "3",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "PatientHistory",
+      "start": 767,
+      "end": 791,
+      "text": "subarachnoid-haemorrhage",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C0038525",
+        "Certainty": "5",
+        "CUIPhrase": "subarachnoid haemorrhage"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "PatientHistory",
+      "start": 861,
+      "end": 887,
+      "text": "acute-symptomatic-seizures",
+      "attributes": {
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "symptomatic seizures",
+        "CUI": "C4023516"
+      }
+    },
+    {
+      "id": "T16",
+      "type": "PatientHistory",
+      "start": 950,
+      "end": 981,
+      "text": "transient-loss-of-consciousness",
+      "attributes": {
+        "Age": "35",
+        "Certainty": "5",
+        "CUI": "C4087400",
+        "Negation": "Affirmed",
+        "AgeUnit": "Year",
+        "CUIPhrase": "Transient loss of consciousness"
+      }
+    },
+    {
+      "id": "T21",
+      "type": "Diagnosis",
+      "start": 1007,
+      "end": 1028,
+      "text": "tonic-clonic-seizures",
+      "attributes": {
+        "Certainty": "4",
+        "CUIPhrase": "tonic-clonic-seizures",
+        "Negation": "Affirmed",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "WhenDiagnosed",
+      "start": 1056,
+      "end": 1063,
+      "text": "epileps",
+      "attributes": {
+        "Age": "36",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544",
+        "AgeUnit": "Year",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "Diagnosis",
+      "start": 1056,
+      "end": 1065,
+      "text": "epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544",
+        "Negation": "Affirmed",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "start": 1225,
+      "end": 1239,
+      "text": "levetiracetam-",
+      "attributes": {
+        "CUIPhrase": "levetiracetam",
+        "CUI": "C0377265",
+        "DoseUnit": "mg",
+        "DrugName": "Levetiracetam",
+        "Frequency": "2",
+        "DrugDose": "750"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "start": 1252,
+      "end": 1259,
+      "text": "seizure",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "start": 1252,
+      "end": 1259,
+      "text": "seizure",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T17",
+      "type": "SeizureFrequency",
+      "start": 1252,
+      "end": 1260,
+      "text": "seizure-",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "CUI": "C0036572",
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "2",
+        "CUIPhrase": "seizure"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "start": 1596,
+      "end": 1609,
+      "text": "hypertension-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUI": "C0020538",
+        "CUIPhrase": "hypertension"
+      }
+    },
+    {
+      "id": "T15",
+      "type": "Investigations",
+      "start": 1980,
+      "end": 1983,
+      "text": "CT-",
+      "attributes": {
+        "CT_Performed": "Yes",
+        "CUIPhrase": "ct-abnormal",
+        "CT_Results": "Abnormal",
+        "CUI": "C0436539"
+      }
+    },
+    {
+      "id": "T222",
+      "type": "PatientHistory",
+      "start": 2068,
+      "end": 2075,
+      "text": "gliosis",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "gliosis",
+        "CUI": "C0017639"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Investigations",
+      "start": 2106,
+      "end": 2110,
+      "text": "EEG-",
+      "attributes": {
+        "EEG_Results": "Abnormal",
+        "CUI": "C0151611",
+        "CUIPhrase": "eeg-abnormal",
+        "EEG_Performed": "Yes"
+      }
+    },
+    {
+      "id": "T24",
+      "type": "Diagnosis",
+      "start": 2209,
+      "end": 2240,
+      "text": "symptomatic-structural-epilepsy",
+      "attributes": {
+        "Negation": "Affirmed",
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "CUI": "C0472349",
+        "CUIPhrase": "symptomatic-structural-focal-epilepsy"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "EpilepsyCause",
+      "start": 2268,
+      "end": 2292,
+      "text": "sub-arachnoid-haemorrhag",
+      "attributes": {
+        "CUIPhrase": "subarachnoid-haemorrhage",
+        "Certainty": "5",
+        "CUI": "C0038525",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "PatientHistory",
+      "start": 2268,
+      "end": 2293,
+      "text": "sub-arachnoid-haemorrhage",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C0038525",
+        "CUIPhrase": "subarachnoid-haemorrhage",
+        "Certainty": "5"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "BirthHistory",
+      "start_index": "267",
+      "end_index": "280",
+      "text": "born-normally",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "born-normally",
+        "CUI": "C3665337"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "584",
+      "end_index": "592",
+      "text": "collapse",
+      "attributes": {
+        "AgeUnit": "Year",
+        "Age": "32",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "collapse",
+        "CUI": "C0344329"
+      }
+    },
+    {
+      "entity": "WhenDiagnosed",
+      "start_index": "1056",
+      "end_index": "1063",
+      "text": "epileps",
+      "attributes": {
+        "Age": "36",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544",
+        "AgeUnit": "Year",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1056",
+      "end_index": "1065",
+      "text": "epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544",
+        "Negation": "Affirmed",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "1225",
+      "end_index": "1239",
+      "text": "levetiracetam-",
+      "attributes": {
+        "CUIPhrase": "levetiracetam",
+        "CUI": "C0377265",
+        "DoseUnit": "mg",
+        "DrugName": "Levetiracetam",
+        "Frequency": "2",
+        "DrugDose": "750"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "861",
+      "end_index": "887",
+      "text": "acute-symptomatic-seizures",
+      "attributes": {
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "symptomatic",
+        "CUI": "C4023516"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1252",
+      "end_index": "1259",
+      "text": "seizure",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1252",
+      "end_index": "1259",
+      "text": "seizure",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "2068",
+      "end_index": "2075",
+      "text": "gliosis",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "gliosis",
+        "CUI": "C0017639"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "2106",
+      "end_index": "2110",
+      "text": "EEG-",
+      "attributes": {
+        "EEG_Results": "Abnormal",
+        "CUI": "C0151611",
+        "CUIPhrase": "eeg-abnormal",
+        "EEG_Performed": "Yes"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "767",
+      "end_index": "791",
+      "text": "subarachnoid-haemorrhage",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C0038525",
+        "Certainty": "5",
+        "CUIPhrase": "subarachnoid"
+      }
+    },
+    {
+      "entity": "EpilepsyCause",
+      "start_index": "2268",
+      "end_index": "2292",
+      "text": "sub-arachnoid-haemorrhag",
+      "attributes": {
+        "CUIPhrase": "subarachnoid-haemorrhage",
+        "Certainty": "5",
+        "CUI": "C0038525",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1596",
+      "end_index": "1609",
+      "text": "hypertension-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUI": "C0020538",
+        "CUIPhrase": "hypertension"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "348",
+      "end_index": "364",
+      "text": "viral-meningitis",
+      "attributes": {
+        "CUI": "C0025289",
+        "CUIPhrase": "meningitis",
+        "Age": "18",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "AgeUnit": "Year"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "2268",
+      "end_index": "2293",
+      "text": "sub-arachnoid-haemorrhage",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C0038525",
+        "CUIPhrase": "subarachnoid-haemorrhage",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "2209",
+      "end_index": "2240",
+      "text": "symptomatic-structural-epilepsy",
+      "attributes": {
+        "Negation": "Affirmed",
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "CUI": "C0472349",
+        "CUIPhrase": "symptomatic-structural-focal-epilepsy"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "652",
+      "end_index": "673",
+      "text": "ruptured-ACA-aneurysm",
+      "attributes": {
+        "CUI": "C0242084",
+        "CUIPhrase": "ruptured",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "AgeUnit": "Year",
+        "Age": "32"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "617",
+      "end_index": "642",
+      "text": "sub-arachnoid-haemorrhage",
+      "attributes": {
+        "CUI": "C0038525",
+        "Age": "32",
+        "Certainty": "5",
+        "CUIPhrase": "subarachnoid-haemorrhage",
+        "AgeUnit": "Year",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "1980",
+      "end_index": "1983",
+      "text": "CT-",
+      "attributes": {
+        "CT_Performed": "Yes",
+        "CUIPhrase": "ct-abnormal",
+        "CT_Results": "Abnormal",
+        "CUI": "C0436539"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "950",
+      "end_index": "981",
+      "text": "transient-loss-of-consciousness",
+      "attributes": {
+        "Age": "35",
+        "Certainty": "5",
+        "CUI": "C4087400",
+        "Negation": "Affirmed",
+        "AgeUnit": "Year",
+        "CUIPhrase": "Transient"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "1252",
+      "end_index": "1260",
+      "text": "seizure-",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "CUI": "C0036572",
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "2",
+        "CUIPhrase": "seizure"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "294",
+      "end_index": "309",
+      "text": "febrile-seizure",
+      "attributes": {
+        "CUI": "C0009952",
+        "CUIPhrase": "febrile-seizure",
+        "Age": "3",
+        "Certainty": "5",
+        "AgeUnit": "Year",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "199",
+      "end_index": "208",
+      "text": "epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUI": "C0014544",
+        "CUIPhrase": "epilepsy"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "740",
+      "end_index": "748",
+      "text": "seizure-",
+      "attributes": {
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572",
+        "Certainty": "3",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1007",
+      "end_index": "1028",
+      "text": "tonic-clonic-seizures",
+      "attributes": {
+        "Certainty": "4",
+        "CUIPhrase": "tonic-clonic-seizures",
+        "Negation": "Affirmed",
+        "CUI": "C0494475"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 1252,
+      "end": 1259,
+      "text": "seizure",
+      "entity_types": [
+        "PatientHistory",
+        "PatientHistory"
+      ],
+      "entity_ids": [
+        "T12",
+        "T10"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T18",
+      "type": "PatientHistory",
+      "text": "febrile-seizure",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T23",
+      "type": "PatientHistory",
+      "text": "viral-meningitis",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T22",
+      "type": "PatientHistory",
+      "text": "collapse",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "text": "sub-arachnoid-haemorrhage",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T13",
+      "type": "PatientHistory",
+      "text": "ruptured-ACA-aneurysm",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T20",
+      "type": "PatientHistory",
+      "text": "seizure-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T7",
+      "type": "PatientHistory",
+      "text": "subarachnoid-haemorrhage",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T5",
+      "type": "PatientHistory",
+      "text": "acute-symptomatic-seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T16",
+      "type": "PatientHistory",
+      "text": "transient-loss-of-consciousness",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "text": "levetiracetam-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "text": "seizure",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "text": "seizure",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "text": "hypertension-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T222",
+      "type": "PatientHistory",
+      "text": "gliosis",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T11",
+      "type": "PatientHistory",
+      "text": "sub-arachnoid-haemorrhage",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T17",
+      "type": "SeizureFrequency",
+      "text": "seizure-",
+      "start": 1252,
+      "end": 1260,
+      "year": null,
+      "period": "Year",
+      "num_periods": "2",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 4,
+    "BirthHistory": 1,
+    "PatientHistory": 14,
+    "WhenDiagnosed": 1,
+    "Prescription": 1,
+    "SeizureFrequency": 1,
+    "Investigations": 2,
+    "EpilepsyCause": 1
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "1 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 1252,
+          "end": 1259,
+          "text": "seizure",
+          "entity_types": [
+            "PatientHistory",
+            "PatientHistory"
+          ],
+          "entity_ids": [
+            "T12",
+            "T10"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "15 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T18",
+          "type": "PatientHistory",
+          "text": "febrile-seizure",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T23",
+          "type": "PatientHistory",
+          "text": "viral-meningitis",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T22",
+          "type": "PatientHistory",
+          "text": "collapse",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T14",
+          "type": "PatientHistory",
+          "text": "sub-arachnoid-haemorrhage",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T13",
+          "type": "PatientHistory",
+          "text": "ruptured-ACA-aneurysm",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T20",
+          "type": "PatientHistory",
+          "text": "seizure-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T7",
+          "type": "PatientHistory",
+          "text": "subarachnoid-haemorrhage",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T5",
+          "type": "PatientHistory",
+          "text": "acute-symptomatic-seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T16",
+          "type": "PatientHistory",
+          "text": "transient-loss-of-consciousness",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T4",
+          "type": "Prescription",
+          "text": "levetiracetam-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T12",
+          "type": "PatientHistory",
+          "text": "seizure",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T10",
+          "type": "PatientHistory",
+          "text": "seizure",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T9",
+          "type": "PatientHistory",
+          "text": "hypertension-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T222",
+          "type": "PatientHistory",
+          "text": "gliosis",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T11",
+          "type": "PatientHistory",
+          "text": "sub-arachnoid-haemorrhage",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [
+    {
+      "id": "T20",
+      "type": "PatientHistory",
+      "text": "seizure-",
+      "certainty": 3
+    },
+    {
+      "id": "T5",
+      "type": "PatientHistory",
+      "text": "acute-symptomatic-seizures",
+      "certainty": 4
+    },
+    {
+      "id": "T21",
+      "type": "Diagnosis",
+      "text": "tonic-clonic-seizures",
+      "certainty": 4
+    }
+  ],
+  "has_unknown_seizure": false
+}

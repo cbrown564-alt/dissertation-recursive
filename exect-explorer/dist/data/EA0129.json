@@ -1,0 +1,549 @@
+{
+  "id": "EA0129",
+  "text": "Dear Dr,\n\nRe: \tMr Francis Maudely DOB 7/03/1970\n\nMany thanks for referring this 46 year old man to neurology. The diagnosis of epilepsy was made approximately 6 years ago. He was having seizures with a frequency of one to two per week at the onset. A typical episode will start with pains in the right arm followed by a fall and generalised shakes with loss of consciousness. There hasn't been a history of tongue bites. After the episode he is disoriented it for around 20 to 30 minutes. Unfortunately I was unable to obtain an eyewitness account. \n\nI understand that he has been on eplim and then changed over to lamotragine. A previous CT scan of the brain in 2002 was normal as was an EEG examination. \n\nDuring the time that he has been on lamotrigine he has continued to have seizures around once per week. \n\nHis birth was normal as were his developmental milestones. There's no history of febrile seizures or brain infections. He did get a minor head injury in the past. His paternal uncle had epilepsy. Currently he has depression and previously he has consumed too much alcohol and though at the moment he is not drinking alcohol at all.\n\nExamination is essentially normal. \n\nHe does seem to have longstanding seizures , however the nature of these is not very clear. We do need to keep in mind the possibility of non epileptic attack disorder. \n\nI will request investigations including an ECG, EEG and MRI scan. I will ask the epilepsy specialist needs to go through a detailed history over the phone. Although he was driving in the past he is not at the moment and understand the DVLA laws on driving. I will review again in around six months time.\n \nYours sincerely,\n",
+  "entities": [
+    {
+      "id": "T3",
+      "type": "WhenDiagnosed",
+      "start": 127,
+      "end": 134,
+      "text": "epileps",
+      "attributes": {
+        "Certainty": "5",
+        "TimePeriod": "Year",
+        "CUIPhrase": "epilepsy",
+        "NumberOfTimePeriods": "6",
+        "Negation": "Affirmed",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "Diagnosis",
+      "start": 127,
+      "end": 136,
+      "text": "epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "start": 186,
+      "end": 195,
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0036572",
+        "CUIPhrase": "seizures",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "Investigations",
+      "start": 639,
+      "end": 647,
+      "text": "CT-scan-",
+      "attributes": {
+        "CT_Performed": "Yes",
+        "CUIPhrase": "ct-normal",
+        "CUI": "C0744602",
+        "CT_Results": "Normal"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "Investigations",
+      "start": 689,
+      "end": 693,
+      "text": "EEG-",
+      "attributes": {
+        "CUIPhrase": "eeg-normal",
+        "CUI": "C0560017",
+        "EEG_Results": "Normal",
+        "EEG_Performed": "Yes"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "SeizureFrequency",
+      "start": 781,
+      "end": 789,
+      "text": "seizures",
+      "attributes": {
+        "NumberOfTimePeriods": "1",
+        "CUI": "C0036572",
+        "CUIPhrase": "seizures",
+        "NumberOfSeizures": "1",
+        "TimePeriod": "Week"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "PatientHistory",
+      "start": 781,
+      "end": 790,
+      "text": "seizures-",
+      "attributes": {
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572",
+        "Negation": "Affirmed",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "BirthHistory",
+      "start": 818,
+      "end": 834,
+      "text": "birth-was-normal",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "birth-was-normal",
+        "Certainty": "5",
+        "CUI": "C3665337"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "start": 895,
+      "end": 911,
+      "text": "febrile-seizures",
+      "attributes": {
+        "Certainty": "1",
+        "CUIPhrase": "febrile-seizures",
+        "Negation": "Negated",
+        "CUI": "C0009952"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "start": 946,
+      "end": 963,
+      "text": "minor-head-injury",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUI": "C0497301",
+        "CUIPhrase": "head-injury"
+      }
+    },
+    {
+      "id": "T13",
+      "type": "PatientHistory",
+      "start": 1027,
+      "end": 1038,
+      "text": "depression-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "depression",
+        "CUI": "C0011570"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "start": 1060,
+      "end": 1085,
+      "text": "consumed-too-much-alcohol",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "alcohol abuse",
+        "CUI": "C0085762"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "start": 1218,
+      "end": 1227,
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "start": 1322,
+      "end": 1351,
+      "text": "non-epileptic-attack-disorder",
+      "attributes": {
+        "Certainty": "3",
+        "Negation": "Affirmed",
+        "CUI": "C3495874",
+        "CUIPhrase": "non-epileptic-seizure-disorder"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "127",
+      "end_index": "136",
+      "text": "epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "946",
+      "end_index": "963",
+      "text": "minor-head-injury",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUI": "C0497301",
+        "CUIPhrase": "head-injury"
+      }
+    },
+    {
+      "entity": "WhenDiagnosed",
+      "start_index": "127",
+      "end_index": "134",
+      "text": "epileps",
+      "attributes": {
+        "Certainty": "5",
+        "TimePeriod": "Year",
+        "CUIPhrase": "epilepsy",
+        "NumberOfTimePeriods": "6",
+        "Negation": "Affirmed",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "186",
+      "end_index": "195",
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0036572",
+        "CUIPhrase": "seizures",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "689",
+      "end_index": "693",
+      "text": "EEG-",
+      "attributes": {
+        "CUIPhrase": "eeg-normal",
+        "CUI": "C0560017",
+        "EEG_Results": "Normal",
+        "EEG_Performed": "Yes"
+      }
+    },
+    {
+      "entity": "BirthHistory",
+      "start_index": "818",
+      "end_index": "834",
+      "text": "birth-was-normal",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "birth-was-normal",
+        "Certainty": "5",
+        "CUI": "C3665337"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "781",
+      "end_index": "790",
+      "text": "seizures-",
+      "attributes": {
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572",
+        "Negation": "Affirmed",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1322",
+      "end_index": "1351",
+      "text": "non-epileptic-attack-disorder",
+      "attributes": {
+        "Certainty": "3",
+        "Negation": "Affirmed",
+        "CUI": "C3495874",
+        "CUIPhrase": "non-epileptic-seizure-disorder"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "895",
+      "end_index": "911",
+      "text": "febrile-seizures",
+      "attributes": {
+        "Certainty": "1",
+        "CUIPhrase": "febrile-seizures",
+        "Negation": "Negated",
+        "CUI": "C0009952"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "639",
+      "end_index": "647",
+      "text": "CT-scan-",
+      "attributes": {
+        "CT_Performed": "Yes",
+        "CUIPhrase": "ct-normal",
+        "CUI": "C0744602",
+        "CT_Results": "Normal"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "781",
+      "end_index": "789",
+      "text": "seizures",
+      "attributes": {
+        "NumberOfTimePeriods": "1",
+        "CUI": "C0036572",
+        "CUIPhrase": "seizures",
+        "NumberOfSeizures": "1",
+        "TimePeriod": "Week"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1218",
+      "end_index": "1227",
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1027",
+      "end_index": "1038",
+      "text": "depression-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "depression",
+        "CUI": "C0011570"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1060",
+      "end_index": "1085",
+      "text": "consumed-too-much-alcohol",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "alcohol",
+        "CUI": "C0085762"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "text": "seizures-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T7",
+      "type": "PatientHistory",
+      "text": "seizures-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "text": "febrile-seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "text": "minor-head-injury",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T13",
+      "type": "PatientHistory",
+      "text": "depression-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "text": "consumed-too-much-alcohol",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "text": "seizures-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "text": "non-epileptic-attack-disorder",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T3",
+      "type": "WhenDiagnosed",
+      "text": "epileps",
+      "start": 127,
+      "end": 134,
+      "year": null,
+      "period": "Year",
+      "num_periods": "6",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": null
+    },
+    {
+      "id": "T11",
+      "type": "SeizureFrequency",
+      "text": "seizures",
+      "start": 781,
+      "end": 789,
+      "year": null,
+      "period": "Week",
+      "num_periods": "1",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "1"
+    }
+  ],
+  "type_counts": {
+    "WhenDiagnosed": 1,
+    "Diagnosis": 1,
+    "PatientHistory": 8,
+    "Investigations": 2,
+    "SeizureFrequency": 1,
+    "BirthHistory": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "8 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T4",
+          "type": "PatientHistory",
+          "text": "seizures-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T7",
+          "type": "PatientHistory",
+          "text": "seizures-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T9",
+          "type": "PatientHistory",
+          "text": "febrile-seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T2",
+          "type": "PatientHistory",
+          "text": "minor-head-injury",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T13",
+          "type": "PatientHistory",
+          "text": "depression-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T14",
+          "type": "PatientHistory",
+          "text": "consumed-too-much-alcohol",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T12",
+          "type": "PatientHistory",
+          "text": "seizures-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T8",
+          "type": "PatientHistory",
+          "text": "non-epileptic-attack-disorder",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    },
+    {
+      "category": "negated_entities",
+      "description": "1 entity/ies are explicitly negated in the text.",
+      "details": [
+        {
+          "id": "T9",
+          "type": "PatientHistory",
+          "text": "febrile-seizures"
+        }
+      ],
+      "oracle_impact": "clinical_precision"
+    }
+  ],
+  "negated_entities": [
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "text": "febrile-seizures"
+    }
+  ],
+  "low_certainty": [
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "text": "febrile-seizures",
+      "certainty": 1
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "text": "non-epileptic-attack-disorder",
+      "certainty": 3
+    }
+  ],
+  "has_unknown_seizure": false
+}

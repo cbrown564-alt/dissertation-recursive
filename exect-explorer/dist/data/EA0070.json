@@ -1,0 +1,628 @@
+{
+  "id": "EA0070",
+  "text": "The epilepsy service\nOur Ref:\t867589\nNHS No:\t496 576 8890\nDate: \t\t10/02/2010\nClinic Date \t8/02/2010\n\n\nDear Dr\n\nr.e. Helena Cariad\tD.O.B:\t07/01/1990\n\nDiagnosis: \tEpilepsy, Unclassified\n\nSeizure type and frequency: Bilateral convulsive seizures, last event two weeks ago\n\nCurrent anti-epileptic medication:\tLamotrigine 75mg twice a day (to increase as detailed below)\n\nOther medication includes:\tGabapentin and Mirtazapine.\n\nInvestigations:\tMRI 2008, non-specific white matter changes only\n\t\tPrevious EEG results not available\n\nI met this 30-year-old woman together with her sister in clinic today. She has previously met my collegue Dr Love.\n\nAs you know she had her first seizure at the age of 22. She rembers when this happened, she had no warning and the first thing she remembers is waking up in the back of the ambulance. Her sister said that she went blank, stared for a while and then lost consciousness. She let out a scream and fell to the floor stiff and convulsing. She bit her tongue.\n\nShe went two years without another event which happened after she had gone to her sisters wedding. She felt hungover and nauseated the next day and had a similar event which was a convulsive epileptic seizures. There is no obvious trigger to her seizures, she does not have photosensitivity and has never had absences or myoclonus.\n\nShe has had infrequent seizures every since, around 1 or two per year.\n\nShe does have some depression and takes the mirtazapine to good effect for this. She is otherwise well and works in her father’s butchers shop. She has two children aged 3 and 5 who are well, although the youngest Ieuan had one febrile seizures. She herself had 2 febrile seizures at the age of 3 and 4. She did have a head injury when she was knoced off her bike at the age of 8 and was unconscious for about 10 minuts. Her paternal uncle has epilepsy for which he takes epilim.\n\nHer neurological examination was normal apart from a longstanding slight left ptosis which has not changed. Her previous investigations are as above.\n\nWe went over the DVLA driving regulations for epilepsy. I would suggest increasing the lamotirigne by 25mg every fornight until she is taking 125mg twice a day. If Ms Cariad needs anti-depressant treatment then that would be no contraindication with her epilepsy.\n\nI will review her EEG records for completeness and let you know the results.\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 161,
+      "end": 169,
+      "text": "Epilepsy",
+      "attributes": {
+        "CUI": "C0014544",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "DiagCategory": "Epilepsy",
+        "CUIPhrase": "epilepsy"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "Diagnosis",
+      "start": 213,
+      "end": 242,
+      "text": "Bilateral-convulsive-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "CUIPhrase": "bilateral-convulsive-seizures",
+        "CUI": "C0877017",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T13",
+      "type": "SeizureFrequency",
+      "start": 213,
+      "end": 242,
+      "text": "Bilateral-convulsive-seizures",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "TimePeriod": "Week",
+        "CUI": "C0877017",
+        "CUIPhrase": "bilateral-convulsive-seizures",
+        "NumberOfTimePeriods": "2"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "Prescription",
+      "start": 305,
+      "end": 365,
+      "text": "Lamotrigine-75mg-twice-a-day-(to-increase-as-detailed-below)",
+      "attributes": {
+        "Frequency": "2",
+        "DoseUnit": "mg",
+        "CUIPhrase": "lamotrigine",
+        "DrugName": "lamotrigine",
+        "DrugDose": "75",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "Investigations",
+      "start": 439,
+      "end": 442,
+      "text": "MRI",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Abnormal",
+        "CUI": "C1319851",
+        "CUIPhrase": "abnormal-mri"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "Investigations",
+      "start": 499,
+      "end": 502,
+      "text": "EEG",
+      "attributes": {
+        "CUIPhrase": "eeg-unknown",
+        "CUI": "C0013819",
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Unknown"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "start": 672,
+      "end": 679,
+      "text": "seizure",
+      "attributes": {
+        "CUIPhrase": "seizures",
+        "Negation": "Affirmed",
+        "Age": "22",
+        "Certainty": "5",
+        "AgeUnit": "Year",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Diagnosis",
+      "start": 1177,
+      "end": 1206,
+      "text": "convulsive-epileptic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "CUIPhrase": "epileptic convulsions",
+        "CUI": "C0014544",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "PatientHistory",
+      "start": 1243,
+      "end": 1251,
+      "text": "seizures",
+      "attributes": {
+        "CUI": "C0036572",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "SeizureFrequency",
+      "start": 1353,
+      "end": 1361,
+      "text": "seizures",
+      "attributes": {
+        "FrequencyChange": "Infrequent",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "SeizureFrequency",
+      "start": 1353,
+      "end": 1361,
+      "text": "seizures",
+      "attributes": {
+        "LowerNumberOfSeizures": "1",
+        "UpperNumberOfSeizures": "2",
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "1",
+        "TimeSince_or_TimeOfEvent": "During",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "PatientHistory",
+      "start": 1353,
+      "end": 1361,
+      "text": "seizures",
+      "attributes": {
+        "CUIPhrase": "seizures",
+        "Negation": "Affirmed",
+        "CUI": "C0036572",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "start": 1421,
+      "end": 1431,
+      "text": "depression",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0011570",
+        "CUIPhrase": "depression",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T15",
+      "type": "PatientHistory",
+      "start": 1666,
+      "end": 1682,
+      "text": "febrile-seizures",
+      "attributes": {
+        "AgeUnit": "Year",
+        "AgeLower": "3",
+        "AgeUpper": "4",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "febrile-seizures",
+        "CUI": "C0009952"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "start": 1721,
+      "end": 1732,
+      "text": "head-injury",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C0497301",
+        "AgeUnit": "Year",
+        "CUIPhrase": "head-injury",
+        "Certainty": "5",
+        "Age": "8"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "PatientHistory",
+      "start_index": "1243",
+      "end_index": "1251",
+      "text": "seizures",
+      "attributes": {
+        "CUI": "C0036572",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "161",
+      "end_index": "169",
+      "text": "Epilepsy",
+      "attributes": {
+        "CUI": "C0014544",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "DiagCategory": "Epilepsy",
+        "CUIPhrase": "epilepsy"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "213",
+      "end_index": "242",
+      "text": "Bilateral-convulsive-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "CUIPhrase": "bilateral-convulsive-seizures",
+        "CUI": "C0877017",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "1353",
+      "end_index": "1361",
+      "text": "seizures",
+      "attributes": {
+        "FrequencyChange": "Infrequent",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "1353",
+      "end_index": "1361",
+      "text": "seizures",
+      "attributes": {
+        "LowerNumberOfSeizures": "1",
+        "UpperNumberOfSeizures": "2",
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "1",
+        "TimeSince_or_TimeOfEvent": "During",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1421",
+      "end_index": "1431",
+      "text": "depression",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0011570",
+        "CUIPhrase": "depression",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1353",
+      "end_index": "1361",
+      "text": "seizures",
+      "attributes": {
+        "CUIPhrase": "seizures",
+        "Negation": "Affirmed",
+        "CUI": "C0036572",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1177",
+      "end_index": "1206",
+      "text": "convulsive-epileptic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "CUIPhrase": "epileptic",
+        "CUI": "C0014544",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "672",
+      "end_index": "679",
+      "text": "seizure",
+      "attributes": {
+        "CUIPhrase": "seizures",
+        "Negation": "Affirmed",
+        "Age": "22",
+        "Certainty": "5",
+        "AgeUnit": "Year",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "439",
+      "end_index": "442",
+      "text": "MRI",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Abnormal",
+        "CUI": "C1319851",
+        "CUIPhrase": "abnormal-mri"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "305",
+      "end_index": "365",
+      "text": "Lamotrigine-75mg-twice-a-day-(to-increase-as-detailed-below)",
+      "attributes": {
+        "Frequency": "2",
+        "DoseUnit": "mg",
+        "CUIPhrase": "lamotrigine",
+        "DrugName": "lamotrigine",
+        "DrugDose": "75",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "499",
+      "end_index": "502",
+      "text": "EEG",
+      "attributes": {
+        "CUIPhrase": "eeg-unknown",
+        "CUI": "C0013819",
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Unknown"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "213",
+      "end_index": "242",
+      "text": "Bilateral-convulsive-seizures",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "TimePeriod": "Week",
+        "CUI": "C0877017",
+        "CUIPhrase": "bilateral-convulsive-seizures",
+        "NumberOfTimePeriods": "2"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1666",
+      "end_index": "1682",
+      "text": "febrile-seizures",
+      "attributes": {
+        "AgeUnit": "Year",
+        "AgeLower": "3",
+        "AgeUpper": "4",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "febrile-seizures",
+        "CUI": "C0009952"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1721",
+      "end_index": "1732",
+      "text": "head-injury",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C0497301",
+        "AgeUnit": "Year",
+        "CUIPhrase": "head-injury",
+        "Certainty": "5",
+        "Age": "8"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 213,
+      "end": 242,
+      "text": "Bilateral-convulsive-seizures",
+      "entity_types": [
+        "Diagnosis",
+        "SeizureFrequency"
+      ],
+      "entity_ids": [
+        "T3",
+        "T13"
+      ]
+    },
+    {
+      "start": 1353,
+      "end": 1361,
+      "text": "seizures",
+      "entity_types": [
+        "SeizureFrequency",
+        "SeizureFrequency",
+        "PatientHistory"
+      ],
+      "entity_ids": [
+        "T8",
+        "T11",
+        "T5"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T7",
+      "type": "Prescription",
+      "text": "Lamotrigine-75mg-twice-a-day-(to-increase-as-detailed-below)",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "text": "seizure",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T1",
+      "type": "PatientHistory",
+      "text": "seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T8",
+      "type": "SeizureFrequency",
+      "text": "seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T5",
+      "type": "PatientHistory",
+      "text": "seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "text": "depression",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T15",
+      "type": "PatientHistory",
+      "text": "febrile-seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "text": "head-injury",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T13",
+      "type": "SeizureFrequency",
+      "text": "Bilateral-convulsive-seizures",
+      "start": 213,
+      "end": 242,
+      "year": null,
+      "period": "Week",
+      "num_periods": "2",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    },
+    {
+      "id": "T11",
+      "type": "SeizureFrequency",
+      "text": "seizures",
+      "start": 1353,
+      "end": 1361,
+      "year": null,
+      "period": "Year",
+      "num_periods": "1",
+      "time_since": "During",
+      "point_in_time": null,
+      "lower_seizures": "1",
+      "upper_seizures": "2",
+      "num_seizures": null
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 3,
+    "SeizureFrequency": 3,
+    "Prescription": 1,
+    "Investigations": 2,
+    "PatientHistory": 6
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "2 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 213,
+          "end": 242,
+          "text": "Bilateral-convulsive-seizures",
+          "entity_types": [
+            "Diagnosis",
+            "SeizureFrequency"
+          ],
+          "entity_ids": [
+            "T3",
+            "T13"
+          ]
+        },
+        {
+          "start": 1353,
+          "end": 1361,
+          "text": "seizures",
+          "entity_types": [
+            "SeizureFrequency",
+            "SeizureFrequency",
+            "PatientHistory"
+          ],
+          "entity_ids": [
+            "T8",
+            "T11",
+            "T5"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "8 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T7",
+          "type": "Prescription",
+          "text": "Lamotrigine-75mg-twice-a-day-(to-increase-as-detailed-below)",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T9",
+          "type": "PatientHistory",
+          "text": "seizure",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T1",
+          "type": "PatientHistory",
+          "text": "seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T8",
+          "type": "SeizureFrequency",
+          "text": "seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T5",
+          "type": "PatientHistory",
+          "text": "seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T4",
+          "type": "PatientHistory",
+          "text": "depression",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T15",
+          "type": "PatientHistory",
+          "text": "febrile-seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T14",
+          "type": "PatientHistory",
+          "text": "head-injury",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

@@ -1,0 +1,886 @@
+{
+  "id": "EA0133",
+  "text": "Clinic Date 5/11/2017\n\nDear Dr,\n\nRe: \tMr Harry Harris. DOB 31/02/1950\n\nDiagnosis:\tSymptomatic structural epilepsy\n\t\tRight MCA infarct 2005\n\nSeizure type and frequency:\tFocal motor seizures, (left arm jerks) 2-3 per month\n\t\tFocal to bilateral convulsive seizures, last event 2015\n\nInvestigations:\tCT Head 1/3/2015 gliosis consistent with previous R MCA terrority infarct\n\nMedication:\tCarbamazepine 400mg bd\n\t\tSodium Valproate 500mg bd\n\t\tClopidogrel 75mg od\n\t\tSimvastatin 20mg od\n\t\tRamipiril 5mg od\n\nI reviewed this 67-year-old man by telephone today. His epilepsy was diagnosed in 2015 after he had a convulsive epileptic seizure for the first time. With hindsight he had been having focal seizures, consisting of left arm jerks, for around 1 year before this. The focal seizures were occurring more frequently, perhaps once per day before the carbamazepine was introduced alongside the sodium valproate. He has previously tried levetiracetam but that caused significant mood change.\n\nAs well as his cerebrovascular disease, he has high blood pressure and also gets ocassional migraine. Interestingly his brother also has had a stroke and has developed post stroked epilepsy, there is no other relevant family history. He was born prematurely at 32 weeks and weighed 2kg but had no developmental problems. He had 2 febrile seizures at the age of 8 months and 18 months. He has not had meningitis or encephalitis but has a significant head injury whilst playing rugby where he was unconscious for 1 hour and was kept in hospital overnight.\n\nHe was working as a surveyor before the stroke but has stopped working since. He needs a stick to walk. He lives with his wife and has stopped smoking, previously having smoked cigars for around 35 years. He drinks 8 pints of dark stout a week.\n\nMr Harris would like to get better control of his epilepsy – the focal seizures are troublesome and so in the first instance I would suggest increasing the carbamazepine to 600mg bd. I will review him again in clinic and arrange epilepsy nurse follow up.\n\n\n",
+  "entities": [
+    {
+      "id": "T20",
+      "type": "Diagnosis",
+      "start": 82,
+      "end": 113,
+      "text": "Symptomatic-structural-epilepsy",
+      "attributes": {
+        "CUI": "C0472349",
+        "DiagCategory": "Epilepsy",
+        "CUIPhrase": "symptomatic-structural-focal-epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T112",
+      "type": "PatientHistory",
+      "start": 122,
+      "end": 133,
+      "text": "MCA-infarct",
+      "attributes": {
+        "YearDate": "2003",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "mca-infarct",
+        "CUI": "C0740392"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "SeizureFrequency",
+      "start": 168,
+      "end": 187,
+      "text": "Focal-motor-seizure",
+      "attributes": {
+        "CUI": "C0016399",
+        "UpperNumberOfSeizures": "3",
+        "LowerNumberOfSeizures": "2",
+        "TimePeriod": "Month",
+        "NumberOfTimePeriods": "1",
+        "CUIPhrase": "focal-motor-seizures"
+      }
+    },
+    {
+      "id": "T16",
+      "type": "Diagnosis",
+      "start": 168,
+      "end": 188,
+      "text": "Focal-motor-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "CUI": "C0016399",
+        "CUIPhrase": "focal-motor-seizures",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T21",
+      "type": "SeizureFrequency",
+      "start": 223,
+      "end": 260,
+      "text": "Focal-to-bilateral-convulsive-seizure",
+      "attributes": {
+        "CUI": "C0877017",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizures",
+        "NumberOfSeizures": "0",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "YearDate": "2015"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Diagnosis",
+      "start": 223,
+      "end": 261,
+      "text": "Focal-to-bilateral-convulsive-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizures",
+        "DiagCategory": "MultipleSeizures",
+        "Negation": "Affirmed",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "id": "T17",
+      "type": "Investigations",
+      "start": 296,
+      "end": 303,
+      "text": "CT-Head",
+      "attributes": {
+        "CUI": "C0436539",
+        "CT_Results": "Abnormal",
+        "CUIPhrase": "ct-abnormal",
+        "CT_Performed": "Yes"
+      }
+    },
+    {
+      "id": "T22",
+      "type": "PatientHistory",
+      "start": 313,
+      "end": 321,
+      "text": "gliosis-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "gliosis",
+        "CUI": "C0017639"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "start": 348,
+      "end": 369,
+      "text": "MCA-terrority-infarct",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "mca-infarct",
+        "CUI": "C0740392"
+      }
+    },
+    {
+      "id": "T144",
+      "type": "Prescription",
+      "start": 383,
+      "end": 405,
+      "text": "Carbamazepine-400mg-bd",
+      "attributes": {
+        "Frequency": "2",
+        "CUIPhrase": "carbamazepine",
+        "DoseUnit": "mg",
+        "DrugName": "carbamazepine",
+        "DrugDose": "400",
+        "CUI": "C0006949"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "Prescription",
+      "start": 408,
+      "end": 433,
+      "text": "Sodium-Valproate-500mg-bd",
+      "attributes": {
+        "Frequency": "2",
+        "DrugName": "sodium-valproate",
+        "CUIPhrase": "sodium-valproate",
+        "CUI": "C0037567",
+        "DoseUnit": "mg",
+        "DrugDose": "500"
+      }
+    },
+    {
+      "id": "T24",
+      "type": "WhenDiagnosed",
+      "start": 554,
+      "end": 562,
+      "text": "epilepsy",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0014544",
+        "YearDate": "2015",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy"
+      }
+    },
+    {
+      "id": "T111",
+      "type": "Diagnosis",
+      "start": 554,
+      "end": 563,
+      "text": "epilepsy-",
+      "attributes": {
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "DiagCategory": "Epilepsy"
+      }
+    },
+    {
+      "id": "T15",
+      "type": "Diagnosis",
+      "start": 611,
+      "end": 628,
+      "text": "epileptic-seizure",
+      "attributes": {
+        "CUIPhrase": "epileptic-seizure",
+        "CUI": "C4317109",
+        "Certainty": "5",
+        "DiagCategory": "SingleSeizure",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "Diagnosis",
+      "start": 683,
+      "end": 697,
+      "text": "focal-seizures",
+      "attributes": {
+        "CUIPhrase": "focal-seizures",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUI": "C0751495",
+        "DiagCategory": "MultipleSeizures"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "Diagnosis",
+      "start": 763,
+      "end": 778,
+      "text": "-focal-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-seizures",
+        "CUI": "C0751495"
+      }
+    },
+    {
+      "id": "T23",
+      "type": "PatientHistory",
+      "start": 999,
+      "end": 1022,
+      "text": "cerebrovascular-disease",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "cerebrovascular disease",
+        "CUI": "C0007820"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "start": 1076,
+      "end": 1084,
+      "text": "migraine",
+      "attributes": {
+        "CUIPhrase": "migraine",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUI": "C0149931"
+      }
+    },
+    {
+      "id": "T18",
+      "type": "BirthHistory",
+      "start": 1230,
+      "end": 1242,
+      "text": "prematurely-",
+      "attributes": {
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "PrematureBirth": "32to<37_ModerateToLatePreterm",
+        "CUIPhrase": "moderate-to-late-preterm-birth",
+        "CUI": "C4054482"
+      }
+    },
+    {
+      "id": "T13",
+      "type": "PatientHistory",
+      "start": 1314,
+      "end": 1330,
+      "text": "febrile-seizures",
+      "attributes": {
+        "AgeUnit": "Month",
+        "Age": "18",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "febrile-seizures",
+        "CUI": "C0009952"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "PatientHistory",
+      "start": 1314,
+      "end": 1331,
+      "text": "febrile-seizures-",
+      "attributes": {
+        "AgeUnit": "Month",
+        "Age": "8",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "febrile-seizures",
+        "CUI": "C0009952"
+      }
+    },
+    {
+      "id": "T19",
+      "type": "PatientHistory",
+      "start": 1421,
+      "end": 1444,
+      "text": "significant-head-injury",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C0497301",
+        "CUIPhrase": "head-injury",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "PatientHistory",
+      "start": 1579,
+      "end": 1586,
+      "text": "stroke-",
+      "attributes": {
+        "CUIPhrase": "stroke",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUI": "C0038454"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "Diagnosis",
+      "start": 1835,
+      "end": 1844,
+      "text": "epilepsy-",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C0014544",
+        "CUIPhrase": "epilepsy",
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "Diagnosis",
+      "start": 1850,
+      "end": 1864,
+      "text": "focal-seizures",
+      "attributes": {
+        "CUI": "C0751495",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-seizures",
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "PatientHistory",
+      "start_index": "122",
+      "end_index": "133",
+      "text": "MCA-infarct",
+      "attributes": {
+        "YearDate": "2003",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "mca-infarct",
+        "CUI": "C0740392"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "348",
+      "end_index": "369",
+      "text": "MCA-terrority-infarct",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "mca-infarct",
+        "CUI": "C0740392"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "683",
+      "end_index": "697",
+      "text": "focal-seizures",
+      "attributes": {
+        "CUIPhrase": "focal-seizures",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUI": "C0751495",
+        "DiagCategory": "MultipleSeizures"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "763",
+      "end_index": "778",
+      "text": "-focal-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-seizures",
+        "CUI": "C0751495"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1076",
+      "end_index": "1084",
+      "text": "migraine",
+      "attributes": {
+        "CUIPhrase": "migraine",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUI": "C0149931"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1314",
+      "end_index": "1331",
+      "text": "febrile-seizures-",
+      "attributes": {
+        "AgeUnit": "Month",
+        "Age": "8",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "febrile-seizures",
+        "CUI": "C0009952"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1314",
+      "end_index": "1330",
+      "text": "febrile-seizures",
+      "attributes": {
+        "AgeUnit": "Month",
+        "Age": "18",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "febrile-seizures",
+        "CUI": "C0009952"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1579",
+      "end_index": "1586",
+      "text": "stroke-",
+      "attributes": {
+        "CUIPhrase": "stroke",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUI": "C0038454"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1850",
+      "end_index": "1864",
+      "text": "focal-seizures",
+      "attributes": {
+        "CUI": "C0751495",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-seizures",
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "168",
+      "end_index": "187",
+      "text": "Focal-motor-seizure",
+      "attributes": {
+        "CUI": "C0016399",
+        "UpperNumberOfSeizures": "3",
+        "LowerNumberOfSeizures": "2",
+        "TimePeriod": "Month",
+        "NumberOfTimePeriods": "1",
+        "CUIPhrase": "focal-motor-seizures"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "223",
+      "end_index": "261",
+      "text": "Focal-to-bilateral-convulsive-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizures",
+        "DiagCategory": "MultipleSeizures",
+        "Negation": "Affirmed",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1835",
+      "end_index": "1844",
+      "text": "epilepsy-",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C0014544",
+        "CUIPhrase": "epilepsy",
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "554",
+      "end_index": "563",
+      "text": "epilepsy-",
+      "attributes": {
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "DiagCategory": "Epilepsy"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "408",
+      "end_index": "433",
+      "text": "Sodium-Valproate-500mg-bd",
+      "attributes": {
+        "Frequency": "2",
+        "DrugName": "sodium-valproate",
+        "CUIPhrase": "sodium-valproate",
+        "CUI": "C0037567",
+        "DoseUnit": "mg",
+        "DrugDose": "500"
+      }
+    },
+    {
+      "entity": "WhenDiagnosed",
+      "start_index": "554",
+      "end_index": "562",
+      "text": "epilepsy",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0014544",
+        "YearDate": "2015",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "383",
+      "end_index": "405",
+      "text": "Carbamazepine-400mg-bd",
+      "attributes": {
+        "Frequency": "2",
+        "CUIPhrase": "carbamazepine",
+        "DoseUnit": "mg",
+        "DrugName": "carbamazepine",
+        "DrugDose": "400",
+        "CUI": "C0006949"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "611",
+      "end_index": "628",
+      "text": "epileptic-seizure",
+      "attributes": {
+        "CUIPhrase": "epileptic-seizure",
+        "CUI": "C4317109",
+        "Certainty": "5",
+        "DiagCategory": "SingleSeizure",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "168",
+      "end_index": "188",
+      "text": "Focal-motor-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "CUI": "C0016399",
+        "CUIPhrase": "focal-motor-seizures",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "296",
+      "end_index": "303",
+      "text": "CT-Head",
+      "attributes": {
+        "CUI": "C0436539",
+        "CT_Results": "Abnormal",
+        "CUIPhrase": "ct-abnormal",
+        "CT_Performed": "Yes"
+      }
+    },
+    {
+      "entity": "BirthHistory",
+      "start_index": "1230",
+      "end_index": "1242",
+      "text": "prematurely-",
+      "attributes": {
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "PrematureBirth": "32to<37_ModerateToLatePreterm",
+        "CUIPhrase": "moderate-to-late-preterm-birth",
+        "CUI": "C4054482"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1421",
+      "end_index": "1444",
+      "text": "significant-head-injury",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C0497301",
+        "CUIPhrase": "head-injury",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "82",
+      "end_index": "113",
+      "text": "Symptomatic-structural-epilepsy",
+      "attributes": {
+        "CUI": "C0472349",
+        "DiagCategory": "Epilepsy",
+        "CUIPhrase": "symptomatic-structural-focal-epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "223",
+      "end_index": "260",
+      "text": "Focal-to-bilateral-convulsive-seizure",
+      "attributes": {
+        "CUI": "C0877017",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizures",
+        "NumberOfSeizures": "0",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "YearDate": "2015"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "313",
+      "end_index": "321",
+      "text": "gliosis-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "gliosis",
+        "CUI": "C0017639"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "999",
+      "end_index": "1022",
+      "text": "cerebrovascular-disease",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "cerebrovascular",
+        "CUI": "C0007820"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T22",
+      "type": "PatientHistory",
+      "text": "gliosis-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "text": "MCA-terrority-infarct",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T144",
+      "type": "Prescription",
+      "text": "Carbamazepine-400mg-bd",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T12",
+      "type": "Prescription",
+      "text": "Sodium-Valproate-500mg-bd",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T23",
+      "type": "PatientHistory",
+      "text": "cerebrovascular-disease",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "text": "migraine",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T13",
+      "type": "PatientHistory",
+      "text": "febrile-seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T11",
+      "type": "PatientHistory",
+      "text": "febrile-seizures-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T19",
+      "type": "PatientHistory",
+      "text": "significant-head-injury",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T3",
+      "type": "PatientHistory",
+      "text": "stroke-",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T112",
+      "type": "PatientHistory",
+      "text": "MCA-infarct",
+      "start": 122,
+      "end": 133,
+      "year": "2003",
+      "period": null,
+      "num_periods": null,
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": null
+    },
+    {
+      "id": "T7",
+      "type": "SeizureFrequency",
+      "text": "Focal-motor-seizure",
+      "start": 168,
+      "end": 187,
+      "year": null,
+      "period": "Month",
+      "num_periods": "1",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": "2",
+      "upper_seizures": "3",
+      "num_seizures": null
+    },
+    {
+      "id": "T21",
+      "type": "SeizureFrequency",
+      "text": "Focal-to-bilateral-convulsive-seizure",
+      "start": 223,
+      "end": 260,
+      "year": "2015",
+      "period": null,
+      "num_periods": null,
+      "time_since": "Since",
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    },
+    {
+      "id": "T24",
+      "type": "WhenDiagnosed",
+      "text": "epilepsy",
+      "start": 554,
+      "end": 562,
+      "year": "2015",
+      "period": null,
+      "num_periods": null,
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": null
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 9,
+    "PatientHistory": 9,
+    "SeizureFrequency": 2,
+    "Investigations": 1,
+    "Prescription": 2,
+    "WhenDiagnosed": 1,
+    "BirthHistory": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "10 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T22",
+          "type": "PatientHistory",
+          "text": "gliosis-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T14",
+          "type": "PatientHistory",
+          "text": "MCA-terrority-infarct",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T144",
+          "type": "Prescription",
+          "text": "Carbamazepine-400mg-bd",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T12",
+          "type": "Prescription",
+          "text": "Sodium-Valproate-500mg-bd",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T23",
+          "type": "PatientHistory",
+          "text": "cerebrovascular-disease",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T2",
+          "type": "PatientHistory",
+          "text": "migraine",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T13",
+          "type": "PatientHistory",
+          "text": "febrile-seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T11",
+          "type": "PatientHistory",
+          "text": "febrile-seizures-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T19",
+          "type": "PatientHistory",
+          "text": "significant-head-injury",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T3",
+          "type": "PatientHistory",
+          "text": "stroke-",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

@@ -1,0 +1,181 @@
+{
+  "id": "EA0139",
+  "text": "Clinic Date 29/11/2015\n\nDear Dr,\n\nRe: \tMr Gareth Gatesfield DOB: 03/03/1992\n\nI saw this man in clinic today. I was sorry to hear that he has had further generalised tonic clonic seizures since I last saw him, an episode in September was severe and was associated with a head injury.\n\nAt present he is taking Carbamazepine 400mg bd. He has tried lamotrigine and Keppra in the past which were unsuccessful.\n\nI suggest that we add Zonigram 25mg bd. The dose should be increased by 25mg increments every two weeks up to a maintenance dose of 75mg bd. The doses of the other medications should remain the same.\n\nI will request an updated MRI scan of the brain with epilepsy protocol. We briefly discuss epilepsy surgery today as this might be an option if she continues to get seizures despite pharmacological treatment.\n\nYours\n\n\n",
+  "entities": [
+    {
+      "id": "T4",
+      "type": "SeizureFrequency",
+      "start": 153,
+      "end": 185,
+      "text": "generalised-tonic-clonic-seizure",
+      "attributes": {
+        "NumberOfSeizures": "2",
+        "CUI": "C0494475",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "generalised tonic clonic seizure",
+        "PointInTime": "LastClinic"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "Diagnosis",
+      "start": 153,
+      "end": 186,
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0494475",
+        "Negation": "Affirmed",
+        "DiagCategory": "MultipleSeizures",
+        "CUIPhrase": "generalised-tonic-clonic-seizures"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "start": 270,
+      "end": 281,
+      "text": "head-injury",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C0497301",
+        "CUIPhrase": "head injury",
+        "Certainty": "5",
+        "MonthDate": "9"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "Prescription",
+      "start": 284,
+      "end": 330,
+      "text": "At-present-he-is-taking-Carbamazepine-400mg-bd",
+      "attributes": {
+        "Frequency": "2",
+        "DoseUnit": "mg",
+        "DrugName": "carbamazepine",
+        "CUIPhrase": "carbamazepine",
+        "CUI": "C0006949",
+        "DrugDose": "400"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Prescription",
+      "start_index": "284",
+      "end_index": "330",
+      "text": "At-present-he-is-taking-Carbamazepine-400mg-bd",
+      "attributes": {
+        "Frequency": "2",
+        "DoseUnit": "mg",
+        "DrugName": "carbamazepine",
+        "CUIPhrase": "carbamazepine",
+        "CUI": "C0006949",
+        "DrugDose": "400"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "270",
+      "end_index": "281",
+      "text": "head-injury",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C0497301",
+        "CUIPhrase": "head",
+        "Certainty": "5",
+        "MonthDate": "9"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "153",
+      "end_index": "186",
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0494475",
+        "Negation": "Affirmed",
+        "DiagCategory": "MultipleSeizures",
+        "CUIPhrase": "generalised-tonic-clonic-seizures"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "153",
+      "end_index": "185",
+      "text": "generalised-tonic-clonic-seizure",
+      "attributes": {
+        "NumberOfSeizures": "2",
+        "CUI": "C0494475",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "generalised",
+        "PointInTime": "LastClinic"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "text": "head-injury",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T1",
+      "type": "Prescription",
+      "text": "At-present-he-is-taking-Carbamazepine-400mg-bd",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T4",
+      "type": "SeizureFrequency",
+      "text": "generalised-tonic-clonic-seizure",
+      "start": 153,
+      "end": 185,
+      "year": null,
+      "period": null,
+      "num_periods": null,
+      "time_since": "Since",
+      "point_in_time": "LastClinic",
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "2"
+    }
+  ],
+  "type_counts": {
+    "SeizureFrequency": 1,
+    "Diagnosis": 1,
+    "PatientHistory": 1,
+    "Prescription": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "2 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T2",
+          "type": "PatientHistory",
+          "text": "head-injury",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T1",
+          "type": "Prescription",
+          "text": "At-present-he-is-taking-Carbamazepine-400mg-bd",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

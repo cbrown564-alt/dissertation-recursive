@@ -1,0 +1,811 @@
+{
+  "id": "EA0065",
+  "text": "NHS No 4438769981\nDate 24/01/2018\nClinic Date 17/01/2018\n\nThe Epilepsy service\n\nDear Dr\n\nr.e. Ms Linda Ivy. DOB 02/01/1980\n\nDiagnosis: Probable temporal lobe epilepsy\n \nI reviewed this 38 year old woman by telephone consultation today. She has previously been reviewed by my colleagues. Her epilepsy started at the age of 3 years old and has continued ever since. The longest period of seizures freedom that she has had is 2 years. Currently she gets seizures about once per month which are complex partial seizures. She will have a funny feeling of a “fuzzy” head before losing awareness and wandering about in a confused manner. She has only had a few secondarily generalised seizures in her life the last one being about 10 years ago when she forgot her medication.\n \nShe is currently taking levetiracetam 1250mg bd as well as carbamazepine 400mg bd. In the past she has tried, sodium valproate, topiramate and lamotrigine. An MRI in 2012 showed probable left hippocampal sclerosis and EEGs in the past have showed consistent left focal temporal slowing.\n \nShe was born normally at term but did get 2 febrile seizures at the age of 18 and 28 month. When she was 7 years old she fell of her bike and lost consciousness for 30mins. She was observed in hospital overnight but didn’t need any surgery. Her youngest sister has had two febrile seizures and a maternal aunt has epilepsy and takes carbamazepine for this.\n \nShe works as a teaching assistant and does not drive. She smokes around 10 cigaretts a day and drinks a bottle of wine at the weekend. She lives with her husband and two children who are aged 6 and 4.\n \nImpression. She does have temporal lobe epilepsy which is probably caused by the hippocampal sclerosis.\n \nPlan I would suggest changing the carbazmazepine to eslicarbazine 800mg od\nI will update the MRI and then discuss at the epilepsy surgery MDT as there would be a possibility of surgery for her epilepsy\n\n",
+  "entities": [
+    {
+      "id": "T7",
+      "type": "Diagnosis",
+      "start": 135,
+      "end": 166,
+      "text": "Probable-temporal-lobe-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "temporal-lobe-epilepsy",
+        "CUI": "C0014556"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Onset",
+      "start": 291,
+      "end": 299,
+      "text": "epilepsy",
+      "attributes": {
+        "AgeUnit": "Year",
+        "Age": "3",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "Diagnosis",
+      "start": 291,
+      "end": 299,
+      "text": "epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "PatientHistory",
+      "start": 451,
+      "end": 459,
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "Diagnosis",
+      "start": 491,
+      "end": 515,
+      "text": "complex-partial-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "complex-partial-seizures",
+        "CUI": "C0149958"
+      }
+    },
+    {
+      "id": "T15",
+      "type": "SeizureFrequency",
+      "start": 491,
+      "end": 515,
+      "text": "complex-partial-seizures",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "TimePeriod": "Month",
+        "NumberOfTimePeriods": "1",
+        "CUIPhrase": "complex-partial-seizures",
+        "CUI": "C0149958"
+      }
+    },
+    {
+      "id": "T17",
+      "type": "Diagnosis",
+      "start": 654,
+      "end": 686,
+      "text": "secondarily-generalised-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "secondarily-generalised-seizures",
+        "CUI": "C0270838"
+      }
+    },
+    {
+      "id": "T19",
+      "type": "SeizureFrequency",
+      "start": 654,
+      "end": 686,
+      "text": "secondarily-generalised-seizures",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "10",
+        "CUIPhrase": "secondarily-generalised-seizures",
+        "CUI": "C0270838"
+      }
+    },
+    {
+      "id": "T21",
+      "type": "Prescription",
+      "start": 771,
+      "end": 852,
+      "text": "She-is-currently-taking-levetiracetam-1250mg-bd-as-well-as-carbamazepine-400mg-bd",
+      "attributes": {
+        "DrugName": "levetiracetam",
+        "DrugDose": "1250",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "levetiracetam",
+        "CUI": "C0377265"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "Prescription",
+      "start": 830,
+      "end": 843,
+      "text": "carbamazepine",
+      "attributes": {
+        "DrugName": "Carbamazepine",
+        "DrugDose": "400",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "carbamazepine",
+        "CUI": "C0006949"
+      }
+    },
+    {
+      "id": "T25",
+      "type": "Investigations",
+      "start": 930,
+      "end": 933,
+      "text": "MRI",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Abnormal",
+        "CUIPhrase": "abnormal-mri",
+        "CUI": "C1319851"
+      }
+    },
+    {
+      "id": "T27",
+      "type": "PatientHistory",
+      "start": 963,
+      "end": 984,
+      "text": "hippocampal-sclerosis",
+      "attributes": {
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "hippocampal-sclerosis",
+        "CUI": "C1504404"
+      }
+    },
+    {
+      "id": "T29",
+      "type": "Investigations",
+      "start": 989,
+      "end": 992,
+      "text": "EEG",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Abnormal",
+        "CUIPhrase": "abnormal-eeg",
+        "CUI": "C0151611"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "BirthHistory",
+      "start": 1068,
+      "end": 1081,
+      "text": "born-normally",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "born-normally",
+        "CUI": "C3665337"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "BirthHistory",
+      "start": 1068,
+      "end": 1089,
+      "text": "born-normally-at-term",
+      "attributes": {
+        "PrematureBirth": "37+_TermBirth",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "at-term",
+        "CUI": "C0233324"
+      }
+    },
+    {
+      "id": "T33",
+      "type": "PatientHistory",
+      "start": 1104,
+      "end": 1120,
+      "text": "febrile-seizures",
+      "attributes": {
+        "AgeUnit": "Month",
+        "AgeLower": "18",
+        "AgeUpper": "28",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "febrile-seizures",
+        "CUI": "C0009952"
+      }
+    },
+    {
+      "id": "T35",
+      "type": "Diagnosis",
+      "start": 1648,
+      "end": 1670,
+      "text": "temporal-lobe-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "temporal-lobe-epilepsy",
+        "CUI": "C0014556"
+      }
+    },
+    {
+      "id": "T37",
+      "type": "PatientHistory",
+      "start": 1703,
+      "end": 1724,
+      "text": "hippocampal-sclerosis",
+      "attributes": {
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "hippocampal-sclerosis",
+        "CUI": "C1504404"
+      }
+    },
+    {
+      "id": "T39",
+      "type": "EpilepsyCause",
+      "start": 1703,
+      "end": 1724,
+      "text": "hippocampal-sclerosis",
+      "attributes": {
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "hippocampal-sclerosis",
+        "CUI": "C1504404"
+      }
+    },
+    {
+      "id": "T13",
+      "type": "Diagnosis",
+      "start": 1921,
+      "end": 1929,
+      "text": "epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "135",
+      "end_index": "166",
+      "text": "Probable-temporal-lobe-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "temporal-lobe-epilepsy",
+        "CUI": "C0014556"
+      }
+    },
+    {
+      "entity": "Onset",
+      "start_index": "291",
+      "end_index": "299",
+      "text": "epilepsy",
+      "attributes": {
+        "AgeUnit": "Year",
+        "Age": "3",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "291",
+      "end_index": "299",
+      "text": "epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "451",
+      "end_index": "459",
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "491",
+      "end_index": "515",
+      "text": "complex-partial-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "complex-partial-seizures",
+        "CUI": "C0149958"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "491",
+      "end_index": "515",
+      "text": "complex-partial-seizures",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "TimePeriod": "Month",
+        "NumberOfTimePeriods": "1",
+        "CUIPhrase": "complex-partial-seizures",
+        "CUI": "C0149958"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "654",
+      "end_index": "686",
+      "text": "secondarily-generalised-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "secondarily-generalised-seizures",
+        "CUI": "C0270838"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "654",
+      "end_index": "686",
+      "text": "secondarily-generalised-seizures",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "10",
+        "CUIPhrase": "secondarily-generalised-seizures",
+        "CUI": "C0270838"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "771",
+      "end_index": "852",
+      "text": "She-is-currently-taking-levetiracetam-1250mg-bd-as-well-as-carbamazepine-400mg-bd",
+      "attributes": {
+        "DrugName": "levetiracetam",
+        "DrugDose": "1250",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "levetiracetam",
+        "CUI": "C0377265"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "830",
+      "end_index": "843",
+      "text": "carbamazepine",
+      "attributes": {
+        "DrugName": "Carbamazepine",
+        "DrugDose": "400",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "carbamazepine",
+        "CUI": "C0006949"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "930",
+      "end_index": "933",
+      "text": "MRI",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Abnormal",
+        "CUIPhrase": "abnormal-mri",
+        "CUI": "C1319851"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "963",
+      "end_index": "984",
+      "text": "hippocampal-sclerosis",
+      "attributes": {
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "hippocampal-sclerosis",
+        "CUI": "C1504404"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "989",
+      "end_index": "992",
+      "text": "EEG",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Abnormal",
+        "CUIPhrase": "abnormal-eeg",
+        "CUI": "C0151611"
+      }
+    },
+    {
+      "entity": "BirthHistory",
+      "start_index": "1068",
+      "end_index": "1081",
+      "text": "born-normally",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "born-normally",
+        "CUI": "C3665337"
+      }
+    },
+    {
+      "entity": "BirthHistory",
+      "start_index": "1068",
+      "end_index": "1089",
+      "text": "born-normally-at-term",
+      "attributes": {
+        "PrematureBirth": "37+_TermBirth",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "at-term",
+        "CUI": "C0233324"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1104",
+      "end_index": "1120",
+      "text": "febrile-seizures",
+      "attributes": {
+        "AgeUnit": "Month",
+        "AgeLower": "18",
+        "AgeUpper": "28",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "febrile-seizures",
+        "CUI": "C0009952"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1648",
+      "end_index": "1670",
+      "text": "temporal-lobe-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "temporal-lobe-epilepsy",
+        "CUI": "C0014556"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1703",
+      "end_index": "1724",
+      "text": "hippocampal-sclerosis",
+      "attributes": {
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "hippocampal-sclerosis",
+        "CUI": "C1504404"
+      }
+    },
+    {
+      "entity": "EpilepsyCause",
+      "start_index": "1703",
+      "end_index": "1724",
+      "text": "hippocampal-sclerosis",
+      "attributes": {
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "hippocampal-sclerosis",
+        "CUI": "C1504404"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1921",
+      "end_index": "1929",
+      "text": "epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 291,
+      "end": 299,
+      "text": "epilepsy",
+      "entity_types": [
+        "Onset",
+        "Diagnosis"
+      ],
+      "entity_ids": [
+        "T4",
+        "T9"
+      ]
+    },
+    {
+      "start": 491,
+      "end": 515,
+      "text": "complex-partial-seizures",
+      "entity_types": [
+        "Diagnosis",
+        "SeizureFrequency"
+      ],
+      "entity_ids": [
+        "T5",
+        "T15"
+      ]
+    },
+    {
+      "start": 654,
+      "end": 686,
+      "text": "secondarily-generalised-seizures",
+      "entity_types": [
+        "Diagnosis",
+        "SeizureFrequency"
+      ],
+      "entity_ids": [
+        "T17",
+        "T19"
+      ]
+    },
+    {
+      "start": 1703,
+      "end": 1724,
+      "text": "hippocampal-sclerosis",
+      "entity_types": [
+        "PatientHistory",
+        "EpilepsyCause"
+      ],
+      "entity_ids": [
+        "T37",
+        "T39"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T11",
+      "type": "PatientHistory",
+      "text": "seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T21",
+      "type": "Prescription",
+      "text": "She-is-currently-taking-levetiracetam-1250mg-bd-as-well-as-carbamazepine-400mg-bd",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T10",
+      "type": "Prescription",
+      "text": "carbamazepine",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T27",
+      "type": "PatientHistory",
+      "text": "hippocampal-sclerosis",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T33",
+      "type": "PatientHistory",
+      "text": "febrile-seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T37",
+      "type": "PatientHistory",
+      "text": "hippocampal-sclerosis",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T15",
+      "type": "SeizureFrequency",
+      "text": "complex-partial-seizures",
+      "start": 491,
+      "end": 515,
+      "year": null,
+      "period": "Month",
+      "num_periods": "1",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "1"
+    },
+    {
+      "id": "T19",
+      "type": "SeizureFrequency",
+      "text": "secondarily-generalised-seizures",
+      "start": 654,
+      "end": 686,
+      "year": null,
+      "period": "Year",
+      "num_periods": "10",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 6,
+    "Onset": 1,
+    "PatientHistory": 4,
+    "SeizureFrequency": 2,
+    "Prescription": 2,
+    "Investigations": 2,
+    "BirthHistory": 2,
+    "EpilepsyCause": 1
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "4 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 291,
+          "end": 299,
+          "text": "epilepsy",
+          "entity_types": [
+            "Onset",
+            "Diagnosis"
+          ],
+          "entity_ids": [
+            "T4",
+            "T9"
+          ]
+        },
+        {
+          "start": 491,
+          "end": 515,
+          "text": "complex-partial-seizures",
+          "entity_types": [
+            "Diagnosis",
+            "SeizureFrequency"
+          ],
+          "entity_ids": [
+            "T5",
+            "T15"
+          ]
+        },
+        {
+          "start": 654,
+          "end": 686,
+          "text": "secondarily-generalised-seizures",
+          "entity_types": [
+            "Diagnosis",
+            "SeizureFrequency"
+          ],
+          "entity_ids": [
+            "T17",
+            "T19"
+          ]
+        },
+        {
+          "start": 1703,
+          "end": 1724,
+          "text": "hippocampal-sclerosis",
+          "entity_types": [
+            "PatientHistory",
+            "EpilepsyCause"
+          ],
+          "entity_ids": [
+            "T37",
+            "T39"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "6 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T11",
+          "type": "PatientHistory",
+          "text": "seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T21",
+          "type": "Prescription",
+          "text": "She-is-currently-taking-levetiracetam-1250mg-bd-as-well-as-carbamazepine-400mg-bd",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T10",
+          "type": "Prescription",
+          "text": "carbamazepine",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T27",
+          "type": "PatientHistory",
+          "text": "hippocampal-sclerosis",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T33",
+          "type": "PatientHistory",
+          "text": "febrile-seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T37",
+          "type": "PatientHistory",
+          "text": "hippocampal-sclerosis",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [
+    {
+      "id": "T7",
+      "type": "Diagnosis",
+      "text": "Probable-temporal-lobe-epilepsy",
+      "certainty": 4
+    },
+    {
+      "id": "T27",
+      "type": "PatientHistory",
+      "text": "hippocampal-sclerosis",
+      "certainty": 4
+    },
+    {
+      "id": "T37",
+      "type": "PatientHistory",
+      "text": "hippocampal-sclerosis",
+      "certainty": 4
+    },
+    {
+      "id": "T39",
+      "type": "EpilepsyCause",
+      "text": "hippocampal-sclerosis",
+      "certainty": 4
+    }
+  ],
+  "has_unknown_seizure": false
+}

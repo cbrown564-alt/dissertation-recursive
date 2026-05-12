@@ -1,0 +1,234 @@
+{
+  "id": "EA0030",
+  "text": "Diagnosis: probable JME\n\nInvestigations: EEG 1992: frequent bursts of spike and wave and polyspike\n      \t\tMRI 1993: mild cerebellar atrophy\n\nMedication: lamotrigine 250 milligrams twice a day\nKeppra 1000 milligrams twice a day\n\nFurther to my previous letter I can report that she is doing very well on the above dose of medication. There are no side-effects. She described an episode in clinic of limb shaking with retained consciousness which I don’t think is a seizure. I’d recommend continuing on the same medications and I will review in clinic.\n\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 20,
+      "end": 23,
+      "text": "JME",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "jme",
+        "CUI": "C0270853"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Investigations",
+      "start": 41,
+      "end": 44,
+      "text": "EEG",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Abnormal",
+        "CUIPhrase": "eeg-abnormal",
+        "CUI": "C0151611"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Investigations",
+      "start": 107,
+      "end": 111,
+      "text": "MRI-",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Abnormal",
+        "CUIPhrase": "mri-abnormal",
+        "CUI": "C1319851"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "start": 122,
+      "end": 140,
+      "text": "cerebellar-atrophy",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "cerebellar-atrophy",
+        "CUI": "C0740279"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Prescription",
+      "start": 142,
+      "end": 192,
+      "text": "Medication:-lamotrigine-250-milligrams-twice-a-day",
+      "attributes": {
+        "DrugName": "lamotrigine",
+        "DrugDose": "250",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "Prescription",
+      "start": 193,
+      "end": 227,
+      "text": "Keppra-1000-milligrams-twice-a-day",
+      "attributes": {
+        "DrugName": "keppra",
+        "DrugDose": "1000",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "keppra",
+        "CUI": "C0876060"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "20",
+      "end_index": "23",
+      "text": "JME",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "jme",
+        "CUI": "C0270853"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "41",
+      "end_index": "44",
+      "text": "EEG",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Abnormal",
+        "CUIPhrase": "eeg-abnormal",
+        "CUI": "C0151611"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "107",
+      "end_index": "111",
+      "text": "MRI-",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Abnormal",
+        "CUIPhrase": "mri-abnormal",
+        "CUI": "C1319851"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "122",
+      "end_index": "140",
+      "text": "cerebellar-atrophy",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "cerebellar-atrophy",
+        "CUI": "C0740279"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "142",
+      "end_index": "192",
+      "text": "Medication:-lamotrigine-250-milligrams-twice-a-day",
+      "attributes": {
+        "DrugName": "lamotrigine",
+        "DrugDose": "250",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "193",
+      "end_index": "227",
+      "text": "Keppra-1000-milligrams-twice-a-day",
+      "attributes": {
+        "DrugName": "keppra",
+        "DrugDose": "1000",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "keppra",
+        "CUI": "C0876060"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "text": "cerebellar-atrophy",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T8",
+      "type": "Prescription",
+      "text": "Medication:-lamotrigine-250-milligrams-twice-a-day",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T10",
+      "type": "Prescription",
+      "text": "Keppra-1000-milligrams-twice-a-day",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [],
+  "type_counts": {
+    "Diagnosis": 1,
+    "Investigations": 2,
+    "PatientHistory": 1,
+    "Prescription": 2
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "3 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T9",
+          "type": "PatientHistory",
+          "text": "cerebellar-atrophy",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T8",
+          "type": "Prescription",
+          "text": "Medication:-lamotrigine-250-milligrams-twice-a-day",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T10",
+          "type": "Prescription",
+          "text": "Keppra-1000-milligrams-twice-a-day",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "text": "JME",
+      "certainty": 4
+    }
+  ],
+  "has_unknown_seizure": false
+}

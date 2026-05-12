@@ -1,0 +1,164 @@
+{
+  "id": "EA0068",
+  "text": "Consultant Paediatric Neurologist\n\nClinic Date 4th April 2016\nTyped 16th April 2016\n\n\nDear Dr\n\nr.e. Carys Cayo\tDate of Birth 03.03.2001\tNHS Number: 789 011 4873\n\nDiagnosis: Infrequent focal seizures\n\t\tHydrocephalus\n\nMedication: Nil\n\nFollow up 6 months\n \nI reviewed this 15 year old girl in the clinic today. She is very well and has had no further seizures.  There are no concerns about her shunt.\n\nHer examination was normal today including full upgaze, her fundi were normal.\n\nHer parents have Buccal Midazolam and they know how to use it.  They were not keen to start him on any medication at present and they understand the risks of further seizures.\n\nReview is as above\n",
+  "entities": [
+    {
+      "id": "T20",
+      "type": "SeizureFrequency",
+      "start": 173,
+      "end": 198,
+      "text": "Infrequent-focal-seizures",
+      "attributes": {
+        "FrequencyChange": "Infrequent",
+        "CUIPhrase": "focal-seizures",
+        "CUI": "C0751495"
+      }
+    },
+    {
+      "id": "T16",
+      "type": "Diagnosis",
+      "start": 184,
+      "end": 198,
+      "text": "focal-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-seizures",
+        "CUI": "C0751495"
+      }
+    },
+    {
+      "id": "T18",
+      "type": "PatientHistory",
+      "start": 201,
+      "end": 214,
+      "text": "Hydrocephalus",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "hydrocephalus",
+        "CUI": "C0020255"
+      }
+    },
+    {
+      "id": "T22",
+      "type": "SeizureFrequency",
+      "start": 340,
+      "end": 356,
+      "text": "further-seizures",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "173",
+      "end_index": "198",
+      "text": "Infrequent-focal-seizures",
+      "attributes": {
+        "FrequencyChange": "Infrequent",
+        "CUIPhrase": "focal-seizures",
+        "CUI": "C0751495"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "184",
+      "end_index": "198",
+      "text": "focal-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-seizures",
+        "CUI": "C0751495"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "201",
+      "end_index": "214",
+      "text": "Hydrocephalus",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "hydrocephalus",
+        "CUI": "C0020255"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "340",
+      "end_index": "356",
+      "text": "further-seizures",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T20",
+      "type": "SeizureFrequency",
+      "text": "Infrequent-focal-seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T18",
+      "type": "PatientHistory",
+      "text": "Hydrocephalus",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T22",
+      "type": "SeizureFrequency",
+      "text": "further-seizures",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [],
+  "type_counts": {
+    "SeizureFrequency": 2,
+    "Diagnosis": 1,
+    "PatientHistory": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "3 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T20",
+          "type": "SeizureFrequency",
+          "text": "Infrequent-focal-seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T18",
+          "type": "PatientHistory",
+          "text": "Hydrocephalus",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T22",
+          "type": "SeizureFrequency",
+          "text": "further-seizures",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

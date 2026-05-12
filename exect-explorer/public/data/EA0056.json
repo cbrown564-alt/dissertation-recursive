@@ -1,0 +1,836 @@
+{
+  "id": "EA0056",
+  "text": "NHS No 4961112233\nDate 7/6/2010\n\n\nDear Dr\n\nr.e. Mr Laurence Harris.  D.O.B.: 10/1/1960\n40, Hospital pass, Johnstown. SA5 3ZZ\n\nDiagnosis\t1. Non-epileptic psychogenic seizures\n\t\t2. Localisation related epilepsy secondary to previous cerebral abcess\n\nMedication:\tLevetiracetam 1000mg bd\n\t\tOxcarbazepine 300mg bd\n\nI reviewed this 50-year-old man in clinic today. As you know his epilepsy started around 10 years ago, 2 months after having brain surgery to drain an abcess in his right frontal lobe. He has partial motor seizures involving left arm twitching with retained awareness. He gets these every month. He has also had secondary generalised seizures, they happen about every year, his last one was on Christmas day 2009.\n\nFor the last two years he has had different kinds of attacks. They are brought on by stress.\nHe has his eyes closed during them and they can last up to 15mins. He will have tremor-like movements of his arms which will wax and wane. Last year he had an EEG which captured one of these events and with no EEG changes confirmed a diagnosis of non-epileptic psychogenic seizures.\n\nHe has hypertension for which he takes amlodipine. He also has anxiety and depression. He does not take medication for this and his mood is stable at the moment.\n\nHe is quite tired and finds it difficult to concentrate and so I would suggest reducing the oxcarbazine slowly by 100mg every week until it stops. I will refer him to our non-epileptic attack disorder service for management of the non-epileptic attacks\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "start": 139,
+      "end": 173,
+      "text": "Non-epileptic-psychogenic-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "non-epileptic-psychogenic-seizures",
+        "CUI": "C1142430"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Diagnosis",
+      "start": 179,
+      "end": 208,
+      "text": "Localisation-related-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "localisation-related-epilepsy",
+        "CUI": "C0014547"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "EpilepsyCause",
+      "start": 231,
+      "end": 246,
+      "text": "cerebral-abcess",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "cerebral-abscess",
+        "CUI": "C1510428"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "start": 231,
+      "end": 246,
+      "text": "cerebral-abcess",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "cerebral-abscess",
+        "CUI": "C1510428"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "Prescription",
+      "start": 260,
+      "end": 283,
+      "text": "Levetiracetam-1000mg-bd",
+      "attributes": {
+        "DrugName": "levetiracetam",
+        "DrugDose": "1000",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "levetiracetam",
+        "CUI": "C0377265"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "Prescription",
+      "start": 286,
+      "end": 298,
+      "text": "Oxcarbazine-",
+      "attributes": {
+        "DrugName": "Oxcarbazepine",
+        "DrugDose": "300",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "oxcarbazepine",
+        "CUI": "C0069751"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "Diagnosis",
+      "start": 373,
+      "end": 380,
+      "text": "epileps",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T13",
+      "type": "Onset",
+      "start": 373,
+      "end": 381,
+      "text": "epilepsy",
+      "attributes": {
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "10",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "start": 433,
+      "end": 446,
+      "text": "brain-surgery",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "brain-surgery",
+        "CUI": "C0195775"
+      }
+    },
+    {
+      "id": "T16",
+      "type": "Diagnosis",
+      "start": 500,
+      "end": 522,
+      "text": "partial-motor-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "partial-motor-seizures",
+        "CUI": "C0016399"
+      }
+    },
+    {
+      "id": "T18",
+      "type": "SeizureFrequency",
+      "start": 500,
+      "end": 522,
+      "text": "partial-motor-seizures",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "TimePeriod": "Month",
+        "NumberOfTimePeriods": "1",
+        "CUIPhrase": "partial-motor-seizures",
+        "CUI": "C0016399"
+      }
+    },
+    {
+      "id": "T17",
+      "type": "SeizureFrequency",
+      "start": 620,
+      "end": 649,
+      "text": "secondary-generalised-seizure",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "DayDate": "25",
+        "MonthDate": "12",
+        "YearDate": "2009",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "secondary-generalized-seizures",
+        "CUI": "C0270838"
+      }
+    },
+    {
+      "id": "T20",
+      "type": "Diagnosis",
+      "start": 620,
+      "end": 650,
+      "text": "secondary-generalised-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "secondary-generalised-seizures",
+        "CUI": "C0270838"
+      }
+    },
+    {
+      "id": "T22",
+      "type": "SeizureFrequency",
+      "start": 620,
+      "end": 650,
+      "text": "secondary-generalised-seizures",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "1",
+        "CUIPhrase": "secondary-generalised-seizures",
+        "CUI": "C0270838"
+      }
+    },
+    {
+      "id": "T26",
+      "type": "Investigations",
+      "start": 975,
+      "end": 978,
+      "text": "EEG",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Normal",
+        "CUIPhrase": "normal-eeg",
+        "CUI": "C0560017"
+      }
+    },
+    {
+      "id": "T28",
+      "type": "PatientHistory",
+      "start": 1063,
+      "end": 1097,
+      "text": "non-epileptic-psychogenic-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "non-epileptic-psychogenic-seizures",
+        "CUI": "C1142430"
+      }
+    },
+    {
+      "id": "T30",
+      "type": "PatientHistory",
+      "start": 1107,
+      "end": 1119,
+      "text": "hypertension",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "hypertension",
+        "CUI": "C0020538"
+      }
+    },
+    {
+      "id": "T21",
+      "type": "PatientHistory",
+      "start": 1163,
+      "end": 1171,
+      "text": "anxiety-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "anxiety",
+        "CUI": "C0003467"
+      }
+    },
+    {
+      "id": "T222",
+      "type": "PatientHistory",
+      "start": 1175,
+      "end": 1185,
+      "text": "depression",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "depression",
+        "CUI": "C0011570"
+      }
+    },
+    {
+      "id": "T24",
+      "type": "PatientHistory",
+      "start": 1494,
+      "end": 1515,
+      "text": "non-epileptic-attacks",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "non-epileptic-attacks",
+        "CUI": "C3495874"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "PatientHistory",
+      "start_index": "139",
+      "end_index": "173",
+      "text": "Non-epileptic-psychogenic-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "non-epileptic-psychogenic-seizures",
+        "CUI": "C1142430"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "179",
+      "end_index": "208",
+      "text": "Localisation-related-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "localisation-related-epilepsy",
+        "CUI": "C0014547"
+      }
+    },
+    {
+      "entity": "EpilepsyCause",
+      "start_index": "231",
+      "end_index": "246",
+      "text": "cerebral-abcess",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "cerebral-abscess",
+        "CUI": "C1510428"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "231",
+      "end_index": "246",
+      "text": "cerebral-abcess",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "cerebral-abscess",
+        "CUI": "C1510428"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "260",
+      "end_index": "283",
+      "text": "Levetiracetam-1000mg-bd",
+      "attributes": {
+        "DrugName": "levetiracetam",
+        "DrugDose": "1000",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "levetiracetam",
+        "CUI": "C0377265"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "286",
+      "end_index": "298",
+      "text": "Oxcarbazine-",
+      "attributes": {
+        "DrugName": "Oxcarbazepine",
+        "DrugDose": "300",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "oxcarbazepine",
+        "CUI": "C0069751"
+      }
+    },
+    {
+      "entity": "Onset",
+      "start_index": "373",
+      "end_index": "381",
+      "text": "epilepsy",
+      "attributes": {
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "10",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "373",
+      "end_index": "380",
+      "text": "epileps",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "433",
+      "end_index": "446",
+      "text": "brain-surgery",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "brain-surgery",
+        "CUI": "C0195775"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "500",
+      "end_index": "522",
+      "text": "partial-motor-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "partial-motor-seizures",
+        "CUI": "C0016399"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "500",
+      "end_index": "522",
+      "text": "partial-motor-seizures",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "TimePeriod": "Month",
+        "NumberOfTimePeriods": "1",
+        "CUIPhrase": "partial-motor-seizures",
+        "CUI": "C0016399"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "620",
+      "end_index": "650",
+      "text": "secondary-generalised-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "secondary-generalised-seizures",
+        "CUI": "C0270838"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "620",
+      "end_index": "650",
+      "text": "secondary-generalised-seizures",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "1",
+        "CUIPhrase": "secondary-generalised-seizures",
+        "CUI": "C0270838"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "620",
+      "end_index": "649",
+      "text": "secondary-generalised-seizure",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "DayDate": "25",
+        "MonthDate": "12",
+        "YearDate": "2009",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "secondary-generalized-seizures",
+        "CUI": "C0270838"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "975",
+      "end_index": "978",
+      "text": "EEG",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Normal",
+        "CUIPhrase": "normal-eeg",
+        "CUI": "C0560017"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1063",
+      "end_index": "1097",
+      "text": "non-epileptic-psychogenic-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "non-epileptic-psychogenic-seizures",
+        "CUI": "C1142430"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1107",
+      "end_index": "1119",
+      "text": "hypertension",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "hypertension",
+        "CUI": "C0020538"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1163",
+      "end_index": "1171",
+      "text": "anxiety-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "anxiety",
+        "CUI": "C0003467"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1175",
+      "end_index": "1185",
+      "text": "depression",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "depression",
+        "CUI": "C0011570"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1494",
+      "end_index": "1515",
+      "text": "non-epileptic-attacks",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "non-epileptic-attacks",
+        "CUI": "C3495874"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 231,
+      "end": 246,
+      "text": "cerebral-abcess",
+      "entity_types": [
+        "EpilepsyCause",
+        "PatientHistory"
+      ],
+      "entity_ids": [
+        "T6",
+        "T8"
+      ]
+    },
+    {
+      "start": 500,
+      "end": 522,
+      "text": "partial-motor-seizures",
+      "entity_types": [
+        "Diagnosis",
+        "SeizureFrequency"
+      ],
+      "entity_ids": [
+        "T16",
+        "T18"
+      ]
+    },
+    {
+      "start": 620,
+      "end": 650,
+      "text": "secondary-generalised-seizures",
+      "entity_types": [
+        "Diagnosis",
+        "SeizureFrequency"
+      ],
+      "entity_ids": [
+        "T20",
+        "T22"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "text": "Non-epileptic-psychogenic-seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "text": "cerebral-abcess",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T10",
+      "type": "Prescription",
+      "text": "Levetiracetam-1000mg-bd",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T9",
+      "type": "Prescription",
+      "text": "Oxcarbazine-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "text": "brain-surgery",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T28",
+      "type": "PatientHistory",
+      "text": "non-epileptic-psychogenic-seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T30",
+      "type": "PatientHistory",
+      "text": "hypertension",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T21",
+      "type": "PatientHistory",
+      "text": "anxiety-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T222",
+      "type": "PatientHistory",
+      "text": "depression",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T24",
+      "type": "PatientHistory",
+      "text": "non-epileptic-attacks",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T13",
+      "type": "Onset",
+      "text": "epilepsy",
+      "start": 373,
+      "end": 381,
+      "year": null,
+      "period": "Year",
+      "num_periods": "10",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": null
+    },
+    {
+      "id": "T18",
+      "type": "SeizureFrequency",
+      "text": "partial-motor-seizures",
+      "start": 500,
+      "end": 522,
+      "year": null,
+      "period": "Month",
+      "num_periods": "1",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "1"
+    },
+    {
+      "id": "T17",
+      "type": "SeizureFrequency",
+      "text": "secondary-generalised-seizure",
+      "start": 620,
+      "end": 649,
+      "year": "2009",
+      "period": null,
+      "num_periods": null,
+      "time_since": "Since",
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    },
+    {
+      "id": "T22",
+      "type": "SeizureFrequency",
+      "text": "secondary-generalised-seizures",
+      "start": 620,
+      "end": 650,
+      "year": null,
+      "period": "Year",
+      "num_periods": "1",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "1"
+    }
+  ],
+  "type_counts": {
+    "PatientHistory": 8,
+    "Diagnosis": 4,
+    "EpilepsyCause": 1,
+    "Prescription": 2,
+    "Onset": 1,
+    "SeizureFrequency": 3,
+    "Investigations": 1
+  },
+  "flaws": [
+    {
+      "category": "frequency_contradiction",
+      "description": "Two frequency mentions in same letter: '1 per month' vs 'cluster of 4 over 3 days'. ExECTv2 wants all mentions; Gan wants single normalized judgment.",
+      "oracle_impact": "seizure_frequency"
+    },
+    {
+      "category": "overlapping_entities",
+      "description": "3 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 231,
+          "end": 246,
+          "text": "cerebral-abcess",
+          "entity_types": [
+            "EpilepsyCause",
+            "PatientHistory"
+          ],
+          "entity_ids": [
+            "T6",
+            "T8"
+          ]
+        },
+        {
+          "start": 500,
+          "end": 522,
+          "text": "partial-motor-seizures",
+          "entity_types": [
+            "Diagnosis",
+            "SeizureFrequency"
+          ],
+          "entity_ids": [
+            "T16",
+            "T18"
+          ]
+        },
+        {
+          "start": 620,
+          "end": 650,
+          "text": "secondary-generalised-seizures",
+          "entity_types": [
+            "Diagnosis",
+            "SeizureFrequency"
+          ],
+          "entity_ids": [
+            "T20",
+            "T22"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "10 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T2",
+          "type": "PatientHistory",
+          "text": "Non-epileptic-psychogenic-seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T8",
+          "type": "PatientHistory",
+          "text": "cerebral-abcess",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T10",
+          "type": "Prescription",
+          "text": "Levetiracetam-1000mg-bd",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T9",
+          "type": "Prescription",
+          "text": "Oxcarbazine-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T14",
+          "type": "PatientHistory",
+          "text": "brain-surgery",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T28",
+          "type": "PatientHistory",
+          "text": "non-epileptic-psychogenic-seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T30",
+          "type": "PatientHistory",
+          "text": "hypertension",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T21",
+          "type": "PatientHistory",
+          "text": "anxiety-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T222",
+          "type": "PatientHistory",
+          "text": "depression",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T24",
+          "type": "PatientHistory",
+          "text": "non-epileptic-attacks",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

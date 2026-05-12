@@ -1,0 +1,398 @@
+{
+  "id": "EA0175",
+  "text": "Miss Sheleena Yestyn D.O.B: 19/09/1996\nDiagnosis:\tDrug refactory focal epilepsy\n\t\tGeneralised tonic clonic seizures whilst asleey\n\t\tFocal EEG abnormalities, MRI negative\nMedication\tPerampanel\t8mg at night\n\t\tLevetiracetam 1750mg bd\nI spoke with Sheleena today. Although things were “ok” earlier in the year, they are not so good recently with increased stress – she is not sleeping well. Her seizures are happening every 1-2 weeks. They happen whilst she is asleep with tongue biting and facial injuries.\nSheleena seems to be tolerating her medication well.\nWe discussed the following:\nI advised increasing the perampanel to 10mg at night and then after a month to 12mg at night\nGiven the continued seizures despite good doses of 2 medications it would be useful to see some videos of the seizures.\nI have advised Sheleena to make an appointment with yourself to discuss her increased stress and anxiety. There would be no contraindication to treatment with an antidepressant if necessary.\n\nI will see her again in 4 months time\n",
+  "entities": [
+    {
+      "id": "T10",
+      "type": "Diagnosis",
+      "start": 50,
+      "end": 79,
+      "text": "Drug-refactory-focal-epilepsy",
+      "attributes": {
+        "CUI": "C1096063",
+        "DiagCategory": "Epilepsy",
+        "CUIPhrase": "drug-refractory-epilepsies",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "Diagnosis",
+      "start": 65,
+      "end": 79,
+      "text": "focal-epilepsy",
+      "attributes": {
+        "CUIPhrase": "focal-epilepsy",
+        "CUI": "C0014547",
+        "Negation": "Affirmed",
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "Diagnosis",
+      "start": 82,
+      "end": 129,
+      "text": "Generalised-tonic-clonic-seizures-whilst-asleey",
+      "attributes": {
+        "Negation": "Affirmed",
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Investigations",
+      "start": 138,
+      "end": 141,
+      "text": "EEG",
+      "attributes": {
+        "EEG_Results": "Abnormal",
+        "CUI": "C0151611",
+        "CUIPhrase": "eeg-abnormal",
+        "EEG_Performed": "Yes"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Investigations",
+      "start": 157,
+      "end": 161,
+      "text": "MRI-",
+      "attributes": {
+        "CUI": "C0436481",
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Normal",
+        "CUIPhrase": "MRI normal"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "Prescription",
+      "start": 181,
+      "end": 191,
+      "text": "Perampanel",
+      "attributes": {
+        "DrugDose": "8",
+        "Frequency": "1",
+        "DrugName": "Perampanel",
+        "CUI": "C2698764",
+        "DoseUnit": "mg",
+        "CUIPhrase": "perampanel"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "Prescription",
+      "start": 207,
+      "end": 230,
+      "text": "Levetiracetam-1750mg-bd",
+      "attributes": {
+        "DoseUnit": "mg",
+        "CUI": "C0377265",
+        "DrugName": "levetiracetam",
+        "CUIPhrase": "levetiracetam",
+        "Frequency": "2",
+        "DrugDose": "1750"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "start": 391,
+      "end": 399,
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "SeizureFrequency",
+      "start": 391,
+      "end": 399,
+      "text": "seizures",
+      "attributes": {
+        "CUI": "C0036572",
+        "UpperNumberOfTimePeriods": "2",
+        "TimePeriod": "Week",
+        "NumberOfSeizures": "1",
+        "CUIPhrase": "seizures",
+        "LowerNumberOfTimePeriods": "1"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "start": 895,
+      "end": 902,
+      "text": "anxiety",
+      "attributes": {
+        "CUIPhrase": "anxiety",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUI": "C0003467"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Prescription",
+      "start_index": "207",
+      "end_index": "230",
+      "text": "Levetiracetam-1750mg-bd",
+      "attributes": {
+        "DoseUnit": "mg",
+        "CUI": "C0377265",
+        "DrugName": "levetiracetam",
+        "CUIPhrase": "levetiracetam",
+        "Frequency": "2",
+        "DrugDose": "1750"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "391",
+      "end_index": "399",
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "391",
+      "end_index": "399",
+      "text": "seizures",
+      "attributes": {
+        "CUI": "C0036572",
+        "UpperNumberOfTimePeriods": "2",
+        "TimePeriod": "Week",
+        "NumberOfSeizures": "1",
+        "CUIPhrase": "seizures",
+        "LowerNumberOfTimePeriods": "1"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "138",
+      "end_index": "141",
+      "text": "EEG",
+      "attributes": {
+        "EEG_Results": "Abnormal",
+        "CUI": "C0151611",
+        "CUIPhrase": "eeg-abnormal",
+        "EEG_Performed": "Yes"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "82",
+      "end_index": "129",
+      "text": "Generalised-tonic-clonic-seizures-whilst-asleey",
+      "attributes": {
+        "Negation": "Affirmed",
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "157",
+      "end_index": "161",
+      "text": "MRI-",
+      "attributes": {
+        "CUI": "C0436481",
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Normal",
+        "CUIPhrase": "MRI"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "65",
+      "end_index": "79",
+      "text": "focal-epilepsy",
+      "attributes": {
+        "CUIPhrase": "focal-epilepsy",
+        "CUI": "C0014547",
+        "Negation": "Affirmed",
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "895",
+      "end_index": "902",
+      "text": "anxiety",
+      "attributes": {
+        "CUIPhrase": "anxiety",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUI": "C0003467"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "181",
+      "end_index": "191",
+      "text": "Perampanel",
+      "attributes": {
+        "DrugDose": "8",
+        "Frequency": "1",
+        "DrugName": "Perampanel",
+        "CUI": "C2698764",
+        "DoseUnit": "mg",
+        "CUIPhrase": "perampanel"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "50",
+      "end_index": "79",
+      "text": "Drug-refactory-focal-epilepsy",
+      "attributes": {
+        "CUI": "C1096063",
+        "DiagCategory": "Epilepsy",
+        "CUIPhrase": "drug-refractory-epilepsies",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 391,
+      "end": 399,
+      "text": "seizures",
+      "entity_types": [
+        "PatientHistory",
+        "SeizureFrequency"
+      ],
+      "entity_ids": [
+        "T2",
+        "T3"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T9",
+      "type": "Prescription",
+      "text": "Perampanel",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T1",
+      "type": "Prescription",
+      "text": "Levetiracetam-1750mg-bd",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "text": "seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "text": "anxiety",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T3",
+      "type": "SeizureFrequency",
+      "text": "seizures",
+      "start": 391,
+      "end": 399,
+      "year": null,
+      "period": "Week",
+      "num_periods": null,
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "1"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 3,
+    "Investigations": 2,
+    "Prescription": 2,
+    "PatientHistory": 2,
+    "SeizureFrequency": 1
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "1 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 391,
+          "end": 399,
+          "text": "seizures",
+          "entity_types": [
+            "PatientHistory",
+            "SeizureFrequency"
+          ],
+          "entity_ids": [
+            "T2",
+            "T3"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "4 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T9",
+          "type": "Prescription",
+          "text": "Perampanel",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T1",
+          "type": "Prescription",
+          "text": "Levetiracetam-1750mg-bd",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T2",
+          "type": "PatientHistory",
+          "text": "seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T8",
+          "type": "PatientHistory",
+          "text": "anxiety",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

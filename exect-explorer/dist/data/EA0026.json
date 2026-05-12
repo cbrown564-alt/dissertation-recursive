@@ -1,0 +1,378 @@
+{
+  "id": "EA0026",
+  "text": "Clinic Date 01.02.2019\n\nFlora Chauncey. D.O.B. 04.05.1992 \n\nDiagnosis: generalised tonic clonic seizures with myoclonic jerks, possible JME\n\nInvestigations: EEG – single burst of generalised spike and wave \nMRI–normal\n\nMedication: sodium valproate 700 mg in the night (to reduce)\ntopiramate 100 mg twice a day\n\nMrs Chauncey is still having approximately 15 seizures over 4 months which all happen during sleep. she is having quite a lot of side-effects from the sodium valproate– Weight gain and hair loss and would like to come off it. She has had a hysterectomy in the past. Previously she has tried carbamazepine and levetiracetam.\n\nI would suggest replacing the sodium valproate by topiramate. Please start topiramate at 25 mg once a day, increasing by 25 mg every 2 weeks until she’s on a maintenance dose of 100 mg twice a day. I explain the side-effects of topiramate today.\n\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 71,
+      "end": 104,
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "start": 110,
+      "end": 125,
+      "text": "myoclonic-jerks",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "myoclonic-jerks",
+        "CUI": "C0027066"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Diagnosis",
+      "start": 136,
+      "end": 139,
+      "text": "JME",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "3",
+        "Negation": "Affirmed",
+        "CUIPhrase": "jme",
+        "CUI": "C0270853"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Investigations",
+      "start": 157,
+      "end": 160,
+      "text": "EEG",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Abnormal",
+        "EEG_Type": "Standard",
+        "CUIPhrase": "abnormal-eeg",
+        "CUI": "C0151611"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "Investigations",
+      "start": 207,
+      "end": 210,
+      "text": "MRI",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Normal",
+        "CUIPhrase": "normal-mri",
+        "CUI": "C0436481"
+      }
+    },
+    {
+      "id": "T17",
+      "type": "Prescription",
+      "start": 231,
+      "end": 254,
+      "text": "sodium-valproate-700-mg",
+      "attributes": {
+        "DrugName": "SodiumValproate",
+        "DrugDose": "700",
+        "DoseUnit": "mg",
+        "Frequency": "1",
+        "CUIPhrase": "sodium-valproate",
+        "CUI": "C0037567"
+      }
+    },
+    {
+      "id": "T18",
+      "type": "Prescription",
+      "start": 280,
+      "end": 290,
+      "text": "topiramate",
+      "attributes": {
+        "DrugName": "Topiramate",
+        "DrugDose": "100",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "topiramate",
+        "CUI": "C0076829"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "SeizureFrequency",
+      "start": 357,
+      "end": 365,
+      "text": "seizures",
+      "attributes": {
+        "NumberOfSeizures": "15",
+        "TimePeriod": "Month",
+        "NumberOfTimePeriods": "4",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T16",
+      "type": "PatientHistory",
+      "start": 357,
+      "end": 365,
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "71",
+      "end_index": "104",
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "110",
+      "end_index": "125",
+      "text": "myoclonic-jerks",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "myoclonic-jerks",
+        "CUI": "C0027066"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "136",
+      "end_index": "139",
+      "text": "JME",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "3",
+        "Negation": "Affirmed",
+        "CUIPhrase": "jme",
+        "CUI": "C0270853"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "157",
+      "end_index": "160",
+      "text": "EEG",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Abnormal",
+        "EEG_Type": "Standard",
+        "CUIPhrase": "abnormal-eeg",
+        "CUI": "C0151611"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "207",
+      "end_index": "210",
+      "text": "MRI",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Normal",
+        "CUIPhrase": "normal-mri",
+        "CUI": "C0436481"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "231",
+      "end_index": "254",
+      "text": "sodium-valproate-700-mg",
+      "attributes": {
+        "DrugName": "SodiumValproate",
+        "DrugDose": "700",
+        "DoseUnit": "mg",
+        "Frequency": "1",
+        "CUIPhrase": "sodium-valproate",
+        "CUI": "C0037567"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "280",
+      "end_index": "290",
+      "text": "topiramate",
+      "attributes": {
+        "DrugName": "Topiramate",
+        "DrugDose": "100",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "topiramate",
+        "CUI": "C0076829"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "357",
+      "end_index": "365",
+      "text": "seizures",
+      "attributes": {
+        "NumberOfSeizures": "15",
+        "TimePeriod": "Month",
+        "NumberOfTimePeriods": "4",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "357",
+      "end_index": "365",
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 357,
+      "end": 365,
+      "text": "seizures",
+      "entity_types": [
+        "SeizureFrequency",
+        "PatientHistory"
+      ],
+      "entity_ids": [
+        "T9",
+        "T16"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "text": "myoclonic-jerks",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T17",
+      "type": "Prescription",
+      "text": "sodium-valproate-700-mg",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T18",
+      "type": "Prescription",
+      "text": "topiramate",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T16",
+      "type": "PatientHistory",
+      "text": "seizures",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T9",
+      "type": "SeizureFrequency",
+      "text": "seizures",
+      "start": 357,
+      "end": 365,
+      "year": null,
+      "period": "Month",
+      "num_periods": "4",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "15"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 2,
+    "PatientHistory": 2,
+    "Investigations": 2,
+    "Prescription": 2,
+    "SeizureFrequency": 1
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "1 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 357,
+          "end": 365,
+          "text": "seizures",
+          "entity_types": [
+            "SeizureFrequency",
+            "PatientHistory"
+          ],
+          "entity_ids": [
+            "T9",
+            "T16"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "4 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T4",
+          "type": "PatientHistory",
+          "text": "myoclonic-jerks",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T17",
+          "type": "Prescription",
+          "text": "sodium-valproate-700-mg",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T18",
+          "type": "Prescription",
+          "text": "topiramate",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T16",
+          "type": "PatientHistory",
+          "text": "seizures",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [
+    {
+      "id": "T6",
+      "type": "Diagnosis",
+      "text": "JME",
+      "certainty": 3
+    }
+  ],
+  "has_unknown_seizure": false
+}

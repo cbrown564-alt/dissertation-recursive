@@ -1,0 +1,733 @@
+{
+  "id": "EA0137",
+  "text": "Clinic Date 14/09/2016\n\nDear Dr,\n\nRe: \tMrs Jeana Johns D.O.B. 19/04/1966\n\nDiagnosis:\tSecondary generalised seizures secondary to perinatal trauma\n\nI reviewed Mrs Johns in clinic today. As you know she was diagnosed with epilepsy at the age of 4. The reason for her epilepsy is that she had some hypoxia during a difficult birth.\n\nShe continues to have around 2 secondary generalised seizures per year. Her seizure was about 2 months ago. They always start with some right sided arm movement and then Mrs Johns has around 10 seconds before she looses consciousness. She has taken sodium valproate for a long time and is currently taking 1g twice a day. The last time I saw her I advised starting lamotrigine. She is now taking 50mg twice a day. She thinks that this may have helped her seizures and interestingly her mood has improved since taking the lamotrigine. She also takes sertraline for her anxiety and depression.\n\nHer MRI does show some gliosis and changes in the left fronto-temporal region consistent with a perinatal injury and an EEG in 2010 showed left sided fronto-temporal spikes.\n\nI would suggest increasing the lamotrigine by 25mg every month until she is on 75mg bd and I will continue to review in clinic.\n\nYours\n\n\n",
+  "entities": [
+    {
+      "id": "T21",
+      "type": "Diagnosis",
+      "start": 85,
+      "end": 115,
+      "text": "Secondary-generalised-seizures",
+      "attributes": {
+        "CUI": "C0270838",
+        "CUIPhrase": "secondary-generalised-seizures",
+        "Certainty": "5",
+        "DiagCategory": "MultipleSeizures",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "BirthHistory",
+      "start": 128,
+      "end": 145,
+      "text": "-perinatal-trauma",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "perinatal-injury",
+        "CUI": "C0456798"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "EpilepsyCause",
+      "start": 129,
+      "end": 145,
+      "text": "perinatal-trauma",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "perinatal-trauma",
+        "CUI": "C0456798"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "WhenDiagnosed",
+      "start": 220,
+      "end": 227,
+      "text": "epileps",
+      "attributes": {
+        "CUI": "C0014544",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "AgeUnit": "Year",
+        "Age": "4",
+        "CUIPhrase": "epilepsy"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 220,
+      "end": 228,
+      "text": "epilepsy",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C0014544",
+        "CUIPhrase": "epilepsy",
+        "Certainty": "5",
+        "DiagCategory": "Epilepsy"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "Diagnosis",
+      "start": 265,
+      "end": 274,
+      "text": "epilepsy-",
+      "attributes": {
+        "Negation": "Affirmed",
+        "DiagCategory": "Epilepsy",
+        "CUI": "C0014544",
+        "CUIPhrase": "epilepsy",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T17",
+      "type": "BirthHistory",
+      "start": 295,
+      "end": 328,
+      "text": "hypoxia-during-a-difficult-birth.",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "hypoxia-during-birth",
+        "CUI": "C0559478"
+      }
+    },
+    {
+      "id": "T22",
+      "type": "EpilepsyCause",
+      "start": 295,
+      "end": 328,
+      "text": "hypoxia-during-a-difficult-birth.",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "hypoxia-during-birth",
+        "CUI": "C0559478"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "SeizureFrequency",
+      "start": 361,
+      "end": 390,
+      "text": "secondary-generalised-seizure",
+      "attributes": {
+        "CUIPhrase": "secondary-generalised-seizures",
+        "NumberOfTimePeriods": "1",
+        "CUI": "C0270838",
+        "NumberOfSeizures": "2",
+        "TimePeriod": "Year"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "Diagnosis",
+      "start": 361,
+      "end": 391,
+      "text": "secondary-generalised-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "DiagCategory": "MultipleSeizures",
+        "CUIPhrase": "secondary-generalised-seizures",
+        "CUI": "C0270838"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "SeizureFrequency",
+      "start": 406,
+      "end": 412,
+      "text": "seizur",
+      "attributes": {
+        "TimePeriod": "Month",
+        "CUI": "C0036572",
+        "NumberOfSeizures": "0",
+        "NumberOfTimePeriods": "2",
+        "CUIPhrase": "seizure"
+      }
+    },
+    {
+      "id": "T13",
+      "type": "PatientHistory",
+      "start": 406,
+      "end": 414,
+      "text": "seizure-",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0036572",
+        "CUIPhrase": "seizure",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "Prescription",
+      "start": 579,
+      "end": 595,
+      "text": "sodium-valproate",
+      "attributes": {
+        "DoseUnit": "g",
+        "DrugDose": "1",
+        "CUIPhrase": "sodium-valproate",
+        "CUI": "C0037567",
+        "Frequency": "2",
+        "DrugName": "SodiumValproate"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "Prescription",
+      "start": 695,
+      "end": 706,
+      "text": "lamotrigine",
+      "attributes": {
+        "CUIPhrase": "lamotrigine",
+        "DoseUnit": "mg",
+        "DrugDose": "50",
+        "CUI": "C0064636",
+        "Frequency": "2",
+        "DrugName": "Lamotrigine"
+      }
+    },
+    {
+      "id": "T16",
+      "type": "PatientHistory",
+      "start": 785,
+      "end": 794,
+      "text": "seizures-",
+      "attributes": {
+        "CUI": "C0036572",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUIPhrase": "seizures"
+      }
+    },
+    {
+      "id": "T15",
+      "type": "PatientHistory",
+      "start": 898,
+      "end": 906,
+      "text": "anxiety-",
+      "attributes": {
+        "CUI": "C0003467",
+        "CUIPhrase": "anxiety",
+        "Negation": "Affirmed",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T20",
+      "type": "PatientHistory",
+      "start": 910,
+      "end": 920,
+      "text": "depression",
+      "attributes": {
+        "CUIPhrase": "depression",
+        "CUI": "C0011570",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Investigations",
+      "start": 927,
+      "end": 931,
+      "text": "MRI-",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "CUI": "C1319851",
+        "CUIPhrase": "mri-abnormal",
+        "MRI_Results": "Abnormal"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "start": 946,
+      "end": 954,
+      "text": "gliosis-",
+      "attributes": {
+        "CUIPhrase": "gliosis",
+        "Negation": "Affirmed",
+        "CUI": "C0017639",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T19",
+      "type": "BirthHistory",
+      "start": 1019,
+      "end": 1035,
+      "text": "perinatal-injury",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "perinatal-injury",
+        "CUI": "C0005604"
+      }
+    },
+    {
+      "id": "T18",
+      "type": "Investigations",
+      "start": 1043,
+      "end": 1047,
+      "text": "EEG-",
+      "attributes": {
+        "EEG_Results": "Abnormal",
+        "CUIPhrase": "eeg-abnormal",
+        "CUI": "C0151611",
+        "EEG_Performed": "Yes"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "BirthHistory",
+      "start_index": "128",
+      "end_index": "145",
+      "text": "-perinatal-trauma",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "perinatal-injury",
+        "CUI": "C0456798"
+      }
+    },
+    {
+      "entity": "EpilepsyCause",
+      "start_index": "129",
+      "end_index": "145",
+      "text": "perinatal-trauma",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "perinatal-trauma",
+        "CUI": "C0456798"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "220",
+      "end_index": "228",
+      "text": "epilepsy",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C0014544",
+        "CUIPhrase": "epilepsy",
+        "Certainty": "5",
+        "DiagCategory": "Epilepsy"
+      }
+    },
+    {
+      "entity": "BirthHistory",
+      "start_index": "295",
+      "end_index": "328",
+      "text": "hypoxia-during-a-difficult-birth.",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "hypoxia-during-birth",
+        "CUI": "C0559478"
+      }
+    },
+    {
+      "entity": "EpilepsyCause",
+      "start_index": "295",
+      "end_index": "328",
+      "text": "hypoxia-during-a-difficult-birth.",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "hypoxia-during-birth",
+        "CUI": "C0559478"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "361",
+      "end_index": "391",
+      "text": "secondary-generalised-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "DiagCategory": "MultipleSeizures",
+        "CUIPhrase": "secondary-generalised-seizures",
+        "CUI": "C0270838"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "406",
+      "end_index": "412",
+      "text": "seizur",
+      "attributes": {
+        "TimePeriod": "Month",
+        "CUI": "C0036572",
+        "NumberOfSeizures": "0",
+        "NumberOfTimePeriods": "2",
+        "CUIPhrase": "seizure"
+      }
+    },
+    {
+      "entity": "WhenDiagnosed",
+      "start_index": "220",
+      "end_index": "227",
+      "text": "epileps",
+      "attributes": {
+        "CUI": "C0014544",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "AgeUnit": "Year",
+        "Age": "4",
+        "CUIPhrase": "epilepsy"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "927",
+      "end_index": "931",
+      "text": "MRI-",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "CUI": "C1319851",
+        "CUIPhrase": "mri-abnormal",
+        "MRI_Results": "Abnormal"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "579",
+      "end_index": "595",
+      "text": "sodium-valproate",
+      "attributes": {
+        "DoseUnit": "g",
+        "DrugDose": "1",
+        "CUIPhrase": "sodium-valproate",
+        "CUI": "C0037567",
+        "Frequency": "2",
+        "DrugName": "SodiumValproate"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "361",
+      "end_index": "390",
+      "text": "secondary-generalised-seizure",
+      "attributes": {
+        "CUIPhrase": "secondary-generalised-seizures",
+        "NumberOfTimePeriods": "1",
+        "CUI": "C0270838",
+        "NumberOfSeizures": "2",
+        "TimePeriod": "Year"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "695",
+      "end_index": "706",
+      "text": "lamotrigine",
+      "attributes": {
+        "CUIPhrase": "lamotrigine",
+        "DoseUnit": "mg",
+        "DrugDose": "50",
+        "CUI": "C0064636",
+        "Frequency": "2",
+        "DrugName": "Lamotrigine"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "265",
+      "end_index": "274",
+      "text": "epilepsy-",
+      "attributes": {
+        "Negation": "Affirmed",
+        "DiagCategory": "Epilepsy",
+        "CUI": "C0014544",
+        "CUIPhrase": "epilepsy",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "406",
+      "end_index": "414",
+      "text": "seizure-",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0036572",
+        "CUIPhrase": "seizure",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "946",
+      "end_index": "954",
+      "text": "gliosis-",
+      "attributes": {
+        "CUIPhrase": "gliosis",
+        "Negation": "Affirmed",
+        "CUI": "C0017639",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "898",
+      "end_index": "906",
+      "text": "anxiety-",
+      "attributes": {
+        "CUI": "C0003467",
+        "CUIPhrase": "anxiety",
+        "Negation": "Affirmed",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "785",
+      "end_index": "794",
+      "text": "seizures-",
+      "attributes": {
+        "CUI": "C0036572",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUIPhrase": "seizures"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "85",
+      "end_index": "115",
+      "text": "Secondary-generalised-seizures",
+      "attributes": {
+        "CUI": "C0270838",
+        "CUIPhrase": "secondary-generalised-seizures",
+        "Certainty": "5",
+        "DiagCategory": "MultipleSeizures",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "BirthHistory",
+      "start_index": "1019",
+      "end_index": "1035",
+      "text": "perinatal-injury",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "perinatal-injury",
+        "CUI": "C0005604"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "1043",
+      "end_index": "1047",
+      "text": "EEG-",
+      "attributes": {
+        "EEG_Results": "Abnormal",
+        "CUIPhrase": "eeg-abnormal",
+        "CUI": "C0151611",
+        "EEG_Performed": "Yes"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "910",
+      "end_index": "920",
+      "text": "depression",
+      "attributes": {
+        "CUIPhrase": "depression",
+        "CUI": "C0011570",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 295,
+      "end": 328,
+      "text": "hypoxia-during-a-difficult-birth.",
+      "entity_types": [
+        "BirthHistory",
+        "EpilepsyCause"
+      ],
+      "entity_ids": [
+        "T17",
+        "T22"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T13",
+      "type": "PatientHistory",
+      "text": "seizure-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T7",
+      "type": "Prescription",
+      "text": "sodium-valproate",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T9",
+      "type": "Prescription",
+      "text": "lamotrigine",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T16",
+      "type": "PatientHistory",
+      "text": "seizures-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T15",
+      "type": "PatientHistory",
+      "text": "anxiety-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T20",
+      "type": "PatientHistory",
+      "text": "depression",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "text": "gliosis-",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T8",
+      "type": "SeizureFrequency",
+      "text": "secondary-generalised-seizure",
+      "start": 361,
+      "end": 390,
+      "year": null,
+      "period": "Year",
+      "num_periods": "1",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "2"
+    },
+    {
+      "id": "T4",
+      "type": "SeizureFrequency",
+      "text": "seizur",
+      "start": 406,
+      "end": 412,
+      "year": null,
+      "period": "Month",
+      "num_periods": "2",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 4,
+    "BirthHistory": 3,
+    "EpilepsyCause": 2,
+    "WhenDiagnosed": 1,
+    "SeizureFrequency": 2,
+    "PatientHistory": 5,
+    "Prescription": 2,
+    "Investigations": 2
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "1 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 295,
+          "end": 328,
+          "text": "hypoxia-during-a-difficult-birth.",
+          "entity_types": [
+            "BirthHistory",
+            "EpilepsyCause"
+          ],
+          "entity_ids": [
+            "T17",
+            "T22"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "7 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T13",
+          "type": "PatientHistory",
+          "text": "seizure-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T7",
+          "type": "Prescription",
+          "text": "sodium-valproate",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T9",
+          "type": "Prescription",
+          "text": "lamotrigine",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T16",
+          "type": "PatientHistory",
+          "text": "seizures-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T15",
+          "type": "PatientHistory",
+          "text": "anxiety-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T20",
+          "type": "PatientHistory",
+          "text": "depression",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T14",
+          "type": "PatientHistory",
+          "text": "gliosis-",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

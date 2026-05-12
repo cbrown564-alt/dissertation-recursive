@@ -1,0 +1,775 @@
+{
+  "id": "EA0011",
+  "text": "Diagnosis:  Temporal lobe epilepsy\n \nSeizure type and frequency:  Focal seizures with altered awareness approximately 1 per fortnight\nFocal to bilateral convulsive seizures, last event around Christmas 2017\n \nCurrent antiepileptic medication:  eslicarbazepine, 800 mg once a day\nZonisamide 75 mg twice a day\n \nPrevious antiepileptic medications tried: include lamotrigine, carbamazepine, levetiracetam\n \nI reviewed this 41-year-old man together with his partner in clinic today.  He has previously been reviewed by other epilepsy colleagues and has had extensive workup for his epilepsy in the past.  His seizures started in 2003 at the age of 31. He can get infrequent focal to bilateral convulsive seizures having around two in the year of his diagnosis and his last one being around Christmas time in 2017\n \nHe was born normally, he did have around 3 febrile seizures between the age of 1 year and 30 months.  He has not had any meningitis or encephalitis but did get severe head injury as a consequence of his last convulsive seizure in 2017.\n \nPrevious investigations have included an MRI brain which have shown a small focus of gliosis in his right posterior temporal lobe. An EEG in 2016 did show some focal slowing in the right temporal leads.  \n \nI suggest adding in some Clobazam to take on an as required basis for seizure clusters.  He can take 10 mg at night increasing to 20 mg if necessary or 10 mg twice a day.  The main side effect of Clobazam is tiredness.  I have left him as a see on symptom patient and so he can contact us should he have any issues in the future and then we can arrange a phone appointment or a clinic appointment\n \nYours\n\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 12,
+      "end": 34,
+      "text": "Temporal-lobe-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "temporal-lobe-epilepsy",
+        "CUI": "C0014556"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Diagnosis",
+      "start": 66,
+      "end": 103,
+      "text": "Focal-seizures-with-altered-awareness",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-seizures-with-altered-awareness",
+        "CUI": "C0270834"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "SeizureFrequency",
+      "start": 67,
+      "end": 102,
+      "text": "ocal-seizures-with-altered-awarenes",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "TimePeriod": "Week",
+        "NumberOfTimePeriods": "2",
+        "CUIPhrase": "focal-seizures-with-altered-awareness",
+        "CUI": "C0270834"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "SeizureFrequency",
+      "start": 134,
+      "end": 171,
+      "text": "Focal-to-bilateral-convulsive-seizure",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "MonthDate": "12",
+        "YearDate": "2017",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizure",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Diagnosis",
+      "start": 134,
+      "end": 172,
+      "text": "Focal-to-bilateral-convulsive-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizures",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "Prescription",
+      "start": 244,
+      "end": 259,
+      "text": "eslicarbazepine",
+      "attributes": {
+        "DrugName": "EslicarbazepineAcetate",
+        "DrugDose": "800",
+        "DoseUnit": "mg",
+        "Frequency": "1",
+        "CUIPhrase": "eslicarbazepine",
+        "CUI": "C2725260"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "Prescription",
+      "start": 279,
+      "end": 307,
+      "text": "Zonisamide-75-mg-twice-a-day",
+      "attributes": {
+        "DrugName": "zonisamide",
+        "DrugDose": "75",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "zonisamide",
+        "CUI": "C0078844"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "Diagnosis",
+      "start": 578,
+      "end": 587,
+      "text": "epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T24",
+      "type": "PatientHistory",
+      "start": 605,
+      "end": 612,
+      "text": "seizure",
+      "attributes": {
+        "AgeUnit": "Year",
+        "Age": "31",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "PatientHistory",
+      "start": 605,
+      "end": 613,
+      "text": "seizures",
+      "attributes": {
+        "YearDate": "2003",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T13",
+      "type": "Diagnosis",
+      "start": 670,
+      "end": 708,
+      "text": "focal-to-bilateral-convulsive-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizures",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "SeizureFrequency",
+      "start": 671,
+      "end": 708,
+      "text": "ocal-to-bilateral-convulsive-seizures",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "MonthDate": "12",
+        "YearDate": "2017",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizures",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "id": "T17",
+      "type": "SeizureFrequency",
+      "start": 672,
+      "end": 708,
+      "text": "cal-to-bilateral-convulsive-seizures",
+      "attributes": {
+        "FrequencyChange": "Infrequent",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizures",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "BirthHistory",
+      "start": 818,
+      "end": 831,
+      "text": "born-normally",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "born-normally",
+        "CUI": "C3665337"
+      }
+    },
+    {
+      "id": "T21",
+      "type": "PatientHistory",
+      "start": 854,
+      "end": 870,
+      "text": "febrile-seizures",
+      "attributes": {
+        "AgeUnit": "Month",
+        "AgeLower": "12",
+        "AgeUpper": "30",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "febrile-seizures",
+        "CUI": "C0009952"
+      }
+    },
+    {
+      "id": "T23",
+      "type": "PatientHistory",
+      "start": 971,
+      "end": 989,
+      "text": "severe-head-injury",
+      "attributes": {
+        "YearDate": "2017",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "head-injury",
+        "CUI": "C0497301"
+      }
+    },
+    {
+      "id": "T20",
+      "type": "PatientHistory",
+      "start": 1019,
+      "end": 1035,
+      "text": "convulsive-seizu",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "convulsive-seizure",
+        "CUI": "C0751494"
+      }
+    },
+    {
+      "id": "T27",
+      "type": "SeizureFrequency",
+      "start": 1019,
+      "end": 1036,
+      "text": "convulsive-seizur",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "YearDate": "2017",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "convulsive-seizure",
+        "CUI": "C0751494"
+      }
+    },
+    {
+      "id": "T29",
+      "type": "Investigations",
+      "start": 1090,
+      "end": 1099,
+      "text": "MRI-brain",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Abnormal",
+        "CUIPhrase": "mri-abnormal",
+        "CUI": "C1319851"
+      }
+    },
+    {
+      "id": "T19",
+      "type": "PatientHistory",
+      "start": 1134,
+      "end": 1142,
+      "text": "gliosis-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "gliosis",
+        "CUI": "C0017639"
+      }
+    },
+    {
+      "id": "T31",
+      "type": "Investigations",
+      "start": 1183,
+      "end": 1187,
+      "text": "EEG-",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Abnormal",
+        "CUIPhrase": "eeg-abnormal",
+        "CUI": "C0151611"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "12",
+      "end_index": "34",
+      "text": "Temporal-lobe-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "temporal-lobe-epilepsy",
+        "CUI": "C0014556"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "66",
+      "end_index": "103",
+      "text": "Focal-seizures-with-altered-awareness",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-seizures-with-altered-awareness",
+        "CUI": "C0270834"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "67",
+      "end_index": "102",
+      "text": "ocal-seizures-with-altered-awarenes",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "TimePeriod": "Week",
+        "NumberOfTimePeriods": "2",
+        "CUIPhrase": "focal-seizures-with-altered-awareness",
+        "CUI": "C0270834"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "134",
+      "end_index": "172",
+      "text": "Focal-to-bilateral-convulsive-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizures",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "134",
+      "end_index": "171",
+      "text": "Focal-to-bilateral-convulsive-seizure",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "MonthDate": "12",
+        "YearDate": "2017",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizure",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "244",
+      "end_index": "259",
+      "text": "eslicarbazepine",
+      "attributes": {
+        "DrugName": "EslicarbazepineAcetate",
+        "DrugDose": "800",
+        "DoseUnit": "mg",
+        "Frequency": "1",
+        "CUIPhrase": "eslicarbazepine",
+        "CUI": "C2725260"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "279",
+      "end_index": "307",
+      "text": "Zonisamide-75-mg-twice-a-day",
+      "attributes": {
+        "DrugName": "zonisamide",
+        "DrugDose": "75",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "zonisamide",
+        "CUI": "C0078844"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "578",
+      "end_index": "587",
+      "text": "epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "605",
+      "end_index": "613",
+      "text": "seizures",
+      "attributes": {
+        "YearDate": "2003",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "605",
+      "end_index": "612",
+      "text": "seizure",
+      "attributes": {
+        "AgeUnit": "Year",
+        "Age": "31",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "670",
+      "end_index": "708",
+      "text": "focal-to-bilateral-convulsive-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizures",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "671",
+      "end_index": "708",
+      "text": "ocal-to-bilateral-convulsive-seizures",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "MonthDate": "12",
+        "YearDate": "2017",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizures",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "672",
+      "end_index": "708",
+      "text": "cal-to-bilateral-convulsive-seizures",
+      "attributes": {
+        "FrequencyChange": "Infrequent",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizures",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "entity": "BirthHistory",
+      "start_index": "818",
+      "end_index": "831",
+      "text": "born-normally",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "born-normally",
+        "CUI": "C3665337"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "854",
+      "end_index": "870",
+      "text": "febrile-seizures",
+      "attributes": {
+        "AgeUnit": "Month",
+        "AgeLower": "12",
+        "AgeUpper": "30",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "febrile-seizures",
+        "CUI": "C0009952"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "971",
+      "end_index": "989",
+      "text": "severe-head-injury",
+      "attributes": {
+        "YearDate": "2017",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "head-injury",
+        "CUI": "C0497301"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "1019",
+      "end_index": "1036",
+      "text": "convulsive-seizur",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "YearDate": "2017",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "convulsive-seizure",
+        "CUI": "C0751494"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1019",
+      "end_index": "1035",
+      "text": "convulsive-seizu",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "convulsive-seizure",
+        "CUI": "C0751494"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "1090",
+      "end_index": "1099",
+      "text": "MRI-brain",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Abnormal",
+        "CUIPhrase": "mri-abnormal",
+        "CUI": "C1319851"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1134",
+      "end_index": "1142",
+      "text": "gliosis-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "gliosis",
+        "CUI": "C0017639"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "1183",
+      "end_index": "1187",
+      "text": "EEG-",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Abnormal",
+        "CUIPhrase": "eeg-abnormal",
+        "CUI": "C0151611"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T14",
+      "type": "Prescription",
+      "text": "eslicarbazepine",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T12",
+      "type": "Prescription",
+      "text": "Zonisamide-75-mg-twice-a-day",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T24",
+      "type": "PatientHistory",
+      "text": "seizure",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T17",
+      "type": "SeizureFrequency",
+      "text": "cal-to-bilateral-convulsive-seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T21",
+      "type": "PatientHistory",
+      "text": "febrile-seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T20",
+      "type": "PatientHistory",
+      "text": "convulsive-seizu",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T19",
+      "type": "PatientHistory",
+      "text": "gliosis-",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T6",
+      "type": "SeizureFrequency",
+      "text": "ocal-seizures-with-altered-awarenes",
+      "start": 67,
+      "end": 102,
+      "year": null,
+      "period": "Week",
+      "num_periods": "2",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "1"
+    },
+    {
+      "id": "T10",
+      "type": "SeizureFrequency",
+      "text": "Focal-to-bilateral-convulsive-seizure",
+      "start": 134,
+      "end": 171,
+      "year": "2017",
+      "period": null,
+      "num_periods": null,
+      "time_since": "Since",
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    },
+    {
+      "id": "T11",
+      "type": "PatientHistory",
+      "text": "seizures",
+      "start": 605,
+      "end": 613,
+      "year": "2003",
+      "period": null,
+      "num_periods": null,
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": null
+    },
+    {
+      "id": "T5",
+      "type": "SeizureFrequency",
+      "text": "ocal-to-bilateral-convulsive-seizures",
+      "start": 671,
+      "end": 708,
+      "year": "2017",
+      "period": null,
+      "num_periods": null,
+      "time_since": "Since",
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    },
+    {
+      "id": "T23",
+      "type": "PatientHistory",
+      "text": "severe-head-injury",
+      "start": 971,
+      "end": 989,
+      "year": "2017",
+      "period": null,
+      "num_periods": null,
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": null
+    },
+    {
+      "id": "T27",
+      "type": "SeizureFrequency",
+      "text": "convulsive-seizur",
+      "start": 1019,
+      "end": 1036,
+      "year": "2017",
+      "period": null,
+      "num_periods": null,
+      "time_since": "Since",
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 5,
+    "SeizureFrequency": 5,
+    "Prescription": 2,
+    "PatientHistory": 6,
+    "BirthHistory": 1,
+    "Investigations": 2
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "7 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T14",
+          "type": "Prescription",
+          "text": "eslicarbazepine",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T12",
+          "type": "Prescription",
+          "text": "Zonisamide-75-mg-twice-a-day",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T24",
+          "type": "PatientHistory",
+          "text": "seizure",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T17",
+          "type": "SeizureFrequency",
+          "text": "cal-to-bilateral-convulsive-seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T21",
+          "type": "PatientHistory",
+          "text": "febrile-seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T20",
+          "type": "PatientHistory",
+          "text": "convulsive-seizu",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T19",
+          "type": "PatientHistory",
+          "text": "gliosis-",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

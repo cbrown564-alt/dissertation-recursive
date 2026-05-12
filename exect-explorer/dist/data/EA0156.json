@@ -1,0 +1,285 @@
+{
+  "id": "EA0156",
+  "text": "Date 02-Nov-2017\n\nRachel Helen Howells\tDoB: 19-Apr-1994\n\nDiagnosis Juvenile Absence Epilepsy\nMedication: Levetiracetam 1250mg BD, Topiramate 75mg BD\n\nI met Rachel and her mother in clinic. She has remained seizure free since the beginning of July. She has tolerated the introduction of topiramate well with only a slight loss of weight and no other side effects.\n\nAs you know her recent MRI and EEG were normal. At the time of her diagnosis in 2002 an EEG showed generalised spike and wave with absence seizures captured during hyperventilation. \n\nI was pleased to hear that Rachel has settled in well to her job at a solictor’s company and is enjoying the work. She understands that she needs to be a year free of seizures before she is allowed to drive.\n\nI will review her again in 4 months time.\n",
+  "entities": [
+    {
+      "id": "T8",
+      "type": "Diagnosis",
+      "start": 67,
+      "end": 92,
+      "text": "Juvenile-Absence-Epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "CUIPhrase": "juvenile-absence-epilepsy",
+        "Negation": "Affirmed",
+        "CUI": "C4317339",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "Prescription",
+      "start": 93,
+      "end": 128,
+      "text": "Medication:-Levetiracetam-1250mg-BD",
+      "attributes": {
+        "CUIPhrase": "levetiracetam",
+        "DoseUnit": "mg",
+        "DrugDose": "1250",
+        "Frequency": "2",
+        "DrugName": "levetiracetam",
+        "CUI": "C0377265"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "start": 130,
+      "end": 148,
+      "text": "Topiramate-75mg-BD",
+      "attributes": {
+        "DrugDose": "75",
+        "CUI": "C0076829",
+        "CUIPhrase": "topiramate",
+        "DoseUnit": "mg",
+        "DrugName": "topiramate",
+        "Frequency": "2"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "SeizureFrequency",
+      "start": 206,
+      "end": 218,
+      "text": "seizure-free",
+      "attributes": {
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUI": "C1299590",
+        "CUIPhrase": "seizure-free",
+        "NumberOfSeizures": "0",
+        "MonthDate": "7"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "Investigations",
+      "start": 387,
+      "end": 391,
+      "text": "MRI-",
+      "attributes": {
+        "CUI": "C0436481",
+        "CUIPhrase": "mri-normal",
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Normal"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Investigations",
+      "start": 395,
+      "end": 410,
+      "text": "EEG-were-normal",
+      "attributes": {
+        "CUIPhrase": "eeg-normal",
+        "CUI": "C0560017",
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Normal"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "Investigations",
+      "start": 452,
+      "end": 456,
+      "text": "EEG-",
+      "attributes": {
+        "CUI": "C0151611",
+        "EEG_Results": "Abnormal",
+        "EEG_Performed": "Yes",
+        "CUIPhrase": "abnormal EEG"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "Diagnosis",
+      "start": 495,
+      "end": 511,
+      "text": "absence-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "absence-seizures",
+        "CUI": "C4316903"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "206",
+      "end_index": "218",
+      "text": "seizure-free",
+      "attributes": {
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUI": "C1299590",
+        "CUIPhrase": "seizure-free",
+        "NumberOfSeizures": "0",
+        "MonthDate": "7"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "93",
+      "end_index": "128",
+      "text": "Medication:-Levetiracetam-1250mg-BD",
+      "attributes": {
+        "CUIPhrase": "levetiracetam",
+        "DoseUnit": "mg",
+        "DrugDose": "1250",
+        "Frequency": "2",
+        "DrugName": "levetiracetam",
+        "CUI": "C0377265"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "387",
+      "end_index": "391",
+      "text": "MRI-",
+      "attributes": {
+        "CUI": "C0436481",
+        "CUIPhrase": "mri-normal",
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Normal"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "395",
+      "end_index": "410",
+      "text": "EEG-were-normal",
+      "attributes": {
+        "CUIPhrase": "eeg-normal",
+        "CUI": "C0560017",
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Normal"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "130",
+      "end_index": "148",
+      "text": "Topiramate-75mg-BD",
+      "attributes": {
+        "DrugDose": "75",
+        "CUI": "C0076829",
+        "CUIPhrase": "topiramate",
+        "DoseUnit": "mg",
+        "DrugName": "topiramate",
+        "Frequency": "2"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "452",
+      "end_index": "456",
+      "text": "EEG-",
+      "attributes": {
+        "CUI": "C0151611",
+        "EEG_Results": "Abnormal",
+        "EEG_Performed": "Yes",
+        "CUIPhrase": "abnormal"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "67",
+      "end_index": "92",
+      "text": "Juvenile-Absence-Epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "CUIPhrase": "juvenile-absence-epilepsy",
+        "Negation": "Affirmed",
+        "CUI": "C4317339",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "495",
+      "end_index": "511",
+      "text": "absence-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "absence-seizures",
+        "CUI": "C4316903"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T2",
+      "type": "Prescription",
+      "text": "Medication:-Levetiracetam-1250mg-BD",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "text": "Topiramate-75mg-BD",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T1",
+      "type": "SeizureFrequency",
+      "text": "seizure-free",
+      "start": 206,
+      "end": 218,
+      "year": null,
+      "period": null,
+      "num_periods": null,
+      "time_since": "Since",
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 2,
+    "Prescription": 2,
+    "SeizureFrequency": 1,
+    "Investigations": 3
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "2 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T2",
+          "type": "Prescription",
+          "text": "Medication:-Levetiracetam-1250mg-BD",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T6",
+          "type": "Prescription",
+          "text": "Topiramate-75mg-BD",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

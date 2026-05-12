@@ -1,0 +1,392 @@
+{
+  "id": "EA0113",
+  "text": "Clinic date 12/05/2018\n\nDear Dr,\n\nRe: \tMr Rhodri Williams DOB 21/10/2000\n\t39, Freedom Place, Swansea SA9 4JX\n\nDiagnosis: Juvenile myoclonic epilepsy \n\nMedication:\n•\tPlease start Sodium Valproate (Epilim Chrono) 300mgs once a day, increasing after 2 weeks to 300mgs bd and after a further 2 weeks to 300mgs am and 500mgs pm and then after a further 2 weeks 500mgs bd\n\nI reviewed Rhodri today in the Virtual First Seizure Clinic.  He is a 18-year-old gentleman who had his first seizure at the age of 11 and was investigated by paediatrics.  He has had on average one seizure a year since the age of 16 but a total of 3 in 2018. \n\nIn general, they have occurred without warning. There is generalised stiffening and shaking, stertorous breathing and cyanosis. He has bitten his tongue and is postictal for up to 48 hours afterwards.  One occurred on waking and one after a night out.  \n\nThere is a history of what sound like myoclonic jerks, sometimes in the morning affecting his limbs often after nights out.  \n\nHe is not on any medication, there is no family history of note and there is no history of intracranial infections, head injuries or febrile convulsions.  \n\nHe lives with his family and works in telesales. He is driving.  He is a non-smoker and drinks alcohol on weekends.\n\nImpression:\n\nThe story here is suggestive of Juvenile Myoclonic Epilepsy and I would suggest the following:\n\n1.\tHe needs some up to date investigations with an MRI brain and EEG which I will arrange\n2.\tI think he needs to be on medication and I have suggested Sodium Valproate as shown above.  The main side effects to be aware of are tiredness, light-headedness and occasional weight gain and a tremor.  \n3.\tWe discussed driving and I have advised him to contact the DVLA and that he should refrain from driving until he has been seizure free for 12 months.\n4.\tWe discussed some safety aspects including alcohol intake and I would advise him to take showers rather than baths.  \n5.\tI will arrange a follow up appointment as a new diagnosis with the epilepsy nurses in 2-3 months’ time.  If he runs into any problems he can contact us on the telephone number or e-mail advice line at the top of the letter.   \n\nYours Sincerely\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 121,
+      "end": 148,
+      "text": "Juvenile-myoclonic-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "juvenile-myoclonic-epilepsy",
+        "CUI": "C0270853"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "start": 477,
+      "end": 485,
+      "text": "seizure-",
+      "attributes": {
+        "AgeUnit": "Year",
+        "Age": "11",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "SeizureFrequency",
+      "start": 566,
+      "end": 573,
+      "text": "seizure",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "1",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "SeizureFrequency",
+      "start": 566,
+      "end": 573,
+      "text": "seizure",
+      "attributes": {
+        "NumberOfSeizures": "3",
+        "YearDate": "2018",
+        "TimeSince_or_TimeOfEvent": "During",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T16",
+      "type": "PatientHistory",
+      "start": 566,
+      "end": 574,
+      "text": "seizure-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "start": 922,
+      "end": 937,
+      "text": "myoclonic-jerks",
+      "attributes": {
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "myoclonic-jerks",
+        "CUI": "C0027066"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "start": 1144,
+      "end": 1163,
+      "text": "febrile-convulsions",
+      "attributes": {
+        "Certainty": "1",
+        "Negation": "Negated",
+        "CUIPhrase": "febrile-convulsions",
+        "CUI": "C0009952"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "Diagnosis",
+      "start": 1330,
+      "end": 1357,
+      "text": "Juvenile-Myoclonic-Epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "juvenile-myoclonic-epilepsy",
+        "CUI": "C0270853"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "121",
+      "end_index": "148",
+      "text": "Juvenile-myoclonic-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "juvenile-myoclonic-epilepsy",
+        "CUI": "C0270853"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "477",
+      "end_index": "485",
+      "text": "seizure-",
+      "attributes": {
+        "AgeUnit": "Year",
+        "Age": "11",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "566",
+      "end_index": "573",
+      "text": "seizure",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "1",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "566",
+      "end_index": "573",
+      "text": "seizure",
+      "attributes": {
+        "NumberOfSeizures": "3",
+        "YearDate": "2018",
+        "TimeSince_or_TimeOfEvent": "During",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "566",
+      "end_index": "574",
+      "text": "seizure-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "922",
+      "end_index": "937",
+      "text": "myoclonic-jerks",
+      "attributes": {
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "myoclonic-jerks",
+        "CUI": "C0027066"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1144",
+      "end_index": "1163",
+      "text": "febrile-convulsions",
+      "attributes": {
+        "Certainty": "1",
+        "Negation": "Negated",
+        "CUIPhrase": "febrile-convulsions",
+        "CUI": "C0009952"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1330",
+      "end_index": "1357",
+      "text": "Juvenile-Myoclonic-Epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "juvenile-myoclonic-epilepsy",
+        "CUI": "C0270853"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 566,
+      "end": 573,
+      "text": "seizure",
+      "entity_types": [
+        "SeizureFrequency",
+        "SeizureFrequency"
+      ],
+      "entity_ids": [
+        "T6",
+        "T8"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "text": "seizure-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T16",
+      "type": "PatientHistory",
+      "text": "seizure-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "text": "myoclonic-jerks",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "text": "febrile-convulsions",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T6",
+      "type": "SeizureFrequency",
+      "text": "seizure",
+      "start": 566,
+      "end": 573,
+      "year": null,
+      "period": "Year",
+      "num_periods": "1",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "1"
+    },
+    {
+      "id": "T8",
+      "type": "SeizureFrequency",
+      "text": "seizure",
+      "start": 566,
+      "end": 573,
+      "year": "2018",
+      "period": null,
+      "num_periods": null,
+      "time_since": "During",
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "3"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 2,
+    "PatientHistory": 4,
+    "SeizureFrequency": 2
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "1 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 566,
+          "end": 573,
+          "text": "seizure",
+          "entity_types": [
+            "SeizureFrequency",
+            "SeizureFrequency"
+          ],
+          "entity_ids": [
+            "T6",
+            "T8"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "4 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T4",
+          "type": "PatientHistory",
+          "text": "seizure-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T16",
+          "type": "PatientHistory",
+          "text": "seizure-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T10",
+          "type": "PatientHistory",
+          "text": "myoclonic-jerks",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T12",
+          "type": "PatientHistory",
+          "text": "febrile-convulsions",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    },
+    {
+      "category": "negated_entities",
+      "description": "1 entity/ies are explicitly negated in the text.",
+      "details": [
+        {
+          "id": "T12",
+          "type": "PatientHistory",
+          "text": "febrile-convulsions"
+        }
+      ],
+      "oracle_impact": "clinical_precision"
+    }
+  ],
+  "negated_entities": [
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "text": "febrile-convulsions"
+    }
+  ],
+  "low_certainty": [
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "text": "myoclonic-jerks",
+      "certainty": 4
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "text": "febrile-convulsions",
+      "certainty": 1
+    },
+    {
+      "id": "T14",
+      "type": "Diagnosis",
+      "text": "Juvenile-Myoclonic-Epilepsy",
+      "certainty": 4
+    }
+  ],
+  "has_unknown_seizure": false
+}

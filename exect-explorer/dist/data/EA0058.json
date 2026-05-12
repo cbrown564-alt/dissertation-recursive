@@ -1,0 +1,685 @@
+{
+  "id": "EA0058",
+  "text": "Our Ref AJH/LK/M6704543\nNHS No 4961112233\nDate 13/2/2018\n\nThe Epilepsy service\n\nDear Dr\n\nr.e. Mr Gary Gold.  D.O.B.: 12/12/1950\nThe Care Home, Moon Drive, Suntoen. CA33 2JR\n\nDiagnosis\t1. Symptomatic structural epilepsy secondary probably caused by early life meningitis\n2. learning difficulties\n\nMedication:\tLevetiracetam 1000mg bd\n\t\tLamotrigine 200mg bd\n\nOther medication include warfarin, ramipril, bisprolol, gabapentin\n\t\t\n\nI reviewed Mr Gold together with his brother, who is his main carer, in clinic today. Things are reasonable from an epilepsy point of view. Mr Gold does get occasional periods of aggression which is sometimes difficult to manage. He gets focal to bilateral convulsive seizures, the last one was 2 years ago. He also gets focal seizures with altered awareness where he will smack his lips, stare into the distance and might fiddle with his clothes. These occur every month and are sometimes associated with infections.\n\nMr Gold had meningitis at the age of 7 months and it is thought that his epilepsy has been caused by this. He had an MRI on 4/5/2016, this showed generalised brain atrophy which white matter ischaemic change. An EEG in 2005 showed bitemporal slowing.\n\nI would suggest changing the levetiracetam to brivaracetam given the ongoing problems with mood and aggression. I recommend a straight switch to brivaracetam 100mg bd. I will ask the epilepsy nurses to review in a few months.\n\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 187,
+      "end": 218,
+      "text": "Symptomatic-structural-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "symptomatic-structural-focal-epilepsy",
+        "CUI": "C0472349"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "EpilepsyCause",
+      "start": 259,
+      "end": 269,
+      "text": "meningitis",
+      "attributes": {
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "meningitis",
+        "CUI": "C0025289"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "start": 259,
+      "end": 269,
+      "text": "meningitis",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "meningitis",
+        "CUI": "C0025289"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "start": 273,
+      "end": 294,
+      "text": "learning-difficulties",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "learning-difficulties",
+        "CUI": "C0424939"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "Prescription",
+      "start": 308,
+      "end": 331,
+      "text": "Levetiracetam-1000mg-bd",
+      "attributes": {
+        "DrugName": "levetiracetam",
+        "DrugDose": "1000",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "levetiracetam",
+        "CUI": "C0377265"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "Prescription",
+      "start": 334,
+      "end": 354,
+      "text": "Lamotrigine-200mg-bd",
+      "attributes": {
+        "DrugName": "lamotrigine",
+        "DrugDose": "200",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "Diagnosis",
+      "start": 665,
+      "end": 703,
+      "text": "focal-to-bilateral-convulsive-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizures",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "id": "T16",
+      "type": "SeizureFrequency",
+      "start": 665,
+      "end": 703,
+      "text": "focal-to-bilateral-convulsive-seizures",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "2",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizures",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "id": "T18",
+      "type": "Diagnosis",
+      "start": 748,
+      "end": 785,
+      "text": "focal-seizures-with-altered-awareness",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-seizures-with-altered-awareness",
+        "CUI": "C0270834"
+      }
+    },
+    {
+      "id": "T20",
+      "type": "SeizureFrequency",
+      "start": 748,
+      "end": 785,
+      "text": "focal-seizures-with-altered-awareness",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "TimePeriod": "Month",
+        "NumberOfTimePeriods": "1",
+        "CUIPhrase": "focal-seizures-with-altered-awareness",
+        "CUI": "C0270834"
+      }
+    },
+    {
+      "id": "T22",
+      "type": "PatientHistory",
+      "start": 958,
+      "end": 968,
+      "text": "meningitis",
+      "attributes": {
+        "AgeUnit": "Month",
+        "Age": "7",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "meningitis",
+        "CUI": "C0025289"
+      }
+    },
+    {
+      "id": "T24",
+      "type": "EpilepsyCause",
+      "start": 958,
+      "end": 968,
+      "text": "meningitis",
+      "attributes": {
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "meningitis",
+        "CUI": "C0025289"
+      }
+    },
+    {
+      "id": "T26",
+      "type": "Diagnosis",
+      "start": 1019,
+      "end": 1027,
+      "text": "epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T28",
+      "type": "Investigations",
+      "start": 1063,
+      "end": 1066,
+      "text": "MRI",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Abnormal",
+        "CUIPhrase": "abnormal-mri",
+        "CUI": "C1319851"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "start": 1104,
+      "end": 1117,
+      "text": "brain-atrophy",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "brain-atrophy",
+        "CUI": "C0235946"
+      }
+    },
+    {
+      "id": "T30",
+      "type": "Investigations",
+      "start": 1158,
+      "end": 1161,
+      "text": "EEG",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Abnormal",
+        "CUIPhrase": "eeg-abnormal",
+        "CUI": "C0151611"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "187",
+      "end_index": "218",
+      "text": "Symptomatic-structural-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "symptomatic-structural-focal-epilepsy",
+        "CUI": "C0472349"
+      }
+    },
+    {
+      "entity": "EpilepsyCause",
+      "start_index": "259",
+      "end_index": "269",
+      "text": "meningitis",
+      "attributes": {
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "meningitis",
+        "CUI": "C0025289"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "259",
+      "end_index": "269",
+      "text": "meningitis",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "meningitis",
+        "CUI": "C0025289"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "273",
+      "end_index": "294",
+      "text": "learning-difficulties",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "learning-difficulties",
+        "CUI": "C0424939"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "308",
+      "end_index": "331",
+      "text": "Levetiracetam-1000mg-bd",
+      "attributes": {
+        "DrugName": "levetiracetam",
+        "DrugDose": "1000",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "levetiracetam",
+        "CUI": "C0377265"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "334",
+      "end_index": "354",
+      "text": "Lamotrigine-200mg-bd",
+      "attributes": {
+        "DrugName": "lamotrigine",
+        "DrugDose": "200",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "665",
+      "end_index": "703",
+      "text": "focal-to-bilateral-convulsive-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizures",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "665",
+      "end_index": "703",
+      "text": "focal-to-bilateral-convulsive-seizures",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "2",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizures",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "748",
+      "end_index": "785",
+      "text": "focal-seizures-with-altered-awareness",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-seizures-with-altered-awareness",
+        "CUI": "C0270834"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "748",
+      "end_index": "785",
+      "text": "focal-seizures-with-altered-awareness",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "TimePeriod": "Month",
+        "NumberOfTimePeriods": "1",
+        "CUIPhrase": "focal-seizures-with-altered-awareness",
+        "CUI": "C0270834"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "958",
+      "end_index": "968",
+      "text": "meningitis",
+      "attributes": {
+        "AgeUnit": "Month",
+        "Age": "7",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "meningitis",
+        "CUI": "C0025289"
+      }
+    },
+    {
+      "entity": "EpilepsyCause",
+      "start_index": "958",
+      "end_index": "968",
+      "text": "meningitis",
+      "attributes": {
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "meningitis",
+        "CUI": "C0025289"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1019",
+      "end_index": "1027",
+      "text": "epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "1063",
+      "end_index": "1066",
+      "text": "MRI",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Abnormal",
+        "CUIPhrase": "abnormal-mri",
+        "CUI": "C1319851"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1104",
+      "end_index": "1117",
+      "text": "brain-atrophy",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "brain-atrophy",
+        "CUI": "C0235946"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "1158",
+      "end_index": "1161",
+      "text": "EEG",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Abnormal",
+        "CUIPhrase": "eeg-abnormal",
+        "CUI": "C0151611"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 259,
+      "end": 269,
+      "text": "meningitis",
+      "entity_types": [
+        "EpilepsyCause",
+        "PatientHistory"
+      ],
+      "entity_ids": [
+        "T4",
+        "T6"
+      ]
+    },
+    {
+      "start": 665,
+      "end": 703,
+      "text": "focal-to-bilateral-convulsive-seizures",
+      "entity_types": [
+        "Diagnosis",
+        "SeizureFrequency"
+      ],
+      "entity_ids": [
+        "T14",
+        "T16"
+      ]
+    },
+    {
+      "start": 748,
+      "end": 785,
+      "text": "focal-seizures-with-altered-awareness",
+      "entity_types": [
+        "Diagnosis",
+        "SeizureFrequency"
+      ],
+      "entity_ids": [
+        "T18",
+        "T20"
+      ]
+    },
+    {
+      "start": 958,
+      "end": 968,
+      "text": "meningitis",
+      "entity_types": [
+        "PatientHistory",
+        "EpilepsyCause"
+      ],
+      "entity_ids": [
+        "T22",
+        "T24"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "text": "meningitis",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "text": "learning-difficulties",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T10",
+      "type": "Prescription",
+      "text": "Levetiracetam-1000mg-bd",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T12",
+      "type": "Prescription",
+      "text": "Lamotrigine-200mg-bd",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T22",
+      "type": "PatientHistory",
+      "text": "meningitis",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "text": "brain-atrophy",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T16",
+      "type": "SeizureFrequency",
+      "text": "focal-to-bilateral-convulsive-seizures",
+      "start": 665,
+      "end": 703,
+      "year": null,
+      "period": "Year",
+      "num_periods": "2",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    },
+    {
+      "id": "T20",
+      "type": "SeizureFrequency",
+      "text": "focal-seizures-with-altered-awareness",
+      "start": 748,
+      "end": 785,
+      "year": null,
+      "period": "Month",
+      "num_periods": "1",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "1"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 4,
+    "EpilepsyCause": 2,
+    "PatientHistory": 4,
+    "Prescription": 2,
+    "SeizureFrequency": 2,
+    "Investigations": 2
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "4 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 259,
+          "end": 269,
+          "text": "meningitis",
+          "entity_types": [
+            "EpilepsyCause",
+            "PatientHistory"
+          ],
+          "entity_ids": [
+            "T4",
+            "T6"
+          ]
+        },
+        {
+          "start": 665,
+          "end": 703,
+          "text": "focal-to-bilateral-convulsive-seizures",
+          "entity_types": [
+            "Diagnosis",
+            "SeizureFrequency"
+          ],
+          "entity_ids": [
+            "T14",
+            "T16"
+          ]
+        },
+        {
+          "start": 748,
+          "end": 785,
+          "text": "focal-seizures-with-altered-awareness",
+          "entity_types": [
+            "Diagnosis",
+            "SeizureFrequency"
+          ],
+          "entity_ids": [
+            "T18",
+            "T20"
+          ]
+        },
+        {
+          "start": 958,
+          "end": 968,
+          "text": "meningitis",
+          "entity_types": [
+            "PatientHistory",
+            "EpilepsyCause"
+          ],
+          "entity_ids": [
+            "T22",
+            "T24"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "6 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T6",
+          "type": "PatientHistory",
+          "text": "meningitis",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T8",
+          "type": "PatientHistory",
+          "text": "learning-difficulties",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T10",
+          "type": "Prescription",
+          "text": "Levetiracetam-1000mg-bd",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T12",
+          "type": "Prescription",
+          "text": "Lamotrigine-200mg-bd",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T22",
+          "type": "PatientHistory",
+          "text": "meningitis",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T9",
+          "type": "PatientHistory",
+          "text": "brain-atrophy",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [
+    {
+      "id": "T4",
+      "type": "EpilepsyCause",
+      "text": "meningitis",
+      "certainty": 4
+    },
+    {
+      "id": "T24",
+      "type": "EpilepsyCause",
+      "text": "meningitis",
+      "certainty": 4
+    }
+  ],
+  "has_unknown_seizure": false
+}

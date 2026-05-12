@@ -1,0 +1,182 @@
+{
+  "id": "EA0130",
+  "text": "Dear Dr,\n\nRe: \tMs Rhian Rutter \tDOB 14/07/1976\n\nDiagnosis:\tJuvenile myoclonic epilepsy\n\nMedication:\tLamotrigine 150mg twice a day\n\t\tSodium Valproate 300mg twice a day\n\nThank you for referring this 41 year old lady for review at the epilepsy clinic. She was discharged from the clinic in 2005. I am happy to say that there has not been any recurrence of seizures since we last saw her at the clinic. She might have had the ocassional twitch when getting up in the morning whilst she is half asleep. She does not have any side effects from either the lamotrigine or sodium valproate and does not want to make any changes.\n\nI went over the teratogenicity of sodium valproate. Ms Rutter has already read the sodium valproate information booklet. We completed the annual sodium valproate risk form in clinic today. I will request a review from the epilepsy nurses in a year’s time.\n\nYours,\n",
+  "entities": [
+    {
+      "id": "T3",
+      "type": "Diagnosis",
+      "start": 59,
+      "end": 86,
+      "text": "Juvenile-myoclonic-epilepsy",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0270853",
+        "Negation": "Affirmed",
+        "CUIPhrase": "juvenile-myoclonic-epilepsy",
+        "DiagCategory": "Epilepsy"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "start": 100,
+      "end": 129,
+      "text": "Lamotrigine-150mg-twice-a-day",
+      "attributes": {
+        "Frequency": "2",
+        "DrugName": "lamotrigine",
+        "CUIPhrase": "lamotrigine",
+        "DrugDose": "150",
+        "DoseUnit": "mg",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "Prescription",
+      "start": 132,
+      "end": 166,
+      "text": "Sodium-Valproate-300mg-twice-a-day",
+      "attributes": {
+        "CUI": "C0037567",
+        "DrugDose": "300",
+        "CUIPhrase": "sodium-valproate",
+        "Frequency": "2",
+        "DoseUnit": "mg",
+        "DrugName": "sodium-valproate"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "SeizureFrequency",
+      "start": 353,
+      "end": 362,
+      "text": "seizures-",
+      "attributes": {
+        "PointInTime": "LastClinic",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "NumberOfSeizures": "0",
+        "CUI": "C0036572",
+        "CUIPhrase": "seizures"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "353",
+      "end_index": "362",
+      "text": "seizures-",
+      "attributes": {
+        "PointInTime": "LastClinic",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "NumberOfSeizures": "0",
+        "CUI": "C0036572",
+        "CUIPhrase": "seizures"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "132",
+      "end_index": "166",
+      "text": "Sodium-Valproate-300mg-twice-a-day",
+      "attributes": {
+        "CUI": "C0037567",
+        "DrugDose": "300",
+        "CUIPhrase": "sodium-valproate",
+        "Frequency": "2",
+        "DoseUnit": "mg",
+        "DrugName": "sodium-valproate"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "59",
+      "end_index": "86",
+      "text": "Juvenile-myoclonic-epilepsy",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0270853",
+        "Negation": "Affirmed",
+        "CUIPhrase": "juvenile-myoclonic-epilepsy",
+        "DiagCategory": "Epilepsy"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "100",
+      "end_index": "129",
+      "text": "Lamotrigine-150mg-twice-a-day",
+      "attributes": {
+        "Frequency": "2",
+        "DrugName": "lamotrigine",
+        "CUIPhrase": "lamotrigine",
+        "DrugDose": "150",
+        "DoseUnit": "mg",
+        "CUI": "C0064636"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "text": "Lamotrigine-150mg-twice-a-day",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T2",
+      "type": "Prescription",
+      "text": "Sodium-Valproate-300mg-twice-a-day",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T1",
+      "type": "SeizureFrequency",
+      "text": "seizures-",
+      "start": 353,
+      "end": 362,
+      "year": null,
+      "period": null,
+      "num_periods": null,
+      "time_since": "Since",
+      "point_in_time": "LastClinic",
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 1,
+    "Prescription": 2,
+    "SeizureFrequency": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "2 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T4",
+          "type": "Prescription",
+          "text": "Lamotrigine-150mg-twice-a-day",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T2",
+          "type": "Prescription",
+          "text": "Sodium-Valproate-300mg-twice-a-day",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

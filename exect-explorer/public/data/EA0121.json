@@ -1,0 +1,545 @@
+{
+  "id": "EA0121",
+  "text": "Dear Dr,\n\nRe: \tMr Iestyn Hitchinbrook DOB 2/3/2000\n\nDiagnosis: \tDrug resistant focal epilepsy\t\t\t\n\t\tSevere learning difficulties\n\nCurent anti-epileptic medication:\tLevetiracetam 1500mg bd\n\t\t\t\tPhenytoin 350mg od\n\t\t\t\tZonisamide 200mg bd\n\t\t\t\tPerampanel 8mg od\n\t\t\t\tMidazolam as per rescue plan\n\nPrevious medications tried:\tSodium valproate, carbamazepine, clobazam, lamotrigine\n\nI reviewed Iestyn by video consultation together with his father who is his main carer. He continues to get frequent seizures which are only really relieved by the midazolam. We have reviewed hi smidazolam plan recently so that he can get up to two 10mg doses of the buccal midazolam should there be a cluster of seizures. His most troubling type of seizure at the moment are focal seizures with altered awareness. These can occur in clusters very frequently so that he doesn’t really recover consciousness. The focal to bilateral convulsive seizures occur less often, perhaps up to 2 or 3 times per month.\n\nAs you know he has been extensively investigated for the cause of his epilepsy in the past but I will chase the results of his 100000 genome project in case any results have come from that.\n\nIestyn’s dad knows that he can contact the epilepsy nurses on their helpline should there be any issues.\n\nYours \n",
+  "entities": [
+    {
+      "id": "T4",
+      "type": "Diagnosis",
+      "start": 64,
+      "end": 93,
+      "text": "Drug-resistant-focal-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "drug-resistant-epilepsy",
+        "CUI": "C1096063"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 79,
+      "end": 93,
+      "text": "focal-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-epilepsy",
+        "CUI": "C0014547"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "start": 99,
+      "end": 127,
+      "text": "Severe-learning-difficulties",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "learning-difficulties",
+        "CUI": "C0424939"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Prescription",
+      "start": 163,
+      "end": 186,
+      "text": "Levetiracetam-1500mg-bd",
+      "attributes": {
+        "DrugName": "levetiracetam",
+        "DrugDose": "1500",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "levetiracetam",
+        "CUI": "C0377265"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "Prescription",
+      "start": 191,
+      "end": 209,
+      "text": "Phenytoin-350mg-od",
+      "attributes": {
+        "DrugName": "phenytoin",
+        "DrugDose": "350",
+        "DoseUnit": "mg",
+        "Frequency": "1",
+        "CUIPhrase": "phenytoin",
+        "CUI": "C0031507"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "Prescription",
+      "start": 214,
+      "end": 233,
+      "text": "Zonisamide-200mg-bd",
+      "attributes": {
+        "DrugName": "zonisamide",
+        "DrugDose": "200",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "zonisamide",
+        "CUI": "C0078844"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "Prescription",
+      "start": 238,
+      "end": 249,
+      "text": "Perampanel-",
+      "attributes": {
+        "DrugName": "Perampanel",
+        "DrugDose": "8",
+        "DoseUnit": "mg",
+        "Frequency": "1",
+        "CUIPhrase": "perampanel",
+        "CUI": "C2698764"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "Prescription",
+      "start": 260,
+      "end": 270,
+      "text": "Midazolam-",
+      "attributes": {
+        "DrugName": "Midazolam",
+        "Frequency": "As_Required",
+        "CUIPhrase": "midazolam",
+        "CUI": "C0026056"
+      }
+    },
+    {
+      "id": "T16",
+      "type": "SeizureFrequency",
+      "start": 482,
+      "end": 499,
+      "text": "frequent-seizures",
+      "attributes": {
+        "FrequencyChange": "Frequent",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T18",
+      "type": "PatientHistory",
+      "start": 491,
+      "end": 500,
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T20",
+      "type": "Diagnosis",
+      "start": 750,
+      "end": 787,
+      "text": "focal-seizures-with-altered-awareness",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-seizures-with-altered-awareness",
+        "CUI": "C0270834"
+      }
+    },
+    {
+      "id": "T24",
+      "type": "SeizureFrequency",
+      "start": 886,
+      "end": 923,
+      "text": "focal-to-bilateral-convulsive-seizure",
+      "attributes": {
+        "LowerNumberOfSeizures": "0",
+        "UpperNumberOfSeizures": "3",
+        "TimePeriod": "Month",
+        "NumberOfTimePeriods": "1",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizure",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "id": "T22",
+      "type": "Diagnosis",
+      "start": 886,
+      "end": 924,
+      "text": "focal-to-bilateral-convulsive-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizures",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "id": "T26",
+      "type": "Diagnosis",
+      "start": 1052,
+      "end": 1061,
+      "text": "epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "64",
+      "end_index": "93",
+      "text": "Drug-resistant-focal-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "drug-resistant-epilepsy",
+        "CUI": "C1096063"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "79",
+      "end_index": "93",
+      "text": "focal-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-epilepsy",
+        "CUI": "C0014547"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "99",
+      "end_index": "127",
+      "text": "Severe-learning-difficulties",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "learning-difficulties",
+        "CUI": "C0424939"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "163",
+      "end_index": "186",
+      "text": "Levetiracetam-1500mg-bd",
+      "attributes": {
+        "DrugName": "levetiracetam",
+        "DrugDose": "1500",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "levetiracetam",
+        "CUI": "C0377265"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "191",
+      "end_index": "209",
+      "text": "Phenytoin-350mg-od",
+      "attributes": {
+        "DrugName": "phenytoin",
+        "DrugDose": "350",
+        "DoseUnit": "mg",
+        "Frequency": "1",
+        "CUIPhrase": "phenytoin",
+        "CUI": "C0031507"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "214",
+      "end_index": "233",
+      "text": "Zonisamide-200mg-bd",
+      "attributes": {
+        "DrugName": "zonisamide",
+        "DrugDose": "200",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "zonisamide",
+        "CUI": "C0078844"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "238",
+      "end_index": "249",
+      "text": "Perampanel-",
+      "attributes": {
+        "DrugName": "Perampanel",
+        "DrugDose": "8",
+        "DoseUnit": "mg",
+        "Frequency": "1",
+        "CUIPhrase": "perampanel",
+        "CUI": "C2698764"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "260",
+      "end_index": "270",
+      "text": "Midazolam-",
+      "attributes": {
+        "DrugName": "Midazolam",
+        "Frequency": "As_Required",
+        "CUIPhrase": "midazolam",
+        "CUI": "C0026056"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "482",
+      "end_index": "499",
+      "text": "frequent-seizures",
+      "attributes": {
+        "FrequencyChange": "Frequent",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "491",
+      "end_index": "500",
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "750",
+      "end_index": "787",
+      "text": "focal-seizures-with-altered-awareness",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-seizures-with-altered-awareness",
+        "CUI": "C0270834"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "886",
+      "end_index": "924",
+      "text": "focal-to-bilateral-convulsive-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizures",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "886",
+      "end_index": "923",
+      "text": "focal-to-bilateral-convulsive-seizure",
+      "attributes": {
+        "LowerNumberOfSeizures": "0",
+        "UpperNumberOfSeizures": "3",
+        "TimePeriod": "Month",
+        "NumberOfTimePeriods": "1",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizure",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1052",
+      "end_index": "1061",
+      "text": "epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "text": "Severe-learning-difficulties",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T8",
+      "type": "Prescription",
+      "text": "Levetiracetam-1500mg-bd",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T10",
+      "type": "Prescription",
+      "text": "Phenytoin-350mg-od",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T12",
+      "type": "Prescription",
+      "text": "Zonisamide-200mg-bd",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T14",
+      "type": "Prescription",
+      "text": "Perampanel-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T9",
+      "type": "Prescription",
+      "text": "Midazolam-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T16",
+      "type": "SeizureFrequency",
+      "text": "frequent-seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T18",
+      "type": "PatientHistory",
+      "text": "seizures-",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [
+    {
+      "id": "T9",
+      "text": "Midazolam-",
+      "missing_fields": [
+        "DrugDose",
+        "DoseUnit"
+      ]
+    }
+  ],
+  "timeline_events": [
+    {
+      "id": "T24",
+      "type": "SeizureFrequency",
+      "text": "focal-to-bilateral-convulsive-seizure",
+      "start": 886,
+      "end": 923,
+      "year": null,
+      "period": "Month",
+      "num_periods": "1",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": "0",
+      "upper_seizures": "3",
+      "num_seizures": null
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 5,
+    "PatientHistory": 2,
+    "Prescription": 5,
+    "SeizureFrequency": 2
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "8 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T6",
+          "type": "PatientHistory",
+          "text": "Severe-learning-difficulties",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T8",
+          "type": "Prescription",
+          "text": "Levetiracetam-1500mg-bd",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T10",
+          "type": "Prescription",
+          "text": "Phenytoin-350mg-od",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T12",
+          "type": "Prescription",
+          "text": "Zonisamide-200mg-bd",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T14",
+          "type": "Prescription",
+          "text": "Perampanel-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T9",
+          "type": "Prescription",
+          "text": "Midazolam-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T16",
+          "type": "SeizureFrequency",
+          "text": "frequent-seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T18",
+          "type": "PatientHistory",
+          "text": "seizures-",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    },
+    {
+      "category": "incomplete_medication_tuple",
+      "description": "1 prescription(s) have incomplete tuple fields.",
+      "details": [
+        {
+          "id": "T9",
+          "text": "Midazolam-",
+          "missing_fields": [
+            "DrugDose",
+            "DoseUnit"
+          ]
+        }
+      ],
+      "oracle_impact": "medication_full_tuple"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

@@ -1,0 +1,440 @@
+{
+  "id": "EA0145",
+  "text": "Clinic date 31/10/2017\n \nRe          Mrs Barbara Evansly\tDOB 9/8/1973\n \nDear doctor,\n\nThank you for referring this 44-year-old lady to neurology. She has seen other neurologists in the past. She has been suffering from epilepsy since her birth.\n\nAt the moment she gets 2 types of seizures:\n1. Blank episodes. These occur without warning can last for up to 5 minutes. She is unaware of her surroundings. These happen at least once per day.\n2. Grand mal seizures. These happen a few times a month. During these she will shake all over. She occasionally will bite the side of her tongue. \n\nShe has tried sodium valproate in the past but stopped this because of tremor and gum problems. She also tried levetiracetam but stopped this because of mood problems.  Currently she takes clobazam 20mg bd and lamotrigine 175mg bd. Her co-morbidities include depression and chronic pain syndrome. She takes pregabalin and MST for the pain.\n\nShe was told that she was born unexpectedly outside hospital and was still born. I do not have any other information about this with me today. Previous EEGs and MRIs have been normal. She has not had any significant head injuries or febriles seizures. There is no history of epilepsy in the family.\n\nIN the first instance I have requested an up to date EEG and I will also review her old medical notes. I have asked her to keep a seizures diary and get her partner to take some videos of the events. I will review her in clinic.\n\nYours\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "Onset",
+      "start": 219,
+      "end": 226,
+      "text": "epileps",
+      "attributes": {
+        "PointInTime": "From_Birth",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "Certainty": "5",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "Diagnosis",
+      "start": 219,
+      "end": 228,
+      "text": "epilepsy-",
+      "attributes": {
+        "CUIPhrase": "epilepsy",
+        "DiagCategory": "Epilepsy",
+        "Negation": "Affirmed",
+        "CUI": "C0014544",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "PatientHistory",
+      "start": 293,
+      "end": 307,
+      "text": "Blank-episodes",
+      "attributes": {
+        "Certainty": "5",
+        "CUIPhrase": "blank-episodes",
+        "CUI": "C0563606",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "SeizureFrequency",
+      "start": 442,
+      "end": 459,
+      "text": "Grand-mal-seizure",
+      "attributes": {
+        "CUIPhrase": "grand-mal",
+        "CUI": "C0494475",
+        "TimePeriod": "Month",
+        "NumberOfSeizures": "2",
+        "NumberOfTimePeriods": "1"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Diagnosis",
+      "start": 442,
+      "end": 460,
+      "text": "Grand-mal-seizures",
+      "attributes": {
+        "Negation": "Affirmed",
+        "DiagCategory": "MultipleSeizures",
+        "CUIPhrase": "grand-mal",
+        "CUI": "C0494475",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "Prescription",
+      "start": 756,
+      "end": 792,
+      "text": "Currently-she-takes-clobazam-20mg-bd",
+      "attributes": {
+        "DrugName": "clobazam",
+        "DrugDose": "20",
+        "CUI": "C0055891",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "clobazam"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "Prescription",
+      "start": 797,
+      "end": 817,
+      "text": "lamotrigine-175mg-bd",
+      "attributes": {
+        "DrugDose": "175",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine",
+        "DoseUnit": "mg",
+        "DrugName": "lamotrigine",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "PatientHistory",
+      "start": 846,
+      "end": 857,
+      "text": "depression-",
+      "attributes": {
+        "Certainty": "5",
+        "CUIPhrase": "depression",
+        "Negation": "Affirmed",
+        "CUI": "C0011570"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Investigations",
+      "start": 1080,
+      "end": 1085,
+      "text": "EEGs-",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Normal",
+        "CUI": "C0560017",
+        "CUIPhrase": "eeg-normal"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "Investigations",
+      "start": 1089,
+      "end": 1093,
+      "text": "MRIs",
+      "attributes": {
+        "CUIPhrase": "mri-normal",
+        "CUI": "C0436481",
+        "MRI_Results": "Normal",
+        "MRI_Performed": "Yes"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "start": 1161,
+      "end": 1178,
+      "text": "febriles-seizures",
+      "attributes": {
+        "Certainty": "1",
+        "CUI": "C0009952",
+        "Negation": "Negated",
+        "CUIPhrase": "febrile-seizures"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "PatientHistory",
+      "start_index": "293",
+      "end_index": "307",
+      "text": "Blank-episodes",
+      "attributes": {
+        "Certainty": "5",
+        "CUIPhrase": "blank-episodes",
+        "CUI": "C0563606",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "Onset",
+      "start_index": "219",
+      "end_index": "226",
+      "text": "epileps",
+      "attributes": {
+        "PointInTime": "From_Birth",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "Certainty": "5",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "846",
+      "end_index": "857",
+      "text": "depression-",
+      "attributes": {
+        "Certainty": "5",
+        "CUIPhrase": "depression",
+        "Negation": "Affirmed",
+        "CUI": "C0011570"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "1080",
+      "end_index": "1085",
+      "text": "EEGs-",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Normal",
+        "CUI": "C0560017",
+        "CUIPhrase": "eeg-normal"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "1089",
+      "end_index": "1093",
+      "text": "MRIs",
+      "attributes": {
+        "CUIPhrase": "mri-normal",
+        "CUI": "C0436481",
+        "MRI_Results": "Normal",
+        "MRI_Performed": "Yes"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "442",
+      "end_index": "459",
+      "text": "Grand-mal-seizure",
+      "attributes": {
+        "CUIPhrase": "grand-mal",
+        "CUI": "C0494475",
+        "TimePeriod": "Month",
+        "NumberOfSeizures": "2",
+        "NumberOfTimePeriods": "1"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "797",
+      "end_index": "817",
+      "text": "lamotrigine-175mg-bd",
+      "attributes": {
+        "DrugDose": "175",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine",
+        "DoseUnit": "mg",
+        "DrugName": "lamotrigine",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "442",
+      "end_index": "460",
+      "text": "Grand-mal-seizures",
+      "attributes": {
+        "Negation": "Affirmed",
+        "DiagCategory": "MultipleSeizures",
+        "CUIPhrase": "grand-mal",
+        "CUI": "C0494475",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1161",
+      "end_index": "1178",
+      "text": "febriles-seizures",
+      "attributes": {
+        "Certainty": "1",
+        "CUI": "C0009952",
+        "Negation": "Negated",
+        "CUIPhrase": "febrile-seizures"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "756",
+      "end_index": "792",
+      "text": "Currently-she-takes-clobazam-20mg-bd",
+      "attributes": {
+        "DrugName": "clobazam",
+        "DrugDose": "20",
+        "CUI": "C0055891",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "clobazam"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "219",
+      "end_index": "228",
+      "text": "epilepsy-",
+      "attributes": {
+        "CUIPhrase": "epilepsy",
+        "DiagCategory": "Epilepsy",
+        "Negation": "Affirmed",
+        "CUI": "C0014544",
+        "Certainty": "5"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T1",
+      "type": "PatientHistory",
+      "text": "Blank-episodes",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T10",
+      "type": "Prescription",
+      "text": "Currently-she-takes-clobazam-20mg-bd",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T7",
+      "type": "Prescription",
+      "text": "lamotrigine-175mg-bd",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T3",
+      "type": "PatientHistory",
+      "text": "depression-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "text": "febriles-seizures",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T2",
+      "type": "Onset",
+      "text": "epileps",
+      "start": 219,
+      "end": 226,
+      "year": null,
+      "period": null,
+      "num_periods": null,
+      "time_since": null,
+      "point_in_time": "From_Birth",
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": null
+    },
+    {
+      "id": "T6",
+      "type": "SeizureFrequency",
+      "text": "Grand-mal-seizure",
+      "start": 442,
+      "end": 459,
+      "year": null,
+      "period": "Month",
+      "num_periods": "1",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "2"
+    }
+  ],
+  "type_counts": {
+    "Onset": 1,
+    "Diagnosis": 2,
+    "PatientHistory": 3,
+    "SeizureFrequency": 1,
+    "Prescription": 2,
+    "Investigations": 2
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "5 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T1",
+          "type": "PatientHistory",
+          "text": "Blank-episodes",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T10",
+          "type": "Prescription",
+          "text": "Currently-she-takes-clobazam-20mg-bd",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T7",
+          "type": "Prescription",
+          "text": "lamotrigine-175mg-bd",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T3",
+          "type": "PatientHistory",
+          "text": "depression-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T9",
+          "type": "PatientHistory",
+          "text": "febriles-seizures",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    },
+    {
+      "category": "negated_entities",
+      "description": "1 entity/ies are explicitly negated in the text.",
+      "details": [
+        {
+          "id": "T9",
+          "type": "PatientHistory",
+          "text": "febriles-seizures"
+        }
+      ],
+      "oracle_impact": "clinical_precision"
+    }
+  ],
+  "negated_entities": [
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "text": "febriles-seizures"
+    }
+  ],
+  "low_certainty": [
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "text": "febriles-seizures",
+      "certainty": 1
+    }
+  ],
+  "has_unknown_seizure": false
+}

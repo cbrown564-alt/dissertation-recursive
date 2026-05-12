@@ -1,0 +1,304 @@
+{
+  "id": "EA0090",
+  "text": "Clinic date: 21st October 2018\nTyped: 22nd October 2018\n\nDear Dr Pooled\n\nRe: \tMiss Nancy Hoegarden\tD.O.B: 10/11/2008 NHS 123 587 6542\n\nDiagnosis: Focal seizures with secondary generalisation\n\nMedication: Carbamazepine 150mg am, 200mg pm (16mg/kg/day)\n\nFollow up: 12 months\n\nI reviewed this young lady in the clinic today.  She is now 9 years old.  She had a generalised tonic clonic seizure two days before her birthday; her father thought this was because she had been overexcited.  He couldn’t remember when she’d last had one before this.  \nShe continues to have occasional headaches and migraines, but these have significantly settled.  She is having no other episodes.\n\nShe is currently in Year 4 and is doing well.  She is very keen on gymnastics.  \n\nAs things are going well, we will review her in a years’ time.\n\nYours sincerely\n\n\n\n\n\n",
+  "entities": [
+    {
+      "id": "T3",
+      "type": "Diagnosis",
+      "start": 146,
+      "end": 160,
+      "text": "Focal-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUI": "C0751495",
+        "CUIPhrase": "focal-seizures"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "Diagnosis",
+      "start": 166,
+      "end": 190,
+      "text": "secondary-generalisation",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0270838",
+        "Negation": "Affirmed",
+        "CUIPhrase": "secondary-generalisation",
+        "DiagCategory": "MultipleSeizures"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "Prescription",
+      "start": 204,
+      "end": 217,
+      "text": "Carbamazepine",
+      "attributes": {
+        "DoseUnit": "mg",
+        "Frequency": "1",
+        "DrugDose": "150",
+        "CUIPhrase": "carbamazepine",
+        "DrugName": "Carbamazepine",
+        "CUI": "C0006949"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "Prescription",
+      "start": 204,
+      "end": 217,
+      "text": "Carbamazepine",
+      "attributes": {
+        "Frequency": "1",
+        "CUI": "C0006949",
+        "CUIPhrase": "carbamazepine",
+        "DrugName": "Carbamazepine",
+        "DrugDose": "200",
+        "DoseUnit": "mg"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "SeizureFrequency",
+      "start": 358,
+      "end": 389,
+      "text": "generalised-tonic-clonic-seizur",
+      "attributes": {
+        "TimeSince_or_TimeOfEvent": "Since",
+        "NumberOfSeizures": "1",
+        "PointInTime": "Birthday"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "Diagnosis",
+      "start": 358,
+      "end": 390,
+      "text": "generalised-tonic-clonic-seizure",
+      "attributes": {
+        "CUIPhrase": "generalised-tonic-clonic-seizure",
+        "CUI": "C0494475",
+        "DiagCategory": "SingleSeizure",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "start": 591,
+      "end": 600,
+      "text": "migraines",
+      "attributes": {
+        "CUI": "C0149931",
+        "CUIPhrase": "migraines",
+        "Negation": "Affirmed",
+        "Certainty": "5"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Prescription",
+      "start_index": "204",
+      "end_index": "217",
+      "text": "Carbamazepine",
+      "attributes": {
+        "DoseUnit": "mg",
+        "Frequency": "1",
+        "DrugDose": "150",
+        "CUIPhrase": "carbamazepine",
+        "DrugName": "Carbamazepine",
+        "CUI": "C0006949"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "204",
+      "end_index": "217",
+      "text": "Carbamazepine",
+      "attributes": {
+        "Frequency": "1",
+        "CUI": "C0006949",
+        "CUIPhrase": "carbamazepine",
+        "DrugName": "Carbamazepine",
+        "DrugDose": "200",
+        "DoseUnit": "mg"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "146",
+      "end_index": "160",
+      "text": "Focal-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUI": "C0751495",
+        "CUIPhrase": "focal-seizures"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "591",
+      "end_index": "600",
+      "text": "migraines",
+      "attributes": {
+        "CUI": "C0149931",
+        "CUIPhrase": "migraines",
+        "Negation": "Affirmed",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "166",
+      "end_index": "190",
+      "text": "secondary-generalisation",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0270838",
+        "Negation": "Affirmed",
+        "CUIPhrase": "secondary-generalisation",
+        "DiagCategory": "MultipleSeizures"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "358",
+      "end_index": "389",
+      "text": "generalised-tonic-clonic-seizur",
+      "attributes": {
+        "TimeSince_or_TimeOfEvent": "Since",
+        "NumberOfSeizures": "1",
+        "PointInTime": "Birthday"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "358",
+      "end_index": "390",
+      "text": "generalised-tonic-clonic-seizure",
+      "attributes": {
+        "CUIPhrase": "generalised-tonic-clonic-seizure",
+        "CUI": "C0494475",
+        "DiagCategory": "SingleSeizure",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 204,
+      "end": 217,
+      "text": "Carbamazepine",
+      "entity_types": [
+        "Prescription",
+        "Prescription"
+      ],
+      "entity_ids": [
+        "T1",
+        "T2"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T1",
+      "type": "Prescription",
+      "text": "Carbamazepine",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T2",
+      "type": "Prescription",
+      "text": "Carbamazepine",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "text": "migraines",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T6",
+      "type": "SeizureFrequency",
+      "text": "generalised-tonic-clonic-seizur",
+      "start": 358,
+      "end": 389,
+      "year": null,
+      "period": null,
+      "num_periods": null,
+      "time_since": "Since",
+      "point_in_time": "Birthday",
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "1"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 3,
+    "Prescription": 2,
+    "SeizureFrequency": 1,
+    "PatientHistory": 1
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "1 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 204,
+          "end": 217,
+          "text": "Carbamazepine",
+          "entity_types": [
+            "Prescription",
+            "Prescription"
+          ],
+          "entity_ids": [
+            "T1",
+            "T2"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "3 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T1",
+          "type": "Prescription",
+          "text": "Carbamazepine",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T2",
+          "type": "Prescription",
+          "text": "Carbamazepine",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T4",
+          "type": "PatientHistory",
+          "text": "migraines",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

@@ -1,0 +1,272 @@
+{
+  "id": "EA0116",
+  "text": "Clinic date 02/06/2017\n\nDear Dr,\n\nRe: \tMiss Lemwn Thomas \tD.O.B: 07/12/1998\n24 Heol Betws, Morriston, Swansea, SA12 6KG  \n\nDiagnosis:\n•\tNew diagnosis of epilepsy with generalised tonic clonic seizures from sleep\n•\tType 1 diabetes\n\nMedication:\n•\tInsulin\n•\tLevetiracetam 250mgs once a day, increasing by 250mgs every 2 weeks to 500mgs bd\n\nI reviewed this 18-year-old lady in the Virtual First Seizure Clinic along with her boyfriend. She has had a few episodes from sleep.  The first occurred in May 2017. Her boyfriend was woken by her shaking and groaning. Lemwn came round in hospital feeling disorientated.  Her BM was within normal range.  \n\nThe most recent episode occurred last week and was similar in nature. Head and eyes were tunred to the side, there was jerking, hyper-salivation and noisy breathing.  On this occasion, she bit her tongue and felt disorientated on coming round.  Her BM was checked immediately afterwards, which was 3.4.   \n\nThere are no obvious triggers for this.  There is no previous history of seizures, head injuries or intracranial infections.  \n\nShe has a background of type 1 diabetes and has occasional hypos, so is aware of the symptoms.  She has no other medical problems and is not on any other medication.  \n\nShe lives with her parents and is currently studying English in University. She is learning to drive, is a non-smoker and drinks occasional alcohol.  \n\nImpression:\n\nLemwn has had episodes suggestive of unprovoked generalised tonic clonic seizures, occurring from sleep. It is possible that there is a focal, frontal lobe onset but she needs further investigations  There is no evidence to suggest that these were secondary to hypoglycaemia.  We discussed the following:\n\n1.\tIn terms of further investigations, I will arrange an MRI brain and an EEG.\n2.\tI think she needs to go on antiepileptic medication and I will start Levetiracetam as shown above.  The main side effects are tiredness, light-headedness and occasionally a change in mood\n3.\tWe discussed the driving regulations.  She will need to inform the DVLA and refrain from driving, until she has been seizure free for 12 months (although there are some caveats in patients, who only have seizures from sleep)\n4.\tWe discussed some of the issues around safety, such as having showers rather than baths.  We also discussed SUDEP (Sudden unexpected death in epilepsy) and I explained the risks as significantly reduced by being on treatment for epilepsy.\n5.\tI will request a follow up appointment with the epilepsy specialist nurses in a couple of months.\n\n\nYours sincerely\n",
+  "entities": [
+    {
+      "id": "T5",
+      "type": "Diagnosis",
+      "start": 153,
+      "end": 211,
+      "text": "epilepsy-with-generalised-tonic-clonic-seizures-from-sleep",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy-with-generalised-tonic-clonic-seizures-on-awakening",
+        "CUI": "C0393697"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "start": 214,
+      "end": 229,
+      "text": "Type-1-diabetes",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "type-1-diabetes",
+        "CUI": "C0011854"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "Prescription",
+      "start": 255,
+      "end": 286,
+      "text": "Levetiracetam-250mgs-once-a-day",
+      "attributes": {
+        "DrugName": "levetiracetam",
+        "DrugDose": "250",
+        "DoseUnit": "mg",
+        "Frequency": "1",
+        "CUIPhrase": "levetiracetam",
+        "CUI": "C0377265"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "start": 1104,
+      "end": 1119,
+      "text": "type-1-diabetes",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "type-1-diabetes",
+        "CUI": "C0011854"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "Diagnosis",
+      "start": 1462,
+      "end": 1495,
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "id": "T13",
+      "type": "Diagnosis",
+      "start": 1550,
+      "end": 1555,
+      "text": "focal",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "3",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-seizures",
+        "CUI": "C0751495"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "Diagnosis",
+      "start": 1557,
+      "end": 1575,
+      "text": "frontal-lobe-onset",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "3",
+        "Negation": "Affirmed",
+        "CUIPhrase": "frontal-lobe-onset-seizure",
+        "CUI": "C0085541"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "153",
+      "end_index": "211",
+      "text": "epilepsy-with-generalised-tonic-clonic-seizures-from-sleep",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy-with-generalised-tonic-clonic-seizures-on-awakening",
+        "CUI": "C0393697"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "214",
+      "end_index": "229",
+      "text": "Type-1-diabetes",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "type-1-diabetes",
+        "CUI": "C0011854"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "255",
+      "end_index": "286",
+      "text": "Levetiracetam-250mgs-once-a-day",
+      "attributes": {
+        "DrugName": "levetiracetam",
+        "DrugDose": "250",
+        "DoseUnit": "mg",
+        "Frequency": "1",
+        "CUIPhrase": "levetiracetam",
+        "CUI": "C0377265"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1104",
+      "end_index": "1119",
+      "text": "type-1-diabetes",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "type-1-diabetes",
+        "CUI": "C0011854"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1462",
+      "end_index": "1495",
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1550",
+      "end_index": "1555",
+      "text": "focal",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "3",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-seizures",
+        "CUI": "C0751495"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1557",
+      "end_index": "1575",
+      "text": "frontal-lobe-onset",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "3",
+        "Negation": "Affirmed",
+        "CUIPhrase": "frontal-lobe-onset-seizure",
+        "CUI": "C0085541"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "text": "Type-1-diabetes",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T7",
+      "type": "Prescription",
+      "text": "Levetiracetam-250mgs-once-a-day",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "text": "type-1-diabetes",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [],
+  "type_counts": {
+    "Diagnosis": 4,
+    "PatientHistory": 2,
+    "Prescription": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "3 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T10",
+          "type": "PatientHistory",
+          "text": "Type-1-diabetes",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T7",
+          "type": "Prescription",
+          "text": "Levetiracetam-250mgs-once-a-day",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T14",
+          "type": "PatientHistory",
+          "text": "type-1-diabetes",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [
+    {
+      "id": "T11",
+      "type": "Diagnosis",
+      "text": "generalised-tonic-clonic-seizures",
+      "certainty": 4
+    },
+    {
+      "id": "T13",
+      "type": "Diagnosis",
+      "text": "focal",
+      "certainty": 3
+    },
+    {
+      "id": "T12",
+      "type": "Diagnosis",
+      "text": "frontal-lobe-onset",
+      "certainty": 3
+    }
+  ],
+  "has_unknown_seizure": false
+}

@@ -1,0 +1,355 @@
+{
+  "id": "EA0063",
+  "text": "Our Ref ABC/SW/T4888786\nNHS No 4221549987\nClinic Date 2/4/2014\n\nThe Epilepsy service\n\nDear Dr\n\nr.e. Ms Lydia Lavender\nFlat 2, Heol y Blodau, Treneis. SA12 8RH\n\nDiagnosis: epilepsy unclassified\nMedication: Lamotrigine 75mg bd\n \nI spoke with Lydia in the nurse led epilepsy clinic today. I was glad to hear that her seizures have stopped since reaching her current dose of lamotrigine. Her last seizure now was 5 months ago\n \nWe had a chat about epilepsy in pregnancy. I explained the lamotrigine was generally thought to be safe in pregnancy and so given her background of frequent seizures it would be important to continue the medication should she become pregnant. I would also recommend that she takes folic acid 5mg and get in touch with us should she become pregnant.\n \nI have explained that Lydia can contact us through the epilepsy helpline and will leave her with an open appointment in clinic.\n\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 171,
+      "end": 180,
+      "text": "epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "Prescription",
+      "start": 193,
+      "end": 224,
+      "text": "Medication:-Lamotrigine-75mg-bd",
+      "attributes": {
+        "DrugName": "lamotrigine",
+        "DrugDose": "75",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "start": 314,
+      "end": 322,
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "SeizureFrequency",
+      "start": 314,
+      "end": 322,
+      "text": "seizures",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "PointInTime": "DrugChange",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "SeizureFrequency",
+      "start": 393,
+      "end": 400,
+      "text": "seizure",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "TimePeriod": "Month",
+        "NumberOfTimePeriods": "5",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "start": 393,
+      "end": 400,
+      "text": "seizure",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "start": 581,
+      "end": 588,
+      "text": "seizure",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "171",
+      "end_index": "180",
+      "text": "epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "193",
+      "end_index": "224",
+      "text": "Medication:-Lamotrigine-75mg-bd",
+      "attributes": {
+        "DrugName": "lamotrigine",
+        "DrugDose": "75",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "314",
+      "end_index": "322",
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "314",
+      "end_index": "322",
+      "text": "seizures",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "PointInTime": "DrugChange",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "393",
+      "end_index": "400",
+      "text": "seizure",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "TimePeriod": "Month",
+        "NumberOfTimePeriods": "5",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "393",
+      "end_index": "400",
+      "text": "seizure",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "581",
+      "end_index": "588",
+      "text": "seizure",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 314,
+      "end": 322,
+      "text": "seizures",
+      "entity_types": [
+        "PatientHistory",
+        "SeizureFrequency"
+      ],
+      "entity_ids": [
+        "T4",
+        "T10"
+      ]
+    },
+    {
+      "start": 393,
+      "end": 400,
+      "text": "seizure",
+      "entity_types": [
+        "SeizureFrequency",
+        "PatientHistory"
+      ],
+      "entity_ids": [
+        "T8",
+        "T9"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T3",
+      "type": "Prescription",
+      "text": "Medication:-Lamotrigine-75mg-bd",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "text": "seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "text": "seizure",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "text": "seizure",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T10",
+      "type": "SeizureFrequency",
+      "text": "seizures",
+      "start": 314,
+      "end": 322,
+      "year": null,
+      "period": null,
+      "num_periods": null,
+      "time_since": "Since",
+      "point_in_time": "DrugChange",
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    },
+    {
+      "id": "T8",
+      "type": "SeizureFrequency",
+      "text": "seizure",
+      "start": 393,
+      "end": 400,
+      "year": null,
+      "period": "Month",
+      "num_periods": "5",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 1,
+    "Prescription": 1,
+    "PatientHistory": 3,
+    "SeizureFrequency": 2
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "2 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 314,
+          "end": 322,
+          "text": "seizures",
+          "entity_types": [
+            "PatientHistory",
+            "SeizureFrequency"
+          ],
+          "entity_ids": [
+            "T4",
+            "T10"
+          ]
+        },
+        {
+          "start": 393,
+          "end": 400,
+          "text": "seizure",
+          "entity_types": [
+            "SeizureFrequency",
+            "PatientHistory"
+          ],
+          "entity_ids": [
+            "T8",
+            "T9"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "4 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T3",
+          "type": "Prescription",
+          "text": "Medication:-Lamotrigine-75mg-bd",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T4",
+          "type": "PatientHistory",
+          "text": "seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T9",
+          "type": "PatientHistory",
+          "text": "seizure",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T14",
+          "type": "PatientHistory",
+          "text": "seizure",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

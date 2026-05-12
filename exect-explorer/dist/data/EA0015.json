@@ -1,0 +1,221 @@
+{
+  "id": "EA0015",
+  "text": "I reviewed this 36-year-old lady in clinic.  She had a mild sub-arachnoid haemorrhage around 12 years ago.  She continues to get a combination of epileptic and nonepileptic events which was confirmed with an EEG recording.  \n \nCurrently she is taking Tegretol 500 mg BD and levetiracetam 250 mg BD.  She is also on fluoxetine for depression of 10 mg.\n \nI have made no changes to her treatment.  I Will review her in 12 months time.\n \n \n\n",
+  "entities": [
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "start": 60,
+      "end": 85,
+      "text": "sub-arachnoid-haemorrhage",
+      "attributes": {
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "12",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "subarachnoid-haemorrhage",
+        "CUI": "C0038525"
+      }
+    },
+    {
+      "id": "T13",
+      "type": "Diagnosis",
+      "start": 146,
+      "end": 155,
+      "text": "epileptic",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epileptic-attack",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Prescription",
+      "start": 227,
+      "end": 269,
+      "text": "Currently-she-is-taking-Tegretol-500-mg-BD",
+      "attributes": {
+        "DrugName": "tegretol",
+        "DrugDose": "500",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "tegretol",
+        "CUI": "C0700087"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "Prescription",
+      "start": 274,
+      "end": 297,
+      "text": "levetiracetam-250-mg-BD",
+      "attributes": {
+        "DrugName": "levetiracetam",
+        "DrugDose": "250",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "levetiracetam",
+        "CUI": "C0377265"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "start": 330,
+      "end": 341,
+      "text": "depression-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "depression",
+        "CUI": "C0011570"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "PatientHistory",
+      "start_index": "60",
+      "end_index": "85",
+      "text": "sub-arachnoid-haemorrhage",
+      "attributes": {
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "12",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "subarachnoid-haemorrhage",
+        "CUI": "C0038525"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "146",
+      "end_index": "155",
+      "text": "epileptic",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epileptic-attack",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "227",
+      "end_index": "269",
+      "text": "Currently-she-is-taking-Tegretol-500-mg-BD",
+      "attributes": {
+        "DrugName": "tegretol",
+        "DrugDose": "500",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "tegretol",
+        "CUI": "C0700087"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "274",
+      "end_index": "297",
+      "text": "levetiracetam-250-mg-BD",
+      "attributes": {
+        "DrugName": "levetiracetam",
+        "DrugDose": "250",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "levetiracetam",
+        "CUI": "C0377265"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "330",
+      "end_index": "341",
+      "text": "depression-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "depression",
+        "CUI": "C0011570"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T8",
+      "type": "Prescription",
+      "text": "Currently-she-is-taking-Tegretol-500-mg-BD",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T10",
+      "type": "Prescription",
+      "text": "levetiracetam-250-mg-BD",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "text": "depression-",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "text": "sub-arachnoid-haemorrhage",
+      "start": 60,
+      "end": 85,
+      "year": null,
+      "period": "Year",
+      "num_periods": "12",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": null
+    }
+  ],
+  "type_counts": {
+    "PatientHistory": 2,
+    "Diagnosis": 1,
+    "Prescription": 2
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "3 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T8",
+          "type": "Prescription",
+          "text": "Currently-she-is-taking-Tegretol-500-mg-BD",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T10",
+          "type": "Prescription",
+          "text": "levetiracetam-250-mg-BD",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T12",
+          "type": "PatientHistory",
+          "text": "depression-",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

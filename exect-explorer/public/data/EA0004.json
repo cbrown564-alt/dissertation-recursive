@@ -1,0 +1,414 @@
+{
+  "id": "EA0004",
+  "text": "Dear Dr,\n\nDiagnosis: epilepsy – probable focal\n\nCurrent antiepileptic medication: Lamotrigine 125 milligrams twice a day\nSeizure taking frequency: Uncertain, several seizures since the last clinic appointment\n\nI reviewed this 68-year-old man alone in clinic today. He lives with his son and has no recollection of his seizures. Unfortunately, his son was not able to give a witness account of the seizures over the telephone today. It seems as if he’s definitely having a few seizures per year though. \n\nI note to previous MRI has been normal. An EEG in 2014 did show some temporal slowing.\n\nWe discussed previous things about epilepsy management including the risk of seizures but Mr Williams was not keen on changing his medication today.\n\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 21,
+      "end": 30,
+      "text": "epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Diagnosis",
+      "start": 21,
+      "end": 46,
+      "text": "epilepsy-–-probable-focal",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-epilepsy",
+        "CUI": "C0014547"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "start": 48,
+      "end": 120,
+      "text": "Current-antiepileptic-medication:-Lamotrigine-125-milligrams-twice-a-day",
+      "attributes": {
+        "DrugName": "lamotrigine",
+        "DrugDose": "125",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "SeizureFrequency",
+      "start": 166,
+      "end": 208,
+      "text": "seizures-since-the-last-clinic-appointment",
+      "attributes": {
+        "NumberOfSeizures": "3",
+        "PointInTime": "LastClinic",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "start": 318,
+      "end": 326,
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T20",
+      "type": "PatientHistory",
+      "start": 397,
+      "end": 406,
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "SeizureFrequency",
+      "start": 476,
+      "end": 485,
+      "text": "seizures-",
+      "attributes": {
+        "NumberOfSeizures": "2",
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "1",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "start": 476,
+      "end": 485,
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T16",
+      "type": "Investigations",
+      "start": 523,
+      "end": 527,
+      "text": "MRI-",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Normal",
+        "CUIPhrase": "mri-normal",
+        "CUI": "C0436481"
+      }
+    },
+    {
+      "id": "T18",
+      "type": "Investigations",
+      "start": 547,
+      "end": 551,
+      "text": "EEG-",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Abnormal",
+        "CUIPhrase": "eeg-abnormal",
+        "CUI": "C0151611"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "21",
+      "end_index": "30",
+      "text": "epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "21",
+      "end_index": "46",
+      "text": "epilepsy-–-probable-focal",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-epilepsy",
+        "CUI": "C0014547"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "48",
+      "end_index": "120",
+      "text": "Current-antiepileptic-medication:-Lamotrigine-125-milligrams-twice-a-day",
+      "attributes": {
+        "DrugName": "lamotrigine",
+        "DrugDose": "125",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "166",
+      "end_index": "208",
+      "text": "seizures-since-the-last-clinic-appointment",
+      "attributes": {
+        "NumberOfSeizures": "3",
+        "PointInTime": "LastClinic",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "318",
+      "end_index": "326",
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "397",
+      "end_index": "406",
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "476",
+      "end_index": "485",
+      "text": "seizures-",
+      "attributes": {
+        "NumberOfSeizures": "2",
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "1",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "476",
+      "end_index": "485",
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "523",
+      "end_index": "527",
+      "text": "MRI-",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Normal",
+        "CUIPhrase": "mri-normal",
+        "CUI": "C0436481"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "547",
+      "end_index": "551",
+      "text": "EEG-",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Abnormal",
+        "CUIPhrase": "eeg-abnormal",
+        "CUI": "C0151611"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 476,
+      "end": 485,
+      "text": "seizures-",
+      "entity_types": [
+        "SeizureFrequency",
+        "PatientHistory"
+      ],
+      "entity_ids": [
+        "T12",
+        "T14"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "text": "Current-antiepileptic-medication:-Lamotrigine-125-milligrams-twice-a-day",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "text": "seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T20",
+      "type": "PatientHistory",
+      "text": "seizures-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "text": "seizures-",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T9",
+      "type": "SeizureFrequency",
+      "text": "seizures-since-the-last-clinic-appointment",
+      "start": 166,
+      "end": 208,
+      "year": null,
+      "period": null,
+      "num_periods": null,
+      "time_since": "Since",
+      "point_in_time": "LastClinic",
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "3"
+    },
+    {
+      "id": "T12",
+      "type": "SeizureFrequency",
+      "text": "seizures-",
+      "start": 476,
+      "end": 485,
+      "year": null,
+      "period": "Year",
+      "num_periods": "1",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "2"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 2,
+    "Prescription": 1,
+    "SeizureFrequency": 2,
+    "PatientHistory": 3,
+    "Investigations": 2
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "1 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 476,
+          "end": 485,
+          "text": "seizures-",
+          "entity_types": [
+            "SeizureFrequency",
+            "PatientHistory"
+          ],
+          "entity_ids": [
+            "T12",
+            "T14"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "4 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T6",
+          "type": "Prescription",
+          "text": "Current-antiepileptic-medication:-Lamotrigine-125-milligrams-twice-a-day",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T10",
+          "type": "PatientHistory",
+          "text": "seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T20",
+          "type": "PatientHistory",
+          "text": "seizures-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T14",
+          "type": "PatientHistory",
+          "text": "seizures-",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [
+    {
+      "id": "T4",
+      "type": "Diagnosis",
+      "text": "epilepsy-–-probable-focal",
+      "certainty": 4
+    }
+  ],
+  "has_unknown_seizure": false
+}

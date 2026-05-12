@@ -1,0 +1,561 @@
+{
+  "id": "EA0198",
+  "text": "Diagnosis:\tProbable non-epileptic psychogenic seizures\n\t\tComplex partial seizures with secondary generalised seizures\n\nMedication:\tSodium valproate 1000mg twice a day\n\nI reviewed Sheila for this first time today in clinic. Her epilepsy started fifteen years ago at the age of 23 after a minor head injury. She has been having around one seizure per month but since April she has been having several per week. This increase in seizures frequency corresponded with a stressful family event.\n\nCurrently Sheila gets two different types of seizures.  “blank” episodes consist of starting episdoes which occur without warning. “Major” episodes occur after an anxious or nervous feeling. She will frequently feel sick as well before going on to having generalised body shakes but her eye will stay closed. She in unable to respond but can hear people taking when these are happening.\n\nHer neurological examination was normal.\n\nShe also has anxiety for which she takes sertraline. \n\nThere is a possibility that some of these episodes are non-epileptic in nature and so I have requested an up to date EEG. Videos of the events will also help. At present I do not think that it is worth changing the medication at all.\n\n",
+  "entities": [
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "start": 20,
+      "end": 54,
+      "text": "non-epileptic-psychogenic-seizures",
+      "attributes": {
+        "Negation": "Affirmed",
+        "Certainty": "4",
+        "CUIPhrase": "non-epileptic-psychogenic-seizures",
+        "CUI": "C1142430"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "Diagnosis",
+      "start": 57,
+      "end": 81,
+      "text": "Complex-partial-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "CUIPhrase": "complex-partial-seizures",
+        "CUI": "C0149958",
+        "Negation": "Affirmed",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Diagnosis",
+      "start": 87,
+      "end": 117,
+      "text": "secondary-generalised-seizures",
+      "attributes": {
+        "CUI": "C0270838",
+        "CUIPhrase": "secondary-generalised-seizures",
+        "Certainty": "5",
+        "DiagCategory": "MultipleSeizures",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T13",
+      "type": "Prescription",
+      "start": 131,
+      "end": 148,
+      "text": "Sodium-valproate-",
+      "attributes": {
+        "DoseUnit": "mg",
+        "CUIPhrase": "sodium-valproate",
+        "Frequency": "2",
+        "DrugName": "SodiumValproate",
+        "DrugDose": "1000",
+        "CUI": "C0037567"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "Diagnosis",
+      "start": 227,
+      "end": 235,
+      "text": "epilepsy",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0014544",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "DiagCategory": "Epilepsy"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "Onset",
+      "start": 227,
+      "end": 235,
+      "text": "epilepsy",
+      "attributes": {
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544",
+        "Negation": "Affirmed",
+        "Age": "23",
+        "AgeUnit": "Year",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "Onset",
+      "start": 227,
+      "end": 235,
+      "text": "epilepsy",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C0014544",
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "15",
+        "CUIPhrase": "epilepsy",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "start": 287,
+      "end": 304,
+      "text": "minor-head-injury",
+      "attributes": {
+        "CUI": "C0497301",
+        "Negation": "Affirmed",
+        "CUIPhrase": "head injury",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "SeizureFrequency",
+      "start": 337,
+      "end": 344,
+      "text": "seizure",
+      "attributes": {
+        "NumberOfTimePeriods": "1",
+        "CUI": "C0036572",
+        "TimePeriod": "Week",
+        "CUIPhrase": "seizure",
+        "NumberOfSeizures": "3"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "start": 337,
+      "end": 344,
+      "text": "seizure",
+      "attributes": {
+        "CUI": "C0036572",
+        "CUIPhrase": "seizure",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "SeizureFrequency",
+      "start": 426,
+      "end": 434,
+      "text": "seizures",
+      "attributes": {
+        "FrequencyChange": "Increased",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "start": 535,
+      "end": 543,
+      "text": "seizures",
+      "attributes": {
+        "CUI": "C0036572",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "start": 933,
+      "end": 940,
+      "text": "anxiety",
+      "attributes": {
+        "CUIPhrase": "anxiety",
+        "CUI": "C0003467",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "227",
+      "end_index": "235",
+      "text": "epilepsy",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0014544",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "DiagCategory": "Epilepsy"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "933",
+      "end_index": "940",
+      "text": "anxiety",
+      "attributes": {
+        "CUIPhrase": "anxiety",
+        "CUI": "C0003467",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "426",
+      "end_index": "434",
+      "text": "seizures",
+      "attributes": {
+        "FrequencyChange": "Increased",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "87",
+      "end_index": "117",
+      "text": "secondary-generalised-seizures",
+      "attributes": {
+        "CUI": "C0270838",
+        "CUIPhrase": "secondary-generalised-seizures",
+        "Certainty": "5",
+        "DiagCategory": "MultipleSeizures",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "Onset",
+      "start_index": "227",
+      "end_index": "235",
+      "text": "epilepsy",
+      "attributes": {
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544",
+        "Negation": "Affirmed",
+        "Age": "23",
+        "AgeUnit": "Year",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "20",
+      "end_index": "54",
+      "text": "non-epileptic-psychogenic-seizures",
+      "attributes": {
+        "Negation": "Affirmed",
+        "Certainty": "4",
+        "CUIPhrase": "non-epileptic-psychogenic-seizures",
+        "CUI": "C1142430"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "57",
+      "end_index": "81",
+      "text": "Complex-partial-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "CUIPhrase": "complex-partial-seizures",
+        "CUI": "C0149958",
+        "Negation": "Affirmed",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "287",
+      "end_index": "304",
+      "text": "minor-head-injury",
+      "attributes": {
+        "CUI": "C0497301",
+        "Negation": "Affirmed",
+        "CUIPhrase": "head",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "337",
+      "end_index": "344",
+      "text": "seizure",
+      "attributes": {
+        "NumberOfTimePeriods": "1",
+        "CUI": "C0036572",
+        "TimePeriod": "Week",
+        "CUIPhrase": "seizure",
+        "NumberOfSeizures": "3"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "535",
+      "end_index": "543",
+      "text": "seizures",
+      "attributes": {
+        "CUI": "C0036572",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "Onset",
+      "start_index": "227",
+      "end_index": "235",
+      "text": "epilepsy",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C0014544",
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "15",
+        "CUIPhrase": "epilepsy",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "337",
+      "end_index": "344",
+      "text": "seizure",
+      "attributes": {
+        "CUI": "C0036572",
+        "CUIPhrase": "seizure",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "131",
+      "end_index": "148",
+      "text": "Sodium-valproate-",
+      "attributes": {
+        "DoseUnit": "mg",
+        "CUIPhrase": "sodium-valproate",
+        "Frequency": "2",
+        "DrugName": "SodiumValproate",
+        "DrugDose": "1000",
+        "CUI": "C0037567"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 227,
+      "end": 235,
+      "text": "epilepsy",
+      "entity_types": [
+        "Diagnosis",
+        "Onset",
+        "Onset"
+      ],
+      "entity_ids": [
+        "T1",
+        "T5",
+        "T11"
+      ]
+    },
+    {
+      "start": 337,
+      "end": 344,
+      "text": "seizure",
+      "entity_types": [
+        "SeizureFrequency",
+        "PatientHistory"
+      ],
+      "entity_ids": [
+        "T9",
+        "T12"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "text": "non-epileptic-psychogenic-seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T13",
+      "type": "Prescription",
+      "text": "Sodium-valproate-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "text": "minor-head-injury",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "text": "seizure",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T3",
+      "type": "SeizureFrequency",
+      "text": "seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "text": "seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "text": "anxiety",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T11",
+      "type": "Onset",
+      "text": "epilepsy",
+      "start": 227,
+      "end": 235,
+      "year": null,
+      "period": "Year",
+      "num_periods": "15",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": null
+    },
+    {
+      "id": "T9",
+      "type": "SeizureFrequency",
+      "text": "seizure",
+      "start": 337,
+      "end": 344,
+      "year": null,
+      "period": "Week",
+      "num_periods": "1",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "3"
+    }
+  ],
+  "type_counts": {
+    "PatientHistory": 5,
+    "Diagnosis": 3,
+    "Prescription": 1,
+    "Onset": 2,
+    "SeizureFrequency": 2
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "2 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 227,
+          "end": 235,
+          "text": "epilepsy",
+          "entity_types": [
+            "Diagnosis",
+            "Onset",
+            "Onset"
+          ],
+          "entity_ids": [
+            "T1",
+            "T5",
+            "T11"
+          ]
+        },
+        {
+          "start": 337,
+          "end": 344,
+          "text": "seizure",
+          "entity_types": [
+            "SeizureFrequency",
+            "PatientHistory"
+          ],
+          "entity_ids": [
+            "T9",
+            "T12"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "7 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T6",
+          "type": "PatientHistory",
+          "text": "non-epileptic-psychogenic-seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T13",
+          "type": "Prescription",
+          "text": "Sodium-valproate-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T8",
+          "type": "PatientHistory",
+          "text": "minor-head-injury",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T12",
+          "type": "PatientHistory",
+          "text": "seizure",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T3",
+          "type": "SeizureFrequency",
+          "text": "seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T10",
+          "type": "PatientHistory",
+          "text": "seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T2",
+          "type": "PatientHistory",
+          "text": "anxiety",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "text": "non-epileptic-psychogenic-seizures",
+      "certainty": 4
+    }
+  ],
+  "has_unknown_seizure": false
+}

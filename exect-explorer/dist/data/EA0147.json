@@ -1,0 +1,484 @@
+{
+  "id": "EA0147",
+  "text": "Clinic date 17/7/2018\n \nRe          Mrs Alice Springs\tDOB 3/5/1976\n \nDear doctor,\n\nDiagnosis: Focal epilepsy secondary to\n                                Traumatic brain injury\n                                Chronic daily headache\n \nRecommendations: Please start lamotrigine as detailed below\n                                Follow up in 6 months\n                                Limit simple analgesia to help with headache\n \nI reviewed this 42-year-old lady in clinic. She has previously seen other epilepsy consultants and the epilepsy nurse. As you know she was diagnosed with epilepsy in 2012 following a severe traumatic brain injury where she fell down 12 flights of stairs, had traumatic contusions and a tramatuic sub dural haemorrhage. Last year she had around 15 generalised tonic clonic seizures. She is also having small attacks where she stares, has speech arrest and may smack her lips. I think that these are complex partial seizures. She is currently taking levetiracetam 1250mg twice a day. She gets chronic daily headache and takes at least 8 co-codamol tablets a day to try and help with this.\n \nAs you know Alice used to work as a teaching assistant and is very keen to return to work in the long term. She wants to get better seizure control to achieve this. It seems like Alice’s epilepsy control is suboptimal. She still has some mood problems and so I would not increase the levetiracetam more. Please can you start lamotrigine 25mg once a day increasing by 25mg every fortnight until she is taking 100mg bd. This should help both the epilepsy and mood. She is also taking olanzopine and it seems reasonable to reduce this slowly.\n\nYours\n\n",
+  "entities": [
+    {
+      "id": "T7",
+      "type": "Diagnosis",
+      "start": 94,
+      "end": 108,
+      "text": "Focal-epilepsy",
+      "attributes": {
+        "CUI": "C0014547",
+        "CUIPhrase": "focal-epilepsy",
+        "Certainty": "5",
+        "DiagCategory": "Epilepsy",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "start": 154,
+      "end": 175,
+      "text": "Traumatic-brain-injur",
+      "attributes": {
+        "CUI": "C0876926",
+        "CUIPhrase": "traumatic brain injury",
+        "Negation": "Affirmed",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "EpilepsyCause",
+      "start": 154,
+      "end": 176,
+      "text": "Traumatic-brain-injury",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "traumatic brain injury",
+        "Certainty": "5",
+        "CUI": "C0876926"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "PatientHistory",
+      "start": 209,
+      "end": 231,
+      "text": "Chronic-daily-headache",
+      "attributes": {
+        "CUI": "C0151293",
+        "Negation": "Affirmed",
+        "CUIPhrase": "chronic-headache",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T13",
+      "type": "WhenDiagnosed",
+      "start": 581,
+      "end": 588,
+      "text": "epileps",
+      "attributes": {
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "YearDate": "2012"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Diagnosis",
+      "start": 581,
+      "end": 590,
+      "text": "epilepsy-",
+      "attributes": {
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544",
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "start": 610,
+      "end": 639,
+      "text": "severe-traumatic-brain-injury",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C3508474",
+        "Negation": "Affirmed",
+        "CUIPhrase": "severe traumatic brain injury"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "PatientHistory",
+      "start": 723,
+      "end": 744,
+      "text": "sub-dural-haemorrhage",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "subdural-haemorrhage",
+        "CUI": "C0018946"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "SeizureFrequency",
+      "start": 774,
+      "end": 806,
+      "text": "generalised-tonic-clonic-seizure",
+      "attributes": {
+        "CUI": "C0494475",
+        "TimeSince_or_TimeOfEvent": "During",
+        "NumberOfSeizures": "15",
+        "CUIPhrase": "generalised-tonic-clonic-seizure",
+        "PointInTime": "Last_Year"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "Diagnosis",
+      "start": 774,
+      "end": 807,
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "CUI": "C0494475",
+        "Certainty": "5",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "Negation": "Affirmed",
+        "DiagCategory": "MultipleSeizures"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Diagnosis",
+      "start": 925,
+      "end": 949,
+      "text": "complex-partial-seizures",
+      "attributes": {
+        "CUI": "C0149958",
+        "DiagCategory": "MultipleSeizures",
+        "CUIPhrase": "complex-partial-seizures",
+        "Negation": "Affirmed",
+        "Certainty": "4"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "Prescription",
+      "start": 975,
+      "end": 988,
+      "text": "levetiraetam-",
+      "attributes": {
+        "CUIPhrase": "levetiracetam",
+        "DrugDose": "1250",
+        "CUI": "C0377265",
+        "DrugName": "Levetiracetam",
+        "Frequency": "2",
+        "DoseUnit": "mg"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "PatientHistory",
+      "start": 1017,
+      "end": 1039,
+      "text": "chronic-daily-headache",
+      "attributes": {
+        "CUIPhrase": "chronic-headache",
+        "Negation": "Affirmed",
+        "CUI": "C0151293",
+        "Certainty": "5"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "PatientHistory",
+      "start_index": "723",
+      "end_index": "744",
+      "text": "sub-dural-haemorrhage",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "subdural-haemorrhage",
+        "CUI": "C0018946"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1017",
+      "end_index": "1039",
+      "text": "chronic-daily-headache",
+      "attributes": {
+        "CUIPhrase": "chronic-headache",
+        "Negation": "Affirmed",
+        "CUI": "C0151293",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "EpilepsyCause",
+      "start_index": "154",
+      "end_index": "176",
+      "text": "Traumatic-brain-injury",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "traumatic",
+        "Certainty": "5",
+        "CUI": "C0876926"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "975",
+      "end_index": "988",
+      "text": "levetiraetam-",
+      "attributes": {
+        "CUIPhrase": "levetiracetam",
+        "DrugDose": "1250",
+        "CUI": "C0377265",
+        "DrugName": "Levetiracetam",
+        "Frequency": "2",
+        "DoseUnit": "mg"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "581",
+      "end_index": "590",
+      "text": "epilepsy-",
+      "attributes": {
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544",
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "209",
+      "end_index": "231",
+      "text": "Chronic-daily-headache",
+      "attributes": {
+        "CUI": "C0151293",
+        "Negation": "Affirmed",
+        "CUIPhrase": "chronic-headache",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "925",
+      "end_index": "949",
+      "text": "complex-partial-seizures",
+      "attributes": {
+        "CUI": "C0149958",
+        "DiagCategory": "MultipleSeizures",
+        "CUIPhrase": "complex-partial-seizures",
+        "Negation": "Affirmed",
+        "Certainty": "4"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "94",
+      "end_index": "108",
+      "text": "Focal-epilepsy",
+      "attributes": {
+        "CUI": "C0014547",
+        "CUIPhrase": "focal-epilepsy",
+        "Certainty": "5",
+        "DiagCategory": "Epilepsy",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "610",
+      "end_index": "639",
+      "text": "severe-traumatic-brain-injury",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C3508474",
+        "Negation": "Affirmed",
+        "CUIPhrase": "severe"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "774",
+      "end_index": "807",
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "CUI": "C0494475",
+        "Certainty": "5",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "Negation": "Affirmed",
+        "DiagCategory": "MultipleSeizures"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "154",
+      "end_index": "175",
+      "text": "Traumatic-brain-injur",
+      "attributes": {
+        "CUI": "C0876926",
+        "CUIPhrase": "traumatic",
+        "Negation": "Affirmed",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "WhenDiagnosed",
+      "start_index": "581",
+      "end_index": "588",
+      "text": "epileps",
+      "attributes": {
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "YearDate": "2012"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "774",
+      "end_index": "806",
+      "text": "generalised-tonic-clonic-seizure",
+      "attributes": {
+        "CUI": "C0494475",
+        "TimeSince_or_TimeOfEvent": "During",
+        "NumberOfSeizures": "15",
+        "CUIPhrase": "generalised-tonic-clonic-seizure",
+        "PointInTime": "Last_Year"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "text": "Traumatic-brain-injur",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T5",
+      "type": "PatientHistory",
+      "text": "Chronic-daily-headache",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "text": "severe-traumatic-brain-injury",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T11",
+      "type": "PatientHistory",
+      "text": "sub-dural-haemorrhage",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T3",
+      "type": "Prescription",
+      "text": "levetiraetam-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T1",
+      "type": "PatientHistory",
+      "text": "chronic-daily-headache",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T13",
+      "type": "WhenDiagnosed",
+      "text": "epileps",
+      "start": 581,
+      "end": 588,
+      "year": "2012",
+      "period": null,
+      "num_periods": null,
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": null
+    },
+    {
+      "id": "T12",
+      "type": "SeizureFrequency",
+      "text": "generalised-tonic-clonic-seizure",
+      "start": 774,
+      "end": 806,
+      "year": null,
+      "period": null,
+      "num_periods": null,
+      "time_since": "During",
+      "point_in_time": "Last_Year",
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "15"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 4,
+    "PatientHistory": 5,
+    "EpilepsyCause": 1,
+    "WhenDiagnosed": 1,
+    "SeizureFrequency": 1,
+    "Prescription": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "6 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T10",
+          "type": "PatientHistory",
+          "text": "Traumatic-brain-injur",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T5",
+          "type": "PatientHistory",
+          "text": "Chronic-daily-headache",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T8",
+          "type": "PatientHistory",
+          "text": "severe-traumatic-brain-injury",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T11",
+          "type": "PatientHistory",
+          "text": "sub-dural-haemorrhage",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T3",
+          "type": "Prescription",
+          "text": "levetiraetam-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T1",
+          "type": "PatientHistory",
+          "text": "chronic-daily-headache",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [
+    {
+      "id": "T6",
+      "type": "Diagnosis",
+      "text": "complex-partial-seizures",
+      "certainty": 4
+    }
+  ],
+  "has_unknown_seizure": false
+}

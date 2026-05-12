@@ -1,0 +1,105 @@
+{
+  "id": "EA0028",
+  "text": "I saw this 19 year old lady in my clinic today. She is feeling well and has not had any further seizures. She’s not experiencing any side-effects on the levetiracetam 500 milligrams twice a day. I will not change things and I will see again in 12 months time.\n",
+  "entities": [
+    {
+      "id": "T5",
+      "type": "SeizureFrequency",
+      "start": 96,
+      "end": 104,
+      "text": "seizures",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "Prescription",
+      "start": 153,
+      "end": 167,
+      "text": "levetiracetam-",
+      "attributes": {
+        "DrugName": "Levetiracetam",
+        "DrugDose": "500",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "levetiracetam",
+        "CUI": "C0377265"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "96",
+      "end_index": "104",
+      "text": "seizures",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "153",
+      "end_index": "167",
+      "text": "levetiracetam-",
+      "attributes": {
+        "DrugName": "Levetiracetam",
+        "DrugDose": "500",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "levetiracetam",
+        "CUI": "C0377265"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T5",
+      "type": "SeizureFrequency",
+      "text": "seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T2",
+      "type": "Prescription",
+      "text": "levetiracetam-",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [],
+  "type_counts": {
+    "SeizureFrequency": 1,
+    "Prescription": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "2 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T5",
+          "type": "SeizureFrequency",
+          "text": "seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T2",
+          "type": "Prescription",
+          "text": "levetiracetam-",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

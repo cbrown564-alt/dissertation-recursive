@@ -1,0 +1,585 @@
+{
+  "id": "EA0179",
+  "text": "Diagnosis:          Episodes of loss of consciousness ?syncope ? complex partial seizures\n \nThanks for referring this gentleman to the epilepsy clinic. He has mild learning disabilities. As a child he had seizures and was on medication between the ages of 5 and 10. He had two febrile convulsions at the age of around 3. There is no relevant family history.\n \nHe describes a typical episode of loss of consciousness where he will start feeling tired and had an unusual headache. He then will not be able to answer questions and will go pale and sweaty before loosing consciousness.\n \nHe had an MRI scan around 5 years ago which was normal although I have not seen the report. I do not have the results of his recent EEG test.\n \nHis neurological examination was normal today and he does not have any other medical problems.\n \nComments:\nI dont have a definite conclusion as to the cause of his episodes of loss of consciousness. I thought today that the episodes sounded more like syncope however he does have learning disabilities and has previously had seizures and so epilepsy needs to be borne in mind.\nHe has already been started on sodium valproate 300mg bd which has stopped the episodes.\nI will review cardiology notes and the previous EEG.\nHe doesnt drive but understands the driving regulations.\n\n",
+  "entities": [
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "start": 19,
+      "end": 53,
+      "text": "-Episodes-of-loss-of-consciousness",
+      "attributes": {
+        "CUI": "C0041657",
+        "CUIPhrase": "episodes-of-loss-of-consciousness",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "PatientHistory",
+      "start": 54,
+      "end": 62,
+      "text": "?syncope",
+      "attributes": {
+        "Negation": "Affirmed",
+        "Certainty": "3",
+        "CUI": "C0039070",
+        "CUIPhrase": "syncope"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "Diagnosis",
+      "start": 63,
+      "end": 89,
+      "text": "?-complex-partial-seizures",
+      "attributes": {
+        "Negation": "Affirmed",
+        "Certainty": "3",
+        "CUI": "C0149958",
+        "DiagCategory": "MultipleSeizures",
+        "CUIPhrase": "complex-partial-seizures"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "PatientHistory",
+      "start": 159,
+      "end": 185,
+      "text": "mild-learning-disabilities",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C0751265",
+        "CUIPhrase": "learning-disabilities",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T13",
+      "type": "PatientHistory",
+      "start": 205,
+      "end": 213,
+      "text": "seizures",
+      "attributes": {
+        "CUI": "C0036572",
+        "Certainty": "5",
+        "AgeUpper": "12",
+        "CUIPhrase": "seizures",
+        "Negation": "Affirmed",
+        "TimePeriod": "Year",
+        "AgeLower": "2"
+      }
+    },
+    {
+      "id": "T15",
+      "type": "PatientHistory",
+      "start": 277,
+      "end": 296,
+      "text": "febrile-convulsions",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0009952",
+        "Negation": "Affirmed",
+        "AgeUnit": "Year",
+        "Age": "3",
+        "CUIPhrase": "febrile-convulsions"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "start": 383,
+      "end": 416,
+      "text": "episodes-of-loss-of-consciousness",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "episodes of loss of consciousness",
+        "Certainty": "5",
+        "CUI": "C0041657"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Investigations",
+      "start": 595,
+      "end": 598,
+      "text": "MRI",
+      "attributes": {
+        "CUI": "C0436481",
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Normal",
+        "CUIPhrase": "mri-normal"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Investigations",
+      "start": 717,
+      "end": 721,
+      "text": "EEG-",
+      "attributes": {
+        "CUI": "C0013819",
+        "EEG_Results": "Unknown",
+        "CUIPhrase": "EEG unknown",
+        "EEG_Performed": "Yes"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "start": 893,
+      "end": 926,
+      "text": "episodes-of-loss-of-consciousness",
+      "attributes": {
+        "CUIPhrase": "episodes of loss of consciousness",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUI": "C0041657"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "start": 980,
+      "end": 987,
+      "text": "syncope",
+      "attributes": {
+        "CUIPhrase": "syncope",
+        "CUI": "C0039070",
+        "Certainty": "4",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "PatientHistory",
+      "start": 1009,
+      "end": 1030,
+      "text": "learning-disabilities",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C0751265",
+        "CUIPhrase": "learning-disabilities",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "PatientHistory",
+      "start": 1054,
+      "end": 1062,
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "Diagnosis",
+      "start": 1070,
+      "end": 1078,
+      "text": "epilepsy",
+      "attributes": {
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544",
+        "Negation": "Affirmed",
+        "Certainty": "3",
+        "DiagCategory": "Epilepsy"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "Prescription",
+      "start": 1137,
+      "end": 1153,
+      "text": "sodium-valproate",
+      "attributes": {
+        "CUIPhrase": "sodium-valproate",
+        "DoseUnit": "mg",
+        "DrugDose": "300",
+        "Frequency": "2",
+        "CUI": "C0037567",
+        "DrugName": "SodiumValproate"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "PatientHistory",
+      "start_index": "1009",
+      "end_index": "1030",
+      "text": "learning-disabilities",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C0751265",
+        "CUIPhrase": "learning-disabilities",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "893",
+      "end_index": "926",
+      "text": "episodes-of-loss-of-consciousness",
+      "attributes": {
+        "CUIPhrase": "episodes",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUI": "C0041657"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "159",
+      "end_index": "185",
+      "text": "mild-learning-disabilities",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C0751265",
+        "CUIPhrase": "learning-disabilities",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "383",
+      "end_index": "416",
+      "text": "episodes-of-loss-of-consciousness",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "episodes",
+        "Certainty": "5",
+        "CUI": "C0041657"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "63",
+      "end_index": "89",
+      "text": "?-complex-partial-seizures",
+      "attributes": {
+        "Negation": "Affirmed",
+        "Certainty": "3",
+        "CUI": "C0149958",
+        "DiagCategory": "MultipleSeizures",
+        "CUIPhrase": "complex-partial-seizures"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "717",
+      "end_index": "721",
+      "text": "EEG-",
+      "attributes": {
+        "CUI": "C0013819",
+        "EEG_Results": "Unknown",
+        "CUIPhrase": "EEG",
+        "EEG_Performed": "Yes"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1054",
+      "end_index": "1062",
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "595",
+      "end_index": "598",
+      "text": "MRI",
+      "attributes": {
+        "CUI": "C0436481",
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Normal",
+        "CUIPhrase": "mri-normal"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1070",
+      "end_index": "1078",
+      "text": "epilepsy",
+      "attributes": {
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544",
+        "Negation": "Affirmed",
+        "Certainty": "3",
+        "DiagCategory": "Epilepsy"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "1137",
+      "end_index": "1153",
+      "text": "sodium-valproate",
+      "attributes": {
+        "CUIPhrase": "sodium-valproate",
+        "DoseUnit": "mg",
+        "DrugDose": "300",
+        "Frequency": "2",
+        "CUI": "C0037567",
+        "DrugName": "SodiumValproate"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "54",
+      "end_index": "62",
+      "text": "?syncope",
+      "attributes": {
+        "Negation": "Affirmed",
+        "Certainty": "3",
+        "CUI": "C0039070",
+        "CUIPhrase": "syncope"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "980",
+      "end_index": "987",
+      "text": "syncope",
+      "attributes": {
+        "CUIPhrase": "syncope",
+        "CUI": "C0039070",
+        "Certainty": "4",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "205",
+      "end_index": "213",
+      "text": "seizures",
+      "attributes": {
+        "CUI": "C0036572",
+        "Certainty": "5",
+        "AgeUpper": "12",
+        "CUIPhrase": "seizures",
+        "Negation": "Affirmed",
+        "TimePeriod": "Year",
+        "AgeLower": "2"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "19",
+      "end_index": "53",
+      "text": "-Episodes-of-loss-of-consciousness",
+      "attributes": {
+        "CUI": "C0041657",
+        "CUIPhrase": "episodes-of-loss-of-consciousness",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "277",
+      "end_index": "296",
+      "text": "febrile-convulsions",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0009952",
+        "Negation": "Affirmed",
+        "AgeUnit": "Year",
+        "Age": "3",
+        "CUIPhrase": "febrile-convulsions"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "text": "-Episodes-of-loss-of-consciousness",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T11",
+      "type": "PatientHistory",
+      "text": "?syncope",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T3",
+      "type": "PatientHistory",
+      "text": "mild-learning-disabilities",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T15",
+      "type": "PatientHistory",
+      "text": "febrile-convulsions",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "text": "episodes-of-loss-of-consciousness",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "text": "episodes-of-loss-of-consciousness",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "text": "syncope",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T1",
+      "type": "PatientHistory",
+      "text": "learning-disabilities",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T7",
+      "type": "PatientHistory",
+      "text": "seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T10",
+      "type": "Prescription",
+      "text": "sodium-valproate",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T13",
+      "type": "PatientHistory",
+      "text": "seizures",
+      "start": 205,
+      "end": 213,
+      "year": null,
+      "period": "Year",
+      "num_periods": null,
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": null
+    }
+  ],
+  "type_counts": {
+    "PatientHistory": 10,
+    "Diagnosis": 2,
+    "Investigations": 2,
+    "Prescription": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "10 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T14",
+          "type": "PatientHistory",
+          "text": "-Episodes-of-loss-of-consciousness",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T11",
+          "type": "PatientHistory",
+          "text": "?syncope",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T3",
+          "type": "PatientHistory",
+          "text": "mild-learning-disabilities",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T15",
+          "type": "PatientHistory",
+          "text": "febrile-convulsions",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T4",
+          "type": "PatientHistory",
+          "text": "episodes-of-loss-of-consciousness",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T2",
+          "type": "PatientHistory",
+          "text": "episodes-of-loss-of-consciousness",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T12",
+          "type": "PatientHistory",
+          "text": "syncope",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T1",
+          "type": "PatientHistory",
+          "text": "learning-disabilities",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T7",
+          "type": "PatientHistory",
+          "text": "seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T10",
+          "type": "Prescription",
+          "text": "sodium-valproate",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [
+    {
+      "id": "T11",
+      "type": "PatientHistory",
+      "text": "?syncope",
+      "certainty": 3
+    },
+    {
+      "id": "T5",
+      "type": "Diagnosis",
+      "text": "?-complex-partial-seizures",
+      "certainty": 3
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "text": "syncope",
+      "certainty": 4
+    },
+    {
+      "id": "T9",
+      "type": "Diagnosis",
+      "text": "epilepsy",
+      "certainty": 3
+    }
+  ],
+  "has_unknown_seizure": false
+}

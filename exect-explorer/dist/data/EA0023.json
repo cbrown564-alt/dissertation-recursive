@@ -1,0 +1,65 @@
+{
+  "id": "EA0023",
+  "text": "This gentleman was referred to Neurology through the medical department.\n \nMr Williams tells me that he has had around 7 episodes of loss of consciousness since the beginning of the year.  They can occur at any time but they seem to happen more often if he is angry or upset.  He will lose consciousness suddenly and witnesses have told him that he he would bite his tongue and that he will shake.  When he wakes up his muscles hurt and he can feel tired.  Sometimes she is woken up with his tongue being bitten.\n \nHe has  no past medical history that is relevant and he does not remember having any traumatic brain injury.  He does however have asthma, taking inhalers for this.  He does not drink alcohol or take drugs.\n \nNeurological examination was normal today.\n\n",
+  "entities": [
+    {
+      "id": "T3",
+      "type": "PatientHistory",
+      "start": 133,
+      "end": 154,
+      "text": "loss-of-consciousness",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "loss-of-consciousness",
+        "CUI": "C0041657"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "PatientHistory",
+      "start_index": "133",
+      "end_index": "154",
+      "text": "loss-of-consciousness",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "loss-of-consciousness",
+        "CUI": "C0041657"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T3",
+      "type": "PatientHistory",
+      "text": "loss-of-consciousness",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [],
+  "type_counts": {
+    "PatientHistory": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "1 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T3",
+          "type": "PatientHistory",
+          "text": "loss-of-consciousness",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

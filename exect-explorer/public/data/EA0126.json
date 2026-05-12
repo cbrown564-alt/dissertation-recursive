@@ -1,0 +1,651 @@
+{
+  "id": "EA0126",
+  "text": "Dear Dr,\n\nRe: \tMr James Joyce DOB 17/11/1979\n\nDiagnosis: Focal epilepsy secondary to\nTuberous sclerosis\n\nMedication: Sodium valproate 500mg bd\nEslicarbazepine 800mg od\n\nPrevious medications tried include levetiracetam and carbazmazepine\n\nI revealed Mr Joyce for the first time today. He came to clinic with his sister.As you know she he has a diagnosis of tuberous sclerosis stop his epilepsy was first diagnosed at the age of 6. He is reasonably stable from it too brisk rossis pov. His last MRI scan was around 10 years ago and was abnormal showing Sam tuber's in the frontal and temporal loops. \n\nMr Joyce has different types of seizures. Focal frontal lobe seizures consist of stiffening with posturing of an arm lasting around a minute. These currently occur around 4-5 times a month. He also gets focal to bilateral convulsive seizures and these haven't happened for several years now. As a child he also had drop attacks but they haven't happened in adulthood. \n\nJames has been on the current combination of medication for some time and he seems to be tolerating them well. In the past he's tried levetiracetam and carbamazepine and it sounds like the levetiracetam may have caused mood disturbances. I understand that everolimus has been considered but he has never actually started this. \n\nHe's otherwise well and there's no family history. He works in the local Tesco and currently lives alone. \n\nThis gentleman's epilepsy is secondary to his tuberous sclerosis and it seems fairly stable at the moment. I think everolimus would be the best option here however if this isn't an option then we could consider adding in zonismaide at 25 milligrammes everyday increasing by 25 milligrammes every week to 100 milligrammes twice a day . I will review in clinic in 6 months time.\n \nYours sincerely,\n",
+  "entities": [
+    {
+      "id": "T1",
+      "type": "Diagnosis",
+      "start": 57,
+      "end": 71,
+      "text": "Focal-epilepsy",
+      "attributes": {
+        "CUIPhrase": "focal-epilepsy",
+        "Negation": "Affirmed",
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "CUI": "C0014547"
+      }
+    },
+    {
+      "id": "T15",
+      "type": "EpilepsyCause",
+      "start": 85,
+      "end": 103,
+      "text": "Tuberous-sclerosis",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "Tuberous-sclerosis",
+        "CUI": "C0041341"
+      }
+    },
+    {
+      "id": "T13",
+      "type": "Prescription",
+      "start": 105,
+      "end": 142,
+      "text": "Medication:-Sodium-valproate-500mg-bd",
+      "attributes": {
+        "DrugName": "sodium-valproate",
+        "CUIPhrase": "sodium-valproate",
+        "CUI": "C0037567",
+        "Frequency": "2",
+        "DrugDose": "500",
+        "DoseUnit": "mg"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "Prescription",
+      "start": 143,
+      "end": 167,
+      "text": "Eslicarbazepine-800mg-od",
+      "attributes": {
+        "CUIPhrase": "eslicarbazepine",
+        "DrugDose": "800",
+        "DrugName": "eslicarbazepine",
+        "CUI": "C2725260",
+        "Frequency": "1",
+        "DoseUnit": "mg"
+      }
+    },
+    {
+      "id": "T22",
+      "type": "PatientHistory",
+      "start": 356,
+      "end": 374,
+      "text": "tuberous-sclerosis",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "tuberous-sclerosis",
+        "CUI": "C0041341"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "WhenDiagnosed",
+      "start": 385,
+      "end": 392,
+      "text": "epileps",
+      "attributes": {
+        "Age": "6",
+        "CUI": "C0014544",
+        "Certainty": "5",
+        "AgeUnit": "Year",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "Diagnosis",
+      "start": 385,
+      "end": 394,
+      "text": "epilepsy-",
+      "attributes": {
+        "CUIPhrase": "epilepsy",
+        "Negation": "Affirmed",
+        "CUI": "C0014544",
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "Investigations",
+      "start": 494,
+      "end": 502,
+      "text": "MRI-scan",
+      "attributes": {
+        "CUI": "C1319851",
+        "MRI_Performed": "Yes",
+        "CUIPhrase": "mri-abnormal",
+        "MRI_Results": "Abnormal"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "start": 633,
+      "end": 641,
+      "text": "seizures",
+      "attributes": {
+        "CUIPhrase": "C0036572",
+        "Certainty": "5",
+        "CUI": "C0036572",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "Diagnosis",
+      "start": 643,
+      "end": 648,
+      "text": "Focal",
+      "attributes": {
+        "CUI": "C0751495",
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "CUIPhrase": "focal-seizures",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T17",
+      "type": "SeizureFrequency",
+      "start": 643,
+      "end": 669,
+      "text": "Focal-frontal-lobe-seizure",
+      "attributes": {
+        "TimePeriod": "Month",
+        "CUIPhrase": "frontal-lobe-seizure",
+        "UpperNumberOfSeizures": "5",
+        "NumberOfTimePeriods": "1",
+        "LowerNumberOfSeizures": "4",
+        "CUI": "C0085541"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "Diagnosis",
+      "start": 643,
+      "end": 670,
+      "text": "Focal-frontal-lobe-seizures",
+      "attributes": {
+        "CUIPhrase": "frontal-lobe-seizures",
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUI": "C0085541"
+      }
+    },
+    {
+      "id": "T18",
+      "type": "SeizureFrequency",
+      "start": 804,
+      "end": 841,
+      "text": "focal-to-bilateral-convulsive-seizure",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "2",
+        "CUI": "C0877017",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizure"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "Diagnosis",
+      "start": 804,
+      "end": 842,
+      "text": "focal-to-bilateral-convulsive-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizures",
+        "DiagCategory": "MultipleSeizures",
+        "CUI": "C0877017",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T16",
+      "type": "Diagnosis",
+      "start": 1425,
+      "end": 1434,
+      "text": "epilepsy-",
+      "attributes": {
+        "CUI": "C0014544",
+        "Certainty": "5",
+        "DiagCategory": "Epilepsy",
+        "CUIPhrase": "epilepsy",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T31",
+      "type": "PatientHistory",
+      "start": 1453,
+      "end": 1471,
+      "text": "tuberous-sclerosis",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "tuberous-sclerosis",
+        "CUI": "C0041341"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "start": 1454,
+      "end": 1472,
+      "text": "tuberous-sclerosis",
+      "attributes": {
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUI": "C0041341",
+        "CUIPhrase": "Tuberous-sclerosis"
+      }
+    },
+    {
+      "id": "T19",
+      "type": "EpilepsyCause",
+      "start": 1454,
+      "end": 1472,
+      "text": "tuberous-sclerosis",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "Tuberous-sclerosis",
+        "CUI": "C0041341"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "57",
+      "end_index": "71",
+      "text": "Focal-epilepsy",
+      "attributes": {
+        "CUIPhrase": "focal-epilepsy",
+        "Negation": "Affirmed",
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "CUI": "C0014547"
+      }
+    },
+    {
+      "entity": "EpilepsyCause",
+      "start_index": "85",
+      "end_index": "103",
+      "text": "Tuberous-sclerosis",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "Tuberous-sclerosis",
+        "CUI": "C0041341"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "356",
+      "end_index": "374",
+      "text": "tuberous-sclerosis",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "tuberous-sclerosis",
+        "CUI": "C0041341"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1453",
+      "end_index": "1471",
+      "text": "tuberous-sclerosis",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "tuberous-sclerosis",
+        "CUI": "C0041341"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1454",
+      "end_index": "1472",
+      "text": "tuberous-sclerosis",
+      "attributes": {
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUI": "C0041341",
+        "CUIPhrase": "Tuberous-sclerosis"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "494",
+      "end_index": "502",
+      "text": "MRI-scan",
+      "attributes": {
+        "CUI": "C1319851",
+        "MRI_Performed": "Yes",
+        "CUIPhrase": "mri-abnormal",
+        "MRI_Results": "Abnormal"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "633",
+      "end_index": "641",
+      "text": "seizures",
+      "attributes": {
+        "CUIPhrase": "C0036572",
+        "Certainty": "5",
+        "CUI": "C0036572",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "143",
+      "end_index": "167",
+      "text": "Eslicarbazepine-800mg-od",
+      "attributes": {
+        "CUIPhrase": "eslicarbazepine",
+        "DrugDose": "800",
+        "DrugName": "eslicarbazepine",
+        "CUI": "C2725260",
+        "Frequency": "1",
+        "DoseUnit": "mg"
+      }
+    },
+    {
+      "entity": "WhenDiagnosed",
+      "start_index": "385",
+      "end_index": "392",
+      "text": "epileps",
+      "attributes": {
+        "Age": "6",
+        "CUI": "C0014544",
+        "Certainty": "5",
+        "AgeUnit": "Year",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "643",
+      "end_index": "670",
+      "text": "Focal-frontal-lobe-seizures",
+      "attributes": {
+        "CUIPhrase": "frontal-lobe-seizures",
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUI": "C0085541"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "385",
+      "end_index": "394",
+      "text": "epilepsy-",
+      "attributes": {
+        "CUIPhrase": "epilepsy",
+        "Negation": "Affirmed",
+        "CUI": "C0014544",
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "643",
+      "end_index": "648",
+      "text": "Focal",
+      "attributes": {
+        "CUI": "C0751495",
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "CUIPhrase": "focal-seizures",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "105",
+      "end_index": "142",
+      "text": "Medication:-Sodium-valproate-500mg-bd",
+      "attributes": {
+        "DrugName": "sodium-valproate",
+        "CUIPhrase": "sodium-valproate",
+        "CUI": "C0037567",
+        "Frequency": "2",
+        "DrugDose": "500",
+        "DoseUnit": "mg"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "804",
+      "end_index": "842",
+      "text": "focal-to-bilateral-convulsive-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizures",
+        "DiagCategory": "MultipleSeizures",
+        "CUI": "C0877017",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1425",
+      "end_index": "1434",
+      "text": "epilepsy-",
+      "attributes": {
+        "CUI": "C0014544",
+        "Certainty": "5",
+        "DiagCategory": "Epilepsy",
+        "CUIPhrase": "epilepsy",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "643",
+      "end_index": "669",
+      "text": "Focal-frontal-lobe-seizure",
+      "attributes": {
+        "TimePeriod": "Month",
+        "CUIPhrase": "frontal-lobe-seizure",
+        "UpperNumberOfSeizures": "5",
+        "NumberOfTimePeriods": "1",
+        "LowerNumberOfSeizures": "4",
+        "CUI": "C0085541"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "804",
+      "end_index": "841",
+      "text": "focal-to-bilateral-convulsive-seizure",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "2",
+        "CUI": "C0877017",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizure"
+      }
+    },
+    {
+      "entity": "EpilepsyCause",
+      "start_index": "1454",
+      "end_index": "1472",
+      "text": "tuberous-sclerosis",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "Tuberous-sclerosis",
+        "CUI": "C0041341"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 1454,
+      "end": 1472,
+      "text": "tuberous-sclerosis",
+      "entity_types": [
+        "PatientHistory",
+        "EpilepsyCause"
+      ],
+      "entity_ids": [
+        "T2",
+        "T19"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T13",
+      "type": "Prescription",
+      "text": "Medication:-Sodium-valproate-500mg-bd",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T5",
+      "type": "Prescription",
+      "text": "Eslicarbazepine-800mg-od",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T22",
+      "type": "PatientHistory",
+      "text": "tuberous-sclerosis",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "text": "seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T31",
+      "type": "PatientHistory",
+      "text": "tuberous-sclerosis",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "text": "tuberous-sclerosis",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T17",
+      "type": "SeizureFrequency",
+      "text": "Focal-frontal-lobe-seizure",
+      "start": 643,
+      "end": 669,
+      "year": null,
+      "period": "Month",
+      "num_periods": "1",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": "4",
+      "upper_seizures": "5",
+      "num_seizures": null
+    },
+    {
+      "id": "T18",
+      "type": "SeizureFrequency",
+      "text": "focal-to-bilateral-convulsive-seizure",
+      "start": 804,
+      "end": 841,
+      "year": null,
+      "period": "Year",
+      "num_periods": "2",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 6,
+    "EpilepsyCause": 2,
+    "Prescription": 2,
+    "PatientHistory": 4,
+    "WhenDiagnosed": 1,
+    "Investigations": 1,
+    "SeizureFrequency": 2
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "1 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 1454,
+          "end": 1472,
+          "text": "tuberous-sclerosis",
+          "entity_types": [
+            "PatientHistory",
+            "EpilepsyCause"
+          ],
+          "entity_ids": [
+            "T2",
+            "T19"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "6 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T13",
+          "type": "Prescription",
+          "text": "Medication:-Sodium-valproate-500mg-bd",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T5",
+          "type": "Prescription",
+          "text": "Eslicarbazepine-800mg-od",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T22",
+          "type": "PatientHistory",
+          "text": "tuberous-sclerosis",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T4",
+          "type": "PatientHistory",
+          "text": "seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T31",
+          "type": "PatientHistory",
+          "text": "tuberous-sclerosis",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T2",
+          "type": "PatientHistory",
+          "text": "tuberous-sclerosis",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

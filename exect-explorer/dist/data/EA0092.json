@@ -1,0 +1,240 @@
+{
+  "id": "EA0092",
+  "text": "Clinic date: 3rd April 2018\nTyped: 5th Arpil 2018\n\nDear Dr Pooled\n\nRe: \tMiss Rachel Handel\tD.O.B: 05/02/2010 NHS 123 123 5445\n\nDiagnosis: Genetic epilepsy\n\t\tASD\n\n\nMedication: Levetiracetam 500mg bd (36mg/kg/day)\nLamotrigine 50mg bd increasing by 5mg each dose every 2 weeks to 75mg bd (7mg/kg/day) \n\nFollow up: 2 months\n\nI reviewed this young lady in the clinic today.  She is 8 years old.  She has recently been in again with a further cluster of complex partial seizures, but we were able to control this rapidly with high dose Phenytoin.  \n\nHer mother’s only concern about her medication is that her appetite is poor.  However, she has gained weight which is reassuring.  She is making slow steady progress in school and does not regress with her cluster of seizures.\n\nAfter a long discussion, we have decided to make no changes to her medication except for those that we had planned.  If she has no further admissions with breakthrough seizures, then we will consider withdrawing her Levetiracetam.\n\nYours sincerely\n\n\n\n\n\n",
+  "entities": [
+    {
+      "id": "T4",
+      "type": "Diagnosis",
+      "start": 138,
+      "end": 154,
+      "text": "Genetic-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "CUI": "C0014544",
+        "Certainty": "5",
+        "CUIPhrase": "epilepsy",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "PatientHistory",
+      "start": 157,
+      "end": 160,
+      "text": "ASD",
+      "attributes": {
+        "CUIPhrase": "asd",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUI": "C1510586"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "Prescription",
+      "start": 163,
+      "end": 211,
+      "text": "Medication:-Levetiracetam-500mg-bd-(36mg/kg/day)",
+      "attributes": {
+        "DrugName": "levetiracetam",
+        "DoseUnit": "mg",
+        "CUI": "C0377265",
+        "DrugDose": "500",
+        "CUIPhrase": "levetiracetam",
+        "Frequency": "2"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "start": 212,
+      "end": 297,
+      "text": "Lamotrigine-50mg-bd-increasing-by-5mg-each-dose-every-2-weeks-to-75mg-bd-(7mg/kg/day)",
+      "attributes": {
+        "CUI": "C0064636",
+        "DrugDose": "50",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine",
+        "DrugName": "lamotrigine",
+        "DoseUnit": "mg"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "Diagnosis",
+      "start": 448,
+      "end": 472,
+      "text": "complex-partial-seizures",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C0149958",
+        "Certainty": "5",
+        "DiagCategory": "MultipleSeizures",
+        "CUIPhrase": "complex-partial-seizures"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "PatientHistory",
+      "start": 750,
+      "end": 769,
+      "text": "cluster-of-seizures",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "cluster-of-seizures",
+        "Certainty": "5",
+        "CUI": "C3203523"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "PatientHistory",
+      "start_index": "157",
+      "end_index": "160",
+      "text": "ASD",
+      "attributes": {
+        "CUIPhrase": "asd",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUI": "C1510586"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "163",
+      "end_index": "211",
+      "text": "Medication:-Levetiracetam-500mg-bd-(36mg/kg/day)",
+      "attributes": {
+        "DrugName": "levetiracetam",
+        "DoseUnit": "mg",
+        "CUI": "C0377265",
+        "DrugDose": "500",
+        "CUIPhrase": "levetiracetam",
+        "Frequency": "2"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "750",
+      "end_index": "769",
+      "text": "cluster-of-seizures",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "cluster-of-seizures",
+        "Certainty": "5",
+        "CUI": "C3203523"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "138",
+      "end_index": "154",
+      "text": "Genetic-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "CUI": "C0014544",
+        "Certainty": "5",
+        "CUIPhrase": "epilepsy",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "448",
+      "end_index": "472",
+      "text": "complex-partial-seizures",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C0149958",
+        "Certainty": "5",
+        "DiagCategory": "MultipleSeizures",
+        "CUIPhrase": "complex-partial-seizures"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "212",
+      "end_index": "297",
+      "text": "Lamotrigine-50mg-bd-increasing-by-5mg-each-dose-every-2-weeks-to-75mg-bd-(7mg/kg/day)",
+      "attributes": {
+        "CUI": "C0064636",
+        "DrugDose": "50",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine",
+        "DrugName": "lamotrigine",
+        "DoseUnit": "mg"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T1",
+      "type": "PatientHistory",
+      "text": "ASD",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T2",
+      "type": "Prescription",
+      "text": "Medication:-Levetiracetam-500mg-bd-(36mg/kg/day)",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "text": "Lamotrigine-50mg-bd-increasing-by-5mg-each-dose-every-2-weeks-to-75mg-bd-(7mg/kg/day)",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T3",
+      "type": "PatientHistory",
+      "text": "cluster-of-seizures",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [],
+  "type_counts": {
+    "Diagnosis": 2,
+    "PatientHistory": 2,
+    "Prescription": 2
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "4 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T1",
+          "type": "PatientHistory",
+          "text": "ASD",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T2",
+          "type": "Prescription",
+          "text": "Medication:-Levetiracetam-500mg-bd-(36mg/kg/day)",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T6",
+          "type": "Prescription",
+          "text": "Lamotrigine-50mg-bd-increasing-by-5mg-each-dose-every-2-weeks-to-75mg-bd-(7mg/kg/day)",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T3",
+          "type": "PatientHistory",
+          "text": "cluster-of-seizures",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

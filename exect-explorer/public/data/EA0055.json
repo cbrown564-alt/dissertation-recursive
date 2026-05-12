@@ -1,0 +1,855 @@
+{
+  "id": "EA0055",
+  "text": "NHS No 4962354545\nDate 7/5/2017\n\n\nDear Dr\n\nr.e. Miss Jenny Hockings.  D.O.B.: 17/11/1977\n45, Aber Road, Pontrhydyfen. SA7 3TK\n\nProblems\t1. Headache\n\nDiagnosis\t1. Episodic migraine\n\t\t2. Symptomatic structural focal epilepsy (perinatal insult)\n\nI reviewed this 40-year-old woman in clinic today. Her main issues is headache. She has around 4 headache a month. They are associated with nausea, phonophobia and photophobia. She has to lie down in a dark room when they happen. She takes co-codamol for them.\n\nShe has had around 6 epileptic seizures in her life. They started when she was 10 years old. They have all happened in her sleep. Her last seizure was 10 years ago. She currently takes 150mg lamotrigine twice a day without any side effects.\n\nShe is not taking any other medication. She works in a post office, drives, smokes around 10 cigars a day and drinks three brandy and cokes on the weekend. She lives with her partner and two children. She was born 6 weeks prematurely and weighed 3.5 pounds when she was born. It was a difficult birth. Her right hand and foot have been slightly smaller than her right since birth. She has not had any significant head injuries but did get a viral meningitis when she was 16 years old.\n\nHer neurological examination was normal apart from some mild right hemi smallness.\n\nAn MRI in 2016 did show some changes consistent with perinatal hypoxia in the left hemisphere. An EEG in the past has shown some focal sharp waves over the left frontal lobe\n\nComments\nHer epilepsy is likely caused by hypoxic birth injury but is very stable at the moment given that she has been seizure free for 10 years. I would not make any changes to her lamotrigine.\nIn terms of her migraine. I would suggest that she tries acute treatment with high dose aspirin together with a triptan as per NICE guidelines.\nWe discussed medication over use headache which can happen with co-codamol.\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "start": 139,
+      "end": 147,
+      "text": "Headache",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "chronic-headache",
+        "CUI": "C0151293"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "start": 163,
+      "end": 180,
+      "text": "Episodic-migraine",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "migraine",
+        "CUI": "C0149931"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Diagnosis",
+      "start": 186,
+      "end": 223,
+      "text": "Symptomatic-structural-focal-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "symptomatic-structural-focal-epilepsy",
+        "CUI": "C0472349"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "BirthHistory",
+      "start": 225,
+      "end": 241,
+      "text": "perinatal-insult",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "perinatal-insult",
+        "CUI": "C0005604"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "EpilepsyCause",
+      "start": 225,
+      "end": 241,
+      "text": "perinatal-insult",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "perinatal-insult",
+        "CUI": "C0005604"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "PatientHistory",
+      "start": 314,
+      "end": 322,
+      "text": "headache",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "chronic-headache",
+        "CUI": "C0151293"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "start": 341,
+      "end": 349,
+      "text": "headache",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "chronic-headache",
+        "CUI": "C0151293"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "Diagnosis",
+      "start": 527,
+      "end": 545,
+      "text": "epileptic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epileptic-seizures",
+        "CUI": "C4317109"
+      }
+    },
+    {
+      "id": "T16",
+      "type": "Onset",
+      "start": 527,
+      "end": 545,
+      "text": "epileptic-seizures",
+      "attributes": {
+        "AgeUnit": "Year",
+        "Age": "10",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epileptic-seizures",
+        "CUI": "C4317109"
+      }
+    },
+    {
+      "id": "T18",
+      "type": "PatientHistory",
+      "start": 645,
+      "end": 652,
+      "text": "seizure",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T20",
+      "type": "SeizureFrequency",
+      "start": 645,
+      "end": 652,
+      "text": "seizure",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "10",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T13",
+      "type": "Prescription",
+      "start": 671,
+      "end": 745,
+      "text": "She-currently-takes-150mg-lamotrigine-twice-a-day-without-any-side-effects",
+      "attributes": {
+        "DrugName": "lamotrigine",
+        "DrugDose": "150",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "id": "T22",
+      "type": "BirthHistory",
+      "start": 957,
+      "end": 981,
+      "text": "born-6-weeks-prematurely",
+      "attributes": {
+        "PrematureBirth": "34to<37_LatePreterm",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "late_preterm_birth",
+        "CUI": "C3829315"
+      }
+    },
+    {
+      "id": "T24",
+      "type": "PatientHistory",
+      "start": 1195,
+      "end": 1205,
+      "text": "meningitis",
+      "attributes": {
+        "AgeUnit": "Year",
+        "Age": "16",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "meningitis",
+        "CUI": "C0025289"
+      }
+    },
+    {
+      "id": "T26",
+      "type": "Investigations",
+      "start": 1321,
+      "end": 1324,
+      "text": "MRI",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Abnormal",
+        "CUIPhrase": "abnormal-mri",
+        "CUI": "C1319851"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "BirthHistory",
+      "start": 1371,
+      "end": 1388,
+      "text": "perinatal-hypoxia",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "perinatal-hypoxia",
+        "CUI": "C0559478"
+      }
+    },
+    {
+      "id": "T28",
+      "type": "Investigations",
+      "start": 1416,
+      "end": 1419,
+      "text": "EEG",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Abnormal",
+        "CUIPhrase": "eeg-abnormal",
+        "CUI": "C0151611"
+      }
+    },
+    {
+      "id": "T32",
+      "type": "Diagnosis",
+      "start": 1506,
+      "end": 1514,
+      "text": "epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T30",
+      "type": "BirthHistory",
+      "start": 1535,
+      "end": 1554,
+      "text": "hypoxic-birth-injury",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "birth-hypoxia",
+        "CUI": "C0559478"
+      }
+    },
+    {
+      "id": "T34",
+      "type": "EpilepsyCause",
+      "start": 1535,
+      "end": 1554,
+      "text": "hypoxic-birth-injury",
+      "attributes": {
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "birth-hypoxia",
+        "CUI": "C0559478"
+      }
+    },
+    {
+      "id": "T17",
+      "type": "SeizureFrequency",
+      "start": 1612,
+      "end": 1624,
+      "text": "seizure-free",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "10",
+        "CUIPhrase": "seizure-free",
+        "CUI": "C1299590"
+      }
+    },
+    {
+      "id": "T15",
+      "type": "PatientHistory",
+      "start": 1704,
+      "end": 1712,
+      "text": "migraine",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "migraine",
+        "CUI": "C0149931"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "PatientHistory",
+      "start_index": "139",
+      "end_index": "147",
+      "text": "Headache",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "chronic-headache",
+        "CUI": "C0151293"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "163",
+      "end_index": "180",
+      "text": "Episodic-migraine",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "migraine",
+        "CUI": "C0149931"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "186",
+      "end_index": "223",
+      "text": "Symptomatic-structural-focal-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "symptomatic-structural-focal-epilepsy",
+        "CUI": "C0472349"
+      }
+    },
+    {
+      "entity": "BirthHistory",
+      "start_index": "225",
+      "end_index": "241",
+      "text": "perinatal-insult",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "perinatal-insult",
+        "CUI": "C0005604"
+      }
+    },
+    {
+      "entity": "EpilepsyCause",
+      "start_index": "225",
+      "end_index": "241",
+      "text": "perinatal-insult",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "perinatal-insult",
+        "CUI": "C0005604"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "314",
+      "end_index": "322",
+      "text": "headache",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "chronic-headache",
+        "CUI": "C0151293"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "341",
+      "end_index": "349",
+      "text": "headache",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "chronic-headache",
+        "CUI": "C0151293"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "527",
+      "end_index": "545",
+      "text": "epileptic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epileptic-seizures",
+        "CUI": "C4317109"
+      }
+    },
+    {
+      "entity": "Onset",
+      "start_index": "527",
+      "end_index": "545",
+      "text": "epileptic-seizures",
+      "attributes": {
+        "AgeUnit": "Year",
+        "Age": "10",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epileptic-seizures",
+        "CUI": "C4317109"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "645",
+      "end_index": "652",
+      "text": "seizure",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "645",
+      "end_index": "652",
+      "text": "seizure",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "10",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "671",
+      "end_index": "745",
+      "text": "She-currently-takes-150mg-lamotrigine-twice-a-day-without-any-side-effects",
+      "attributes": {
+        "DrugName": "lamotrigine",
+        "DrugDose": "150",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "entity": "BirthHistory",
+      "start_index": "957",
+      "end_index": "981",
+      "text": "born-6-weeks-prematurely",
+      "attributes": {
+        "PrematureBirth": "34to<37_LatePreterm",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "late_preterm_birth",
+        "CUI": "C3829315"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1195",
+      "end_index": "1205",
+      "text": "meningitis",
+      "attributes": {
+        "AgeUnit": "Year",
+        "Age": "16",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "meningitis",
+        "CUI": "C0025289"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "1321",
+      "end_index": "1324",
+      "text": "MRI",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Abnormal",
+        "CUIPhrase": "abnormal-mri",
+        "CUI": "C1319851"
+      }
+    },
+    {
+      "entity": "BirthHistory",
+      "start_index": "1371",
+      "end_index": "1388",
+      "text": "perinatal-hypoxia",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "perinatal-hypoxia",
+        "CUI": "C0559478"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "1416",
+      "end_index": "1419",
+      "text": "EEG",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Abnormal",
+        "CUIPhrase": "eeg-abnormal",
+        "CUI": "C0151611"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1506",
+      "end_index": "1514",
+      "text": "epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "BirthHistory",
+      "start_index": "1535",
+      "end_index": "1554",
+      "text": "hypoxic-birth-injury",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "birth-hypoxia",
+        "CUI": "C0559478"
+      }
+    },
+    {
+      "entity": "EpilepsyCause",
+      "start_index": "1535",
+      "end_index": "1554",
+      "text": "hypoxic-birth-injury",
+      "attributes": {
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "birth-hypoxia",
+        "CUI": "C0559478"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "1612",
+      "end_index": "1624",
+      "text": "seizure-free",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "10",
+        "CUIPhrase": "seizure-free",
+        "CUI": "C1299590"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1704",
+      "end_index": "1712",
+      "text": "migraine",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "migraine",
+        "CUI": "C0149931"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 225,
+      "end": 241,
+      "text": "perinatal-insult",
+      "entity_types": [
+        "BirthHistory",
+        "EpilepsyCause"
+      ],
+      "entity_ids": [
+        "T8",
+        "T10"
+      ]
+    },
+    {
+      "start": 527,
+      "end": 545,
+      "text": "epileptic-seizures",
+      "entity_types": [
+        "Diagnosis",
+        "Onset"
+      ],
+      "entity_ids": [
+        "T14",
+        "T16"
+      ]
+    },
+    {
+      "start": 645,
+      "end": 652,
+      "text": "seizure",
+      "entity_types": [
+        "PatientHistory",
+        "SeizureFrequency"
+      ],
+      "entity_ids": [
+        "T18",
+        "T20"
+      ]
+    },
+    {
+      "start": 1535,
+      "end": 1554,
+      "text": "hypoxic-birth-injury",
+      "entity_types": [
+        "BirthHistory",
+        "EpilepsyCause"
+      ],
+      "entity_ids": [
+        "T30",
+        "T34"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "text": "Headache",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "text": "Episodic-migraine",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T11",
+      "type": "PatientHistory",
+      "text": "headache",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "text": "headache",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T18",
+      "type": "PatientHistory",
+      "text": "seizure",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T13",
+      "type": "Prescription",
+      "text": "She-currently-takes-150mg-lamotrigine-twice-a-day-without-any-side-effects",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T24",
+      "type": "PatientHistory",
+      "text": "meningitis",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T15",
+      "type": "PatientHistory",
+      "text": "migraine",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T20",
+      "type": "SeizureFrequency",
+      "text": "seizure",
+      "start": 645,
+      "end": 652,
+      "year": null,
+      "period": "Year",
+      "num_periods": "10",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    },
+    {
+      "id": "T17",
+      "type": "SeizureFrequency",
+      "text": "seizure-free",
+      "start": 1612,
+      "end": 1624,
+      "year": null,
+      "period": "Year",
+      "num_periods": "10",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    }
+  ],
+  "type_counts": {
+    "PatientHistory": 7,
+    "Diagnosis": 3,
+    "BirthHistory": 4,
+    "EpilepsyCause": 2,
+    "Onset": 1,
+    "SeizureFrequency": 2,
+    "Prescription": 1,
+    "Investigations": 2
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "4 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 225,
+          "end": 241,
+          "text": "perinatal-insult",
+          "entity_types": [
+            "BirthHistory",
+            "EpilepsyCause"
+          ],
+          "entity_ids": [
+            "T8",
+            "T10"
+          ]
+        },
+        {
+          "start": 527,
+          "end": 545,
+          "text": "epileptic-seizures",
+          "entity_types": [
+            "Diagnosis",
+            "Onset"
+          ],
+          "entity_ids": [
+            "T14",
+            "T16"
+          ]
+        },
+        {
+          "start": 645,
+          "end": 652,
+          "text": "seizure",
+          "entity_types": [
+            "PatientHistory",
+            "SeizureFrequency"
+          ],
+          "entity_ids": [
+            "T18",
+            "T20"
+          ]
+        },
+        {
+          "start": 1535,
+          "end": 1554,
+          "text": "hypoxic-birth-injury",
+          "entity_types": [
+            "BirthHistory",
+            "EpilepsyCause"
+          ],
+          "entity_ids": [
+            "T30",
+            "T34"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "8 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T2",
+          "type": "PatientHistory",
+          "text": "Headache",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T4",
+          "type": "PatientHistory",
+          "text": "Episodic-migraine",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T11",
+          "type": "PatientHistory",
+          "text": "headache",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T12",
+          "type": "PatientHistory",
+          "text": "headache",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T18",
+          "type": "PatientHistory",
+          "text": "seizure",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T13",
+          "type": "Prescription",
+          "text": "She-currently-takes-150mg-lamotrigine-twice-a-day-without-any-side-effects",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T24",
+          "type": "PatientHistory",
+          "text": "meningitis",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T15",
+          "type": "PatientHistory",
+          "text": "migraine",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [
+    {
+      "id": "T34",
+      "type": "EpilepsyCause",
+      "text": "hypoxic-birth-injury",
+      "certainty": 4
+    }
+  ],
+  "has_unknown_seizure": false
+}

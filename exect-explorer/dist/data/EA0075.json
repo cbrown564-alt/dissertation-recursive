@@ -1,0 +1,283 @@
+{
+  "id": "EA0075",
+  "text": "The epilepsy service\nOur Ref:\tX20150\nNHS No:\t496 111 3459\nDate: \t\t29/4/2020\nClinic Date \t25/4/2020\n\n\nDear Dr\n\nr.e. Anabelle Lewis\tD.O.B:\t1/03/1993\n102, Swansea Road, Upper Tontown, Swansea SA98 2EK\n\nMiss Lewis was reviewed in the Neurology clinic today via telephone consultation. She was referred from General Practice, after being identified as taking sodium valproate as part of the Prevent programme.\nShe is a 27-year-old female who was diagnosed with Epilepsy at the age of 18 whilst living in London. She had two unprovoked generalised seizures, and was trialled on multiple anti-epileptic drugs including Levetiracetam, Lamotrigine, and Carbamazepine which were either ineffective or caused side-effects. Once commenced on sodium valproate 400mg twice daily, she has had no further seizures. She does not experience any significant side-effects and takes the medication reliably. Her MRI brain and EEG were normal at the time of diagnosis.\nThere is no other significant past medical history, and she does not take any other regular medications. There is no relevant family history.\nWe discussed the Prevent programme and the need to take reliable effective contraception whilst taking Sodium Valproate, due to the risk of side-effects to the developing baby should she become pregnant. Miss Lewis has a partner and is sexually active but has the IM Depo Provera via her GP. She understands the importance of maintaining this and to inform us if there are any changes or if she plans to become pregnant. With her permission I have completed the Prevent programme form to reflect these circumstances and we will review her on an annual basis.\nPlan\n1. Continue Sodium Valproate 400mg twice daily\n2. Prevent programme form completed and to be reviewed annually\n3. Patient to contact us if any changes or plans to become pregnant\n\nKind regards,\n\n",
+  "entities": [
+    {
+      "id": "T5",
+      "type": "Diagnosis",
+      "start": 456,
+      "end": 464,
+      "text": "Epilepsy",
+      "attributes": {
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544",
+        "Negation": "Affirmed",
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "WhenDiagnosed",
+      "start": 456,
+      "end": 464,
+      "text": "Epilepsy",
+      "attributes": {
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544",
+        "Age": "18",
+        "AgeUnit": "Year",
+        "Negation": "Affirmed",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 530,
+      "end": 550,
+      "text": "generalised-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUI": "C0234533",
+        "DiagCategory": "MultipleSeizures",
+        "CUIPhrase": "generalised-seizures"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "SeizureFrequency",
+      "start": 766,
+      "end": 797,
+      "text": "she-has-had-no-further-seizures",
+      "attributes": {
+        "PointInTime": "DrugChange",
+        "NumberOfSeizures": "0",
+        "CUI": "C0036572",
+        "CUIPhrase": "seizures",
+        "TimeSince_or_TimeOfEvent": "Since"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Investigations",
+      "start": 891,
+      "end": 894,
+      "text": "MRI",
+      "attributes": {
+        "CUIPhrase": "mri-normal",
+        "MRI_Results": "Normal",
+        "CUI": "C0436481",
+        "MRI_Performed": "Yes"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Investigations",
+      "start": 905,
+      "end": 908,
+      "text": "EEG",
+      "attributes": {
+        "CUI": "C0560017",
+        "EEG_Results": "Normal",
+        "CUIPhrase": "normal-eeg",
+        "EEG_Performed": "Yes"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "Prescription",
+      "start": 1656,
+      "end": 1699,
+      "text": "Continue-Sodium-Valproate-400mg-twice-daily",
+      "attributes": {
+        "DrugDose": "400",
+        "DoseUnit": "mg",
+        "CUI": "C0037567",
+        "Frequency": "2",
+        "DrugName": "sodium-valproate",
+        "CUIPhrase": "sodium-valproate"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Prescription",
+      "start_index": "1656",
+      "end_index": "1699",
+      "text": "Continue-Sodium-Valproate-400mg-twice-daily",
+      "attributes": {
+        "DrugDose": "400",
+        "DoseUnit": "mg",
+        "CUI": "C0037567",
+        "Frequency": "2",
+        "DrugName": "sodium-valproate",
+        "CUIPhrase": "sodium-valproate"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "530",
+      "end_index": "550",
+      "text": "generalised-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUI": "C0234533",
+        "DiagCategory": "MultipleSeizures",
+        "CUIPhrase": "generalised-seizures"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "766",
+      "end_index": "797",
+      "text": "she-has-had-no-further-seizures",
+      "attributes": {
+        "PointInTime": "DrugChange",
+        "NumberOfSeizures": "0",
+        "CUI": "C0036572",
+        "CUIPhrase": "seizures",
+        "TimeSince_or_TimeOfEvent": "Since"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "905",
+      "end_index": "908",
+      "text": "EEG",
+      "attributes": {
+        "CUI": "C0560017",
+        "EEG_Results": "Normal",
+        "CUIPhrase": "normal-eeg",
+        "EEG_Performed": "Yes"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "456",
+      "end_index": "464",
+      "text": "Epilepsy",
+      "attributes": {
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544",
+        "Negation": "Affirmed",
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "891",
+      "end_index": "894",
+      "text": "MRI",
+      "attributes": {
+        "CUIPhrase": "mri-normal",
+        "MRI_Results": "Normal",
+        "CUI": "C0436481",
+        "MRI_Performed": "Yes"
+      }
+    },
+    {
+      "entity": "WhenDiagnosed",
+      "start_index": "456",
+      "end_index": "464",
+      "text": "Epilepsy",
+      "attributes": {
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544",
+        "Age": "18",
+        "AgeUnit": "Year",
+        "Negation": "Affirmed",
+        "Certainty": "5"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 456,
+      "end": 464,
+      "text": "Epilepsy",
+      "entity_types": [
+        "Diagnosis",
+        "WhenDiagnosed"
+      ],
+      "entity_ids": [
+        "T5",
+        "T7"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T1",
+      "type": "Prescription",
+      "text": "Continue-Sodium-Valproate-400mg-twice-daily",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T3",
+      "type": "SeizureFrequency",
+      "text": "she-has-had-no-further-seizures",
+      "start": 766,
+      "end": 797,
+      "year": null,
+      "period": null,
+      "num_periods": null,
+      "time_since": "Since",
+      "point_in_time": "DrugChange",
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 2,
+    "WhenDiagnosed": 1,
+    "SeizureFrequency": 1,
+    "Investigations": 2,
+    "Prescription": 1
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "1 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 456,
+          "end": 464,
+          "text": "Epilepsy",
+          "entity_types": [
+            "Diagnosis",
+            "WhenDiagnosed"
+          ],
+          "entity_ids": [
+            "T5",
+            "T7"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "1 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T1",
+          "type": "Prescription",
+          "text": "Continue-Sodium-Valproate-400mg-twice-daily",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

@@ -1,0 +1,408 @@
+{
+  "id": "EA0029",
+  "text": "Diagnosis: generalised tonic chronic seizures, absences and myoclonic jerks since teenage years,?JME.\n\nMedication: lamotrigine 150 milligrams twice a day\nKeppra 1000 milligrams twice a day\n\nThe epilepsy started as a teenager and the history is suggestive of juvenile myoclonic epilepsy given that she had an EEG with spike, polyspike and wave activity.\n\nHer epilepsy is currently reasonably controlled on the increased dose of lamotrigine. She doesn’t complain of any side-effects of this dose. Keppra was tried on a bigger dose of 1500 mg twice a day in the past which gave her dizziness. A follow-up has been arranged.\n\n",
+  "entities": [
+    {
+      "id": "T27",
+      "type": "Onset",
+      "start": 11,
+      "end": 44,
+      "text": "generalised-tonic-chronic-seizure",
+      "attributes": {
+        "AgeUnit": "Year",
+        "AgeLower": "13",
+        "AgeUpper": "19",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "Diagnosis",
+      "start": 11,
+      "end": 45,
+      "text": "generalised-tonic-chronic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "id": "T29",
+      "type": "PatientHistory",
+      "start": 47,
+      "end": 56,
+      "text": "absences-",
+      "attributes": {
+        "AgeUnit": "Year",
+        "AgeLower": "13",
+        "AgeUpper": "19",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "absences",
+        "CUI": "C0563606"
+      }
+    },
+    {
+      "id": "T31",
+      "type": "PatientHistory",
+      "start": 60,
+      "end": 75,
+      "text": "myoclonic-jerks",
+      "attributes": {
+        "AgeUnit": "Year",
+        "AgeLower": "13",
+        "AgeUpper": "19",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "myoclonic-jerks",
+        "CUI": "C0027066"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "Diagnosis",
+      "start": 97,
+      "end": 100,
+      "text": "JME",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "3",
+        "Negation": "Affirmed",
+        "CUIPhrase": "jme",
+        "CUI": "C0270853"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "Prescription",
+      "start": 103,
+      "end": 153,
+      "text": "Medication:-lamotrigine-150-milligrams-twice-a-day",
+      "attributes": {
+        "DrugName": "lamotrigine",
+        "DrugDose": "150",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "id": "T13",
+      "type": "Prescription",
+      "start": 154,
+      "end": 188,
+      "text": "Keppra-1000-milligrams-twice-a-day",
+      "attributes": {
+        "DrugName": "keppra",
+        "DrugDose": "1000",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "keppra",
+        "CUI": "C0876060"
+      }
+    },
+    {
+      "id": "T19",
+      "type": "Onset",
+      "start": 194,
+      "end": 201,
+      "text": "epileps",
+      "attributes": {
+        "AgeUnit": "Year",
+        "AgeLower": "13",
+        "AgeUpper": "19",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T15",
+      "type": "Diagnosis",
+      "start": 258,
+      "end": 285,
+      "text": "juvenile-myoclonic-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "juvenile-myoclonic-epilepsy",
+        "CUI": "C0270853"
+      }
+    },
+    {
+      "id": "T21",
+      "type": "Investigations",
+      "start": 308,
+      "end": 312,
+      "text": "EEG-",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Abnormal",
+        "CUIPhrase": "eeg-abnormal",
+        "CUI": "C0151611"
+      }
+    },
+    {
+      "id": "T23",
+      "type": "Diagnosis",
+      "start": 358,
+      "end": 367,
+      "text": "epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "11",
+      "end_index": "45",
+      "text": "generalised-tonic-chronic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "entity": "Onset",
+      "start_index": "11",
+      "end_index": "44",
+      "text": "generalised-tonic-chronic-seizure",
+      "attributes": {
+        "AgeUnit": "Year",
+        "AgeLower": "13",
+        "AgeUpper": "19",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "47",
+      "end_index": "56",
+      "text": "absences-",
+      "attributes": {
+        "AgeUnit": "Year",
+        "AgeLower": "13",
+        "AgeUpper": "19",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "absences",
+        "CUI": "C0563606"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "60",
+      "end_index": "75",
+      "text": "myoclonic-jerks",
+      "attributes": {
+        "AgeUnit": "Year",
+        "AgeLower": "13",
+        "AgeUpper": "19",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "myoclonic-jerks",
+        "CUI": "C0027066"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "97",
+      "end_index": "100",
+      "text": "JME",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "3",
+        "Negation": "Affirmed",
+        "CUIPhrase": "jme",
+        "CUI": "C0270853"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "103",
+      "end_index": "153",
+      "text": "Medication:-lamotrigine-150-milligrams-twice-a-day",
+      "attributes": {
+        "DrugName": "lamotrigine",
+        "DrugDose": "150",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "154",
+      "end_index": "188",
+      "text": "Keppra-1000-milligrams-twice-a-day",
+      "attributes": {
+        "DrugName": "keppra",
+        "DrugDose": "1000",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "keppra",
+        "CUI": "C0876060"
+      }
+    },
+    {
+      "entity": "Onset",
+      "start_index": "194",
+      "end_index": "201",
+      "text": "epileps",
+      "attributes": {
+        "AgeUnit": "Year",
+        "AgeLower": "13",
+        "AgeUpper": "19",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "258",
+      "end_index": "285",
+      "text": "juvenile-myoclonic-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "juvenile-myoclonic-epilepsy",
+        "CUI": "C0270853"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "308",
+      "end_index": "312",
+      "text": "EEG-",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Abnormal",
+        "CUIPhrase": "eeg-abnormal",
+        "CUI": "C0151611"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "358",
+      "end_index": "367",
+      "text": "epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T29",
+      "type": "PatientHistory",
+      "text": "absences-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T31",
+      "type": "PatientHistory",
+      "text": "myoclonic-jerks",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T11",
+      "type": "Prescription",
+      "text": "Medication:-lamotrigine-150-milligrams-twice-a-day",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T13",
+      "type": "Prescription",
+      "text": "Keppra-1000-milligrams-twice-a-day",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [],
+  "type_counts": {
+    "Onset": 2,
+    "Diagnosis": 4,
+    "PatientHistory": 2,
+    "Prescription": 2,
+    "Investigations": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "4 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T29",
+          "type": "PatientHistory",
+          "text": "absences-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T31",
+          "type": "PatientHistory",
+          "text": "myoclonic-jerks",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T11",
+          "type": "Prescription",
+          "text": "Medication:-lamotrigine-150-milligrams-twice-a-day",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T13",
+          "type": "Prescription",
+          "text": "Keppra-1000-milligrams-twice-a-day",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [
+    {
+      "id": "T9",
+      "type": "Diagnosis",
+      "text": "JME",
+      "certainty": 3
+    },
+    {
+      "id": "T15",
+      "type": "Diagnosis",
+      "text": "juvenile-myoclonic-epilepsy",
+      "certainty": 4
+    }
+  ],
+  "has_unknown_seizure": false
+}

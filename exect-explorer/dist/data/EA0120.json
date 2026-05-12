@@ -1,0 +1,232 @@
+{
+  "id": "EA0120",
+  "text": "Dear Dr,\n\nRe: \tMr Harry Harris DOB 30/3/1975\n\nDiagnosis: Dissociative seizures\n\t\tPost traumatic stress disorders\n\nMedication: lamotrigine 75mg bd (to reduce and stop as detailed below)\n\t\tMirtazapine 15mg od\n\nI reviewed this gentleman in clinic today. I was pleased to hear that things have generally improved. He is having fewer flashbacks . He has not had any further seizures since his last appointment. i explained his EEG results. During the EG he had a typical attack which was not accompanied by any eg changes. I explained that this was likely to be a dissociative seizure. Mr Harris was very open to this and was happy to reduce and stop his lamotrigine by 25mg every fortnight. I have left him with an open appointment in this clinic. \n",
+  "entities": [
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "start": 57,
+      "end": 78,
+      "text": "Dissociative-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "dissociative-seizures",
+        "CUI": "C0349245"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "start": 81,
+      "end": 112,
+      "text": "Post-traumatic-stress-disorders",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "post-traumatic-stress-disorder",
+        "CUI": "C0038436"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "start": 114,
+      "end": 156,
+      "text": "Medication:-lamotrigine-75mg-bd-(to-reduce",
+      "attributes": {
+        "DrugName": "lamotrigine",
+        "DrugDose": "75",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "SeizureFrequency",
+      "start": 369,
+      "end": 378,
+      "text": "seizures-",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "PointInTime": "LastClinic",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "start": 559,
+      "end": 579,
+      "text": "dissociative-seizure",
+      "attributes": {
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "dissociative-seizure",
+        "CUI": "C0349245"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "PatientHistory",
+      "start_index": "57",
+      "end_index": "78",
+      "text": "Dissociative-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "dissociative-seizures",
+        "CUI": "C0349245"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "81",
+      "end_index": "112",
+      "text": "Post-traumatic-stress-disorders",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "post-traumatic-stress-disorder",
+        "CUI": "C0038436"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "114",
+      "end_index": "156",
+      "text": "Medication:-lamotrigine-75mg-bd-(to-reduce",
+      "attributes": {
+        "DrugName": "lamotrigine",
+        "DrugDose": "75",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "369",
+      "end_index": "378",
+      "text": "seizures-",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "PointInTime": "LastClinic",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "559",
+      "end_index": "579",
+      "text": "dissociative-seizure",
+      "attributes": {
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "dissociative-seizure",
+        "CUI": "C0349245"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "text": "Dissociative-seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "text": "Post-traumatic-stress-disorders",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "text": "Medication:-lamotrigine-75mg-bd-(to-reduce",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "text": "dissociative-seizure",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T9",
+      "type": "SeizureFrequency",
+      "text": "seizures-",
+      "start": 369,
+      "end": 378,
+      "year": null,
+      "period": null,
+      "num_periods": null,
+      "time_since": "Since",
+      "point_in_time": "LastClinic",
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    }
+  ],
+  "type_counts": {
+    "PatientHistory": 3,
+    "Prescription": 1,
+    "SeizureFrequency": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "4 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T12",
+          "type": "PatientHistory",
+          "text": "Dissociative-seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T4",
+          "type": "PatientHistory",
+          "text": "Post-traumatic-stress-disorders",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T6",
+          "type": "Prescription",
+          "text": "Medication:-lamotrigine-75mg-bd-(to-reduce",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T14",
+          "type": "PatientHistory",
+          "text": "dissociative-seizure",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "text": "dissociative-seizure",
+      "certainty": 4
+    }
+  ],
+  "has_unknown_seizure": false
+}

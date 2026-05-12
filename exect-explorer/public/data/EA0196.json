@@ -1,0 +1,451 @@
+{
+  "id": "EA0196",
+  "text": "Thank you for referring this forty-two year old gentleman whom I saw on behalf of the consultant today. He has a background history of hypertension and diabetes (controlled by insulin) for the last ten years. He was diagnosed with epilepsy ten years ago and his seizures were well controlled on lamotrigine. At the time of his diagnosis he had a MRI and EEG which were both normal. He stopped the lamotrigine of his own accord last year and this caused a reoccurance of his seizures. There were happening around twice per month before he reintroduced his lamotrigine. He tells me that the seizures consist of staring episodes where he loses awareness of his surrounding for a few mintues. He does know that there are about to happen as he gets an unusual sensation which is difficult to describe.\n\nHe also gets episodes of hypoglycaemia several times per week and he is not always aware of these. He does not check his blood sugar regularly although he does have a portable BM monitor. I wonder therefore if some of these episodes are hypoglycaemic. I have told him to monitor his blood sugars. I would be grateful also if his lamotrigine could be increased to 100mg twice a day (he is currently taking 75mg bd). I will also request an up to date EEG\n\nYours\n",
+  "entities": [
+    {
+      "id": "T5",
+      "type": "PatientHistory",
+      "start": 135,
+      "end": 147,
+      "text": "hypertension",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "hypertension",
+        "Certainty": "5",
+        "CUI": "C0020538"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "start": 152,
+      "end": 160,
+      "text": "diabetes",
+      "attributes": {
+        "CUI": "C0011847",
+        "CUIPhrase": "diabetes",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "WhenDiagnosed",
+      "start": 231,
+      "end": 239,
+      "text": "epilepsy",
+      "attributes": {
+        "CUI": "C0014544",
+        "TimePeriod": "Year",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "Certainty": "5",
+        "NumberOfTimePeriods": "10"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Diagnosis",
+      "start": 231,
+      "end": 239,
+      "text": "epilepsy",
+      "attributes": {
+        "CUIPhrase": "epilepsy",
+        "Certainty": "5",
+        "DiagCategory": "Epilepsy",
+        "Negation": "Affirmed",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "start": 262,
+      "end": 271,
+      "text": "seizures-",
+      "attributes": {
+        "CUI": "C0036572",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "Investigations",
+      "start": 346,
+      "end": 350,
+      "text": "MRI-",
+      "attributes": {
+        "CUIPhrase": "MRI normal",
+        "MRI_Performed": "Yes",
+        "CUI": "C0436481",
+        "MRI_Results": "Normal"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Investigations",
+      "start": 354,
+      "end": 358,
+      "text": "EEG-",
+      "attributes": {
+        "EEG_Results": "Normal",
+        "CUI": "C0560017",
+        "EEG_Performed": "Yes",
+        "CUIPhrase": "EEG normal"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "start": 474,
+      "end": 482,
+      "text": "seizures",
+      "attributes": {
+        "CUIPhrase": "seizures",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "PatientHistory",
+      "start": 589,
+      "end": 597,
+      "text": "seizures",
+      "attributes": {
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "PatientHistory",
+      "start": 823,
+      "end": 836,
+      "text": "hypoglycaemia",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "hypoglycaemia",
+        "CUI": "C0020615"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "Prescription",
+      "start": 1127,
+      "end": 1138,
+      "text": "lamotrigine",
+      "attributes": {
+        "CUI": "C0064636",
+        "Frequency": "2",
+        "DoseUnit": "mg",
+        "DrugName": "Lamotrigine",
+        "DrugDose": "75",
+        "CUIPhrase": "lamotrigine"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "PatientHistory",
+      "start_index": "823",
+      "end_index": "836",
+      "text": "hypoglycaemia",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "hypoglycaemia",
+        "CUI": "C0020615"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "1127",
+      "end_index": "1138",
+      "text": "lamotrigine",
+      "attributes": {
+        "CUI": "C0064636",
+        "Frequency": "2",
+        "DoseUnit": "mg",
+        "DrugName": "Lamotrigine",
+        "DrugDose": "75",
+        "CUIPhrase": "lamotrigine"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "474",
+      "end_index": "482",
+      "text": "seizures",
+      "attributes": {
+        "CUIPhrase": "seizures",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "346",
+      "end_index": "350",
+      "text": "MRI-",
+      "attributes": {
+        "CUIPhrase": "MRI",
+        "MRI_Performed": "Yes",
+        "CUI": "C0436481",
+        "MRI_Results": "Normal"
+      }
+    },
+    {
+      "entity": "WhenDiagnosed",
+      "start_index": "231",
+      "end_index": "239",
+      "text": "epilepsy",
+      "attributes": {
+        "CUI": "C0014544",
+        "TimePeriod": "Year",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "Certainty": "5",
+        "NumberOfTimePeriods": "10"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "135",
+      "end_index": "147",
+      "text": "hypertension",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "hypertension",
+        "Certainty": "5",
+        "CUI": "C0020538"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "231",
+      "end_index": "239",
+      "text": "epilepsy",
+      "attributes": {
+        "CUIPhrase": "epilepsy",
+        "Certainty": "5",
+        "DiagCategory": "Epilepsy",
+        "Negation": "Affirmed",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "354",
+      "end_index": "358",
+      "text": "EEG-",
+      "attributes": {
+        "EEG_Results": "Normal",
+        "CUI": "C0560017",
+        "EEG_Performed": "Yes",
+        "CUIPhrase": "EEG"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "262",
+      "end_index": "271",
+      "text": "seizures-",
+      "attributes": {
+        "CUI": "C0036572",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "152",
+      "end_index": "160",
+      "text": "diabetes",
+      "attributes": {
+        "CUI": "C0011847",
+        "CUIPhrase": "diabetes",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "589",
+      "end_index": "597",
+      "text": "seizures",
+      "attributes": {
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 231,
+      "end": 239,
+      "text": "epilepsy",
+      "entity_types": [
+        "WhenDiagnosed",
+        "Diagnosis"
+      ],
+      "entity_ids": [
+        "T4",
+        "T6"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T5",
+      "type": "PatientHistory",
+      "text": "hypertension",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "text": "diabetes",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "text": "seizures-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "text": "seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T11",
+      "type": "PatientHistory",
+      "text": "seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T7",
+      "type": "PatientHistory",
+      "text": "hypoglycaemia",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T1",
+      "type": "Prescription",
+      "text": "lamotrigine",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T4",
+      "type": "WhenDiagnosed",
+      "text": "epilepsy",
+      "start": 231,
+      "end": 239,
+      "year": null,
+      "period": "Year",
+      "num_periods": "10",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": null
+    }
+  ],
+  "type_counts": {
+    "PatientHistory": 6,
+    "WhenDiagnosed": 1,
+    "Diagnosis": 1,
+    "Investigations": 2,
+    "Prescription": 1
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "1 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 231,
+          "end": 239,
+          "text": "epilepsy",
+          "entity_types": [
+            "WhenDiagnosed",
+            "Diagnosis"
+          ],
+          "entity_ids": [
+            "T4",
+            "T6"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "7 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T5",
+          "type": "PatientHistory",
+          "text": "hypertension",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T10",
+          "type": "PatientHistory",
+          "text": "diabetes",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T9",
+          "type": "PatientHistory",
+          "text": "seizures-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T2",
+          "type": "PatientHistory",
+          "text": "seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T11",
+          "type": "PatientHistory",
+          "text": "seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T7",
+          "type": "PatientHistory",
+          "text": "hypoglycaemia",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T1",
+          "type": "Prescription",
+          "text": "lamotrigine",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

@@ -1,0 +1,295 @@
+{
+  "id": "EA0157",
+  "text": "Date 08-Aug-2017\n\nMs Hannah Crackington\tD.O.B. 14/02/1997\n\nDiagnosis: Probable focal epilepsy\n\t   Migraine\n\nMedication: start lamotrigine 25mg once a day, increasing by 25mg every 2 weeks up to 75mg BD\n\nThanks for asking me to review this 20-year-old lady who I reviewed alone. Her seizures started at the age of 5 before stopping and then reoccurring at the age of 16. They have continued since then and now she is having between 3 and 4 per week.\n\nA typical seizure is consistent with a generalised tonic clonic seizure. Sometimes she has a warning of a difficult to describe sensation. She comes around feeling tired and achy. I spoke to her mum on the phone who says that her whole body goes stiff and jerks. She can make grunting noises and sometime her lips will turn blue.\n\nRecently she has been having different types of episodes. These consist of loss of awareness. She will stare and look vacant for around 1 minute. Her mother said that sometimes she will fiddle with her hands. She is not taking any medicationa t the moment. She takes the oral contraceptive pill. There is a family history in that a maternal aunt has epilepsy. She works in a bar and doesn’t drive.\n\nHer neurological examination today was normal\n\nImpression.\nHannah has a focal epilepsy with a mixture of complex partial and secondary generalised seizures. I think it is worth updating her investigations and I have requested an MRI and EEG today.\nShe needs to be on an anti-epileptic medication and I recommend that she starts lamotrigine as detailed above.\nWe went over the driving regulations and she is aware she needs to be seizure free for a year before driving. We also discussed Sudden Death in Epilepsy (SUDEP)\n\nI will see her in clinic in 6 months time.\n\n",
+  "entities": [
+    {
+      "id": "T5",
+      "type": "Diagnosis",
+      "start": 79,
+      "end": 93,
+      "text": "focal-epilepsy",
+      "attributes": {
+        "Certainty": "4",
+        "DiagCategory": "Epilepsy",
+        "Negation": "Affirmed",
+        "CUI": "C0014547",
+        "CUIPhrase": "focal-epilepsy"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "PatientHistory",
+      "start": 98,
+      "end": 106,
+      "text": "Migraine",
+      "attributes": {
+        "CUI": "C0149931",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "migraine"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "SeizureFrequency",
+      "start": 282,
+      "end": 289,
+      "text": "seizure",
+      "attributes": {
+        "NumberOfTimePeriods": "1",
+        "TimePeriod": "Week",
+        "CUI": "C0036572",
+        "LowerNumberOfSeizures": "3",
+        "UpperNumberOfSeizures": "4",
+        "CUIPhrase": "seizures"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "start": 282,
+      "end": 291,
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "Age": "5",
+        "CUI": "C0036572",
+        "Negation": "Affirmed",
+        "AgeUnit": "Year",
+        "CUIPhrase": "seizures"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "Diagnosis",
+      "start": 489,
+      "end": 521,
+      "text": "generalised-tonic-clonc-seizure.",
+      "attributes": {
+        "DiagCategory": "SingleSeizure",
+        "CUIPhrase": "generalised-tonic-clonic-seizure",
+        "CUI": "C0494475",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Diagnosis",
+      "start": 1251,
+      "end": 1265,
+      "text": "focal-epilepsy",
+      "attributes": {
+        "CUI": "C0014547",
+        "CUIPhrase": "focal-epilepsy",
+        "DiagCategory": "Epilepsy",
+        "Negation": "Affirmed",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "Diagnosis",
+      "start": 1284,
+      "end": 1299,
+      "text": "complex-partial",
+      "attributes": {
+        "CUI": "C0149958",
+        "CUIPhrase": "complex-partial-seizure",
+        "DiagCategory": "MultipleSeizures",
+        "Negation": "Affirmed",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Diagnosis",
+      "start": 1304,
+      "end": 1334,
+      "text": "secondary-generalised-seizures",
+      "attributes": {
+        "CUIPhrase": "secondary-generalised-seizures",
+        "Negation": "Affirmed",
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "CUI": "C0270838"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "PatientHistory",
+      "start_index": "98",
+      "end_index": "106",
+      "text": "Migraine",
+      "attributes": {
+        "CUI": "C0149931",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "migraine"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "282",
+      "end_index": "289",
+      "text": "seizure",
+      "attributes": {
+        "NumberOfTimePeriods": "1",
+        "TimePeriod": "Week",
+        "CUI": "C0036572",
+        "LowerNumberOfSeizures": "3",
+        "UpperNumberOfSeizures": "4",
+        "CUIPhrase": "seizures"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "489",
+      "end_index": "521",
+      "text": "generalised-tonic-clonc-seizure.",
+      "attributes": {
+        "DiagCategory": "SingleSeizure",
+        "CUIPhrase": "generalised-tonic-clonic-seizure",
+        "CUI": "C0494475",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1251",
+      "end_index": "1265",
+      "text": "focal-epilepsy",
+      "attributes": {
+        "CUI": "C0014547",
+        "CUIPhrase": "focal-epilepsy",
+        "DiagCategory": "Epilepsy",
+        "Negation": "Affirmed",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "79",
+      "end_index": "93",
+      "text": "focal-epilepsy",
+      "attributes": {
+        "Certainty": "4",
+        "DiagCategory": "Epilepsy",
+        "Negation": "Affirmed",
+        "CUI": "C0014547",
+        "CUIPhrase": "focal-epilepsy"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "282",
+      "end_index": "291",
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "Age": "5",
+        "CUI": "C0036572",
+        "Negation": "Affirmed",
+        "AgeUnit": "Year",
+        "CUIPhrase": "seizures"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1284",
+      "end_index": "1299",
+      "text": "complex-partial",
+      "attributes": {
+        "CUI": "C0149958",
+        "CUIPhrase": "complex-partial-seizure",
+        "DiagCategory": "MultipleSeizures",
+        "Negation": "Affirmed",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1304",
+      "end_index": "1334",
+      "text": "secondary-generalised-seizures",
+      "attributes": {
+        "CUIPhrase": "secondary-generalised-seizures",
+        "Negation": "Affirmed",
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "CUI": "C0270838"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T1",
+      "type": "PatientHistory",
+      "text": "Migraine",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "text": "seizures-",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T2",
+      "type": "SeizureFrequency",
+      "text": "seizure",
+      "start": 282,
+      "end": 289,
+      "year": null,
+      "period": "Week",
+      "num_periods": "1",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": "3",
+      "upper_seizures": "4",
+      "num_seizures": null
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 5,
+    "PatientHistory": 2,
+    "SeizureFrequency": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "2 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T1",
+          "type": "PatientHistory",
+          "text": "Migraine",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T6",
+          "type": "PatientHistory",
+          "text": "seizures-",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [
+    {
+      "id": "T5",
+      "type": "Diagnosis",
+      "text": "focal-epilepsy",
+      "certainty": 4
+    }
+  ],
+  "has_unknown_seizure": false
+}

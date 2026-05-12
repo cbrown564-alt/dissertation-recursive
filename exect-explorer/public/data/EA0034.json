@@ -1,0 +1,325 @@
+{
+  "id": "EA0034",
+  "text": "Diagnosis: focal onset epilepsy (occipital)\n\nCurrent anti epileptic medication: levetiracetam 750mg twice a day\n\nSeizure type and frequency: focal seizures left arm movement\nfocal to bilateral convulsive seizure 2019\n\nInvestigations MRI 2019 right occipital lobe infarct\n\nI spoke to this 58-year-old woman via a telephone consultation today. I was pleased to hear that she has not had any further seizures since increasing the levetiracetam. We discussed some measures to try and reducing the risk of having a further stroke. The most important thing would be to stop smoking. It would also be important that her blood pressure is controlled. I will arrange an appointment with our epilepsy nurse but she can contact our epilepsy helpline should there be any issues before then.\n\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 11,
+      "end": 43,
+      "text": "focal-onset-epilepsy-(occipital)",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-onset-epilepsy",
+        "CUI": "C0014547"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Diagnosis",
+      "start": 11,
+      "end": 43,
+      "text": "focal-onset-epilepsy-(occipital)",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "occipital-lobe-epilepsy",
+        "CUI": "C0393691"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "start": 79,
+      "end": 111,
+      "text": "-levetiracetam-750mg-twice-a-day",
+      "attributes": {
+        "DrugName": "Levetiracetam",
+        "DrugDose": "750",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "levetiracetam",
+        "CUI": "C0377265"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Diagnosis",
+      "start": 141,
+      "end": 155,
+      "text": "focal-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-seizures",
+        "CUI": "C0751495"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "Diagnosis",
+      "start": 174,
+      "end": 211,
+      "text": "focal-to-bilateral-convulsive-seizure",
+      "attributes": {
+        "DiagCategory": "SingleSeizure",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizures",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "Investigations",
+      "start": 233,
+      "end": 270,
+      "text": "MRI-2019-right-occipital-lobe-infarct",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Abnormal",
+        "CUIPhrase": "abnormal-mri",
+        "CUI": "C1319851"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "PatientHistory",
+      "start": 248,
+      "end": 270,
+      "text": "occipital-lobe-infarct",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "occipital-lobe-infarct",
+        "CUI": "C3809094"
+      }
+    },
+    {
+      "id": "T16",
+      "type": "SeizureFrequency",
+      "start": 377,
+      "end": 440,
+      "text": "not-had-any-further-seizures-since-increasing-the-levetiracetam",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "PointInTime": "DrugChange",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "11",
+      "end_index": "43",
+      "text": "focal-onset-epilepsy-(occipital)",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-onset-epilepsy",
+        "CUI": "C0014547"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "11",
+      "end_index": "43",
+      "text": "focal-onset-epilepsy-(occipital)",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "occipital-lobe-epilepsy",
+        "CUI": "C0393691"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "79",
+      "end_index": "111",
+      "text": "-levetiracetam-750mg-twice-a-day",
+      "attributes": {
+        "DrugName": "Levetiracetam",
+        "DrugDose": "750",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "levetiracetam",
+        "CUI": "C0377265"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "141",
+      "end_index": "155",
+      "text": "focal-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-seizures",
+        "CUI": "C0751495"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "174",
+      "end_index": "211",
+      "text": "focal-to-bilateral-convulsive-seizure",
+      "attributes": {
+        "DiagCategory": "SingleSeizure",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizures",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "233",
+      "end_index": "270",
+      "text": "MRI-2019-right-occipital-lobe-infarct",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Abnormal",
+        "CUIPhrase": "abnormal-mri",
+        "CUI": "C1319851"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "248",
+      "end_index": "270",
+      "text": "occipital-lobe-infarct",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "occipital-lobe-infarct",
+        "CUI": "C3809094"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "377",
+      "end_index": "440",
+      "text": "not-had-any-further-seizures-since-increasing-the-levetiracetam",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "PointInTime": "DrugChange",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 11,
+      "end": 43,
+      "text": "focal-onset-epilepsy-(occipital)",
+      "entity_types": [
+        "Diagnosis",
+        "Diagnosis"
+      ],
+      "entity_ids": [
+        "T2",
+        "T4"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "text": "-levetiracetam-750mg-twice-a-day",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T3",
+      "type": "PatientHistory",
+      "text": "occipital-lobe-infarct",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T16",
+      "type": "SeizureFrequency",
+      "text": "not-had-any-further-seizures-since-increasing-the-levetiracetam",
+      "start": 377,
+      "end": 440,
+      "year": null,
+      "period": null,
+      "num_periods": null,
+      "time_since": "Since",
+      "point_in_time": "DrugChange",
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 4,
+    "Prescription": 1,
+    "Investigations": 1,
+    "PatientHistory": 1,
+    "SeizureFrequency": 1
+  },
+  "flaws": [
+    {
+      "category": "unknown_seizure_type_meta_label",
+      "description": "Annotator used 'unknown seizure type' meta-label; models consistently infer specific type from clinical context. Structural benchmark-model mismatch.",
+      "oracle_impact": "seizure_type"
+    },
+    {
+      "category": "overlapping_entities",
+      "description": "1 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 11,
+          "end": 43,
+          "text": "focal-onset-epilepsy-(occipital)",
+          "entity_types": [
+            "Diagnosis",
+            "Diagnosis"
+          ],
+          "entity_ids": [
+            "T2",
+            "T4"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "2 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T6",
+          "type": "Prescription",
+          "text": "-levetiracetam-750mg-twice-a-day",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T3",
+          "type": "PatientHistory",
+          "text": "occipital-lobe-infarct",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

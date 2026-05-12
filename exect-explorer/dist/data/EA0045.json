@@ -1,0 +1,321 @@
+{
+  "id": "EA0045",
+  "text": "clinic date 4.11.2018\n \nProblems:           Episode of altered awareness    \n \nDiagnosis:            Focal epilepsy\n \nI spoke to this 67 year old gentleman by telephone consultation today and also spoke with his wife. His episodes started on 13th June 2018. He was moving his car and seemed to go into a ‘day dream’. He  has very little memory of the event. He did not have any warning that this was happening. He has had several episodes where he seemed to go into a day dream. His wife said that he looks vacant when they were happening. He was still and didnt move but didnt look himself at all.\n \nHe’s had three episodes whilst asleep where he's shook his arms and made unusual choking noises. These have lasted about a minute. He's felt ok afterwards afterwards. His wife was worried about his airway. His last episode was on 31st August 2018.\n \nHe has no significant medical problems. He's never had any episodes like this in the past and doesnt take any regular medication. There were no problems when he was born and he hasnt had any febrile seizures, significant cerebral infections or significant head injuries. He has retired now for 5 years, previously he worked as a manufacturing engineer. He doesnt smoke and drinks around 16 units of alcohol per week. He lives with his wife and drives. He doesnt have any family history of epilepsy\n \nAn MRI brain from September 2018 has been normal.\n \nImpression\n \nI think that this is focal onset epilepsy. The smaller episodes are focal seizures with altered awareness and the episodes during sleep are focal to bilateral convulsive seizures\n \nComments:       \n \nI explained the diagnosis of epilepsy\nEpilepsy is relatively common, affecting around 30,000 people in Wales. Epilepsy causes seizures which can be thought of as electrical disturbances in the brain. Although most seizures are uneventful sometimes seizures can cause injury and very rarely seizures can cause serious injury or even death (Sudden Death in Epilepsy – SUDEP).\nI would be grateful if you could prescribe lamotrigine. I have enclosed an information leaflet on lamotrigine with this letter. Please prescribe lamotrigine starting at 25mg once a day and increase by 25mg every fortnight to a dose of 75mg twice a day.\nLamotrigine is generally well tolerated but occasionally can cause a rash. If this should happen he should seek medical attention.\nIn terms of driving, I explained the current DVLA rules on driving with epilepsy. He needs to stop driving and inform the DVLA of the diagnosis. He is not able to drive until he has been 1 year free of seizures.\nI will also arrange an EEG.\nI will also ask our epilepsy nurses to go through the new diagnosis with him.\n",
+  "entities": [
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "start": 55,
+      "end": 72,
+      "text": "altered-awareness",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "altered-awareness-and-consciousness",
+        "CUI": "C0234428"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 101,
+      "end": 115,
+      "text": "Focal-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-epilepsy",
+        "CUI": "C0014547"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "BirthHistory",
+      "start": 992,
+      "end": 1021,
+      "text": "no-problems-when-he-was-born-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "normal-birth",
+        "CUI": "C3665337"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "start": 1042,
+      "end": 1058,
+      "text": "febrile-seizures",
+      "attributes": {
+        "Certainty": "1",
+        "Negation": "Negated",
+        "CUIPhrase": "febrile-seizures",
+        "CUI": "C0009952"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Investigations",
+      "start": 1354,
+      "end": 1357,
+      "text": "MRI",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Normal",
+        "CUIPhrase": "normal-mri",
+        "CUI": "C0436481"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Diagnosis",
+      "start": 1437,
+      "end": 1457,
+      "text": "focal-onset-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-onset-epilepsy",
+        "CUI": "C0014547"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "Diagnosis",
+      "start": 1484,
+      "end": 1521,
+      "text": "focal-seizures-with-altered-awareness",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-seizures-with-altered-awareness",
+        "CUI": "C0270834"
+      }
+    },
+    {
+      "id": "T13",
+      "type": "Diagnosis",
+      "start": 1556,
+      "end": 1594,
+      "text": "focal-to-bilateral-convulsive-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizures",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "Diagnosis",
+      "start": 1645,
+      "end": 1653,
+      "text": "epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "PatientHistory",
+      "start_index": "55",
+      "end_index": "72",
+      "text": "altered-awareness",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "altered-awareness-and-consciousness",
+        "CUI": "C0234428"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "101",
+      "end_index": "115",
+      "text": "Focal-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-epilepsy",
+        "CUI": "C0014547"
+      }
+    },
+    {
+      "entity": "BirthHistory",
+      "start_index": "992",
+      "end_index": "1021",
+      "text": "no-problems-when-he-was-born-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "normal-birth",
+        "CUI": "C3665337"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1042",
+      "end_index": "1058",
+      "text": "febrile-seizures",
+      "attributes": {
+        "Certainty": "1",
+        "Negation": "Negated",
+        "CUIPhrase": "febrile-seizures",
+        "CUI": "C0009952"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "1354",
+      "end_index": "1357",
+      "text": "MRI",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Normal",
+        "CUIPhrase": "normal-mri",
+        "CUI": "C0436481"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1437",
+      "end_index": "1457",
+      "text": "focal-onset-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-onset-epilepsy",
+        "CUI": "C0014547"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1484",
+      "end_index": "1521",
+      "text": "focal-seizures-with-altered-awareness",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-seizures-with-altered-awareness",
+        "CUI": "C0270834"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1556",
+      "end_index": "1594",
+      "text": "focal-to-bilateral-convulsive-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizures",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1645",
+      "end_index": "1653",
+      "text": "epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "text": "altered-awareness",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "text": "febrile-seizures",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [],
+  "type_counts": {
+    "PatientHistory": 2,
+    "Diagnosis": 5,
+    "BirthHistory": 1,
+    "Investigations": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "2 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T9",
+          "type": "PatientHistory",
+          "text": "altered-awareness",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T4",
+          "type": "PatientHistory",
+          "text": "febrile-seizures",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    },
+    {
+      "category": "negated_entities",
+      "description": "1 entity/ies are explicitly negated in the text.",
+      "details": [
+        {
+          "id": "T4",
+          "type": "PatientHistory",
+          "text": "febrile-seizures"
+        }
+      ],
+      "oracle_impact": "clinical_precision"
+    }
+  ],
+  "negated_entities": [
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "text": "febrile-seizures"
+    }
+  ],
+  "low_certainty": [
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "text": "febrile-seizures",
+      "certainty": 1
+    },
+    {
+      "id": "T8",
+      "type": "Diagnosis",
+      "text": "focal-onset-epilepsy",
+      "certainty": 4
+    }
+  ],
+  "has_unknown_seizure": false
+}

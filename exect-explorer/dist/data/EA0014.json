@@ -1,0 +1,203 @@
+{
+  "id": "EA0014",
+  "text": "Clinic Date 18/6/2016\n\nDear Dr Jones,\n\nI reviewed this lady with intractable epilepsy in clinic today. She is on Keppra 1000 mg BD, Zonisamide 125 mg BD. Despite this she continues to get general and complex partial seizures. She’s not very keen on her anticonvulsant medication. She continues to get chronic daily headaches. There is a postural variation in her headache and I wonder if she has spontaneous intracranial hypotension I am therefore arranging an MRI scan of the brain.\n\nWould you be able to prescribe some sedation before the MRI scan appointment?\n\nI will review again in five months time.\n\nYours sincerely,\n\nDr Baker\n\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 65,
+      "end": 85,
+      "text": "intractable-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "intractable-epilepsy",
+        "CUI": "C1096063"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "start": 103,
+      "end": 130,
+      "text": "She-is-on-Keppra-1000-mg-BD",
+      "attributes": {
+        "DrugName": "keppra",
+        "DrugDose": "1000",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "keppra",
+        "CUI": "C0876060"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "start": 132,
+      "end": 142,
+      "text": "zobisamide",
+      "attributes": {
+        "DrugName": "Zonisamide",
+        "DrugDose": "125",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "zonisamide",
+        "CUI": "C0078844"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Diagnosis",
+      "start": 200,
+      "end": 224,
+      "text": "complex-partial-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "complex-partial-seizures",
+        "CUI": "C0149958"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "start": 304,
+      "end": 327,
+      "text": "chronic-daily-headaches",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "chronic-headaches",
+        "CUI": "C0151293"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "65",
+      "end_index": "85",
+      "text": "intractable-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "intractable-epilepsy",
+        "CUI": "C1096063"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "103",
+      "end_index": "130",
+      "text": "She-is-on-Keppra-1000-mg-BD",
+      "attributes": {
+        "DrugName": "keppra",
+        "DrugDose": "1000",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "keppra",
+        "CUI": "C0876060"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "132",
+      "end_index": "142",
+      "text": "zobisamide",
+      "attributes": {
+        "DrugName": "Zonisamide",
+        "DrugDose": "125",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "zonisamide",
+        "CUI": "C0078844"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "200",
+      "end_index": "224",
+      "text": "complex-partial-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "complex-partial-seizures",
+        "CUI": "C0149958"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "304",
+      "end_index": "327",
+      "text": "chronic-daily-headaches",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "chronic-headaches",
+        "CUI": "C0151293"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "text": "She-is-on-Keppra-1000-mg-BD",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "text": "zobisamide",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "text": "chronic-daily-headaches",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [],
+  "type_counts": {
+    "Diagnosis": 2,
+    "Prescription": 2,
+    "PatientHistory": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "3 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T4",
+          "type": "Prescription",
+          "text": "She-is-on-Keppra-1000-mg-BD",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T6",
+          "type": "Prescription",
+          "text": "zobisamide",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T10",
+          "type": "PatientHistory",
+          "text": "chronic-daily-headaches",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

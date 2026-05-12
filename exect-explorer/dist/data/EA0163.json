@@ -1,0 +1,141 @@
+{
+  "id": "EA0163",
+  "text": "Clinic date 17/08/2018\n\nRE Mr Jon Yolo\n\nDiagnosis: Temporal lobe epilepsy\nMedication: Lamotrigine 50mg bd\n \nI spoke with John today in the epilepsy nurse clinic. He hasn't had any seizures now for around three weeks which is good news. We had a chat about memory and epilepsy. John finds that his memory is poor and it is difficult for him to remembr things. We discussed some things that can help memory e.g. writing things down and scrap books.\n \nWe went over the open access system and John knows how to contact us.\n\n",
+  "entities": [
+    {
+      "id": "T3",
+      "type": "Diagnosis",
+      "start": 51,
+      "end": 73,
+      "text": "Temporal-lobe-epilepsy",
+      "attributes": {
+        "Certainty": "5",
+        "DiagCategory": "Epilepsy",
+        "Negation": "Affirmed",
+        "CUIPhrase": "temporal-lobe-epilepsy",
+        "CUI": "C0014556"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "Prescription",
+      "start": 74,
+      "end": 105,
+      "text": "Medication:-Lamotrigine-50mg-bd",
+      "attributes": {
+        "DoseUnit": "mg",
+        "DrugName": "lamotrigine",
+        "DrugDose": "50",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "SeizureFrequency",
+      "start": 179,
+      "end": 188,
+      "text": "seizures-",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "NumberOfTimePeriods": "3",
+        "TimePeriod": "Week",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "179",
+      "end_index": "188",
+      "text": "seizures-",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "NumberOfTimePeriods": "3",
+        "TimePeriod": "Week",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "74",
+      "end_index": "105",
+      "text": "Medication:-Lamotrigine-50mg-bd",
+      "attributes": {
+        "DoseUnit": "mg",
+        "DrugName": "lamotrigine",
+        "DrugDose": "50",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "51",
+      "end_index": "73",
+      "text": "Temporal-lobe-epilepsy",
+      "attributes": {
+        "Certainty": "5",
+        "DiagCategory": "Epilepsy",
+        "Negation": "Affirmed",
+        "CUIPhrase": "temporal-lobe-epilepsy",
+        "CUI": "C0014556"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T2",
+      "type": "Prescription",
+      "text": "Medication:-Lamotrigine-50mg-bd",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T1",
+      "type": "SeizureFrequency",
+      "text": "seizures-",
+      "start": 179,
+      "end": 188,
+      "year": null,
+      "period": "Week",
+      "num_periods": "3",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 1,
+    "Prescription": 1,
+    "SeizureFrequency": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "1 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T2",
+          "type": "Prescription",
+          "text": "Medication:-Lamotrigine-50mg-bd",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

@@ -1,0 +1,144 @@
+{
+  "id": "EA0074",
+  "text": "The epilepsy serivce\nOur Ref:\tT5682221\nNHS No:\t496 277 5751\nDate: \t\t18/8/2017\nClinic Date \t16/8/2017\n\n\nDear Dr\n\nr.e. Harris Smith\tD.O.B:\t22/04/2000\nFlat 2, 46 Tyler Street, Sunvillage, Swansea SA6 9IN\n\nMr Smith was reviewed in the Neurology first fit clinic today via telephone consultation. He was referred from General Practice, following recent episodes concerning for seizures.\nHe is a 17-year-old male with no significant past medical history, and he does not take any regular medications. He denies any illicit drug use.\nMr Smith is currently studying in college, lives with his parents and learning to drive.\nFor several months he has noticed he has been “clumsy”, particularly early in the morning where he has a tendency to drop items. This does not seem related to sleep or meals. The frequency of these appears to be increasing to almost daily.\nIn June this year he had a collapse episode whilst in college. This occurred early in the morning and was witnessed. He felt non-specifically unwell and collapsed from his chair, and was noted to have jerking movements of his arms and legs for 2 minutes. He recalls coming around with the paramedics around him but refused hospital admission. He may have been a little sleep-deprived but there were no other obvious triggers.\nOn questioning, in his younger years he was told he had poor concentration and was often day-dreaming. However, there is no history of any other convulsive seizures, and no events in childhood. He was born at full term, via normal delivery, and reached his developmental milestones at appropriate ages. There is no relevant family history.\nAs yet he has not undergone any investigations.\nOverall, the history is consistent with Juvenile Myoclonic Epilepsy. I have explained the diagnosis, advised on safety measures and will send out some further information. I have also advised him that he is currently ineligible to drive.\nPlan\n1. Blood tests\n2. ECG\n3. EEG\n4. MRI brain\n5. Follow-up in this clinic with results\n6. Advised not to drive and to inform DVLA\n7. If diagnosis is confirmed to start treatment with Sodium Valproate 200mg BD\n\nKind regards,\n\n",
+  "entities": [
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "start": 883,
+      "end": 891,
+      "text": "collapse",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "collapse",
+        "CUI": "C0344329"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "BirthHistory",
+      "start": 1491,
+      "end": 1500,
+      "text": "full-term",
+      "attributes": {
+        "CUI": "C0233324",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "term"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "BirthHistory",
+      "start": 1506,
+      "end": 1521,
+      "text": "normal-delivery",
+      "attributes": {
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUIPhrase": "normal birth",
+        "CUI": "C3665337"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "Diagnosis",
+      "start": 1710,
+      "end": 1737,
+      "text": "Juvenile-Myoclonic-Epilepsy",
+      "attributes": {
+        "Certainty": "5",
+        "CUIPhrase": "juvenile-myoclonic-epilepsy",
+        "DiagCategory": "Epilepsy",
+        "CUI": "C0270853",
+        "Negation": "Affirmed"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "PatientHistory",
+      "start_index": "883",
+      "end_index": "891",
+      "text": "collapse",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "collapse",
+        "CUI": "C0344329"
+      }
+    },
+    {
+      "entity": "BirthHistory",
+      "start_index": "1506",
+      "end_index": "1521",
+      "text": "normal-delivery",
+      "attributes": {
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUIPhrase": "normal",
+        "CUI": "C3665337"
+      }
+    },
+    {
+      "entity": "BirthHistory",
+      "start_index": "1491",
+      "end_index": "1500",
+      "text": "full-term",
+      "attributes": {
+        "CUI": "C0233324",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "term"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1710",
+      "end_index": "1737",
+      "text": "Juvenile-Myoclonic-Epilepsy",
+      "attributes": {
+        "Certainty": "5",
+        "CUIPhrase": "juvenile-myoclonic-epilepsy",
+        "DiagCategory": "Epilepsy",
+        "CUI": "C0270853",
+        "Negation": "Affirmed"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "text": "collapse",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [],
+  "type_counts": {
+    "PatientHistory": 1,
+    "BirthHistory": 2,
+    "Diagnosis": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "1 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T4",
+          "type": "PatientHistory",
+          "text": "collapse",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

@@ -1,0 +1,802 @@
+{
+  "id": "EA0194",
+  "text": "Diagnosis:            Epilepsy, probable focal\n \nOther diagnoses include:              Anxiety and autism spectrum disorder\n \nEpilepsy medication:       Sodium valproate 1000mg, twice a day\n                                                Briviteracetam 50mg bd\n \nOther medications include: fluoxetine, melatonin\n \nSeizure frequency:          Focal dyscognitive seizures 2-3 per week\n                                                Focal to bilateral convulsive seizures 1-2 per year, last event 23 May 2019\n \nI reviewed Carol, together with her father in the epilepsy clinic today. She has previously seen the paediatriv neurology services. She has started her hairdressing apprentiship recently which is excellent news. She is still getting fairly frequent focal seizures through. During these seizures she will have a strange feeling of a rising epigastric sensation and then have some strange \"flashback\" type thoughts.\n \nAs you know she was born normally but started having seizures at the age of around 5 years. She has not had febrile seizures but was knocked unconscious briefly at the age of 10 after falling off her bike. A paternal grandfather has epilepsy. As you know Carol has previously seen the CAMHS service for her anxiety. Carol seemed to be quite anxious today but she does have an appointment with the community mental health team tomorrow.\n \nAs she is still having fairly frequent seizures I would suggest increasing the briviteracetam in the first instance by 25mg every fornight until she is taking 75mg twice a day. I will reveiw her old EEGs and MRI scan and at the next appointment we can consider repeating some of the investigations.\n\n",
+  "entities": [
+    {
+      "id": "T3",
+      "type": "Diagnosis",
+      "start": 22,
+      "end": 30,
+      "text": "Epilepsy",
+      "attributes": {
+        "CUIPhrase": "epilepsy",
+        "DiagCategory": "Epilepsy",
+        "CUI": "C0014544",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "Diagnosis",
+      "start": 41,
+      "end": 46,
+      "text": "focal",
+      "attributes": {
+        "CUIPhrase": "focal epilepsy",
+        "DiagCategory": "Epilepsy",
+        "Negation": "Affirmed",
+        "CUI": "C0014547",
+        "Certainty": "4"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "start": 87,
+      "end": 94,
+      "text": "Anxiety",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "anxiety",
+        "CUI": "C0003467",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "PatientHistory",
+      "start": 99,
+      "end": 123,
+      "text": "autism-spectrum-disorder",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C1510586",
+        "Certainty": "5",
+        "CUIPhrase": "autistic-spectrum-disorder"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "Prescription",
+      "start": 153,
+      "end": 169,
+      "text": "Sodium-valproate",
+      "attributes": {
+        "CUI": "C0037567",
+        "DrugDose": "1000",
+        "Frequency": "2",
+        "DrugName": "SodiumValproate",
+        "CUIPhrase": "sodium-valproate",
+        "DoseUnit": "mg"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "Prescription",
+      "start": 238,
+      "end": 252,
+      "text": "Briviteracetam",
+      "attributes": {
+        "DrugDose": "50",
+        "CUIPhrase": "brivaracetam",
+        "DoseUnit": "mg",
+        "CUI": "C1699861",
+        "Frequency": "2",
+        "DrugName": "brivaracetam"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "Diagnosis",
+      "start": 342,
+      "end": 369,
+      "text": "Focal-dyscognitive-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "DiagCategory": "MultipleSeizures",
+        "CUI": "C0270834",
+        "CUIPhrase": "dyscognitive-seizures"
+      }
+    },
+    {
+      "id": "T15",
+      "type": "SeizureFrequency",
+      "start": 342,
+      "end": 369,
+      "text": "Focal-dyscognitive-seizures",
+      "attributes": {
+        "TimePeriod": "Week",
+        "CUIPhrase": "Dyscognitive seizures",
+        "UpperNumberOfSeizures": "3",
+        "LowerNumberOfSeizures": "2",
+        "NumberOfTimePeriods": "1",
+        "CUI": "C0270834"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "SeizureFrequency",
+      "start": 431,
+      "end": 469,
+      "text": "Focal-to-bilateral-convulsive-seizures",
+      "attributes": {
+        "CUI": "C0877017",
+        "CUIPhrase": "focal to bilateral convulsive seizures",
+        "DayDate": "23",
+        "NumberOfSeizures": "0",
+        "YearDate": "2019",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "MonthDate": "5"
+      }
+    },
+    {
+      "id": "T18",
+      "type": "Diagnosis",
+      "start": 431,
+      "end": 469,
+      "text": "Focal-to-bilateral-convulsive-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizures",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "id": "T19",
+      "type": "SeizureFrequency",
+      "start": 431,
+      "end": 469,
+      "text": "Focal-to-bilateral-convulsive-seizures",
+      "attributes": {
+        "TimePeriod": "Year",
+        "CUI": "C0877017",
+        "LowerNumberOfSeizures": "1",
+        "CUIPhrase": "focal to bilateral convulsive seizures",
+        "UpperNumberOfSeizures": "2",
+        "NumberOfTimePeriods": "1"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "SeizureFrequency",
+      "start": 758,
+      "end": 772,
+      "text": "focal-seizures",
+      "attributes": {
+        "FrequencyChange": "Frequent",
+        "CUI": "C0751495",
+        "CUIPhrase": "focal seizures"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "Diagnosis",
+      "start": 758,
+      "end": 773,
+      "text": "focal-seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0751495",
+        "CUIPhrase": "focal-seizures",
+        "Negation": "Affirmed",
+        "DiagCategory": "MultipleSeizures"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "BirthHistory",
+      "start": 945,
+      "end": 958,
+      "text": "born-normally",
+      "attributes": {
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUIPhrase": "born-normally",
+        "PrematureBirth": "37+_TermBirth",
+        "CUI": "C3665337"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "start": 978,
+      "end": 987,
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "Age": "5",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572",
+        "Negation": "Affirmed",
+        "AgeUnit": "Year"
+      }
+    },
+    {
+      "id": "T13",
+      "type": "PatientHistory",
+      "start": 1033,
+      "end": 1049,
+      "text": "febrile-seizures",
+      "attributes": {
+        "Negation": "Negated",
+        "CUI": "C0009952",
+        "Certainty": "1",
+        "CUIPhrase": "febrile-seizures"
+      }
+    },
+    {
+      "id": "T17",
+      "type": "PatientHistory",
+      "start": 1232,
+      "end": 1239,
+      "text": "anxiety",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "anxiety",
+        "CUI": "C0003467"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "start": 1402,
+      "end": 1409,
+      "text": "seizure",
+      "attributes": {
+        "CUI": "C0036572",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T16",
+      "type": "SeizureFrequency",
+      "start": 1402,
+      "end": 1411,
+      "text": "seizures-",
+      "attributes": {
+        "CUIPhrase": "seizures",
+        "FrequencyChange": "Frequent",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "BirthHistory",
+      "start_index": "945",
+      "end_index": "958",
+      "text": "born-normally",
+      "attributes": {
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUIPhrase": "born-normally",
+        "PrematureBirth": "37+_TermBirth",
+        "CUI": "C3665337"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "431",
+      "end_index": "469",
+      "text": "Focal-to-bilateral-convulsive-seizures",
+      "attributes": {
+        "CUI": "C0877017",
+        "CUIPhrase": "focal",
+        "DayDate": "23",
+        "NumberOfSeizures": "0",
+        "YearDate": "2019",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "MonthDate": "5"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "22",
+      "end_index": "30",
+      "text": "Epilepsy",
+      "attributes": {
+        "CUIPhrase": "epilepsy",
+        "DiagCategory": "Epilepsy",
+        "CUI": "C0014544",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "758",
+      "end_index": "772",
+      "text": "focal-seizures",
+      "attributes": {
+        "FrequencyChange": "Frequent",
+        "CUI": "C0751495",
+        "CUIPhrase": "focal"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "758",
+      "end_index": "773",
+      "text": "focal-seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0751495",
+        "CUIPhrase": "focal-seizures",
+        "Negation": "Affirmed",
+        "DiagCategory": "MultipleSeizures"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "978",
+      "end_index": "987",
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "Age": "5",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572",
+        "Negation": "Affirmed",
+        "AgeUnit": "Year"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "99",
+      "end_index": "123",
+      "text": "autism-spectrum-disorder",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C1510586",
+        "Certainty": "5",
+        "CUIPhrase": "autistic-spectrum-disorder"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "87",
+      "end_index": "94",
+      "text": "Anxiety",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "anxiety",
+        "CUI": "C0003467",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "342",
+      "end_index": "369",
+      "text": "Focal-dyscognitive-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "DiagCategory": "MultipleSeizures",
+        "CUI": "C0270834",
+        "CUIPhrase": "dyscognitive-seizures"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "153",
+      "end_index": "169",
+      "text": "Sodium-valproate",
+      "attributes": {
+        "CUI": "C0037567",
+        "DrugDose": "1000",
+        "Frequency": "2",
+        "DrugName": "SodiumValproate",
+        "CUIPhrase": "sodium-valproate",
+        "DoseUnit": "mg"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "238",
+      "end_index": "252",
+      "text": "Briviteracetam",
+      "attributes": {
+        "DrugDose": "50",
+        "CUIPhrase": "brivaracetam",
+        "DoseUnit": "mg",
+        "CUI": "C1699861",
+        "Frequency": "2",
+        "DrugName": "brivaracetam"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1402",
+      "end_index": "1409",
+      "text": "seizure",
+      "attributes": {
+        "CUI": "C0036572",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1033",
+      "end_index": "1049",
+      "text": "febrile-seizures",
+      "attributes": {
+        "Negation": "Negated",
+        "CUI": "C0009952",
+        "Certainty": "1",
+        "CUIPhrase": "febrile-seizures"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "41",
+      "end_index": "46",
+      "text": "focal",
+      "attributes": {
+        "CUIPhrase": "focal",
+        "DiagCategory": "Epilepsy",
+        "Negation": "Affirmed",
+        "CUI": "C0014547",
+        "Certainty": "4"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "342",
+      "end_index": "369",
+      "text": "Focal-dyscognitive-seizures",
+      "attributes": {
+        "TimePeriod": "Week",
+        "CUIPhrase": "Dyscognitive",
+        "UpperNumberOfSeizures": "3",
+        "LowerNumberOfSeizures": "2",
+        "NumberOfTimePeriods": "1",
+        "CUI": "C0270834"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "1402",
+      "end_index": "1411",
+      "text": "seizures-",
+      "attributes": {
+        "CUIPhrase": "seizures",
+        "FrequencyChange": "Frequent",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1232",
+      "end_index": "1239",
+      "text": "anxiety",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "anxiety",
+        "CUI": "C0003467"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "431",
+      "end_index": "469",
+      "text": "Focal-to-bilateral-convulsive-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizures",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "431",
+      "end_index": "469",
+      "text": "Focal-to-bilateral-convulsive-seizures",
+      "attributes": {
+        "TimePeriod": "Year",
+        "CUI": "C0877017",
+        "LowerNumberOfSeizures": "1",
+        "CUIPhrase": "focal",
+        "UpperNumberOfSeizures": "2",
+        "NumberOfTimePeriods": "1"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 342,
+      "end": 369,
+      "text": "Focal-dyscognitive-seizures",
+      "entity_types": [
+        "Diagnosis",
+        "SeizureFrequency"
+      ],
+      "entity_ids": [
+        "T9",
+        "T15"
+      ]
+    },
+    {
+      "start": 431,
+      "end": 469,
+      "text": "Focal-to-bilateral-convulsive-seizures",
+      "entity_types": [
+        "SeizureFrequency",
+        "Diagnosis",
+        "SeizureFrequency"
+      ],
+      "entity_ids": [
+        "T2",
+        "T18",
+        "T19"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "text": "Anxiety",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T7",
+      "type": "PatientHistory",
+      "text": "autism-spectrum-disorder",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T10",
+      "type": "Prescription",
+      "text": "Sodium-valproate",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T11",
+      "type": "Prescription",
+      "text": "Briviteracetam",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T4",
+      "type": "SeizureFrequency",
+      "text": "focal-seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "text": "seizures-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T13",
+      "type": "PatientHistory",
+      "text": "febrile-seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T17",
+      "type": "PatientHistory",
+      "text": "anxiety",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "text": "seizure",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T16",
+      "type": "SeizureFrequency",
+      "text": "seizures-",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T15",
+      "type": "SeizureFrequency",
+      "text": "Focal-dyscognitive-seizures",
+      "start": 342,
+      "end": 369,
+      "year": null,
+      "period": "Week",
+      "num_periods": "1",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": "2",
+      "upper_seizures": "3",
+      "num_seizures": null
+    },
+    {
+      "id": "T2",
+      "type": "SeizureFrequency",
+      "text": "Focal-to-bilateral-convulsive-seizures",
+      "start": 431,
+      "end": 469,
+      "year": "2019",
+      "period": null,
+      "num_periods": null,
+      "time_since": "Since",
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    },
+    {
+      "id": "T19",
+      "type": "SeizureFrequency",
+      "text": "Focal-to-bilateral-convulsive-seizures",
+      "start": 431,
+      "end": 469,
+      "year": null,
+      "period": "Year",
+      "num_periods": "1",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": "1",
+      "upper_seizures": "2",
+      "num_seizures": null
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 5,
+    "PatientHistory": 6,
+    "Prescription": 2,
+    "SeizureFrequency": 5,
+    "BirthHistory": 1
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "2 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 342,
+          "end": 369,
+          "text": "Focal-dyscognitive-seizures",
+          "entity_types": [
+            "Diagnosis",
+            "SeizureFrequency"
+          ],
+          "entity_ids": [
+            "T9",
+            "T15"
+          ]
+        },
+        {
+          "start": 431,
+          "end": 469,
+          "text": "Focal-to-bilateral-convulsive-seizures",
+          "entity_types": [
+            "SeizureFrequency",
+            "Diagnosis",
+            "SeizureFrequency"
+          ],
+          "entity_ids": [
+            "T2",
+            "T18",
+            "T19"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "10 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T8",
+          "type": "PatientHistory",
+          "text": "Anxiety",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T7",
+          "type": "PatientHistory",
+          "text": "autism-spectrum-disorder",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T10",
+          "type": "Prescription",
+          "text": "Sodium-valproate",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T11",
+          "type": "Prescription",
+          "text": "Briviteracetam",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T4",
+          "type": "SeizureFrequency",
+          "text": "focal-seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T6",
+          "type": "PatientHistory",
+          "text": "seizures-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T13",
+          "type": "PatientHistory",
+          "text": "febrile-seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T17",
+          "type": "PatientHistory",
+          "text": "anxiety",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T12",
+          "type": "PatientHistory",
+          "text": "seizure",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T16",
+          "type": "SeizureFrequency",
+          "text": "seizures-",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    },
+    {
+      "category": "negated_entities",
+      "description": "1 entity/ies are explicitly negated in the text.",
+      "details": [
+        {
+          "id": "T13",
+          "type": "PatientHistory",
+          "text": "febrile-seizures"
+        }
+      ],
+      "oracle_impact": "clinical_precision"
+    }
+  ],
+  "negated_entities": [
+    {
+      "id": "T13",
+      "type": "PatientHistory",
+      "text": "febrile-seizures"
+    }
+  ],
+  "low_certainty": [
+    {
+      "id": "T14",
+      "type": "Diagnosis",
+      "text": "focal",
+      "certainty": 4
+    },
+    {
+      "id": "T13",
+      "type": "PatientHistory",
+      "text": "febrile-seizures",
+      "certainty": 1
+    }
+  ],
+  "has_unknown_seizure": false
+}

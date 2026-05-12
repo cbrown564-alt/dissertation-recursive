@@ -1,0 +1,405 @@
+{
+  "id": "EA0031",
+  "text": "Alan Jones. D.O.B. 30/08/1973\n\nDiagnosis: Juvenile Myoclonic Epilepsy\n\nMedication: Epilim 1.5 g in the morning and 1g at night\nClobazam 10 mg once-a-day\n\nInvestigations: MRI normal\nEEG (2010) generalised spike and wave activity with photosensitivity\n\nMr Jones’s epilepsy is well controlled on the above dose of epilim without any significant side-effects. He did have a breakthrough seizure recently but this was provoked by sleep deprivation. He continues to get occasional myoclonic jerks but these are not troublesome. I would therefore recommend continuing on the same dose of medication\n\nI have arranged a follow-up in nurse specialist clinic.\n\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 42,
+      "end": 69,
+      "text": "Juvenile-Myoclonic-Epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "juvenile-myoclonic-epilepsy",
+        "CUI": "C0270853"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Prescription",
+      "start": 83,
+      "end": 88,
+      "text": "Eplim",
+      "attributes": {
+        "DrugName": "SodiumValproate",
+        "DrugDose": "1",
+        "DoseUnit": "g",
+        "Frequency": "1",
+        "CUIPhrase": "epilim",
+        "CUI": "C0591451"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "start": 83,
+      "end": 89,
+      "text": "Eplim-",
+      "attributes": {
+        "DrugName": "SodiumValproate",
+        "DrugDose": "1.5",
+        "DoseUnit": "g",
+        "Frequency": "1",
+        "CUIPhrase": "epilim",
+        "CUI": "C0591451"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "start": 126,
+      "end": 151,
+      "text": "Clobazam-10-mg-once-a-day",
+      "attributes": {
+        "DrugName": "clobazam",
+        "DrugDose": "10",
+        "DoseUnit": "mg",
+        "Frequency": "1",
+        "CUIPhrase": "clobazam",
+        "CUI": "C0055891"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "Investigations",
+      "start": 169,
+      "end": 179,
+      "text": "MRI-normal",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Normal",
+        "CUIPhrase": "mri-normal",
+        "CUI": "C0436481"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "Investigations",
+      "start": 180,
+      "end": 184,
+      "text": "EEG-",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Abnormal",
+        "CUIPhrase": "eeg-abnormal",
+        "CUI": "C0151611"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "start": 232,
+      "end": 248,
+      "text": "photosensitivity",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "photosensitivity",
+        "CUI": "C3552821"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "Diagnosis",
+      "start": 261,
+      "end": 269,
+      "text": "epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T16",
+      "type": "PatientHistory",
+      "start": 382,
+      "end": 390,
+      "text": "seizure-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "SeizureFrequency",
+      "start": 474,
+      "end": 488,
+      "text": "myoclonic-jerk",
+      "attributes": {
+        "FrequencyChange": "Infrequent",
+        "CUIPhrase": "myoclonic-jerk",
+        "CUI": "C0027066"
+      }
+    },
+    {
+      "id": "T18",
+      "type": "PatientHistory",
+      "start": 474,
+      "end": 489,
+      "text": "myoclonic-jerks",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "myoclonic-jerks",
+        "CUI": "C0027066"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "42",
+      "end_index": "69",
+      "text": "Juvenile-Myoclonic-Epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "juvenile-myoclonic-epilepsy",
+        "CUI": "C0270853"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "83",
+      "end_index": "89",
+      "text": "Eplim-",
+      "attributes": {
+        "DrugName": "SodiumValproate",
+        "DrugDose": "1.5",
+        "DoseUnit": "g",
+        "Frequency": "1",
+        "CUIPhrase": "epilim",
+        "CUI": "C0591451"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "83",
+      "end_index": "88",
+      "text": "Eplim",
+      "attributes": {
+        "DrugName": "SodiumValproate",
+        "DrugDose": "1",
+        "DoseUnit": "g",
+        "Frequency": "1",
+        "CUIPhrase": "epilim",
+        "CUI": "C0591451"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "126",
+      "end_index": "151",
+      "text": "Clobazam-10-mg-once-a-day",
+      "attributes": {
+        "DrugName": "clobazam",
+        "DrugDose": "10",
+        "DoseUnit": "mg",
+        "Frequency": "1",
+        "CUIPhrase": "clobazam",
+        "CUI": "C0055891"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "169",
+      "end_index": "179",
+      "text": "MRI-normal",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Normal",
+        "CUIPhrase": "mri-normal",
+        "CUI": "C0436481"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "180",
+      "end_index": "184",
+      "text": "EEG-",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Abnormal",
+        "CUIPhrase": "eeg-abnormal",
+        "CUI": "C0151611"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "232",
+      "end_index": "248",
+      "text": "photosensitivity",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "photosensitivity",
+        "CUI": "C3552821"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "261",
+      "end_index": "269",
+      "text": "epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "382",
+      "end_index": "390",
+      "text": "seizure-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "474",
+      "end_index": "489",
+      "text": "myoclonic-jerks",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "myoclonic-jerks",
+        "CUI": "C0027066"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "474",
+      "end_index": "488",
+      "text": "myoclonic-jerk",
+      "attributes": {
+        "FrequencyChange": "Infrequent",
+        "CUIPhrase": "myoclonic-jerk",
+        "CUI": "C0027066"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T8",
+      "type": "Prescription",
+      "text": "Eplim",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "text": "Eplim-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "text": "Clobazam-10-mg-once-a-day",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "text": "photosensitivity",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T16",
+      "type": "PatientHistory",
+      "text": "seizure-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T11",
+      "type": "SeizureFrequency",
+      "text": "myoclonic-jerk",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T18",
+      "type": "PatientHistory",
+      "text": "myoclonic-jerks",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [],
+  "type_counts": {
+    "Diagnosis": 2,
+    "Prescription": 3,
+    "Investigations": 2,
+    "PatientHistory": 3,
+    "SeizureFrequency": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "7 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T8",
+          "type": "Prescription",
+          "text": "Eplim",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T6",
+          "type": "Prescription",
+          "text": "Eplim-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T4",
+          "type": "Prescription",
+          "text": "Clobazam-10-mg-once-a-day",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T9",
+          "type": "PatientHistory",
+          "text": "photosensitivity",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T16",
+          "type": "PatientHistory",
+          "text": "seizure-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T11",
+          "type": "SeizureFrequency",
+          "text": "myoclonic-jerk",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T18",
+          "type": "PatientHistory",
+          "text": "myoclonic-jerks",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

@@ -1,0 +1,658 @@
+{
+  "id": "EA0140",
+  "text": "Clinic Date 9/09/2017\n\nDear Dr,\n\nRe: \tMrs Joan Jennings D.O.B.: 3/02/1992\n\nDiagnosis: Temporal lobe epilepsy secondary to\n\tHerpes encephalitis (aged 20)\n\nCurrent anti-epileptic medication:\teslicarbazepine 800mg od (to increase as detailed below)\n\t\t\t\tFolic acid 5mg od\n\nTO start:\tClobazam as detailed below\n\nSeizure type and frequency:\tFocal to bilateral convulsive seizures around one every two months\n\nInvestigations: MRI April 2012, left temporal lobe hyperintensities consistent with encephalitis\n\nI reviewed Mrs Jennings, together with her husband in clinic today. Her seizure frequency remains the same and she gets around one convulsive seizure every two months. They are sterotyped and she gets a feeling od deja-vu before they start. She lives with her husband, she is not currently working.\n\nAs you know her epilepsy was diagnosed in 2012. In this year she had herpes encephalitis and her epilepsy is a result of this.\n\nWe discussed the risks of ongoing convulsive seizures and the need for treatment. In the first instance I would suggest increasing the eslicarbazepine to 1200mg od. She can also use clobazam as required for seizure clusters.\n\nWe discussed the current DVLA driving regulations and issues around pregnancy should Mrs Jennings decide to have children.\n\nI will review her in 8 months time but she can contact the epilepsy nurses before then should there be any issues.\n\n\n",
+  "entities": [
+    {
+      "id": "T11",
+      "type": "Diagnosis",
+      "start": 86,
+      "end": 108,
+      "text": "Temporal-lobe-epilepsy",
+      "attributes": {
+        "CUI": "C0014556",
+        "Certainty": "5",
+        "CUIPhrase": "temporal-lobe-epilepsy",
+        "DiagCategory": "Epilepsy",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "EpilepsyCause",
+      "start": 123,
+      "end": 142,
+      "text": "Herpes-encephalitis",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "herpes-encephalitis",
+        "CUI": "C0276226"
+      }
+    },
+    {
+      "id": "T18",
+      "type": "PatientHistory",
+      "start": 123,
+      "end": 142,
+      "text": "Herpes-encephalitis",
+      "attributes": {
+        "AgeUnit": "Year",
+        "Age": "20",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "herpes-encephalitis",
+        "CUI": "C0276226"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Prescription",
+      "start": 189,
+      "end": 245,
+      "text": "eslicarbazepine-800mg-od-(to-increase-as-detailed-below)",
+      "attributes": {
+        "CUI": "C2725260",
+        "Frequency": "1",
+        "DrugDose": "800",
+        "DrugName": "eslicarbazepine",
+        "CUIPhrase": "eslicarbazepine",
+        "DoseUnit": "mg"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "SeizureFrequency",
+      "start": 335,
+      "end": 372,
+      "text": "Focal-to-bilateral-convulsive-seizure",
+      "attributes": {
+        "TimePeriod": "Month",
+        "NumberOfSeizures": "1",
+        "CUI": "C0877017",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizure",
+        "NumberOfTimePeriods": "2"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "Diagnosis",
+      "start": 335,
+      "end": 373,
+      "text": "Focal-to-bilateral-convulsive-seizures",
+      "attributes": {
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizures",
+        "DiagCategory": "MultipleSeizures",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "Investigations",
+      "start": 419,
+      "end": 422,
+      "text": "MRI",
+      "attributes": {
+        "CUIPhrase": "mri-abnormal",
+        "MRI_Results": "Abnormal",
+        "MRI_Performed": "Yes",
+        "CUI": "C1319851"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "PatientHistory",
+      "start": 487,
+      "end": 499,
+      "text": "encephalitis",
+      "attributes": {
+        "CUIPhrase": "encephalitis",
+        "Negation": "Affirmed",
+        "CUI": "C0014038",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "SeizureFrequency",
+      "start": 573,
+      "end": 581,
+      "text": "seizure-",
+      "attributes": {
+        "FrequencyChange": "Same",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "start": 632,
+      "end": 650,
+      "text": "convulsive-seizure",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "convulsive-seizure",
+        "CUI": "C0751494"
+      }
+    },
+    {
+      "id": "T13",
+      "type": "SeizureFrequency",
+      "start": 632,
+      "end": 650,
+      "text": "convulsive-seizure",
+      "attributes": {
+        "NumberOfTimePeriods": "2",
+        "CUIPhrase": "convulsive-seizure",
+        "NumberOfSeizures": "1",
+        "CUI": "C0751494",
+        "TimePeriod": "Month"
+      }
+    },
+    {
+      "id": "T15",
+      "type": "WhenDiagnosed",
+      "start": 817,
+      "end": 824,
+      "text": "epileps",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0014544",
+        "YearDate": "2012",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "Diagnosis",
+      "start": 817,
+      "end": 825,
+      "text": "epilepsy",
+      "attributes": {
+        "CUIPhrase": "epilepsy",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUI": "C0014544",
+        "DiagCategory": "Epilepsy"
+      }
+    },
+    {
+      "id": "T16",
+      "type": "EpilepsyCause",
+      "start": 870,
+      "end": 889,
+      "text": "herpes-encephalitis",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "herpes-encephalitis",
+        "CUI": "C0276226"
+      }
+    },
+    {
+      "id": "T20",
+      "type": "PatientHistory",
+      "start": 870,
+      "end": 889,
+      "text": "herpes-encephalitis",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "herpes-encephalitis",
+        "CUI": "C0276226"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "Diagnosis",
+      "start": 898,
+      "end": 907,
+      "text": "epilepsy-",
+      "attributes": {
+        "CUI": "C0014544",
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "CUIPhrase": "epilepsy",
+        "Negation": "Affirmed"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "EpilepsyCause",
+      "start_index": "123",
+      "end_index": "142",
+      "text": "Herpes-encephalitis",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "herpes-encephalitis",
+        "CUI": "C0276226"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "123",
+      "end_index": "142",
+      "text": "Herpes-encephalitis",
+      "attributes": {
+        "AgeUnit": "Year",
+        "Age": "20",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "herpes-encephalitis",
+        "CUI": "C0276226"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "487",
+      "end_index": "499",
+      "text": "encephalitis",
+      "attributes": {
+        "CUIPhrase": "encephalitis",
+        "Negation": "Affirmed",
+        "CUI": "C0014038",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "335",
+      "end_index": "373",
+      "text": "Focal-to-bilateral-convulsive-seizures",
+      "attributes": {
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizures",
+        "DiagCategory": "MultipleSeizures",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "335",
+      "end_index": "372",
+      "text": "Focal-to-bilateral-convulsive-seizure",
+      "attributes": {
+        "TimePeriod": "Month",
+        "NumberOfSeizures": "1",
+        "CUI": "C0877017",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizure",
+        "NumberOfTimePeriods": "2"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "573",
+      "end_index": "581",
+      "text": "seizure-",
+      "attributes": {
+        "FrequencyChange": "Same",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "419",
+      "end_index": "422",
+      "text": "MRI",
+      "attributes": {
+        "CUIPhrase": "mri-abnormal",
+        "MRI_Results": "Abnormal",
+        "MRI_Performed": "Yes",
+        "CUI": "C1319851"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "189",
+      "end_index": "245",
+      "text": "eslicarbazepine-800mg-od-(to-increase-as-detailed-below)",
+      "attributes": {
+        "CUI": "C2725260",
+        "Frequency": "1",
+        "DrugDose": "800",
+        "DrugName": "eslicarbazepine",
+        "CUIPhrase": "eslicarbazepine",
+        "DoseUnit": "mg"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "86",
+      "end_index": "108",
+      "text": "Temporal-lobe-epilepsy",
+      "attributes": {
+        "CUI": "C0014556",
+        "Certainty": "5",
+        "CUIPhrase": "temporal-lobe-epilepsy",
+        "DiagCategory": "Epilepsy",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "632",
+      "end_index": "650",
+      "text": "convulsive-seizure",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "convulsive-seizure",
+        "CUI": "C0751494"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "817",
+      "end_index": "825",
+      "text": "epilepsy",
+      "attributes": {
+        "CUIPhrase": "epilepsy",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUI": "C0014544",
+        "DiagCategory": "Epilepsy"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "632",
+      "end_index": "650",
+      "text": "convulsive-seizure",
+      "attributes": {
+        "NumberOfTimePeriods": "2",
+        "CUIPhrase": "convulsive-seizure",
+        "NumberOfSeizures": "1",
+        "CUI": "C0751494",
+        "TimePeriod": "Month"
+      }
+    },
+    {
+      "entity": "EpilepsyCause",
+      "start_index": "870",
+      "end_index": "889",
+      "text": "herpes-encephalitis",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "herpes-encephalitis",
+        "CUI": "C0276226"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "870",
+      "end_index": "889",
+      "text": "herpes-encephalitis",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "herpes-encephalitis",
+        "CUI": "C0276226"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "898",
+      "end_index": "907",
+      "text": "epilepsy-",
+      "attributes": {
+        "CUI": "C0014544",
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "CUIPhrase": "epilepsy",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "WhenDiagnosed",
+      "start_index": "817",
+      "end_index": "824",
+      "text": "epileps",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0014544",
+        "YearDate": "2012",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 123,
+      "end": 142,
+      "text": "Herpes-encephalitis",
+      "entity_types": [
+        "EpilepsyCause",
+        "PatientHistory"
+      ],
+      "entity_ids": [
+        "T10",
+        "T18"
+      ]
+    },
+    {
+      "start": 632,
+      "end": 650,
+      "text": "convulsive-seizure",
+      "entity_types": [
+        "PatientHistory",
+        "SeizureFrequency"
+      ],
+      "entity_ids": [
+        "T9",
+        "T13"
+      ]
+    },
+    {
+      "start": 870,
+      "end": 889,
+      "text": "herpes-encephalitis",
+      "entity_types": [
+        "EpilepsyCause",
+        "PatientHistory"
+      ],
+      "entity_ids": [
+        "T16",
+        "T20"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T18",
+      "type": "PatientHistory",
+      "text": "Herpes-encephalitis",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T8",
+      "type": "Prescription",
+      "text": "eslicarbazepine-800mg-od-(to-increase-as-detailed-below)",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T1",
+      "type": "PatientHistory",
+      "text": "encephalitis",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T6",
+      "type": "SeizureFrequency",
+      "text": "seizure-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "text": "convulsive-seizure",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T20",
+      "type": "PatientHistory",
+      "text": "herpes-encephalitis",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T5",
+      "type": "SeizureFrequency",
+      "text": "Focal-to-bilateral-convulsive-seizure",
+      "start": 335,
+      "end": 372,
+      "year": null,
+      "period": "Month",
+      "num_periods": "2",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "1"
+    },
+    {
+      "id": "T13",
+      "type": "SeizureFrequency",
+      "text": "convulsive-seizure",
+      "start": 632,
+      "end": 650,
+      "year": null,
+      "period": "Month",
+      "num_periods": "2",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "1"
+    },
+    {
+      "id": "T15",
+      "type": "WhenDiagnosed",
+      "text": "epileps",
+      "start": 817,
+      "end": 824,
+      "year": "2012",
+      "period": null,
+      "num_periods": null,
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": null
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 4,
+    "EpilepsyCause": 2,
+    "PatientHistory": 4,
+    "Prescription": 1,
+    "SeizureFrequency": 3,
+    "Investigations": 1,
+    "WhenDiagnosed": 1
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "3 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 123,
+          "end": 142,
+          "text": "Herpes-encephalitis",
+          "entity_types": [
+            "EpilepsyCause",
+            "PatientHistory"
+          ],
+          "entity_ids": [
+            "T10",
+            "T18"
+          ]
+        },
+        {
+          "start": 632,
+          "end": 650,
+          "text": "convulsive-seizure",
+          "entity_types": [
+            "PatientHistory",
+            "SeizureFrequency"
+          ],
+          "entity_ids": [
+            "T9",
+            "T13"
+          ]
+        },
+        {
+          "start": 870,
+          "end": 889,
+          "text": "herpes-encephalitis",
+          "entity_types": [
+            "EpilepsyCause",
+            "PatientHistory"
+          ],
+          "entity_ids": [
+            "T16",
+            "T20"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "6 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T18",
+          "type": "PatientHistory",
+          "text": "Herpes-encephalitis",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T8",
+          "type": "Prescription",
+          "text": "eslicarbazepine-800mg-od-(to-increase-as-detailed-below)",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T1",
+          "type": "PatientHistory",
+          "text": "encephalitis",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T6",
+          "type": "SeizureFrequency",
+          "text": "seizure-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T9",
+          "type": "PatientHistory",
+          "text": "convulsive-seizure",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T20",
+          "type": "PatientHistory",
+          "text": "herpes-encephalitis",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

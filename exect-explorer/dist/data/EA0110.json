@@ -1,0 +1,481 @@
+{
+  "id": "EA0110",
+  "text": "Clinic date 01/04/2016\n\nDear Dr,\n\nRe: Ursella Underwood dob 3/3/1971\n\nI reviewed this pleasant 45 year-old  lady in my first seizure clinic today. She was accompanied to the clinic by her sister. For the last six month she has been having possible seizures. She says she gets a feeling of detachment which is followed by blacking out. Her sister reported that there is some jerking of her arms and legs and some frothing of the mouth. When she comes around, she feels tired and confused. She says it takes up to 2 hours to fully get back to normal. Current frequency of the seizures is once or twice a month, but last month there was a cluster of 3 in a single day and she was taken to A&E. There is also a history of staring episodes which last up to 2 minutes. They occur 3 to 5 times a week. \n\nMs Underwood lives with her partner who is often away. Her sister has been staying with them since February. There is no family history of note. She is not aware of having suffered febrile seizures in her childhood or any serious infections. There is no history of head injuries. Ms Underwood is currently not working but she volunteers in a charity shop. She stopped driving. There was some history of alcohol abuse, but she said she now only drinks occasionally, and not at all since starting treatment. She is a non-smoker.\n\nHer examination today was normal, with no neurological deficit.\n\nShe is still awaiting her EEG examination. I am also requesting an MRI brain .\n\nMy impression is that we are dealing with generalised tonic clonic seizures probably with a focal onset. Her other episode could possibly be complex partial seizures. \n\nShe was commenced on Sodium Valproate following her seizure cluster and is now on 400mg bd. She has not experienced any side effects. She has not yet reached the maintenance dose but given her history and her weight concerns this may not be the best choice of treatment. I suggest we start her on Levetiracetam 250mg od increasing by 250mg increments weekly until she reaches 500mg bd. Once her seizures are controlled Sodium Valproate should be reduced to nil gradually. \n\nShe has been advices on safety at home and lifestyle issues. She knows she can contact our epilepsy helpline with any concerns and to seek medical help in the event of further seizures. \nI will see her again in my clinic in 3 months. \n\nYours sincerely\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "start": 248,
+      "end": 256,
+      "text": "seizures",
+      "attributes": {
+        "TimePeriod": "Month",
+        "NumberOfTimePeriods": "6",
+        "Certainty": "3",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "SeizureFrequency",
+      "start": 574,
+      "end": 583,
+      "text": "seizures-",
+      "attributes": {
+        "LowerNumberOfSeizures": "1",
+        "UpperNumberOfSeizures": "2",
+        "TimePeriod": "Month",
+        "NumberOfTimePeriods": "1",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "SeizureFrequency",
+      "start": 636,
+      "end": 643,
+      "text": "cluster",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "PointInTime": "Last_Month",
+        "TimeSince_or_TimeOfEvent": "During",
+        "CUIPhrase": "seizure-cluster",
+        "CUI": "C3203523"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "PatientHistory",
+      "start": 978,
+      "end": 994,
+      "text": "febrile-seizures",
+      "attributes": {
+        "Certainty": "1",
+        "Negation": "Negated",
+        "CUIPhrase": "febrile-seizures",
+        "CUI": "C0009952"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Diagnosis",
+      "start": 1512,
+      "end": 1545,
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "Diagnosis",
+      "start": 1562,
+      "end": 1573,
+      "text": "focal-onset",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-seizures",
+        "CUI": "C0751495"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "Diagnosis",
+      "start": 1611,
+      "end": 1635,
+      "text": "complex-partial-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "3",
+        "Negation": "Affirmed",
+        "CUIPhrase": "complex-partial-seizures",
+        "CUI": "C0149958"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "Prescription",
+      "start": 1660,
+      "end": 1676,
+      "text": "Sodium-Valproate",
+      "attributes": {
+        "DrugName": "SodiumValproate",
+        "DrugDose": "400",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "sodium-valproate",
+        "CUI": "C0037567"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "start": 1691,
+      "end": 1706,
+      "text": "seizure-cluster",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure-cluster",
+        "CUI": "C3203523"
+      }
+    },
+    {
+      "id": "T15",
+      "type": "PatientHistory",
+      "start": 2034,
+      "end": 2043,
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T16",
+      "type": "PatientHistory",
+      "start": 2289,
+      "end": 2297,
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "PatientHistory",
+      "start_index": "248",
+      "end_index": "256",
+      "text": "seizures",
+      "attributes": {
+        "TimePeriod": "Month",
+        "NumberOfTimePeriods": "6",
+        "Certainty": "3",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "574",
+      "end_index": "583",
+      "text": "seizures-",
+      "attributes": {
+        "LowerNumberOfSeizures": "1",
+        "UpperNumberOfSeizures": "2",
+        "TimePeriod": "Month",
+        "NumberOfTimePeriods": "1",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "636",
+      "end_index": "643",
+      "text": "cluster",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "PointInTime": "Last_Month",
+        "TimeSince_or_TimeOfEvent": "During",
+        "CUIPhrase": "seizure-cluster",
+        "CUI": "C3203523"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "978",
+      "end_index": "994",
+      "text": "febrile-seizures",
+      "attributes": {
+        "Certainty": "1",
+        "Negation": "Negated",
+        "CUIPhrase": "febrile-seizures",
+        "CUI": "C0009952"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1512",
+      "end_index": "1545",
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1562",
+      "end_index": "1573",
+      "text": "focal-onset",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-seizures",
+        "CUI": "C0751495"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1611",
+      "end_index": "1635",
+      "text": "complex-partial-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "3",
+        "Negation": "Affirmed",
+        "CUIPhrase": "complex-partial-seizures",
+        "CUI": "C0149958"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "1660",
+      "end_index": "1676",
+      "text": "Sodium-Valproate",
+      "attributes": {
+        "DrugName": "SodiumValproate",
+        "DrugDose": "400",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "sodium-valproate",
+        "CUI": "C0037567"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1691",
+      "end_index": "1706",
+      "text": "seizure-cluster",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure-cluster",
+        "CUI": "C3203523"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "2034",
+      "end_index": "2043",
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "2289",
+      "end_index": "2297",
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T7",
+      "type": "PatientHistory",
+      "text": "febrile-seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T14",
+      "type": "Prescription",
+      "text": "Sodium-Valproate",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "text": "seizure-cluster",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T15",
+      "type": "PatientHistory",
+      "text": "seizures-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T16",
+      "type": "PatientHistory",
+      "text": "seizures",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "text": "seizures",
+      "start": 248,
+      "end": 256,
+      "year": null,
+      "period": "Month",
+      "num_periods": "6",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": null
+    },
+    {
+      "id": "T4",
+      "type": "SeizureFrequency",
+      "text": "seizures-",
+      "start": 574,
+      "end": 583,
+      "year": null,
+      "period": "Month",
+      "num_periods": "1",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": "1",
+      "upper_seizures": "2",
+      "num_seizures": null
+    },
+    {
+      "id": "T9",
+      "type": "SeizureFrequency",
+      "text": "cluster",
+      "start": 636,
+      "end": 643,
+      "year": null,
+      "period": null,
+      "num_periods": null,
+      "time_since": "During",
+      "point_in_time": "Last_Month",
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "1"
+    }
+  ],
+  "type_counts": {
+    "PatientHistory": 5,
+    "SeizureFrequency": 2,
+    "Diagnosis": 3,
+    "Prescription": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "5 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T7",
+          "type": "PatientHistory",
+          "text": "febrile-seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T14",
+          "type": "Prescription",
+          "text": "Sodium-Valproate",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T12",
+          "type": "PatientHistory",
+          "text": "seizure-cluster",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T15",
+          "type": "PatientHistory",
+          "text": "seizures-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T16",
+          "type": "PatientHistory",
+          "text": "seizures",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    },
+    {
+      "category": "negated_entities",
+      "description": "1 entity/ies are explicitly negated in the text.",
+      "details": [
+        {
+          "id": "T7",
+          "type": "PatientHistory",
+          "text": "febrile-seizures"
+        }
+      ],
+      "oracle_impact": "clinical_precision"
+    }
+  ],
+  "negated_entities": [
+    {
+      "id": "T7",
+      "type": "PatientHistory",
+      "text": "febrile-seizures"
+    }
+  ],
+  "low_certainty": [
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "text": "seizures",
+      "certainty": 3
+    },
+    {
+      "id": "T7",
+      "type": "PatientHistory",
+      "text": "febrile-seizures",
+      "certainty": 1
+    },
+    {
+      "id": "T8",
+      "type": "Diagnosis",
+      "text": "generalised-tonic-clonic-seizures",
+      "certainty": 4
+    },
+    {
+      "id": "T10",
+      "type": "Diagnosis",
+      "text": "focal-onset",
+      "certainty": 4
+    },
+    {
+      "id": "T5",
+      "type": "Diagnosis",
+      "text": "complex-partial-seizures",
+      "certainty": 3
+    }
+  ],
+  "has_unknown_seizure": false
+}

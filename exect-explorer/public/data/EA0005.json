@@ -1,0 +1,543 @@
+{
+  "id": "EA0005",
+  "text": "Dear Dr,\n\nDiagnosis: genetic generalised epilepsy-epilepsy with generalised tonic chronic seizures alone.\n\nCurrent medication: sodium valproate 500 mg twice a day\nCarbamazepine 200 mg twice a day\n\nSeizure type and frequency: Generalised tonic clonic seizure-last event July 2016. Previous event December 2015.\n\nInvestigations: MRI 2012 normal.\nEEG 2012 generalised spike and wave.\n\nI reviewed this 32 year old teacher alone in clinic today. His last seizure coincided with forgetting to take his medication. As you know his seizures started in 2010 and he has had roughly two seizures per year since then. He has not had any events which resemble absences, myoclonus or focal seizures. He has no side effects of this medication.\n\nThere is no relevant family history, he does not smoke and he does not drink any alcohol. He lives with his partner.\n\nImpression: as he has only ever had generalised tonic chronic seizures I think he has the syndrome of epilepsy with generalised tonic clonic seizure alone.\n\nComments: we had a discussion about epilepsy in general. Mr Williams is aware that seizures involving loss of consciousness have a risk of serious injury or even rarely death (sudden death in epilepsy). He is aware of the current DVLA driving regulations. He knows he can contact us should he run into problems and we will make an appointment for him.\n\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 21,
+      "end": 49,
+      "text": "genetic-generalised-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "genetic-generalised-epilepsy",
+        "CUI": "C0270850"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Diagnosis",
+      "start": 50,
+      "end": 104,
+      "text": "epilepsy-with-generalised-tonic-chronic-seizures-alone",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy-with-generalised-tonic-clonic-seizures-alone",
+        "CUI": "C0393697"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "start": 107,
+      "end": 162,
+      "text": "Current-medication:-sodium-valproate-500-mg-twice-a-day",
+      "attributes": {
+        "DrugName": "sodium-valproate",
+        "DrugDose": "500",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "sodium-valproate",
+        "CUI": "C0037567"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Prescription",
+      "start": 163,
+      "end": 195,
+      "text": "Carbamazepine-200-mg-twice-a-day",
+      "attributes": {
+        "DrugName": "carbamazepine",
+        "DrugDose": "200",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "carbamazepine",
+        "CUI": "C0006949"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "Diagnosis",
+      "start": 224,
+      "end": 257,
+      "text": "-Generalised-tonic-clonic-seizure",
+      "attributes": {
+        "DiagCategory": "SingleSeizure",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizure",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "SeizureFrequency",
+      "start": 225,
+      "end": 258,
+      "text": "Generalised-tonic-clonic-seizure-",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "MonthDate": "7",
+        "YearDate": "2016",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "generalised-tonic-clonic-seizure",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "Investigations",
+      "start": 327,
+      "end": 342,
+      "text": "MRI-2012-normal",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Normal",
+        "CUIPhrase": "mri-normal",
+        "CUI": "C0436481"
+      }
+    },
+    {
+      "id": "T16",
+      "type": "Investigations",
+      "start": 344,
+      "end": 348,
+      "text": "EEG-",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Abnormal",
+        "CUIPhrase": "eeg-abnormal",
+        "CUI": "C0151611"
+      }
+    },
+    {
+      "id": "T18",
+      "type": "PatientHistory",
+      "start": 450,
+      "end": 458,
+      "text": "seizure-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T20",
+      "type": "PatientHistory",
+      "start": 524,
+      "end": 533,
+      "text": "seizures-",
+      "attributes": {
+        "YearDate": "2010",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T22",
+      "type": "SeizureFrequency",
+      "start": 576,
+      "end": 585,
+      "text": "seizures-",
+      "attributes": {
+        "NumberOfSeizures": "2",
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "1",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T24",
+      "type": "PatientHistory",
+      "start": 576,
+      "end": 585,
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T26",
+      "type": "Diagnosis",
+      "start": 884,
+      "end": 918,
+      "text": "generalised-tonic-chronic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "id": "T28",
+      "type": "Diagnosis",
+      "start": 950,
+      "end": 1002,
+      "text": "epilepsy-with-generalised-tonic-clonic-seizure-alone",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy-with-generalised-tonic-clonic-seizure-alone",
+        "CUI": "C0393697"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "21",
+      "end_index": "49",
+      "text": "genetic-generalised-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "genetic-generalised-epilepsy",
+        "CUI": "C0270850"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "50",
+      "end_index": "104",
+      "text": "epilepsy-with-generalised-tonic-chronic-seizures-alone",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy-with-generalised-tonic-clonic-seizures-alone",
+        "CUI": "C0393697"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "107",
+      "end_index": "162",
+      "text": "Current-medication:-sodium-valproate-500-mg-twice-a-day",
+      "attributes": {
+        "DrugName": "sodium-valproate",
+        "DrugDose": "500",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "sodium-valproate",
+        "CUI": "C0037567"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "163",
+      "end_index": "195",
+      "text": "Carbamazepine-200-mg-twice-a-day",
+      "attributes": {
+        "DrugName": "carbamazepine",
+        "DrugDose": "200",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "carbamazepine",
+        "CUI": "C0006949"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "224",
+      "end_index": "257",
+      "text": "-Generalised-tonic-clonic-seizure",
+      "attributes": {
+        "DiagCategory": "SingleSeizure",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizure",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "225",
+      "end_index": "258",
+      "text": "Generalised-tonic-clonic-seizure-",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "MonthDate": "7",
+        "YearDate": "2016",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "generalised-tonic-clonic-seizure",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "327",
+      "end_index": "342",
+      "text": "MRI-2012-normal",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Normal",
+        "CUIPhrase": "mri-normal",
+        "CUI": "C0436481"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "344",
+      "end_index": "348",
+      "text": "EEG-",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Abnormal",
+        "CUIPhrase": "eeg-abnormal",
+        "CUI": "C0151611"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "450",
+      "end_index": "458",
+      "text": "seizure-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "524",
+      "end_index": "533",
+      "text": "seizures-",
+      "attributes": {
+        "YearDate": "2010",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "576",
+      "end_index": "585",
+      "text": "seizures-",
+      "attributes": {
+        "NumberOfSeizures": "2",
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "1",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "576",
+      "end_index": "585",
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "884",
+      "end_index": "918",
+      "text": "generalised-tonic-chronic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "950",
+      "end_index": "1002",
+      "text": "epilepsy-with-generalised-tonic-clonic-seizure-alone",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy-with-generalised-tonic-clonic-seizure-alone",
+        "CUI": "C0393697"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 576,
+      "end": 585,
+      "text": "seizures-",
+      "entity_types": [
+        "SeizureFrequency",
+        "PatientHistory"
+      ],
+      "entity_ids": [
+        "T22",
+        "T24"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "text": "Current-medication:-sodium-valproate-500-mg-twice-a-day",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T8",
+      "type": "Prescription",
+      "text": "Carbamazepine-200-mg-twice-a-day",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T18",
+      "type": "PatientHistory",
+      "text": "seizure-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T24",
+      "type": "PatientHistory",
+      "text": "seizures-",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T12",
+      "type": "SeizureFrequency",
+      "text": "Generalised-tonic-clonic-seizure-",
+      "start": 225,
+      "end": 258,
+      "year": "2016",
+      "period": null,
+      "num_periods": null,
+      "time_since": "Since",
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    },
+    {
+      "id": "T20",
+      "type": "PatientHistory",
+      "text": "seizures-",
+      "start": 524,
+      "end": 533,
+      "year": "2010",
+      "period": null,
+      "num_periods": null,
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": null
+    },
+    {
+      "id": "T22",
+      "type": "SeizureFrequency",
+      "text": "seizures-",
+      "start": 576,
+      "end": 585,
+      "year": null,
+      "period": "Year",
+      "num_periods": "1",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "2"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 5,
+    "Prescription": 2,
+    "SeizureFrequency": 2,
+    "Investigations": 2,
+    "PatientHistory": 3
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "1 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 576,
+          "end": 585,
+          "text": "seizures-",
+          "entity_types": [
+            "SeizureFrequency",
+            "PatientHistory"
+          ],
+          "entity_ids": [
+            "T22",
+            "T24"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "4 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T6",
+          "type": "Prescription",
+          "text": "Current-medication:-sodium-valproate-500-mg-twice-a-day",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T8",
+          "type": "Prescription",
+          "text": "Carbamazepine-200-mg-twice-a-day",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T18",
+          "type": "PatientHistory",
+          "text": "seizure-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T24",
+          "type": "PatientHistory",
+          "text": "seizures-",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [
+    {
+      "id": "T28",
+      "type": "Diagnosis",
+      "text": "epilepsy-with-generalised-tonic-clonic-seizure-alone",
+      "certainty": 4
+    }
+  ],
+  "has_unknown_seizure": false
+}

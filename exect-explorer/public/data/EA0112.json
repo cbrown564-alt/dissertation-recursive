@@ -1,0 +1,179 @@
+{
+  "id": "EA0112",
+  "text": "Clinic date 12/07/2019\n\nDear Dr,\n\nRe: \tMr James Western DOB 11/09.1961\n\t31, Hunters Street, Tregwyrdd, CF39 9RE\n\nDiagnosis:\n•\tFocal epilepsy\n\nMedication:\n•\tBrivaracetam 75 mgs bd\n\nI spoke to James on the phone today.  I am pleased to say that he has been seizure free since starting antiepileptic medication.  \n\nUnfortunately however, he has had problems with mood swings and irritability.  He switched Levetiracetam to Brivaracetam, with a little improvement. He has a good insight into potential causes of this, including the impact the diagnosis has had on his mental health and lifestyle, particularly inability to drive, and the general impact of COVID and lockdown.  \n\nPlan:\n\nWe discussed the options of continuing Brivaracetam, or switching to an alternative medication, such as Lamotrigine.  While it is possible that this would be better in terms of irritability, there is no guarantee that it would control his seizures as well and for now he would prefer to continue unchanged.  He knows how to get hold of us on the above helpline number as needed.  \n \n\nYours sincerely\n",
+  "entities": [
+    {
+      "id": "T4",
+      "type": "Diagnosis",
+      "start": 126,
+      "end": 140,
+      "text": "Focal-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-epilepsy",
+        "CUI": "C0014547"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "Prescription",
+      "start": 156,
+      "end": 178,
+      "text": "Brivaracetam-75-mgs-bd",
+      "attributes": {
+        "DrugName": "brivaracetam",
+        "DrugDose": "75",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "brivaracetam",
+        "CUI": "C1699861"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "SeizureFrequency",
+      "start": 255,
+      "end": 267,
+      "text": "seizure-free",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "PointInTime": "DrugChange",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "seizure-free",
+        "CUI": "C1299590"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "start": 921,
+      "end": 930,
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "126",
+      "end_index": "140",
+      "text": "Focal-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-epilepsy",
+        "CUI": "C0014547"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "156",
+      "end_index": "178",
+      "text": "Brivaracetam-75-mgs-bd",
+      "attributes": {
+        "DrugName": "brivaracetam",
+        "DrugDose": "75",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "brivaracetam",
+        "CUI": "C1699861"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "255",
+      "end_index": "267",
+      "text": "seizure-free",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "PointInTime": "DrugChange",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "seizure-free",
+        "CUI": "C1299590"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "921",
+      "end_index": "930",
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T2",
+      "type": "Prescription",
+      "text": "Brivaracetam-75-mgs-bd",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "text": "seizures-",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T6",
+      "type": "SeizureFrequency",
+      "text": "seizure-free",
+      "start": 255,
+      "end": 267,
+      "year": null,
+      "period": null,
+      "num_periods": null,
+      "time_since": "Since",
+      "point_in_time": "DrugChange",
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 1,
+    "Prescription": 1,
+    "SeizureFrequency": 1,
+    "PatientHistory": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "2 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T2",
+          "type": "Prescription",
+          "text": "Brivaracetam-75-mgs-bd",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T8",
+          "type": "PatientHistory",
+          "text": "seizures-",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

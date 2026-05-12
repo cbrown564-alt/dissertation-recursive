@@ -1,0 +1,127 @@
+{
+  "id": "EA0118",
+  "text": "Dear Dr,\n\nRe: \tMr. Andrew Brown \tD.O.B: 26/10/1993\n22 Woodland Crescent, Porthcawl    \n\nDiagnosis:\n•\tSingle generalised tonic clonic seizures with possible provoking factors\n\nI spoke to this 24-year-old gentleman today in the  First Seizure Clinic.  The event in question occurred in May. He was outside walking, when he had a sudden loss of consciousness without warning.  He came around feeling sick and was very confused for over an hour.  Witnessed described, how his arms stiffened, raised above his head and had generalised limb jerking.  He did not bite his tongue.  He has not had any further episodes since.  \n\nThere is a history of recreational drug use, including benzodiazepines, which he had stopped taking for 2 days before the event in question.  There is no previous history of seizures, head injuries, intracranial infections and he has not had any further episodes since.  He is otherwise well and not on any regular medication.  \nHe lives with his parents, is not working and has not been driving.  He denies excess alcohol.\n\nImpression:\nThis gentleman has had an event suggestive of a single generalised tonic clonic seizure, possibly triggered by Benzodiazepine withdrawal and sleep deprivation.  For completeness I will arrange an MRI scan of the brain and 12 lead ECG, but I explained that we would not start him on any antiepileptic medication.\nWe discussed the driving regulations and he will need to inform the DVLA and refrain from driving for 6 months.  \nYours sincerely\n",
+  "entities": [
+    {
+      "id": "T4",
+      "type": "Diagnosis",
+      "start": 108,
+      "end": 141,
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "start": 334,
+      "end": 355,
+      "text": "loss-of-consciousness",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "loss-of-consciousness",
+        "CUI": "C0041657"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Diagnosis",
+      "start": 1112,
+      "end": 1144,
+      "text": "generalised-tonic-clonic-seizure",
+      "attributes": {
+        "DiagCategory": "SingleSeizure",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizure",
+        "CUI": "C0494475"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "108",
+      "end_index": "141",
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "334",
+      "end_index": "355",
+      "text": "loss-of-consciousness",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "loss-of-consciousness",
+        "CUI": "C0041657"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1112",
+      "end_index": "1144",
+      "text": "generalised-tonic-clonic-seizure",
+      "attributes": {
+        "DiagCategory": "SingleSeizure",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizure",
+        "CUI": "C0494475"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "text": "loss-of-consciousness",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [],
+  "type_counts": {
+    "Diagnosis": 2,
+    "PatientHistory": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "1 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T6",
+          "type": "PatientHistory",
+          "text": "loss-of-consciousness",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [
+    {
+      "id": "T8",
+      "type": "Diagnosis",
+      "text": "generalised-tonic-clonic-seizure",
+      "certainty": 4
+    }
+  ],
+  "has_unknown_seizure": false
+}

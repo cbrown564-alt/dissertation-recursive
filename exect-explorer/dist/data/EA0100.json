@@ -1,0 +1,343 @@
+{
+  "id": "EA0100",
+  "text": "Date 30/11/2020\nNHS No: 112 225 4536\n\nDear Dr\n\nRe: \tIestyn Parry\tD.O.B. 11/07/1950\n\nProblem:\tTransient loss of consciousness\n\nDiagnosis:\tSingle seizure\n\nI reviewed this 70-year-old man by telephone consultation today. On 23/10/2020 he had a transient loss of consciousness. He had gone out for a coffee with his wife in the morning. He remembers sitting on the chair in the café before loosing consciousness. The next thing that he remembers is waking up in the emergency department in hospital. He had bit the side of his tongue and his muscles ached for days afterwards.\n\nHis wife said that he went blank and unresponsive before letting out a cry and going stiff and then collapsing to the floor. His arms and legs shook for a few minutes. He was as if was asleep afterwards and it took several hours for him to be back to normal.\n\nMr Parry has never had any previous episodes like this and he has not had any subsequent episodes. He was born normally but had 2 febrile seizures at the ages of 3 and 5 and also was knocked unconscious whilst playing cricket when he was in his twenties.  He has never had meningitis or encephalitis. He takes ramipril for hypertension and has diet controlled diabetes. His mother had epilepsy but there is no other relevant family history.\n\nHe is a retired draughtsman, smokes a pipe and drinks around 10 pints of mild beer every week. He has a driving licence.\n\nAn ECG from A+E shows sinus rhythm with a slight right axis deviation. A CT head from 23/10/2020 was normal.\n\nImpression: single seizure\n\nComments: I explained the diagnosis of a single seizure to Mr Parry. I explained that we do not normally treat a single seizure. If he were to be unlucky enough to have another seizure then we would recommend treatment with an anti-epileptic medication.\nI will request and MRI and EEG\nI explained the current DVLA regualtions which state that he needs to by 6 months free of events before he is allowed to drive again.\n\n\nYours sincerely\n",
+  "entities": [
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "start": 93,
+      "end": 124,
+      "text": "Transient-loss-of-consciousness",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "transient-loss-of-consciousness",
+        "CUI": "C4087400"
+      }
+    },
+    {
+      "id": "T15",
+      "type": "PatientHistory",
+      "start": 144,
+      "end": 151,
+      "text": "seizure",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "start": 240,
+      "end": 272,
+      "text": "-transient-loss-of-consciousness",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "transient-loss-of-consciousness",
+        "CUI": "C4087400"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "BirthHistory",
+      "start": 940,
+      "end": 953,
+      "text": "born-normally",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "born-normally",
+        "CUI": "C3665337"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "start": 964,
+      "end": 997,
+      "text": "febrile-seizures-at-the-ages-of-3",
+      "attributes": {
+        "AgeUnit": "Year",
+        "Age": "3",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "febrile-seizures",
+        "CUI": "C0009952"
+      }
+    },
+    {
+      "id": "T13",
+      "type": "PatientHistory",
+      "start": 1194,
+      "end": 1202,
+      "text": "diabetes",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "diabetes",
+        "CUI": "C0011847"
+      }
+    },
+    {
+      "id": "T19",
+      "type": "Investigations",
+      "start": 1471,
+      "end": 1478,
+      "text": "CT-head",
+      "attributes": {
+        "CT_Performed": "Yes",
+        "CT_Results": "Normal",
+        "CUIPhrase": "ct-normal",
+        "CUI": "C0744602"
+      }
+    },
+    {
+      "id": "T17",
+      "type": "PatientHistory",
+      "start": 1527,
+      "end": 1534,
+      "text": "seizure",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "PatientHistory",
+      "start": 1584,
+      "end": 1592,
+      "text": "seizure-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "PatientHistory",
+      "start_index": "93",
+      "end_index": "124",
+      "text": "Transient-loss-of-consciousness",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "transient-loss-of-consciousness",
+        "CUI": "C4087400"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "144",
+      "end_index": "151",
+      "text": "seizure",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "240",
+      "end_index": "272",
+      "text": "-transient-loss-of-consciousness",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "transient-loss-of-consciousness",
+        "CUI": "C4087400"
+      }
+    },
+    {
+      "entity": "BirthHistory",
+      "start_index": "940",
+      "end_index": "953",
+      "text": "born-normally",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "born-normally",
+        "CUI": "C3665337"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "964",
+      "end_index": "997",
+      "text": "febrile-seizures-at-the-ages-of-3",
+      "attributes": {
+        "AgeUnit": "Year",
+        "Age": "3",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "febrile-seizures",
+        "CUI": "C0009952"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1194",
+      "end_index": "1202",
+      "text": "diabetes",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "diabetes",
+        "CUI": "C0011847"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "1471",
+      "end_index": "1478",
+      "text": "CT-head",
+      "attributes": {
+        "CT_Performed": "Yes",
+        "CT_Results": "Normal",
+        "CUIPhrase": "ct-normal",
+        "CUI": "C0744602"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1527",
+      "end_index": "1534",
+      "text": "seizure",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1584",
+      "end_index": "1592",
+      "text": "seizure-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "text": "Transient-loss-of-consciousness",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T15",
+      "type": "PatientHistory",
+      "text": "seizure",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "text": "-transient-loss-of-consciousness",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "text": "febrile-seizures-at-the-ages-of-3",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T13",
+      "type": "PatientHistory",
+      "text": "diabetes",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T17",
+      "type": "PatientHistory",
+      "text": "seizure",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T11",
+      "type": "PatientHistory",
+      "text": "seizure-",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [],
+  "type_counts": {
+    "PatientHistory": 7,
+    "BirthHistory": 1,
+    "Investigations": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "7 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T12",
+          "type": "PatientHistory",
+          "text": "Transient-loss-of-consciousness",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T15",
+          "type": "PatientHistory",
+          "text": "seizure",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T14",
+          "type": "PatientHistory",
+          "text": "-transient-loss-of-consciousness",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T10",
+          "type": "PatientHistory",
+          "text": "febrile-seizures-at-the-ages-of-3",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T13",
+          "type": "PatientHistory",
+          "text": "diabetes",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T17",
+          "type": "PatientHistory",
+          "text": "seizure",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T11",
+          "type": "PatientHistory",
+          "text": "seizure-",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

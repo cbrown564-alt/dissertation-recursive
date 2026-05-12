@@ -1,0 +1,435 @@
+{
+  "id": "EA0160",
+  "text": "Clinic date 14/04/2018\n\nRe: Ms Helen Harris\n\nDiagnosis\t\tTemporal lobe epilepsy\n\t\t\tAnxiety\n\t\t\tNon epileptic attack disorder\n\nCurrent medication\tLamotrigine 100 mgms bd\n\t\t\tPregabalin 75 mgms bd\n\nFollow up\t\tFour months.\n\nI was pleased to meet Helen and her father in clinic today. She has not had any collapses now for around 6 months. Her anxiety has got worse with some family issues at home and some upcoming exams. With her increasing anxiety she can get periods of “absences” where she feels “distant” and gets a funny feeling in her toes.\n\nWe had a chat about these episdoes and they are probably more anxiety related than seizures. They also may be non-epileptic attacks which are more common in people with epilepsy.\n\nHelen sometimes forgets to take her lamotrigine but the pregabalin helps her anxiety quite a bit and so she takes that more often. As Helen is now sixteen we discussed moving to the adult clinic and I will refer her to the transisition clinic. I will also ask CAMHS to see her given the problems with anxiety.\n",
+  "entities": [
+    {
+      "id": "T7",
+      "type": "Diagnosis",
+      "start": 56,
+      "end": 78,
+      "text": "Temporal-lobe-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "CUIPhrase": "temporal-lobe-epilepsy",
+        "Negation": "Affirmed",
+        "CUI": "C0014556",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "PatientHistory",
+      "start": 82,
+      "end": 89,
+      "text": "Anxiety",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "anxiety",
+        "CUI": "C0003467",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "start": 93,
+      "end": 122,
+      "text": "Non-epileptic-attack-disorder",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C3495874",
+        "CUIPhrase": "non-epileptic-attacks",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "Prescription",
+      "start": 143,
+      "end": 166,
+      "text": "Lamotrigine-100-mgms-bd",
+      "attributes": {
+        "DrugDose": "100",
+        "CUI": "C0064636",
+        "Frequency": "2",
+        "DrugName": "lamotrigine",
+        "CUIPhrase": "lamotrigine",
+        "DoseUnit": "mg"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "Prescription",
+      "start": 170,
+      "end": 191,
+      "text": "Pregabalin-75-mgms-bd",
+      "attributes": {
+        "DrugName": "pregabalin",
+        "DrugDose": "75",
+        "CUI": "C0657912",
+        "Frequency": "2",
+        "DoseUnit": "mg",
+        "CUIPhrase": "pregabalin"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "start": 337,
+      "end": 345,
+      "text": "anxiety-",
+      "attributes": {
+        "CUIPhrase": "anxiety",
+        "Certainty": "5",
+        "CUI": "C0003467",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "start": 436,
+      "end": 444,
+      "text": "anxiety-",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C0003467",
+        "CUIPhrase": "anxiety",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "start": 468,
+      "end": 476,
+      "text": "absences",
+      "attributes": {
+        "CUIPhrase": "absences",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUI": "C0563606"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "start": 653,
+      "end": 674,
+      "text": "non-epileptic-attacks",
+      "attributes": {
+        "Certainty": "5",
+        "CUIPhrase": "non-epileptic attacks",
+        "Negation": "Affirmed",
+        "CUI": "C3495874"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "start": 800,
+      "end": 807,
+      "text": "anxiety",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "anxiety",
+        "CUI": "C0003467"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "start": 1024,
+      "end": 1031,
+      "text": "anxiety",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "anxiety",
+        "CUI": "C0003467"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "PatientHistory",
+      "start_index": "82",
+      "end_index": "89",
+      "text": "Anxiety",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "anxiety",
+        "CUI": "C0003467",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "653",
+      "end_index": "674",
+      "text": "non-epileptic-attacks",
+      "attributes": {
+        "Certainty": "5",
+        "CUIPhrase": "non-epileptic",
+        "Negation": "Affirmed",
+        "CUI": "C3495874"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "170",
+      "end_index": "191",
+      "text": "Pregabalin-75-mgms-bd",
+      "attributes": {
+        "DrugName": "pregabalin",
+        "DrugDose": "75",
+        "CUI": "C0657912",
+        "Frequency": "2",
+        "DoseUnit": "mg",
+        "CUIPhrase": "pregabalin"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "337",
+      "end_index": "345",
+      "text": "anxiety-",
+      "attributes": {
+        "CUIPhrase": "anxiety",
+        "Certainty": "5",
+        "CUI": "C0003467",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "143",
+      "end_index": "166",
+      "text": "Lamotrigine-100-mgms-bd",
+      "attributes": {
+        "DrugDose": "100",
+        "CUI": "C0064636",
+        "Frequency": "2",
+        "DrugName": "lamotrigine",
+        "CUIPhrase": "lamotrigine",
+        "DoseUnit": "mg"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "436",
+      "end_index": "444",
+      "text": "anxiety-",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C0003467",
+        "CUIPhrase": "anxiety",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "56",
+      "end_index": "78",
+      "text": "Temporal-lobe-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "CUIPhrase": "temporal-lobe-epilepsy",
+        "Negation": "Affirmed",
+        "CUI": "C0014556",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "468",
+      "end_index": "476",
+      "text": "absences",
+      "attributes": {
+        "CUIPhrase": "absences",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUI": "C0563606"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "93",
+      "end_index": "122",
+      "text": "Non-epileptic-attack-disorder",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C3495874",
+        "CUIPhrase": "non-epileptic-attacks",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "800",
+      "end_index": "807",
+      "text": "anxiety",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "anxiety",
+        "CUI": "C0003467"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1024",
+      "end_index": "1031",
+      "text": "anxiety",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "anxiety",
+        "CUI": "C0003467"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T1",
+      "type": "PatientHistory",
+      "text": "Anxiety",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "text": "Non-epileptic-attack-disorder",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T5",
+      "type": "Prescription",
+      "text": "Lamotrigine-100-mgms-bd",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T3",
+      "type": "Prescription",
+      "text": "Pregabalin-75-mgms-bd",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "text": "anxiety-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "text": "anxiety-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "text": "absences",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "text": "non-epileptic-attacks",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "text": "anxiety",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "text": "anxiety",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [],
+  "type_counts": {
+    "Diagnosis": 1,
+    "PatientHistory": 8,
+    "Prescription": 2
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "10 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T1",
+          "type": "PatientHistory",
+          "text": "Anxiety",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T9",
+          "type": "PatientHistory",
+          "text": "Non-epileptic-attack-disorder",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T5",
+          "type": "Prescription",
+          "text": "Lamotrigine-100-mgms-bd",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T3",
+          "type": "Prescription",
+          "text": "Pregabalin-75-mgms-bd",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T4",
+          "type": "PatientHistory",
+          "text": "anxiety-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T6",
+          "type": "PatientHistory",
+          "text": "anxiety-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T8",
+          "type": "PatientHistory",
+          "text": "absences",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T2",
+          "type": "PatientHistory",
+          "text": "non-epileptic-attacks",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T10",
+          "type": "PatientHistory",
+          "text": "anxiety",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T12",
+          "type": "PatientHistory",
+          "text": "anxiety",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

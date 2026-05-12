@@ -1,0 +1,316 @@
+{
+  "id": "EA0184",
+  "text": "Dear Dr,\n\nI reviewed this 42 year old gentleman with epilepsy after a previous significant head injury in clinic today. His brother was also with him. Currently he is taking carbamazepine 300 mg BD. He also takes gabapentin 300 mg tds. His brother said that he has had three generalised tonic clonic seizures and more of his typical absences since the last clinic appointment. We did have a chat about changing his medication today but he was reluctant to do this. I will review him again in four months time.\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 53,
+      "end": 61,
+      "text": "epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "start": 91,
+      "end": 102,
+      "text": "head-injury",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "head-injury",
+        "CUI": "C0497301"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "start": 151,
+      "end": 197,
+      "text": "Currently-he-is-taking-carbamazepine-300-mg-BD",
+      "attributes": {
+        "DrugName": "carbamazepine",
+        "DrugDose": "300",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "carbamazepine",
+        "CUI": "C0006949"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Prescription",
+      "start": 199,
+      "end": 234,
+      "text": "He-also-takes-gabapentin-300-mg-tds",
+      "attributes": {
+        "DrugName": "gabapentin",
+        "DrugDose": "300",
+        "DoseUnit": "mg",
+        "Frequency": "3",
+        "CUIPhrase": "gabapentin",
+        "CUI": "C0060926"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "SeizureFrequency",
+      "start": 275,
+      "end": 306,
+      "text": "generalised-tonic-tonic-seizure",
+      "attributes": {
+        "NumberOfSeizures": "3",
+        "PointInTime": "LastClinic",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "generalised-tonic-clonic-seizure",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "Diagnosis",
+      "start": 275,
+      "end": 307,
+      "text": "generalised-tonic-tonic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "id": "T13",
+      "type": "SeizureFrequency",
+      "start": 324,
+      "end": 337,
+      "text": "typical-absen",
+      "attributes": {
+        "FrequencyChange": "Same",
+        "PointInTime": "LastClinic",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "typical-absences",
+        "CUI": "C4316903"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "Diagnosis",
+      "start": 324,
+      "end": 338,
+      "text": "typical-absenc",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "typical-absences",
+        "CUI": "C4316903"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "53",
+      "end_index": "61",
+      "text": "epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "91",
+      "end_index": "102",
+      "text": "head-injury",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "head-injury",
+        "CUI": "C0497301"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "151",
+      "end_index": "197",
+      "text": "Currently-he-is-taking-carbamazepine-300-mg-BD",
+      "attributes": {
+        "DrugName": "carbamazepine",
+        "DrugDose": "300",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "carbamazepine",
+        "CUI": "C0006949"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "199",
+      "end_index": "234",
+      "text": "He-also-takes-gabapentin-300-mg-tds",
+      "attributes": {
+        "DrugName": "gabapentin",
+        "DrugDose": "300",
+        "DoseUnit": "mg",
+        "Frequency": "3",
+        "CUIPhrase": "gabapentin",
+        "CUI": "C0060926"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "275",
+      "end_index": "307",
+      "text": "generalised-tonic-tonic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "275",
+      "end_index": "306",
+      "text": "generalised-tonic-tonic-seizure",
+      "attributes": {
+        "NumberOfSeizures": "3",
+        "PointInTime": "LastClinic",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "generalised-tonic-clonic-seizure",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "324",
+      "end_index": "338",
+      "text": "typical-absenc",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "typical-absences",
+        "CUI": "C4316903"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "324",
+      "end_index": "337",
+      "text": "typical-absen",
+      "attributes": {
+        "FrequencyChange": "Same",
+        "PointInTime": "LastClinic",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "typical-absences",
+        "CUI": "C4316903"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "text": "head-injury",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "text": "Currently-he-is-taking-carbamazepine-300-mg-BD",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T8",
+      "type": "Prescription",
+      "text": "He-also-takes-gabapentin-300-mg-tds",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T12",
+      "type": "SeizureFrequency",
+      "text": "generalised-tonic-tonic-seizure",
+      "start": 275,
+      "end": 306,
+      "year": null,
+      "period": null,
+      "num_periods": null,
+      "time_since": "Since",
+      "point_in_time": "LastClinic",
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "3"
+    },
+    {
+      "id": "T13",
+      "type": "SeizureFrequency",
+      "text": "typical-absen",
+      "start": 324,
+      "end": 337,
+      "year": null,
+      "period": null,
+      "num_periods": null,
+      "time_since": "Since",
+      "point_in_time": "LastClinic",
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": null
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 3,
+    "PatientHistory": 1,
+    "Prescription": 2,
+    "SeizureFrequency": 2
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "3 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T4",
+          "type": "PatientHistory",
+          "text": "head-injury",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T6",
+          "type": "Prescription",
+          "text": "Currently-he-is-taking-carbamazepine-300-mg-BD",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T8",
+          "type": "Prescription",
+          "text": "He-also-takes-gabapentin-300-mg-tds",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

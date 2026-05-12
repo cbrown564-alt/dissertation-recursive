@@ -1,0 +1,265 @@
+{
+  "id": "EA0191",
+  "text": "Diagnosis: focal epilepsy\n \nCurrent medication: Levetiracetam 1500mg twice daily\nZonisamide: 100mg bd\nCarbamazepine 400mg bd\n \nCurrent seizure frequency: No events since surgery\n \nI reviewed Gillian with her brother in the epilepsy specialist nurse clinic today. Gillian has had no further seizures since her surgery, which is excellent news. As you know she has had some issues with low mood, but this is now improving. We took time to discuss the issues here and I was pleased to see that things are improving.\n \nGillian is starting to think of taking up new hobbies and maybe to consider driving which is great news. We had a discussion about the medication and at present we decided that it was best to leave thigns as they were but in her next consultant appointment we would discuss reducing one of her medications slowly.\n \nShe has an appointment with the mental health team in the near future and we will follow her up after that\n \nYours\n\n",
+  "entities": [
+    {
+      "id": "T1",
+      "type": "Diagnosis",
+      "start": 11,
+      "end": 25,
+      "text": "focal-epilepsy",
+      "attributes": {
+        "CUIPhrase": "focal-epilepsy",
+        "CUI": "C0014547",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "DiagCategory": "Epilepsy"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "Prescription",
+      "start": 28,
+      "end": 80,
+      "text": "Current-medication:-Levetiracetam-1500mg-twice-daily",
+      "attributes": {
+        "CUI": "C0377265",
+        "DrugDose": "1500",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "levetiracetam",
+        "DrugName": "levetiracetam"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "Prescription",
+      "start": 81,
+      "end": 91,
+      "text": "Zonisamide",
+      "attributes": {
+        "CUIPhrase": "zonisamide",
+        "DrugDose": "100",
+        "CUI": "C0078844",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "DrugName": "Zonisamide"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "start": 102,
+      "end": 124,
+      "text": "Carbamazepine-400mg-bd",
+      "attributes": {
+        "DoseUnit": "mg",
+        "CUIPhrase": "carbamazepine",
+        "CUI": "C0006949",
+        "DrugName": "carbamazepine",
+        "DrugDose": "400",
+        "Frequency": "2"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "SeizureFrequency",
+      "start": 135,
+      "end": 153,
+      "text": "seizure-frequency:",
+      "attributes": {
+        "CUI": "C0036572",
+        "PointInTime": "Surgery",
+        "CUIPhrase": "seizure",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "NumberOfSeizures": "0"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "SeizureFrequency",
+      "start": 290,
+      "end": 298,
+      "text": "seizures",
+      "attributes": {
+        "CUI": "C0036572",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "PointInTime": "Surgery",
+        "CUIPhrase": "seizures",
+        "NumberOfSeizures": "0"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "11",
+      "end_index": "25",
+      "text": "focal-epilepsy",
+      "attributes": {
+        "CUIPhrase": "focal-epilepsy",
+        "CUI": "C0014547",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "DiagCategory": "Epilepsy"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "81",
+      "end_index": "91",
+      "text": "Zonisamide",
+      "attributes": {
+        "CUIPhrase": "zonisamide",
+        "DrugDose": "100",
+        "CUI": "C0078844",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "DrugName": "Zonisamide"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "28",
+      "end_index": "80",
+      "text": "Current-medication:-Levetiracetam-1500mg-twice-daily",
+      "attributes": {
+        "CUI": "C0377265",
+        "DrugDose": "1500",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "levetiracetam",
+        "DrugName": "levetiracetam"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "102",
+      "end_index": "124",
+      "text": "Carbamazepine-400mg-bd",
+      "attributes": {
+        "DoseUnit": "mg",
+        "CUIPhrase": "carbamazepine",
+        "CUI": "C0006949",
+        "DrugName": "carbamazepine",
+        "DrugDose": "400",
+        "Frequency": "2"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "290",
+      "end_index": "298",
+      "text": "seizures",
+      "attributes": {
+        "CUI": "C0036572",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "PointInTime": "Surgery",
+        "CUIPhrase": "seizures",
+        "NumberOfSeizures": "0"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "135",
+      "end_index": "153",
+      "text": "seizure-frequency:",
+      "attributes": {
+        "CUI": "C0036572",
+        "PointInTime": "Surgery",
+        "CUIPhrase": "seizure",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "NumberOfSeizures": "0"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T3",
+      "type": "Prescription",
+      "text": "Current-medication:-Levetiracetam-1500mg-twice-daily",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T2",
+      "type": "Prescription",
+      "text": "Zonisamide",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "text": "Carbamazepine-400mg-bd",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T6",
+      "type": "SeizureFrequency",
+      "text": "seizure-frequency:",
+      "start": 135,
+      "end": 153,
+      "year": null,
+      "period": null,
+      "num_periods": null,
+      "time_since": "Since",
+      "point_in_time": "Surgery",
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    },
+    {
+      "id": "T5",
+      "type": "SeizureFrequency",
+      "text": "seizures",
+      "start": 290,
+      "end": 298,
+      "year": null,
+      "period": null,
+      "num_periods": null,
+      "time_since": "Since",
+      "point_in_time": "Surgery",
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 1,
+    "Prescription": 3,
+    "SeizureFrequency": 2
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "3 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T3",
+          "type": "Prescription",
+          "text": "Current-medication:-Levetiracetam-1500mg-twice-daily",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T2",
+          "type": "Prescription",
+          "text": "Zonisamide",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T4",
+          "type": "Prescription",
+          "text": "Carbamazepine-400mg-bd",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

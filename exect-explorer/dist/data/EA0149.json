@@ -1,0 +1,321 @@
+{
+  "id": "EA0149",
+  "text": "Clinic Date:\n18/09/2013\n\n\n\nDear Xxxx\n\n\n\nRe: \tMr. Yyy Zzzzz\tD.O.B: 01/01/1972, NHS No. 000 000 0000\n1 Old Road  Old Town XX1 1XX \n\nDiagnosis:   Focal seizures,  possible TLE\nMedication: Carbamazepine 200mg twice a day\n\n\nThank you for referring this 41-year-old administrator to my clinic. For the last 10 months he has been having déjà vu episodes which are associated with nausea and an odd taste in his mouth. The episodes are short, lasting less than a minute, and he is fully aware throughout. Present frequency is 4 to 5 episodes a month. \n\nHis birth was normal. There is no history of febrile seizures, brain infections, or head injury. There is no family history of epilepsy. He is generally fit and well.\n\nHis neurological examination today was totally normal.\n\nHis EEG which was done last November is reported as mildly abnormal,  containing bi-temporal irregular slow activity. There was no frank epileptiform activity seen.\nHe is still awaiting an MRI examination.\nComments:\nThe episodes are suggestive of temporal lobe epilepsy. \nHe should be started on Carbamazepine 200md bd.\nI will review him in my clinic following his MRI examination. \n\nYours Sincerely,\n",
+  "entities": [
+    {
+      "id": "T3",
+      "type": "Diagnosis",
+      "start": 143,
+      "end": 157,
+      "text": "Focal-seizures",
+      "attributes": {
+        "CUIPhrase": "focal-seizures",
+        "DiagCategory": "MultipleSeizures",
+        "CUI": "C0751495",
+        "Negation": "Affirmed",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 160,
+      "end": 172,
+      "text": "possible-TLE",
+      "attributes": {
+        "CUI": "C0014556",
+        "Certainty": "3",
+        "CUIPhrase": "temporal-lobe-epilepsy",
+        "DiagCategory": "Epilepsy",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "start": 173,
+      "end": 216,
+      "text": "Medication:-Carbamazepine-200mg-twice-a-day",
+      "attributes": {
+        "Frequency": "2",
+        "CUI": "C0006949",
+        "DrugName": "carbamazepine",
+        "DrugDose": "200",
+        "CUIPhrase": "carbamazepine",
+        "DoseUnit": "mg"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "start": 330,
+      "end": 337,
+      "text": "déjà-vu",
+      "attributes": {
+        "TimePeriod": "Month",
+        "NumberOfTimePeriods": "10",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "déjà-vu",
+        "CUI": "C0011194"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "BirthHistory",
+      "start": 549,
+      "end": 564,
+      "text": "birth-was-norma",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "normal-birth",
+        "CUI": "C3665337"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "PatientHistory",
+      "start": 590,
+      "end": 606,
+      "text": "febrile-seizures",
+      "attributes": {
+        "Negation": "Negated",
+        "Certainty": "1",
+        "CUI": "C0009952",
+        "CUIPhrase": "febrile-seizures"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "Investigations",
+      "start": 773,
+      "end": 776,
+      "text": "EEG",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Abnormal",
+        "CUIPhrase": "abnormal-eeg",
+        "CUI": "C0151611"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Diagnosis",
+      "start": 1016,
+      "end": 1039,
+      "text": "temporal-lobe-epilepsy",
+      "attributes": {
+        "CUI": "C0014556",
+        "Negation": "Affirmed",
+        "Certainty": "4",
+        "CUIPhrase": "temporal-lobe-epilepsy",
+        "DiagCategory": "Epilepsy"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "160",
+      "end_index": "172",
+      "text": "possible-TLE",
+      "attributes": {
+        "CUI": "C0014556",
+        "Certainty": "3",
+        "CUIPhrase": "temporal-lobe-epilepsy",
+        "DiagCategory": "Epilepsy",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "143",
+      "end_index": "157",
+      "text": "Focal-seizures",
+      "attributes": {
+        "CUIPhrase": "focal-seizures",
+        "DiagCategory": "MultipleSeizures",
+        "CUI": "C0751495",
+        "Negation": "Affirmed",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "330",
+      "end_index": "337",
+      "text": "déjà-vu",
+      "attributes": {
+        "TimePeriod": "Month",
+        "NumberOfTimePeriods": "10",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "déjà-vu",
+        "CUI": "C0011194"
+      }
+    },
+    {
+      "entity": "BirthHistory",
+      "start_index": "549",
+      "end_index": "564",
+      "text": "birth-was-norma",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "normal-birth",
+        "CUI": "C3665337"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "773",
+      "end_index": "776",
+      "text": "EEG",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Abnormal",
+        "CUIPhrase": "abnormal-eeg",
+        "CUI": "C0151611"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1016",
+      "end_index": "1039",
+      "text": "temporal-lobe-epilepsy",
+      "attributes": {
+        "CUI": "C0014556",
+        "Negation": "Affirmed",
+        "Certainty": "4",
+        "CUIPhrase": "temporal-lobe-epilepsy",
+        "DiagCategory": "Epilepsy"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "173",
+      "end_index": "216",
+      "text": "Medication:-Carbamazepine-200mg-twice-a-day",
+      "attributes": {
+        "Frequency": "2",
+        "CUI": "C0006949",
+        "DrugName": "carbamazepine",
+        "DrugDose": "200",
+        "CUIPhrase": "carbamazepine",
+        "DoseUnit": "mg"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "590",
+      "end_index": "606",
+      "text": "febrile-seizures",
+      "attributes": {
+        "Negation": "Negated",
+        "Certainty": "1",
+        "CUI": "C0009952",
+        "CUIPhrase": "febrile-seizures"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "text": "Medication:-Carbamazepine-200mg-twice-a-day",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T7",
+      "type": "PatientHistory",
+      "text": "febrile-seizures",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "text": "déjà-vu",
+      "start": 330,
+      "end": 337,
+      "year": null,
+      "period": "Month",
+      "num_periods": "10",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": null
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 3,
+    "Prescription": 1,
+    "PatientHistory": 2,
+    "BirthHistory": 1,
+    "Investigations": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "2 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T6",
+          "type": "Prescription",
+          "text": "Medication:-Carbamazepine-200mg-twice-a-day",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T7",
+          "type": "PatientHistory",
+          "text": "febrile-seizures",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    },
+    {
+      "category": "negated_entities",
+      "description": "1 entity/ies are explicitly negated in the text.",
+      "details": [
+        {
+          "id": "T7",
+          "type": "PatientHistory",
+          "text": "febrile-seizures"
+        }
+      ],
+      "oracle_impact": "clinical_precision"
+    }
+  ],
+  "negated_entities": [
+    {
+      "id": "T7",
+      "type": "PatientHistory",
+      "text": "febrile-seizures"
+    }
+  ],
+  "low_certainty": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "text": "possible-TLE",
+      "certainty": 3
+    },
+    {
+      "id": "T7",
+      "type": "PatientHistory",
+      "text": "febrile-seizures",
+      "certainty": 1
+    },
+    {
+      "id": "T4",
+      "type": "Diagnosis",
+      "text": "temporal-lobe-epilepsy",
+      "certainty": 4
+    }
+  ],
+  "has_unknown_seizure": false
+}

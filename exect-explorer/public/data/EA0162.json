@@ -1,0 +1,243 @@
+{
+  "id": "EA0162",
+  "text": "Clinic date 01/02/2006\n\nRE Mr John Jonesy\tD.O.B:\t30/01/1993\n\nProblem\tEpilepsy\n\t\tASD\n\t\tPrevious episode of status epilepticus\n\nI met with John and his mother in clinic today. Since I last saw John he has not had any more seizures but he did have a cluster of three seizures in a 24-hr period in Devember. These were generalised tonic-clonic seizures. John had been drinking alcohol the previous day however.\n\nI have not made any changes to his medication (John is taking carbamazepine 400mg bd) and will continue to follow him in clinic\n",
+  "entities": [
+    {
+      "id": "T6",
+      "type": "Diagnosis",
+      "start": 69,
+      "end": 77,
+      "text": "Epilepsy",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0014544",
+        "CUIPhrase": "epilepsy",
+        "Negation": "Affirmed",
+        "DiagCategory": "Epilepsy"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "start": 80,
+      "end": 83,
+      "text": "ASD",
+      "attributes": {
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUIPhrase": "asd",
+        "CUI": "C1510586"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Diagnosis",
+      "start": 106,
+      "end": 124,
+      "text": "status-epilepticus",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "status-epilepticus",
+        "CUI": "C0038220"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "SeizureFrequency",
+      "start": 220,
+      "end": 229,
+      "text": "seizures-",
+      "attributes": {
+        "CUI": "C0036572",
+        "NumberOfSeizures": "0",
+        "CUIPhrase": "seizures",
+        "PointInTime": "LastClinic",
+        "TimeSince_or_TimeOfEvent": "Since"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "PatientHistory",
+      "start": 247,
+      "end": 272,
+      "text": "cluster-of-three-seizures",
+      "attributes": {
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUIPhrase": "cluster-of-seizures",
+        "CUI": "C3203523"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "Prescription",
+      "start": 470,
+      "end": 484,
+      "text": "carbamazepine-",
+      "attributes": {
+        "CUIPhrase": "Carbamazepine",
+        "DrugName": "Carbamazepine",
+        "Frequency": "2",
+        "DoseUnit": "mg",
+        "DrugDose": "400",
+        "CUI": "C0006949"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "106",
+      "end_index": "124",
+      "text": "status-epilepticus",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "status-epilepticus",
+        "CUI": "C0038220"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "220",
+      "end_index": "229",
+      "text": "seizures-",
+      "attributes": {
+        "CUI": "C0036572",
+        "NumberOfSeizures": "0",
+        "CUIPhrase": "seizures",
+        "PointInTime": "LastClinic",
+        "TimeSince_or_TimeOfEvent": "Since"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "247",
+      "end_index": "272",
+      "text": "cluster-of-three-seizures",
+      "attributes": {
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUIPhrase": "cluster-of-seizures",
+        "CUI": "C3203523"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "80",
+      "end_index": "83",
+      "text": "ASD",
+      "attributes": {
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUIPhrase": "asd",
+        "CUI": "C1510586"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "470",
+      "end_index": "484",
+      "text": "carbamazepine-",
+      "attributes": {
+        "CUIPhrase": "Carbamazepine",
+        "DrugName": "Carbamazepine",
+        "Frequency": "2",
+        "DoseUnit": "mg",
+        "DrugDose": "400",
+        "CUI": "C0006949"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "69",
+      "end_index": "77",
+      "text": "Epilepsy",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0014544",
+        "CUIPhrase": "epilepsy",
+        "Negation": "Affirmed",
+        "DiagCategory": "Epilepsy"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "text": "ASD",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T3",
+      "type": "PatientHistory",
+      "text": "cluster-of-three-seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T5",
+      "type": "Prescription",
+      "text": "carbamazepine-",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T1",
+      "type": "SeizureFrequency",
+      "text": "seizures-",
+      "start": 220,
+      "end": 229,
+      "year": null,
+      "period": null,
+      "num_periods": null,
+      "time_since": "Since",
+      "point_in_time": "LastClinic",
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 2,
+    "PatientHistory": 2,
+    "SeizureFrequency": 1,
+    "Prescription": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "3 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T4",
+          "type": "PatientHistory",
+          "text": "ASD",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T3",
+          "type": "PatientHistory",
+          "text": "cluster-of-three-seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T5",
+          "type": "Prescription",
+          "text": "carbamazepine-",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

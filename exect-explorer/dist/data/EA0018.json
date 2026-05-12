@@ -1,0 +1,238 @@
+{
+  "id": "EA0018",
+  "text": "Dear Dr.\n\nI reviewed this 42 year old lady with epilepsy, together with her husband, in clinic today. She tells me that she has been getting episodes around twice a week of an unusual thought. This was difficult to describe but it was like an overfamiliar or déjà vu feeling. These thoughts last for around 30 seconds. I think these are in keeping with temporal lobe onset focal seizures. This is interesting as previously she was getting events with coloured objects in her field of vision which were probably occipital lobe seizures.\n\nCurrently she is taking sodium valproate 500 mg twice a day and levetiracetam 1000 mg twice today. She has previously tried carbamazepine but this give her a rash. I explained the new MHRA rules on prescribing sodium valproate in women of child bearing age. Even though Mrs Williams has no plans for further children, rules stated that we should try an alternative medication given that she does not want to use a secure form of contraception. We had a discussion about the various risks and benefits of stopping sodium valproate. She should slowly reduce the sodium valproate by 200 mg every week. At the same time, she should introduce lamotrigine at 25 mg every day, increasing by 25 mg every fortnight, to a target dose of 75 mg twice a day.\n\nWe also had a discussion about sudden death in epilepy (SUDEP). Overall this is rare, it is if real risk with people all continue to get seizures. We discussed things that can reduce the risk of SUDEP. These include not forgetting medication and controlling seizures. I will review Mrs Williams again in four months time.\n\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 48,
+      "end": 56,
+      "text": "epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Diagnosis",
+      "start": 353,
+      "end": 366,
+      "text": "temporal-lobe",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "temporal-lobe-seizure",
+        "CUI": "C0014556"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Diagnosis",
+      "start": 373,
+      "end": 387,
+      "text": "focal-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-seizures",
+        "CUI": "C0751495"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Diagnosis",
+      "start": 511,
+      "end": 534,
+      "text": "occipital-lobe-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "occipital-lobe-seizures",
+        "CUI": "C0393691"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "Prescription",
+      "start": 537,
+      "end": 596,
+      "text": "Currently-she-is-taking-sodium-valproate-500-mg-twice-a-day",
+      "attributes": {
+        "DrugName": "sodium-valproate",
+        "DrugDose": "500",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "sodium-valproate",
+        "CUI": "C0037567"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "Prescription",
+      "start": 601,
+      "end": 634,
+      "text": "levetiracetam-1000-mg-twice-today",
+      "attributes": {
+        "DrugName": "levetiracetam",
+        "DrugDose": "1000",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "levetiracetam",
+        "CUI": "C0377265"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "48",
+      "end_index": "56",
+      "text": "epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "353",
+      "end_index": "366",
+      "text": "temporal-lobe",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "temporal-lobe-seizure",
+        "CUI": "C0014556"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "373",
+      "end_index": "387",
+      "text": "focal-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-seizures",
+        "CUI": "C0751495"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "511",
+      "end_index": "534",
+      "text": "occipital-lobe-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "occipital-lobe-seizures",
+        "CUI": "C0393691"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "537",
+      "end_index": "596",
+      "text": "Currently-she-is-taking-sodium-valproate-500-mg-twice-a-day",
+      "attributes": {
+        "DrugName": "sodium-valproate",
+        "DrugDose": "500",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "sodium-valproate",
+        "CUI": "C0037567"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "601",
+      "end_index": "634",
+      "text": "levetiracetam-1000-mg-twice-today",
+      "attributes": {
+        "DrugName": "levetiracetam",
+        "DrugDose": "1000",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "levetiracetam",
+        "CUI": "C0377265"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T10",
+      "type": "Prescription",
+      "text": "Currently-she-is-taking-sodium-valproate-500-mg-twice-a-day",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T12",
+      "type": "Prescription",
+      "text": "levetiracetam-1000-mg-twice-today",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [],
+  "type_counts": {
+    "Diagnosis": 4,
+    "Prescription": 2
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "2 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T10",
+          "type": "Prescription",
+          "text": "Currently-she-is-taking-sodium-valproate-500-mg-twice-a-day",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T12",
+          "type": "Prescription",
+          "text": "levetiracetam-1000-mg-twice-today",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [
+    {
+      "id": "T6",
+      "type": "Diagnosis",
+      "text": "temporal-lobe",
+      "certainty": 4
+    },
+    {
+      "id": "T4",
+      "type": "Diagnosis",
+      "text": "focal-seizures",
+      "certainty": 4
+    },
+    {
+      "id": "T8",
+      "type": "Diagnosis",
+      "text": "occipital-lobe-seizures",
+      "certainty": 4
+    }
+  ],
+  "has_unknown_seizure": false
+}

@@ -1,0 +1,288 @@
+{
+  "id": "EA0048",
+  "text": "letter date 30.5.2010\nLisa Evans. D.O.B. 5/5/1985\nDear Doctor,\nDiagnosis: probable juvenile myoclonic epilepsy\nMedication: Topiramate 100 mg twice a day\nEpilim 400 mg twice a day\nPlan:\n1. no change to medication today.\n2. We discussed the valproate risk acknowledgement form and we will send that in the post\n3. Lisa can contact us through the epilepsy helpline if she has any concerns.\nLisa continues to get jerks several times a day. She also gets tonic clonic seizures. The last one of these happened around three weeks ago. Tiredness and stress make these worse. Unfortunately she is getting quite a bit of stress at the moment deal to problems with her ex partner. She is also finding it difficult to remember things. \n We went over the risks of a Eplim in pregnancy. Lisa has no plans for further children and she currently has the implant contraceptive. We sign the risk acknowledgement form. She knows that she will need to sign this again next year.\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 83,
+      "end": 110,
+      "text": "juvenile-myoclonic-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "juvenile-myoclonic-epilepsy",
+        "CUI": "C0270853"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "start": 111,
+      "end": 152,
+      "text": "Medication:-Topiramate-100-mg-twice-a-day",
+      "attributes": {
+        "DrugName": "topiramate",
+        "DrugDose": "100",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "topiramate",
+        "CUI": "C0076829"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "start": 153,
+      "end": 178,
+      "text": "Epilim-400-mg-twice-a-day",
+      "attributes": {
+        "DrugName": "epilim",
+        "DrugDose": "400",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "epilim",
+        "CUI": "C0591451"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "start": 409,
+      "end": 414,
+      "text": "jerks",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "jerk",
+        "CUI": "C0231530"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "Diagnosis",
+      "start": 450,
+      "end": 471,
+      "text": "tonic-clonic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "SeizureFrequency",
+      "start": 450,
+      "end": 471,
+      "text": "tonic-clonic-seizures",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "TimePeriod": "Week",
+        "NumberOfTimePeriods": "3",
+        "CUIPhrase": "tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "83",
+      "end_index": "110",
+      "text": "juvenile-myoclonic-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "juvenile-myoclonic-epilepsy",
+        "CUI": "C0270853"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "111",
+      "end_index": "152",
+      "text": "Medication:-Topiramate-100-mg-twice-a-day",
+      "attributes": {
+        "DrugName": "topiramate",
+        "DrugDose": "100",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "topiramate",
+        "CUI": "C0076829"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "153",
+      "end_index": "178",
+      "text": "Epilim-400-mg-twice-a-day",
+      "attributes": {
+        "DrugName": "epilim",
+        "DrugDose": "400",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "epilim",
+        "CUI": "C0591451"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "409",
+      "end_index": "414",
+      "text": "jerks",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "jerk",
+        "CUI": "C0231530"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "450",
+      "end_index": "471",
+      "text": "tonic-clonic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "450",
+      "end_index": "471",
+      "text": "tonic-clonic-seizures",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "TimePeriod": "Week",
+        "NumberOfTimePeriods": "3",
+        "CUIPhrase": "tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 450,
+      "end": 471,
+      "text": "tonic-clonic-seizures",
+      "entity_types": [
+        "Diagnosis",
+        "SeizureFrequency"
+      ],
+      "entity_ids": [
+        "T10",
+        "T12"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "text": "Medication:-Topiramate-100-mg-twice-a-day",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "text": "Epilim-400-mg-twice-a-day",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "text": "jerks",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T12",
+      "type": "SeizureFrequency",
+      "text": "tonic-clonic-seizures",
+      "start": 450,
+      "end": 471,
+      "year": null,
+      "period": "Week",
+      "num_periods": "3",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 2,
+    "Prescription": 2,
+    "PatientHistory": 1,
+    "SeizureFrequency": 1
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "1 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 450,
+          "end": 471,
+          "text": "tonic-clonic-seizures",
+          "entity_types": [
+            "Diagnosis",
+            "SeizureFrequency"
+          ],
+          "entity_ids": [
+            "T10",
+            "T12"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "3 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T4",
+          "type": "Prescription",
+          "text": "Medication:-Topiramate-100-mg-twice-a-day",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T6",
+          "type": "Prescription",
+          "text": "Epilim-400-mg-twice-a-day",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T8",
+          "type": "PatientHistory",
+          "text": "jerks",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "text": "juvenile-myoclonic-epilepsy",
+      "certainty": 4
+    }
+  ],
+  "has_unknown_seizure": false
+}

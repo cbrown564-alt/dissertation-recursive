@@ -1,0 +1,158 @@
+{
+  "id": "EA0062",
+  "text": "Our Ref ABC/SW/T4888786\nNHS No 4221549987\nClinic Date 2/4/2014\n\nThe Epilepsy service\n\nDear Dr\n\nr.e. Ms Lydia Lavender\nFlat 2, Heol y Blodau, Treneis. SA12 8RH\n\nI reviewed the 28-year-old woman in clinic today, she came alone. She has had several episodes over the last two years, perhaps six in total.\n \nI phoned her sister who has witnessed several of these episodes, they have occured when she has been awake and when she has been asleep. Her eyes stay open and she will go stiff during them. Sometimes her muscles will ache for days afterwards. She has not had any episodes of myoclonus and photsensitivity doesnt seem to be an issue for her\n \nShe used to live in London and may have had a few seizures when she was younger but cant remember much about this. She thinks that she was born normally and there is no history of meningitis or significant head injury. She has moderate asthma for which she takes inhalers. She works part time in a bar at the moment and lives with her sister.\n \nShe had a CT head in 2013 and an ECG in clinic today shows a sinus rhythm of 72 bpm, a normal QT interval and normal QRS morphology.\n \nImpression. I think that the most likely diagnosis is epilepsy.\nComments. I explained the diagnosis to her and the current DVLA driving regulations.\nI would be grateful if you could start lamotrigine 25mg once a day and increase this by 25mg every fortnight, aiming for a dose of 75mg twice a day. I have enclosed an information leaflet about lamotrigine with this letter.\nI will request an MRI brain\nI will arrange an epilepsy nurse follow up.\n\n",
+  "entities": [
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "start": 697,
+      "end": 706,
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "3",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T16",
+      "type": "BirthHistory",
+      "start": 786,
+      "end": 799,
+      "text": "born-normally",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "born-normally",
+        "CUI": "C3665337"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Investigations",
+      "start": 1002,
+      "end": 1004,
+      "text": "CT",
+      "attributes": {
+        "CT_Performed": "Yes",
+        "CT_Results": "Unknown",
+        "CUIPhrase": "ct-unknown",
+        "CUI": "C3515741"
+      }
+    },
+    {
+      "id": "T13",
+      "type": "Diagnosis",
+      "start": 1181,
+      "end": 1189,
+      "text": "epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "PatientHistory",
+      "start_index": "697",
+      "end_index": "706",
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "3",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "BirthHistory",
+      "start_index": "786",
+      "end_index": "799",
+      "text": "born-normally",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "born-normally",
+        "CUI": "C3665337"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "1002",
+      "end_index": "1004",
+      "text": "CT",
+      "attributes": {
+        "CT_Performed": "Yes",
+        "CT_Results": "Unknown",
+        "CUIPhrase": "ct-unknown",
+        "CUI": "C3515741"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1181",
+      "end_index": "1189",
+      "text": "epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "text": "seizures-",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [],
+  "type_counts": {
+    "PatientHistory": 1,
+    "BirthHistory": 1,
+    "Investigations": 1,
+    "Diagnosis": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "1 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T10",
+          "type": "PatientHistory",
+          "text": "seizures-",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "text": "seizures-",
+      "certainty": 3
+    },
+    {
+      "id": "T13",
+      "type": "Diagnosis",
+      "text": "epilepsy",
+      "certainty": 4
+    }
+  ],
+  "has_unknown_seizure": false
+}

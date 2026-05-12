@@ -1,0 +1,470 @@
+{
+  "id": "EA0183",
+  "text": "Clinic date: 21st May 2013\nDear Dr Xxxx\n\nRe: John Jones    dob:  01.06.1996, NHS No. 000 000 0000\n1 Old Road  Old Town XX1 1XX \nDiagnosis: Complex partial seizures with secondary generalised tonic clonic seizures\nMedication: Sodium Valproate 700mg in the morning and 800mg nocte\n\nJohn’s epilepsy started at the age of 4. He suffered with generalised tonic clonic seizures, which were well controlled on Sodium Valproate. In the last 2 years he developed some minor seizures. He says he feels dizzy at the start, followed by a slight headache and nausea. He has been told that during the episodes he is unresponsive and that his hands may shake slightly. The episodes last no longer than 3 minutes and occur 4 to 5 times a year.\nHis EEG in 2010 was abnormal, with sharp wave activity in the left anterior region. His MRI is normal.\nHe had a normal birth. There is no history of febrile seizures, head injury or brain infections, and no family history of epilepsy.\nI am not keen to increase his dose of Sodium Valproate as there are some concerns regarding his weight. We had a long discussion about this, and Yyyy feels that now since he is more active he can control his weight better. \nI suggest that the dose should be increased by 100mg so that he is on Sodium Valproate 800mg bd. I will review him once again in my clinic, following which, assuming there are no other major issues, he will be followed up in our specialist nurse-led clinic. \nYours sincerely\n\n",
+  "entities": [
+    {
+      "id": "T12",
+      "type": "Diagnosis",
+      "start": 138,
+      "end": 162,
+      "text": "Complex-partial-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "CUI": "C0149958",
+        "CUIPhrase": "complex-partial-seizures",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T13",
+      "type": "Diagnosis",
+      "start": 168,
+      "end": 211,
+      "text": "secondary-generalised-tonic-clonic-seizures",
+      "attributes": {
+        "CUI": "C0877017",
+        "Negation": "Affirmed",
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "CUIPhrase": "secondary-generalised-tonic-clonic-seizures"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "start": 224,
+      "end": 240,
+      "text": "Sodium-Valproate",
+      "attributes": {
+        "CUIPhrase": "sodium-valproate",
+        "DrugName": "SodiumValproate",
+        "DrugDose": "700",
+        "Frequency": "1",
+        "CUI": "C0037567",
+        "DoseUnit": "mg"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "Prescription",
+      "start": 224,
+      "end": 241,
+      "text": "Sodium-Valproate-",
+      "attributes": {
+        "CUIPhrase": "sodium-valproate",
+        "Frequency": "1",
+        "DoseUnit": "mg",
+        "CUI": "C0037567",
+        "DrugDose": "800",
+        "DrugName": "SodiumValproate"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 286,
+      "end": 294,
+      "text": "epilepsy",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0014544",
+        "CUIPhrase": "epilepsy",
+        "Negation": "Affirmed",
+        "DiagCategory": "Epilepsy"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "Onset",
+      "start": 286,
+      "end": 294,
+      "text": "epilepsy",
+      "attributes": {
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "Age": "4",
+        "CUIPhrase": "epilepsy",
+        "AgeUnit": "Year",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Diagnosis",
+      "start": 337,
+      "end": 370,
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "CUIPhrase": "generalised tonic clonic seizures",
+        "CUI": "C0494475",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "DiagCategory": "MultipleSeizures"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "PatientHistory",
+      "start": 464,
+      "end": 473,
+      "text": "-seizures",
+      "attributes": {
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "2",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "Investigations",
+      "start": 731,
+      "end": 734,
+      "text": "EEG",
+      "attributes": {
+        "EEG_Results": "Abnormal",
+        "CUIPhrase": "eeg-abnormal",
+        "CUI": "C0151611",
+        "EEG_Performed": "Yes"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Investigations",
+      "start": 815,
+      "end": 818,
+      "text": "MRI",
+      "attributes": {
+        "MRI_Results": "Normal",
+        "CUI": "C0436481",
+        "CUIPhrase": "mri-normal",
+        "MRI_Performed": "Yes"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "BirthHistory",
+      "start": 839,
+      "end": 851,
+      "text": "normal-birth",
+      "attributes": {
+        "CUIPhrase": "normal-birth",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUI": "C3665337",
+        "PrematureBirth": "37+_TermBirth"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "PatientHistory",
+      "start": 876,
+      "end": 892,
+      "text": "febrile-seizures",
+      "attributes": {
+        "CUI": "C0009952",
+        "Certainty": "1",
+        "CUIPhrase": "febrile-seizures",
+        "Negation": "Negated"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Prescription",
+      "start_index": "224",
+      "end_index": "241",
+      "text": "Sodium-Valproate-",
+      "attributes": {
+        "CUIPhrase": "sodium-valproate",
+        "Frequency": "1",
+        "DoseUnit": "mg",
+        "CUI": "C0037567",
+        "DrugDose": "800",
+        "DrugName": "SodiumValproate"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "286",
+      "end_index": "294",
+      "text": "epilepsy",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0014544",
+        "CUIPhrase": "epilepsy",
+        "Negation": "Affirmed",
+        "DiagCategory": "Epilepsy"
+      }
+    },
+    {
+      "entity": "Onset",
+      "start_index": "286",
+      "end_index": "294",
+      "text": "epilepsy",
+      "attributes": {
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "Age": "4",
+        "CUIPhrase": "epilepsy",
+        "AgeUnit": "Year",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "464",
+      "end_index": "473",
+      "text": "-seizures",
+      "attributes": {
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "2",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "815",
+      "end_index": "818",
+      "text": "MRI",
+      "attributes": {
+        "MRI_Results": "Normal",
+        "CUI": "C0436481",
+        "CUIPhrase": "mri-normal",
+        "MRI_Performed": "Yes"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "876",
+      "end_index": "892",
+      "text": "febrile-seizures",
+      "attributes": {
+        "CUI": "C0009952",
+        "Certainty": "1",
+        "CUIPhrase": "febrile-seizures",
+        "Negation": "Negated"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "224",
+      "end_index": "240",
+      "text": "Sodium-Valproate",
+      "attributes": {
+        "CUIPhrase": "sodium-valproate",
+        "DrugName": "SodiumValproate",
+        "DrugDose": "700",
+        "Frequency": "1",
+        "CUI": "C0037567",
+        "DoseUnit": "mg"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "337",
+      "end_index": "370",
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "CUIPhrase": "generalised",
+        "CUI": "C0494475",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "DiagCategory": "MultipleSeizures"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "731",
+      "end_index": "734",
+      "text": "EEG",
+      "attributes": {
+        "EEG_Results": "Abnormal",
+        "CUIPhrase": "eeg-abnormal",
+        "CUI": "C0151611",
+        "EEG_Performed": "Yes"
+      }
+    },
+    {
+      "entity": "BirthHistory",
+      "start_index": "839",
+      "end_index": "851",
+      "text": "normal-birth",
+      "attributes": {
+        "CUIPhrase": "normal-birth",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUI": "C3665337",
+        "PrematureBirth": "37+_TermBirth"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "168",
+      "end_index": "211",
+      "text": "secondary-generalised-tonic-clonic-seizures",
+      "attributes": {
+        "CUI": "C0877017",
+        "Negation": "Affirmed",
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "CUIPhrase": "secondary-generalised-tonic-clonic-seizures"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "138",
+      "end_index": "162",
+      "text": "Complex-partial-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "CUI": "C0149958",
+        "CUIPhrase": "complex-partial-seizures",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 286,
+      "end": 294,
+      "text": "epilepsy",
+      "entity_types": [
+        "Diagnosis",
+        "Onset"
+      ],
+      "entity_ids": [
+        "T2",
+        "T3"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "text": "Sodium-Valproate",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T1",
+      "type": "Prescription",
+      "text": "Sodium-Valproate-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T5",
+      "type": "PatientHistory",
+      "text": "febrile-seizures",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T11",
+      "type": "PatientHistory",
+      "text": "-seizures",
+      "start": 464,
+      "end": 473,
+      "year": null,
+      "period": "Year",
+      "num_periods": "2",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": null
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 4,
+    "Prescription": 2,
+    "Onset": 1,
+    "PatientHistory": 2,
+    "Investigations": 2,
+    "BirthHistory": 1
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "1 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 286,
+          "end": 294,
+          "text": "epilepsy",
+          "entity_types": [
+            "Diagnosis",
+            "Onset"
+          ],
+          "entity_ids": [
+            "T2",
+            "T3"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "3 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T6",
+          "type": "Prescription",
+          "text": "Sodium-Valproate",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T1",
+          "type": "Prescription",
+          "text": "Sodium-Valproate-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T5",
+          "type": "PatientHistory",
+          "text": "febrile-seizures",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    },
+    {
+      "category": "negated_entities",
+      "description": "1 entity/ies are explicitly negated in the text.",
+      "details": [
+        {
+          "id": "T5",
+          "type": "PatientHistory",
+          "text": "febrile-seizures"
+        }
+      ],
+      "oracle_impact": "clinical_precision"
+    }
+  ],
+  "negated_entities": [
+    {
+      "id": "T5",
+      "type": "PatientHistory",
+      "text": "febrile-seizures"
+    }
+  ],
+  "low_certainty": [
+    {
+      "id": "T5",
+      "type": "PatientHistory",
+      "text": "febrile-seizures",
+      "certainty": 1
+    }
+  ],
+  "has_unknown_seizure": false
+}

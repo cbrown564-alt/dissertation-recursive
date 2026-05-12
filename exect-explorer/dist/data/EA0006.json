@@ -1,0 +1,520 @@
+{
+  "id": "EA0006",
+  "text": "Dear Dr,\n\nDiagnosis: Epilepsy – unclassified, possibly generalised.\n\nCurrent antiepileptic medication: levetiracetam 500 mg twice a day\n\nPrevious antiepileptic medication: lamotrigine and carbamazepine.\n\nSeizure type and frequency: 2 generalised tonic clonic seizures 2014, absence like seizures 2014\n\nInvestigations: MRI 2015 normal, EEG 2015 normal.\n\nI reviewed this 26 year old man alone in clinic today. I was pleased to hear that he remains seizure free and is now driving. As you know he had 2 generalised tonic clonic seizures in 2014 without warning. They may have been preceded by leg jerking. Around the same time he would also have “absence-like” episodes. During these he would stop and stare for a few seconds. He himself did not know that these were happening. He has not had any other episode which may resemble myoclonus or focal seizures.\n\nMr Turko had some febrile seizures when he was younger. There is no family history of epilepsy and both his sons are well and have not had seizures. \n\nWe had some discussion about epilepsy. Mr Turko has an ongoing tendency for seizures as such I would really recommend long-term treatment with anti epileptic medication. Mr Turko understands that convulsive seizures with loss of consciousness can rarely cause serious injury or even death(sudden death in epilepsy). He knows that he can contact us should he require an appointment in the future.\n\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 21,
+      "end": 30,
+      "text": "Epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Diagnosis",
+      "start": 55,
+      "end": 66,
+      "text": "generalised",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "3",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-epilepsy",
+        "CUI": "C0014548"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "start": 69,
+      "end": 135,
+      "text": "Current-antiepileptic-medication:-levetiracetam-500-mg-twice-a-day",
+      "attributes": {
+        "DrugName": "levetiracetam",
+        "DrugDose": "500",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "levetiracetam",
+        "CUI": "C0377265"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Diagnosis",
+      "start": 234,
+      "end": 267,
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "SeizureFrequency",
+      "start": 234,
+      "end": 272,
+      "text": "generalised-tonic-clonic-seizures-2014",
+      "attributes": {
+        "NumberOfSeizures": "2",
+        "YearDate": "2014",
+        "TimeSince_or_TimeOfEvent": "During",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "SeizureFrequency",
+      "start": 274,
+      "end": 295,
+      "text": "absence-like-seizures",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "YearDate": "2014",
+        "TimeSince_or_TimeOfEvent": "During",
+        "CUIPhrase": "absence-like-seizures",
+        "CUI": "C0563606"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "PatientHistory",
+      "start": 274,
+      "end": 295,
+      "text": "absence-like-seizures",
+      "attributes": {
+        "YearDate": "2014",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "absence-like-seizures",
+        "CUI": "C0563606"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "Investigations",
+      "start": 318,
+      "end": 333,
+      "text": "MRI-2015-normal",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Normal",
+        "CUIPhrase": "mri-normal",
+        "CUI": "C0436481"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "Investigations",
+      "start": 335,
+      "end": 350,
+      "text": "EEG-2015-normal",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Normal",
+        "CUIPhrase": "eeg-normal",
+        "CUI": "C0560017"
+      }
+    },
+    {
+      "id": "T16",
+      "type": "SeizureFrequency",
+      "start": 498,
+      "end": 541,
+      "text": "2-generalised-tonic-clonic-seizures-in-2014",
+      "attributes": {
+        "NumberOfSeizures": "2",
+        "YearDate": "2014",
+        "TimeSince_or_TimeOfEvent": "During",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "id": "T18",
+      "type": "Diagnosis",
+      "start": 500,
+      "end": 533,
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "id": "T13",
+      "type": "PatientHistory",
+      "start": 643,
+      "end": 666,
+      "text": "“absence-like”-episodes",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "absence",
+        "CUI": "C0563606"
+      }
+    },
+    {
+      "id": "T20",
+      "type": "PatientHistory",
+      "start": 875,
+      "end": 891,
+      "text": "febrile-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "febrile-seizures",
+        "CUI": "C0009952"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "21",
+      "end_index": "30",
+      "text": "Epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "55",
+      "end_index": "66",
+      "text": "generalised",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "3",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-epilepsy",
+        "CUI": "C0014548"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "69",
+      "end_index": "135",
+      "text": "Current-antiepileptic-medication:-levetiracetam-500-mg-twice-a-day",
+      "attributes": {
+        "DrugName": "levetiracetam",
+        "DrugDose": "500",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "levetiracetam",
+        "CUI": "C0377265"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "234",
+      "end_index": "267",
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "234",
+      "end_index": "272",
+      "text": "generalised-tonic-clonic-seizures-2014",
+      "attributes": {
+        "NumberOfSeizures": "2",
+        "YearDate": "2014",
+        "TimeSince_or_TimeOfEvent": "During",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "274",
+      "end_index": "295",
+      "text": "absence-like-seizures",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "YearDate": "2014",
+        "TimeSince_or_TimeOfEvent": "During",
+        "CUIPhrase": "absence-like-seizures",
+        "CUI": "C0563606"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "274",
+      "end_index": "295",
+      "text": "absence-like-seizures",
+      "attributes": {
+        "YearDate": "2014",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "absence-like-seizures",
+        "CUI": "C0563606"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "318",
+      "end_index": "333",
+      "text": "MRI-2015-normal",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Normal",
+        "CUIPhrase": "mri-normal",
+        "CUI": "C0436481"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "335",
+      "end_index": "350",
+      "text": "EEG-2015-normal",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Normal",
+        "CUIPhrase": "eeg-normal",
+        "CUI": "C0560017"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "498",
+      "end_index": "541",
+      "text": "2-generalised-tonic-clonic-seizures-in-2014",
+      "attributes": {
+        "NumberOfSeizures": "2",
+        "YearDate": "2014",
+        "TimeSince_or_TimeOfEvent": "During",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "500",
+      "end_index": "533",
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "643",
+      "end_index": "666",
+      "text": "“absence-like”-episodes",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "absence",
+        "CUI": "C0563606"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "875",
+      "end_index": "891",
+      "text": "febrile-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "febrile-seizures",
+        "CUI": "C0009952"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 274,
+      "end": 295,
+      "text": "absence-like-seizures",
+      "entity_types": [
+        "SeizureFrequency",
+        "PatientHistory"
+      ],
+      "entity_ids": [
+        "T9",
+        "T11"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "text": "Current-antiepileptic-medication:-levetiracetam-500-mg-twice-a-day",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T13",
+      "type": "PatientHistory",
+      "text": "“absence-like”-episodes",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T20",
+      "type": "PatientHistory",
+      "text": "febrile-seizures",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T10",
+      "type": "SeizureFrequency",
+      "text": "generalised-tonic-clonic-seizures-2014",
+      "start": 234,
+      "end": 272,
+      "year": "2014",
+      "period": null,
+      "num_periods": null,
+      "time_since": "During",
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "2"
+    },
+    {
+      "id": "T9",
+      "type": "SeizureFrequency",
+      "text": "absence-like-seizures",
+      "start": 274,
+      "end": 295,
+      "year": "2014",
+      "period": null,
+      "num_periods": null,
+      "time_since": "During",
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "1"
+    },
+    {
+      "id": "T11",
+      "type": "PatientHistory",
+      "text": "absence-like-seizures",
+      "start": 274,
+      "end": 295,
+      "year": "2014",
+      "period": null,
+      "num_periods": null,
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": null
+    },
+    {
+      "id": "T16",
+      "type": "SeizureFrequency",
+      "text": "2-generalised-tonic-clonic-seizures-in-2014",
+      "start": 498,
+      "end": 541,
+      "year": "2014",
+      "period": null,
+      "num_periods": null,
+      "time_since": "During",
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "2"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 4,
+    "Prescription": 1,
+    "SeizureFrequency": 3,
+    "PatientHistory": 3,
+    "Investigations": 2
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "Previous medication 'carbamazepine' lacks temporal anchoring in gold. Annotator labels as current when temporal column is empty; model may correctly infer 'previous'.",
+      "oracle_impact": "medication_temporality"
+    },
+    {
+      "category": "overlapping_entities",
+      "description": "1 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 274,
+          "end": 295,
+          "text": "absence-like-seizures",
+          "entity_types": [
+            "SeizureFrequency",
+            "PatientHistory"
+          ],
+          "entity_ids": [
+            "T9",
+            "T11"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "3 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T6",
+          "type": "Prescription",
+          "text": "Current-antiepileptic-medication:-levetiracetam-500-mg-twice-a-day",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T13",
+          "type": "PatientHistory",
+          "text": "“absence-like”-episodes",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T20",
+          "type": "PatientHistory",
+          "text": "febrile-seizures",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [
+    {
+      "id": "T4",
+      "type": "Diagnosis",
+      "text": "generalised",
+      "certainty": 3
+    }
+  ],
+  "has_unknown_seizure": false
+}

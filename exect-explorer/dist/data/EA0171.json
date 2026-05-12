@@ -1,0 +1,319 @@
+{
+  "id": "EA0171",
+  "text": "Clinic Date 04/10/2019\n \nMr Tony Terazzo D.O.B: 26/08/1996\n \nProblems:          Recurrent episodes of transient loss of consciousness\n \nDiagnosis:           Epilepsy, probable focal onset\n \nCurrent anti-seizure medication:              Lamotrigine 50mg bd\n \nInvestigations: MRI and EEG normal 2018\n \nThank you for asking us to review this 23-year-old gentleman who I reviewed by telephone consultation today. You had seen him as a ward referral when he was admitted to hospital.\n \nHe’s had episodes of transient loss of consciousness since the age of 17. During these episodes he has injured himself, including having bitten his tongue. Before these episodes he will get a strange feeling in his stomach where it will “turn in on itself”. He can also get these sensations by themselves. He has taken recreational drugs in the past such as amphetamine but these episdoes have occurred unprovoked. I think that these represent focal epileptic seizures\n \nThere is no significant family history apart from his grandfather having a few seizures in the context of a febrile illness. He has been knocked unconscious twice in the past when he has been involved in fights.\n \nSince you have started him on the lamotrigine he has not had any further episdoes. He does have some reflux for which he takes lansoprazole and he also takes citalopram for low mood.\n \nYou thought that his neurological examination was normal and I note the normal investigations.\n \nI explained the diagnosis of epilepsy to Mr Terazzo, it is relatively common and causes seizures which can be thought of as electrical disturbances in the brain. Rarely seizures can be dangerous and can cause serious injury or even death.\nIf Mr Terazzo were to have further seizures then I would in the first instance increase the lamotrigine by 25mg every fortnight.\n \nYours\n\n",
+  "entities": [
+    {
+      "id": "T5",
+      "type": "PatientHistory",
+      "start": 102,
+      "end": 133,
+      "text": "transient-loss-of-consciousness",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C4087400",
+        "Negation": "Affirmed",
+        "CUIPhrase": "Transient loss of consciousness"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "Diagnosis",
+      "start": 157,
+      "end": 165,
+      "text": "Epilepsy",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "null",
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "CUIPhrase": "epilepsy"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "Diagnosis",
+      "start": 157,
+      "end": 187,
+      "text": "Epilepsy,-probable-focal-onset",
+      "attributes": {
+        "CUIPhrase": "focal-onset-epilepsy",
+        "Certainty": "4",
+        "CUI": "C0014547",
+        "DiagCategory": "Epilepsy"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "start": 190,
+      "end": 255,
+      "text": "Current-anti-seizure-medication:--------------Lamotrigine-50mg-bd",
+      "attributes": {
+        "DoseUnit": "mg",
+        "CUI": "C0064636",
+        "CUIPhrase": "lamotrigine",
+        "Frequency": "2",
+        "DrugDose": "50",
+        "DrugName": "lamotrigine"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Investigations",
+      "start": 274,
+      "end": 277,
+      "text": "MRI",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "CUI": "C0436481",
+        "CUIPhrase": "mri-normal",
+        "MRI_Results": "Normal"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "Investigations",
+      "start": 282,
+      "end": 292,
+      "text": "EEG-normal",
+      "attributes": {
+        "CUI": "C0560017",
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Normal",
+        "CUIPhrase": "EEG normal"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "PatientHistory",
+      "start": 502,
+      "end": 533,
+      "text": "transient-loss-of-consciousness",
+      "attributes": {
+        "CUIPhrase": "Transient loss of consciousness",
+        "CUI": "C4087400",
+        "AgeUnit": "Year",
+        "Certainty": "5",
+        "Age": "17",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 926,
+      "end": 950,
+      "text": "focal-epileptic-seizures",
+      "attributes": {
+        "Negation": "Affirmed",
+        "Certainty": "4",
+        "DiagCategory": "MultipleSeizures",
+        "CUIPhrase": "focal-seizures",
+        "CUI": "C0751495"
+      }
+    },
+    {
+      "id": "T13",
+      "type": "Diagnosis",
+      "start": 1478,
+      "end": 1486,
+      "text": "epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Investigations",
+      "start_index": "282",
+      "end_index": "292",
+      "text": "EEG-normal",
+      "attributes": {
+        "CUI": "C0560017",
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Normal",
+        "CUIPhrase": "EEG"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "926",
+      "end_index": "950",
+      "text": "focal-epileptic-seizures",
+      "attributes": {
+        "Negation": "Affirmed",
+        "Certainty": "4",
+        "DiagCategory": "MultipleSeizures",
+        "CUIPhrase": "focal-seizures",
+        "CUI": "C0751495"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "157",
+      "end_index": "187",
+      "text": "Epilepsy,-probable-focal-onset",
+      "attributes": {
+        "CUIPhrase": "focal-onset-epilepsy",
+        "Certainty": "4",
+        "CUI": "C0014547",
+        "DiagCategory": "Epilepsy"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "190",
+      "end_index": "255",
+      "text": "Current-anti-seizure-medication:--------------Lamotrigine-50mg-bd",
+      "attributes": {
+        "DoseUnit": "mg",
+        "CUI": "C0064636",
+        "CUIPhrase": "lamotrigine",
+        "Frequency": "2",
+        "DrugDose": "50",
+        "DrugName": "lamotrigine"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "102",
+      "end_index": "133",
+      "text": "transient-loss-of-consciousness",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C4087400",
+        "Negation": "Affirmed",
+        "CUIPhrase": "Transient"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "502",
+      "end_index": "533",
+      "text": "transient-loss-of-consciousness",
+      "attributes": {
+        "CUIPhrase": "Transient",
+        "CUI": "C4087400",
+        "AgeUnit": "Year",
+        "Certainty": "5",
+        "Age": "17",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "274",
+      "end_index": "277",
+      "text": "MRI",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "CUI": "C0436481",
+        "CUIPhrase": "mri-normal",
+        "MRI_Results": "Normal"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "157",
+      "end_index": "165",
+      "text": "Epilepsy",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "null",
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "CUIPhrase": "epilepsy"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1478",
+      "end_index": "1486",
+      "text": "epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T5",
+      "type": "PatientHistory",
+      "text": "transient-loss-of-consciousness",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "text": "Current-anti-seizure-medication:--------------Lamotrigine-50mg-bd",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T7",
+      "type": "PatientHistory",
+      "text": "transient-loss-of-consciousness",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [],
+  "type_counts": {
+    "PatientHistory": 2,
+    "Diagnosis": 4,
+    "Prescription": 1,
+    "Investigations": 2
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "3 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T5",
+          "type": "PatientHistory",
+          "text": "transient-loss-of-consciousness",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T4",
+          "type": "Prescription",
+          "text": "Current-anti-seizure-medication:--------------Lamotrigine-50mg-bd",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T7",
+          "type": "PatientHistory",
+          "text": "transient-loss-of-consciousness",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [
+    {
+      "id": "T3",
+      "type": "Diagnosis",
+      "text": "Epilepsy,-probable-focal-onset",
+      "certainty": 4
+    },
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "text": "focal-epileptic-seizures",
+      "certainty": 4
+    }
+  ],
+  "has_unknown_seizure": false
+}

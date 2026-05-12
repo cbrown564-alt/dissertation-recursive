@@ -1,0 +1,551 @@
+{
+  "id": "EA0168",
+  "text": "Diagnosis: Probable Juvenile Myoclonic Epilepsy (JME) (absences, myoclonus and generalised tonic clonic seizures)\nAnxiety and depression\n \nMedication Epilpim chrono (Sodium valproate) 400mg twice a day\n \nRichard tells me that he remains seizrue free which is good news. His last seizure was Novemebr 2015. He is getting on well with the epilim, he does not forget doses and does not get any side effects. He has ongoing problems with anxiety and depression as you know and he said that you are looking at treatment options for him here. As he is seizures free I have left him with an open appointment with us.\n\n",
+  "entities": [
+    {
+      "id": "T5",
+      "type": "Diagnosis",
+      "start": 20,
+      "end": 47,
+      "text": "Juvenile-Myoclonic-Epilepsy",
+      "attributes": {
+        "CUI": "C0270853",
+        "Certainty": "4",
+        "DiagCategory": "Epilepsy",
+        "CUIPhrase": "juvenile-myoclonic-epilepsy"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "PatientHistory",
+      "start": 55,
+      "end": 63,
+      "text": "absences",
+      "attributes": {
+        "CUIPhrase": "absences",
+        "Negation": "Affirmed",
+        "CUI": "C0563606",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "PatientHistory",
+      "start": 65,
+      "end": 74,
+      "text": "myoclonus",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "myoclonus",
+        "CUI": "C0027066",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "Diagnosis",
+      "start": 79,
+      "end": 112,
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "CUI": "C0494475",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "start": 114,
+      "end": 121,
+      "text": "Anxiety",
+      "attributes": {
+        "Certainty": "5",
+        "CUIPhrase": "anxiety",
+        "CUI": "C0003467",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "start": 126,
+      "end": 136,
+      "text": "depression",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "depression",
+        "Certainty": "5",
+        "CUI": "C0011570"
+      }
+    },
+    {
+      "id": "T13",
+      "type": "Prescription",
+      "start": 166,
+      "end": 183,
+      "text": "Sodium-valproate)",
+      "attributes": {
+        "DoseUnit": "mg",
+        "DrugName": "SodiumValproate",
+        "DrugDose": "400",
+        "CUIPhrase": "sodium-valproate",
+        "Frequency": "2",
+        "CUI": "C0037567"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "SeizureFrequency",
+      "start": 237,
+      "end": 249,
+      "text": "seizrue-free",
+      "attributes": {
+        "PointInTime": "LastClinic",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUI": "C1299590",
+        "CUIPhrase": "seizure-free",
+        "NumberOfSeizures": "0"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "start": 279,
+      "end": 286,
+      "text": "seizure",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "SeizureFrequency",
+      "start": 279,
+      "end": 286,
+      "text": "seizure",
+      "attributes": {
+        "YearDate": "2015",
+        "NumberOfSeizures": "0",
+        "CUI": "C0036572",
+        "MonthDate": "11",
+        "CUIPhrase": "seizure"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "start": 434,
+      "end": 441,
+      "text": "anxiety",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0003467",
+        "Negation": "Affirmed",
+        "CUIPhrase": "anxiety"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "PatientHistory",
+      "start": 446,
+      "end": 456,
+      "text": "depression",
+      "attributes": {
+        "CUI": "C0011570",
+        "CUIPhrase": "depression",
+        "Negation": "Affirmed",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "SeizureFrequency",
+      "start": 546,
+      "end": 554,
+      "text": "seizures",
+      "attributes": {
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "NumberOfSeizures": "0",
+        "PointInTime": "LastClinic"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "PatientHistory",
+      "start_index": "65",
+      "end_index": "74",
+      "text": "myoclonus",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "myoclonus",
+        "CUI": "C0027066",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "279",
+      "end_index": "286",
+      "text": "seizure",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "434",
+      "end_index": "441",
+      "text": "anxiety",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0003467",
+        "Negation": "Affirmed",
+        "CUIPhrase": "anxiety"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "55",
+      "end_index": "63",
+      "text": "absences",
+      "attributes": {
+        "CUIPhrase": "absences",
+        "Negation": "Affirmed",
+        "CUI": "C0563606",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "546",
+      "end_index": "554",
+      "text": "seizures",
+      "attributes": {
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "NumberOfSeizures": "0",
+        "PointInTime": "LastClinic"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "20",
+      "end_index": "47",
+      "text": "Juvenile-Myoclonic-Epilepsy",
+      "attributes": {
+        "CUI": "C0270853",
+        "Certainty": "4",
+        "DiagCategory": "Epilepsy",
+        "CUIPhrase": "juvenile-myoclonic-epilepsy"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "126",
+      "end_index": "136",
+      "text": "depression",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "depression",
+        "Certainty": "5",
+        "CUI": "C0011570"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "237",
+      "end_index": "249",
+      "text": "seizrue-free",
+      "attributes": {
+        "PointInTime": "LastClinic",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUI": "C1299590",
+        "CUIPhrase": "seizure-free",
+        "NumberOfSeizures": "0"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "79",
+      "end_index": "112",
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "CUI": "C0494475",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "114",
+      "end_index": "121",
+      "text": "Anxiety",
+      "attributes": {
+        "Certainty": "5",
+        "CUIPhrase": "anxiety",
+        "CUI": "C0003467",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "446",
+      "end_index": "456",
+      "text": "depression",
+      "attributes": {
+        "CUI": "C0011570",
+        "CUIPhrase": "depression",
+        "Negation": "Affirmed",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "279",
+      "end_index": "286",
+      "text": "seizure",
+      "attributes": {
+        "YearDate": "2015",
+        "NumberOfSeizures": "0",
+        "CUI": "C0036572",
+        "MonthDate": "11",
+        "CUIPhrase": "seizure"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "166",
+      "end_index": "183",
+      "text": "Sodium-valproate)",
+      "attributes": {
+        "DoseUnit": "mg",
+        "DrugName": "SodiumValproate",
+        "DrugDose": "400",
+        "CUIPhrase": "sodium-valproate",
+        "Frequency": "2",
+        "CUI": "C0037567"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 279,
+      "end": 286,
+      "text": "seizure",
+      "entity_types": [
+        "PatientHistory",
+        "SeizureFrequency"
+      ],
+      "entity_ids": [
+        "T8",
+        "T12"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T3",
+      "type": "PatientHistory",
+      "text": "absences",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T1",
+      "type": "PatientHistory",
+      "text": "myoclonus",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "text": "Anxiety",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "text": "depression",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T13",
+      "type": "Prescription",
+      "text": "Sodium-valproate)",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "text": "seizure",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "text": "anxiety",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T11",
+      "type": "PatientHistory",
+      "text": "depression",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T7",
+      "type": "SeizureFrequency",
+      "text": "seizrue-free",
+      "start": 237,
+      "end": 249,
+      "year": null,
+      "period": null,
+      "num_periods": null,
+      "time_since": "Since",
+      "point_in_time": "LastClinic",
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    },
+    {
+      "id": "T12",
+      "type": "SeizureFrequency",
+      "text": "seizure",
+      "start": 279,
+      "end": 286,
+      "year": "2015",
+      "period": null,
+      "num_periods": null,
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    },
+    {
+      "id": "T4",
+      "type": "SeizureFrequency",
+      "text": "seizures",
+      "start": 546,
+      "end": 554,
+      "year": null,
+      "period": null,
+      "num_periods": null,
+      "time_since": "Since",
+      "point_in_time": "LastClinic",
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 2,
+    "PatientHistory": 7,
+    "Prescription": 1,
+    "SeizureFrequency": 3
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "1 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 279,
+          "end": 286,
+          "text": "seizure",
+          "entity_types": [
+            "PatientHistory",
+            "SeizureFrequency"
+          ],
+          "entity_ids": [
+            "T8",
+            "T12"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "8 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T3",
+          "type": "PatientHistory",
+          "text": "absences",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T1",
+          "type": "PatientHistory",
+          "text": "myoclonus",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T10",
+          "type": "PatientHistory",
+          "text": "Anxiety",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T6",
+          "type": "PatientHistory",
+          "text": "depression",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T13",
+          "type": "Prescription",
+          "text": "Sodium-valproate)",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T8",
+          "type": "PatientHistory",
+          "text": "seizure",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T2",
+          "type": "PatientHistory",
+          "text": "anxiety",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T11",
+          "type": "PatientHistory",
+          "text": "depression",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [
+    {
+      "id": "T5",
+      "type": "Diagnosis",
+      "text": "Juvenile-Myoclonic-Epilepsy",
+      "certainty": 4
+    }
+  ],
+  "has_unknown_seizure": false
+}

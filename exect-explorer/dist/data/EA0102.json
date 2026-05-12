@@ -1,0 +1,428 @@
+{
+  "id": "EA0102",
+  "text": "Date 30/2/2016\nNHS No: 102 455 7893\n\nDear Dr\n\nRe: \tHelen\tTroy\tD.O.B. 20/06/1980\n\nDiagnosis:\tnon-epileptic psychogenic seizures\n\t\tanxiety\n\nMedication:\tEplim 200mg twice a day\n\nI had a telephone consultation with miss Troy today. She has been diagnosed with non epileptic psychogenic seizures which is confirmed on EEG.In the past she has had a normal MRI . She also has significant anxiety. \n\nShe has been seizure free for more than five years. She only drinks a small amount of alcohol and doesn't take any recreational drugs. \n\nShe does continue to take sodium valproate 200 milligrammes twice a day. She feels that when the sodium valproate was reduced she started having episodes of shakiness without losing consciousness and it had to be restarted. \n\nComments: I think she should have counselling from the mental health services for anxiety. She does not need to take her epilim for epilepsy as she has non epileptic seizures . I would recommend that her epilim is slowly reduced and stopped. \n\nYours sincerely\n",
+  "entities": [
+    {
+      "id": "T15",
+      "type": "PatientHistory",
+      "start": 92,
+      "end": 126,
+      "text": "non-epileptic-psychogenic-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "non-epileptic-psychogenic-seizures",
+        "CUI": "C1142430"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "start": 129,
+      "end": 136,
+      "text": "anxiety",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "anxiety",
+        "CUI": "C0003467"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "start": 150,
+      "end": 155,
+      "text": "Eplim",
+      "attributes": {
+        "DrugName": "SodiumValproate",
+        "DrugDose": "200",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "epilim",
+        "CUI": "C0591451"
+      }
+    },
+    {
+      "id": "T17",
+      "type": "PatientHistory",
+      "start": 255,
+      "end": 290,
+      "text": "-non-epileptic-psychogenic-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "non-epileptic-psychogenic-seizures",
+        "CUI": "C1142430"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "Investigations",
+      "start": 313,
+      "end": 316,
+      "text": "EEG",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Normal",
+        "CUIPhrase": "eeg-normal",
+        "CUI": "C0560017"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "Investigations",
+      "start": 343,
+      "end": 353,
+      "text": "normal-MRI",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Normal",
+        "CUIPhrase": "normal-mri",
+        "CUI": "C0436481"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "start": 381,
+      "end": 388,
+      "text": "anxiety",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "anxiety",
+        "CUI": "C0003467"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "SeizureFrequency",
+      "start": 405,
+      "end": 417,
+      "text": "seizure-free",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "5",
+        "CUIPhrase": "seizure-free",
+        "CUI": "C1299590"
+      }
+    },
+    {
+      "id": "T16",
+      "type": "Prescription",
+      "start": 555,
+      "end": 571,
+      "text": "sodium-valproate",
+      "attributes": {
+        "DrugName": "SodiumValproate",
+        "DrugDose": "200",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "sodium-valproate",
+        "CUI": "C0037567"
+      }
+    },
+    {
+      "id": "T18",
+      "type": "PatientHistory",
+      "start": 837,
+      "end": 844,
+      "text": "anxiety",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "anxiety",
+        "CUI": "C0003467"
+      }
+    },
+    {
+      "id": "T20",
+      "type": "PatientHistory",
+      "start": 907,
+      "end": 929,
+      "text": "non-epileptic-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "non-epileptic-seizures",
+        "CUI": "C3495874"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "PatientHistory",
+      "start_index": "92",
+      "end_index": "126",
+      "text": "non-epileptic-psychogenic-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "non-epileptic-psychogenic-seizures",
+        "CUI": "C1142430"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "129",
+      "end_index": "136",
+      "text": "anxiety",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "anxiety",
+        "CUI": "C0003467"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "150",
+      "end_index": "155",
+      "text": "Eplim",
+      "attributes": {
+        "DrugName": "SodiumValproate",
+        "DrugDose": "200",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "epilim",
+        "CUI": "C0591451"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "255",
+      "end_index": "290",
+      "text": "-non-epileptic-psychogenic-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "non-epileptic-psychogenic-seizures",
+        "CUI": "C1142430"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "313",
+      "end_index": "316",
+      "text": "EEG",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Normal",
+        "CUIPhrase": "eeg-normal",
+        "CUI": "C0560017"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "343",
+      "end_index": "353",
+      "text": "normal-MRI",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Normal",
+        "CUIPhrase": "normal-mri",
+        "CUI": "C0436481"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "381",
+      "end_index": "388",
+      "text": "anxiety",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "anxiety",
+        "CUI": "C0003467"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "405",
+      "end_index": "417",
+      "text": "seizure-free",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "5",
+        "CUIPhrase": "seizure-free",
+        "CUI": "C1299590"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "555",
+      "end_index": "571",
+      "text": "sodium-valproate",
+      "attributes": {
+        "DrugName": "SodiumValproate",
+        "DrugDose": "200",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "sodium-valproate",
+        "CUI": "C0037567"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "837",
+      "end_index": "844",
+      "text": "anxiety",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "anxiety",
+        "CUI": "C0003467"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "907",
+      "end_index": "929",
+      "text": "non-epileptic-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "non-epileptic-seizures",
+        "CUI": "C3495874"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T15",
+      "type": "PatientHistory",
+      "text": "non-epileptic-psychogenic-seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "text": "anxiety",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "text": "Eplim",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T17",
+      "type": "PatientHistory",
+      "text": "-non-epileptic-psychogenic-seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "text": "anxiety",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T16",
+      "type": "Prescription",
+      "text": "sodium-valproate",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T18",
+      "type": "PatientHistory",
+      "text": "anxiety",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T20",
+      "type": "PatientHistory",
+      "text": "non-epileptic-seizures",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T14",
+      "type": "SeizureFrequency",
+      "text": "seizure-free",
+      "start": 405,
+      "end": 417,
+      "year": null,
+      "period": "Year",
+      "num_periods": "5",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    }
+  ],
+  "type_counts": {
+    "PatientHistory": 6,
+    "Prescription": 2,
+    "Investigations": 2,
+    "SeizureFrequency": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "8 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T15",
+          "type": "PatientHistory",
+          "text": "non-epileptic-psychogenic-seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T4",
+          "type": "PatientHistory",
+          "text": "anxiety",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T6",
+          "type": "Prescription",
+          "text": "Eplim",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T17",
+          "type": "PatientHistory",
+          "text": "-non-epileptic-psychogenic-seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T12",
+          "type": "PatientHistory",
+          "text": "anxiety",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T16",
+          "type": "Prescription",
+          "text": "sodium-valproate",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T18",
+          "type": "PatientHistory",
+          "text": "anxiety",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T20",
+          "type": "PatientHistory",
+          "text": "non-epileptic-seizures",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

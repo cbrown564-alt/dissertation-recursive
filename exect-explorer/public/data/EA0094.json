@@ -1,0 +1,250 @@
+{
+  "id": "EA0094",
+  "text": "Clinic date: August 21st 2014\nTyped: August 24th 2014\n\nDear Dr Pooled\n\nRe: \tMiss Hannah Jones\tD.O.B: 01/04/2008 NHS 445 545 6545\n\nDiagnosis: Nocturnal seizures ? Benign Rolandic Epilepsy of Childhood\n\nMedication:\tNil\n\nFollow Up:\tFor sleep deprived EEG \n\t\tReview in 2 months\n\nThank you very much for referring this 6 year old girl whom we saw with her mother in the clinic today.  She has had four generalised tonic clonic seizures, always occurring in sleep.  Two of them occurred within 24 hours of each other and they all occurred within a 10 day period where she had a bit of a cold and was probably sleep deprived.  \n\nHannah can remember nothing about these episodes but father gives a good description of them.  In the first one, having been woken by a noise he went into her bedroom to find her stiff and jerking all over with excess salivation.  The episode lasted less than a minute and when she came around, she was drowsy.  \n\nIn the third episode, which he witnessed from the beginning, he wondered whether her right lip twitched first but then she rapidly went on to have a generalised tonic clonic seizure.  \n\nShe has had no other episodes.  \n\nShe has otherwise been fit and well.  She is doing well at school.  \n\nHer mother had a small number of seizures when she was approximately the same age as and took what was probably Sodium Valproate for 3-4 years.\n\nOn examining her today, there were no abnormalities to find.\n\nHer baseline EEG was within normal limits.\n\nI wondered whether this is Benign Rolandic Epilepsy of Childhood and therefore we will arrange for her to have a sleep deprived EEG to see if we can bring out any centrotemporal spikes.  It will also allow us to see if anything happens in the EEG when she goes to sleep as this is when she has had her seizures.  This should help us in the decision making process about whether we should start her on any anticonvulsants or whether they can simply try and avoid the provokers. \n\nThe parents know the first aid treatment of seizures and I have reassured them that they are unlikely to miss any episodes. \n\nWe will review her in three months time.  If she has any further episodes, the family should ring outpatients to see if they can get an earlier appointment.\n\n\n",
+  "entities": [
+    {
+      "id": "T3",
+      "type": "PatientHistory",
+      "start": 141,
+      "end": 159,
+      "text": "Nocturnal-seizures",
+      "attributes": {
+        "CUI": "C0748605",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUIPhrase": "nocturnal-seizures"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "Diagnosis",
+      "start": 162,
+      "end": 186,
+      "text": "Benign-Rolandic-Epilepsy",
+      "attributes": {
+        "Negation": "Affirmed",
+        "Certainty": "3",
+        "CUI": "C2363129",
+        "CUIPhrase": "benigh rolandic epilepsy",
+        "DiagCategory": "Epilepsy"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Diagnosis",
+      "start": 397,
+      "end": 430,
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "Negation": "Affirmed",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 1085,
+      "end": 1117,
+      "text": "generalised-tonic-clonic-seizure",
+      "attributes": {
+        "CUIPhrase": "generalised-tonic-clonic-seizure",
+        "CUI": "C0494475",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "DiagCategory": "MultipleSeizures"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "Investigations",
+      "start": 1446,
+      "end": 1449,
+      "text": "EEG",
+      "attributes": {
+        "EEG_Results": "Normal",
+        "CUIPhrase": "normal-eeg",
+        "EEG_Performed": "Yes",
+        "CUI": "C0560017"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "Diagnosis",
+      "start": 1504,
+      "end": 1528,
+      "text": "Benign-Rolandic-Epilepsy",
+      "attributes": {
+        "Certainty": "3",
+        "CUI": "C2363129",
+        "DiagCategory": "Epilepsy",
+        "CUIPhrase": "benigh rolandic epilepsy",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "start": 1779,
+      "end": 1787,
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "162",
+      "end_index": "186",
+      "text": "Benign-Rolandic-Epilepsy",
+      "attributes": {
+        "Negation": "Affirmed",
+        "Certainty": "3",
+        "CUI": "C2363129",
+        "CUIPhrase": "benigh",
+        "DiagCategory": "Epilepsy"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1085",
+      "end_index": "1117",
+      "text": "generalised-tonic-clonic-seizure",
+      "attributes": {
+        "CUIPhrase": "generalised-tonic-clonic-seizure",
+        "CUI": "C0494475",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "DiagCategory": "MultipleSeizures"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "141",
+      "end_index": "159",
+      "text": "Nocturnal-seizures",
+      "attributes": {
+        "CUI": "C0748605",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUIPhrase": "nocturnal-seizures"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "1446",
+      "end_index": "1449",
+      "text": "EEG",
+      "attributes": {
+        "EEG_Results": "Normal",
+        "CUIPhrase": "normal-eeg",
+        "EEG_Performed": "Yes",
+        "CUI": "C0560017"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "397",
+      "end_index": "430",
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "Negation": "Affirmed",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1504",
+      "end_index": "1528",
+      "text": "Benign-Rolandic-Epilepsy",
+      "attributes": {
+        "Certainty": "3",
+        "CUI": "C2363129",
+        "DiagCategory": "Epilepsy",
+        "CUIPhrase": "benigh",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1779",
+      "end_index": "1787",
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T3",
+      "type": "PatientHistory",
+      "text": "Nocturnal-seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "text": "seizures",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [],
+  "type_counts": {
+    "PatientHistory": 2,
+    "Diagnosis": 4,
+    "Investigations": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "2 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T3",
+          "type": "PatientHistory",
+          "text": "Nocturnal-seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T9",
+          "type": "PatientHistory",
+          "text": "seizures",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [
+    {
+      "id": "T1",
+      "type": "Diagnosis",
+      "text": "Benign-Rolandic-Epilepsy",
+      "certainty": 3
+    },
+    {
+      "id": "T7",
+      "type": "Diagnosis",
+      "text": "Benign-Rolandic-Epilepsy",
+      "certainty": 3
+    }
+  ],
+  "has_unknown_seizure": false
+}

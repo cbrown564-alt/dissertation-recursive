@@ -1,0 +1,205 @@
+{
+  "id": "EA0148",
+  "text": "Clinic date 10/6/2016\n \nRe          Mr Richard Tubbing\tDOB 3/5/1975\n \nDear doctor,\n\nDiagnosis: epilepsy unclassified\n \nMedication: to start sodium valproate (eplim chrono) 300mgs once a day, increasing after 2 weeks to 300mgs bd and after 2 more weeks to 200mgs am, 500mgs pm and then 500mgs pm\n \nThank you for referring this 41-year-old gentleman who I reviewed today together with his girlfriend. He came to clinic as he has had 2 seizures. The first occurred whilst he was visiting a friend. I do not have a witness description of this but he came around disorientated in the ambulance. The second occurred at home and his girlfriend witnessed it. She heard a loud unusual noise and came in to the room to find him stiff and jerking, he had stertorous breathing. He was confused and disorientated for around 30 mins afterward.\n \nHe has also had “staring” episodes according to his girlfriend where he looks into space. There is no history of myoclonic jerks. He has had several superficial head injuries whilst playing rugby and he may have had a febrile seizure at the age of 6 months. There is no other relevant history and no family history.\n \nHe is well apart from some gastroesophageal reflux for which he takes omeprazole. He does not drive and works in the post office. He smokes around 15 cigarettes a day and doesn’t really drink alcohol.\n \nHis examination was normal.\n \nImpression. This man has a new diagnosis of epilepsy, it is not clear whether they are focal or generalised in onset. I will arrange an outpatient MRI and EEG. I explained safety and driving implications. I will ask our epilepsy nurses to see him in 3 months and I will see him in 6 months after that. Please can you start sodium valproate as detailed above.\n \nYours\n\n",
+  "entities": [
+    {
+      "id": "T1",
+      "type": "Diagnosis",
+      "start": 95,
+      "end": 104,
+      "text": "epilepsy-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUI": "C0014544",
+        "CUIPhrase": "epilepsy",
+        "DiagCategory": "Epilepsy"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "start": 433,
+      "end": 441,
+      "text": "seizures",
+      "attributes": {
+        "CUI": "C0036572",
+        "Certainty": "5",
+        "CUIPhrase": "seizures",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "start": 993,
+      "end": 1006,
+      "text": "head-injuries",
+      "attributes": {
+        "Certainty": "5",
+        "CUIPhrase": "head-injuries",
+        "CUI": "C0497301",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "PatientHistory",
+      "start": 1050,
+      "end": 1065,
+      "text": "febrile-seizure",
+      "attributes": {
+        "Age": "6",
+        "Certainty": "3",
+        "CUI": "C0009952",
+        "Negation": "Affirmed",
+        "AgeUnit": "Month",
+        "CUIPhrase": "febrile-seizure"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "Diagnosis",
+      "start": 1427,
+      "end": 1435,
+      "text": "epilepsy",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C0014544",
+        "Certainty": "5",
+        "CUIPhrase": "epilepsy",
+        "DiagCategory": "Epilepsy"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "95",
+      "end_index": "104",
+      "text": "epilepsy-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUI": "C0014544",
+        "CUIPhrase": "epilepsy",
+        "DiagCategory": "Epilepsy"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "433",
+      "end_index": "441",
+      "text": "seizures",
+      "attributes": {
+        "CUI": "C0036572",
+        "Certainty": "5",
+        "CUIPhrase": "seizures",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1427",
+      "end_index": "1435",
+      "text": "epilepsy",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C0014544",
+        "Certainty": "5",
+        "CUIPhrase": "epilepsy",
+        "DiagCategory": "Epilepsy"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "993",
+      "end_index": "1006",
+      "text": "head-injuries",
+      "attributes": {
+        "Certainty": "5",
+        "CUIPhrase": "head-injuries",
+        "CUI": "C0497301",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1050",
+      "end_index": "1065",
+      "text": "febrile-seizure",
+      "attributes": {
+        "Age": "6",
+        "Certainty": "3",
+        "CUI": "C0009952",
+        "Negation": "Affirmed",
+        "AgeUnit": "Month",
+        "CUIPhrase": "febrile-seizure"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "text": "seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "text": "head-injuries",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T5",
+      "type": "PatientHistory",
+      "text": "febrile-seizure",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [],
+  "type_counts": {
+    "Diagnosis": 2,
+    "PatientHistory": 3
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "3 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T2",
+          "type": "PatientHistory",
+          "text": "seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T4",
+          "type": "PatientHistory",
+          "text": "head-injuries",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T5",
+          "type": "PatientHistory",
+          "text": "febrile-seizure",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [
+    {
+      "id": "T5",
+      "type": "PatientHistory",
+      "text": "febrile-seizure",
+      "certainty": 3
+    }
+  ],
+  "has_unknown_seizure": false
+}

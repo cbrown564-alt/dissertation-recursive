@@ -1,0 +1,471 @@
+{
+  "id": "EA0164",
+  "text": "Mr Richard Wilkins\n \nProblem: episodes of transient loss of consciousness\nDiagnosis: epilepsy, unclassified.\n \nI reviewed this 33 year old man by telephone today. He has had around five episodes of loss of consciousness in the last few months. He remembers the first episodes happening in bed when he woke up with a very sore tongue having bitten it and feeling very sore in his arms and legs the next day. His brother saw one episode where he suddenly went very stiff gave out a strange cry before starting to shake his arms and legs.\n \nHe lives with his partner and 4 year old son and is currently not working. He has had some issues with depression in the past. He does have a driving licence but doesn’t smoke and drinks around 16 units of alcohol per week. He takes citalopram for depression. He was born slightly premature at 34 weeks and weighed 6 pounds. He had one febrile seizure at the age of 2. His brother also had two febrile seizures. Apart from the depression he does not have any other medical problems.\n \nThere is some family history of epilepsy in that his maternal uncle has had seizures. His recent CT head and MRI brain have been normal.\n \nImpression. I think that these episodes of transient loss of consciousness are epileptic seizures and so i think that the diagnosis here is epilepsy. It is difficult to classify the type of epilepsy at present.\n\n",
+  "entities": [
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "start": 42,
+      "end": 73,
+      "text": "transient-loss-of-consciousness",
+      "attributes": {
+        "CUI": "C4087400",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUIPhrase": "Transient loss of consciousness"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Diagnosis",
+      "start": 85,
+      "end": 93,
+      "text": "epilepsy",
+      "attributes": {
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544",
+        "DiagCategory": "Epilepsy",
+        "Negation": "Affirmed",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "PatientHistory",
+      "start": 186,
+      "end": 219,
+      "text": "episodes-of-loss-of-consciousness",
+      "attributes": {
+        "CUI": "C0041657",
+        "CUIPhrase": "episodes-of-loss-of-consciousness",
+        "Negation": "Affirmed",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "PatientHistory",
+      "start": 641,
+      "end": 652,
+      "text": "depression-",
+      "attributes": {
+        "CUI": "C0011570",
+        "CUIPhrase": "depression",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "start": 786,
+      "end": 796,
+      "text": "depression",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "depression",
+        "CUI": "C0011570",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T13",
+      "type": "BirthHistory",
+      "start": 805,
+      "end": 828,
+      "text": "born-slightly-premature",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "PrematureBirth": "34to<37_LatePretermBirth",
+        "CUIPhrase": "late-preterm-birth",
+        "CUI": "C3829315"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "start": 874,
+      "end": 889,
+      "text": "febrile-seizure",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C0009952",
+        "CUIPhrase": "febrile-seizure",
+        "Certainty": "5",
+        "Age": "2",
+        "AgeUnit": "Year"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "start": 965,
+      "end": 976,
+      "text": "depression-",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0011570",
+        "Negation": "Affirmed",
+        "CUIPhrase": "depression"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "Investigations",
+      "start": 1120,
+      "end": 1127,
+      "text": "CT-head",
+      "attributes": {
+        "CUIPhrase": "ct-normal",
+        "CUI": "C0744602",
+        "CT_Results": "Normal",
+        "CT_Performed": "Yes"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "Investigations",
+      "start": 1132,
+      "end": 1141,
+      "text": "MRI-brain",
+      "attributes": {
+        "CUIPhrase": "mri-normal",
+        "MRI_Results": "Normal",
+        "CUI": "C0436481",
+        "MRI_Performed": "Yes"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "PatientHistory",
+      "start": 1205,
+      "end": 1236,
+      "text": "transient-loss-of-consciousness",
+      "attributes": {
+        "CUI": "C4087400",
+        "Negation": "Affirmed",
+        "Certainty": "4",
+        "CUIPhrase": "Transient loss of consciousness"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "Diagnosis",
+      "start": 1241,
+      "end": 1259,
+      "text": "epileptic-seizures",
+      "attributes": {
+        "CUI": "C4317109",
+        "Certainty": "4",
+        "DiagCategory": "MultipleSeizures",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epileptic-seizures"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "Diagnosis",
+      "start": 1302,
+      "end": 1310,
+      "text": "epilepsy",
+      "attributes": {
+        "CUIPhrase": "epilepsy",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "DiagCategory": "Epilepsy",
+        "CUI": "C0014544"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "PatientHistory",
+      "start_index": "186",
+      "end_index": "219",
+      "text": "episodes-of-loss-of-consciousness",
+      "attributes": {
+        "CUI": "C0041657",
+        "CUIPhrase": "episodes-of-loss-of-consciousness",
+        "Negation": "Affirmed",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "874",
+      "end_index": "889",
+      "text": "febrile-seizure",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C0009952",
+        "CUIPhrase": "febrile-seizure",
+        "Certainty": "5",
+        "Age": "2",
+        "AgeUnit": "Year"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1205",
+      "end_index": "1236",
+      "text": "transient-loss-of-consciousness",
+      "attributes": {
+        "CUI": "C4087400",
+        "Negation": "Affirmed",
+        "Certainty": "4",
+        "CUIPhrase": "Transient"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "965",
+      "end_index": "976",
+      "text": "depression-",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0011570",
+        "Negation": "Affirmed",
+        "CUIPhrase": "depression"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1241",
+      "end_index": "1259",
+      "text": "epileptic-seizures",
+      "attributes": {
+        "CUI": "C4317109",
+        "Certainty": "4",
+        "DiagCategory": "MultipleSeizures",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epileptic-seizures"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "786",
+      "end_index": "796",
+      "text": "depression",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "depression",
+        "CUI": "C0011570",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "641",
+      "end_index": "652",
+      "text": "depression-",
+      "attributes": {
+        "CUI": "C0011570",
+        "CUIPhrase": "depression",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "85",
+      "end_index": "93",
+      "text": "epilepsy",
+      "attributes": {
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544",
+        "DiagCategory": "Epilepsy",
+        "Negation": "Affirmed",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1302",
+      "end_index": "1310",
+      "text": "epilepsy",
+      "attributes": {
+        "CUIPhrase": "epilepsy",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "DiagCategory": "Epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "42",
+      "end_index": "73",
+      "text": "transient-loss-of-consciousness",
+      "attributes": {
+        "CUI": "C4087400",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUIPhrase": "Transient"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "1132",
+      "end_index": "1141",
+      "text": "MRI-brain",
+      "attributes": {
+        "CUIPhrase": "mri-normal",
+        "MRI_Results": "Normal",
+        "CUI": "C0436481",
+        "MRI_Performed": "Yes"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "1120",
+      "end_index": "1127",
+      "text": "CT-head",
+      "attributes": {
+        "CUIPhrase": "ct-normal",
+        "CUI": "C0744602",
+        "CT_Results": "Normal",
+        "CT_Performed": "Yes"
+      }
+    },
+    {
+      "entity": "BirthHistory",
+      "start_index": "805",
+      "end_index": "828",
+      "text": "born-slightly-premature",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "PrematureBirth": "34to<37_LatePretermBirth",
+        "CUIPhrase": "late-preterm-birth",
+        "CUI": "C3829315"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "text": "transient-loss-of-consciousness",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T1",
+      "type": "PatientHistory",
+      "text": "episodes-of-loss-of-consciousness",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T7",
+      "type": "PatientHistory",
+      "text": "depression-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "text": "depression",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "text": "febrile-seizure",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "text": "depression-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T3",
+      "type": "PatientHistory",
+      "text": "transient-loss-of-consciousness",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [],
+  "type_counts": {
+    "PatientHistory": 7,
+    "Diagnosis": 3,
+    "BirthHistory": 1,
+    "Investigations": 2
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "7 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T10",
+          "type": "PatientHistory",
+          "text": "transient-loss-of-consciousness",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T1",
+          "type": "PatientHistory",
+          "text": "episodes-of-loss-of-consciousness",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T7",
+          "type": "PatientHistory",
+          "text": "depression-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T6",
+          "type": "PatientHistory",
+          "text": "depression",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T2",
+          "type": "PatientHistory",
+          "text": "febrile-seizure",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T4",
+          "type": "PatientHistory",
+          "text": "depression-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T3",
+          "type": "PatientHistory",
+          "text": "transient-loss-of-consciousness",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [
+    {
+      "id": "T3",
+      "type": "PatientHistory",
+      "text": "transient-loss-of-consciousness",
+      "certainty": 4
+    },
+    {
+      "id": "T5",
+      "type": "Diagnosis",
+      "text": "epileptic-seizures",
+      "certainty": 4
+    },
+    {
+      "id": "T9",
+      "type": "Diagnosis",
+      "text": "epilepsy",
+      "certainty": 4
+    }
+  ],
+  "has_unknown_seizure": false
+}

@@ -1,0 +1,350 @@
+{
+  "id": "EA0197",
+  "text": "Diagnosis:\tInsulin dependent diabetes\n\t\tEpilepsy\n\nMedication:\tLamotrigine 100mg b.d.\n\t\tLevetiracetam to start \n\t\tInsulin\n\t\tAtorvastatin\n\t\tRamipril\n\nI reviewed John in clinic today. His baseline has been around one or two seizures per year. Things have got a bit worse recently and he is having one or two seizures per month. He now does not get a warning that the seizures are going to happen although he previously did get an unusual deja-vu sensation.\n\nHe has tried higher doses of lamotrigine in the past but this has caused more tiredness. We had a chat today about adding in another medication and I would be grateful if you could start Levetiracetam. Generally it is well tolerated but can cause tiredness and mood change in higher doses. Please can you prescribe 250mg once a day increasing by 250mg every fortnight to an initial target dose of 500mg twice a day.\n\nAs you know he had a MRI scan in 2014 which was normal apart from a few scattered tiny hyperintensities. An EEG last year showed some non-specific slowing in both frontal regions. As before I have asked John to keep a careful eye on his blood sugars to make sure that he is not having hypoglycaemic events. I will request an up to date EEG and review him with the results.\n",
+  "entities": [
+    {
+      "id": "T5",
+      "type": "PatientHistory",
+      "start": 11,
+      "end": 37,
+      "text": "Insulin-dependent-diabetes",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "insulin-dependent-diabetes",
+        "CUI": "C0011854"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "Diagnosis",
+      "start": 40,
+      "end": 48,
+      "text": "Epilepsy",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "Certainty": "5",
+        "DiagCategory": "Epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "Prescription",
+      "start": 62,
+      "end": 74,
+      "text": "Lamotrigine-",
+      "attributes": {
+        "CUI": "C0064636",
+        "DoseUnit": "mg",
+        "DrugName": "Lamotrigine",
+        "CUIPhrase": "lamotrigine",
+        "DrugDose": "100",
+        "Frequency": "2"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "start": 221,
+      "end": 229,
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "SeizureFrequency",
+      "start": 221,
+      "end": 230,
+      "text": "seizures-",
+      "attributes": {
+        "CUIPhrase": "seizures",
+        "TimePeriod": "Year",
+        "UpperNumberOfSeizures": "2",
+        "LowerNumberOfSeizures": "1",
+        "CUI": "C0036572",
+        "NumberOfTimePeriods": "1"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "start": 305,
+      "end": 312,
+      "text": "seizure",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "SeizureFrequency",
+      "start": 305,
+      "end": 314,
+      "text": "seizures-",
+      "attributes": {
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572",
+        "NumberOfTimePeriods": "1",
+        "LowerNumberOfSeizures": "1",
+        "TimePeriod": "Month",
+        "UpperNumberOfSeizures": "2"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "Investigations",
+      "start": 893,
+      "end": 897,
+      "text": "MRI-",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "CUIPhrase": "MRI normal",
+        "MRI_Results": "Normal",
+        "CUI": "C0436481"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Investigations",
+      "start": 980,
+      "end": 984,
+      "text": "EEG-",
+      "attributes": {
+        "EEG_Results": "Abnormal",
+        "CUI": "C0151611",
+        "CUIPhrase": "EEG abnormal",
+        "EEG_Performed": "Yes"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "PatientHistory",
+      "start_index": "11",
+      "end_index": "37",
+      "text": "Insulin-dependent-diabetes",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "insulin-dependent-diabetes",
+        "CUI": "C0011854"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "221",
+      "end_index": "230",
+      "text": "seizures-",
+      "attributes": {
+        "CUIPhrase": "seizures",
+        "TimePeriod": "Year",
+        "UpperNumberOfSeizures": "2",
+        "LowerNumberOfSeizures": "1",
+        "CUI": "C0036572",
+        "NumberOfTimePeriods": "1"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "62",
+      "end_index": "74",
+      "text": "Lamotrigine-",
+      "attributes": {
+        "CUI": "C0064636",
+        "DoseUnit": "mg",
+        "DrugName": "Lamotrigine",
+        "CUIPhrase": "lamotrigine",
+        "DrugDose": "100",
+        "Frequency": "2"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "221",
+      "end_index": "229",
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "305",
+      "end_index": "312",
+      "text": "seizure",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "893",
+      "end_index": "897",
+      "text": "MRI-",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "CUIPhrase": "MRI",
+        "MRI_Results": "Normal",
+        "CUI": "C0436481"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "305",
+      "end_index": "314",
+      "text": "seizures-",
+      "attributes": {
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572",
+        "NumberOfTimePeriods": "1",
+        "LowerNumberOfSeizures": "1",
+        "TimePeriod": "Month",
+        "UpperNumberOfSeizures": "2"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "980",
+      "end_index": "984",
+      "text": "EEG-",
+      "attributes": {
+        "EEG_Results": "Abnormal",
+        "CUI": "C0151611",
+        "CUIPhrase": "EEG",
+        "EEG_Performed": "Yes"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "40",
+      "end_index": "48",
+      "text": "Epilepsy",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "Certainty": "5",
+        "DiagCategory": "Epilepsy",
+        "CUI": "C0014544"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T5",
+      "type": "PatientHistory",
+      "text": "Insulin-dependent-diabetes",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T2",
+      "type": "Prescription",
+      "text": "Lamotrigine-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "text": "seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "text": "seizure",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T1",
+      "type": "SeizureFrequency",
+      "text": "seizures-",
+      "start": 221,
+      "end": 230,
+      "year": null,
+      "period": "Year",
+      "num_periods": "1",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": "1",
+      "upper_seizures": "2",
+      "num_seizures": null
+    },
+    {
+      "id": "T4",
+      "type": "SeizureFrequency",
+      "text": "seizures-",
+      "start": 305,
+      "end": 314,
+      "year": null,
+      "period": "Month",
+      "num_periods": "1",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": "1",
+      "upper_seizures": "2",
+      "num_seizures": null
+    }
+  ],
+  "type_counts": {
+    "PatientHistory": 3,
+    "Diagnosis": 1,
+    "Prescription": 1,
+    "SeizureFrequency": 2,
+    "Investigations": 2
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "4 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T5",
+          "type": "PatientHistory",
+          "text": "Insulin-dependent-diabetes",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T2",
+          "type": "Prescription",
+          "text": "Lamotrigine-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T8",
+          "type": "PatientHistory",
+          "text": "seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T10",
+          "type": "PatientHistory",
+          "text": "seizure",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

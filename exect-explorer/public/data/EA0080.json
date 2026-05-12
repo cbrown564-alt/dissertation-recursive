@@ -1,0 +1,270 @@
+{
+  "id": "EA0080",
+  "text": "Department of neurology\nNHS No:\t4521888894\nDate: \t\t16/9/2012\nClinic Date \t10/9/2012\n\n\nDear Dr\n\nre: Mr Owen Evans D.O.B: 17/11/1972\n34, Rain drive, Raintown, Mid glamorgan CF29 8JH\n \nDiagnosis:\tintractable epilepsy with generalised tonic clonic seizures\n\nMedication:\tLevetiracetam 1250mg bd\n\t\tCarbamazepine 600mg bd\n\nHe is now getting approximately 1 generalised tonic clonic seizure every two months. We discussed the risks of sudden death in epilepsy (SUDEP) but Mr Evans does not want to make any changes to his medication.\n\nI would suggest increasing the levetiracetam to 1500mg bd in steps of 250mg every fortnight. There have been problems with complicance in the past and Owen has forgotten to take his medication. I have re-emphasied the importance of taking medication regularly. A further follow up has been arranged.\n",
+  "entities": [
+    {
+      "id": "T3",
+      "type": "Diagnosis",
+      "start": 193,
+      "end": 213,
+      "text": "intractable-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "CUIPhrase": "intractable-epilepsy",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUI": "C1096063"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "Diagnosis",
+      "start": 219,
+      "end": 252,
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "CUI": "C0494475",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "Negation": "Affirmed",
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "start": 266,
+      "end": 289,
+      "text": "Levetiracetam-1250mg-bd",
+      "attributes": {
+        "CUI": "C0377265",
+        "DrugName": "levetiracetam",
+        "Frequency": "2",
+        "DrugDose": "1250",
+        "DoseUnit": "mg",
+        "CUIPhrase": "levetiracetam"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "Prescription",
+      "start": 292,
+      "end": 314,
+      "text": "Carbamazepine-600mg-bd",
+      "attributes": {
+        "CUI": "C0006949",
+        "DoseUnit": "mg",
+        "DrugName": "carbamazepine",
+        "CUIPhrase": "carbamazepine",
+        "DrugDose": "600",
+        "Frequency": "2"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "SeizureFrequency",
+      "start": 350,
+      "end": 382,
+      "text": "generalised-tonic-clonic-seizure",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "TimePeriod": "Month",
+        "CUIPhrase": "generalised-tonic-clonic-seizure",
+        "CUI": "C0494475",
+        "NumberOfTimePeriods": "2"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Diagnosis",
+      "start": 350,
+      "end": 382,
+      "text": "generalised-tonic-clonic-seizure",
+      "attributes": {
+        "Certainty": "5",
+        "CUIPhrase": "generalised-tonic-clonic-seizure",
+        "Negation": "Affirmed",
+        "DiagCategory": "MultipleSeizures",
+        "CUI": "C0494475"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "219",
+      "end_index": "252",
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "CUI": "C0494475",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "Negation": "Affirmed",
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "292",
+      "end_index": "314",
+      "text": "Carbamazepine-600mg-bd",
+      "attributes": {
+        "CUI": "C0006949",
+        "DoseUnit": "mg",
+        "DrugName": "carbamazepine",
+        "CUIPhrase": "carbamazepine",
+        "DrugDose": "600",
+        "Frequency": "2"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "193",
+      "end_index": "213",
+      "text": "intractable-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "CUIPhrase": "intractable-epilepsy",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUI": "C1096063"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "266",
+      "end_index": "289",
+      "text": "Levetiracetam-1250mg-bd",
+      "attributes": {
+        "CUI": "C0377265",
+        "DrugName": "levetiracetam",
+        "Frequency": "2",
+        "DrugDose": "1250",
+        "DoseUnit": "mg",
+        "CUIPhrase": "levetiracetam"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "350",
+      "end_index": "382",
+      "text": "generalised-tonic-clonic-seizure",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "TimePeriod": "Month",
+        "CUIPhrase": "generalised-tonic-clonic-seizure",
+        "CUI": "C0494475",
+        "NumberOfTimePeriods": "2"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "350",
+      "end_index": "382",
+      "text": "generalised-tonic-clonic-seizure",
+      "attributes": {
+        "Certainty": "5",
+        "CUIPhrase": "generalised-tonic-clonic-seizure",
+        "Negation": "Affirmed",
+        "DiagCategory": "MultipleSeizures",
+        "CUI": "C0494475"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 350,
+      "end": 382,
+      "text": "generalised-tonic-clonic-seizure",
+      "entity_types": [
+        "SeizureFrequency",
+        "Diagnosis"
+      ],
+      "entity_ids": [
+        "T5",
+        "T6"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "text": "Levetiracetam-1250mg-bd",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T2",
+      "type": "Prescription",
+      "text": "Carbamazepine-600mg-bd",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T5",
+      "type": "SeizureFrequency",
+      "text": "generalised-tonic-clonic-seizure",
+      "start": 350,
+      "end": 382,
+      "year": null,
+      "period": "Month",
+      "num_periods": "2",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "1"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 3,
+    "Prescription": 2,
+    "SeizureFrequency": 1
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "1 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 350,
+          "end": 382,
+          "text": "generalised-tonic-clonic-seizure",
+          "entity_types": [
+            "SeizureFrequency",
+            "Diagnosis"
+          ],
+          "entity_ids": [
+            "T5",
+            "T6"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "2 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T4",
+          "type": "Prescription",
+          "text": "Levetiracetam-1250mg-bd",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T2",
+          "type": "Prescription",
+          "text": "Carbamazepine-600mg-bd",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

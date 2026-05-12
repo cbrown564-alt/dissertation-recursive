@@ -1,0 +1,463 @@
+{
+  "id": "EA0096",
+  "text": "Clinic date: January 11th 2020\nTyped: January 13th 2020\n\nDear Dr Pooled\n\nRe: \tGary Evans\n\nDiagnosis: \tSevere epilepsy\n\t\tLearning disability\n\nMedication:\tSodium Valproate 440mg bd (30mg/kg/day)\n\t\tTopiramate 60mg am, 75mg pm (5mg/kg/day)\n\t\tPhenytoin 120mg bd (10mg/kg/day)\n\nFollow Up:\tDepending on results of Phenytoin level \n\nI reviewed Gary with his mother in the clinic today.  His mother told me that his seizure control has been variable but today was a good day.  Mother thought that overall, his control had been good until about a week ago when it had begun to slip.  On Sunday and Monday, he was having generalised tonic clonic seizures in the night and frequent drops and absences throughout the day.  In one of the drops, he had injured his face.  At one point, they found it very difficult to get his drugs down him as he was so “out of it”.  \n\nHis control had deteriorated prior to increasing the valproate but had then improved to the odd stare only.\n\nToday he walked in on his own and was his normal chatty, inquisitive self.  His gait was steady, and he wasn’t dribbling.  I saw no overt seizures.  His weight had slightly dropped today to 24.3kg. \n\nWe have arranged for him to have a Phenytoin level done and will get in contact with mother with the result.   We agreed to continue reducing his Topiramte as previously arranged and will then consider reducing his Phenytoin.  \n\n\nYours sincerely\n",
+  "entities": [
+    {
+      "id": "T7",
+      "type": "Diagnosis",
+      "start": 109,
+      "end": 117,
+      "text": "epilepsy",
+      "attributes": {
+        "CUI": "C0014544",
+        "Negation": "Affirmed",
+        "DiagCategory": "Epilepsy",
+        "CUIPhrase": "epilepsy",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "start": 120,
+      "end": 139,
+      "text": "Learning-disability",
+      "attributes": {
+        "Certainty": "5",
+        "CUIPhrase": "learning-disability",
+        "CUI": "C0751265",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "Prescription",
+      "start": 153,
+      "end": 192,
+      "text": "Sodium-Valproate-440mg-bd-(30mg/kg/day)",
+      "attributes": {
+        "Frequency": "2",
+        "CUIPhrase": "sodium-valproate",
+        "CUI": "C0037567",
+        "DrugName": "sodium-valproate",
+        "DrugDose": "440",
+        "DoseUnit": "mg"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "Prescription",
+      "start": 195,
+      "end": 205,
+      "text": "Topiramate",
+      "attributes": {
+        "CUI": "C0076829",
+        "DrugDose": "75",
+        "CUIPhrase": "topiramate",
+        "Frequency": "1",
+        "DoseUnit": "mg",
+        "DrugName": "Topiramate"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "start": 195,
+      "end": 213,
+      "text": "Topiramate-60mg-am",
+      "attributes": {
+        "DrugDose": "60",
+        "CUIPhrase": "topiramate",
+        "DoseUnit": "mg",
+        "Frequency": "1",
+        "CUI": "C0076829",
+        "DrugName": "topiramate"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "Prescription",
+      "start": 238,
+      "end": 270,
+      "text": "Phenytoin-120mg-bd-(10mg/kg/day)",
+      "attributes": {
+        "CUI": "C0031507",
+        "DrugDose": "120",
+        "DrugName": "phenytoin",
+        "CUIPhrase": "phenytoin",
+        "DoseUnit": "mg",
+        "Frequency": "2"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "SeizureFrequency",
+      "start": 610,
+      "end": 643,
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "TimePeriod": "Day",
+        "NumberOfTimePeriods": "1",
+        "TimeSince_or_TimeOfEvent": "During",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Diagnosis",
+      "start": 610,
+      "end": 643,
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475",
+        "DiagCategory": "MultipleSeizures",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "PatientHistory",
+      "start": 680,
+      "end": 688,
+      "text": "absences",
+      "attributes": {
+        "CUIPhrase": "absences",
+        "CUI": "C0563606",
+        "Negation": "Affirmed",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "SeizureFrequency",
+      "start": 680,
+      "end": 688,
+      "text": "absences",
+      "attributes": {
+        "FrequencyChange": "Frequent",
+        "CUIPhrase": "absences",
+        "CUI": "C0563606"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Prescription",
+      "start_index": "238",
+      "end_index": "270",
+      "text": "Phenytoin-120mg-bd-(10mg/kg/day)",
+      "attributes": {
+        "CUI": "C0031507",
+        "DrugDose": "120",
+        "DrugName": "phenytoin",
+        "CUIPhrase": "phenytoin",
+        "DoseUnit": "mg",
+        "Frequency": "2"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "195",
+      "end_index": "205",
+      "text": "Topiramate",
+      "attributes": {
+        "CUI": "C0076829",
+        "DrugDose": "75",
+        "CUIPhrase": "topiramate",
+        "Frequency": "1",
+        "DoseUnit": "mg",
+        "DrugName": "Topiramate"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "153",
+      "end_index": "192",
+      "text": "Sodium-Valproate-440mg-bd-(30mg/kg/day)",
+      "attributes": {
+        "Frequency": "2",
+        "CUIPhrase": "sodium-valproate",
+        "CUI": "C0037567",
+        "DrugName": "sodium-valproate",
+        "DrugDose": "440",
+        "DoseUnit": "mg"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "195",
+      "end_index": "213",
+      "text": "Topiramate-60mg-am",
+      "attributes": {
+        "DrugDose": "60",
+        "CUIPhrase": "topiramate",
+        "DoseUnit": "mg",
+        "Frequency": "1",
+        "CUI": "C0076829",
+        "DrugName": "topiramate"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "610",
+      "end_index": "643",
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "TimePeriod": "Day",
+        "NumberOfTimePeriods": "1",
+        "TimeSince_or_TimeOfEvent": "During",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "680",
+      "end_index": "688",
+      "text": "absences",
+      "attributes": {
+        "CUIPhrase": "absences",
+        "CUI": "C0563606",
+        "Negation": "Affirmed",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "610",
+      "end_index": "643",
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475",
+        "DiagCategory": "MultipleSeizures",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "109",
+      "end_index": "117",
+      "text": "epilepsy",
+      "attributes": {
+        "CUI": "C0014544",
+        "Negation": "Affirmed",
+        "DiagCategory": "Epilepsy",
+        "CUIPhrase": "epilepsy",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "120",
+      "end_index": "139",
+      "text": "Learning-disability",
+      "attributes": {
+        "Certainty": "5",
+        "CUIPhrase": "learning-disability",
+        "CUI": "C0751265",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "680",
+      "end_index": "688",
+      "text": "absences",
+      "attributes": {
+        "FrequencyChange": "Frequent",
+        "CUIPhrase": "absences",
+        "CUI": "C0563606"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 610,
+      "end": 643,
+      "text": "generalised-tonic-clonic-seizures",
+      "entity_types": [
+        "SeizureFrequency",
+        "Diagnosis"
+      ],
+      "entity_ids": [
+        "T9",
+        "T6"
+      ]
+    },
+    {
+      "start": 680,
+      "end": 688,
+      "text": "absences",
+      "entity_types": [
+        "PatientHistory",
+        "SeizureFrequency"
+      ],
+      "entity_ids": [
+        "T5",
+        "T14"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "text": "Learning-disability",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T3",
+      "type": "Prescription",
+      "text": "Sodium-Valproate-440mg-bd-(30mg/kg/day)",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T2",
+      "type": "Prescription",
+      "text": "Topiramate",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "text": "Topiramate-60mg-am",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T1",
+      "type": "Prescription",
+      "text": "Phenytoin-120mg-bd-(10mg/kg/day)",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T5",
+      "type": "PatientHistory",
+      "text": "absences",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T14",
+      "type": "SeizureFrequency",
+      "text": "absences",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T9",
+      "type": "SeizureFrequency",
+      "text": "generalised-tonic-clonic-seizures",
+      "start": 610,
+      "end": 643,
+      "year": null,
+      "period": "Day",
+      "num_periods": "1",
+      "time_since": "During",
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "1"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 2,
+    "PatientHistory": 2,
+    "Prescription": 4,
+    "SeizureFrequency": 2
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "2 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 610,
+          "end": 643,
+          "text": "generalised-tonic-clonic-seizures",
+          "entity_types": [
+            "SeizureFrequency",
+            "Diagnosis"
+          ],
+          "entity_ids": [
+            "T9",
+            "T6"
+          ]
+        },
+        {
+          "start": 680,
+          "end": 688,
+          "text": "absences",
+          "entity_types": [
+            "PatientHistory",
+            "SeizureFrequency"
+          ],
+          "entity_ids": [
+            "T5",
+            "T14"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "7 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T8",
+          "type": "PatientHistory",
+          "text": "Learning-disability",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T3",
+          "type": "Prescription",
+          "text": "Sodium-Valproate-440mg-bd-(30mg/kg/day)",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T2",
+          "type": "Prescription",
+          "text": "Topiramate",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T4",
+          "type": "Prescription",
+          "text": "Topiramate-60mg-am",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T1",
+          "type": "Prescription",
+          "text": "Phenytoin-120mg-bd-(10mg/kg/day)",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T5",
+          "type": "PatientHistory",
+          "text": "absences",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T14",
+          "type": "SeizureFrequency",
+          "text": "absences",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

@@ -1,0 +1,405 @@
+{
+  "id": "EA0044",
+  "text": "Clinic date 10th December 2019\n\nRe. Miss Amber Clarke D.O.B.: 29/06/2000\n\nDiagnosis: Generalised Epilepsy with tonic-clonic seizures alone\n\tDiabetes\n\nMedication: lamotrigine 75mg twice a day\n\nInvestigations: MRI 2019 normal\n\t\tEEG 2019: generalised spike and wave with photosensitivity\n\nI reviewed this 19 year old woman by telephone today. I was pleased to hear that she has not had any further seizures since her last clinic appointment and since starting the lamotrigine. We had a chat of the ongoing need to take medication. This is because of the risks that convulsive seizures have. I explained that the EEG changes, which show a generalised pattern, are in keeping with the syndrome of a generalised epilepsy with tonic clonic seizures alone. I explained that the EEG also showed evidence of photosensitivity. This means that Miss Clark should be careful around flashing lights and patterns of sunlight through trees which may provoke seizures.\n\nShe is planning to learn to drive when she has been a year free of seizures.\n\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 85,
+      "end": 138,
+      "text": "Generalised-Epilepsy-with-tonic-clonic-seizures-alone",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy-with-generalised-tonic-clonic-seizures-alone",
+        "CUI": "C0393697"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "start": 140,
+      "end": 148,
+      "text": "Diabetes",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "diabetes",
+        "CUI": "C0011849"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "start": 150,
+      "end": 190,
+      "text": "Medication:-lamotrigine-75mg-twice-a-day",
+      "attributes": {
+        "DrugName": "lamotrigine",
+        "DrugDose": "75",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Investigations",
+      "start": 208,
+      "end": 211,
+      "text": "MRI",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Normal",
+        "CUIPhrase": "normal-mri",
+        "CUI": "C0436481"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "Investigations",
+      "start": 226,
+      "end": 229,
+      "text": "EEG",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Abnormal",
+        "CUIPhrase": "eeg-abnormal",
+        "CUI": "C0151611"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "PatientHistory",
+      "start": 268,
+      "end": 284,
+      "text": "photosensitivity",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "photosensitivity",
+        "CUI": "C3552821"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "SeizureFrequency",
+      "start": 395,
+      "end": 403,
+      "text": "seizures",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "PointInTime": "LastClinic",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "SeizureFrequency",
+      "start": 395,
+      "end": 403,
+      "text": "seizures",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "PointInTime": "DrugChange",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "Investigations",
+      "start": 770,
+      "end": 774,
+      "text": "EEG-",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Abnormal",
+        "CUIPhrase": "eeg-abnormal",
+        "CUI": "C0151611"
+      }
+    },
+    {
+      "id": "T16",
+      "type": "PatientHistory",
+      "start": 798,
+      "end": 814,
+      "text": "photosensitivity",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "photosensitivity",
+        "CUI": "C3552821"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "85",
+      "end_index": "138",
+      "text": "Generalised-Epilepsy-with-tonic-clonic-seizures-alone",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy-with-generalised-tonic-clonic-seizures-alone",
+        "CUI": "C0393697"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "140",
+      "end_index": "148",
+      "text": "Diabetes",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "diabetes",
+        "CUI": "C0011849"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "150",
+      "end_index": "190",
+      "text": "Medication:-lamotrigine-75mg-twice-a-day",
+      "attributes": {
+        "DrugName": "lamotrigine",
+        "DrugDose": "75",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "208",
+      "end_index": "211",
+      "text": "MRI",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Normal",
+        "CUIPhrase": "normal-mri",
+        "CUI": "C0436481"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "226",
+      "end_index": "229",
+      "text": "EEG",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Abnormal",
+        "CUIPhrase": "eeg-abnormal",
+        "CUI": "C0151611"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "268",
+      "end_index": "284",
+      "text": "photosensitivity",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "photosensitivity",
+        "CUI": "C3552821"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "395",
+      "end_index": "403",
+      "text": "seizures",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "PointInTime": "LastClinic",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "395",
+      "end_index": "403",
+      "text": "seizures",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "PointInTime": "DrugChange",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "770",
+      "end_index": "774",
+      "text": "EEG-",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Abnormal",
+        "CUIPhrase": "eeg-abnormal",
+        "CUI": "C0151611"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "798",
+      "end_index": "814",
+      "text": "photosensitivity",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "photosensitivity",
+        "CUI": "C3552821"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 395,
+      "end": 403,
+      "text": "seizures",
+      "entity_types": [
+        "SeizureFrequency",
+        "SeizureFrequency"
+      ],
+      "entity_ids": [
+        "T12",
+        "T14"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "text": "Diabetes",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "text": "Medication:-lamotrigine-75mg-twice-a-day",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T11",
+      "type": "PatientHistory",
+      "text": "photosensitivity",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T16",
+      "type": "PatientHistory",
+      "text": "photosensitivity",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T12",
+      "type": "SeizureFrequency",
+      "text": "seizures",
+      "start": 395,
+      "end": 403,
+      "year": null,
+      "period": null,
+      "num_periods": null,
+      "time_since": "Since",
+      "point_in_time": "LastClinic",
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    },
+    {
+      "id": "T14",
+      "type": "SeizureFrequency",
+      "text": "seizures",
+      "start": 395,
+      "end": 403,
+      "year": null,
+      "period": null,
+      "num_periods": null,
+      "time_since": "Since",
+      "point_in_time": "DrugChange",
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 1,
+    "PatientHistory": 3,
+    "Prescription": 1,
+    "Investigations": 3,
+    "SeizureFrequency": 2
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "1 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 395,
+          "end": 403,
+          "text": "seizures",
+          "entity_types": [
+            "SeizureFrequency",
+            "SeizureFrequency"
+          ],
+          "entity_ids": [
+            "T12",
+            "T14"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "4 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T4",
+          "type": "PatientHistory",
+          "text": "Diabetes",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T6",
+          "type": "Prescription",
+          "text": "Medication:-lamotrigine-75mg-twice-a-day",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T11",
+          "type": "PatientHistory",
+          "text": "photosensitivity",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T16",
+          "type": "PatientHistory",
+          "text": "photosensitivity",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

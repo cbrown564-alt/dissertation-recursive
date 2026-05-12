@@ -1,0 +1,381 @@
+{
+  "id": "EA0104",
+  "text": "Typed 4 April 2013\n\nDear Dr\n\nRE\tFrey Little DOB:\t12-APR-1972\n\nDate seen: \t02-APR-2013\nDiagnosis:\tSimple partial seizures with occasional secondary generalisation\nMRI 2009:\tTemporal lobe cavernoma\nPast medical history:\tDepression\nCurrent medication\tLamotrigine 150mg bd\n\t\t\tRecommend add Topiramate\nFollow up\t4 months.\n\nI reviewed this 41 year old right handed woman in clinic today. She has previously been under the care of my colleague. Her seizures started at the age of 15 and consist of an unusual, difficult to describe sensation and taste. This can last up to a minute. Sometimes this is followed by a collapse after which she feels very tired. The smaller versions of the attacks can happen several times per week. The best period of seizure freedom that she has had is probably around three years of seizure freedom which she had in her early 30s. \n\nAt present she is taking lamotrigine 150 milligrammes twice a day. In the past she has tried levetiracetam which didn't really affect her seizures but seemed to make her mood worse. She has had depression in the past. She drinks around 2 bottles of wine per week but does not smoke. She stays at home to look after her three children. His father has a history of epilepsy. \n\nHer examination today was normal and her blood pressure was 122 slash 72. \n\nThe aim would be to get better seizure control. I would be grateful if you could prescribe topiramate starting at 25 milligrammes daily for two weeks followed by 25 milligrammes twice a day. This should further be increased by 25 milligrammes every fortnight until a total dose of 200MG twice a day is reached. \n\nWe will request an up to date EEG and I will review her again in clinic in around six months time. \n\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 97,
+      "end": 120,
+      "text": "Simple-partial-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "simple-partial-seizures",
+        "CUI": "C0234974"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Diagnosis",
+      "start": 137,
+      "end": 161,
+      "text": "secondary-generalisation",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "secondary-generalisation",
+        "CUI": "C0270838"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Investigations",
+      "start": 162,
+      "end": 166,
+      "text": "MRI-",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Abnormal",
+        "CUIPhrase": "mri-abnormal",
+        "CUI": "C1319851"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "start": 186,
+      "end": 195,
+      "text": "cavernoma",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "cavernoma",
+        "CUI": "C0018920"
+      }
+    },
+    {
+      "id": "T18",
+      "type": "PatientHistory",
+      "start": 218,
+      "end": 228,
+      "text": "Depression",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "depression",
+        "CUI": "C0011570"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "Prescription",
+      "start": 248,
+      "end": 260,
+      "text": "Lamotrigine-",
+      "attributes": {
+        "DrugName": "Lamotrigine",
+        "DrugDose": "150",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "start": 442,
+      "end": 451,
+      "text": "seizures-",
+      "attributes": {
+        "AgeUnit": "Year",
+        "Age": "15",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "Prescription",
+      "start": 883,
+      "end": 895,
+      "text": "lamotrigine-",
+      "attributes": {
+        "DrugName": "Lamotrigine",
+        "DrugDose": "150",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "start": 996,
+      "end": 1005,
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T16",
+      "type": "PatientHistory",
+      "start": 1052,
+      "end": 1063,
+      "text": "depression-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "depression",
+        "CUI": "C0011570"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "97",
+      "end_index": "120",
+      "text": "Simple-partial-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "simple-partial-seizures",
+        "CUI": "C0234974"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "137",
+      "end_index": "161",
+      "text": "secondary-generalisation",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "secondary-generalisation",
+        "CUI": "C0270838"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "162",
+      "end_index": "166",
+      "text": "MRI-",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Abnormal",
+        "CUIPhrase": "mri-abnormal",
+        "CUI": "C1319851"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "186",
+      "end_index": "195",
+      "text": "cavernoma",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "cavernoma",
+        "CUI": "C0018920"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "218",
+      "end_index": "228",
+      "text": "Depression",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "depression",
+        "CUI": "C0011570"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "248",
+      "end_index": "260",
+      "text": "Lamotrigine-",
+      "attributes": {
+        "DrugName": "Lamotrigine",
+        "DrugDose": "150",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "442",
+      "end_index": "451",
+      "text": "seizures-",
+      "attributes": {
+        "AgeUnit": "Year",
+        "Age": "15",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "883",
+      "end_index": "895",
+      "text": "lamotrigine-",
+      "attributes": {
+        "DrugName": "Lamotrigine",
+        "DrugDose": "150",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "996",
+      "end_index": "1005",
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1052",
+      "end_index": "1063",
+      "text": "depression-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "depression",
+        "CUI": "C0011570"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "text": "cavernoma",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T18",
+      "type": "PatientHistory",
+      "text": "Depression",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T10",
+      "type": "Prescription",
+      "text": "Lamotrigine-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "text": "seizures-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T14",
+      "type": "Prescription",
+      "text": "lamotrigine-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "text": "seizures-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T16",
+      "type": "PatientHistory",
+      "text": "depression-",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [],
+  "type_counts": {
+    "Diagnosis": 2,
+    "Investigations": 1,
+    "PatientHistory": 5,
+    "Prescription": 2
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "7 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T6",
+          "type": "PatientHistory",
+          "text": "cavernoma",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T18",
+          "type": "PatientHistory",
+          "text": "Depression",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T10",
+          "type": "Prescription",
+          "text": "Lamotrigine-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T12",
+          "type": "PatientHistory",
+          "text": "seizures-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T14",
+          "type": "Prescription",
+          "text": "lamotrigine-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T9",
+          "type": "PatientHistory",
+          "text": "seizures-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T16",
+          "type": "PatientHistory",
+          "text": "depression-",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

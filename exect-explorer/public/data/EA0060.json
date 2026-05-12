@@ -1,0 +1,663 @@
+{
+  "id": "EA0060",
+  "text": "Our Ref THY/SW/W435654\nNHS No 4345438876\nDate 13/9/2010\nClinic Date 3/9/2010\n\nThe Epilepsy service\n\nDear Dr\n\nr.e. Mr Zac Rowlands\nThe Care Home, Heol-yr-afon, Trefdwr. SA23 2DE\n\nDiagnosis\t1. Symptomatic focal epilepsy\n\t\t2. Dementia\n\nMedication:\tLevetiracetam 250mg bd (to increase as detailed below)\n\t\tBuccal midazolam for prolonged seizures.\n\nOther medications include: quetiapine, folic acid, clopidogrel\n\nSeizure type and frequency: focal seizures with altered awareness and secondary generalised seizures, last event Feb 2010\n\nInvestigations: CT head Februrary 2010: significant brain atrophy\n\nI spoke with Tanya who is Mr Rowlands carer today. As you know he had a cluster of convulsive seizures for the first time in February. He suddenly went unconscious during a meal, let out a scream and started shaking. His lips went blue and the care home staff phoned 999. He was admitted to hospital then and started on levetiracetam. He has got quite advanced dementia and needs help for all activites of daily living and has no verbal communication. \n\nTanya has noticed that Mr Rowlands gets some “blank” episodes recently. During these he will stare and look blank for a couple of minutes and sometimes fall asleep afterwards.\n\nImpression. Mr Rowlands has an epilepsy which is probably caused by his underlying dementia.\n\nComments. I think that the “blank” episodes are focal seizures with altered awareness and so it would be worth increasing the levetiracetam to 500mg bd. The care home staff or yourself can contact the epilepsy helpline should there be any issues with his epilepsy in the future.\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 191,
+      "end": 217,
+      "text": "Symptomatic-focal-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "symptomatic-focal-epilepsy",
+        "CUI": "C0472349"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "start": 223,
+      "end": 231,
+      "text": "Dementia",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "dementia",
+        "CUI": "C0497327"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "start": 245,
+      "end": 299,
+      "text": "Levetiracetam-250mg-bd-(to-increase-as-detailed-below)",
+      "attributes": {
+        "DrugName": "levetiracetam",
+        "DrugDose": "250",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "levetiracetam",
+        "CUI": "C0377265"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "Prescription",
+      "start": 302,
+      "end": 318,
+      "text": "Buccal-midazolam",
+      "attributes": {
+        "Frequency": "As_Required",
+        "CUIPhrase": "midazolam",
+        "CUI": "C0026056"
+      }
+    },
+    {
+      "id": "T13",
+      "type": "Diagnosis",
+      "start": 436,
+      "end": 473,
+      "text": "focal-seizures-with-altered-awareness",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-seizures-with-altered-awareness",
+        "CUI": "C0270834"
+      }
+    },
+    {
+      "id": "T15",
+      "type": "Diagnosis",
+      "start": 478,
+      "end": 508,
+      "text": "secondary-generalised-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "secondary-generalised-seizures",
+        "CUI": "C0270838"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "SeizureFrequency",
+      "start": 500,
+      "end": 511,
+      "text": "seizures,-l",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "MonthDate": "2",
+        "YearDate": "2010",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Investigations",
+      "start": 547,
+      "end": 550,
+      "text": "CT-",
+      "attributes": {
+        "CT_Performed": "Yes",
+        "CT_Results": "Abnormal",
+        "CUIPhrase": "ct-abnormal",
+        "CUI": "C0436539"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "start": 583,
+      "end": 596,
+      "text": "brain-atrophy",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "brain-atrophy",
+        "CUI": "C0235946"
+      }
+    },
+    {
+      "id": "T24",
+      "type": "PatientHistory",
+      "start": 681,
+      "end": 700,
+      "text": "convulsive-seizures",
+      "attributes": {
+        "MonthDate": "2",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "convulsive-seizures",
+        "CUI": "C0751494"
+      }
+    },
+    {
+      "id": "T21",
+      "type": "PatientHistory",
+      "start": 959,
+      "end": 967,
+      "text": "dementia",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "dementia",
+        "CUI": "C0497327"
+      }
+    },
+    {
+      "id": "T26",
+      "type": "PatientHistory",
+      "start": 1097,
+      "end": 1114,
+      "text": "“blank”-episodes-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "blank-episodes",
+        "CUI": "C0563606"
+      }
+    },
+    {
+      "id": "T28",
+      "type": "Diagnosis",
+      "start": 1260,
+      "end": 1268,
+      "text": "epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T30",
+      "type": "EpilepsyCause",
+      "start": 1312,
+      "end": 1320,
+      "text": "dementia",
+      "attributes": {
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "dementia",
+        "CUI": "C0497327"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "start": 1312,
+      "end": 1320,
+      "text": "dementia",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "dementia",
+        "CUI": "C0497327"
+      }
+    },
+    {
+      "id": "T32",
+      "type": "Diagnosis",
+      "start": 1371,
+      "end": 1408,
+      "text": "focal-seizures-with-altered-awareness",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-seizures-with-altered-awareness",
+        "CUI": "C0270834"
+      }
+    },
+    {
+      "id": "T16",
+      "type": "Diagnosis",
+      "start": 1578,
+      "end": 1587,
+      "text": "epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "191",
+      "end_index": "217",
+      "text": "Symptomatic-focal-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "symptomatic-focal-epilepsy",
+        "CUI": "C0472349"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "223",
+      "end_index": "231",
+      "text": "Dementia",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "dementia",
+        "CUI": "C0497327"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "245",
+      "end_index": "299",
+      "text": "Levetiracetam-250mg-bd-(to-increase-as-detailed-below)",
+      "attributes": {
+        "DrugName": "levetiracetam",
+        "DrugDose": "250",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "levetiracetam",
+        "CUI": "C0377265"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "302",
+      "end_index": "318",
+      "text": "Buccal-midazolam",
+      "attributes": {
+        "Frequency": "As_Required",
+        "CUIPhrase": "midazolam",
+        "CUI": "C0026056"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "436",
+      "end_index": "473",
+      "text": "focal-seizures-with-altered-awareness",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-seizures-with-altered-awareness",
+        "CUI": "C0270834"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "478",
+      "end_index": "508",
+      "text": "secondary-generalised-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "secondary-generalised-seizures",
+        "CUI": "C0270838"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "500",
+      "end_index": "511",
+      "text": "seizures,-l",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "MonthDate": "2",
+        "YearDate": "2010",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "547",
+      "end_index": "550",
+      "text": "CT-",
+      "attributes": {
+        "CT_Performed": "Yes",
+        "CT_Results": "Abnormal",
+        "CUIPhrase": "ct-abnormal",
+        "CUI": "C0436539"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "583",
+      "end_index": "596",
+      "text": "brain-atrophy",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "brain-atrophy",
+        "CUI": "C0235946"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "681",
+      "end_index": "700",
+      "text": "convulsive-seizures",
+      "attributes": {
+        "MonthDate": "2",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "convulsive-seizures",
+        "CUI": "C0751494"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "959",
+      "end_index": "967",
+      "text": "dementia",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "dementia",
+        "CUI": "C0497327"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1097",
+      "end_index": "1114",
+      "text": "“blank”-episodes-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "blank-episodes",
+        "CUI": "C0563606"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1260",
+      "end_index": "1268",
+      "text": "epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "EpilepsyCause",
+      "start_index": "1312",
+      "end_index": "1320",
+      "text": "dementia",
+      "attributes": {
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "dementia",
+        "CUI": "C0497327"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1312",
+      "end_index": "1320",
+      "text": "dementia",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "dementia",
+        "CUI": "C0497327"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1371",
+      "end_index": "1408",
+      "text": "focal-seizures-with-altered-awareness",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-seizures-with-altered-awareness",
+        "CUI": "C0270834"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1578",
+      "end_index": "1587",
+      "text": "epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 1312,
+      "end": 1320,
+      "text": "dementia",
+      "entity_types": [
+        "EpilepsyCause",
+        "PatientHistory"
+      ],
+      "entity_ids": [
+        "T30",
+        "T14"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "text": "Dementia",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "text": "Levetiracetam-250mg-bd-(to-increase-as-detailed-below)",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T11",
+      "type": "Prescription",
+      "text": "Buccal-midazolam",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "text": "brain-atrophy",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T24",
+      "type": "PatientHistory",
+      "text": "convulsive-seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T21",
+      "type": "PatientHistory",
+      "text": "dementia",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T26",
+      "type": "PatientHistory",
+      "text": "“blank”-episodes-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "text": "dementia",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [
+    {
+      "id": "T11",
+      "text": "Buccal-midazolam",
+      "missing_fields": [
+        "DrugName",
+        "DrugDose",
+        "DoseUnit"
+      ]
+    }
+  ],
+  "timeline_events": [
+    {
+      "id": "T12",
+      "type": "SeizureFrequency",
+      "text": "seizures,-l",
+      "start": 500,
+      "end": 511,
+      "year": "2010",
+      "period": null,
+      "num_periods": null,
+      "time_since": "Since",
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 6,
+    "PatientHistory": 6,
+    "Prescription": 2,
+    "SeizureFrequency": 1,
+    "Investigations": 1,
+    "EpilepsyCause": 1
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "1 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 1312,
+          "end": 1320,
+          "text": "dementia",
+          "entity_types": [
+            "EpilepsyCause",
+            "PatientHistory"
+          ],
+          "entity_ids": [
+            "T30",
+            "T14"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "8 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T4",
+          "type": "PatientHistory",
+          "text": "Dementia",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T6",
+          "type": "Prescription",
+          "text": "Levetiracetam-250mg-bd-(to-increase-as-detailed-below)",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T11",
+          "type": "Prescription",
+          "text": "Buccal-midazolam",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T10",
+          "type": "PatientHistory",
+          "text": "brain-atrophy",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T24",
+          "type": "PatientHistory",
+          "text": "convulsive-seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T21",
+          "type": "PatientHistory",
+          "text": "dementia",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T26",
+          "type": "PatientHistory",
+          "text": "“blank”-episodes-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T14",
+          "type": "PatientHistory",
+          "text": "dementia",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    },
+    {
+      "category": "incomplete_medication_tuple",
+      "description": "1 prescription(s) have incomplete tuple fields.",
+      "details": [
+        {
+          "id": "T11",
+          "text": "Buccal-midazolam",
+          "missing_fields": [
+            "DrugName",
+            "DrugDose",
+            "DoseUnit"
+          ]
+        }
+      ],
+      "oracle_impact": "medication_full_tuple"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [
+    {
+      "id": "T30",
+      "type": "EpilepsyCause",
+      "text": "dementia",
+      "certainty": 4
+    },
+    {
+      "id": "T32",
+      "type": "Diagnosis",
+      "text": "focal-seizures-with-altered-awareness",
+      "certainty": 4
+    }
+  ],
+  "has_unknown_seizure": false
+}

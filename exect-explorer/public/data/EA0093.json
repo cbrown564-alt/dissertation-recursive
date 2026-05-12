@@ -1,0 +1,143 @@
+{
+  "id": "EA0093",
+  "text": "Clinic date: 3rd April 2016\nTyped: 5th April 2016\n\nDear Dr Pooled\n\nRe: \tMiss Lucy Williams\tD.O.B: 25/02/2007 NHS 123 123 5445\n\nDiagnosis: Primary generalised epilepsy\n\nMedication: Levetiracetam ?dose \nValproate as Episenta 500mg nocte to withdraw by 100mg increments every \nweek starting next school holidays\n\nFollow up: 6 months\n\nI reviewed this young lady in the clinic today.  She has been very well and has had no seizures since Christmas 2015.  She is doing very well in Year 5 at School.\n\nShe has no side effects from her current medication.  Mother felt that as her medication was being withdrawn, she became very tearful but this has settled down.  Lucy today, was wary of reducing her medication further but we have persuaded her to do this slowly over the summer holidays.  \n\nI have asked out epilepsy nurse to clarify with you the actual dose of Levetiracetam that she is taking as mother was not entirely clear.\nYours sincerely\n\n\n\n\n\n",
+  "entities": [
+    {
+      "id": "T1",
+      "type": "Diagnosis",
+      "start": 138,
+      "end": 166,
+      "text": "Primary-generalised-epilepsy",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "primary-generalised-epilepsy",
+        "Certainty": "5",
+        "CUI": "C0270850",
+        "DiagCategory": "Epilepsy"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "Prescription",
+      "start": 213,
+      "end": 228,
+      "text": "-Episenta-500mg",
+      "attributes": {
+        "DrugName": "SodiumValproate",
+        "DrugDose": "500",
+        "DoseUnit": "mg",
+        "Frequency": "1",
+        "CUIPhrase": "episenta",
+        "CUI": "C0037567"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "SeizureFrequency",
+      "start": 418,
+      "end": 426,
+      "text": "seizures",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "MonthDate": "12",
+        "YearDate": "2015",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "138",
+      "end_index": "166",
+      "text": "Primary-generalised-epilepsy",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "primary-generalised-epilepsy",
+        "Certainty": "5",
+        "CUI": "C0270850",
+        "DiagCategory": "Epilepsy"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "213",
+      "end_index": "228",
+      "text": "-Episenta-500mg",
+      "attributes": {
+        "DrugName": "SodiumValproate",
+        "DrugDose": "500",
+        "DoseUnit": "mg",
+        "Frequency": "1",
+        "CUIPhrase": "episenta",
+        "CUI": "C0037567"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "418",
+      "end_index": "426",
+      "text": "seizures",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "MonthDate": "12",
+        "YearDate": "2015",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T5",
+      "type": "Prescription",
+      "text": "-Episenta-500mg",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T10",
+      "type": "SeizureFrequency",
+      "text": "seizures",
+      "start": 418,
+      "end": 426,
+      "year": "2015",
+      "period": null,
+      "num_periods": null,
+      "time_since": "Since",
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 1,
+    "Prescription": 1,
+    "SeizureFrequency": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "1 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T5",
+          "type": "Prescription",
+          "text": "-Episenta-500mg",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

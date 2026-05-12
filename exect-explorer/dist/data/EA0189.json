@@ -1,0 +1,302 @@
+{
+  "id": "EA0189",
+  "text": "Problem: episode of transient loss of consciousness\n \nDiagnosis: single seizure, with additional jerks\n \nI reviewed this 21-year-old man in clinic today. ON the 3rd of July he had an unusual sensation that his arms had been jerking transiently through the day. In the evening this suddenly got worse and then he lost consciousness suddenly. When he came round, he was on the floor with severe tongue pain and a headache. He had bitten the side of his tongue. He had some arms and leg pain for several days afterwards. He was on his own at the time that this happened and so there is no witness history.\n \nWith hindsight he might have had some jerks in the past but there is no real convincing evidence of myoclonus or clinical photosensitivity. He was born normally and had one febrile seizure. He is currently working as a software engineer and doesnt drive. His mother used to have childhood absence seizures but she is now seizure free on medication.\n \nI note that his ECG and CT head were normal\n \nHis neurological examination was normal today.\n \nImpression: I think that this was probably a single epileptic seizures. It may be that the arm jerks are myoclonic seizures but it is difficult to be sure.\n \nPLan I will request a MRI and EEG urgently. The EEG will be useful in this case to see if there is an underlying epilepsy syndrome\nI have explained safety and driving regulations.\nIt will be very important for Mr Harrison to get in touch with us on the numbers above should he be unlucky enough to get another event or should he have any further concerns.\nIf he were to have another seizure I would suggest treating with an anti-seizure medication.\n\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "start": 20,
+      "end": 51,
+      "text": "transient-loss-of-consciousness",
+      "attributes": {
+        "CUIPhrase": "Transient loss of consciousness",
+        "Negation": "Affirmed",
+        "CUI": "C4087400",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "PatientHistory",
+      "start": 72,
+      "end": 79,
+      "text": "seizure",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C0036572",
+        "CUIPhrase": "seizure",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "start": 97,
+      "end": 102,
+      "text": "jerks",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "jerks",
+        "CUI": "C0231530",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "BirthHistory",
+      "start": 752,
+      "end": 765,
+      "text": "born-normally",
+      "attributes": {
+        "CUI": "C3665337",
+        "PrematureBirth": "37+_TermBirth",
+        "Negation": "Affirmed",
+        "CUIPhrase": "born-normally",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "PatientHistory",
+      "start": 778,
+      "end": 793,
+      "text": "febrile-seizure",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0009952",
+        "Negation": "Affirmed",
+        "CUIPhrase": "febrile-seizure"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Investigations",
+      "start": 980,
+      "end": 982,
+      "text": "CT",
+      "attributes": {
+        "CUI": "C0744602",
+        "CT_Results": "Normal",
+        "CT_Performed": "Yes",
+        "CUIPhrase": "ct-normal"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "Diagnosis",
+      "start": 1103,
+      "end": 1121,
+      "text": "epileptic-seizures",
+      "attributes": {
+        "Negation": "Affirmed",
+        "Certainty": "4",
+        "DiagCategory": "SingleSeizure",
+        "CUI": "C4317109",
+        "CUIPhrase": "epileptic seizure"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "start": 1592,
+      "end": 1599,
+      "text": "seizure",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "1103",
+      "end_index": "1121",
+      "text": "epileptic-seizures",
+      "attributes": {
+        "Negation": "Affirmed",
+        "Certainty": "4",
+        "DiagCategory": "SingleSeizure",
+        "CUI": "C4317109",
+        "CUIPhrase": "epileptic"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "20",
+      "end_index": "51",
+      "text": "transient-loss-of-consciousness",
+      "attributes": {
+        "CUIPhrase": "Transient",
+        "Negation": "Affirmed",
+        "CUI": "C4087400",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "BirthHistory",
+      "start_index": "752",
+      "end_index": "765",
+      "text": "born-normally",
+      "attributes": {
+        "CUI": "C3665337",
+        "PrematureBirth": "37+_TermBirth",
+        "Negation": "Affirmed",
+        "CUIPhrase": "born-normally",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "980",
+      "end_index": "982",
+      "text": "CT",
+      "attributes": {
+        "CUI": "C0744602",
+        "CT_Results": "Normal",
+        "CT_Performed": "Yes",
+        "CUIPhrase": "ct-normal"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "72",
+      "end_index": "79",
+      "text": "seizure",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C0036572",
+        "CUIPhrase": "seizure",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "97",
+      "end_index": "102",
+      "text": "jerks",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "jerks",
+        "CUI": "C0231530",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "778",
+      "end_index": "793",
+      "text": "febrile-seizure",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0009952",
+        "Negation": "Affirmed",
+        "CUIPhrase": "febrile-seizure"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1592",
+      "end_index": "1599",
+      "text": "seizure",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "text": "transient-loss-of-consciousness",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T5",
+      "type": "PatientHistory",
+      "text": "seizure",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "text": "jerks",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T7",
+      "type": "PatientHistory",
+      "text": "febrile-seizure",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "text": "seizure",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [],
+  "type_counts": {
+    "PatientHistory": 5,
+    "BirthHistory": 1,
+    "Investigations": 1,
+    "Diagnosis": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "5 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T2",
+          "type": "PatientHistory",
+          "text": "transient-loss-of-consciousness",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T5",
+          "type": "PatientHistory",
+          "text": "seizure",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T6",
+          "type": "PatientHistory",
+          "text": "jerks",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T7",
+          "type": "PatientHistory",
+          "text": "febrile-seizure",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T8",
+          "type": "PatientHistory",
+          "text": "seizure",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [
+    {
+      "id": "T1",
+      "type": "Diagnosis",
+      "text": "epileptic-seizures",
+      "certainty": 4
+    }
+  ],
+  "has_unknown_seizure": false
+}

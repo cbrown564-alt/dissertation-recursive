@@ -1,0 +1,138 @@
+{
+  "id": "EA0052",
+  "text": "NHS 123 540 9666\nRichard Richards. D.O.B. 7-DEC-1972\nDear Doctor,\nClinic 4/10/2015\nDiagnosis: temporal lobe epilepsy\nMedication: omeprazole\n\t\tThyroxine\n\t\tCarbamazepine 400mg bd (to change to eslicarbazine as below)\n\t\tZonisamide 100mg bd\n\nSine the last appointment Mr Richards has had 4 more attacks. Unfortunately one of them ended up with her hitting her head and needing stiches. \nAfter increasing the carbamazepine she has felt more unsteady, nauseated and tired. We discussed various options and decided to switch the carbamazepine to eslicarbazine which has fewer side effects. I would recommend a straight switch from 400mg bd of the carbamazepine to 800mg od of the eslicarbazine.\nLooking through her old notes it seems that levetiracetam gave her mood disorder, lamotrigine wasn’t effective. I will review her again in 6 months time.\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 94,
+      "end": 116,
+      "text": "temporal-lobe-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "temporal-lobe-epilepsy",
+        "CUI": "C0014556"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "start": 154,
+      "end": 214,
+      "text": "Carbamazepine-400mg-bd-(to-change-to-eslicarbazine-as-below)",
+      "attributes": {
+        "DrugName": "carbamazepine",
+        "DrugDose": "400",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "carbamazepine",
+        "CUI": "C0006949"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "start": 217,
+      "end": 236,
+      "text": "Zonisamide-100mg-bd",
+      "attributes": {
+        "DrugName": "zonisamide",
+        "DrugDose": "100",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "zonisamide",
+        "CUI": "C0078844"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "94",
+      "end_index": "116",
+      "text": "temporal-lobe-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "temporal-lobe-epilepsy",
+        "CUI": "C0014556"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "154",
+      "end_index": "214",
+      "text": "Carbamazepine-400mg-bd-(to-change-to-eslicarbazine-as-below)",
+      "attributes": {
+        "DrugName": "carbamazepine",
+        "DrugDose": "400",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "carbamazepine",
+        "CUI": "C0006949"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "217",
+      "end_index": "236",
+      "text": "Zonisamide-100mg-bd",
+      "attributes": {
+        "DrugName": "zonisamide",
+        "DrugDose": "100",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "zonisamide",
+        "CUI": "C0078844"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "text": "Carbamazepine-400mg-bd-(to-change-to-eslicarbazine-as-below)",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "text": "Zonisamide-100mg-bd",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [],
+  "type_counts": {
+    "Diagnosis": 1,
+    "Prescription": 2
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "2 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T4",
+          "type": "Prescription",
+          "text": "Carbamazepine-400mg-bd-(to-change-to-eslicarbazine-as-below)",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T6",
+          "type": "Prescription",
+          "text": "Zonisamide-100mg-bd",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

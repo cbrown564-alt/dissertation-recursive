@@ -1,0 +1,372 @@
+{
+  "id": "EA0127",
+  "text": "Diagnosis:          Complex partial seizures with secondary generalised tonic clonic seizures\n \nInvestigations:  MRI-normal\n                             EEG 2002 - left temporal slwoing with focal sharp waves\n \nMedications:     Sodium valproate 400mg twice a day\n                             Lamotrigine 100mg twice  aday\n \nIt was nice to see Julian in clinic today. I am happy to report that he remains seizures free. His last seizure was in February 2005. He seems to have no problems with the medication or any side effects. i will arrange follow up in the nurse led clinic\n",
+  "entities": [
+    {
+      "id": "T3",
+      "type": "Diagnosis",
+      "start": 20,
+      "end": 44,
+      "text": "Complex-partial-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "complex-partial-seizures",
+        "CUI": "C0149958"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "Diagnosis",
+      "start": 49,
+      "end": 93,
+      "text": "-secondary-generalised-tonic-clonic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "CUIPhrase": "secondary-generalised-tonic-clonic-seizures",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "Investigations",
+      "start": 114,
+      "end": 118,
+      "text": "-MRI",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Normal",
+        "CUIPhrase": "normal-mri",
+        "CUI": "C0436481"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "Investigations",
+      "start": 155,
+      "end": 159,
+      "text": "-EEG",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Abnormal",
+        "CUIPhrase": "eeg-abnormal",
+        "CUI": "C0151611"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "Prescription",
+      "start": 233,
+      "end": 255,
+      "text": "Sodium-valproate-400mg",
+      "attributes": {
+        "DrugName": "SodiumValproate",
+        "DrugDose": "400",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "sodium-valproate",
+        "CUI": "C0037567"
+      }
+    },
+    {
+      "id": "T13",
+      "type": "Prescription",
+      "start": 292,
+      "end": 309,
+      "text": "Lamotrigine-100mg",
+      "attributes": {
+        "DrugName": "Lamotrigine",
+        "DrugDose": "100",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "id": "T15",
+      "type": "SeizureFrequency",
+      "start": 412,
+      "end": 426,
+      "text": "seizures-free.",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "PointInTime": "LastClinic",
+        "CUIPhrase": "seizure-free",
+        "CUI": "C1299590"
+      }
+    },
+    {
+      "id": "T17",
+      "type": "SeizureFrequency",
+      "start": 436,
+      "end": 443,
+      "text": "seizure",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "MonthDate": "2",
+        "YearDate": "2005",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "start": 436,
+      "end": 443,
+      "text": "seizure",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "20",
+      "end_index": "44",
+      "text": "Complex-partial-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "complex-partial-seizures",
+        "CUI": "C0149958"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "49",
+      "end_index": "93",
+      "text": "-secondary-generalised-tonic-clonic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "CUIPhrase": "secondary-generalised-tonic-clonic-seizures",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "114",
+      "end_index": "118",
+      "text": "-MRI",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Normal",
+        "CUIPhrase": "normal-mri",
+        "CUI": "C0436481"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "155",
+      "end_index": "159",
+      "text": "-EEG",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Abnormal",
+        "CUIPhrase": "eeg-abnormal",
+        "CUI": "C0151611"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "233",
+      "end_index": "255",
+      "text": "Sodium-valproate-400mg",
+      "attributes": {
+        "DrugName": "SodiumValproate",
+        "DrugDose": "400",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "sodium-valproate",
+        "CUI": "C0037567"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "292",
+      "end_index": "309",
+      "text": "Lamotrigine-100mg",
+      "attributes": {
+        "DrugName": "Lamotrigine",
+        "DrugDose": "100",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "412",
+      "end_index": "426",
+      "text": "seizures-free.",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "PointInTime": "LastClinic",
+        "CUIPhrase": "seizure-free",
+        "CUI": "C1299590"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "436",
+      "end_index": "443",
+      "text": "seizure",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "MonthDate": "2",
+        "YearDate": "2005",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "436",
+      "end_index": "443",
+      "text": "seizure",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 436,
+      "end": 443,
+      "text": "seizure",
+      "entity_types": [
+        "SeizureFrequency",
+        "PatientHistory"
+      ],
+      "entity_ids": [
+        "T17",
+        "T10"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T11",
+      "type": "Prescription",
+      "text": "Sodium-valproate-400mg",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T13",
+      "type": "Prescription",
+      "text": "Lamotrigine-100mg",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "text": "seizure",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T15",
+      "type": "SeizureFrequency",
+      "text": "seizures-free.",
+      "start": 412,
+      "end": 426,
+      "year": null,
+      "period": null,
+      "num_periods": null,
+      "time_since": null,
+      "point_in_time": "LastClinic",
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    },
+    {
+      "id": "T17",
+      "type": "SeizureFrequency",
+      "text": "seizure",
+      "start": 436,
+      "end": 443,
+      "year": "2005",
+      "period": null,
+      "num_periods": null,
+      "time_since": "Since",
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 2,
+    "Investigations": 2,
+    "Prescription": 2,
+    "SeizureFrequency": 2,
+    "PatientHistory": 1
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "1 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 436,
+          "end": 443,
+          "text": "seizure",
+          "entity_types": [
+            "SeizureFrequency",
+            "PatientHistory"
+          ],
+          "entity_ids": [
+            "T17",
+            "T10"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "3 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T11",
+          "type": "Prescription",
+          "text": "Sodium-valproate-400mg",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T13",
+          "type": "Prescription",
+          "text": "Lamotrigine-100mg",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T10",
+          "type": "PatientHistory",
+          "text": "seizure",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

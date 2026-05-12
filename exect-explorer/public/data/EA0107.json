@@ -1,0 +1,402 @@
+{
+  "id": "EA0107",
+  "text": "Clinic date 19th March 200\n\nDear Dr\n\nRE\tIsabelle Queen DOB:\t01.01.1964 \tNHS 492 333 5492\n\t1, Old Road, Old Town, RT29 4HJ\n\nThank you for asking me to see Mrs Queen who has been diagnosed with primary generalised epilepsy some years ago.\n\nPresently she is on Levetiracetam 1 gram in the morning, 750 mg nocte and Lamotrigine 75 mg twice a day.\n\nSince last October she had 4 generalised tonic clonic seizures and some minor episodes. Her generalised seizures come without any warning. She says she usually falls to the floor, becomes stiff with minor shakes for approximately a minute. Her eyes are open. Occasionally she may have a tongue bite. Post ictal confusion lasts approximately 10 minutes.\n\nMrs Queen also complains of developing ulcers in the mouth following a seizure. She also suffers with tingling in the legs. It comes on at night when she retires to bed.\n\nComments:\n\n1. Mrs Queen has long-standing intractable epilepsy. Her CT scan in the past was normal. She needs some up-to-date investigations and I'm referring her for an MRI scan of the brain and an EEG. \n\n2. The night time tingling is suggestive of restless leg syndrome. She could try Ropinirole 0.5 mg nocte, increasing to 1 mg after 2 weeks.\n\n4. Her dose of Levetiracetam should be increased by 250 mg so that she takes 1 gram twice a day. Her Lamotrigine should remain unchanged. \n\nWith kind regards\n\nYours sincerely\n\n\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 192,
+      "end": 220,
+      "text": "primary-generalised-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "primary-generalised-epilepsy",
+        "CUI": "C0270850"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "start": 258,
+      "end": 271,
+      "text": "Levetiracetam",
+      "attributes": {
+        "DrugName": "Levetiracetam",
+        "DrugDose": "1",
+        "DoseUnit": "g",
+        "Frequency": "1",
+        "CUIPhrase": "levetiracetam",
+        "CUI": "C0377265"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "start": 258,
+      "end": 272,
+      "text": "Levetiracetam-",
+      "attributes": {
+        "DrugName": "Levetiracetam",
+        "DrugDose": "750",
+        "DoseUnit": "mg",
+        "Frequency": "1",
+        "CUIPhrase": "levetiracetam",
+        "CUI": "C0377265"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Prescription",
+      "start": 312,
+      "end": 324,
+      "text": "Lamotrigine-",
+      "attributes": {
+        "DrugName": "Lamotrigine",
+        "DrugDose": "75",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "Diagnosis",
+      "start": 373,
+      "end": 406,
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "SeizureFrequency",
+      "start": 373,
+      "end": 406,
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "NumberOfSeizures": "4",
+        "MonthDate": "10",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "Diagnosis",
+      "start": 436,
+      "end": 456,
+      "text": "generalised-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-seizures",
+        "CUI": "C0234533"
+      }
+    },
+    {
+      "id": "T16",
+      "type": "PatientHistory",
+      "start": 769,
+      "end": 776,
+      "text": "seizure",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T18",
+      "type": "Diagnosis",
+      "start": 911,
+      "end": 931,
+      "text": "intractable-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "intractable-epilepsy",
+        "CUI": "C1096063"
+      }
+    },
+    {
+      "id": "T20",
+      "type": "Investigations",
+      "start": 937,
+      "end": 944,
+      "text": "CT-scan",
+      "attributes": {
+        "CT_Performed": "Yes",
+        "CT_Results": "Normal",
+        "CUIPhrase": "ct-normal",
+        "CUI": "C0744602"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "192",
+      "end_index": "220",
+      "text": "primary-generalised-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "primary-generalised-epilepsy",
+        "CUI": "C0270850"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "258",
+      "end_index": "271",
+      "text": "Levetiracetam",
+      "attributes": {
+        "DrugName": "Levetiracetam",
+        "DrugDose": "1",
+        "DoseUnit": "g",
+        "Frequency": "1",
+        "CUIPhrase": "levetiracetam",
+        "CUI": "C0377265"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "258",
+      "end_index": "272",
+      "text": "Levetiracetam-",
+      "attributes": {
+        "DrugName": "Levetiracetam",
+        "DrugDose": "750",
+        "DoseUnit": "mg",
+        "Frequency": "1",
+        "CUIPhrase": "levetiracetam",
+        "CUI": "C0377265"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "312",
+      "end_index": "324",
+      "text": "Lamotrigine-",
+      "attributes": {
+        "DrugName": "Lamotrigine",
+        "DrugDose": "75",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "373",
+      "end_index": "406",
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "373",
+      "end_index": "406",
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "NumberOfSeizures": "4",
+        "MonthDate": "10",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "436",
+      "end_index": "456",
+      "text": "generalised-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-seizures",
+        "CUI": "C0234533"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "769",
+      "end_index": "776",
+      "text": "seizure",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "911",
+      "end_index": "931",
+      "text": "intractable-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "intractable-epilepsy",
+        "CUI": "C1096063"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "937",
+      "end_index": "944",
+      "text": "CT-scan",
+      "attributes": {
+        "CT_Performed": "Yes",
+        "CT_Results": "Normal",
+        "CUIPhrase": "ct-normal",
+        "CUI": "C0744602"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 373,
+      "end": 406,
+      "text": "generalised-tonic-clonic-seizures",
+      "entity_types": [
+        "Diagnosis",
+        "SeizureFrequency"
+      ],
+      "entity_ids": [
+        "T10",
+        "T12"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "text": "Levetiracetam",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "text": "Levetiracetam-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T8",
+      "type": "Prescription",
+      "text": "Lamotrigine-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T16",
+      "type": "PatientHistory",
+      "text": "seizure",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T12",
+      "type": "SeizureFrequency",
+      "text": "generalised-tonic-clonic-seizures",
+      "start": 373,
+      "end": 406,
+      "year": null,
+      "period": null,
+      "num_periods": null,
+      "time_since": "Since",
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "4"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 4,
+    "Prescription": 3,
+    "SeizureFrequency": 1,
+    "PatientHistory": 1,
+    "Investigations": 1
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "1 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 373,
+          "end": 406,
+          "text": "generalised-tonic-clonic-seizures",
+          "entity_types": [
+            "Diagnosis",
+            "SeizureFrequency"
+          ],
+          "entity_ids": [
+            "T10",
+            "T12"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "4 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T4",
+          "type": "Prescription",
+          "text": "Levetiracetam",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T6",
+          "type": "Prescription",
+          "text": "Levetiracetam-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T8",
+          "type": "Prescription",
+          "text": "Lamotrigine-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T16",
+          "type": "PatientHistory",
+          "text": "seizure",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

@@ -1,0 +1,187 @@
+{
+  "id": "EA0020",
+  "text": "Dear Dr,\n\nI reviewed this lady with epilepsy in clinic today. I was pleased to hear that she has not had any further generalised tonic clonic seizures since August 2016. There have been no absences since November 2016.\n\nShe takes Keppra 500 mg twice a day. She is now four months pregnant. I have not made any changes and will see her again in 12 months time.\n\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 36,
+      "end": 45,
+      "text": "epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "SeizureFrequency",
+      "start": 117,
+      "end": 150,
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "MonthDate": "8",
+        "YearDate": "2016",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "SeizureFrequency",
+      "start": 189,
+      "end": 197,
+      "text": "absences",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "MonthDate": "11",
+        "YearDate": "2016",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "absences",
+        "CUI": "C0563606"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "Prescription",
+      "start": 220,
+      "end": 255,
+      "text": "She-takes-Keppra-500-mg-twice-a-day",
+      "attributes": {
+        "DrugName": "keppra",
+        "DrugDose": "500",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "keppra",
+        "CUI": "C0876060"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "36",
+      "end_index": "45",
+      "text": "epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "117",
+      "end_index": "150",
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "MonthDate": "8",
+        "YearDate": "2016",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "189",
+      "end_index": "197",
+      "text": "absences",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "MonthDate": "11",
+        "YearDate": "2016",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "absences",
+        "CUI": "C0563606"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "220",
+      "end_index": "255",
+      "text": "She-takes-Keppra-500-mg-twice-a-day",
+      "attributes": {
+        "DrugName": "keppra",
+        "DrugDose": "500",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "keppra",
+        "CUI": "C0876060"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T11",
+      "type": "Prescription",
+      "text": "She-takes-Keppra-500-mg-twice-a-day",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T7",
+      "type": "SeizureFrequency",
+      "text": "generalised-tonic-clonic-seizures",
+      "start": 117,
+      "end": 150,
+      "year": "2016",
+      "period": null,
+      "num_periods": null,
+      "time_since": "Since",
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    },
+    {
+      "id": "T9",
+      "type": "SeizureFrequency",
+      "text": "absences",
+      "start": 189,
+      "end": 197,
+      "year": "2016",
+      "period": null,
+      "num_periods": null,
+      "time_since": "Since",
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 1,
+    "SeizureFrequency": 2,
+    "Prescription": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "1 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T11",
+          "type": "Prescription",
+          "text": "She-takes-Keppra-500-mg-twice-a-day",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

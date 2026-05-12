@@ -1,0 +1,2109 @@
+{
+  "letters": [
+    {
+      "id": "EA0001",
+      "type_counts": {
+        "Diagnosis": 4,
+        "PatientHistory": 4,
+        "Prescription": 1,
+        "SeizureFrequency": 1,
+        "Investigations": 1
+      },
+      "flaw_count": 3
+    },
+    {
+      "id": "EA0002",
+      "type_counts": {
+        "Diagnosis": 5,
+        "Prescription": 2,
+        "SeizureFrequency": 2,
+        "PatientHistory": 1,
+        "Investigations": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0003",
+      "type_counts": {
+        "Diagnosis": 3,
+        "Prescription": 2,
+        "SeizureFrequency": 3,
+        "PatientHistory": 4,
+        "Onset": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0004",
+      "type_counts": {
+        "Diagnosis": 2,
+        "Prescription": 1,
+        "SeizureFrequency": 2,
+        "PatientHistory": 3,
+        "Investigations": 2
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0005",
+      "type_counts": {
+        "Diagnosis": 5,
+        "Prescription": 2,
+        "SeizureFrequency": 2,
+        "Investigations": 2,
+        "PatientHistory": 3
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0006",
+      "type_counts": {
+        "Diagnosis": 4,
+        "Prescription": 1,
+        "SeizureFrequency": 3,
+        "PatientHistory": 3,
+        "Investigations": 2
+      },
+      "flaw_count": 3
+    },
+    {
+      "id": "EA0007",
+      "type_counts": {
+        "Diagnosis": 3,
+        "PatientHistory": 8,
+        "Prescription": 3,
+        "SeizureFrequency": 2,
+        "Investigations": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0008",
+      "type_counts": {
+        "Diagnosis": 2,
+        "PatientHistory": 2,
+        "SeizureFrequency": 2,
+        "Prescription": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0009",
+      "type_counts": {
+        "PatientHistory": 11,
+        "Diagnosis": 1,
+        "SeizureFrequency": 3,
+        "BirthHistory": 1,
+        "Prescription": 2,
+        "Investigations": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0010",
+      "type_counts": {
+        "PatientHistory": 6,
+        "Diagnosis": 3,
+        "BirthHistory": 3,
+        "EpilepsyCause": 1,
+        "Prescription": 1,
+        "SeizureFrequency": 1,
+        "Investigations": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0011",
+      "type_counts": {
+        "Diagnosis": 5,
+        "SeizureFrequency": 5,
+        "Prescription": 2,
+        "PatientHistory": 6,
+        "BirthHistory": 1,
+        "Investigations": 2
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0012",
+      "type_counts": {
+        "Diagnosis": 1,
+        "Prescription": 3
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0013",
+      "type_counts": {
+        "Diagnosis": 1,
+        "Prescription": 2,
+        "SeizureFrequency": 1,
+        "PatientHistory": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0014",
+      "type_counts": {
+        "Diagnosis": 2,
+        "Prescription": 2,
+        "PatientHistory": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0015",
+      "type_counts": {
+        "PatientHistory": 2,
+        "Diagnosis": 1,
+        "Prescription": 2
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0016",
+      "type_counts": {
+        "Diagnosis": 2,
+        "PatientHistory": 7,
+        "Investigations": 1,
+        "EpilepsyCause": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0017",
+      "type_counts": {
+        "Diagnosis": 1,
+        "SeizureFrequency": 1,
+        "PatientHistory": 1,
+        "Prescription": 2,
+        "Investigations": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0018",
+      "type_counts": {
+        "Diagnosis": 4,
+        "Prescription": 2
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0019",
+      "type_counts": {
+        "Diagnosis": 2,
+        "Prescription": 3,
+        "SeizureFrequency": 1,
+        "PatientHistory": 2
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0020",
+      "type_counts": {
+        "Diagnosis": 1,
+        "SeizureFrequency": 2,
+        "Prescription": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0021",
+      "type_counts": {
+        "Diagnosis": 4,
+        "Prescription": 2,
+        "Onset": 1,
+        "PatientHistory": 2,
+        "Investigations": 2,
+        "BirthHistory": 1
+      },
+      "flaw_count": 3
+    },
+    {
+      "id": "EA0022",
+      "type_counts": {
+        "PatientHistory": 2,
+        "Diagnosis": 2,
+        "SeizureFrequency": 2,
+        "Prescription": 1,
+        "Investigations": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0023",
+      "type_counts": {
+        "PatientHistory": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0024",
+      "type_counts": {
+        "PatientHistory": 5
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0025",
+      "type_counts": {
+        "Diagnosis": 3,
+        "PatientHistory": 3,
+        "Prescription": 3,
+        "SeizureFrequency": 2
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0026",
+      "type_counts": {
+        "Diagnosis": 2,
+        "PatientHistory": 2,
+        "Investigations": 2,
+        "Prescription": 2,
+        "SeizureFrequency": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0027",
+      "type_counts": {
+        "PatientHistory": 2,
+        "Diagnosis": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0028",
+      "type_counts": {
+        "SeizureFrequency": 1,
+        "Prescription": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0029",
+      "type_counts": {
+        "Onset": 2,
+        "Diagnosis": 4,
+        "PatientHistory": 2,
+        "Prescription": 2,
+        "Investigations": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0030",
+      "type_counts": {
+        "Diagnosis": 1,
+        "Investigations": 2,
+        "PatientHistory": 1,
+        "Prescription": 2
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0031",
+      "type_counts": {
+        "Diagnosis": 2,
+        "Prescription": 3,
+        "Investigations": 2,
+        "PatientHistory": 3,
+        "SeizureFrequency": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0032",
+      "type_counts": {
+        "PatientHistory": 3,
+        "Diagnosis": 1,
+        "Investigations": 1,
+        "Prescription": 2
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0033",
+      "type_counts": {
+        "Diagnosis": 4,
+        "Prescription": 2,
+        "Investigations": 2,
+        "PatientHistory": 5,
+        "Onset": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0034",
+      "type_counts": {
+        "Diagnosis": 4,
+        "Prescription": 1,
+        "Investigations": 1,
+        "PatientHistory": 1,
+        "SeizureFrequency": 1
+      },
+      "flaw_count": 3
+    },
+    {
+      "id": "EA0035",
+      "type_counts": {
+        "Diagnosis": 6,
+        "Prescription": 1,
+        "SeizureFrequency": 1,
+        "PatientHistory": 1,
+        "Investigations": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0036",
+      "type_counts": {
+        "Diagnosis": 4,
+        "Prescription": 2,
+        "WhenDiagnosed": 1,
+        "BirthHistory": 1,
+        "PatientHistory": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0037",
+      "type_counts": {
+        "PatientHistory": 5,
+        "Diagnosis": 2,
+        "Prescription": 2,
+        "Investigations": 2
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0038",
+      "type_counts": {
+        "Diagnosis": 3,
+        "PatientHistory": 2,
+        "Prescription": 5,
+        "SeizureFrequency": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0039",
+      "type_counts": {
+        "PatientHistory": 5,
+        "Diagnosis": 4,
+        "Onset": 1,
+        "SeizureFrequency": 1,
+        "BirthHistory": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0040",
+      "type_counts": {
+        "Diagnosis": 3,
+        "PatientHistory": 5,
+        "Investigations": 2,
+        "Prescription": 2
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0041",
+      "type_counts": {
+        "Diagnosis": 4,
+        "PatientHistory": 3,
+        "Prescription": 1,
+        "BirthHistory": 1,
+        "Investigations": 2
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0042",
+      "type_counts": {
+        "Diagnosis": 2,
+        "PatientHistory": 3,
+        "Prescription": 1,
+        "SeizureFrequency": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0043",
+      "type_counts": {
+        "PatientHistory": 4,
+        "Diagnosis": 3
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0044",
+      "type_counts": {
+        "Diagnosis": 1,
+        "PatientHistory": 3,
+        "Prescription": 1,
+        "Investigations": 3,
+        "SeizureFrequency": 2
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0045",
+      "type_counts": {
+        "PatientHistory": 2,
+        "Diagnosis": 5,
+        "BirthHistory": 1,
+        "Investigations": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0046",
+      "type_counts": {
+        "Diagnosis": 4,
+        "PatientHistory": 9,
+        "EpilepsyCause": 2,
+        "SeizureFrequency": 1,
+        "Prescription": 2,
+        "Investigations": 4
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0047",
+      "type_counts": {
+        "Diagnosis": 3,
+        "Prescription": 4,
+        "PatientHistory": 2,
+        "SeizureFrequency": 2
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0048",
+      "type_counts": {
+        "Diagnosis": 2,
+        "Prescription": 2,
+        "PatientHistory": 1,
+        "SeizureFrequency": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0049",
+      "type_counts": {
+        "Diagnosis": 11,
+        "SeizureFrequency": 6,
+        "PatientHistory": 7,
+        "Prescription": 2,
+        "Investigations": 2,
+        "Onset": 2
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0050",
+      "type_counts": {
+        "Diagnosis": 3,
+        "SeizureFrequency": 4,
+        "PatientHistory": 4,
+        "Prescription": 2,
+        "Investigations": 2
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0051",
+      "type_counts": {
+        "Diagnosis": 3,
+        "Prescription": 2,
+        "PatientHistory": 7,
+        "SeizureFrequency": 1,
+        "BirthHistory": 2,
+        "Investigations": 2
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0052",
+      "type_counts": {
+        "Diagnosis": 1,
+        "Prescription": 2
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0053",
+      "type_counts": {
+        "Diagnosis": 3,
+        "BirthHistory": 1,
+        "PatientHistory": 5,
+        "Investigations": 3
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0054",
+      "type_counts": {
+        "Diagnosis": 6,
+        "PatientHistory": 2,
+        "SeizureFrequency": 5,
+        "Prescription": 1,
+        "Investigations": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0055",
+      "type_counts": {
+        "PatientHistory": 7,
+        "Diagnosis": 3,
+        "BirthHistory": 4,
+        "EpilepsyCause": 2,
+        "Onset": 1,
+        "SeizureFrequency": 2,
+        "Prescription": 1,
+        "Investigations": 2
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0056",
+      "type_counts": {
+        "PatientHistory": 8,
+        "Diagnosis": 4,
+        "EpilepsyCause": 1,
+        "Prescription": 2,
+        "Onset": 1,
+        "SeizureFrequency": 3,
+        "Investigations": 1
+      },
+      "flaw_count": 3
+    },
+    {
+      "id": "EA0057",
+      "type_counts": {
+        "PatientHistory": 14,
+        "Diagnosis": 7,
+        "EpilepsyCause": 2,
+        "Prescription": 1,
+        "Onset": 1,
+        "SeizureFrequency": 2,
+        "BirthHistory": 1,
+        "Investigations": 1
+      },
+      "flaw_count": 3
+    },
+    {
+      "id": "EA0058",
+      "type_counts": {
+        "Diagnosis": 4,
+        "EpilepsyCause": 2,
+        "PatientHistory": 4,
+        "Prescription": 2,
+        "SeizureFrequency": 2,
+        "Investigations": 2
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0059",
+      "type_counts": {
+        "Diagnosis": 3,
+        "PatientHistory": 4,
+        "EpilepsyCause": 1,
+        "Prescription": 2,
+        "SeizureFrequency": 3,
+        "Investigations": 2
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0060",
+      "type_counts": {
+        "Diagnosis": 6,
+        "PatientHistory": 6,
+        "Prescription": 2,
+        "SeizureFrequency": 1,
+        "Investigations": 1,
+        "EpilepsyCause": 1
+      },
+      "flaw_count": 3
+    },
+    {
+      "id": "EA0061",
+      "type_counts": {
+        "Diagnosis": 5,
+        "SeizureFrequency": 2,
+        "Prescription": 1,
+        "Investigations": 2,
+        "PatientHistory": 5,
+        "Onset": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0062",
+      "type_counts": {
+        "PatientHistory": 1,
+        "BirthHistory": 1,
+        "Investigations": 1,
+        "Diagnosis": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0063",
+      "type_counts": {
+        "Diagnosis": 1,
+        "Prescription": 1,
+        "PatientHistory": 3,
+        "SeizureFrequency": 2
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0064",
+      "type_counts": {
+        "Diagnosis": 1,
+        "BirthHistory": 1,
+        "EpilepsyCause": 1,
+        "SeizureFrequency": 2,
+        "PatientHistory": 1,
+        "Prescription": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0065",
+      "type_counts": {
+        "Diagnosis": 6,
+        "Onset": 1,
+        "PatientHistory": 4,
+        "SeizureFrequency": 2,
+        "Prescription": 2,
+        "Investigations": 2,
+        "BirthHistory": 2,
+        "EpilepsyCause": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0066",
+      "type_counts": {
+        "Diagnosis": 2,
+        "PatientHistory": 5,
+        "EpilepsyCause": 1,
+        "Prescription": 1,
+        "Investigations": 1,
+        "SeizureFrequency": 2,
+        "BirthHistory": 1
+      },
+      "flaw_count": 3
+    },
+    {
+      "id": "EA0067",
+      "type_counts": {
+        "Diagnosis": 2,
+        "PatientHistory": 2,
+        "Prescription": 2,
+        "Investigations": 2,
+        "SeizureFrequency": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0068",
+      "type_counts": {
+        "SeizureFrequency": 2,
+        "Diagnosis": 1,
+        "PatientHistory": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0069",
+      "type_counts": {
+        "Diagnosis": 3,
+        "Prescription": 3,
+        "SeizureFrequency": 3,
+        "PatientHistory": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0070",
+      "type_counts": {
+        "Diagnosis": 3,
+        "SeizureFrequency": 3,
+        "Prescription": 1,
+        "Investigations": 2,
+        "PatientHistory": 6
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0071",
+      "type_counts": {
+        "PatientHistory": 2,
+        "SeizureFrequency": 1,
+        "Prescription": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0072",
+      "type_counts": {
+        "Diagnosis": 4,
+        "PatientHistory": 3,
+        "Prescription": 2,
+        "SeizureFrequency": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0073",
+      "type_counts": {
+        "PatientHistory": 4,
+        "Investigations": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0074",
+      "type_counts": {
+        "PatientHistory": 1,
+        "BirthHistory": 2,
+        "Diagnosis": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0075",
+      "type_counts": {
+        "Diagnosis": 2,
+        "WhenDiagnosed": 1,
+        "SeizureFrequency": 1,
+        "Investigations": 2,
+        "Prescription": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0076",
+      "type_counts": {
+        "PatientHistory": 7,
+        "BirthHistory": 1,
+        "Investigations": 2
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0077",
+      "type_counts": {
+        "SeizureFrequency": 1,
+        "Prescription": 2
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0078",
+      "type_counts": {
+        "PatientHistory": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0079",
+      "type_counts": {
+        "Diagnosis": 6,
+        "Onset": 1,
+        "Investigations": 1,
+        "SeizureFrequency": 1,
+        "Prescription": 2
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0080",
+      "type_counts": {
+        "Diagnosis": 3,
+        "Prescription": 2,
+        "SeizureFrequency": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0081",
+      "type_counts": {
+        "PatientHistory": 7,
+        "Diagnosis": 6,
+        "Investigations": 1,
+        "BirthHistory": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0082",
+      "type_counts": {
+        "Diagnosis": 2,
+        "PatientHistory": 4,
+        "Prescription": 3,
+        "Investigations": 3,
+        "SeizureFrequency": 3
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0083",
+      "type_counts": {
+        "Diagnosis": 5,
+        "Investigations": 2,
+        "Prescription": 2,
+        "SeizureFrequency": 3,
+        "PatientHistory": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0084",
+      "type_counts": {
+        "Diagnosis": 1,
+        "Prescription": 1,
+        "SeizureFrequency": 1,
+        "PatientHistory": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0085",
+      "type_counts": {
+        "Diagnosis": 2,
+        "PatientHistory": 4,
+        "SeizureFrequency": 1
+      },
+      "flaw_count": 3
+    },
+    {
+      "id": "EA0086",
+      "type_counts": {
+        "SeizureFrequency": 2,
+        "Diagnosis": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0087",
+      "type_counts": {
+        "Diagnosis": 3,
+        "Prescription": 3,
+        "SeizureFrequency": 3,
+        "PatientHistory": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0088",
+      "type_counts": {
+        "Diagnosis": 1,
+        "Prescription": 2,
+        "SeizureFrequency": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0089",
+      "type_counts": {
+        "Diagnosis": 1,
+        "PatientHistory": 2,
+        "Investigations": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0090",
+      "type_counts": {
+        "Diagnosis": 3,
+        "Prescription": 2,
+        "SeizureFrequency": 1,
+        "PatientHistory": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0091",
+      "type_counts": {
+        "Diagnosis": 1,
+        "Prescription": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0092",
+      "type_counts": {
+        "Diagnosis": 2,
+        "PatientHistory": 2,
+        "Prescription": 2
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0093",
+      "type_counts": {
+        "Diagnosis": 1,
+        "Prescription": 1,
+        "SeizureFrequency": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0094",
+      "type_counts": {
+        "PatientHistory": 2,
+        "Diagnosis": 4,
+        "Investigations": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0095",
+      "type_counts": {
+        "Diagnosis": 1,
+        "Prescription": 2
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0096",
+      "type_counts": {
+        "Diagnosis": 2,
+        "PatientHistory": 2,
+        "Prescription": 4,
+        "SeizureFrequency": 2
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0097",
+      "type_counts": {
+        "PatientHistory": 2,
+        "Diagnosis": 3
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0098",
+      "type_counts": {
+        "Diagnosis": 3,
+        "PatientHistory": 6,
+        "Prescription": 1,
+        "SeizureFrequency": 4
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0099",
+      "type_counts": {
+        "Diagnosis": 4,
+        "PatientHistory": 2,
+        "Prescription": 1,
+        "SeizureFrequency": 2,
+        "Investigations": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0100",
+      "type_counts": {
+        "PatientHistory": 7,
+        "BirthHistory": 1,
+        "Investigations": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0101",
+      "type_counts": {
+        "Diagnosis": 2,
+        "Prescription": 1,
+        "SeizureFrequency": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0102",
+      "type_counts": {
+        "PatientHistory": 6,
+        "Prescription": 2,
+        "Investigations": 2,
+        "SeizureFrequency": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0103",
+      "type_counts": {
+        "Diagnosis": 2,
+        "PatientHistory": 3,
+        "EpilepsyCause": 1,
+        "Prescription": 2,
+        "SeizureFrequency": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0104",
+      "type_counts": {
+        "Diagnosis": 2,
+        "Investigations": 1,
+        "PatientHistory": 5,
+        "Prescription": 2
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0105",
+      "type_counts": {
+        "Diagnosis": 4,
+        "PatientHistory": 10,
+        "Prescription": 1,
+        "SeizureFrequency": 2
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0106",
+      "type_counts": {
+        "Diagnosis": 4,
+        "PatientHistory": 6,
+        "EpilepsyCause": 1,
+        "Prescription": 1,
+        "SeizureFrequency": 3,
+        "Investigations": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0107",
+      "type_counts": {
+        "Diagnosis": 4,
+        "Prescription": 3,
+        "SeizureFrequency": 1,
+        "PatientHistory": 1,
+        "Investigations": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0108",
+      "type_counts": {
+        "Diagnosis": 6,
+        "PatientHistory": 8,
+        "Prescription": 2,
+        "SeizureFrequency": 3
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0109",
+      "type_counts": {
+        "Diagnosis": 3,
+        "PatientHistory": 2
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0110",
+      "type_counts": {
+        "PatientHistory": 5,
+        "SeizureFrequency": 2,
+        "Diagnosis": 3,
+        "Prescription": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0111",
+      "type_counts": {
+        "Diagnosis": 4,
+        "Investigations": 2,
+        "Prescription": 2,
+        "SeizureFrequency": 2,
+        "PatientHistory": 2
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0112",
+      "type_counts": {
+        "Diagnosis": 1,
+        "Prescription": 1,
+        "SeizureFrequency": 1,
+        "PatientHistory": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0113",
+      "type_counts": {
+        "Diagnosis": 2,
+        "PatientHistory": 4,
+        "SeizureFrequency": 2
+      },
+      "flaw_count": 3
+    },
+    {
+      "id": "EA0114",
+      "type_counts": {
+        "Diagnosis": 3,
+        "Prescription": 2,
+        "Investigations": 1,
+        "PatientHistory": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0115",
+      "type_counts": {
+        "Diagnosis": 3,
+        "Prescription": 1,
+        "PatientHistory": 3,
+        "Investigations": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0116",
+      "type_counts": {
+        "Diagnosis": 4,
+        "PatientHistory": 2,
+        "Prescription": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0117",
+      "type_counts": {
+        "Diagnosis": 3,
+        "PatientHistory": 4,
+        "Prescription": 2,
+        "SeizureFrequency": 1,
+        "Investigations": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0118",
+      "type_counts": {
+        "Diagnosis": 2,
+        "PatientHistory": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0119",
+      "type_counts": {
+        "Diagnosis": 2,
+        "PatientHistory": 6,
+        "SeizureFrequency": 4,
+        "Prescription": 2,
+        "Investigations": 2
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0120",
+      "type_counts": {
+        "PatientHistory": 3,
+        "Prescription": 1,
+        "SeizureFrequency": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0121",
+      "type_counts": {
+        "Diagnosis": 5,
+        "PatientHistory": 2,
+        "Prescription": 5,
+        "SeizureFrequency": 2
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0122",
+      "type_counts": {
+        "Diagnosis": 7,
+        "Prescription": 1,
+        "PatientHistory": 4,
+        "SeizureFrequency": 3,
+        "Onset": 1,
+        "Investigations": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0123",
+      "type_counts": {
+        "Diagnosis": 5,
+        "Prescription": 2,
+        "WhenDiagnosed": 1,
+        "PatientHistory": 3,
+        "BirthHistory": 1,
+        "Investigations": 2,
+        "SeizureFrequency": 3
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0124",
+      "type_counts": {
+        "Diagnosis": 4,
+        "PatientHistory": 9,
+        "Prescription": 3,
+        "WhenDiagnosed": 1,
+        "EpilepsyCause": 1,
+        "SeizureFrequency": 2,
+        "Investigations": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0125",
+      "type_counts": {
+        "Diagnosis": 4,
+        "PatientHistory": 5,
+        "Prescription": 1,
+        "SeizureFrequency": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0126",
+      "type_counts": {
+        "Diagnosis": 6,
+        "EpilepsyCause": 2,
+        "Prescription": 2,
+        "PatientHistory": 4,
+        "WhenDiagnosed": 1,
+        "Investigations": 1,
+        "SeizureFrequency": 2
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0127",
+      "type_counts": {
+        "Diagnosis": 2,
+        "Investigations": 2,
+        "Prescription": 2,
+        "SeizureFrequency": 2,
+        "PatientHistory": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0128",
+      "type_counts": {
+        "Diagnosis": 8,
+        "PatientHistory": 6,
+        "Prescription": 1,
+        "Onset": 2,
+        "SeizureFrequency": 2,
+        "BirthHistory": 1
+      },
+      "flaw_count": 3
+    },
+    {
+      "id": "EA0129",
+      "type_counts": {
+        "WhenDiagnosed": 1,
+        "Diagnosis": 1,
+        "PatientHistory": 8,
+        "Investigations": 2,
+        "SeizureFrequency": 1,
+        "BirthHistory": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0130",
+      "type_counts": {
+        "Diagnosis": 1,
+        "Prescription": 2,
+        "SeizureFrequency": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0131",
+      "type_counts": {
+        "Diagnosis": 3,
+        "Investigations": 2,
+        "Prescription": 1,
+        "PatientHistory": 1,
+        "SeizureFrequency": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0132",
+      "type_counts": {
+        "Diagnosis": 6,
+        "SeizureFrequency": 1,
+        "Investigations": 4,
+        "PatientHistory": 2
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0133",
+      "type_counts": {
+        "Diagnosis": 9,
+        "PatientHistory": 9,
+        "SeizureFrequency": 2,
+        "Investigations": 1,
+        "Prescription": 2,
+        "WhenDiagnosed": 1,
+        "BirthHistory": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0134",
+      "type_counts": {
+        "Diagnosis": 4,
+        "BirthHistory": 1,
+        "PatientHistory": 14,
+        "WhenDiagnosed": 1,
+        "Prescription": 1,
+        "SeizureFrequency": 1,
+        "Investigations": 2,
+        "EpilepsyCause": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0135",
+      "type_counts": {
+        "PatientHistory": 5,
+        "Diagnosis": 3,
+        "Prescription": 3,
+        "SeizureFrequency": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0136",
+      "type_counts": {
+        "Diagnosis": 2,
+        "SeizureFrequency": 3,
+        "PatientHistory": 1,
+        "Prescription": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0137",
+      "type_counts": {
+        "Diagnosis": 4,
+        "BirthHistory": 3,
+        "EpilepsyCause": 2,
+        "WhenDiagnosed": 1,
+        "SeizureFrequency": 2,
+        "PatientHistory": 5,
+        "Prescription": 2,
+        "Investigations": 2
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0138",
+      "type_counts": {
+        "Diagnosis": 5,
+        "PatientHistory": 6,
+        "Prescription": 2,
+        "SeizureFrequency": 2,
+        "Investigations": 2,
+        "EpilepsyCause": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0139",
+      "type_counts": {
+        "SeizureFrequency": 1,
+        "Diagnosis": 1,
+        "PatientHistory": 1,
+        "Prescription": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0140",
+      "type_counts": {
+        "Diagnosis": 4,
+        "EpilepsyCause": 2,
+        "PatientHistory": 4,
+        "Prescription": 1,
+        "SeizureFrequency": 3,
+        "Investigations": 1,
+        "WhenDiagnosed": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0141",
+      "type_counts": {
+        "PatientHistory": 3,
+        "Diagnosis": 5,
+        "BirthHistory": 1,
+        "Investigations": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0142",
+      "type_counts": {
+        "Diagnosis": 1,
+        "Prescription": 1,
+        "SeizureFrequency": 1,
+        "PatientHistory": 1,
+        "Investigations": 2
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0143",
+      "type_counts": {
+        "PatientHistory": 2,
+        "WhenDiagnosed": 1,
+        "Diagnosis": 3,
+        "SeizureFrequency": 2,
+        "Investigations": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0144",
+      "type_counts": {
+        "Diagnosis": 6,
+        "PatientHistory": 8,
+        "SeizureFrequency": 3,
+        "Prescription": 1,
+        "Investigations": 2,
+        "WhenDiagnosed": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0145",
+      "type_counts": {
+        "Onset": 1,
+        "Diagnosis": 2,
+        "PatientHistory": 3,
+        "SeizureFrequency": 1,
+        "Prescription": 2,
+        "Investigations": 2
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0146",
+      "type_counts": {
+        "PatientHistory": 6,
+        "Diagnosis": 2,
+        "Prescription": 3,
+        "Investigations": 3
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0147",
+      "type_counts": {
+        "Diagnosis": 4,
+        "PatientHistory": 5,
+        "EpilepsyCause": 1,
+        "WhenDiagnosed": 1,
+        "SeizureFrequency": 1,
+        "Prescription": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0148",
+      "type_counts": {
+        "Diagnosis": 2,
+        "PatientHistory": 3
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0149",
+      "type_counts": {
+        "Diagnosis": 3,
+        "Prescription": 1,
+        "PatientHistory": 2,
+        "BirthHistory": 1,
+        "Investigations": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0150",
+      "type_counts": {
+        "Diagnosis": 6,
+        "PatientHistory": 6,
+        "EpilepsyCause": 1,
+        "WhenDiagnosed": 1,
+        "SeizureFrequency": 2,
+        "Prescription": 3,
+        "Investigations": 2
+      },
+      "flaw_count": 3
+    },
+    {
+      "id": "EA0151",
+      "type_counts": {
+        "Diagnosis": 2,
+        "Prescription": 1,
+        "PatientHistory": 4,
+        "SeizureFrequency": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0152",
+      "type_counts": {
+        "Diagnosis": 6,
+        "PatientHistory": 3,
+        "SeizureFrequency": 2,
+        "Prescription": 2,
+        "Investigations": 2,
+        "WhenDiagnosed": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0153",
+      "type_counts": {
+        "Diagnosis": 5,
+        "PatientHistory": 2,
+        "BirthHistory": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0154",
+      "type_counts": {
+        "Diagnosis": 3,
+        "Prescription": 1,
+        "PatientHistory": 2,
+        "Investigations": 1,
+        "SeizureFrequency": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0155",
+      "type_counts": {
+        "Diagnosis": 1,
+        "PatientHistory": 1,
+        "Prescription": 2,
+        "SeizureFrequency": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0156",
+      "type_counts": {
+        "Diagnosis": 2,
+        "Prescription": 2,
+        "SeizureFrequency": 1,
+        "Investigations": 3
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0157",
+      "type_counts": {
+        "Diagnosis": 5,
+        "PatientHistory": 2,
+        "SeizureFrequency": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0158",
+      "type_counts": {
+        "Diagnosis": 4,
+        "PatientHistory": 3,
+        "EpilepsyCause": 1,
+        "Prescription": 5,
+        "SeizureFrequency": 2
+      },
+      "flaw_count": 3
+    },
+    {
+      "id": "EA0159",
+      "type_counts": {
+        "Diagnosis": 1,
+        "PatientHistory": 8,
+        "Prescription": 2
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0160",
+      "type_counts": {
+        "Diagnosis": 1,
+        "PatientHistory": 8,
+        "Prescription": 2
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0161",
+      "type_counts": {
+        "Diagnosis": 5,
+        "PatientHistory": 2,
+        "Prescription": 2,
+        "Onset": 2,
+        "SeizureFrequency": 4,
+        "Investigations": 2
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0162",
+      "type_counts": {
+        "Diagnosis": 2,
+        "PatientHistory": 2,
+        "SeizureFrequency": 1,
+        "Prescription": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0163",
+      "type_counts": {
+        "Diagnosis": 1,
+        "Prescription": 1,
+        "SeizureFrequency": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0164",
+      "type_counts": {
+        "PatientHistory": 7,
+        "Diagnosis": 3,
+        "BirthHistory": 1,
+        "Investigations": 2
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0165",
+      "type_counts": {
+        "Diagnosis": 3,
+        "Prescription": 5
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0166",
+      "type_counts": {
+        "Diagnosis": 1,
+        "Prescription": 1,
+        "PatientHistory": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0167",
+      "type_counts": {
+        "Diagnosis": 5,
+        "EpilepsyCause": 2,
+        "PatientHistory": 3,
+        "Prescription": 2,
+        "SeizureFrequency": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0168",
+      "type_counts": {
+        "Diagnosis": 2,
+        "PatientHistory": 7,
+        "Prescription": 1,
+        "SeizureFrequency": 3
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0169",
+      "type_counts": {
+        "Diagnosis": 2,
+        "PatientHistory": 2,
+        "EpilepsyCause": 1,
+        "SeizureFrequency": 2,
+        "Investigations": 2,
+        "Prescription": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0170",
+      "type_counts": {
+        "EpilepsyCause": 1,
+        "PatientHistory": 2,
+        "Diagnosis": 3,
+        "Prescription": 1,
+        "SeizureFrequency": 2
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0171",
+      "type_counts": {
+        "PatientHistory": 2,
+        "Diagnosis": 4,
+        "Prescription": 1,
+        "Investigations": 2
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0172",
+      "type_counts": {
+        "Diagnosis": 2,
+        "PatientHistory": 2,
+        "Prescription": 3
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0173",
+      "type_counts": {
+        "Diagnosis": 1,
+        "SeizureFrequency": 1,
+        "PatientHistory": 2
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0174",
+      "type_counts": {
+        "Diagnosis": 2,
+        "Prescription": 2,
+        "PatientHistory": 1,
+        "SeizureFrequency": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0175",
+      "type_counts": {
+        "Diagnosis": 3,
+        "Investigations": 2,
+        "Prescription": 2,
+        "PatientHistory": 2,
+        "SeizureFrequency": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0176",
+      "type_counts": {
+        "Diagnosis": 1,
+        "PatientHistory": 2,
+        "Prescription": 1,
+        "SeizureFrequency": 1,
+        "Investigations": 2
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0177",
+      "type_counts": {
+        "Diagnosis": 1,
+        "Prescription": 1,
+        "SeizureFrequency": 1,
+        "PatientHistory": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0178",
+      "type_counts": {
+        "Diagnosis": 3,
+        "Prescription": 3,
+        "SeizureFrequency": 2,
+        "PatientHistory": 3
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0179",
+      "type_counts": {
+        "PatientHistory": 10,
+        "Diagnosis": 2,
+        "Investigations": 2,
+        "Prescription": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0180",
+      "type_counts": {
+        "Diagnosis": 2,
+        "PatientHistory": 7,
+        "Prescription": 1,
+        "SeizureFrequency": 3
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0181",
+      "type_counts": {
+        "Diagnosis": 2,
+        "PatientHistory": 2,
+        "EpilepsyCause": 1,
+        "SeizureFrequency": 2,
+        "Investigations": 2,
+        "Prescription": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0182",
+      "type_counts": {
+        "Diagnosis": 2,
+        "Prescription": 2,
+        "PatientHistory": 2,
+        "SeizureFrequency": 1,
+        "Investigations": 2
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0183",
+      "type_counts": {
+        "Diagnosis": 4,
+        "Prescription": 2,
+        "Onset": 1,
+        "PatientHistory": 2,
+        "Investigations": 2,
+        "BirthHistory": 1
+      },
+      "flaw_count": 3
+    },
+    {
+      "id": "EA0184",
+      "type_counts": {
+        "Diagnosis": 3,
+        "PatientHistory": 1,
+        "Prescription": 2,
+        "SeizureFrequency": 2
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0185",
+      "type_counts": {
+        "Diagnosis": 3,
+        "Prescription": 1,
+        "PatientHistory": 2,
+        "BirthHistory": 1,
+        "Investigations": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0186",
+      "type_counts": {
+        "Diagnosis": 7,
+        "PatientHistory": 6,
+        "SeizureFrequency": 3,
+        "WhenDiagnosed": 1,
+        "Investigations": 2,
+        "EpilepsyCause": 1,
+        "Prescription": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0187",
+      "type_counts": {
+        "Diagnosis": 1,
+        "Prescription": 2,
+        "SeizureFrequency": 2,
+        "PatientHistory": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0188",
+      "type_counts": {
+        "Diagnosis": 7,
+        "Investigations": 3,
+        "Prescription": 2,
+        "BirthHistory": 1,
+        "PatientHistory": 5,
+        "SeizureFrequency": 2
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0189",
+      "type_counts": {
+        "PatientHistory": 5,
+        "BirthHistory": 1,
+        "Investigations": 1,
+        "Diagnosis": 1
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0190",
+      "type_counts": {
+        "Diagnosis": 4,
+        "PatientHistory": 6,
+        "Prescription": 1,
+        "SeizureFrequency": 3,
+        "Investigations": 2,
+        "Onset": 1,
+        "BirthHistory": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0191",
+      "type_counts": {
+        "Diagnosis": 1,
+        "Prescription": 3,
+        "SeizureFrequency": 2
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0192",
+      "type_counts": {
+        "Diagnosis": 1,
+        "Prescription": 1,
+        "PatientHistory": 2,
+        "SeizureFrequency": 2,
+        "Investigations": 2
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0193",
+      "type_counts": {
+        "Diagnosis": 2,
+        "Prescription": 2,
+        "SeizureFrequency": 1,
+        "Investigations": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0194",
+      "type_counts": {
+        "Diagnosis": 5,
+        "PatientHistory": 6,
+        "Prescription": 2,
+        "SeizureFrequency": 5,
+        "BirthHistory": 1
+      },
+      "flaw_count": 3
+    },
+    {
+      "id": "EA0195",
+      "type_counts": {
+        "Diagnosis": 2,
+        "PatientHistory": 2,
+        "Prescription": 2,
+        "SeizureFrequency": 2
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0196",
+      "type_counts": {
+        "PatientHistory": 6,
+        "WhenDiagnosed": 1,
+        "Diagnosis": 1,
+        "Investigations": 2,
+        "Prescription": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0197",
+      "type_counts": {
+        "PatientHistory": 3,
+        "Diagnosis": 1,
+        "Prescription": 1,
+        "SeizureFrequency": 2,
+        "Investigations": 2
+      },
+      "flaw_count": 1
+    },
+    {
+      "id": "EA0198",
+      "type_counts": {
+        "PatientHistory": 5,
+        "Diagnosis": 3,
+        "Prescription": 1,
+        "Onset": 2,
+        "SeizureFrequency": 2
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0199",
+      "type_counts": {
+        "Diagnosis": 1,
+        "Prescription": 2,
+        "PatientHistory": 2,
+        "SeizureFrequency": 1
+      },
+      "flaw_count": 2
+    },
+    {
+      "id": "EA0200",
+      "type_counts": {
+        "PatientHistory": 3,
+        "Diagnosis": 4,
+        "BirthHistory": 1,
+        "Prescription": 1,
+        "Investigations": 3
+      },
+      "flaw_count": 2
+    }
+  ],
+  "entity_colours": {
+    "Diagnosis": "#c45c3e",
+    "Prescription": "#2d8a5e",
+    "SeizureFrequency": "#b85cb8",
+    "PatientHistory": "#5c7db8",
+    "Investigations": "#b88a5c",
+    "BirthHistory": "#5cb8a5",
+    "Onset": "#8a5cb8",
+    "EpilepsyCause": "#5c8ab8",
+    "WhenDiagnosed": "#b85c7d"
+  },
+  "oracle_rates": {
+    "medication_name": 0.0,
+    "medication_full_tuple": 0.108,
+    "seizure_type": 0.133,
+    "epilepsy_diagnosis": 0.175,
+    "seizure_frequency": 0.292,
+    "freq_type_linkage": 0.292
+  },
+  "total_letters": 200
+}

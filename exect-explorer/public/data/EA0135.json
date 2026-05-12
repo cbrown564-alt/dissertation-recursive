@@ -1,0 +1,518 @@
+{
+  "id": "EA0135",
+  "text": "Clinic Date 5/08/2017\n\nDear Dr,\n\nRe: \tMr Fred Francis DOB 04/04/1972\n\nDiagnosis:\tDissociative seizures\n\t\tFocal onset epilepsy\n\t\tMigraine\n\t\tDepression\n\nCurrent medication:\tEslicarbazepine 800mg od\n\t\t\tLevetiracetam 1750mg bd\n\t\t\tClobazam 10mg od\n\t\t\tCitalopram 20mg od\n\nI reviewed this 45 year old man in clinic today. After a fairly long period of around 6 months without having seizures unfortunately Mr Francis had a cluster of seizures over the weekend. There was no obvious precipitant and Mr Francis has not forgotten to take his medication. He had an unusual, difficult to describe sensation before losing consciousness and shaking for about 2-3 minutes according to his wife. Sometimes it is difficult to tell whether he is having epileptic or dissociative (non-epileptic) seizures but I think on balance these do sound like epileptic seizures.\n\nWe had a discussion about various treatment options and we decided on increasing the eslicarbazepine, I would be grateful if you could increase it to 1200mg od immediately.\n\nYours\n\n\n",
+  "entities": [
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "start": 81,
+      "end": 103,
+      "text": "Dissociative-​seizures",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0349245",
+        "CUIPhrase": "dissociative-seizures",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "Diagnosis",
+      "start": 105,
+      "end": 125,
+      "text": "Focal-onset-epilepsy",
+      "attributes": {
+        "CUIPhrase": "focal-onset-epilepsy",
+        "DiagCategory": "Epilepsy",
+        "Negation": "Affirmed",
+        "CUI": "C0014547",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "start": 128,
+      "end": 136,
+      "text": "Migraine",
+      "attributes": {
+        "CUI": "C0149931",
+        "Certainty": "5",
+        "CUIPhrase": "migraine",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "start": 139,
+      "end": 149,
+      "text": "Depression",
+      "attributes": {
+        "CUI": "C0011570",
+        "CUIPhrase": "depression",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "Prescription",
+      "start": 171,
+      "end": 195,
+      "text": "Eslicarbazepine-800mg-od",
+      "attributes": {
+        "DoseUnit": "mg",
+        "DrugName": "eslicarbazepine",
+        "CUI": "C2725260",
+        "Frequency": "1",
+        "DrugDose": "800",
+        "CUIPhrase": "eslicarbazepine"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "Prescription",
+      "start": 199,
+      "end": 213,
+      "text": "Levetiracetam-",
+      "attributes": {
+        "CUI": "C0377265",
+        "CUIPhrase": "levetiracetam",
+        "Frequency": "2",
+        "DrugName": "Levetiracetam",
+        "DrugDose": "1750",
+        "DoseUnit": "mg"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "Prescription",
+      "start": 226,
+      "end": 242,
+      "text": "Clobazam-10mg-od",
+      "attributes": {
+        "DoseUnit": "mg",
+        "CUIPhrase": "clobazam",
+        "DrugDose": "10",
+        "DrugName": "clobazam",
+        "Frequency": "1",
+        "CUI": "C0055891"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "SeizureFrequency",
+      "start": 416,
+      "end": 435,
+      "text": "cluster-of-seizures",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "TimePeriod": "Month",
+        "NumberOfTimePeriods": "6",
+        "TimeSince_or_TimeOfEvent": "During",
+        "CUIPhrase": "cluster-of-seizures",
+        "CUI": "C3203523"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "start": 416,
+      "end": 435,
+      "text": "cluster-of-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C3203523",
+        "Negation": "Affirmed",
+        "CUIPhrase": "cluster-of-seizures"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "Diagnosis",
+      "start": 735,
+      "end": 744,
+      "text": "epileptic",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "3",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epileptic-seizures",
+        "CUI": "C4317109"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "start": 748,
+      "end": 786,
+      "text": "dissociative-(non-epileptic)-seizures-",
+      "attributes": {
+        "Certainty": "3",
+        "Negation": "Affirmed",
+        "CUIPhrase": "dissociative-seizures",
+        "CUI": "C0349245"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 829,
+      "end": 847,
+      "text": "epileptic-seizures",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C4317109",
+        "Certainty": "4",
+        "DiagCategory": "MultipleSeizures",
+        "CUIPhrase": "epileptic-seizures"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Prescription",
+      "start_index": "199",
+      "end_index": "213",
+      "text": "Levetiracetam-",
+      "attributes": {
+        "CUI": "C0377265",
+        "CUIPhrase": "levetiracetam",
+        "Frequency": "2",
+        "DrugName": "Levetiracetam",
+        "DrugDose": "1750",
+        "DoseUnit": "mg"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "416",
+      "end_index": "435",
+      "text": "cluster-of-seizures",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "TimePeriod": "Month",
+        "NumberOfTimePeriods": "6",
+        "TimeSince_or_TimeOfEvent": "During",
+        "CUIPhrase": "cluster-of-seizures",
+        "CUI": "C3203523"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "735",
+      "end_index": "744",
+      "text": "epileptic",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "3",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epileptic-seizures",
+        "CUI": "C4317109"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "748",
+      "end_index": "786",
+      "text": "dissociative-(non-epileptic)-seizures-",
+      "attributes": {
+        "Certainty": "3",
+        "Negation": "Affirmed",
+        "CUIPhrase": "dissociative-seizures",
+        "CUI": "C0349245"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "829",
+      "end_index": "847",
+      "text": "epileptic-seizures",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C4317109",
+        "Certainty": "4",
+        "DiagCategory": "MultipleSeizures",
+        "CUIPhrase": "epileptic-seizures"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "171",
+      "end_index": "195",
+      "text": "Eslicarbazepine-800mg-od",
+      "attributes": {
+        "DoseUnit": "mg",
+        "DrugName": "eslicarbazepine",
+        "CUI": "C2725260",
+        "Frequency": "1",
+        "DrugDose": "800",
+        "CUIPhrase": "eslicarbazepine"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "139",
+      "end_index": "149",
+      "text": "Depression",
+      "attributes": {
+        "CUI": "C0011570",
+        "CUIPhrase": "depression",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "226",
+      "end_index": "242",
+      "text": "Clobazam-10mg-od",
+      "attributes": {
+        "DoseUnit": "mg",
+        "CUIPhrase": "clobazam",
+        "DrugDose": "10",
+        "DrugName": "clobazam",
+        "Frequency": "1",
+        "CUI": "C0055891"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "81",
+      "end_index": "103",
+      "text": "Dissociative-​seizures",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0349245",
+        "CUIPhrase": "dissociative-seizures",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "105",
+      "end_index": "125",
+      "text": "Focal-onset-epilepsy",
+      "attributes": {
+        "CUIPhrase": "focal-onset-epilepsy",
+        "DiagCategory": "Epilepsy",
+        "Negation": "Affirmed",
+        "CUI": "C0014547",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "128",
+      "end_index": "136",
+      "text": "Migraine",
+      "attributes": {
+        "CUI": "C0149931",
+        "Certainty": "5",
+        "CUIPhrase": "migraine",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "416",
+      "end_index": "435",
+      "text": "cluster-of-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C3203523",
+        "Negation": "Affirmed",
+        "CUIPhrase": "cluster-of-seizures"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 416,
+      "end": 435,
+      "text": "cluster-of-seizures",
+      "entity_types": [
+        "SeizureFrequency",
+        "PatientHistory"
+      ],
+      "entity_ids": [
+        "T14",
+        "T9"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "text": "Dissociative-​seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "text": "Migraine",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "text": "Depression",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T3",
+      "type": "Prescription",
+      "text": "Eslicarbazepine-800mg-od",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T1",
+      "type": "Prescription",
+      "text": "Levetiracetam-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T5",
+      "type": "Prescription",
+      "text": "Clobazam-10mg-od",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "text": "cluster-of-seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "text": "dissociative-(non-epileptic)-seizures-",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T14",
+      "type": "SeizureFrequency",
+      "text": "cluster-of-seizures",
+      "start": 416,
+      "end": 435,
+      "year": null,
+      "period": "Month",
+      "num_periods": "6",
+      "time_since": "During",
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "1"
+    }
+  ],
+  "type_counts": {
+    "PatientHistory": 5,
+    "Diagnosis": 3,
+    "Prescription": 3,
+    "SeizureFrequency": 1
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "1 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 416,
+          "end": 435,
+          "text": "cluster-of-seizures",
+          "entity_types": [
+            "SeizureFrequency",
+            "PatientHistory"
+          ],
+          "entity_ids": [
+            "T14",
+            "T9"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "8 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T6",
+          "type": "PatientHistory",
+          "text": "Dissociative-​seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T8",
+          "type": "PatientHistory",
+          "text": "Migraine",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T4",
+          "type": "PatientHistory",
+          "text": "Depression",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T3",
+          "type": "Prescription",
+          "text": "Eslicarbazepine-800mg-od",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T1",
+          "type": "Prescription",
+          "text": "Levetiracetam-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T5",
+          "type": "Prescription",
+          "text": "Clobazam-10mg-od",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T9",
+          "type": "PatientHistory",
+          "text": "cluster-of-seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T12",
+          "type": "PatientHistory",
+          "text": "dissociative-(non-epileptic)-seizures-",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [
+    {
+      "id": "T10",
+      "type": "Diagnosis",
+      "text": "epileptic",
+      "certainty": 3
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "text": "dissociative-(non-epileptic)-seizures-",
+      "certainty": 3
+    },
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "text": "epileptic-seizures",
+      "certainty": 4
+    }
+  ],
+  "has_unknown_seizure": false
+}

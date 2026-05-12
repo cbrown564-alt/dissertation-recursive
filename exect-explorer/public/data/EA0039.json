@@ -1,0 +1,429 @@
+{
+  "id": "EA0039",
+  "text": "NHS No 123 321 9697\nClinic date: 03.11. 2015\n\nRT: Richard Jones  DOB: 16/10/ 1953\n\nProblem: Episodes of transient loss of consciousness\n\nDiagnosis: probable syncope\n\t\tPrevious epilepsy\n\nI reviewed this 62 year old man in clinic with his daughter today. He has had epilepsy since the age of four. His epilepsy has generally been very well-controlled. He has had a convulsive seizure approximately every five years. He has previously been taking phenytoin but has stopped taking this.\n\nRecently he has had different events. They tend to occur in the bathroom. He recalls an event last month. He got out of bed and went to the bathroom, he felt hot and lightheaded and the next thing he knows his waking up on the bathroom floor having been incontinent. His wife recalls  another event in February. She heard a bang from the bathroom and found him on the floor. He was unconscious but recovered within 20 seconds. He remembers feeling sick with muffled hearing before this event. These events do seem to be different to his usual seizures.\n\nHe is a retired plumber, he has been smoking for 20 years. He drinks seven pints of medium dry cider per week. His father died at 61 from chest disease. He was born prematurely weighing less than 3 pounds. He was born at home and then taken to hospital. He has never had meningitis.\n\nHis blood pressure was 123/61, his heart sounds were normal. His neurological examination was normal. I can see an ECG in the medical records with a sinus rhythm of 42 bpm with anormal PR interval, a normal axis and a corrected qt interval of 332 ms.\n\nImpression: this gentleman has had long-standing childhood onset epilepsy seems to developed different more syncopal sounding attacks. Given the risk of cardiac syncope, I will ask the cardiologists for their advice. I will request an MRI scan.\n\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "start": 104,
+      "end": 135,
+      "text": "transient-loss-of-consciousness",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "transient-loss-of-consciousness",
+        "CUI": "C4087400"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "start": 148,
+      "end": 164,
+      "text": "probable-syncope",
+      "attributes": {
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "syncope",
+        "CUI": "C0039070"
+      }
+    },
+    {
+      "id": "T16",
+      "type": "Diagnosis",
+      "start": 176,
+      "end": 184,
+      "text": "epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "Diagnosis",
+      "start": 264,
+      "end": 273,
+      "text": "epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Onset",
+      "start": 264,
+      "end": 294,
+      "text": "epilepsy-since-the-age-of-four",
+      "attributes": {
+        "AgeUnit": "Year",
+        "Age": "4",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "Diagnosis",
+      "start": 300,
+      "end": 309,
+      "text": "epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T13",
+      "type": "PatientHistory",
+      "start": 363,
+      "end": 382,
+      "text": "convulsive-seizure-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "convulsive-seizure",
+        "CUI": "C0751494"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "SeizureFrequency",
+      "start": 363,
+      "end": 412,
+      "text": "convulsive-seizure-approximately-every-five-years",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "5",
+        "CUIPhrase": "convulsive-seizure",
+        "CUI": "C0751494"
+      }
+    },
+    {
+      "id": "T15",
+      "type": "PatientHistory",
+      "start": 1027,
+      "end": 1035,
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T18",
+      "type": "BirthHistory",
+      "start": 1198,
+      "end": 1215,
+      "text": "born-prematurely-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "born-prematurely",
+        "CUI": "C0151526"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "Diagnosis",
+      "start": 1639,
+      "end": 1647,
+      "text": "epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "start": 1681,
+      "end": 1691,
+      "text": "-syncopal-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "syncope",
+        "CUI": "C0039070"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "PatientHistory",
+      "start_index": "104",
+      "end_index": "135",
+      "text": "transient-loss-of-consciousness",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "transient-loss-of-consciousness",
+        "CUI": "C4087400"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "148",
+      "end_index": "164",
+      "text": "probable-syncope",
+      "attributes": {
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "syncope",
+        "CUI": "C0039070"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "176",
+      "end_index": "184",
+      "text": "epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "Onset",
+      "start_index": "264",
+      "end_index": "294",
+      "text": "epilepsy-since-the-age-of-four",
+      "attributes": {
+        "AgeUnit": "Year",
+        "Age": "4",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "264",
+      "end_index": "273",
+      "text": "epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "300",
+      "end_index": "309",
+      "text": "epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "363",
+      "end_index": "412",
+      "text": "convulsive-seizure-approximately-every-five-years",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "5",
+        "CUIPhrase": "convulsive-seizure",
+        "CUI": "C0751494"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "363",
+      "end_index": "382",
+      "text": "convulsive-seizure-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "convulsive-seizure",
+        "CUI": "C0751494"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1027",
+      "end_index": "1035",
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "BirthHistory",
+      "start_index": "1198",
+      "end_index": "1215",
+      "text": "born-prematurely-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "born-prematurely",
+        "CUI": "C0151526"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1639",
+      "end_index": "1647",
+      "text": "epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1681",
+      "end_index": "1691",
+      "text": "-syncopal-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "syncope",
+        "CUI": "C0039070"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "text": "transient-loss-of-consciousness",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "text": "probable-syncope",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T13",
+      "type": "PatientHistory",
+      "text": "convulsive-seizure-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T15",
+      "type": "PatientHistory",
+      "text": "seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "text": "-syncopal-",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T8",
+      "type": "SeizureFrequency",
+      "text": "convulsive-seizure-approximately-every-five-years",
+      "start": 363,
+      "end": 412,
+      "year": null,
+      "period": "Year",
+      "num_periods": "5",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "1"
+    }
+  ],
+  "type_counts": {
+    "PatientHistory": 5,
+    "Diagnosis": 4,
+    "Onset": 1,
+    "SeizureFrequency": 1,
+    "BirthHistory": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "5 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T2",
+          "type": "PatientHistory",
+          "text": "transient-loss-of-consciousness",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T4",
+          "type": "PatientHistory",
+          "text": "probable-syncope",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T13",
+          "type": "PatientHistory",
+          "text": "convulsive-seizure-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T15",
+          "type": "PatientHistory",
+          "text": "seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T14",
+          "type": "PatientHistory",
+          "text": "-syncopal-",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "text": "probable-syncope",
+      "certainty": 4
+    }
+  ],
+  "has_unknown_seizure": false
+}

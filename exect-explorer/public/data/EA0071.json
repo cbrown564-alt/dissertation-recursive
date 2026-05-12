@@ -1,0 +1,224 @@
+{
+  "id": "EA0071",
+  "text": "Epilepsy specialist nurse clinic\nOur Ref:\t867589\nNHS No:\t496 576 8890\nDate: \t\t18/08/2007\nClinic Date \t8/08/2007\n\n\nDear Dr\n\nr.e. Helena Cariad\tD.O.B:\t07/01/1990\n36, slow street, Trearaf, Swansea SA9 8IK\n\nHelena got in touch with the epilepsy service via the epilepsy helpline as she has a seizure last week. Her last seizure before this was in 2006. She is 2 weeks post-partum after giving birth to her second son, Oliver. It was a difficult delivery with frequent episodes of vomiting. Oliver is waking frequently in the night at the moment for feeds and so Helena is feeling very tired.\n\nHelena is taking lamotrigine 75mg twice a day and we discussed taking more of the medication. Helena was happy to continue taking the 75mg twice a day as she now thinks the medication is being absorbed better that the vomiting has stopped.\n\nI have arranged more follow up in around six weeks although Helena knows that she can contact me in the meantime if there are any problems.\n\nYour sincerely,\n",
+  "entities": [
+    {
+      "id": "T1",
+      "type": "PatientHistory",
+      "start": 288,
+      "end": 295,
+      "text": "seizure",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "SeizureFrequency",
+      "start": 288,
+      "end": 295,
+      "text": "seizure",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "TimePeriod": "Week",
+        "NumberOfTimePeriods": "1",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "start": 316,
+      "end": 323,
+      "text": "seizure",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "Prescription",
+      "start": 589,
+      "end": 634,
+      "text": "Helena-is-taking-lamotrigine-75mg-twice-a-day",
+      "attributes": {
+        "DrugDose": "75",
+        "CUI": "C0064636",
+        "Frequency": "2",
+        "DrugName": "lamotrigine",
+        "CUIPhrase": "lamotrigine",
+        "DoseUnit": "mg"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "PatientHistory",
+      "start_index": "288",
+      "end_index": "295",
+      "text": "seizure",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "288",
+      "end_index": "295",
+      "text": "seizure",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "TimePeriod": "Week",
+        "NumberOfTimePeriods": "1",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "316",
+      "end_index": "323",
+      "text": "seizure",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "589",
+      "end_index": "634",
+      "text": "Helena-is-taking-lamotrigine-75mg-twice-a-day",
+      "attributes": {
+        "DrugDose": "75",
+        "CUI": "C0064636",
+        "Frequency": "2",
+        "DrugName": "lamotrigine",
+        "CUIPhrase": "lamotrigine",
+        "DoseUnit": "mg"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 288,
+      "end": 295,
+      "text": "seizure",
+      "entity_types": [
+        "PatientHistory",
+        "SeizureFrequency"
+      ],
+      "entity_ids": [
+        "T1",
+        "T6"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T1",
+      "type": "PatientHistory",
+      "text": "seizure",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "text": "seizure",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T2",
+      "type": "Prescription",
+      "text": "Helena-is-taking-lamotrigine-75mg-twice-a-day",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T6",
+      "type": "SeizureFrequency",
+      "text": "seizure",
+      "start": 288,
+      "end": 295,
+      "year": null,
+      "period": "Week",
+      "num_periods": "1",
+      "time_since": "Since",
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "1"
+    }
+  ],
+  "type_counts": {
+    "PatientHistory": 2,
+    "SeizureFrequency": 1,
+    "Prescription": 1
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "1 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 288,
+          "end": 295,
+          "text": "seizure",
+          "entity_types": [
+            "PatientHistory",
+            "SeizureFrequency"
+          ],
+          "entity_ids": [
+            "T1",
+            "T6"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "3 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T1",
+          "type": "PatientHistory",
+          "text": "seizure",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T4",
+          "type": "PatientHistory",
+          "text": "seizure",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T2",
+          "type": "Prescription",
+          "text": "Helena-is-taking-lamotrigine-75mg-twice-a-day",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

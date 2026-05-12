@@ -1,0 +1,212 @@
+{
+  "id": "EA0013",
+  "text": "Clinic Date 2/4/2016\n\nDear Dr Jones,\n\nI reviewed this lady with intractable epilepsy. She is on Keppra 1250 mg twice a day, Zonisamide 125 mg twice a day. Epilepsy is about the same. She continues to get occasional seizures and has temple tenderness. I am therefore arranging for a CT scan of the brain and CRP to look for evidence of temporal arthritis.\n\nI would be grateful if you could replace the duloxetine with gabapentin 300 mg tds increasing to 600 mg 3 to 4 times per day.\n\nI will review again,\n\nYours sincerely,\n\nDr Baker\n\n\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 64,
+      "end": 84,
+      "text": "intractable-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "intractable-epilepsy",
+        "CUI": "C1096063"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "start": 96,
+      "end": 102,
+      "text": "Kepra-",
+      "attributes": {
+        "DrugName": "keppra",
+        "DrugDose": "1250",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "keppra",
+        "CUI": "C0876060"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "start": 123,
+      "end": 152,
+      "text": "Zonisamide-125-mg-twice-a-day",
+      "attributes": {
+        "DrugName": "zonisamide",
+        "DrugDose": "125",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "zonisamide",
+        "CUI": "C0078844"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "SeizureFrequency",
+      "start": 213,
+      "end": 221,
+      "text": "-seizure",
+      "attributes": {
+        "FrequencyChange": "Infrequent",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "start": 214,
+      "end": 222,
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "64",
+      "end_index": "84",
+      "text": "intractable-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "intractable-epilepsy",
+        "CUI": "C1096063"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "96",
+      "end_index": "102",
+      "text": "Kepra-",
+      "attributes": {
+        "DrugName": "keppra",
+        "DrugDose": "1250",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "keppra",
+        "CUI": "C0876060"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "123",
+      "end_index": "152",
+      "text": "Zonisamide-125-mg-twice-a-day",
+      "attributes": {
+        "DrugName": "zonisamide",
+        "DrugDose": "125",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "zonisamide",
+        "CUI": "C0078844"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "213",
+      "end_index": "221",
+      "text": "-seizure",
+      "attributes": {
+        "FrequencyChange": "Infrequent",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "214",
+      "end_index": "222",
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "text": "Kepra-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "text": "Zonisamide-125-mg-twice-a-day",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T9",
+      "type": "SeizureFrequency",
+      "text": "-seizure",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "text": "seizures",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [],
+  "type_counts": {
+    "Diagnosis": 1,
+    "Prescription": 2,
+    "SeizureFrequency": 1,
+    "PatientHistory": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "4 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T6",
+          "type": "Prescription",
+          "text": "Kepra-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T4",
+          "type": "Prescription",
+          "text": "Zonisamide-125-mg-twice-a-day",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T9",
+          "type": "SeizureFrequency",
+          "text": "-seizure",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T8",
+          "type": "PatientHistory",
+          "text": "seizures",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

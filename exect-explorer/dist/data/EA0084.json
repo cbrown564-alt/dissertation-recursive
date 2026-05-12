@@ -1,0 +1,179 @@
+{
+  "id": "EA0084",
+  "text": "\tClinic Date:\n\n\t19/04/1997\n\n\n\t\n\t\n\n\t\n\t\n\n\t\n\t\n\n\t\n\t\n\n\n\n\nDear Dr Pooled\n\nRe: \tMr. David Norhtface\tD.O.B: 10/09/1959\n14 Sunny Terrace, Bridgend, CF30 9IK   \n\nDiagnosis:\n· Focal epilepsy\n\nMedication:\n· Brivaracetam 50mgs bd\n\nI spoke to David on the phone today.  I am pleased to say that he has been seizure free since starting antiepileptic medication.  \n\nUnfortunately however, he has had problems with mood swings and irritability.  He switched Levetiracetam to Brivaracetam, with a little improvement. He has a good insight into potential causes of this, including the impact the diagnosis has had on his mental health and lifestyle, particularly inability to drive, and the general impact of COVID and lockdown.  \n\nPlan:\n\nWe discussed the options of continuing Brivaracetam, or switching to an alternative medication, such as Lamotrigine.  While it is possible that this would be better in terms of irritability, there is no guarantee that it would control his seizures as well and for now he would prefer to continue unchanged.  He knows how to get hold of us on the above helpline number as needed.  \n \n\nYours sincerely\n\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 165,
+      "end": 179,
+      "text": "Focal-epilepsy",
+      "attributes": {
+        "CUI": "C0014547",
+        "CUIPhrase": "focal-epilepsy",
+        "Negation": "Affirmed",
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "Prescription",
+      "start": 193,
+      "end": 216,
+      "text": "·-Brivaracetam-50mgs-bd",
+      "attributes": {
+        "CUIPhrase": "brivaracetam",
+        "DrugName": "brivaracetam",
+        "DrugDose": "50",
+        "CUI": "C1699861",
+        "Frequency": "2",
+        "DoseUnit": "mg"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "SeizureFrequency",
+      "start": 293,
+      "end": 305,
+      "text": "seizure-free",
+      "attributes": {
+        "CUIPhrase": "seizure-free",
+        "CUI": "C1299590",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "NumberOfSeizures": "0",
+        "PointInTime": "DrugChange"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "PatientHistory",
+      "start": 959,
+      "end": 967,
+      "text": "seizures",
+      "attributes": {
+        "CUI": "C0036572",
+        "CUIPhrase": "seizures",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Prescription",
+      "start_index": "193",
+      "end_index": "216",
+      "text": "·-Brivaracetam-50mgs-bd",
+      "attributes": {
+        "CUIPhrase": "brivaracetam",
+        "DrugName": "brivaracetam",
+        "DrugDose": "50",
+        "CUI": "C1699861",
+        "Frequency": "2",
+        "DoseUnit": "mg"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "165",
+      "end_index": "179",
+      "text": "Focal-epilepsy",
+      "attributes": {
+        "CUI": "C0014547",
+        "CUIPhrase": "focal-epilepsy",
+        "Negation": "Affirmed",
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "959",
+      "end_index": "967",
+      "text": "seizures",
+      "attributes": {
+        "CUI": "C0036572",
+        "CUIPhrase": "seizures",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "293",
+      "end_index": "305",
+      "text": "seizure-free",
+      "attributes": {
+        "CUIPhrase": "seizure-free",
+        "CUI": "C1299590",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "NumberOfSeizures": "0",
+        "PointInTime": "DrugChange"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T1",
+      "type": "Prescription",
+      "text": "·-Brivaracetam-50mgs-bd",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T3",
+      "type": "PatientHistory",
+      "text": "seizures",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T4",
+      "type": "SeizureFrequency",
+      "text": "seizure-free",
+      "start": 293,
+      "end": 305,
+      "year": null,
+      "period": null,
+      "num_periods": null,
+      "time_since": "Since",
+      "point_in_time": "DrugChange",
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 1,
+    "Prescription": 1,
+    "SeizureFrequency": 1,
+    "PatientHistory": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "2 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T1",
+          "type": "Prescription",
+          "text": "·-Brivaracetam-50mgs-bd",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T3",
+          "type": "PatientHistory",
+          "text": "seizures",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

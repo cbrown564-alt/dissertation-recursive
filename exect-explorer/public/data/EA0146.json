@@ -1,0 +1,505 @@
+{
+  "id": "EA0146",
+  "text": "Clinic date 03/03/2020\n \nRe          Mr Tudour Terrance Treadwell\tDOB 2/2/1972\n \nDear doctor,\n\nProblemL\tRecurrent episodes of altered awareness and consciousness\n\nDiagnosis:\tDissociative seizures\n\t\tEpilepsy\n\t\tDepression\n\nCurrent medication:\tCarbamazepine 600mg bd\n\t\t\tBrivetiracetam 50mg bd\n\t\t\tClobazam 5mg bd\n\t\t\tSertraline\n\nPrevious medications include: Levetiracetam, sodium valproate\n\nI reviewed this 48-year-old man by telephone consultation today. He has previously seen other neurologists in the past and has ongoing episodes. There are two main different types of episodes. 1) He will get “grand mal” episodes which happen without warning. There are no witness descriptions of these events, previously he has injured himself during these attacks and he has been told he will shake all over. He has had around 6 of these during the last year. During them he is aware of his surroundings and can hear people. They can last up to 20 minutes.\n2) He also gets “mini shakes” these are like electric shocks where his arms and legs might jerk. These happen a few times every month.\n\nHe lives alone and also has a diagnosis of depression. His family live close by. He doesn’t drive, smokes around 20 cigarettes a day and drinks ocassional alcohol only. A recent MRI and EEG in 2018 have been normal. During the EEG he did have several jerk like episodes which were not accompanied by any EEG changes and so would be consistent with dissociative seizures.\n\nI think it would be useful to capture some of these seizures on videotelemetry and so I will request some videotelemetry today. I will review his old notes. I will request a face to face clinic review with the results of the above.\n\t\t\t\n",
+  "entities": [
+    {
+      "id": "T1",
+      "type": "PatientHistory",
+      "start": 174,
+      "end": 195,
+      "text": "Dissociative-seizures",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "dissociative-seizures",
+        "Certainty": "5",
+        "CUI": "C0349245"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 198,
+      "end": 206,
+      "text": "Epilepsy",
+      "attributes": {
+        "CUI": "C0014544",
+        "CUIPhrase": "epilepsy",
+        "Certainty": "5",
+        "DiagCategory": "Epilepsy",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "start": 209,
+      "end": 219,
+      "text": "Depression",
+      "attributes": {
+        "CUI": "C0011570",
+        "CUIPhrase": "depression",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "Prescription",
+      "start": 241,
+      "end": 263,
+      "text": "Carbamazepine-600mg-bd",
+      "attributes": {
+        "Frequency": "2",
+        "DrugName": "carbamazepine",
+        "DrugDose": "600",
+        "CUI": "C0006949",
+        "DoseUnit": "mg",
+        "CUIPhrase": "carbamazepine"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "Prescription",
+      "start": 267,
+      "end": 282,
+      "text": "Brivetiracetam-",
+      "attributes": {
+        "DrugName": "Perampanel",
+        "DoseUnit": "mg",
+        "CUIPhrase": "brivaracetam",
+        "CUI": "C1699861",
+        "DrugDose": "50",
+        "Frequency": "2"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "Prescription",
+      "start": 293,
+      "end": 308,
+      "text": "Clobazam-5mg-bd",
+      "attributes": {
+        "Frequency": "2",
+        "DrugName": "clobazam",
+        "CUIPhrase": "clobazam",
+        "DoseUnit": "mg",
+        "DrugDose": "5",
+        "CUI": "C0055891"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "Diagnosis",
+      "start": 596,
+      "end": 604,
+      "text": "grand-ma",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "grand-mal",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "start": 1124,
+      "end": 1134,
+      "text": "depression",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0011570",
+        "CUIPhrase": "depression",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "Investigations",
+      "start": 1259,
+      "end": 1263,
+      "text": "MRI-",
+      "attributes": {
+        "MRI_Results": "Normal",
+        "CUI": "C0436481",
+        "MRI_Performed": "Yes",
+        "CUIPhrase": "mri-normal"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Investigations",
+      "start": 1267,
+      "end": 1271,
+      "text": "EEG-",
+      "attributes": {
+        "EEG_Results": "Normal",
+        "CUI": "C0560017",
+        "CUIPhrase": "eeg-normal",
+        "EEG_Performed": "Yes"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Investigations",
+      "start": 1308,
+      "end": 1312,
+      "text": "EEG-",
+      "attributes": {
+        "CUI": "C0560017",
+        "CUIPhrase": "EEG normal",
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Normal"
+      }
+    },
+    {
+      "id": "T13",
+      "type": "PatientHistory",
+      "start": 1332,
+      "end": 1350,
+      "text": "jerk-like-episodes",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "jerking-episodes",
+        "CUI": "C0231530"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "PatientHistory",
+      "start": 1429,
+      "end": 1450,
+      "text": "dissociative-seizures",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "dissociative seizures",
+        "CUI": "C0349245",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T15",
+      "type": "PatientHistory",
+      "start": 1505,
+      "end": 1513,
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "PatientHistory",
+      "start_index": "174",
+      "end_index": "195",
+      "text": "Dissociative-seizures",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "dissociative-seizures",
+        "Certainty": "5",
+        "CUI": "C0349245"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "198",
+      "end_index": "206",
+      "text": "Epilepsy",
+      "attributes": {
+        "CUI": "C0014544",
+        "CUIPhrase": "epilepsy",
+        "Certainty": "5",
+        "DiagCategory": "Epilepsy",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "293",
+      "end_index": "308",
+      "text": "Clobazam-5mg-bd",
+      "attributes": {
+        "Frequency": "2",
+        "DrugName": "clobazam",
+        "CUIPhrase": "clobazam",
+        "DoseUnit": "mg",
+        "DrugDose": "5",
+        "CUI": "C0055891"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "596",
+      "end_index": "604",
+      "text": "grand-ma",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "grand-mal",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "1308",
+      "end_index": "1312",
+      "text": "EEG-",
+      "attributes": {
+        "CUI": "C0560017",
+        "CUIPhrase": "EEG",
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Normal"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "1259",
+      "end_index": "1263",
+      "text": "MRI-",
+      "attributes": {
+        "MRI_Results": "Normal",
+        "CUI": "C0436481",
+        "MRI_Performed": "Yes",
+        "CUIPhrase": "mri-normal"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "209",
+      "end_index": "219",
+      "text": "Depression",
+      "attributes": {
+        "CUI": "C0011570",
+        "CUIPhrase": "depression",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "267",
+      "end_index": "282",
+      "text": "Brivetiracetam-",
+      "attributes": {
+        "DrugName": "Perampanel",
+        "DoseUnit": "mg",
+        "CUIPhrase": "brivaracetam",
+        "CUI": "C1699861",
+        "DrugDose": "50",
+        "Frequency": "2"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "1267",
+      "end_index": "1271",
+      "text": "EEG-",
+      "attributes": {
+        "EEG_Results": "Normal",
+        "CUI": "C0560017",
+        "CUIPhrase": "eeg-normal",
+        "EEG_Performed": "Yes"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "241",
+      "end_index": "263",
+      "text": "Carbamazepine-600mg-bd",
+      "attributes": {
+        "Frequency": "2",
+        "DrugName": "carbamazepine",
+        "DrugDose": "600",
+        "CUI": "C0006949",
+        "DoseUnit": "mg",
+        "CUIPhrase": "carbamazepine"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1332",
+      "end_index": "1350",
+      "text": "jerk-like-episodes",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "jerking-episodes",
+        "CUI": "C0231530"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1429",
+      "end_index": "1450",
+      "text": "dissociative-seizures",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "dissociative",
+        "CUI": "C0349245",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1124",
+      "end_index": "1134",
+      "text": "depression",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0011570",
+        "CUIPhrase": "depression",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1505",
+      "end_index": "1513",
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T1",
+      "type": "PatientHistory",
+      "text": "Dissociative-seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "text": "Depression",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T9",
+      "type": "Prescription",
+      "text": "Carbamazepine-600mg-bd",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T7",
+      "type": "Prescription",
+      "text": "Brivetiracetam-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T3",
+      "type": "Prescription",
+      "text": "Clobazam-5mg-bd",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "text": "depression",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T13",
+      "type": "PatientHistory",
+      "text": "jerk-like-episodes",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T11",
+      "type": "PatientHistory",
+      "text": "dissociative-seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T15",
+      "type": "PatientHistory",
+      "text": "seizures",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [],
+  "type_counts": {
+    "PatientHistory": 6,
+    "Diagnosis": 2,
+    "Prescription": 3,
+    "Investigations": 3
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "9 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T1",
+          "type": "PatientHistory",
+          "text": "Dissociative-seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T6",
+          "type": "PatientHistory",
+          "text": "Depression",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T9",
+          "type": "Prescription",
+          "text": "Carbamazepine-600mg-bd",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T7",
+          "type": "Prescription",
+          "text": "Brivetiracetam-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T3",
+          "type": "Prescription",
+          "text": "Clobazam-5mg-bd",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T12",
+          "type": "PatientHistory",
+          "text": "depression",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T13",
+          "type": "PatientHistory",
+          "text": "jerk-like-episodes",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T11",
+          "type": "PatientHistory",
+          "text": "dissociative-seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T15",
+          "type": "PatientHistory",
+          "text": "seizures",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

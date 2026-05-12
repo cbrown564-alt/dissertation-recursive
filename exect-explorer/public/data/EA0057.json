@@ -1,0 +1,1153 @@
+{
+  "id": "EA0057",
+  "text": "NHS No 4961112233\nDate 19/9/2016\n\n\nDear Dr\n\nr.e. Mr Laurence Harris.  D.O.B.: 10/1/1960\n40, Hospital pass, Johnstown. SA5 3ZZ\n\nDiagnosis\t1. Dissociative seizures (non-epileptic attacks)\n\t\t2. Symptomatic structural epilepsy secondary to previous cerebral abcess\n\nMedication:\tLevetiracetam 1000mg bd\n\t\t\n\nI reviewed this 56-year-old man in clinic today. He has been previously reviewed by other members of the epilepsy department. As you know his epilepsy started 16 years ago, 2 months after having brain surgery. This was to drain a right frontal lobe brain abcess. He used to have focal motor seizures without changes in awareness, these would involve his left arm twitching with retained awareness. He used to gets these every month but has not had a seizure like this for around two years now. He has previously had focal to bilateral convulsive seizures. his last one was on Christmas day 2009.\n\nHe continues to get dissociative seizures which are brought on by stress. They are different to his epilepsy seizures, are longer and he will have his eyes closed during them. Currently he his having dissociative seizures around twice every week.\n\nHe was born normally has not had any febrile seizures or significant cerebral infections apart from the brain abscess. He has not been able to work since his brain operation, previously he worked as a fork lift truck driver. He does not smoke but drinks around 20 units of alcohol per week (10 pints of mild). He has taken amphetamines in the past but has not done so since his operation. There is no relevant family history. He is not driving at the moment. He lives with his wife and 19 year old daughter.\n\nThere was a mild left hemiparesis but otherwise his neurological examination was normal.\n\nA MRI two years ago showed an area of gliosis in the right frontal lobe secondary to his previous surgery.\n\nComments\nMr Harris does have epilepsy as a result of his brain surgery and has a tendency for ongoing epileptic seizures. He therefore needs to stay on anti-epileptic medication. However his main issue at the moment are dissociative seizures. We went over these and I explained that they are not caused by electrical disturbance that cause epileptic seizures but instead can be thought of as the brain “dissociating”. The website www.nonepilepticattacks.info is an excellent source of information and I will also re-refer him to neuro-psychology who have been useful in the past.\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "start": 140,
+      "end": 161,
+      "text": "Dissociative-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "dissociative-convulsions",
+        "CUI": "C0349245"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "PatientHistory",
+      "start": 163,
+      "end": 184,
+      "text": "non-epileptic-attacks",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "non-epileptic-attacks",
+        "CUI": "C3495874"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Diagnosis",
+      "start": 191,
+      "end": 222,
+      "text": "Symptomatic-structural-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "symptomatic-structural-focal-epilepsy",
+        "CUI": "C0472349"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "start": 245,
+      "end": 260,
+      "text": "cerebral-abcess",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "cerebral-abscess",
+        "CUI": "C1510428"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "EpilepsyCause",
+      "start": 245,
+      "end": 260,
+      "text": "cerebral-abcess",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "cerebral-abscess",
+        "CUI": "C1510428"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "Prescription",
+      "start": 274,
+      "end": 297,
+      "text": "Levetiracetam-1000mg-bd",
+      "attributes": {
+        "DrugName": "levetiracetam",
+        "DrugDose": "1000",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "levetiracetam",
+        "CUI": "C0377265"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "Diagnosis",
+      "start": 443,
+      "end": 451,
+      "text": "-epileps",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "Onset",
+      "start": 444,
+      "end": 452,
+      "text": "epilepsy",
+      "attributes": {
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "16",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "start": 497,
+      "end": 510,
+      "text": "brain-surgery",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "brain-surgery",
+        "CUI": "C0195775"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "PatientHistory",
+      "start": 551,
+      "end": 563,
+      "text": "brain-abcess",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "brain-abscess",
+        "CUI": "C0006105"
+      }
+    },
+    {
+      "id": "T16",
+      "type": "Diagnosis",
+      "start": 581,
+      "end": 601,
+      "text": "focal-motor-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-motor-seizures",
+        "CUI": "C0016399"
+      }
+    },
+    {
+      "id": "T18",
+      "type": "SeizureFrequency",
+      "start": 581,
+      "end": 601,
+      "text": "focal-motor-seizures",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "2",
+        "CUIPhrase": "focal-motor-seizures",
+        "CUI": "C0016399"
+      }
+    },
+    {
+      "id": "T20",
+      "type": "Diagnosis",
+      "start": 818,
+      "end": 856,
+      "text": "focal-to-bilateral-convulsive-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizures",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "SeizureFrequency",
+      "start": 818,
+      "end": 856,
+      "text": "focal-to-bilateral-convulsive-seizures",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "DayDate": "25",
+        "MonthDate": "12",
+        "YearDate": "2009",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizures",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "start": 919,
+      "end": 940,
+      "text": "dissociative-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "dissociative-seizures",
+        "CUI": "C0349245"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "Diagnosis",
+      "start": 999,
+      "end": 1016,
+      "text": "epilepsy-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epileptic-seizures",
+        "CUI": "C4317109"
+      }
+    },
+    {
+      "id": "T13",
+      "type": "PatientHistory",
+      "start": 1099,
+      "end": 1120,
+      "text": "dissociative-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "dissociative-seizures",
+        "CUI": "C0349245"
+      }
+    },
+    {
+      "id": "T15",
+      "type": "BirthHistory",
+      "start": 1154,
+      "end": 1167,
+      "text": "born-normally",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "born-normally",
+        "CUI": "C3665337"
+      }
+    },
+    {
+      "id": "T17",
+      "type": "PatientHistory",
+      "start": 1184,
+      "end": 1200,
+      "text": "febrile-seizures",
+      "attributes": {
+        "Certainty": "1",
+        "Negation": "Negated",
+        "CUIPhrase": "febrile-seizures",
+        "CUI": "C0009952"
+      }
+    },
+    {
+      "id": "T19",
+      "type": "PatientHistory",
+      "start": 1251,
+      "end": 1264,
+      "text": "brain-abscess",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "brain-abscess",
+        "CUI": "C0006105"
+      }
+    },
+    {
+      "id": "T21",
+      "type": "PatientHistory",
+      "start": 1305,
+      "end": 1320,
+      "text": "brain-operation",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "brain-tumour-operation",
+        "CUI": "C1096120"
+      }
+    },
+    {
+      "id": "T23",
+      "type": "PatientHistory",
+      "start": 1678,
+      "end": 1689,
+      "text": "hemiparesis",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "hemiparesis",
+        "CUI": "C0018989"
+      }
+    },
+    {
+      "id": "T25",
+      "type": "Investigations",
+      "start": 1748,
+      "end": 1751,
+      "text": "MRI",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Abnormal",
+        "CUIPhrase": "abnormal-mri",
+        "CUI": "C1319851"
+      }
+    },
+    {
+      "id": "T27",
+      "type": "PatientHistory",
+      "start": 1784,
+      "end": 1791,
+      "text": "gliosis",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "gliosis",
+        "CUI": "C0017639"
+      }
+    },
+    {
+      "id": "T29",
+      "type": "Diagnosis",
+      "start": 1883,
+      "end": 1891,
+      "text": "epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T24",
+      "type": "EpilepsyCause",
+      "start": 1911,
+      "end": 1924,
+      "text": "brain-surgery",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "brain-surgery",
+        "CUI": "C0195775"
+      }
+    },
+    {
+      "id": "T26",
+      "type": "PatientHistory",
+      "start": 1911,
+      "end": 1924,
+      "text": "brain-surgery",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "C0195775",
+        "CUI": "C0195775"
+      }
+    },
+    {
+      "id": "T30",
+      "type": "Diagnosis",
+      "start": 1956,
+      "end": 1974,
+      "text": "epileptic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epileptic-seizures",
+        "CUI": "C4317109"
+      }
+    },
+    {
+      "id": "T33",
+      "type": "PatientHistory",
+      "start": 2074,
+      "end": 2095,
+      "text": "dissociative-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "dissociative-seizures",
+        "CUI": "C0349245"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "PatientHistory",
+      "start_index": "140",
+      "end_index": "161",
+      "text": "Dissociative-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "dissociative-convulsions",
+        "CUI": "C0349245"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "163",
+      "end_index": "184",
+      "text": "non-epileptic-attacks",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "non-epileptic-attacks",
+        "CUI": "C3495874"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "191",
+      "end_index": "222",
+      "text": "Symptomatic-structural-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "symptomatic-structural-focal-epilepsy",
+        "CUI": "C0472349"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "245",
+      "end_index": "260",
+      "text": "cerebral-abcess",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "cerebral-abscess",
+        "CUI": "C1510428"
+      }
+    },
+    {
+      "entity": "EpilepsyCause",
+      "start_index": "245",
+      "end_index": "260",
+      "text": "cerebral-abcess",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "cerebral-abscess",
+        "CUI": "C1510428"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "274",
+      "end_index": "297",
+      "text": "Levetiracetam-1000mg-bd",
+      "attributes": {
+        "DrugName": "levetiracetam",
+        "DrugDose": "1000",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "levetiracetam",
+        "CUI": "C0377265"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "443",
+      "end_index": "451",
+      "text": "-epileps",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "Onset",
+      "start_index": "444",
+      "end_index": "452",
+      "text": "epilepsy",
+      "attributes": {
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "16",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "497",
+      "end_index": "510",
+      "text": "brain-surgery",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "brain-surgery",
+        "CUI": "C0195775"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "551",
+      "end_index": "563",
+      "text": "brain-abcess",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "brain-abscess",
+        "CUI": "C0006105"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "581",
+      "end_index": "601",
+      "text": "focal-motor-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-motor-seizures",
+        "CUI": "C0016399"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "581",
+      "end_index": "601",
+      "text": "focal-motor-seizures",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "2",
+        "CUIPhrase": "focal-motor-seizures",
+        "CUI": "C0016399"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "818",
+      "end_index": "856",
+      "text": "focal-to-bilateral-convulsive-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizures",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "818",
+      "end_index": "856",
+      "text": "focal-to-bilateral-convulsive-seizures",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "DayDate": "25",
+        "MonthDate": "12",
+        "YearDate": "2009",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizures",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "919",
+      "end_index": "940",
+      "text": "dissociative-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "dissociative-seizures",
+        "CUI": "C0349245"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "999",
+      "end_index": "1016",
+      "text": "epilepsy-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epileptic-seizures",
+        "CUI": "C4317109"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1099",
+      "end_index": "1120",
+      "text": "dissociative-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "dissociative-seizures",
+        "CUI": "C0349245"
+      }
+    },
+    {
+      "entity": "BirthHistory",
+      "start_index": "1154",
+      "end_index": "1167",
+      "text": "born-normally",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "born-normally",
+        "CUI": "C3665337"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1184",
+      "end_index": "1200",
+      "text": "febrile-seizures",
+      "attributes": {
+        "Certainty": "1",
+        "Negation": "Negated",
+        "CUIPhrase": "febrile-seizures",
+        "CUI": "C0009952"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1251",
+      "end_index": "1264",
+      "text": "brain-abscess",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "brain-abscess",
+        "CUI": "C0006105"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1305",
+      "end_index": "1320",
+      "text": "brain-operation",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "brain-tumour-operation",
+        "CUI": "C1096120"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1678",
+      "end_index": "1689",
+      "text": "hemiparesis",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "hemiparesis",
+        "CUI": "C0018989"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "1748",
+      "end_index": "1751",
+      "text": "MRI",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Abnormal",
+        "CUIPhrase": "abnormal-mri",
+        "CUI": "C1319851"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1784",
+      "end_index": "1791",
+      "text": "gliosis",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "gliosis",
+        "CUI": "C0017639"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1883",
+      "end_index": "1891",
+      "text": "epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "EpilepsyCause",
+      "start_index": "1911",
+      "end_index": "1924",
+      "text": "brain-surgery",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "brain-surgery",
+        "CUI": "C0195775"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1911",
+      "end_index": "1924",
+      "text": "brain-surgery",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "C0195775",
+        "CUI": "C0195775"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1956",
+      "end_index": "1974",
+      "text": "epileptic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epileptic-seizures",
+        "CUI": "C4317109"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "2074",
+      "end_index": "2095",
+      "text": "dissociative-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "dissociative-seizures",
+        "CUI": "C0349245"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 245,
+      "end": 260,
+      "text": "cerebral-abcess",
+      "entity_types": [
+        "PatientHistory",
+        "EpilepsyCause"
+      ],
+      "entity_ids": [
+        "T6",
+        "T8"
+      ]
+    },
+    {
+      "start": 581,
+      "end": 601,
+      "text": "focal-motor-seizures",
+      "entity_types": [
+        "Diagnosis",
+        "SeizureFrequency"
+      ],
+      "entity_ids": [
+        "T16",
+        "T18"
+      ]
+    },
+    {
+      "start": 818,
+      "end": 856,
+      "text": "focal-to-bilateral-convulsive-seizures",
+      "entity_types": [
+        "Diagnosis",
+        "SeizureFrequency"
+      ],
+      "entity_ids": [
+        "T20",
+        "T1"
+      ]
+    },
+    {
+      "start": 1911,
+      "end": 1924,
+      "text": "brain-surgery",
+      "entity_types": [
+        "EpilepsyCause",
+        "PatientHistory"
+      ],
+      "entity_ids": [
+        "T24",
+        "T26"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "text": "Dissociative-seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T7",
+      "type": "PatientHistory",
+      "text": "non-epileptic-attacks",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "text": "cerebral-abcess",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T10",
+      "type": "Prescription",
+      "text": "Levetiracetam-1000mg-bd",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "text": "brain-surgery",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T5",
+      "type": "PatientHistory",
+      "text": "brain-abcess",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "text": "dissociative-seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T13",
+      "type": "PatientHistory",
+      "text": "dissociative-seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T17",
+      "type": "PatientHistory",
+      "text": "febrile-seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T19",
+      "type": "PatientHistory",
+      "text": "brain-abscess",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T21",
+      "type": "PatientHistory",
+      "text": "brain-operation",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T23",
+      "type": "PatientHistory",
+      "text": "hemiparesis",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T27",
+      "type": "PatientHistory",
+      "text": "gliosis",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T26",
+      "type": "PatientHistory",
+      "text": "brain-surgery",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T33",
+      "type": "PatientHistory",
+      "text": "dissociative-seizures",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T12",
+      "type": "Onset",
+      "text": "epilepsy",
+      "start": 444,
+      "end": 452,
+      "year": null,
+      "period": "Year",
+      "num_periods": "16",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": null
+    },
+    {
+      "id": "T18",
+      "type": "SeizureFrequency",
+      "text": "focal-motor-seizures",
+      "start": 581,
+      "end": 601,
+      "year": null,
+      "period": "Year",
+      "num_periods": "2",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    },
+    {
+      "id": "T1",
+      "type": "SeizureFrequency",
+      "text": "focal-to-bilateral-convulsive-seizures",
+      "start": 818,
+      "end": 856,
+      "year": "2009",
+      "period": null,
+      "num_periods": null,
+      "time_since": "Since",
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    }
+  ],
+  "type_counts": {
+    "PatientHistory": 14,
+    "Diagnosis": 7,
+    "EpilepsyCause": 2,
+    "Prescription": 1,
+    "Onset": 1,
+    "SeizureFrequency": 2,
+    "BirthHistory": 1,
+    "Investigations": 1
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "4 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 245,
+          "end": 260,
+          "text": "cerebral-abcess",
+          "entity_types": [
+            "PatientHistory",
+            "EpilepsyCause"
+          ],
+          "entity_ids": [
+            "T6",
+            "T8"
+          ]
+        },
+        {
+          "start": 581,
+          "end": 601,
+          "text": "focal-motor-seizures",
+          "entity_types": [
+            "Diagnosis",
+            "SeizureFrequency"
+          ],
+          "entity_ids": [
+            "T16",
+            "T18"
+          ]
+        },
+        {
+          "start": 818,
+          "end": 856,
+          "text": "focal-to-bilateral-convulsive-seizures",
+          "entity_types": [
+            "Diagnosis",
+            "SeizureFrequency"
+          ],
+          "entity_ids": [
+            "T20",
+            "T1"
+          ]
+        },
+        {
+          "start": 1911,
+          "end": 1924,
+          "text": "brain-surgery",
+          "entity_types": [
+            "EpilepsyCause",
+            "PatientHistory"
+          ],
+          "entity_ids": [
+            "T24",
+            "T26"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "15 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T2",
+          "type": "PatientHistory",
+          "text": "Dissociative-seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T7",
+          "type": "PatientHistory",
+          "text": "non-epileptic-attacks",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T6",
+          "type": "PatientHistory",
+          "text": "cerebral-abcess",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T10",
+          "type": "Prescription",
+          "text": "Levetiracetam-1000mg-bd",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T14",
+          "type": "PatientHistory",
+          "text": "brain-surgery",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T5",
+          "type": "PatientHistory",
+          "text": "brain-abcess",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T9",
+          "type": "PatientHistory",
+          "text": "dissociative-seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T13",
+          "type": "PatientHistory",
+          "text": "dissociative-seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T17",
+          "type": "PatientHistory",
+          "text": "febrile-seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T19",
+          "type": "PatientHistory",
+          "text": "brain-abscess",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T21",
+          "type": "PatientHistory",
+          "text": "brain-operation",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T23",
+          "type": "PatientHistory",
+          "text": "hemiparesis",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T27",
+          "type": "PatientHistory",
+          "text": "gliosis",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T26",
+          "type": "PatientHistory",
+          "text": "brain-surgery",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T33",
+          "type": "PatientHistory",
+          "text": "dissociative-seizures",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    },
+    {
+      "category": "negated_entities",
+      "description": "1 entity/ies are explicitly negated in the text.",
+      "details": [
+        {
+          "id": "T17",
+          "type": "PatientHistory",
+          "text": "febrile-seizures"
+        }
+      ],
+      "oracle_impact": "clinical_precision"
+    }
+  ],
+  "negated_entities": [
+    {
+      "id": "T17",
+      "type": "PatientHistory",
+      "text": "febrile-seizures"
+    }
+  ],
+  "low_certainty": [
+    {
+      "id": "T17",
+      "type": "PatientHistory",
+      "text": "febrile-seizures",
+      "certainty": 1
+    }
+  ],
+  "has_unknown_seizure": false
+}

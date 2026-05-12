@@ -1,0 +1,409 @@
+{
+  "id": "EA0076",
+  "text": "The epilepsy service\nOur Ref:\tJ7123/56\nNHS No:\t487 987 9987\nDate: \t\t10/09/2020\nClinic Date \t08/09/2020\n\n\nDear Dr\n\nre: Mr Francis Summers D.O.B: 18/06/2000\n19, Richardson Street, Trefgyflym.SA3 1IK\n \nProblem:              episodes of altered awareness\n \nDiagnosis:            likely dissociative seizures\n                                anxiety\n \nI reviewed this 20-year old man in clinic today. He has been having seizure-like episodes now for around 1 year. They can happen up to several times per week. When they occur Mr Summers seems to \"zone out\" and he finds it diffiult to follow what's going on. He can hear people talking but it is difficult for him to responds. He has not had any jerking episodes which resemble myoclonus.\n \nHis father said that they can happen when standing or sitting and he tends to have a blank look although he is completely still.\n \nHe was born normally, did not have any febrile seizures or meningitis. There is no relevant family history. He does get typical migraine episodes once a month for which he takes sumitriptan.\n \nHis MRI was normal and his EEG was normal although it didn't capture any events. There was no photosensitivity.\n \nI do not think that these are epileptic seizures and are more likely to be dissociative seizures. i explained the driving rules - Mr Summers should not drive while they are happening and should inform the DVLA. A video of the event will also be useful.\n\n",
+  "entities": [
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "start": 232,
+      "end": 250,
+      "text": "-altered-awareness",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "altered-awareness-and-consciousness",
+        "CUI": "C0234428"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "start": 282,
+      "end": 303,
+      "text": "dissociative-seizures",
+      "attributes": {
+        "CUIPhrase": "dissociative-seizures",
+        "Negation": "Affirmed",
+        "Certainty": "4",
+        "CUI": "C0349245"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "start": 336,
+      "end": 343,
+      "text": "anxiety",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0003467",
+        "CUIPhrase": "anxiety",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "start": 414,
+      "end": 426,
+      "text": "seizure-like",
+      "attributes": {
+        "CUIPhrase": "seizure-like-events",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "NumberOfTimePeriods": "1",
+        "CUI": "C0748601",
+        "TimePeriod": "Year"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "BirthHistory",
+      "start": 874,
+      "end": 887,
+      "text": "born-normally",
+      "attributes": {
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUIPhrase": "born-normally",
+        "CUI": "C3665337"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "start": 907,
+      "end": 922,
+      "text": "ebrile-seizures",
+      "attributes": {
+        "Certainty": "1",
+        "CUI": "C0009952",
+        "Negation": "Negated",
+        "CUIPhrase": "febrile-seizures"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "PatientHistory",
+      "start": 995,
+      "end": 1003,
+      "text": "migraine",
+      "attributes": {
+        "Certainty": "5",
+        "CUIPhrase": "migraine",
+        "CUI": "C0149931",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "Investigations",
+      "start": 1064,
+      "end": 1067,
+      "text": "MRI",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "CUIPhrase": "mri-normal",
+        "CUI": "C0436481",
+        "MRI_Results": "Normal"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "Investigations",
+      "start": 1087,
+      "end": 1090,
+      "text": "EEG",
+      "attributes": {
+        "CUI": "C0560017",
+        "EEG_Performed": "Yes",
+        "CUIPhrase": "eeg-normal",
+        "EEG_Results": "Normal"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "PatientHistory",
+      "start": 1248,
+      "end": 1269,
+      "text": "dissociative-seizures",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "dissociative-seizures",
+        "CUI": "C0349245",
+        "Certainty": "4"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "PatientHistory",
+      "start_index": "232",
+      "end_index": "250",
+      "text": "-altered-awareness",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "altered-awareness-and-consciousness",
+        "CUI": "C0234428"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "1064",
+      "end_index": "1067",
+      "text": "MRI",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "CUIPhrase": "mri-normal",
+        "CUI": "C0436481",
+        "MRI_Results": "Normal"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "1087",
+      "end_index": "1090",
+      "text": "EEG",
+      "attributes": {
+        "CUI": "C0560017",
+        "EEG_Performed": "Yes",
+        "CUIPhrase": "eeg-normal",
+        "EEG_Results": "Normal"
+      }
+    },
+    {
+      "entity": "BirthHistory",
+      "start_index": "874",
+      "end_index": "887",
+      "text": "born-normally",
+      "attributes": {
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUIPhrase": "born-normally",
+        "CUI": "C3665337"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "282",
+      "end_index": "303",
+      "text": "dissociative-seizures",
+      "attributes": {
+        "CUIPhrase": "dissociative-seizures",
+        "Negation": "Affirmed",
+        "Certainty": "4",
+        "CUI": "C0349245"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "995",
+      "end_index": "1003",
+      "text": "migraine",
+      "attributes": {
+        "Certainty": "5",
+        "CUIPhrase": "migraine",
+        "CUI": "C0149931",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "336",
+      "end_index": "343",
+      "text": "anxiety",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0003467",
+        "CUIPhrase": "anxiety",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1248",
+      "end_index": "1269",
+      "text": "dissociative-seizures",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "dissociative-seizures",
+        "CUI": "C0349245",
+        "Certainty": "4"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "907",
+      "end_index": "922",
+      "text": "ebrile-seizures",
+      "attributes": {
+        "Certainty": "1",
+        "CUI": "C0009952",
+        "Negation": "Negated",
+        "CUIPhrase": "febrile-seizures"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "414",
+      "end_index": "426",
+      "text": "seizure-like",
+      "attributes": {
+        "CUIPhrase": "seizure-like-events",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "NumberOfTimePeriods": "1",
+        "CUI": "C0748601",
+        "TimePeriod": "Year"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "text": "-altered-awareness",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "text": "dissociative-seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "text": "anxiety",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "text": "ebrile-seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T5",
+      "type": "PatientHistory",
+      "text": "migraine",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T7",
+      "type": "PatientHistory",
+      "text": "dissociative-seizures",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "text": "seizure-like",
+      "start": 414,
+      "end": 426,
+      "year": null,
+      "period": "Year",
+      "num_periods": "1",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": null
+    }
+  ],
+  "type_counts": {
+    "PatientHistory": 7,
+    "BirthHistory": 1,
+    "Investigations": 2
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "6 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T10",
+          "type": "PatientHistory",
+          "text": "-altered-awareness",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T4",
+          "type": "PatientHistory",
+          "text": "dissociative-seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T6",
+          "type": "PatientHistory",
+          "text": "anxiety",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T8",
+          "type": "PatientHistory",
+          "text": "ebrile-seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T5",
+          "type": "PatientHistory",
+          "text": "migraine",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T7",
+          "type": "PatientHistory",
+          "text": "dissociative-seizures",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    },
+    {
+      "category": "negated_entities",
+      "description": "1 entity/ies are explicitly negated in the text.",
+      "details": [
+        {
+          "id": "T8",
+          "type": "PatientHistory",
+          "text": "ebrile-seizures"
+        }
+      ],
+      "oracle_impact": "clinical_precision"
+    }
+  ],
+  "negated_entities": [
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "text": "ebrile-seizures"
+    }
+  ],
+  "low_certainty": [
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "text": "dissociative-seizures",
+      "certainty": 4
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "text": "ebrile-seizures",
+      "certainty": 1
+    },
+    {
+      "id": "T7",
+      "type": "PatientHistory",
+      "text": "dissociative-seizures",
+      "certainty": 4
+    }
+  ],
+  "has_unknown_seizure": false
+}

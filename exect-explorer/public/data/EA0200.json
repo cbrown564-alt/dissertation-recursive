@@ -1,0 +1,425 @@
+{
+  "id": "EA0200",
+  "text": "Problem: 2 episodes of transient loss of consciousness\n\nDiagnosis: genetic generalised epilepsy\n\nI reviewed this 23-year-old woman together with her mother in the consultant’s clinic today. She remembers coming home from the office (she works for an insurance company) in the afternoon. She remembers telling her mother that she didn’t feel right before loosing consciousness and then waking up in hospital. She had bitten her tongue and had muscles aches in her arms and legs the next day.\n\nHer mother was able to describe the event in more detail. She sad that she went stiff, gave out a shout before falling to the floor and convulsing for about a minute. She had a previous similar event around 8 months ago.\n\nThere is no history of events resembling focal seizures, absences or myoclonus. She was born prematurely at 32 weeks weighing 5lbs. She did not have febrile seizures, significant cerebral infections or significant head injuries. She has already started taking lamotrigine (current dose is 50mg twice a day) and does not take any other medication apart from the oral contraceptive pill.\n\nCharlotte did have a driving licence before these event but has surrounded it to the DVLA after informing them of the diagnosis. She drinks alcohol with her friends on the weekend but does not smoke. Her neurological examination and ECG was normal in clinic today.\n\nAn MRI brain performed last month was normal. An EEG from May shows paroxysms of generalised spike and wave activity but no photosensitivity.\n\nImpression. I think that the two events of loss of consciousness were generalised tonic-clonic seizures. This, together with the abnormal EEG mean that there is a diagnosis of epilepsy, namely genetic generalised epilepsy.\n\nComments. I explained the diagnosis to Charlotte and the need for long term treatment with epilepsy medication given the risk of injury and rare risk of death with epilepsy. The lamotrigine dose can be increased further should there be any further seizures.\n",
+  "entities": [
+    {
+      "id": "T3",
+      "type": "PatientHistory",
+      "start": 23,
+      "end": 54,
+      "text": "transient-loss-of-consciousness",
+      "attributes": {
+        "CUIPhrase": "Transient loss of consciousness",
+        "CUI": "C4087400",
+        "Negation": "Affirmed",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "Diagnosis",
+      "start": 67,
+      "end": 95,
+      "text": "genetic-generalised-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUI": "C0270850",
+        "CUIPhrase": "genetic-generalised-epilepsy"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "BirthHistory",
+      "start": 802,
+      "end": 830,
+      "text": "born-prematurely-at-32-weeks",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "born-prematurely",
+        "Certainty": "5",
+        "PrematureBirth": "32to<37_ModerateToLatePreterm",
+        "CUI": "C4054482"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "PatientHistory",
+      "start": 863,
+      "end": 879,
+      "text": "febrile-seizures",
+      "attributes": {
+        "Negation": "Negated",
+        "CUI": "C0009952",
+        "Certainty": "1",
+        "CUIPhrase": "febrile-seizures"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "Prescription",
+      "start": 974,
+      "end": 985,
+      "text": "lamotrigine",
+      "attributes": {
+        "CUIPhrase": "lamotrigine",
+        "DrugDose": "50",
+        "DrugName": "Lamotrigine",
+        "Frequency": "2",
+        "DoseUnit": "mg",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Investigations",
+      "start": 1370,
+      "end": 1373,
+      "text": "MRI",
+      "attributes": {
+        "CUI": "C0436481",
+        "MRI_Performed": "Yes",
+        "CUIPhrase": "mri-normal",
+        "MRI_Results": "Normal"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Investigations",
+      "start": 1416,
+      "end": 1419,
+      "text": "EEG",
+      "attributes": {
+        "CUIPhrase": "eeg-abnormal",
+        "EEG_Results": "Abnormal",
+        "CUI": "C0151611",
+        "EEG_Performed": "Yes"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "start": 1553,
+      "end": 1573,
+      "text": "loss-of-consciousnes",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "loss-of-consciousness",
+        "CUI": "C0041657"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Diagnosis",
+      "start": 1580,
+      "end": 1613,
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "Negation": "Affirmed",
+        "Certainty": "4",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "DiagCategory": "MultipleSeizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "Investigations",
+      "start": 1648,
+      "end": 1651,
+      "text": "EEG",
+      "attributes": {
+        "EEG_Results": "Abnormal",
+        "CUIPhrase": "eeg-abnormal",
+        "EEG_Performed": "Yes",
+        "CUI": "C0151611"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "Diagnosis",
+      "start": 1686,
+      "end": 1695,
+      "text": "epilepsy,",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "Certainty": "5",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "Diagnosis",
+      "start": 1703,
+      "end": 1731,
+      "text": "genetic-generalised-epilepsy",
+      "attributes": {
+        "CUIPhrase": "genetic-generalised-epilepsy",
+        "CUI": "C0270850",
+        "Negation": "Affirmed",
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "PatientHistory",
+      "start_index": "1553",
+      "end_index": "1573",
+      "text": "loss-of-consciousnes",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "loss-of-consciousness",
+        "CUI": "C0041657"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1703",
+      "end_index": "1731",
+      "text": "genetic-generalised-epilepsy",
+      "attributes": {
+        "CUIPhrase": "genetic-generalised-epilepsy",
+        "CUI": "C0270850",
+        "Negation": "Affirmed",
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "BirthHistory",
+      "start_index": "802",
+      "end_index": "830",
+      "text": "born-prematurely-at-32-weeks",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "born-prematurely",
+        "Certainty": "5",
+        "PrematureBirth": "32to<37_ModerateToLatePreterm",
+        "CUI": "C4054482"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "23",
+      "end_index": "54",
+      "text": "transient-loss-of-consciousness",
+      "attributes": {
+        "CUIPhrase": "Transient",
+        "CUI": "C4087400",
+        "Negation": "Affirmed",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1580",
+      "end_index": "1613",
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "Negation": "Affirmed",
+        "Certainty": "4",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "DiagCategory": "MultipleSeizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "863",
+      "end_index": "879",
+      "text": "febrile-seizures",
+      "attributes": {
+        "Negation": "Negated",
+        "CUI": "C0009952",
+        "Certainty": "1",
+        "CUIPhrase": "febrile-seizures"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "1416",
+      "end_index": "1419",
+      "text": "EEG",
+      "attributes": {
+        "CUIPhrase": "eeg-abnormal",
+        "EEG_Results": "Abnormal",
+        "CUI": "C0151611",
+        "EEG_Performed": "Yes"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "67",
+      "end_index": "95",
+      "text": "genetic-generalised-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUI": "C0270850",
+        "CUIPhrase": "genetic-generalised-epilepsy"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "1370",
+      "end_index": "1373",
+      "text": "MRI",
+      "attributes": {
+        "CUI": "C0436481",
+        "MRI_Performed": "Yes",
+        "CUIPhrase": "mri-normal",
+        "MRI_Results": "Normal"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1686",
+      "end_index": "1695",
+      "text": "epilepsy,",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "Certainty": "5",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "974",
+      "end_index": "985",
+      "text": "lamotrigine",
+      "attributes": {
+        "CUIPhrase": "lamotrigine",
+        "DrugDose": "50",
+        "DrugName": "Lamotrigine",
+        "Frequency": "2",
+        "DoseUnit": "mg",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "1648",
+      "end_index": "1651",
+      "text": "EEG",
+      "attributes": {
+        "EEG_Results": "Abnormal",
+        "CUIPhrase": "eeg-abnormal",
+        "EEG_Performed": "Yes",
+        "CUI": "C0151611"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T3",
+      "type": "PatientHistory",
+      "text": "transient-loss-of-consciousness",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T5",
+      "type": "PatientHistory",
+      "text": "febrile-seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T10",
+      "type": "Prescription",
+      "text": "lamotrigine",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "text": "loss-of-consciousnes",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [],
+  "type_counts": {
+    "PatientHistory": 3,
+    "Diagnosis": 4,
+    "BirthHistory": 1,
+    "Prescription": 1,
+    "Investigations": 3
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "4 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T3",
+          "type": "PatientHistory",
+          "text": "transient-loss-of-consciousness",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T5",
+          "type": "PatientHistory",
+          "text": "febrile-seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T10",
+          "type": "Prescription",
+          "text": "lamotrigine",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T12",
+          "type": "PatientHistory",
+          "text": "loss-of-consciousnes",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    },
+    {
+      "category": "negated_entities",
+      "description": "1 entity/ies are explicitly negated in the text.",
+      "details": [
+        {
+          "id": "T5",
+          "type": "PatientHistory",
+          "text": "febrile-seizures"
+        }
+      ],
+      "oracle_impact": "clinical_precision"
+    }
+  ],
+  "negated_entities": [
+    {
+      "id": "T5",
+      "type": "PatientHistory",
+      "text": "febrile-seizures"
+    }
+  ],
+  "low_certainty": [
+    {
+      "id": "T5",
+      "type": "PatientHistory",
+      "text": "febrile-seizures",
+      "certainty": 1
+    },
+    {
+      "id": "T4",
+      "type": "Diagnosis",
+      "text": "generalised-tonic-clonic-seizures",
+      "certainty": 4
+    }
+  ],
+  "has_unknown_seizure": false
+}

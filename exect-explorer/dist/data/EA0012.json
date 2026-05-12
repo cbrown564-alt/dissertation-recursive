@@ -1,0 +1,184 @@
+{
+  "id": "EA0012",
+  "text": "Clinic Date 2/3/18\n\nDear Dr Jones,\n\nI reviewed this lady with epilepsy in clinic today. The epilepsy seems to be under control on Levetiracetam 1500 mg BD, Zonisamide 150 mg BD, Tegretol 600 mg daily.\n\nI haven’t made any changes and will review her again in nine months time.\n\nYours sincerely,\n\nDr Baker\nConsultant neurologist\n\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 62,
+      "end": 71,
+      "text": "epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Prescription",
+      "start": 130,
+      "end": 144,
+      "text": "Levetiracetam-",
+      "attributes": {
+        "DrugName": "Levetiracetam",
+        "DrugDose": "1500",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "levetiracetam",
+        "CUI": "C0377265"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "start": 156,
+      "end": 176,
+      "text": "Zonisamide-150-mg-BD",
+      "attributes": {
+        "DrugName": "zonisamide",
+        "DrugDose": "150",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "zonisamide",
+        "CUI": "C0078844"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "start": 178,
+      "end": 199,
+      "text": "Tegretol-600-mg-daily",
+      "attributes": {
+        "DrugName": "tegretol",
+        "DrugDose": "600",
+        "DoseUnit": "mg",
+        "Frequency": "1",
+        "CUIPhrase": "tegretol",
+        "CUI": "C0700087"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "62",
+      "end_index": "71",
+      "text": "epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "130",
+      "end_index": "144",
+      "text": "Levetiracetam-",
+      "attributes": {
+        "DrugName": "Levetiracetam",
+        "DrugDose": "1500",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "levetiracetam",
+        "CUI": "C0377265"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "156",
+      "end_index": "176",
+      "text": "Zonisamide-150-mg-BD",
+      "attributes": {
+        "DrugName": "zonisamide",
+        "DrugDose": "150",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "zonisamide",
+        "CUI": "C0078844"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "178",
+      "end_index": "199",
+      "text": "Tegretol-600-mg-daily",
+      "attributes": {
+        "DrugName": "tegretol",
+        "DrugDose": "600",
+        "DoseUnit": "mg",
+        "Frequency": "1",
+        "CUIPhrase": "tegretol",
+        "CUI": "C0700087"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T8",
+      "type": "Prescription",
+      "text": "Levetiracetam-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "text": "Zonisamide-150-mg-BD",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "text": "Tegretol-600-mg-daily",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [],
+  "type_counts": {
+    "Diagnosis": 1,
+    "Prescription": 3
+  },
+  "flaws": [
+    {
+      "category": "seizure_free_hallucination_vs_gold_ambiguity",
+      "description": "Letter mentions both 'seizure free' AND historical focal seizures. Model may attend to wrong sentence.",
+      "oracle_impact": "seizure_type"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "3 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T8",
+          "type": "Prescription",
+          "text": "Levetiracetam-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T4",
+          "type": "Prescription",
+          "text": "Zonisamide-150-mg-BD",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T6",
+          "type": "Prescription",
+          "text": "Tegretol-600-mg-daily",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

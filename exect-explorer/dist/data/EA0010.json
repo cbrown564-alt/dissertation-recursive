@@ -1,0 +1,581 @@
+{
+  "id": "EA0010",
+  "text": "Diagnosis:  Episodic migraine\n                                Symptomatic structural focal epilepsy (probable perinatal insult)\nDear Dr I reviewed this 39-year-old man in clinic today.  His main issue is  migraines which occur around 3 times per month.  They are very stereotyped and consist of severe headache with nausea and photophobia.\nThings are quite stable from an epilepsy point of view.  As you know he is taking 150 mg of lamotrigine twice a day.  His last seizures were in his teenage years where he probably had around 3 or 4 focal to bilateral convulsive seizures.  There were some perinatal problems and he was born to a long and traumatic labour.  He had to spend around 2 weeks in Special care baby Unit.  He had 4 febrile seizures at the age of 3, 4 and then around five.  He had some viral meningitis when he was in his late teenage years while he was doing a levels.\n \nHe had an MRI brain performed in 2016. This does show some left-sided cortical and deep white matter changes which are probably representative of a perinatal insult.\n \nComments:  In terms of his migraine and I would try acute treatment with high-dose ibuprofen or dispersible aspirin together with a Triptan.  If this is not successful then I would consider preventative treatment such as propranolol or possibly tompiramate given his epilepsy.  Otherwise as things are relatively stable from an epilepsy point I would leave his epilepsy treatment as it is.\n \nyours\n\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "start": 21,
+      "end": 29,
+      "text": "migraine",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "migraine",
+        "CUI": "C0149931"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Diagnosis",
+      "start": 62,
+      "end": 99,
+      "text": "Symptomatic-structural-focal-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "symptomatic-structural-focal-epilepsy",
+        "CUI": "C0472349"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "BirthHistory",
+      "start": 110,
+      "end": 126,
+      "text": "perinatal-insult",
+      "attributes": {
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "perinatal-insult",
+        "CUI": "C0005604"
+      }
+    },
+    {
+      "id": "T13",
+      "type": "EpilepsyCause",
+      "start": 111,
+      "end": 126,
+      "text": "erinatal-insult",
+      "attributes": {
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "perinatal-insult",
+        "CUI": "C0005604"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "start": 205,
+      "end": 215,
+      "text": "migraines-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "migraines",
+        "CUI": "C0149931"
+      }
+    },
+    {
+      "id": "T20",
+      "type": "Prescription",
+      "start": 432,
+      "end": 444,
+      "text": "lamotrigine-",
+      "attributes": {
+        "DrugName": "Lamotrigine",
+        "DrugDose": "150",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "id": "T19",
+      "type": "PatientHistory",
+      "start": 467,
+      "end": 474,
+      "text": "seizure",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T15",
+      "type": "SeizureFrequency",
+      "start": 467,
+      "end": 476,
+      "text": "seizures-",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "AgeUnit": "Year",
+        "AgeLower": "13",
+        "AgeUpper": "19",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T17",
+      "type": "Diagnosis",
+      "start": 538,
+      "end": 576,
+      "text": "focal-to-bilateral-convulsive-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizures",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "id": "T23",
+      "type": "BirthHistory",
+      "start": 697,
+      "end": 719,
+      "text": "Special-care-baby-Unit",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "special-care-baby-unit",
+        "CUI": "C0583275"
+      }
+    },
+    {
+      "id": "T21",
+      "type": "PatientHistory",
+      "start": 731,
+      "end": 747,
+      "text": "febrile-seizures",
+      "attributes": {
+        "AgeUnit": "Year",
+        "AgeLower": "3",
+        "AgeUpper": "5",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "febrile-seizures",
+        "CUI": "C0009952"
+      }
+    },
+    {
+      "id": "T25",
+      "type": "PatientHistory",
+      "start": 802,
+      "end": 818,
+      "text": "viral-meningitis",
+      "attributes": {
+        "AgeUnit": "Year",
+        "AgeLower": "17",
+        "AgeUpper": "19",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "meningitis",
+        "CUI": "C0025289"
+      }
+    },
+    {
+      "id": "T27",
+      "type": "Investigations",
+      "start": 898,
+      "end": 907,
+      "text": "MRI-brain",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Abnormal",
+        "CUIPhrase": "mri-abnormal",
+        "CUI": "C1319851"
+      }
+    },
+    {
+      "id": "T16",
+      "type": "BirthHistory",
+      "start": 1036,
+      "end": 1052,
+      "text": "perinatal-insult",
+      "attributes": {
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "perinatal-insult",
+        "CUI": "C0005604"
+      }
+    },
+    {
+      "id": "T29",
+      "type": "PatientHistory",
+      "start": 1083,
+      "end": 1092,
+      "text": "migraine-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "migraine",
+        "CUI": "C0149931"
+      }
+    },
+    {
+      "id": "T31",
+      "type": "Diagnosis",
+      "start": 1323,
+      "end": 1331,
+      "text": "epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "PatientHistory",
+      "start_index": "21",
+      "end_index": "29",
+      "text": "migraine",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "migraine",
+        "CUI": "C0149931"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "62",
+      "end_index": "99",
+      "text": "Symptomatic-structural-focal-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "symptomatic-structural-focal-epilepsy",
+        "CUI": "C0472349"
+      }
+    },
+    {
+      "entity": "BirthHistory",
+      "start_index": "110",
+      "end_index": "126",
+      "text": "perinatal-insult",
+      "attributes": {
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "perinatal-insult",
+        "CUI": "C0005604"
+      }
+    },
+    {
+      "entity": "EpilepsyCause",
+      "start_index": "111",
+      "end_index": "126",
+      "text": "erinatal-insult",
+      "attributes": {
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "perinatal-insult",
+        "CUI": "C0005604"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "205",
+      "end_index": "215",
+      "text": "migraines-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "migraines",
+        "CUI": "C0149931"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "432",
+      "end_index": "444",
+      "text": "lamotrigine-",
+      "attributes": {
+        "DrugName": "Lamotrigine",
+        "DrugDose": "150",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "467",
+      "end_index": "476",
+      "text": "seizures-",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "AgeUnit": "Year",
+        "AgeLower": "13",
+        "AgeUpper": "19",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "467",
+      "end_index": "474",
+      "text": "seizure",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "538",
+      "end_index": "576",
+      "text": "focal-to-bilateral-convulsive-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizures",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "entity": "BirthHistory",
+      "start_index": "697",
+      "end_index": "719",
+      "text": "Special-care-baby-Unit",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "special-care-baby-unit",
+        "CUI": "C0583275"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "731",
+      "end_index": "747",
+      "text": "febrile-seizures",
+      "attributes": {
+        "AgeUnit": "Year",
+        "AgeLower": "3",
+        "AgeUpper": "5",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "febrile-seizures",
+        "CUI": "C0009952"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "802",
+      "end_index": "818",
+      "text": "viral-meningitis",
+      "attributes": {
+        "AgeUnit": "Year",
+        "AgeLower": "17",
+        "AgeUpper": "19",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "meningitis",
+        "CUI": "C0025289"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "898",
+      "end_index": "907",
+      "text": "MRI-brain",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Abnormal",
+        "CUIPhrase": "mri-abnormal",
+        "CUI": "C1319851"
+      }
+    },
+    {
+      "entity": "BirthHistory",
+      "start_index": "1036",
+      "end_index": "1052",
+      "text": "perinatal-insult",
+      "attributes": {
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "perinatal-insult",
+        "CUI": "C0005604"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1083",
+      "end_index": "1092",
+      "text": "migraine-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "migraine",
+        "CUI": "C0149931"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1323",
+      "end_index": "1331",
+      "text": "epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "text": "migraine",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "text": "migraines-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T20",
+      "type": "Prescription",
+      "text": "lamotrigine-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T19",
+      "type": "PatientHistory",
+      "text": "seizure",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T21",
+      "type": "PatientHistory",
+      "text": "febrile-seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T25",
+      "type": "PatientHistory",
+      "text": "viral-meningitis",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T29",
+      "type": "PatientHistory",
+      "text": "migraine-",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T15",
+      "type": "SeizureFrequency",
+      "text": "seizures-",
+      "start": 467,
+      "end": 476,
+      "year": null,
+      "period": null,
+      "num_periods": null,
+      "time_since": "Since",
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    }
+  ],
+  "type_counts": {
+    "PatientHistory": 6,
+    "Diagnosis": 3,
+    "BirthHistory": 3,
+    "EpilepsyCause": 1,
+    "Prescription": 1,
+    "SeizureFrequency": 1,
+    "Investigations": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "7 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T2",
+          "type": "PatientHistory",
+          "text": "migraine",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T12",
+          "type": "PatientHistory",
+          "text": "migraines-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T20",
+          "type": "Prescription",
+          "text": "lamotrigine-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T19",
+          "type": "PatientHistory",
+          "text": "seizure",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T21",
+          "type": "PatientHistory",
+          "text": "febrile-seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T25",
+          "type": "PatientHistory",
+          "text": "viral-meningitis",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T29",
+          "type": "PatientHistory",
+          "text": "migraine-",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [
+    {
+      "id": "T11",
+      "type": "BirthHistory",
+      "text": "perinatal-insult",
+      "certainty": 4
+    },
+    {
+      "id": "T13",
+      "type": "EpilepsyCause",
+      "text": "erinatal-insult",
+      "certainty": 4
+    },
+    {
+      "id": "T16",
+      "type": "BirthHistory",
+      "text": "perinatal-insult",
+      "certainty": 4
+    }
+  ],
+  "has_unknown_seizure": false
+}

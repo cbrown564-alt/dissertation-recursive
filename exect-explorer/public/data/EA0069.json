@@ -1,0 +1,456 @@
+{
+  "id": "EA0069",
+  "text": "Consultant Paediatric Neurologist\n\nClinic Date 10th June 2017\nTyped 21st June 2017\n\n\nDear Dr\n\nr.e. Carys Edmunds\tDate of Birth 03.01.2005\tNHS Number: 552 554 553\n\nDiagnosis: \tJuvenile Myoclonic Epilepsy\n\nMedication:\tLevetiracetam 1500mg bd (50mg/kg/day)\n\t\tLamotrigine 50mg am, 75mg pm increasing by 25mg increments every 2 \nweeks to 75mg am, 100mg pm (3mg/kg/day)\n\nFollow Up:\t2 months \n\nI reviewed this young lady in the clinic today.  Carys felt that things were much better as her myoclonic jerks have almost stopped.  She thinks that she has about one a week and they happen when she is stressed. Of rather more concern to her family, is that she is having more generalised tonic clinic seizures.  She has had four in the last three weeks but has had up to five weeks seizure free.  They usually occur in the early hours of the morning.  She wakes up and knows she is going to have one because her arms start jerking.  This carries on for 5 – 10 minutes and then she will have a short-lived generalised tonic clonic seizure.  She is back to normal within half an hour.  \n\nShe is otherwise very well and is preparing to do her GCSE exams next year. \n\nAfter a long discussion, we have decided to increase her Lamotrigine as above but to leave her Levetiracetam the same.  I did suggest to them that they might like to consider using oral Buccal Midazolam to prevent having a generalised tonic clonic seizure in the night but his may lead to some hangover effect in the morning .\n\nThey will go away and think whether they want this.  We will review her as above.\n\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 175,
+      "end": 202,
+      "text": "Juvenile-Myoclonic-Epilepsy",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0270853",
+        "DiagCategory": "Epilepsy",
+        "CUIPhrase": "juvenile-myoclonic-epilepsy",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "Prescription",
+      "start": 216,
+      "end": 253,
+      "text": "Levetiracetam-1500mg-bd-(50mg/kg/day)",
+      "attributes": {
+        "CUI": "C0377265",
+        "DrugDose": "1500",
+        "Frequency": "2",
+        "CUIPhrase": "levetiracetam",
+        "DrugName": "levetiracetam",
+        "DoseUnit": "mg"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "start": 256,
+      "end": 268,
+      "text": "Lamotrigine-",
+      "attributes": {
+        "CUI": "C0064636",
+        "DoseUnit": "mg",
+        "DrugDose": "75",
+        "DrugName": "Lamotrigine",
+        "Frequency": "1",
+        "CUIPhrase": "lamotrigine"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "Prescription",
+      "start": 256,
+      "end": 275,
+      "text": "Lamotrigine-50mg-am",
+      "attributes": {
+        "CUI": "C0064636",
+        "Frequency": "1",
+        "DoseUnit": "mg",
+        "DrugDose": "50",
+        "CUIPhrase": "lamotrigine",
+        "DrugName": "lamotrigine"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "SeizureFrequency",
+      "start": 483,
+      "end": 498,
+      "text": "myoclonic-jerks",
+      "attributes": {
+        "CUI": "C0027066",
+        "NumberOfTimePeriods": "1",
+        "TimePeriod": "Week",
+        "NumberOfSeizures": "1",
+        "CUIPhrase": "myoclonic-jerks"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "PatientHistory",
+      "start": 483,
+      "end": 498,
+      "text": "myoclonic-jerks",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C0027066",
+        "CUIPhrase": "myoclonic-jerks",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "SeizureFrequency",
+      "start": 665,
+      "end": 698,
+      "text": "generalised-tonic-clinic-seizures",
+      "attributes": {
+        "TimePeriod": "Week",
+        "NumberOfTimePeriods": "3",
+        "CUI": "C0494475",
+        "NumberOfSeizures": "4",
+        "CUIPhrase": "generalized-tonic-clonic-seizures"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Diagnosis",
+      "start": 665,
+      "end": 698,
+      "text": "generalised-tonic-clinic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "CUI": "C0494475",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizures"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "SeizureFrequency",
+      "start": 665,
+      "end": 698,
+      "text": "generalised-tonic-clinic-seizures",
+      "attributes": {
+        "FrequencyChange": "Increased",
+        "CUIPhrase": "generalised tonic clonic seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "Diagnosis",
+      "start": 994,
+      "end": 1026,
+      "text": "generalised-tonic-clonic-seizure",
+      "attributes": {
+        "DiagCategory": "SingleSeizure",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizure",
+        "CUI": "C0494475"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Prescription",
+      "start_index": "256",
+      "end_index": "275",
+      "text": "Lamotrigine-50mg-am",
+      "attributes": {
+        "CUI": "C0064636",
+        "Frequency": "1",
+        "DoseUnit": "mg",
+        "DrugDose": "50",
+        "CUIPhrase": "lamotrigine",
+        "DrugName": "lamotrigine"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "175",
+      "end_index": "202",
+      "text": "Juvenile-Myoclonic-Epilepsy",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0270853",
+        "DiagCategory": "Epilepsy",
+        "CUIPhrase": "juvenile-myoclonic-epilepsy",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "665",
+      "end_index": "698",
+      "text": "generalised-tonic-clinic-seizures",
+      "attributes": {
+        "TimePeriod": "Week",
+        "NumberOfTimePeriods": "3",
+        "CUI": "C0494475",
+        "NumberOfSeizures": "4",
+        "CUIPhrase": "generalized-tonic-clonic-seizures"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "483",
+      "end_index": "498",
+      "text": "myoclonic-jerks",
+      "attributes": {
+        "CUI": "C0027066",
+        "NumberOfTimePeriods": "1",
+        "TimePeriod": "Week",
+        "NumberOfSeizures": "1",
+        "CUIPhrase": "myoclonic-jerks"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "216",
+      "end_index": "253",
+      "text": "Levetiracetam-1500mg-bd-(50mg/kg/day)",
+      "attributes": {
+        "CUI": "C0377265",
+        "DrugDose": "1500",
+        "Frequency": "2",
+        "CUIPhrase": "levetiracetam",
+        "DrugName": "levetiracetam",
+        "DoseUnit": "mg"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "256",
+      "end_index": "268",
+      "text": "Lamotrigine-",
+      "attributes": {
+        "CUI": "C0064636",
+        "DoseUnit": "mg",
+        "DrugDose": "75",
+        "DrugName": "Lamotrigine",
+        "Frequency": "1",
+        "CUIPhrase": "lamotrigine"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "483",
+      "end_index": "498",
+      "text": "myoclonic-jerks",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C0027066",
+        "CUIPhrase": "myoclonic-jerks",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "665",
+      "end_index": "698",
+      "text": "generalised-tonic-clinic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "CUI": "C0494475",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizures"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "665",
+      "end_index": "698",
+      "text": "generalised-tonic-clinic-seizures",
+      "attributes": {
+        "FrequencyChange": "Increased",
+        "CUIPhrase": "generalised",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "994",
+      "end_index": "1026",
+      "text": "generalised-tonic-clonic-seizure",
+      "attributes": {
+        "DiagCategory": "SingleSeizure",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizure",
+        "CUI": "C0494475"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 483,
+      "end": 498,
+      "text": "myoclonic-jerks",
+      "entity_types": [
+        "SeizureFrequency",
+        "PatientHistory"
+      ],
+      "entity_ids": [
+        "T4",
+        "T7"
+      ]
+    },
+    {
+      "start": 665,
+      "end": 698,
+      "text": "generalised-tonic-clinic-seizures",
+      "entity_types": [
+        "SeizureFrequency",
+        "Diagnosis",
+        "SeizureFrequency"
+      ],
+      "entity_ids": [
+        "T3",
+        "T8",
+        "T9"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T5",
+      "type": "Prescription",
+      "text": "Levetiracetam-1500mg-bd-(50mg/kg/day)",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "text": "Lamotrigine-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T1",
+      "type": "Prescription",
+      "text": "Lamotrigine-50mg-am",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T7",
+      "type": "PatientHistory",
+      "text": "myoclonic-jerks",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T9",
+      "type": "SeizureFrequency",
+      "text": "generalised-tonic-clinic-seizures",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T4",
+      "type": "SeizureFrequency",
+      "text": "myoclonic-jerks",
+      "start": 483,
+      "end": 498,
+      "year": null,
+      "period": "Week",
+      "num_periods": "1",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "1"
+    },
+    {
+      "id": "T3",
+      "type": "SeizureFrequency",
+      "text": "generalised-tonic-clinic-seizures",
+      "start": 665,
+      "end": 698,
+      "year": null,
+      "period": "Week",
+      "num_periods": "3",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "4"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 3,
+    "Prescription": 3,
+    "SeizureFrequency": 3,
+    "PatientHistory": 1
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "2 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 483,
+          "end": 498,
+          "text": "myoclonic-jerks",
+          "entity_types": [
+            "SeizureFrequency",
+            "PatientHistory"
+          ],
+          "entity_ids": [
+            "T4",
+            "T7"
+          ]
+        },
+        {
+          "start": 665,
+          "end": 698,
+          "text": "generalised-tonic-clinic-seizures",
+          "entity_types": [
+            "SeizureFrequency",
+            "Diagnosis",
+            "SeizureFrequency"
+          ],
+          "entity_ids": [
+            "T3",
+            "T8",
+            "T9"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "5 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T5",
+          "type": "Prescription",
+          "text": "Levetiracetam-1500mg-bd-(50mg/kg/day)",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T6",
+          "type": "Prescription",
+          "text": "Lamotrigine-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T1",
+          "type": "Prescription",
+          "text": "Lamotrigine-50mg-am",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T7",
+          "type": "PatientHistory",
+          "text": "myoclonic-jerks",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T9",
+          "type": "SeizureFrequency",
+          "text": "generalised-tonic-clinic-seizures",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

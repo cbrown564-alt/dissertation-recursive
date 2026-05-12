@@ -1,0 +1,275 @@
+{
+  "id": "EA0043",
+  "text": "Clinic date 10th July 2019\n\nRe. Miss Amber Clarke D.O.B.: 29/06/2000\n\nProblem\tEpisodes of transient loss of consciousness\n\nDiagnosis: Epilepsy\n\tDiabetes\n\nI reviewed this 19 year old woman together with her mother in clinic today. She has no had 4 events in total. They have happened roughly every year since the age of 15. They have mostly happened during sleep. They all seem to be pretty much the same. On all occasions she has bitten the side of her tongue. After the events she normally feels quite confused and needs to go to sleep.\n\nHer mother has seen some of these episodes. She recalled one of them where Miss Clarke was shaking her arms and legs whilst unconscious and making unusual groaning noises. \n\nAs you know Miss Clark is a diabetic and uses insulin. Her blood sugars have been checked after at least two of these episodes and have been within the normal range. They do feel different to her normal hypoglycaemic attacks. There is no obvious history of absence or myoclonic seizures.\n\nShe would like to start driving in the future. She currently works as a hairdresser. A paternal grandmother had seizures associated with brain tumour but otherwise there is no other significant medical history in the family. She had one febrile seizure at the age of eight months. There is no history of significant cerebral brain infections or head injuries.\n\nThe neurological examination today in clinic was normal. I note an ECG in the notes from may 2019 which showed a normal PR interval, corrected QT interval and normal QRS axis.\n\nI do think that these episodes are probably epileptic seizures, particularly as Blood sugars recorded have been normal. I think that Miss Clark has the syndrome of epilepsy with tonic \nclonic seizures alone.\n\nComments:\n\nI explained the diagnosis to miss Clark and her mother. I explained the importance of treating any epileptic seizures, particularly given the risk of injury and even rarely death (sudden unexpected death in epilepsy).\nI think she should start the dose of lamotrigine of 25 mg once-a-day. I would increase this by 25 mg every two weeks. I have enclosed an information leaflet on lamotrigine with this letter.\nI explained the current DVLA driving rules.\nI will request an EEG and an MRI.\n\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "start": 90,
+      "end": 121,
+      "text": "transient-loss-of-consciousness",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "transient-loss-of-consciousness",
+        "CUI": "C4087400"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Diagnosis",
+      "start": 133,
+      "end": 142,
+      "text": "-Epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "start": 144,
+      "end": 152,
+      "text": "Diabetes",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "diabetes",
+        "CUI": "C0011849"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "start": 741,
+      "end": 750,
+      "text": "diabetic-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "diabetes",
+        "CUI": "C0011849"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "start": 1239,
+      "end": 1254,
+      "text": "febrile-seizure",
+      "attributes": {
+        "AgeUnit": "Month",
+        "Age": "8",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "febrile-seizure",
+        "CUI": "C0009952"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "Diagnosis",
+      "start": 1584,
+      "end": 1602,
+      "text": "epileptic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epileptic-seizures",
+        "CUI": "C4317109"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "Diagnosis",
+      "start": 1704,
+      "end": 1747,
+      "text": "epilepsy-with-tonic---clonic-seizures-alone.",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy-with-generalised-tonic-clonic-seizures-alone",
+        "CUI": "C0393697"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "PatientHistory",
+      "start_index": "90",
+      "end_index": "121",
+      "text": "transient-loss-of-consciousness",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "transient-loss-of-consciousness",
+        "CUI": "C4087400"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "133",
+      "end_index": "142",
+      "text": "-Epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "144",
+      "end_index": "152",
+      "text": "Diabetes",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "diabetes",
+        "CUI": "C0011849"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "741",
+      "end_index": "750",
+      "text": "diabetic-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "diabetes",
+        "CUI": "C0011849"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1239",
+      "end_index": "1254",
+      "text": "febrile-seizure",
+      "attributes": {
+        "AgeUnit": "Month",
+        "Age": "8",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "febrile-seizure",
+        "CUI": "C0009952"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1584",
+      "end_index": "1602",
+      "text": "epileptic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epileptic-seizures",
+        "CUI": "C4317109"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1704",
+      "end_index": "1747",
+      "text": "epilepsy-with-tonic---clonic-seizures-alone.",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy-with-generalised-tonic-clonic-seizures-alone",
+        "CUI": "C0393697"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "text": "transient-loss-of-consciousness",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "text": "Diabetes",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "text": "diabetic-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "text": "febrile-seizure",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [],
+  "type_counts": {
+    "PatientHistory": 4,
+    "Diagnosis": 3
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "4 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T2",
+          "type": "PatientHistory",
+          "text": "transient-loss-of-consciousness",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T6",
+          "type": "PatientHistory",
+          "text": "Diabetes",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T9",
+          "type": "PatientHistory",
+          "text": "diabetic-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T8",
+          "type": "PatientHistory",
+          "text": "febrile-seizure",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [
+    {
+      "id": "T10",
+      "type": "Diagnosis",
+      "text": "epileptic-seizures",
+      "certainty": 4
+    },
+    {
+      "id": "T12",
+      "type": "Diagnosis",
+      "text": "epilepsy-with-tonic---clonic-seizures-alone.",
+      "certainty": 4
+    }
+  ],
+  "has_unknown_seizure": false
+}

@@ -1,0 +1,415 @@
+{
+  "id": "EA0125",
+  "text": "Dear Dr,\n\nRe: \tMs Rhian Rogers DOB 20/03/1972\n\nDiagnosis: probably JME presenting with generalised tonic seizures, absences and myoclonic jerks \n\nInvestigations: EEG - arranged, MRI - arranged\n\nMedication: epilim 400 milligrammes twice a day \n\nMany thanks for referring this 49 year old lady for increasing seizures. The onset of the seizures was at the age of 16 and she was diagnosed with epilepsy at the sunshine hospital. She had a good response to Eplim. In the past she's also tried lamotrigine which has made things worse. When she was pregnant for the first time 15 years ago she stopped taking her medication.\n\nShe has no other significant medical problems. She did have a febrile seizure the age of four years and a maternal aunt also has epilepsy, she also has migraine. \n\nToday her examination was essentially normal. \n\nThat history is consistent with juvenile myoclonic epilepsy. I will update her investigations with an MRI and an EEG. We discussed various therapeutic options and she would like to continue on the sodium valproate that has recently been restarted.\n \nYours sincerely,\n",
+  "entities": [
+    {
+      "id": "T8",
+      "type": "Diagnosis",
+      "start": 67,
+      "end": 71,
+      "text": "JME-",
+      "attributes": {
+        "Certainty": "4",
+        "DiagCategory": "Epilepsy",
+        "CUI": "C0270853",
+        "Negation": "Affirmed",
+        "CUIPhrase": "jme"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "Diagnosis",
+      "start": 87,
+      "end": 113,
+      "text": "generalised-tonic-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0270844",
+        "DiagCategory": "MultipleSeizures",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-seizures"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "PatientHistory",
+      "start": 115,
+      "end": 124,
+      "text": "absences-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUI": "C0563606",
+        "CUIPhrase": "absences"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "start": 128,
+      "end": 143,
+      "text": "myoclonic-jerks",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "myoclonic-jerks",
+        "CUI": "C0027066",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "start": 194,
+      "end": 241,
+      "text": "Medication:-epilim-400-milligrammes-twice-a-day",
+      "attributes": {
+        "CUIPhrase": "epilim",
+        "DoseUnit": "mg",
+        "DrugDose": "400",
+        "CUI": "C0591451",
+        "Frequency": "2",
+        "DrugName": "epilim"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "SeizureFrequency",
+      "start": 296,
+      "end": 316,
+      "text": "iincreasing-seizures",
+      "attributes": {
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572",
+        "FrequencyChange": "Increased"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "start": 308,
+      "end": 316,
+      "text": "seizures",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C0036572",
+        "Certainty": "5",
+        "CUIPhrase": "seizures"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "start": 334,
+      "end": 342,
+      "text": "seizures",
+      "attributes": {
+        "Age": "16",
+        "CUIPhrase": "seizures",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "AgeUnit": "Year",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "Diagnosis",
+      "start": 391,
+      "end": 400,
+      "text": "epilepsy-",
+      "attributes": {
+        "CUI": "C0014544",
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "CUIPhrase": "epilepsy",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "PatientHistory",
+      "start": 682,
+      "end": 697,
+      "text": "febrile-seizure",
+      "attributes": {
+        "CUI": "C0009952",
+        "Negation": "Affirmed",
+        "AgeUnit": "Year",
+        "CUIPhrase": "febrile-seizure",
+        "Age": "4",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "Diagnosis",
+      "start": 864,
+      "end": 891,
+      "text": "juvenile-myoclonic-epilepsy",
+      "attributes": {
+        "CUI": "C0270853",
+        "CUIPhrase": "juvenile-myoclonic-epilepsy",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "DiagCategory": "Epilepsy"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "PatientHistory",
+      "start_index": "115",
+      "end_index": "124",
+      "text": "absences-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUI": "C0563606",
+        "CUIPhrase": "absences"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "128",
+      "end_index": "143",
+      "text": "myoclonic-jerks",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "myoclonic-jerks",
+        "CUI": "C0027066",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "87",
+      "end_index": "113",
+      "text": "generalised-tonic-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0270844",
+        "DiagCategory": "MultipleSeizures",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-seizures"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "194",
+      "end_index": "241",
+      "text": "Medication:-epilim-400-milligrammes-twice-a-day",
+      "attributes": {
+        "CUIPhrase": "epilim",
+        "DoseUnit": "mg",
+        "DrugDose": "400",
+        "CUI": "C0591451",
+        "Frequency": "2",
+        "DrugName": "epilim"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "391",
+      "end_index": "400",
+      "text": "epilepsy-",
+      "attributes": {
+        "CUI": "C0014544",
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "CUIPhrase": "epilepsy",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "334",
+      "end_index": "342",
+      "text": "seizures",
+      "attributes": {
+        "Age": "16",
+        "CUIPhrase": "seizures",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "AgeUnit": "Year",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "682",
+      "end_index": "697",
+      "text": "febrile-seizure",
+      "attributes": {
+        "CUI": "C0009952",
+        "Negation": "Affirmed",
+        "AgeUnit": "Year",
+        "CUIPhrase": "febrile-seizure",
+        "Age": "4",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "67",
+      "end_index": "71",
+      "text": "JME-",
+      "attributes": {
+        "Certainty": "4",
+        "DiagCategory": "Epilepsy",
+        "CUI": "C0270853",
+        "Negation": "Affirmed",
+        "CUIPhrase": "jme"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "864",
+      "end_index": "891",
+      "text": "juvenile-myoclonic-epilepsy",
+      "attributes": {
+        "CUI": "C0270853",
+        "CUIPhrase": "juvenile-myoclonic-epilepsy",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "DiagCategory": "Epilepsy"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "308",
+      "end_index": "316",
+      "text": "seizures",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C0036572",
+        "Certainty": "5",
+        "CUIPhrase": "seizures"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "296",
+      "end_index": "316",
+      "text": "iincreasing-seizures",
+      "attributes": {
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572",
+        "FrequencyChange": "Increased"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T1",
+      "type": "PatientHistory",
+      "text": "absences-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "text": "myoclonic-jerks",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "text": "Medication:-epilim-400-milligrammes-twice-a-day",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T11",
+      "type": "SeizureFrequency",
+      "text": "iincreasing-seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "text": "seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "text": "seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T7",
+      "type": "PatientHistory",
+      "text": "febrile-seizure",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [],
+  "type_counts": {
+    "Diagnosis": 4,
+    "PatientHistory": 5,
+    "Prescription": 1,
+    "SeizureFrequency": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "7 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T1",
+          "type": "PatientHistory",
+          "text": "absences-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T2",
+          "type": "PatientHistory",
+          "text": "myoclonic-jerks",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T4",
+          "type": "Prescription",
+          "text": "Medication:-epilim-400-milligrammes-twice-a-day",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T11",
+          "type": "SeizureFrequency",
+          "text": "iincreasing-seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T10",
+          "type": "PatientHistory",
+          "text": "seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T6",
+          "type": "PatientHistory",
+          "text": "seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T7",
+          "type": "PatientHistory",
+          "text": "febrile-seizure",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [
+    {
+      "id": "T8",
+      "type": "Diagnosis",
+      "text": "JME-",
+      "certainty": 4
+    }
+  ],
+  "has_unknown_seizure": false
+}

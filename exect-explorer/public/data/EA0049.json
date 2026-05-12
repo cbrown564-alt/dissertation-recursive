@@ -1,0 +1,1101 @@
+{
+  "id": "EA0049",
+  "text": "letter date 30.5.2018\nEfan Evans. D.O.B. 3.6.1995\nDear Doctor,\nDiagnosis: juvenile myoclonic epilepsy\nSeizure type and frequency: \tgeneralised tonic clonic seizures 1 to 2 every month\nMyoclonic jerks daily.\nOccasional absences.\n\nCurrent anti epileptic medication: \tlamotrigine 250 mg BD\nSodium valproate 700 mg BD\n\nInvestigations: MRI 2015 normal\nEEG 2014 generalised spike and wave with polyspikes.\nI reviewed this 23-year-old man by telephone for the first time. Previously his epilepsy has been looked after at balmoral Hospital. His epilepsy started at the age of 12. He remembers spilling things at breakfast time due to jerks in his arms. With hindsight these were myoclonic seizures. He had his first generalised tonic chronic seizure at the age of 14. He frequently gets myoclonic jerks before the generalised tonic chronic seizures. Although the generalised tonic clonic seizures were infrequent at first they are now happening frequently. He is having one to 2 generalised tonic clonic seizures every month.\nUnfortunately Efan suffers with his mental-health. He gets a lot of anxiety which makes it difficult to sleep at the moment. In the past he has found clobazam useful when he gets clusters of seizures. Interestingly a paternal aunt probably had absence epilepsy. He currently lives with his partner.\nImpression: mr Evans has juvenile myoclonic epilepsy.\nComments: it may be that the lamotrigine is making the jerks worse and I would suggest slowly reducing it by 25 mg every month.\nI would be very grateful if you would assess Mr Evans’s anxiety and consider treating it. There is no contraindication to using antidepressants in epilepsy and indeed it may improve his seizures. I will review him again in clinic in a few months time but if there is a problem with his epilepsy in the meantime he should contact the epilepsy helpline.\n\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 74,
+      "end": 101,
+      "text": "juvenile-myoclonic-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "juvenile-myoclonic-epilepsy",
+        "CUI": "C0270853"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Diagnosis",
+      "start": 131,
+      "end": 165,
+      "text": "generalised-tonic-clonic-seizures-",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "SeizureFrequency",
+      "start": 131,
+      "end": 165,
+      "text": "generalised-tonic-clonic-seizures-",
+      "attributes": {
+        "LowerNumberOfSeizures": "1",
+        "UpperNumberOfSeizures": "2",
+        "TimePeriod": "Month",
+        "NumberOfTimePeriods": "1",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "start": 184,
+      "end": 199,
+      "text": "Myoclonic-jerks",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "myoclonic-jerks",
+        "CUI": "C0027066"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "SeizureFrequency",
+      "start": 184,
+      "end": 199,
+      "text": "Myoclonic-jerks",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "TimePeriod": "Day",
+        "NumberOfTimePeriods": "1",
+        "CUIPhrase": "myoclonic-jerks",
+        "CUI": "C0027066"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "SeizureFrequency",
+      "start": 218,
+      "end": 225,
+      "text": "absence",
+      "attributes": {
+        "FrequencyChange": "Infrequent",
+        "CUIPhrase": "absence",
+        "CUI": "C0563606"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "start": 218,
+      "end": 226,
+      "text": "absences",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "absences",
+        "CUI": "C0563606"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "Prescription",
+      "start": 265,
+      "end": 286,
+      "text": "lamotrigine-250-mg-BD",
+      "attributes": {
+        "DrugName": "lamotrigine",
+        "DrugDose": "250",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "Prescription",
+      "start": 287,
+      "end": 313,
+      "text": "Sodium-valproate-700-mg-BD",
+      "attributes": {
+        "DrugName": "sodium-valproate",
+        "DrugDose": "700",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "sodium-valproate",
+        "CUI": "C0037567"
+      }
+    },
+    {
+      "id": "T16",
+      "type": "Investigations",
+      "start": 331,
+      "end": 334,
+      "text": "MRI",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Normal",
+        "CUIPhrase": "normal-mri",
+        "CUI": "C0436481"
+      }
+    },
+    {
+      "id": "T18",
+      "type": "Investigations",
+      "start": 347,
+      "end": 350,
+      "text": "EEG",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Abnormal",
+        "CUIPhrase": "abnormal-eeg",
+        "CUI": "C0151611"
+      }
+    },
+    {
+      "id": "T20",
+      "type": "Diagnosis",
+      "start": 480,
+      "end": 488,
+      "text": "epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T13",
+      "type": "Diagnosis",
+      "start": 536,
+      "end": 545,
+      "text": "-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T22",
+      "type": "Onset",
+      "start": 537,
+      "end": 571,
+      "text": "epilepsy-started-at-the-each-of-12",
+      "attributes": {
+        "AgeUnit": "Year",
+        "Age": "12",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T24",
+      "type": "Diagnosis",
+      "start": 672,
+      "end": 690,
+      "text": "myoclonic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "myoclonic-seizures",
+        "CUI": "C4317123"
+      }
+    },
+    {
+      "id": "T26",
+      "type": "Onset",
+      "start": 709,
+      "end": 742,
+      "text": "generalised-tonic-chronic-seizure",
+      "attributes": {
+        "AgeUnit": "Year",
+        "Age": "14",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizure",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "id": "T28",
+      "type": "Diagnosis",
+      "start": 709,
+      "end": 742,
+      "text": "generalised-tonic-chronic-seizure",
+      "attributes": {
+        "DiagCategory": "SingleSeizure",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizure",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "id": "T30",
+      "type": "PatientHistory",
+      "start": 780,
+      "end": 795,
+      "text": "myoclonic-jerks",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "myoclonic-jerks",
+        "CUI": "C0027066"
+      }
+    },
+    {
+      "id": "T15",
+      "type": "SeizureFrequency",
+      "start": 780,
+      "end": 796,
+      "text": "myoclonic-jerks-",
+      "attributes": {
+        "FrequencyChange": "Frequent",
+        "CUIPhrase": "myoclonic-jerks",
+        "CUI": "C0027066"
+      }
+    },
+    {
+      "id": "T32",
+      "type": "Diagnosis",
+      "start": 807,
+      "end": 841,
+      "text": "generalised-tonic-chronic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "id": "T17",
+      "type": "SeizureFrequency",
+      "start": 856,
+      "end": 887,
+      "text": "generalised-tonic-clonic-seizur",
+      "attributes": {
+        "FrequencyChange": "Frequent",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "id": "T34",
+      "type": "Diagnosis",
+      "start": 856,
+      "end": 889,
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "SeizureFrequency",
+      "start": 972,
+      "end": 1004,
+      "text": "generalised-tonic-clonic-seizure",
+      "attributes": {
+        "LowerNumberOfSeizures": "1",
+        "UpperNumberOfSeizures": "2",
+        "TimePeriod": "Month",
+        "NumberOfTimePeriods": "1",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "id": "T36",
+      "type": "Diagnosis",
+      "start": 972,
+      "end": 1005,
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "id": "T40",
+      "type": "PatientHistory",
+      "start": 1087,
+      "end": 1094,
+      "text": "anxiety",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "anxiety",
+        "CUI": "C0003467"
+      }
+    },
+    {
+      "id": "T42",
+      "type": "PatientHistory",
+      "start": 1198,
+      "end": 1218,
+      "text": "clusters-of-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "cluster-of-seizures",
+        "CUI": "C3203523"
+      }
+    },
+    {
+      "id": "T44",
+      "type": "Diagnosis",
+      "start": 1343,
+      "end": 1370,
+      "text": "juvenile-myoclonic-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "juvenile-myoclonic-epilepsy",
+        "CUI": "C0270853"
+      }
+    },
+    {
+      "id": "T46",
+      "type": "PatientHistory",
+      "start": 1556,
+      "end": 1563,
+      "text": "anxiety",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "anxiety",
+        "CUI": "C0003467"
+      }
+    },
+    {
+      "id": "T242",
+      "type": "PatientHistory",
+      "start": 1686,
+      "end": 1694,
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T222",
+      "type": "Diagnosis",
+      "start": 1786,
+      "end": 1795,
+      "text": "epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "74",
+      "end_index": "101",
+      "text": "juvenile-myoclonic-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "juvenile-myoclonic-epilepsy",
+        "CUI": "C0270853"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "131",
+      "end_index": "165",
+      "text": "generalised-tonic-clonic-seizures-",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "131",
+      "end_index": "165",
+      "text": "generalised-tonic-clonic-seizures-",
+      "attributes": {
+        "LowerNumberOfSeizures": "1",
+        "UpperNumberOfSeizures": "2",
+        "TimePeriod": "Month",
+        "NumberOfTimePeriods": "1",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "184",
+      "end_index": "199",
+      "text": "Myoclonic-jerks",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "myoclonic-jerks",
+        "CUI": "C0027066"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "184",
+      "end_index": "199",
+      "text": "Myoclonic-jerks",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "TimePeriod": "Day",
+        "NumberOfTimePeriods": "1",
+        "CUIPhrase": "myoclonic-jerks",
+        "CUI": "C0027066"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "218",
+      "end_index": "226",
+      "text": "absences",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "absences",
+        "CUI": "C0563606"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "218",
+      "end_index": "225",
+      "text": "absence",
+      "attributes": {
+        "FrequencyChange": "Infrequent",
+        "CUIPhrase": "absence",
+        "CUI": "C0563606"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "265",
+      "end_index": "286",
+      "text": "lamotrigine-250-mg-BD",
+      "attributes": {
+        "DrugName": "lamotrigine",
+        "DrugDose": "250",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "287",
+      "end_index": "313",
+      "text": "Sodium-valproate-700-mg-BD",
+      "attributes": {
+        "DrugName": "sodium-valproate",
+        "DrugDose": "700",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "sodium-valproate",
+        "CUI": "C0037567"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "331",
+      "end_index": "334",
+      "text": "MRI",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Normal",
+        "CUIPhrase": "normal-mri",
+        "CUI": "C0436481"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "347",
+      "end_index": "350",
+      "text": "EEG",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Abnormal",
+        "CUIPhrase": "abnormal-eeg",
+        "CUI": "C0151611"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "480",
+      "end_index": "488",
+      "text": "epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "536",
+      "end_index": "545",
+      "text": "-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "Onset",
+      "start_index": "537",
+      "end_index": "571",
+      "text": "epilepsy-started-at-the-each-of-12",
+      "attributes": {
+        "AgeUnit": "Year",
+        "Age": "12",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "672",
+      "end_index": "690",
+      "text": "myoclonic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "myoclonic-seizures",
+        "CUI": "C4317123"
+      }
+    },
+    {
+      "entity": "Onset",
+      "start_index": "709",
+      "end_index": "742",
+      "text": "generalised-tonic-chronic-seizure",
+      "attributes": {
+        "AgeUnit": "Year",
+        "Age": "14",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizure",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "709",
+      "end_index": "742",
+      "text": "generalised-tonic-chronic-seizure",
+      "attributes": {
+        "DiagCategory": "SingleSeizure",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizure",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "780",
+      "end_index": "795",
+      "text": "myoclonic-jerks",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "myoclonic-jerks",
+        "CUI": "C0027066"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "780",
+      "end_index": "796",
+      "text": "myoclonic-jerks-",
+      "attributes": {
+        "FrequencyChange": "Frequent",
+        "CUIPhrase": "myoclonic-jerks",
+        "CUI": "C0027066"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "807",
+      "end_index": "841",
+      "text": "generalised-tonic-chronic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "856",
+      "end_index": "889",
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "856",
+      "end_index": "887",
+      "text": "generalised-tonic-clonic-seizur",
+      "attributes": {
+        "FrequencyChange": "Frequent",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "972",
+      "end_index": "1005",
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "972",
+      "end_index": "1004",
+      "text": "generalised-tonic-clonic-seizure",
+      "attributes": {
+        "LowerNumberOfSeizures": "1",
+        "UpperNumberOfSeizures": "2",
+        "TimePeriod": "Month",
+        "NumberOfTimePeriods": "1",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1087",
+      "end_index": "1094",
+      "text": "anxiety",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "anxiety",
+        "CUI": "C0003467"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1198",
+      "end_index": "1218",
+      "text": "clusters-of-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "cluster-of-seizures",
+        "CUI": "C3203523"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1343",
+      "end_index": "1370",
+      "text": "juvenile-myoclonic-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "juvenile-myoclonic-epilepsy",
+        "CUI": "C0270853"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1556",
+      "end_index": "1563",
+      "text": "anxiety",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "anxiety",
+        "CUI": "C0003467"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1686",
+      "end_index": "1694",
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1786",
+      "end_index": "1795",
+      "text": "epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 131,
+      "end": 165,
+      "text": "generalised-tonic-clonic-seizures-",
+      "entity_types": [
+        "Diagnosis",
+        "SeizureFrequency"
+      ],
+      "entity_ids": [
+        "T4",
+        "T6"
+      ]
+    },
+    {
+      "start": 184,
+      "end": 199,
+      "text": "Myoclonic-jerks",
+      "entity_types": [
+        "PatientHistory",
+        "SeizureFrequency"
+      ],
+      "entity_ids": [
+        "T8",
+        "T10"
+      ]
+    },
+    {
+      "start": 709,
+      "end": 742,
+      "text": "generalised-tonic-chronic-seizure",
+      "entity_types": [
+        "Onset",
+        "Diagnosis"
+      ],
+      "entity_ids": [
+        "T26",
+        "T28"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "text": "Myoclonic-jerks",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T11",
+      "type": "SeizureFrequency",
+      "text": "absence",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "text": "absences",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T12",
+      "type": "Prescription",
+      "text": "lamotrigine-250-mg-BD",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T14",
+      "type": "Prescription",
+      "text": "Sodium-valproate-700-mg-BD",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T30",
+      "type": "PatientHistory",
+      "text": "myoclonic-jerks",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T15",
+      "type": "SeizureFrequency",
+      "text": "myoclonic-jerks-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T17",
+      "type": "SeizureFrequency",
+      "text": "generalised-tonic-clonic-seizur",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T40",
+      "type": "PatientHistory",
+      "text": "anxiety",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T42",
+      "type": "PatientHistory",
+      "text": "clusters-of-seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T46",
+      "type": "PatientHistory",
+      "text": "anxiety",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T242",
+      "type": "PatientHistory",
+      "text": "seizures",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T6",
+      "type": "SeizureFrequency",
+      "text": "generalised-tonic-clonic-seizures-",
+      "start": 131,
+      "end": 165,
+      "year": null,
+      "period": "Month",
+      "num_periods": "1",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": "1",
+      "upper_seizures": "2",
+      "num_seizures": null
+    },
+    {
+      "id": "T10",
+      "type": "SeizureFrequency",
+      "text": "Myoclonic-jerks",
+      "start": 184,
+      "end": 199,
+      "year": null,
+      "period": "Day",
+      "num_periods": "1",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "1"
+    },
+    {
+      "id": "T1",
+      "type": "SeizureFrequency",
+      "text": "generalised-tonic-clonic-seizure",
+      "start": 972,
+      "end": 1004,
+      "year": null,
+      "period": "Month",
+      "num_periods": "1",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": "1",
+      "upper_seizures": "2",
+      "num_seizures": null
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 11,
+    "SeizureFrequency": 6,
+    "PatientHistory": 7,
+    "Prescription": 2,
+    "Investigations": 2,
+    "Onset": 2
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "3 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 131,
+          "end": 165,
+          "text": "generalised-tonic-clonic-seizures-",
+          "entity_types": [
+            "Diagnosis",
+            "SeizureFrequency"
+          ],
+          "entity_ids": [
+            "T4",
+            "T6"
+          ]
+        },
+        {
+          "start": 184,
+          "end": 199,
+          "text": "Myoclonic-jerks",
+          "entity_types": [
+            "PatientHistory",
+            "SeizureFrequency"
+          ],
+          "entity_ids": [
+            "T8",
+            "T10"
+          ]
+        },
+        {
+          "start": 709,
+          "end": 742,
+          "text": "generalised-tonic-chronic-seizure",
+          "entity_types": [
+            "Onset",
+            "Diagnosis"
+          ],
+          "entity_ids": [
+            "T26",
+            "T28"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "12 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T8",
+          "type": "PatientHistory",
+          "text": "Myoclonic-jerks",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T11",
+          "type": "SeizureFrequency",
+          "text": "absence",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T9",
+          "type": "PatientHistory",
+          "text": "absences",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T12",
+          "type": "Prescription",
+          "text": "lamotrigine-250-mg-BD",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T14",
+          "type": "Prescription",
+          "text": "Sodium-valproate-700-mg-BD",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T30",
+          "type": "PatientHistory",
+          "text": "myoclonic-jerks",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T15",
+          "type": "SeizureFrequency",
+          "text": "myoclonic-jerks-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T17",
+          "type": "SeizureFrequency",
+          "text": "generalised-tonic-clonic-seizur",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T40",
+          "type": "PatientHistory",
+          "text": "anxiety",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T42",
+          "type": "PatientHistory",
+          "text": "clusters-of-seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T46",
+          "type": "PatientHistory",
+          "text": "anxiety",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T242",
+          "type": "PatientHistory",
+          "text": "seizures",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

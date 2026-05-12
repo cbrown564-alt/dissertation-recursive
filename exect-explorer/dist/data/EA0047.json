@@ -1,0 +1,482 @@
+{
+  "id": "EA0047",
+  "text": "Clinic date 3.4.2002\nAnn Evans. D.O.B. 3/2/1982\nDear Doctor,\nDiagnosis: probable juvenile myoclonic epilepsy\nCurrent medication: Clobazam 10mg on\nSodium Valproate 200 mg twice a day (to be increased to 300 mg BD in steps of 100 mg every two weeks)\nI saw Ann in the clinic today accompanied by her mother. Her seizures remain uncontrolled. She gets generalised seizures once a week. The absences and jerks happen more frequently perhaps several times a day. She may have had generalised seizures during this sleep in the past.\nShe is currently taking clobazam 10 mg od and sodium valproate 200 mg BD. Given that she is still having seizures I suggest increasing the sodium valproate as above. I will see her again in a few months time.\n\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 72,
+      "end": 108,
+      "text": "probable-juvenile-myoclonic-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "juvenile-myoclonic-epilepsy",
+        "CUI": "C0270853"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "start": 109,
+      "end": 145,
+      "text": "Current-medication:-Clobazam-10mg-on",
+      "attributes": {
+        "DrugName": "clobazam",
+        "DrugDose": "10",
+        "DoseUnit": "mg",
+        "Frequency": "1",
+        "CUIPhrase": "clobazam",
+        "CUI": "C0055891"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "start": 146,
+      "end": 247,
+      "text": "Sodium-Valproate-200-mg-twice-a-day-(to-be-increased-to-300-mg-BD-in-steps-of-100-mg-every-two-weeks)",
+      "attributes": {
+        "DrugName": "sodium-valproate",
+        "DrugDose": "200",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "sodium-valproate",
+        "CUI": "C0037567"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "start": 309,
+      "end": 318,
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "Diagnosis",
+      "start": 348,
+      "end": 380,
+      "text": "generalised-seizures-once-a-week",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-seizures",
+        "CUI": "C0234533"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "SeizureFrequency",
+      "start": 348,
+      "end": 380,
+      "text": "generalised-seizures-once-a-week",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "TimePeriod": "Week",
+        "NumberOfTimePeriods": "1",
+        "CUIPhrase": "generalised-seizures",
+        "CUI": "C0234533"
+      }
+    },
+    {
+      "id": "T21",
+      "type": "SeizureFrequency",
+      "start": 386,
+      "end": 394,
+      "text": "absences",
+      "attributes": {
+        "NumberOfSeizures": "2",
+        "TimePeriod": "Day",
+        "NumberOfTimePeriods": "1",
+        "CUIPhrase": "absences",
+        "CUI": "C0563606"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "Diagnosis",
+      "start": 474,
+      "end": 495,
+      "text": "generalised-seizures-",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "3",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-seizures",
+        "CUI": "C0234533"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Prescription",
+      "start": 526,
+      "end": 567,
+      "text": "She-is-currently-taking-clobazam-10-mg-od",
+      "attributes": {
+        "DrugName": "clobazam",
+        "DrugDose": "10",
+        "DoseUnit": "mg",
+        "Frequency": "1",
+        "CUIPhrase": "clobazam",
+        "CUI": "C0055891"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "Prescription",
+      "start": 572,
+      "end": 598,
+      "text": "sodium-valproate-200-mg-BD",
+      "attributes": {
+        "DrugName": "sodium-valproate",
+        "DrugDose": "200",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "sodium-valproate",
+        "CUI": "C0037567"
+      }
+    },
+    {
+      "id": "T30",
+      "type": "PatientHistory",
+      "start": 631,
+      "end": 639,
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "72",
+      "end_index": "108",
+      "text": "probable-juvenile-myoclonic-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "juvenile-myoclonic-epilepsy",
+        "CUI": "C0270853"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "109",
+      "end_index": "145",
+      "text": "Current-medication:-Clobazam-10mg-on",
+      "attributes": {
+        "DrugName": "clobazam",
+        "DrugDose": "10",
+        "DoseUnit": "mg",
+        "Frequency": "1",
+        "CUIPhrase": "clobazam",
+        "CUI": "C0055891"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "146",
+      "end_index": "247",
+      "text": "Sodium-Valproate-200-mg-twice-a-day-(to-be-increased-to-300-mg-BD-in-steps-of-100-mg-every-two-weeks)",
+      "attributes": {
+        "DrugName": "sodium-valproate",
+        "DrugDose": "200",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "sodium-valproate",
+        "CUI": "C0037567"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "309",
+      "end_index": "318",
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "348",
+      "end_index": "380",
+      "text": "generalised-seizures-once-a-week",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-seizures",
+        "CUI": "C0234533"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "348",
+      "end_index": "380",
+      "text": "generalised-seizures-once-a-week",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "TimePeriod": "Week",
+        "NumberOfTimePeriods": "1",
+        "CUIPhrase": "generalised-seizures",
+        "CUI": "C0234533"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "386",
+      "end_index": "394",
+      "text": "absences",
+      "attributes": {
+        "NumberOfSeizures": "2",
+        "TimePeriod": "Day",
+        "NumberOfTimePeriods": "1",
+        "CUIPhrase": "absences",
+        "CUI": "C0563606"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "474",
+      "end_index": "495",
+      "text": "generalised-seizures-",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "3",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-seizures",
+        "CUI": "C0234533"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "526",
+      "end_index": "567",
+      "text": "She-is-currently-taking-clobazam-10-mg-od",
+      "attributes": {
+        "DrugName": "clobazam",
+        "DrugDose": "10",
+        "DoseUnit": "mg",
+        "Frequency": "1",
+        "CUIPhrase": "clobazam",
+        "CUI": "C0055891"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "572",
+      "end_index": "598",
+      "text": "sodium-valproate-200-mg-BD",
+      "attributes": {
+        "DrugName": "sodium-valproate",
+        "DrugDose": "200",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "sodium-valproate",
+        "CUI": "C0037567"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "631",
+      "end_index": "639",
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 348,
+      "end": 380,
+      "text": "generalised-seizures-once-a-week",
+      "entity_types": [
+        "Diagnosis",
+        "SeizureFrequency"
+      ],
+      "entity_ids": [
+        "T12",
+        "T14"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "text": "Current-medication:-Clobazam-10mg-on",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "text": "Sodium-Valproate-200-mg-twice-a-day-(to-be-increased-to-300-mg-BD-in-steps-of-100-mg-every-two-weeks)",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "text": "seizures-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T8",
+      "type": "Prescription",
+      "text": "She-is-currently-taking-clobazam-10-mg-od",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T10",
+      "type": "Prescription",
+      "text": "sodium-valproate-200-mg-BD",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T30",
+      "type": "PatientHistory",
+      "text": "seizures",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T14",
+      "type": "SeizureFrequency",
+      "text": "generalised-seizures-once-a-week",
+      "start": 348,
+      "end": 380,
+      "year": null,
+      "period": "Week",
+      "num_periods": "1",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "1"
+    },
+    {
+      "id": "T21",
+      "type": "SeizureFrequency",
+      "text": "absences",
+      "start": 386,
+      "end": 394,
+      "year": null,
+      "period": "Day",
+      "num_periods": "1",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "2"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 3,
+    "Prescription": 4,
+    "PatientHistory": 2,
+    "SeizureFrequency": 2
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "1 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 348,
+          "end": 380,
+          "text": "generalised-seizures-once-a-week",
+          "entity_types": [
+            "Diagnosis",
+            "SeizureFrequency"
+          ],
+          "entity_ids": [
+            "T12",
+            "T14"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "6 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T4",
+          "type": "Prescription",
+          "text": "Current-medication:-Clobazam-10mg-on",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T6",
+          "type": "Prescription",
+          "text": "Sodium-Valproate-200-mg-twice-a-day-(to-be-increased-to-300-mg-BD-in-steps-of-100-mg-every-two-weeks)",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T9",
+          "type": "PatientHistory",
+          "text": "seizures-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T8",
+          "type": "Prescription",
+          "text": "She-is-currently-taking-clobazam-10-mg-od",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T10",
+          "type": "Prescription",
+          "text": "sodium-valproate-200-mg-BD",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T30",
+          "type": "PatientHistory",
+          "text": "seizures",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "text": "probable-juvenile-myoclonic-epilepsy",
+      "certainty": 4
+    },
+    {
+      "id": "T11",
+      "type": "Diagnosis",
+      "text": "generalised-seizures-",
+      "certainty": 3
+    }
+  ],
+  "has_unknown_seizure": false
+}

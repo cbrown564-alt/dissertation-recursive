@@ -1,0 +1,135 @@
+{
+  "id": "EA0166",
+  "text": "Dear Dr Pooled\n\nRe: Miss Anna Helen Watkinson D.O.B: 21/04/1999\n9 Lincoln Street, Georgetown, Swansea, SA1 0OO\n\nDiagnosis:\t Juvenile Myoclonic Epilepsy\n\nMedication:\tLamotrigine 125mg twice daily (please increase with immediate effect in\n25mg, 2 weekly increments to 150mg twice daily)\n\nPlan: \t\tWeek 1&2: Lamotrigine 125mg AM, 150mg PM\nWeek 3 & Continue: Lamotrigine 150mg twice daily\n\nWe have had continued contact from Anna in our open access service. Although her jerks have\nimproved significantly they are still occurring around once a month. This seems to coincide with the\ntime that her period would usually start. I have discussed with our consultant and he advises a\nsmall increase in her Lamotrigine to 150mg twice daily (as per plan above), we would be most\ngrateful if you could amend her repeat prescription to accommodate this suggested change.\n\nAnna knows to contact us at any time in the open access service and we will do our best to help her.\n\nYours sincerely\n\n",
+  "entities": [
+    {
+      "id": "T1",
+      "type": "Diagnosis",
+      "start": 124,
+      "end": 151,
+      "text": "Juvenile-Myoclonic-Epilepsy",
+      "attributes": {
+        "CUIPhrase": "juvenile-myoclonic-epilepsy",
+        "Negation": "Affirmed",
+        "CUI": "C0270853",
+        "Certainty": "5",
+        "DiagCategory": "Epilepsy"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "Prescription",
+      "start": 165,
+      "end": 236,
+      "text": "Lamotrigine-125mg-twice-daily-(please-increase-with-immediate-effect-in",
+      "attributes": {
+        "DrugName": "lamotrigine",
+        "CUIPhrase": "lamotrigine",
+        "CUI": "C0064636",
+        "DrugDose": "125",
+        "DoseUnit": "mg",
+        "Frequency": "2"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "start": 466,
+      "end": 472,
+      "text": "jerks-",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C0231530",
+        "Certainty": "5",
+        "CUIPhrase": "jerks"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "124",
+      "end_index": "151",
+      "text": "Juvenile-Myoclonic-Epilepsy",
+      "attributes": {
+        "CUIPhrase": "juvenile-myoclonic-epilepsy",
+        "Negation": "Affirmed",
+        "CUI": "C0270853",
+        "Certainty": "5",
+        "DiagCategory": "Epilepsy"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "466",
+      "end_index": "472",
+      "text": "jerks-",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C0231530",
+        "Certainty": "5",
+        "CUIPhrase": "jerks"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "165",
+      "end_index": "236",
+      "text": "Lamotrigine-125mg-twice-daily-(please-increase-with-immediate-effect-in",
+      "attributes": {
+        "DrugName": "lamotrigine",
+        "CUIPhrase": "lamotrigine",
+        "CUI": "C0064636",
+        "DrugDose": "125",
+        "DoseUnit": "mg",
+        "Frequency": "2"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T3",
+      "type": "Prescription",
+      "text": "Lamotrigine-125mg-twice-daily-(please-increase-with-immediate-effect-in",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "text": "jerks-",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [],
+  "type_counts": {
+    "Diagnosis": 1,
+    "Prescription": 1,
+    "PatientHistory": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "2 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T3",
+          "type": "Prescription",
+          "text": "Lamotrigine-125mg-twice-daily-(please-increase-with-immediate-effect-in",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T2",
+          "type": "PatientHistory",
+          "text": "jerks-",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

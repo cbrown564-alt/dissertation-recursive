@@ -1,0 +1,486 @@
+{
+  "id": "EA0033",
+  "text": "Diagnosis: juvenile myoclonic epilepsy\n\nComorbidities: nil\n\nMedication: sodium valproate 1 g twice a day\nClobazam 10 mg as required\n\nInvestigations MRI– normal\nEEG (2007) –generalised spike and wave activity and photosensitivity\n\nMany thanks for referring this 28 year old gentleman was previously seen by Prof Davis. His epilepsy started at the age of 14. History is consistent with juvenile myoclonic epilepsy presenting with generalised tonic clonic seizures, absences and myoclonic jerks.\n\nIn the past he has tried lamotrigine and topiramate without any good therapeutic benefit. There has been significant stress and anxiety in the last year.\n\nWe discussed changing his medication. Sodium valproate is the best medication for juvenile myoclonic epilepsy. Mr Jones can try more clobazam when he gets clusters of myoclonic jerks. I will ask the epilepsy specialist nurses to contact him.\n\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 11,
+      "end": 38,
+      "text": "juvenile-myoclonic-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "juvenile-myoclonic-epilepsy",
+        "CUI": "C0270853"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "start": 72,
+      "end": 88,
+      "text": "sodium-valproate",
+      "attributes": {
+        "DrugName": "SodiumValproate",
+        "DrugDose": "1",
+        "DoseUnit": "g",
+        "Frequency": "2",
+        "CUIPhrase": "sodium-valproate",
+        "CUI": "C0037567"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "start": 105,
+      "end": 114,
+      "text": "Clobazam-",
+      "attributes": {
+        "DrugName": "Clobazam",
+        "DrugDose": "10",
+        "DoseUnit": "mg",
+        "Frequency": "As_Required",
+        "CUIPhrase": "clobazam",
+        "CUI": "C0055891"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Investigations",
+      "start": 148,
+      "end": 159,
+      "text": "MRI–-normal",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Normal",
+        "CUIPhrase": "mri-normal",
+        "CUI": "C0436481"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "Investigations",
+      "start": 160,
+      "end": 163,
+      "text": "EEG",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Abnormal",
+        "CUIPhrase": "eeg-abnormal",
+        "CUI": "C0151611"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "start": 212,
+      "end": 228,
+      "text": "photosensitivity",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "photosensitivity",
+        "CUI": "C3552821"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "Onset",
+      "start": 323,
+      "end": 330,
+      "text": "epileps",
+      "attributes": {
+        "AgeUnit": "Year",
+        "Age": "14",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "Diagnosis",
+      "start": 323,
+      "end": 332,
+      "text": "epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T16",
+      "type": "Diagnosis",
+      "start": 384,
+      "end": 411,
+      "text": "juvenile-myoclonic-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "juvenile-myoclonic-epilepsy",
+        "CUI": "C0270853"
+      }
+    },
+    {
+      "id": "T18",
+      "type": "Diagnosis",
+      "start": 428,
+      "end": 461,
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "id": "T20",
+      "type": "PatientHistory",
+      "start": 463,
+      "end": 471,
+      "text": "absences",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "absences",
+        "CUI": "C0563606"
+      }
+    },
+    {
+      "id": "T22",
+      "type": "PatientHistory",
+      "start": 476,
+      "end": 491,
+      "text": "myoclonic-jerks",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "myoclonic-jerks",
+        "CUI": "C0027066"
+      }
+    },
+    {
+      "id": "T24",
+      "type": "PatientHistory",
+      "start": 622,
+      "end": 630,
+      "text": "anxiety-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "anxiety",
+        "CUI": "C0003467"
+      }
+    },
+    {
+      "id": "T26",
+      "type": "PatientHistory",
+      "start": 816,
+      "end": 831,
+      "text": "myoclonic-jerks",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "myoclonic-jerks",
+        "CUI": "C0027066"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "11",
+      "end_index": "38",
+      "text": "juvenile-myoclonic-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "juvenile-myoclonic-epilepsy",
+        "CUI": "C0270853"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "72",
+      "end_index": "88",
+      "text": "sodium-valproate",
+      "attributes": {
+        "DrugName": "SodiumValproate",
+        "DrugDose": "1",
+        "DoseUnit": "g",
+        "Frequency": "2",
+        "CUIPhrase": "sodium-valproate",
+        "CUI": "C0037567"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "105",
+      "end_index": "114",
+      "text": "Clobazam-",
+      "attributes": {
+        "DrugName": "Clobazam",
+        "DrugDose": "10",
+        "DoseUnit": "mg",
+        "Frequency": "As_Required",
+        "CUIPhrase": "clobazam",
+        "CUI": "C0055891"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "148",
+      "end_index": "159",
+      "text": "MRI–-normal",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Normal",
+        "CUIPhrase": "mri-normal",
+        "CUI": "C0436481"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "160",
+      "end_index": "163",
+      "text": "EEG",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Abnormal",
+        "CUIPhrase": "eeg-abnormal",
+        "CUI": "C0151611"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "212",
+      "end_index": "228",
+      "text": "photosensitivity",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "photosensitivity",
+        "CUI": "C3552821"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "323",
+      "end_index": "332",
+      "text": "epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "Onset",
+      "start_index": "323",
+      "end_index": "330",
+      "text": "epileps",
+      "attributes": {
+        "AgeUnit": "Year",
+        "Age": "14",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "384",
+      "end_index": "411",
+      "text": "juvenile-myoclonic-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "juvenile-myoclonic-epilepsy",
+        "CUI": "C0270853"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "428",
+      "end_index": "461",
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "463",
+      "end_index": "471",
+      "text": "absences",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "absences",
+        "CUI": "C0563606"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "476",
+      "end_index": "491",
+      "text": "myoclonic-jerks",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "myoclonic-jerks",
+        "CUI": "C0027066"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "622",
+      "end_index": "630",
+      "text": "anxiety-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "anxiety",
+        "CUI": "C0003467"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "816",
+      "end_index": "831",
+      "text": "myoclonic-jerks",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "myoclonic-jerks",
+        "CUI": "C0027066"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "text": "sodium-valproate",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "text": "Clobazam-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "text": "photosensitivity",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T20",
+      "type": "PatientHistory",
+      "text": "absences",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T22",
+      "type": "PatientHistory",
+      "text": "myoclonic-jerks",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T24",
+      "type": "PatientHistory",
+      "text": "anxiety-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T26",
+      "type": "PatientHistory",
+      "text": "myoclonic-jerks",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [],
+  "type_counts": {
+    "Diagnosis": 4,
+    "Prescription": 2,
+    "Investigations": 2,
+    "PatientHistory": 5,
+    "Onset": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "7 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T4",
+          "type": "Prescription",
+          "text": "sodium-valproate",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T6",
+          "type": "Prescription",
+          "text": "Clobazam-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T10",
+          "type": "PatientHistory",
+          "text": "photosensitivity",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T20",
+          "type": "PatientHistory",
+          "text": "absences",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T22",
+          "type": "PatientHistory",
+          "text": "myoclonic-jerks",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T24",
+          "type": "PatientHistory",
+          "text": "anxiety-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T26",
+          "type": "PatientHistory",
+          "text": "myoclonic-jerks",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

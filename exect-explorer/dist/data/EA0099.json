@@ -1,0 +1,404 @@
+{
+  "id": "EA0099",
+  "text": "Date 20/5/2019\nNHS No: 565 153 1245\n\nDear Dr\n\nRe: \tHarry Herbert\tD.O.B. 07/06/1950\n\nDiagnosis:\tFocal onset epilepsy\n\t\tLeft medial temporal lobe damage\n\t\tAnxiety\n\nCurrent anti-epileptic medication:\tLevetiracetam 750mg bd (To change to lamotrigine as detailed below)\n\nSeizure type and frequency: \tFocal onset convulsive seizure, last event April 2019\n\t\t\t\t\n\nI reviewed Mr Herbert together with his partner in clinic today. He has not had any further seizures but does feel quite anxious in himself. He is also quite tearful at times. His partner thinks that he is more irritable than usual.\n\nWe went through his diagnosis of epilepsy and the fact that there is an old change in his brain in the left temporal lobe which is the probable cause of his epilepsy. This was present on his MRI scan in February 2019.\n\nLevetiracetam can cause mood change and irritability and so we decided to change to lamotrigine. I would be grateful if you could introduce lamotrigine at 25mg od, increasing by 25mg every fortnight until a dose of 75mg bd is reached. At the same time please reduce the levetiracetam by 250mg every fortnight until it stops.\n\nI will review Mr Herbert again in around 3 months time.\n\n\nYours sincerely\n",
+  "entities": [
+    {
+      "id": "T9",
+      "type": "Diagnosis",
+      "start": 95,
+      "end": 115,
+      "text": "Focal-onset-epilepsy",
+      "attributes": {
+        "CUI": "C0014547",
+        "CUIPhrase": "focal-onset-epilepsy",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "DiagCategory": "Epilepsy"
+      }
+    },
+    {
+      "id": "T15",
+      "type": "PatientHistory",
+      "start": 139,
+      "end": 150,
+      "text": "lobe-damage",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "lobe-damage",
+        "CUI": "C1456496"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "PatientHistory",
+      "start": 153,
+      "end": 160,
+      "text": "Anxiety",
+      "attributes": {
+        "CUI": "C0003467",
+        "CUIPhrase": "anxiety",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "Prescription",
+      "start": 197,
+      "end": 264,
+      "text": "Levetiracetam-750mg-bd-(To-change-to-lamotrigine-as-detailed-below)",
+      "attributes": {
+        "DoseUnit": "mg",
+        "CUIPhrase": "levetiracetam",
+        "DrugDose": "750",
+        "Frequency": "2",
+        "CUI": "C0377265",
+        "DrugName": "levetiracetam"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "Diagnosis",
+      "start": 295,
+      "end": 325,
+      "text": "Focal-onset-convulsive-seizure",
+      "attributes": {
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizure",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUI": "C0877017",
+        "DiagCategory": "MultipleSeizures"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "SeizureFrequency",
+      "start": 295,
+      "end": 325,
+      "text": "Focal-onset-convulsive-seizure",
+      "attributes": {
+        "YearDate": "2019",
+        "NumberOfSeizures": "0",
+        "MonthDate": "4",
+        "CUI": "C0877017",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizure"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "SeizureFrequency",
+      "start": 447,
+      "end": 455,
+      "text": "seizures",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "CUI": "C0036572",
+        "CUIPhrase": "seizures",
+        "PointInTime": "LastClinic"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 622,
+      "end": 630,
+      "text": "epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Diagnosis",
+      "start": 746,
+      "end": 754,
+      "text": "epilepsy",
+      "attributes": {
+        "Negation": "Affirmed",
+        "Certainty": "4",
+        "CUIPhrase": "epilepsy",
+        "DiagCategory": "Epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "Investigations",
+      "start": 780,
+      "end": 783,
+      "text": "MRI",
+      "attributes": {
+        "MRI_Results": "Abnormal",
+        "MRI_Performed": "Yes",
+        "CUI": "C1319851",
+        "CUIPhrase": "abnormal-mri"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "PatientHistory",
+      "start_index": "139",
+      "end_index": "150",
+      "text": "lobe-damage",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "lobe-damage",
+        "CUI": "C1456496"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "153",
+      "end_index": "160",
+      "text": "Anxiety",
+      "attributes": {
+        "CUI": "C0003467",
+        "CUIPhrase": "anxiety",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "622",
+      "end_index": "630",
+      "text": "epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "197",
+      "end_index": "264",
+      "text": "Levetiracetam-750mg-bd-(To-change-to-lamotrigine-as-detailed-below)",
+      "attributes": {
+        "DoseUnit": "mg",
+        "CUIPhrase": "levetiracetam",
+        "DrugDose": "750",
+        "Frequency": "2",
+        "CUI": "C0377265",
+        "DrugName": "levetiracetam"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "447",
+      "end_index": "455",
+      "text": "seizures",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "CUI": "C0036572",
+        "CUIPhrase": "seizures",
+        "PointInTime": "LastClinic"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "295",
+      "end_index": "325",
+      "text": "Focal-onset-convulsive-seizure",
+      "attributes": {
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizure",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUI": "C0877017",
+        "DiagCategory": "MultipleSeizures"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "295",
+      "end_index": "325",
+      "text": "Focal-onset-convulsive-seizure",
+      "attributes": {
+        "YearDate": "2019",
+        "NumberOfSeizures": "0",
+        "MonthDate": "4",
+        "CUI": "C0877017",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizure"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "746",
+      "end_index": "754",
+      "text": "epilepsy",
+      "attributes": {
+        "Negation": "Affirmed",
+        "Certainty": "4",
+        "CUIPhrase": "epilepsy",
+        "DiagCategory": "Epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "95",
+      "end_index": "115",
+      "text": "Focal-onset-epilepsy",
+      "attributes": {
+        "CUI": "C0014547",
+        "CUIPhrase": "focal-onset-epilepsy",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "DiagCategory": "Epilepsy"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "780",
+      "end_index": "783",
+      "text": "MRI",
+      "attributes": {
+        "MRI_Results": "Abnormal",
+        "MRI_Performed": "Yes",
+        "CUI": "C1319851",
+        "CUIPhrase": "abnormal-mri"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 295,
+      "end": 325,
+      "text": "Focal-onset-convulsive-seizure",
+      "entity_types": [
+        "Diagnosis",
+        "SeizureFrequency"
+      ],
+      "entity_ids": [
+        "T5",
+        "T7"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T15",
+      "type": "PatientHistory",
+      "text": "lobe-damage",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T1",
+      "type": "PatientHistory",
+      "text": "Anxiety",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T3",
+      "type": "Prescription",
+      "text": "Levetiracetam-750mg-bd-(To-change-to-lamotrigine-as-detailed-below)",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T7",
+      "type": "SeizureFrequency",
+      "text": "Focal-onset-convulsive-seizure",
+      "start": 295,
+      "end": 325,
+      "year": "2019",
+      "period": null,
+      "num_periods": null,
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    },
+    {
+      "id": "T4",
+      "type": "SeizureFrequency",
+      "text": "seizures",
+      "start": 447,
+      "end": 455,
+      "year": null,
+      "period": null,
+      "num_periods": null,
+      "time_since": null,
+      "point_in_time": "LastClinic",
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 4,
+    "PatientHistory": 2,
+    "Prescription": 1,
+    "SeizureFrequency": 2,
+    "Investigations": 1
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "1 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 295,
+          "end": 325,
+          "text": "Focal-onset-convulsive-seizure",
+          "entity_types": [
+            "Diagnosis",
+            "SeizureFrequency"
+          ],
+          "entity_ids": [
+            "T5",
+            "T7"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "3 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T15",
+          "type": "PatientHistory",
+          "text": "lobe-damage",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T1",
+          "type": "PatientHistory",
+          "text": "Anxiety",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T3",
+          "type": "Prescription",
+          "text": "Levetiracetam-750mg-bd-(To-change-to-lamotrigine-as-detailed-below)",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [
+    {
+      "id": "T8",
+      "type": "Diagnosis",
+      "text": "epilepsy",
+      "certainty": 4
+    }
+  ],
+  "has_unknown_seizure": false
+}

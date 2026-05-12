@@ -1,0 +1,269 @@
+{
+  "id": "EA0193",
+  "text": "Diagnosis: Unclassified epilepsy\n \nCurrent anti-seizure medication:               Topiramate 150mg, twice a day\n                                                                                Lamotrigine 25mg, once a day\n                                                                                To continue changing from topiramate to lamotrigine as per previous letter\n \nSeizure type and frequency                         Bilateral convulsive seizures, last event 3rd June 2007\n                                                                                Additional \"blank\" events\n \nInvestigations                                                    MRI 2006, essentially normal apart from tiny scattered                                                                   hyperintensities\n \nI reviewed this 54 year old man today. As you know he is in the process of switching from topiramate to lamotiringe given that the topiramate was giving him cognitive and language problems. I have requested an up to data EEG but this has not happened yet.\n \nThere are no other issues and generally things are going quite well for him\n\n",
+  "entities": [
+    {
+      "id": "T4",
+      "type": "Diagnosis",
+      "start": 24,
+      "end": 32,
+      "text": "epilepsy",
+      "attributes": {
+        "Certainty": "5",
+        "DiagCategory": "Epilepsy",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "Prescription",
+      "start": 82,
+      "end": 92,
+      "text": "Topiramate",
+      "attributes": {
+        "DoseUnit": "mg",
+        "CUIPhrase": "topiramate",
+        "CUI": "C0076829",
+        "DrugDose": "150",
+        "Frequency": "2",
+        "DrugName": "top"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "Prescription",
+      "start": 192,
+      "end": 203,
+      "text": "Lamotrigine",
+      "attributes": {
+        "DoseUnit": "mg",
+        "CUIPhrase": "lamotrigine",
+        "CUI": "C0064636",
+        "DrugDose": "25",
+        "DrugName": "Lamotrigine",
+        "Frequency": "1"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "SeizureFrequency",
+      "start": 429,
+      "end": 458,
+      "text": "Bilateral-convulsive-seizures",
+      "attributes": {
+        "DayDate": "3",
+        "MonthDate": "6",
+        "NumberOfSeizures": "0",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "YearDate": "2007"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Diagnosis",
+      "start": 429,
+      "end": 458,
+      "text": "Bilateral-convulsive-seizures",
+      "attributes": {
+        "CUIPhrase": "bilateral-convulsive-seizures",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUI": "C0877017",
+        "DiagCategory": "MultipleSeizures"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "Investigations",
+      "start": 659,
+      "end": 662,
+      "text": "MRI",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Normal",
+        "CUIPhrase": "mri-normal",
+        "CUI": "C0436481"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Prescription",
+      "start_index": "82",
+      "end_index": "92",
+      "text": "Topiramate",
+      "attributes": {
+        "DoseUnit": "mg",
+        "CUIPhrase": "topiramate",
+        "CUI": "C0076829",
+        "DrugDose": "150",
+        "Frequency": "2",
+        "DrugName": "top"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "429",
+      "end_index": "458",
+      "text": "Bilateral-convulsive-seizures",
+      "attributes": {
+        "DayDate": "3",
+        "MonthDate": "6",
+        "NumberOfSeizures": "0",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "YearDate": "2007"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "192",
+      "end_index": "203",
+      "text": "Lamotrigine",
+      "attributes": {
+        "DoseUnit": "mg",
+        "CUIPhrase": "lamotrigine",
+        "CUI": "C0064636",
+        "DrugDose": "25",
+        "DrugName": "Lamotrigine",
+        "Frequency": "1"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "24",
+      "end_index": "32",
+      "text": "epilepsy",
+      "attributes": {
+        "Certainty": "5",
+        "DiagCategory": "Epilepsy",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "659",
+      "end_index": "662",
+      "text": "MRI",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Normal",
+        "CUIPhrase": "mri-normal",
+        "CUI": "C0436481"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "429",
+      "end_index": "458",
+      "text": "Bilateral-convulsive-seizures",
+      "attributes": {
+        "CUIPhrase": "bilateral-convulsive-seizures",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUI": "C0877017",
+        "DiagCategory": "MultipleSeizures"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 429,
+      "end": 458,
+      "text": "Bilateral-convulsive-seizures",
+      "entity_types": [
+        "SeizureFrequency",
+        "Diagnosis"
+      ],
+      "entity_ids": [
+        "T2",
+        "T6"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T1",
+      "type": "Prescription",
+      "text": "Topiramate",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T3",
+      "type": "Prescription",
+      "text": "Lamotrigine",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T2",
+      "type": "SeizureFrequency",
+      "text": "Bilateral-convulsive-seizures",
+      "start": 429,
+      "end": 458,
+      "year": "2007",
+      "period": null,
+      "num_periods": null,
+      "time_since": "Since",
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 2,
+    "Prescription": 2,
+    "SeizureFrequency": 1,
+    "Investigations": 1
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "1 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 429,
+          "end": 458,
+          "text": "Bilateral-convulsive-seizures",
+          "entity_types": [
+            "SeizureFrequency",
+            "Diagnosis"
+          ],
+          "entity_ids": [
+            "T2",
+            "T6"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "2 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T1",
+          "type": "Prescription",
+          "text": "Topiramate",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T3",
+          "type": "Prescription",
+          "text": "Lamotrigine",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

@@ -1,0 +1,357 @@
+{
+  "id": "EA0169",
+  "text": "Dear Dr Pooled\n\nRe: Ms Haana Habley D.O.B 30/01/1972\n\nI reviewed this 41 year old lady with symptomatic epilepsy due to previous neurocysticercosis. She gets frequent focal dyscognitive seizures in clusters. Last week she had around 10-15 of these seizures over 2 days. There was no obvious provoking factor.\n\nAs you know she had an abnormal CT scan in 2000 which showed calcifications consistent with her neurocysticercosis. A recent MRI in 2011 was normal. She has previously tried levetiracetam but it caused mood disturbance and is now taking lamotrigine 150mg bd. We discussed various treatment options. Mrs Habley does not want any further children and this will leave more options in terms of drug treatment.\n\nWe decided to try and increase in the lamotrigine in the first instance. Please increase by 25mg every fortnight until she is taking 200mg bd. If this increase is not successful then I would suggest introducing zonisamide 25mg od increasing by 25mg every fortnight to a target dose of 75mg bd. Zonisamide can cause weight loss and can slightly increase the risk of kidney stones.\n\nYours truly,\n\n",
+  "entities": [
+    {
+      "id": "T10",
+      "type": "Diagnosis",
+      "start": 92,
+      "end": 112,
+      "text": "symptomatic-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "symptomatic-epilepsy",
+        "CUI": "C1406659"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "start": 127,
+      "end": 148,
+      "text": "s-neurocysticercosis.",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "neurocysticercosis",
+        "CUI": "C0338437"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "EpilepsyCause",
+      "start": 129,
+      "end": 148,
+      "text": "neurocysticercosis.",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "neurocysticercosis",
+        "CUI": "C0338437"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "SeizureFrequency",
+      "start": 158,
+      "end": 194,
+      "text": "frequent-focal-dyscognitive-seizures",
+      "attributes": {
+        "FrequencyChange": "Frequent",
+        "CUIPhrase": "dyscognitive-seizures",
+        "CUI": "C0270834"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Diagnosis",
+      "start": 167,
+      "end": 194,
+      "text": "focal-dyscognitive-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "CUIPhrase": "dyscognitive-seizures",
+        "DiagCategory": "MultipleSeizures",
+        "Negation": "Affirmed",
+        "CUI": "C0270834"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "SeizureFrequency",
+      "start": 248,
+      "end": 256,
+      "text": "seizures",
+      "attributes": {
+        "UpperNumberOfSeizures": "15",
+        "NumberOfTimePeriods": "2",
+        "LowerNumberOfSeizures": "10",
+        "TimePeriod": "days",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "Investigations",
+      "start": 342,
+      "end": 344,
+      "text": "CT",
+      "attributes": {
+        "CT_Performed": "Yes",
+        "CT_Results": "Abnormal",
+        "CUIPhrase": "abnormal-ct",
+        "CUI": "C0436539"
+      }
+    },
+    {
+      "id": "T15",
+      "type": "PatientHistory",
+      "start": 406,
+      "end": 424,
+      "text": "neurocysticercosis",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "neurocysticercosis",
+        "CUI": "C0338437"
+      }
+    },
+    {
+      "id": "T13",
+      "type": "Investigations",
+      "start": 435,
+      "end": 438,
+      "text": "MRI",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Normal",
+        "CUIPhrase": "normal-mri",
+        "CUI": "C0436481"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "Prescription",
+      "start": 547,
+      "end": 558,
+      "text": "lamotrigine",
+      "attributes": {
+        "CUI": "C0064636",
+        "DoseUnit": "mg",
+        "CUIPhrase": "lamotrigine",
+        "Frequency": "2",
+        "DrugName": "Lamotrigine",
+        "DrugDose": "150"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "92",
+      "end_index": "112",
+      "text": "symptomatic-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "symptomatic-epilepsy",
+        "CUI": "C1406659"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "127",
+      "end_index": "148",
+      "text": "s-neurocysticercosis.",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "neurocysticercosis",
+        "CUI": "C0338437"
+      }
+    },
+    {
+      "entity": "EpilepsyCause",
+      "start_index": "129",
+      "end_index": "148",
+      "text": "neurocysticercosis.",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "neurocysticercosis",
+        "CUI": "C0338437"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "342",
+      "end_index": "344",
+      "text": "CT",
+      "attributes": {
+        "CT_Performed": "Yes",
+        "CT_Results": "Abnormal",
+        "CUIPhrase": "abnormal-ct",
+        "CUI": "C0436539"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "248",
+      "end_index": "256",
+      "text": "seizures",
+      "attributes": {
+        "UpperNumberOfSeizures": "15",
+        "NumberOfTimePeriods": "2",
+        "LowerNumberOfSeizures": "10",
+        "TimePeriod": "days",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "158",
+      "end_index": "194",
+      "text": "frequent-focal-dyscognitive-seizures",
+      "attributes": {
+        "FrequencyChange": "Frequent",
+        "CUIPhrase": "dyscognitive-seizures",
+        "CUI": "C0270834"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "406",
+      "end_index": "424",
+      "text": "neurocysticercosis",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "neurocysticercosis",
+        "CUI": "C0338437"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "435",
+      "end_index": "438",
+      "text": "MRI",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Normal",
+        "CUIPhrase": "normal-mri",
+        "CUI": "C0436481"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "547",
+      "end_index": "558",
+      "text": "lamotrigine",
+      "attributes": {
+        "CUI": "C0064636",
+        "DoseUnit": "mg",
+        "CUIPhrase": "lamotrigine",
+        "Frequency": "2",
+        "DrugName": "Lamotrigine",
+        "DrugDose": "150"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "167",
+      "end_index": "194",
+      "text": "focal-dyscognitive-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "CUIPhrase": "dyscognitive-seizures",
+        "DiagCategory": "MultipleSeizures",
+        "Negation": "Affirmed",
+        "CUI": "C0270834"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "text": "s-neurocysticercosis.",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T4",
+      "type": "SeizureFrequency",
+      "text": "frequent-focal-dyscognitive-seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T15",
+      "type": "PatientHistory",
+      "text": "neurocysticercosis",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T5",
+      "type": "Prescription",
+      "text": "lamotrigine",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T3",
+      "type": "SeizureFrequency",
+      "text": "seizures",
+      "start": 248,
+      "end": 256,
+      "year": null,
+      "period": "days",
+      "num_periods": "2",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": "10",
+      "upper_seizures": "15",
+      "num_seizures": null
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 2,
+    "PatientHistory": 2,
+    "EpilepsyCause": 1,
+    "SeizureFrequency": 2,
+    "Investigations": 2,
+    "Prescription": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "4 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T14",
+          "type": "PatientHistory",
+          "text": "s-neurocysticercosis.",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T4",
+          "type": "SeizureFrequency",
+          "text": "frequent-focal-dyscognitive-seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T15",
+          "type": "PatientHistory",
+          "text": "neurocysticercosis",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T5",
+          "type": "Prescription",
+          "text": "lamotrigine",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

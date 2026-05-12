@@ -1,0 +1,653 @@
+{
+  "id": "EA0122",
+  "text": "Dear Dr,\n\nRe: \tMrs Lorna Liver DOB 29/05/1972\n\nDiagnosis: \tEpilepsy, probable generalised (epilepsy with generalised tonic clinic seizure alone)\n\nCurent anti-epileptic medication:\tSodium valproate 400mg BD\nSodium Valproate Risk acknowledgement form signed \n\nSeizure type and frequency: generalised tonic clonic seizures, last seizure two years ago \n\nI spoke with Mrs Liver on the telephone today. She is now 47 years old. She has had epilepsy for several years. She does not get seizures very often and her last seizure was two years ago. She previously has been 10 years without seizures. There are no obvious triggers to her seizures but they are frequently associated with stressful situation. She has never had absences or myoclonus or clinical photo sensitivity. \n\nHer seizures seem bilateral tonic-clonic in nature. An MRI was performed on 23 September 2016, there were no abnormalities. \n\nMrs liver understand the risks of continuing with sodium valproate and the potential harms to the new born baby should she become pregnant. However she has no plans for more children and her periods are becoming irregular. She would like to stay on the sodium valproate given that it is has kept her seizure free for a relatively long period. Given her type of generalised epilepsy, it is probably the best medication for her and she was happy to sign the risk acknowledgement form today.\n\nI have left her with an open appointment in this clinic and the epilepsy helpline is on the top of the letter should she ran into difficulties. \n \nYours sincerely,\n",
+  "entities": [
+    {
+      "id": "T3",
+      "type": "Diagnosis",
+      "start": 59,
+      "end": 67,
+      "text": "Epilepsy",
+      "attributes": {
+        "CUI": "C0014544",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "DiagCategory": "Epilepsy"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "Diagnosis",
+      "start": 59,
+      "end": 89,
+      "text": "Epilepsy,-probable-generalised",
+      "attributes": {
+        "Negation": "Affirmed",
+        "DiagCategory": "Epilepsy",
+        "CUIPhrase": "epilepsy,-generalized",
+        "CUI": "C0014548",
+        "Certainty": "4"
+      }
+    },
+    {
+      "id": "T18",
+      "type": "Diagnosis",
+      "start": 91,
+      "end": 143,
+      "text": "epilepsy-with-generalised-tonic-clinic-seizure-alone",
+      "attributes": {
+        "Negation": "Affirmed",
+        "Certainty": "4",
+        "CUIPhrase": "epilepsy-with-generalised-tonic-clonic-seizure-alone",
+        "DiagCategory": "Epilepsy",
+        "CUI": "C0393697"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "start": 180,
+      "end": 205,
+      "text": "Sodium-valproate-400mg-BD",
+      "attributes": {
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "DrugDose": "400",
+        "CUI": "C0037567",
+        "DrugName": "sodium-valproate",
+        "CUIPhrase": "sodium-valproate"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "Diagnosis",
+      "start": 286,
+      "end": 319,
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "start": 326,
+      "end": 333,
+      "text": "seizure",
+      "attributes": {
+        "CUIPhrase": "seizure",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "SeizureFrequency",
+      "start": 326,
+      "end": 334,
+      "text": "seizure-",
+      "attributes": {
+        "CUI": "C0036572",
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "2",
+        "CUIPhrase": "seizure",
+        "NumberOfSeizures": "0"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "Diagnosis",
+      "start": 434,
+      "end": 443,
+      "text": "epilepsy-",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C0014544",
+        "DiagCategory": "Epilepsy",
+        "CUIPhrase": "epilepsy",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Onset",
+      "start": 434,
+      "end": 443,
+      "text": "epilepsy-",
+      "attributes": {
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "3",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "SeizureFrequency",
+      "start": 479,
+      "end": 488,
+      "text": "seizures-",
+      "attributes": {
+        "CUI": "C0036572",
+        "FrequencyChange": "Infrequent",
+        "CUIPhrase": "seizures"
+      }
+    },
+    {
+      "id": "T17",
+      "type": "PatientHistory",
+      "start": 512,
+      "end": 518,
+      "text": "seizur",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T15",
+      "type": "SeizureFrequency",
+      "start": 512,
+      "end": 520,
+      "text": "seizure-",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "NumberOfTimePeriods": "2",
+        "CUIPhrase": "seizure",
+        "TimePeriod": "Year",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "PatientHistory",
+      "start": 627,
+      "end": 636,
+      "text": "seizures-",
+      "attributes": {
+        "CUIPhrase": "seizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "PatientHistory",
+      "start": 774,
+      "end": 783,
+      "text": "seizures-",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "Diagnosis",
+      "start": 788,
+      "end": 810,
+      "text": "bilateral-tonic-clonic",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizure",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "id": "T13",
+      "type": "Investigations",
+      "start": 825,
+      "end": 828,
+      "text": "MRI",
+      "attributes": {
+        "CUIPhrase": "normal-mri",
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Normal",
+        "CUI": "C0436481"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Diagnosis",
+      "start": 1257,
+      "end": 1277,
+      "text": "generalised-epilepsy",
+      "attributes": {
+        "Negation": "Affirmed",
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "CUI": "C0014548",
+        "CUIPhrase": "generalised-epilepsy"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "286",
+      "end_index": "319",
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "434",
+      "end_index": "443",
+      "text": "epilepsy-",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C0014544",
+        "DiagCategory": "Epilepsy",
+        "CUIPhrase": "epilepsy",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "326",
+      "end_index": "334",
+      "text": "seizure-",
+      "attributes": {
+        "CUI": "C0036572",
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "2",
+        "CUIPhrase": "seizure",
+        "NumberOfSeizures": "0"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "59",
+      "end_index": "67",
+      "text": "Epilepsy",
+      "attributes": {
+        "CUI": "C0014544",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "DiagCategory": "Epilepsy"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "180",
+      "end_index": "205",
+      "text": "Sodium-valproate-400mg-BD",
+      "attributes": {
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "DrugDose": "400",
+        "CUI": "C0037567",
+        "DrugName": "sodium-valproate",
+        "CUIPhrase": "sodium-valproate"
+      }
+    },
+    {
+      "entity": "Onset",
+      "start_index": "434",
+      "end_index": "443",
+      "text": "epilepsy-",
+      "attributes": {
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "3",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "774",
+      "end_index": "783",
+      "text": "seizures-",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "788",
+      "end_index": "810",
+      "text": "bilateral-tonic-clonic",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizure",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1257",
+      "end_index": "1277",
+      "text": "generalised-epilepsy",
+      "attributes": {
+        "Negation": "Affirmed",
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "CUI": "C0014548",
+        "CUIPhrase": "generalised-epilepsy"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "59",
+      "end_index": "89",
+      "text": "Epilepsy,-probable-generalised",
+      "attributes": {
+        "Negation": "Affirmed",
+        "DiagCategory": "Epilepsy",
+        "CUIPhrase": "epilepsy,-generalized",
+        "CUI": "C0014548",
+        "Certainty": "4"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "326",
+      "end_index": "333",
+      "text": "seizure",
+      "attributes": {
+        "CUIPhrase": "seizure",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "479",
+      "end_index": "488",
+      "text": "seizures-",
+      "attributes": {
+        "CUI": "C0036572",
+        "FrequencyChange": "Infrequent",
+        "CUIPhrase": "seizures"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "627",
+      "end_index": "636",
+      "text": "seizures-",
+      "attributes": {
+        "CUIPhrase": "seizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "512",
+      "end_index": "520",
+      "text": "seizure-",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "NumberOfTimePeriods": "2",
+        "CUIPhrase": "seizure",
+        "TimePeriod": "Year",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "825",
+      "end_index": "828",
+      "text": "MRI",
+      "attributes": {
+        "CUIPhrase": "normal-mri",
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Normal",
+        "CUI": "C0436481"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "91",
+      "end_index": "143",
+      "text": "epilepsy-with-generalised-tonic-clinic-seizure-alone",
+      "attributes": {
+        "Negation": "Affirmed",
+        "Certainty": "4",
+        "CUIPhrase": "epilepsy-with-generalised-tonic-clonic-seizure-alone",
+        "DiagCategory": "Epilepsy",
+        "CUI": "C0393697"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "512",
+      "end_index": "518",
+      "text": "seizur",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 434,
+      "end": 443,
+      "text": "epilepsy-",
+      "entity_types": [
+        "Diagnosis",
+        "Onset"
+      ],
+      "entity_ids": [
+        "T1",
+        "T8"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "text": "Sodium-valproate-400mg-BD",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "text": "seizure",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T10",
+      "type": "SeizureFrequency",
+      "text": "seizures-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T17",
+      "type": "PatientHistory",
+      "text": "seizur",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T11",
+      "type": "PatientHistory",
+      "text": "seizures-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T5",
+      "type": "PatientHistory",
+      "text": "seizures-",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T2",
+      "type": "SeizureFrequency",
+      "text": "seizure-",
+      "start": 326,
+      "end": 334,
+      "year": null,
+      "period": "Year",
+      "num_periods": "2",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    },
+    {
+      "id": "T8",
+      "type": "Onset",
+      "text": "epilepsy-",
+      "start": 434,
+      "end": 443,
+      "year": null,
+      "period": "Year",
+      "num_periods": "3",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": null
+    },
+    {
+      "id": "T15",
+      "type": "SeizureFrequency",
+      "text": "seizure-",
+      "start": 512,
+      "end": 520,
+      "year": null,
+      "period": "Year",
+      "num_periods": "2",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 7,
+    "Prescription": 1,
+    "PatientHistory": 4,
+    "SeizureFrequency": 3,
+    "Onset": 1,
+    "Investigations": 1
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "1 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 434,
+          "end": 443,
+          "text": "epilepsy-",
+          "entity_types": [
+            "Diagnosis",
+            "Onset"
+          ],
+          "entity_ids": [
+            "T1",
+            "T8"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "6 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T4",
+          "type": "Prescription",
+          "text": "Sodium-valproate-400mg-BD",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T9",
+          "type": "PatientHistory",
+          "text": "seizure",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T10",
+          "type": "SeizureFrequency",
+          "text": "seizures-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T17",
+          "type": "PatientHistory",
+          "text": "seizur",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T11",
+          "type": "PatientHistory",
+          "text": "seizures-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T5",
+          "type": "PatientHistory",
+          "text": "seizures-",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [
+    {
+      "id": "T7",
+      "type": "Diagnosis",
+      "text": "Epilepsy,-probable-generalised",
+      "certainty": 4
+    },
+    {
+      "id": "T18",
+      "type": "Diagnosis",
+      "text": "epilepsy-with-generalised-tonic-clinic-seizure-alone",
+      "certainty": 4
+    },
+    {
+      "id": "T14",
+      "type": "Diagnosis",
+      "text": "bilateral-tonic-clonic",
+      "certainty": 4
+    }
+  ],
+  "has_unknown_seizure": false
+}

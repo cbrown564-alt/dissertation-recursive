@@ -1,0 +1,601 @@
+{
+  "id": "EA0161",
+  "text": "Clinic date 12/04/2018\n\nRe: Ms Rachel Smith\n\nMedical diagnosis:\tGeneralised epilepsy with absences and GTCS\n\nMedication\tLamotrigine\t100 mg in the morning\n\t\tLevetiracetam 250mg twice a day (increase by 250mg every fortnight to 500mg twice a day)\n\nI met with Rachel and her mother today in clinic. She is now nearly fifteen years of age.\n\nTo recap, Rachel started having absence seizures at around the age of 8. These were relatively infrequent and were worse when she was tired. She had her first generalised tonic clonic seizure at the age of 12. After this she was started on the lamotrigine. She has had relatively frequent tonic clonic seizures in the last few years, perhaps every two months or so. Seizures normally coincide with sleep deprivation. The seizure frequency has improved after starting the levetiracetam. The absences continue to happen maybe every week, again they are more common after sleep deprivation.\n\nAn EEG last year did show some generalised spike and wave without any photosensitivity or focal features. She also had a normal MRI of her brain last year.\n\nWe decided to increase the levetiracetam as it has helped things as per the plan above. We will continue to review in this clinic before she moves to the adult clinic.\n\nYours\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 64,
+      "end": 84,
+      "text": "Generalised-epilepsy",
+      "attributes": {
+        "CUI": "C0014548",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-epilepsy",
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "start": 90,
+      "end": 99,
+      "text": "absences-",
+      "attributes": {
+        "CUI": "C0563606",
+        "CUIPhrase": "absences",
+        "Negation": "Affirmed",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "Diagnosis",
+      "start": 103,
+      "end": 107,
+      "text": "GTCS",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "id": "T15",
+      "type": "Prescription",
+      "start": 120,
+      "end": 131,
+      "text": "Lamotrigine",
+      "attributes": {
+        "CUI": "C0064636",
+        "DrugName": "Lamotrigine",
+        "CUIPhrase": "lamotrigine",
+        "DoseUnit": "mg",
+        "Frequency": "1",
+        "DrugDose": "100"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "Prescription",
+      "start": 158,
+      "end": 172,
+      "text": "Levetiracetam-",
+      "attributes": {
+        "DrugDose": "250",
+        "CUIPhrase": "levetiracetam",
+        "Frequency": "2",
+        "DrugName": "Levetiracetam",
+        "DoseUnit": "mg",
+        "CUI": "C0377265"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "Onset",
+      "start": 375,
+      "end": 390,
+      "text": "absence-seizure",
+      "attributes": {
+        "AgeUnit": "Year",
+        "CUI": "C4316903",
+        "CUIPhrase": "absence-seizures",
+        "Negation": "Affirmed",
+        "Age": "8",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Diagnosis",
+      "start": 375,
+      "end": 391,
+      "text": "absence-seizures",
+      "attributes": {
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUIPhrase": "absence-seizures",
+        "DiagCategory": "MultipleSeizures",
+        "CUI": "C4316903"
+      }
+    },
+    {
+      "id": "T17",
+      "type": "Onset",
+      "start": 502,
+      "end": 533,
+      "text": "generalised-tonic-clonic-seizur",
+      "attributes": {
+        "CUI": "C0494475",
+        "Age": "12",
+        "Certainty": "5",
+        "CUIPhrase": "generalised-tonic-clonic-seizure",
+        "Negation": "Affirmed",
+        "AgeUnit": "Year"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "Diagnosis",
+      "start": 502,
+      "end": 534,
+      "text": "generalised-tonic-clonic-seizure",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0494475",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizure",
+        "DiagCategory": "SingleSeizure"
+      }
+    },
+    {
+      "id": "T13",
+      "type": "Diagnosis",
+      "start": 632,
+      "end": 652,
+      "text": "tonic-clonic-seizure",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "CUIPhrase": "tonic-clonic-seizures",
+        "Negation": "Affirmed",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "SeizureFrequency",
+      "start": 632,
+      "end": 653,
+      "text": "tonic-clonic-seizures",
+      "attributes": {
+        "NumberOfTimePeriods": "2",
+        "CUIPhrase": "tonic-clonic-seizures",
+        "CUI": "C0494475",
+        "FrequencyChange": "Frequent",
+        "TimePeriod": "Year"
+      }
+    },
+    {
+      "id": "T16",
+      "type": "SeizureFrequency",
+      "start": 633,
+      "end": 651,
+      "text": "onic-clonic-seizur",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "TimePeriod": "Month",
+        "NumberOfTimePeriods": "2",
+        "CUIPhrase": "tonic-clonic-seizure",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "SeizureFrequency",
+      "start": 764,
+      "end": 772,
+      "text": "seizure-",
+      "attributes": {
+        "TimeSince_or_TimeOfEvent": "Since",
+        "PointInTime": "DrugChange",
+        "FrequencyChange": "Decreased",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "start": 833,
+      "end": 841,
+      "text": "absences",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "absences",
+        "CUI": "C0563606"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "SeizureFrequency",
+      "start": 833,
+      "end": 842,
+      "text": "absences-",
+      "attributes": {
+        "CUI": "C0563606",
+        "NumberOfSeizures": "1",
+        "NumberOfTimePeriods": "1",
+        "TimePeriod": "Week",
+        "CUIPhrase": "absences"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Investigations",
+      "start": 935,
+      "end": 939,
+      "text": "EEG-",
+      "attributes": {
+        "CUIPhrase": "eeg-abnormal",
+        "CUI": "C0151611",
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Abnormal"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "Investigations",
+      "start": 1053,
+      "end": 1063,
+      "text": "normal-MRI",
+      "attributes": {
+        "CUIPhrase": "normal-mri",
+        "MRI_Results": "Normal",
+        "MRI_Performed": "Yes",
+        "CUI": "C0436481"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "632",
+      "end_index": "653",
+      "text": "tonic-clonic-seizures",
+      "attributes": {
+        "NumberOfTimePeriods": "2",
+        "CUIPhrase": "tonic-clonic-seizures",
+        "CUI": "C0494475",
+        "FrequencyChange": "Frequent",
+        "TimePeriod": "Year"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "64",
+      "end_index": "84",
+      "text": "Generalised-epilepsy",
+      "attributes": {
+        "CUI": "C0014548",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-epilepsy",
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "Onset",
+      "start_index": "375",
+      "end_index": "390",
+      "text": "absence-seizure",
+      "attributes": {
+        "AgeUnit": "Year",
+        "CUI": "C4316903",
+        "CUIPhrase": "absence-seizures",
+        "Negation": "Affirmed",
+        "Age": "8",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "375",
+      "end_index": "391",
+      "text": "absence-seizures",
+      "attributes": {
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUIPhrase": "absence-seizures",
+        "DiagCategory": "MultipleSeizures",
+        "CUI": "C4316903"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "103",
+      "end_index": "107",
+      "text": "GTCS",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "90",
+      "end_index": "99",
+      "text": "absences-",
+      "attributes": {
+        "CUI": "C0563606",
+        "CUIPhrase": "absences",
+        "Negation": "Affirmed",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "833",
+      "end_index": "842",
+      "text": "absences-",
+      "attributes": {
+        "CUI": "C0563606",
+        "NumberOfSeizures": "1",
+        "NumberOfTimePeriods": "1",
+        "TimePeriod": "Week",
+        "CUIPhrase": "absences"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "833",
+      "end_index": "841",
+      "text": "absences",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "absences",
+        "CUI": "C0563606"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "935",
+      "end_index": "939",
+      "text": "EEG-",
+      "attributes": {
+        "CUIPhrase": "eeg-abnormal",
+        "CUI": "C0151611",
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Abnormal"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "1053",
+      "end_index": "1063",
+      "text": "normal-MRI",
+      "attributes": {
+        "CUIPhrase": "normal-mri",
+        "MRI_Results": "Normal",
+        "MRI_Performed": "Yes",
+        "CUI": "C0436481"
+      }
+    },
+    {
+      "entity": "Onset",
+      "start_index": "502",
+      "end_index": "533",
+      "text": "generalised-tonic-clonic-seizur",
+      "attributes": {
+        "CUI": "C0494475",
+        "Age": "12",
+        "Certainty": "5",
+        "CUIPhrase": "generalised-tonic-clonic-seizure",
+        "Negation": "Affirmed",
+        "AgeUnit": "Year"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "158",
+      "end_index": "172",
+      "text": "Levetiracetam-",
+      "attributes": {
+        "DrugDose": "250",
+        "CUIPhrase": "levetiracetam",
+        "Frequency": "2",
+        "DrugName": "Levetiracetam",
+        "DoseUnit": "mg",
+        "CUI": "C0377265"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "764",
+      "end_index": "772",
+      "text": "seizure-",
+      "attributes": {
+        "TimeSince_or_TimeOfEvent": "Since",
+        "PointInTime": "DrugChange",
+        "FrequencyChange": "Decreased",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "632",
+      "end_index": "652",
+      "text": "tonic-clonic-seizure",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "CUIPhrase": "tonic-clonic-seizures",
+        "Negation": "Affirmed",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "502",
+      "end_index": "534",
+      "text": "generalised-tonic-clonic-seizure",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0494475",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizure",
+        "DiagCategory": "SingleSeizure"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "120",
+      "end_index": "131",
+      "text": "Lamotrigine",
+      "attributes": {
+        "CUI": "C0064636",
+        "DrugName": "Lamotrigine",
+        "CUIPhrase": "lamotrigine",
+        "DoseUnit": "mg",
+        "Frequency": "1",
+        "DrugDose": "100"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "633",
+      "end_index": "651",
+      "text": "onic-clonic-seizur",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "TimePeriod": "Month",
+        "NumberOfTimePeriods": "2",
+        "CUIPhrase": "tonic-clonic-seizure",
+        "CUI": "C0494475"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "text": "absences-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T15",
+      "type": "Prescription",
+      "text": "Lamotrigine",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T11",
+      "type": "Prescription",
+      "text": "Levetiracetam-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "text": "absences",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T1",
+      "type": "SeizureFrequency",
+      "text": "tonic-clonic-seizures",
+      "start": 632,
+      "end": 653,
+      "year": null,
+      "period": "Year",
+      "num_periods": "2",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": null
+    },
+    {
+      "id": "T16",
+      "type": "SeizureFrequency",
+      "text": "onic-clonic-seizur",
+      "start": 633,
+      "end": 651,
+      "year": null,
+      "period": "Month",
+      "num_periods": "2",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "1"
+    },
+    {
+      "id": "T12",
+      "type": "SeizureFrequency",
+      "text": "seizure-",
+      "start": 764,
+      "end": 772,
+      "year": null,
+      "period": null,
+      "num_periods": null,
+      "time_since": "Since",
+      "point_in_time": "DrugChange",
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": null
+    },
+    {
+      "id": "T7",
+      "type": "SeizureFrequency",
+      "text": "absences-",
+      "start": 833,
+      "end": 842,
+      "year": null,
+      "period": "Week",
+      "num_periods": "1",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "1"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 5,
+    "PatientHistory": 2,
+    "Prescription": 2,
+    "Onset": 2,
+    "SeizureFrequency": 4,
+    "Investigations": 2
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "4 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T6",
+          "type": "PatientHistory",
+          "text": "absences-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T15",
+          "type": "Prescription",
+          "text": "Lamotrigine",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T11",
+          "type": "Prescription",
+          "text": "Levetiracetam-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T10",
+          "type": "PatientHistory",
+          "text": "absences",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

@@ -1,0 +1,600 @@
+{
+  "id": "EA0003",
+  "text": "Dear Dr,\n\nDiagnosis: probable generalised epilepsy\n\nCurrent antiepileptic medication: sodium valproate 600 mg bd (to reduce and stop as detailed below); levetiracetam 1.25 g BD\n\nSeizure type and frequency: generalised seizures every two months\nPossible additional myoclonus\n\nI reviewed this 50 year old lady together with her partner for the first time in clinic today. She continues to get seizures every few months. She finds it difficult to remember the seizures, and she has injured himself and bitten her tongue on the side several times. She says that she does not forget to take tablets.\n\nThere is no epilepsy in the family. Currently Mrs Richards lives with her husband and is unemployed. She does not drive. She says she only drinks ocassionally at present but has drunk more than this in the past.\n\nLooking through her old notes it appears as if her epilepsy started when she was a young child. She had a period of seizure freedom before the seizures reappeared about five years ago.\n\nThe neurological examination was normal.\n\nComments: \nWe discussed the new regulations regarding the prescription of sodium Valproate in women of childbearing age. Mrs Richards does not want to use a secure form of contraception and therefore I think we need to stop the sodium valproate. I suggest that we introduce lamotrigine at a dose of 25 mg once-a-day. They should be increased by 25 mg every fortnight until she’s on the target dose of 75 mg BD. At the same time she should reduce the Sodium valproate by 200 mg every fortnight until it stops. We discussed there is a risk of increased seizures when changing medication. I will ask the epilepsy nurse specialist to see her in a few months time and I will see her in clinic in six months time.\n\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 30,
+      "end": 50,
+      "text": "generalised-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-epilepsy",
+        "CUI": "C0014548"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "start": 52,
+      "end": 123,
+      "text": "Current-antiepileptic-medication:-sodium-valproate-600-mg-bd-(to-reduce",
+      "attributes": {
+        "DrugName": "sodium-valproate",
+        "DrugDose": "600",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "sodium-valproate",
+        "CUI": "C0037567"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "start": 153,
+      "end": 167,
+      "text": "levetiracetam-",
+      "attributes": {
+        "DrugName": "Levetiracetam",
+        "DrugDose": "1.25",
+        "DoseUnit": "g",
+        "Frequency": "2",
+        "CUIPhrase": "levetiracetam",
+        "CUI": "C0377265"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "SeizureFrequency",
+      "start": 206,
+      "end": 226,
+      "text": "generalised-seizures",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "TimePeriod": "Month",
+        "NumberOfTimePeriods": "2",
+        "CUIPhrase": "generalised-seizures",
+        "CUI": "C0234533"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "Diagnosis",
+      "start": 206,
+      "end": 226,
+      "text": "generalised-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-seizures",
+        "CUI": "C0234533"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "start": 264,
+      "end": 273,
+      "text": "myoclonus",
+      "attributes": {
+        "Certainty": "3",
+        "Negation": "Affirmed",
+        "CUIPhrase": "myoclonus",
+        "CUI": "C0027066"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "SeizureFrequency",
+      "start": 391,
+      "end": 400,
+      "text": "seizures-",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "TimePeriod": "Month",
+        "NumberOfTimePeriods": "2",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T16",
+      "type": "PatientHistory",
+      "start": 391,
+      "end": 400,
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T18",
+      "type": "PatientHistory",
+      "start": 457,
+      "end": 465,
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T22",
+      "type": "Onset",
+      "start": 860,
+      "end": 868,
+      "text": "epilepsy",
+      "attributes": {
+        "AgeUnit": "Year",
+        "AgeLower": "1",
+        "AgeUpper": "6",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T20",
+      "type": "Diagnosis",
+      "start": 860,
+      "end": 869,
+      "text": "epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T24",
+      "type": "SeizureFrequency",
+      "start": 952,
+      "end": 960,
+      "text": "seizures",
+      "attributes": {
+        "FrequencyChange": "Increased",
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "5",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "start": 952,
+      "end": 960,
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "30",
+      "end_index": "50",
+      "text": "generalised-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-epilepsy",
+        "CUI": "C0014548"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "52",
+      "end_index": "123",
+      "text": "Current-antiepileptic-medication:-sodium-valproate-600-mg-bd-(to-reduce",
+      "attributes": {
+        "DrugName": "sodium-valproate",
+        "DrugDose": "600",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "sodium-valproate",
+        "CUI": "C0037567"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "153",
+      "end_index": "167",
+      "text": "levetiracetam-",
+      "attributes": {
+        "DrugName": "Levetiracetam",
+        "DrugDose": "1.25",
+        "DoseUnit": "g",
+        "Frequency": "2",
+        "CUIPhrase": "levetiracetam",
+        "CUI": "C0377265"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "206",
+      "end_index": "226",
+      "text": "generalised-seizures",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "TimePeriod": "Month",
+        "NumberOfTimePeriods": "2",
+        "CUIPhrase": "generalised-seizures",
+        "CUI": "C0234533"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "206",
+      "end_index": "226",
+      "text": "generalised-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-seizures",
+        "CUI": "C0234533"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "264",
+      "end_index": "273",
+      "text": "myoclonus",
+      "attributes": {
+        "Certainty": "3",
+        "Negation": "Affirmed",
+        "CUIPhrase": "myoclonus",
+        "CUI": "C0027066"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "391",
+      "end_index": "400",
+      "text": "seizures-",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "TimePeriod": "Month",
+        "NumberOfTimePeriods": "2",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "391",
+      "end_index": "400",
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "457",
+      "end_index": "465",
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "860",
+      "end_index": "869",
+      "text": "epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "Onset",
+      "start_index": "860",
+      "end_index": "868",
+      "text": "epilepsy",
+      "attributes": {
+        "AgeUnit": "Year",
+        "AgeLower": "1",
+        "AgeUpper": "6",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "952",
+      "end_index": "960",
+      "text": "seizures",
+      "attributes": {
+        "FrequencyChange": "Increased",
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "5",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "952",
+      "end_index": "960",
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 206,
+      "end": 226,
+      "text": "generalised-seizures",
+      "entity_types": [
+        "SeizureFrequency",
+        "Diagnosis"
+      ],
+      "entity_ids": [
+        "T8",
+        "T10"
+      ]
+    },
+    {
+      "start": 391,
+      "end": 400,
+      "text": "seizures-",
+      "entity_types": [
+        "SeizureFrequency",
+        "PatientHistory"
+      ],
+      "entity_ids": [
+        "T14",
+        "T16"
+      ]
+    },
+    {
+      "start": 952,
+      "end": 960,
+      "text": "seizures",
+      "entity_types": [
+        "SeizureFrequency",
+        "PatientHistory"
+      ],
+      "entity_ids": [
+        "T24",
+        "T9"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "text": "Current-antiepileptic-medication:-sodium-valproate-600-mg-bd-(to-reduce",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "text": "levetiracetam-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "text": "myoclonus",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T16",
+      "type": "PatientHistory",
+      "text": "seizures-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T18",
+      "type": "PatientHistory",
+      "text": "seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "text": "seizures",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T8",
+      "type": "SeizureFrequency",
+      "text": "generalised-seizures",
+      "start": 206,
+      "end": 226,
+      "year": null,
+      "period": "Month",
+      "num_periods": "2",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "1"
+    },
+    {
+      "id": "T14",
+      "type": "SeizureFrequency",
+      "text": "seizures-",
+      "start": 391,
+      "end": 400,
+      "year": null,
+      "period": "Month",
+      "num_periods": "2",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "1"
+    },
+    {
+      "id": "T24",
+      "type": "SeizureFrequency",
+      "text": "seizures",
+      "start": 952,
+      "end": 960,
+      "year": null,
+      "period": "Year",
+      "num_periods": "5",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": null
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 3,
+    "Prescription": 2,
+    "SeizureFrequency": 3,
+    "PatientHistory": 4,
+    "Onset": 1
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "3 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 206,
+          "end": 226,
+          "text": "generalised-seizures",
+          "entity_types": [
+            "SeizureFrequency",
+            "Diagnosis"
+          ],
+          "entity_ids": [
+            "T8",
+            "T10"
+          ]
+        },
+        {
+          "start": 391,
+          "end": 400,
+          "text": "seizures-",
+          "entity_types": [
+            "SeizureFrequency",
+            "PatientHistory"
+          ],
+          "entity_ids": [
+            "T14",
+            "T16"
+          ]
+        },
+        {
+          "start": 952,
+          "end": 960,
+          "text": "seizures",
+          "entity_types": [
+            "SeizureFrequency",
+            "PatientHistory"
+          ],
+          "entity_ids": [
+            "T24",
+            "T9"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "6 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T4",
+          "type": "Prescription",
+          "text": "Current-antiepileptic-medication:-sodium-valproate-600-mg-bd-(to-reduce",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T6",
+          "type": "Prescription",
+          "text": "levetiracetam-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T12",
+          "type": "PatientHistory",
+          "text": "myoclonus",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T16",
+          "type": "PatientHistory",
+          "text": "seizures-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T18",
+          "type": "PatientHistory",
+          "text": "seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T9",
+          "type": "PatientHistory",
+          "text": "seizures",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "text": "generalised-epilepsy",
+      "certainty": 4
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "text": "myoclonus",
+      "certainty": 3
+    }
+  ],
+  "has_unknown_seizure": false
+}

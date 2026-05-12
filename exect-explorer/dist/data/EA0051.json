@@ -1,0 +1,631 @@
+{
+  "id": "EA0051",
+  "text": "NHS 123 540 9666\nRichard Richards. D.O.B. 7-DEC-1972\nDear Doctor,\nDate seen 4-JUN-2016\nDiagnosis: temporal lobe epilepsy\nMedication: omeprazole\n\t\tThyroxine\n\t\tEslicarbazine 800mg od\n\t\tZonisamide 100mg bd\n\nThank you for referring this 44 year old man for a specialist epilepsy opinion. His seizures started at the age of 32. His partner was able to give a good description of his seizures. He feels funny and needs to sit down, he may appear to smile without emotion and his hands may twitch a bit. He is unable to respond properly during the seizures. Sometime he will repeat questions like “who are you?”. These sound like complex partial seizures.\nNormally he will have around 2-3 seizures per month but has gone 6 months seizures free.\nHis memory is getting worse and his partner says that despite writing things down in lists he still forgets to do things and ocassionally forgets his tables.\nHe has a past medical history of type 2 diabetes and hypertension. He was born after a normal vaginal delivery at term. He developed normally and was “average” at school. There is no history of febrile seizures or meningitis or head injury.\nHe left school at 16 and works as a bartender but unfortunately lost his job after the epilepsy started. He is right handed, has never smoked and drinks around 10 pints of pale ale per week.\nNeurological examination today was normal.\nHe had a MRI in 2006 which was normal and an EEG at the time showed some possible abnormalities in the right temporal lobe.\nWe discussed the possibility of epilepsy surgery and Mr Richards felt that it would be worth pursuing. I will therefore request an up to date MRI and request video EEG telemetry. In the mean time it would be worth increasing the eslicarbazine to 1200mg od.\n\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 98,
+      "end": 120,
+      "text": "temporal-lobe-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "temporal-lobe-epilepsy",
+        "CUI": "C0014556"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "Prescription",
+      "start": 158,
+      "end": 172,
+      "text": "Eslicarbazine-",
+      "attributes": {
+        "DrugName": "EslicarbazepineAcetate",
+        "DrugDose": "800",
+        "DoseUnit": "mg",
+        "Frequency": "1",
+        "CUIPhrase": "eslicarbazepine",
+        "CUI": "C2725260"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "start": 183,
+      "end": 202,
+      "text": "Zonisamide-100mg-bd",
+      "attributes": {
+        "DrugName": "zonisamide",
+        "DrugDose": "100",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "zonisamide",
+        "CUI": "C0078844"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "start": 287,
+      "end": 296,
+      "text": "-seizures",
+      "attributes": {
+        "AgeUnit": "Year",
+        "Age": "32",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "PatientHistory",
+      "start": 378,
+      "end": 386,
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "start": 541,
+      "end": 549,
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "Diagnosis",
+      "start": 623,
+      "end": 648,
+      "text": "complex-partial-seizures.",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "complex-partial-seizures",
+        "CUI": "C0149958"
+      }
+    },
+    {
+      "id": "T16",
+      "type": "PatientHistory",
+      "start": 682,
+      "end": 690,
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T13",
+      "type": "SeizureFrequency",
+      "start": 723,
+      "end": 736,
+      "text": "seizures-free",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "TimePeriod": "Month",
+        "NumberOfTimePeriods": "6",
+        "CUIPhrase": "seizure-free",
+        "CUI": "C1299590"
+      }
+    },
+    {
+      "id": "T20",
+      "type": "PatientHistory",
+      "start": 929,
+      "end": 944,
+      "text": "type-2-diabetes",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "Non-Insulin-Dependent",
+        "CUI": "C0011860"
+      }
+    },
+    {
+      "id": "T22",
+      "type": "PatientHistory",
+      "start": 949,
+      "end": 961,
+      "text": "hypertension",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "hypertension",
+        "CUI": "C0020538"
+      }
+    },
+    {
+      "id": "T24",
+      "type": "BirthHistory",
+      "start": 983,
+      "end": 1006,
+      "text": "normal-vaginal-delivery",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "normal-birth",
+        "CUI": "C3665337"
+      }
+    },
+    {
+      "id": "T26",
+      "type": "BirthHistory",
+      "start": 998,
+      "end": 1014,
+      "text": "delivery-at-term",
+      "attributes": {
+        "PrematureBirth": "37+_TermBirth",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "term-birth",
+        "CUI": "C0233324"
+      }
+    },
+    {
+      "id": "T28",
+      "type": "PatientHistory",
+      "start": 1090,
+      "end": 1106,
+      "text": "febrile-seizures",
+      "attributes": {
+        "Certainty": "1",
+        "Negation": "Negated",
+        "CUIPhrase": "febrile-seizures",
+        "CUI": "C0009952"
+      }
+    },
+    {
+      "id": "T15",
+      "type": "Diagnosis",
+      "start": 1224,
+      "end": 1233,
+      "text": "epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T30",
+      "type": "Investigations",
+      "start": 1380,
+      "end": 1383,
+      "text": "MRI",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Normal",
+        "CUIPhrase": "normal-mri",
+        "CUI": "C0436481"
+      }
+    },
+    {
+      "id": "T32",
+      "type": "Investigations",
+      "start": 1416,
+      "end": 1419,
+      "text": "EEG",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Abnormal",
+        "CUIPhrase": "abnormal-eeg",
+        "CUI": "C0151611"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "98",
+      "end_index": "120",
+      "text": "temporal-lobe-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "temporal-lobe-epilepsy",
+        "CUI": "C0014556"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "158",
+      "end_index": "172",
+      "text": "Eslicarbazine-",
+      "attributes": {
+        "DrugName": "EslicarbazepineAcetate",
+        "DrugDose": "800",
+        "DoseUnit": "mg",
+        "Frequency": "1",
+        "CUIPhrase": "eslicarbazepine",
+        "CUI": "C2725260"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "183",
+      "end_index": "202",
+      "text": "Zonisamide-100mg-bd",
+      "attributes": {
+        "DrugName": "zonisamide",
+        "DrugDose": "100",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "zonisamide",
+        "CUI": "C0078844"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "287",
+      "end_index": "296",
+      "text": "-seizures",
+      "attributes": {
+        "AgeUnit": "Year",
+        "Age": "32",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "378",
+      "end_index": "386",
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "541",
+      "end_index": "549",
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "623",
+      "end_index": "648",
+      "text": "complex-partial-seizures.",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "complex-partial-seizures",
+        "CUI": "C0149958"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "682",
+      "end_index": "690",
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "723",
+      "end_index": "736",
+      "text": "seizures-free",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "TimePeriod": "Month",
+        "NumberOfTimePeriods": "6",
+        "CUIPhrase": "seizure-free",
+        "CUI": "C1299590"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "929",
+      "end_index": "944",
+      "text": "type-2-diabetes",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "Non-Insulin-Dependent",
+        "CUI": "C0011860"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "949",
+      "end_index": "961",
+      "text": "hypertension",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "hypertension",
+        "CUI": "C0020538"
+      }
+    },
+    {
+      "entity": "BirthHistory",
+      "start_index": "983",
+      "end_index": "1006",
+      "text": "normal-vaginal-delivery",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "normal-birth",
+        "CUI": "C3665337"
+      }
+    },
+    {
+      "entity": "BirthHistory",
+      "start_index": "998",
+      "end_index": "1014",
+      "text": "delivery-at-term",
+      "attributes": {
+        "PrematureBirth": "37+_TermBirth",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "term-birth",
+        "CUI": "C0233324"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1090",
+      "end_index": "1106",
+      "text": "febrile-seizures",
+      "attributes": {
+        "Certainty": "1",
+        "Negation": "Negated",
+        "CUIPhrase": "febrile-seizures",
+        "CUI": "C0009952"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1224",
+      "end_index": "1233",
+      "text": "epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "1380",
+      "end_index": "1383",
+      "text": "MRI",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Normal",
+        "CUIPhrase": "normal-mri",
+        "CUI": "C0436481"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "1416",
+      "end_index": "1419",
+      "text": "EEG",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Abnormal",
+        "CUIPhrase": "abnormal-eeg",
+        "CUI": "C0151611"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T10",
+      "type": "Prescription",
+      "text": "Eslicarbazine-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "text": "Zonisamide-100mg-bd",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "text": "-seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T5",
+      "type": "PatientHistory",
+      "text": "seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "text": "seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T16",
+      "type": "PatientHistory",
+      "text": "seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T20",
+      "type": "PatientHistory",
+      "text": "type-2-diabetes",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T22",
+      "type": "PatientHistory",
+      "text": "hypertension",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T28",
+      "type": "PatientHistory",
+      "text": "febrile-seizures",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T13",
+      "type": "SeizureFrequency",
+      "text": "seizures-free",
+      "start": 723,
+      "end": 736,
+      "year": null,
+      "period": "Month",
+      "num_periods": "6",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 3,
+    "Prescription": 2,
+    "PatientHistory": 7,
+    "SeizureFrequency": 1,
+    "BirthHistory": 2,
+    "Investigations": 2
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "9 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T10",
+          "type": "Prescription",
+          "text": "Eslicarbazine-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T4",
+          "type": "Prescription",
+          "text": "Zonisamide-100mg-bd",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T8",
+          "type": "PatientHistory",
+          "text": "-seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T5",
+          "type": "PatientHistory",
+          "text": "seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T14",
+          "type": "PatientHistory",
+          "text": "seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T16",
+          "type": "PatientHistory",
+          "text": "seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T20",
+          "type": "PatientHistory",
+          "text": "type-2-diabetes",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T22",
+          "type": "PatientHistory",
+          "text": "hypertension",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T28",
+          "type": "PatientHistory",
+          "text": "febrile-seizures",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    },
+    {
+      "category": "negated_entities",
+      "description": "1 entity/ies are explicitly negated in the text.",
+      "details": [
+        {
+          "id": "T28",
+          "type": "PatientHistory",
+          "text": "febrile-seizures"
+        }
+      ],
+      "oracle_impact": "clinical_precision"
+    }
+  ],
+  "negated_entities": [
+    {
+      "id": "T28",
+      "type": "PatientHistory",
+      "text": "febrile-seizures"
+    }
+  ],
+  "low_certainty": [
+    {
+      "id": "T12",
+      "type": "Diagnosis",
+      "text": "complex-partial-seizures.",
+      "certainty": 4
+    },
+    {
+      "id": "T28",
+      "type": "PatientHistory",
+      "text": "febrile-seizures",
+      "certainty": 1
+    }
+  ],
+  "has_unknown_seizure": false
+}

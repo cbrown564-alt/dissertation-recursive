@@ -1,0 +1,65 @@
+{
+  "id": "EA0078",
+  "text": "Neurology consultant\nNHS No:\t487 987 9987\nDate: \t\t16/12/2012\nClinic Date \t15/12/2012\n\n\nDear Dr\n\nre: Mrs Eva Evans D.O.B: 7/08/1962\n206, Long road, Nice town.CF11 9EK\n \nI reviewed this patient again in my clinic today. She was not feeling very well and was quite depressed. Her seizures are reasonably controlled by her low mood as well as some agitation is causing her some distress.\n \nI think that the levetiracetam she is taking could well be contributing to this and so I would recommend reducing and stopping this over the next 2 months and increasing the carbamazepine instead.\n \nPlease can you therefore;\n \nIncrease the carbamazepine to 600mg twice a day.\nReduce the levetiracetam by 250mg every week until it is stopped completely.\n \nI will see her in two months to see how she is getting on.\n\n",
+  "entities": [
+    {
+      "id": "T1",
+      "type": "PatientHistory",
+      "start": 277,
+      "end": 284,
+      "text": "seizres",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0036572",
+        "CUIPhrase": "seizures",
+        "Negation": "Affirmed"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "PatientHistory",
+      "start_index": "277",
+      "end_index": "284",
+      "text": "seizres",
+      "attributes": {
+        "Certainty": "5",
+        "CUI": "C0036572",
+        "CUIPhrase": "seizures",
+        "Negation": "Affirmed"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T1",
+      "type": "PatientHistory",
+      "text": "seizres",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [],
+  "type_counts": {
+    "PatientHistory": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "1 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T1",
+          "type": "PatientHistory",
+          "text": "seizres",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

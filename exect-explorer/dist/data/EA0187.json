@@ -1,0 +1,262 @@
+{
+  "id": "EA0187",
+  "text": "Diagnosis: Refractory epilepsy\n \nMedication:       Levetiracetam 1250mg bd\n                             Lamotrigine 100mg bd\n \nI reviewed this woman today in clinic. Since increasing the levetiracetam there has been no change in her seizure frequency. She has around 3-5 seizures a week.\n \nIn June her lamotrigine level was measured and was slightly high. She had a rash at the time but I am not sure if the lamotrigine caused this as she has been taking lamotrigine for several years. Her mood is not brilliant and she is finding that she is sleeping a lot in the day whilst being awake during the night.\n \nWe talked about some treatment options. I would advise switching the levetiracetam to brivetiracetam (100mg bd) this would be a straight switch. We also discussed some sleep hygiene measures and I have included a leaflet on some advice on sleeping. Also I would be grateful if you could prescribe melatonin 8mg on for 6 weeks to see if that improves the sleep cycle\n\n",
+  "entities": [
+    {
+      "id": "T4",
+      "type": "Diagnosis",
+      "start": 11,
+      "end": 29,
+      "text": "Refactory-epilepsy",
+      "attributes": {
+        "Certainty": "5",
+        "CUIPhrase": "drug-refractory-epilepsy",
+        "Negation": "Affirmed",
+        "CUI": "C1096063",
+        "DiagCategory": "Epilepsy"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "Prescription",
+      "start": 32,
+      "end": 73,
+      "text": "Medication:-------Levetiracetam-1250mg-bd",
+      "attributes": {
+        "Frequency": "2",
+        "DrugName": "levetiracetam",
+        "DrugDose": "1250",
+        "CUI": "C0377265",
+        "CUIPhrase": "levetiracetam",
+        "DoseUnit": "mg"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "Prescription",
+      "start": 103,
+      "end": 123,
+      "text": "Lamotrigine-100mg-bd",
+      "attributes": {
+        "DrugName": "lamotrigine",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine",
+        "CUI": "C0064636",
+        "DrugDose": "100",
+        "DoseUnit": "mg"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "SeizureFrequency",
+      "start": 232,
+      "end": 239,
+      "text": "seizure",
+      "attributes": {
+        "CUIPhrase": "seizure",
+        "FrequencyChange": "Same",
+        "PointInTime": "DrugChange",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "start": 270,
+      "end": 278,
+      "text": "seizures",
+      "attributes": {
+        "CUIPhrase": "seizures",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "SeizureFrequency",
+      "start": 270,
+      "end": 279,
+      "text": "seizures-",
+      "attributes": {
+        "CUI": "C0036572",
+        "LowerNumberOfSeizures": "3",
+        "TimePeriod": "Week",
+        "NumberOfTimePeriods": "1",
+        "UpperNumberOfSeizures": "5",
+        "CUIPhrase": "seizures"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "270",
+      "end_index": "279",
+      "text": "seizures-",
+      "attributes": {
+        "CUI": "C0036572",
+        "LowerNumberOfSeizures": "3",
+        "TimePeriod": "Week",
+        "NumberOfTimePeriods": "1",
+        "UpperNumberOfSeizures": "5",
+        "CUIPhrase": "seizures"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "32",
+      "end_index": "73",
+      "text": "Medication:-------Levetiracetam-1250mg-bd",
+      "attributes": {
+        "Frequency": "2",
+        "DrugName": "levetiracetam",
+        "DrugDose": "1250",
+        "CUI": "C0377265",
+        "CUIPhrase": "levetiracetam",
+        "DoseUnit": "mg"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "232",
+      "end_index": "239",
+      "text": "seizure",
+      "attributes": {
+        "CUIPhrase": "seizure",
+        "FrequencyChange": "Same",
+        "PointInTime": "DrugChange",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "11",
+      "end_index": "29",
+      "text": "Refactory-epilepsy",
+      "attributes": {
+        "Certainty": "5",
+        "CUIPhrase": "drug-refractory-epilepsy",
+        "Negation": "Affirmed",
+        "CUI": "C1096063",
+        "DiagCategory": "Epilepsy"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "103",
+      "end_index": "123",
+      "text": "Lamotrigine-100mg-bd",
+      "attributes": {
+        "DrugName": "lamotrigine",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine",
+        "CUI": "C0064636",
+        "DrugDose": "100",
+        "DoseUnit": "mg"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "270",
+      "end_index": "278",
+      "text": "seizures",
+      "attributes": {
+        "CUIPhrase": "seizures",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T2",
+      "type": "Prescription",
+      "text": "Medication:-------Levetiracetam-1250mg-bd",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T5",
+      "type": "Prescription",
+      "text": "Lamotrigine-100mg-bd",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "text": "seizures",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T3",
+      "type": "SeizureFrequency",
+      "text": "seizure",
+      "start": 232,
+      "end": 239,
+      "year": null,
+      "period": null,
+      "num_periods": null,
+      "time_since": null,
+      "point_in_time": "DrugChange",
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": null
+    },
+    {
+      "id": "T1",
+      "type": "SeizureFrequency",
+      "text": "seizures-",
+      "start": 270,
+      "end": 279,
+      "year": null,
+      "period": "Week",
+      "num_periods": "1",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": "3",
+      "upper_seizures": "5",
+      "num_seizures": null
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 1,
+    "Prescription": 2,
+    "SeizureFrequency": 2,
+    "PatientHistory": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "3 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T2",
+          "type": "Prescription",
+          "text": "Medication:-------Levetiracetam-1250mg-bd",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T5",
+          "type": "Prescription",
+          "text": "Lamotrigine-100mg-bd",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T6",
+          "type": "PatientHistory",
+          "text": "seizures",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

@@ -1,0 +1,367 @@
+{
+  "id": "EA0195",
+  "text": "Diagnosis:            Symptomatic epilepsy with generalised tonic clonic seizures with right temporal meningioma (2013)\n \nMedication:\tTegretol 400mg in the morning and 600mg nocte\n \nThis man has remained seizure free for three years and he had return to drive. However he had another seizure whilst he was asleep on the 2nd November. His wife heard a loud and unusual noise which woke her up. He then went stiff and was shaking for around 5 mins. \n\nHe has recently has some contact with the mental health services due to issues of continued low mood. There are no side effects from the Tegretol.\n\nIn the first instance I would suggest increasing the morning dose to 600mg so that he takes 600mg twice a day. He understands the DVLA driving regulations which state that he needs to be a year free of seizures before driving again.\n\nYours\n",
+  "entities": [
+    {
+      "id": "T4",
+      "type": "Diagnosis",
+      "start": 22,
+      "end": 42,
+      "text": "Symptomatic-epilepsy",
+      "attributes": {
+        "CUI": "C1406659",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "symptomatic epilepsy",
+        "DiagCategory": "Epilepsy"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "Diagnosis",
+      "start": 48,
+      "end": 81,
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "CUI": "C0494475",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUIPhrase": "generalised tonic clonic seizures",
+        "DiagCategory": "MultipleSeizures"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "PatientHistory",
+      "start": 87,
+      "end": 112,
+      "text": "right-temporal-meningioma",
+      "attributes": {
+        "YearDate": "2013",
+        "CUIPhrase": "meningioma",
+        "CUI": "C0349604",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "Prescription",
+      "start": 134,
+      "end": 143,
+      "text": "Tegretol-",
+      "attributes": {
+        "DrugDose": "600",
+        "DrugName": "Carbamazepine",
+        "DoseUnit": "mg",
+        "CUIPhrase": "tegretol",
+        "Frequency": "1",
+        "CUI": "C0700087"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Prescription",
+      "start": 134,
+      "end": 163,
+      "text": "Tegretol-400mg-in-the-morning",
+      "attributes": {
+        "DrugDose": "400",
+        "CUIPhrase": "tegretol",
+        "Frequency": "1",
+        "CUI": "C0700087",
+        "DrugName": "carbamazapine",
+        "DoseUnit": "mg"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "SeizureFrequency",
+      "start": 204,
+      "end": 232,
+      "text": "seizure-free-for-three-years",
+      "attributes": {
+        "CUI": "C1299590",
+        "NumberOfTimePeriods": "3",
+        "TimePeriod": "Year",
+        "CUIPhrase": "seizure-freedom",
+        "NumberOfSeizures": "0"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "start": 284,
+      "end": 292,
+      "text": "seizure-",
+      "attributes": {
+        "Certainty": "5",
+        "CUIPhrase": "seizure",
+        "Negation": "Affirmed",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "SeizureFrequency",
+      "start": 284,
+      "end": 292,
+      "text": "seizure-",
+      "attributes": {
+        "MonthDate": "11",
+        "NumberOfSeizures": "1",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572",
+        "DayDate": "2",
+        "TimeSince_or_TimeOfEvent": "During"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "PatientHistory",
+      "start_index": "87",
+      "end_index": "112",
+      "text": "right-temporal-meningioma",
+      "attributes": {
+        "YearDate": "2013",
+        "CUIPhrase": "meningioma",
+        "CUI": "C0349604",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "284",
+      "end_index": "292",
+      "text": "seizure-",
+      "attributes": {
+        "Certainty": "5",
+        "CUIPhrase": "seizure",
+        "Negation": "Affirmed",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "48",
+      "end_index": "81",
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "CUI": "C0494475",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUIPhrase": "generalised",
+        "DiagCategory": "MultipleSeizures"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "22",
+      "end_index": "42",
+      "text": "Symptomatic-epilepsy",
+      "attributes": {
+        "CUI": "C1406659",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "symptomatic",
+        "DiagCategory": "Epilepsy"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "204",
+      "end_index": "232",
+      "text": "seizure-free-for-three-years",
+      "attributes": {
+        "CUI": "C1299590",
+        "NumberOfTimePeriods": "3",
+        "TimePeriod": "Year",
+        "CUIPhrase": "seizure-freedom",
+        "NumberOfSeizures": "0"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "134",
+      "end_index": "143",
+      "text": "Tegretol-",
+      "attributes": {
+        "DrugDose": "600",
+        "DrugName": "Carbamazepine",
+        "DoseUnit": "mg",
+        "CUIPhrase": "tegretol",
+        "Frequency": "1",
+        "CUI": "C0700087"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "134",
+      "end_index": "163",
+      "text": "Tegretol-400mg-in-the-morning",
+      "attributes": {
+        "DrugDose": "400",
+        "CUIPhrase": "tegretol",
+        "Frequency": "1",
+        "CUI": "C0700087",
+        "DrugName": "carbamazapine",
+        "DoseUnit": "mg"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "284",
+      "end_index": "292",
+      "text": "seizure-",
+      "attributes": {
+        "MonthDate": "11",
+        "NumberOfSeizures": "1",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572",
+        "DayDate": "2",
+        "TimeSince_or_TimeOfEvent": "During"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 284,
+      "end": 292,
+      "text": "seizure-",
+      "entity_types": [
+        "PatientHistory",
+        "SeizureFrequency"
+      ],
+      "entity_ids": [
+        "T2",
+        "T9"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T7",
+      "type": "Prescription",
+      "text": "Tegretol-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T8",
+      "type": "Prescription",
+      "text": "Tegretol-400mg-in-the-morning",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "text": "seizure-",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T1",
+      "type": "PatientHistory",
+      "text": "right-temporal-meningioma",
+      "start": 87,
+      "end": 112,
+      "year": "2013",
+      "period": null,
+      "num_periods": null,
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": null
+    },
+    {
+      "id": "T6",
+      "type": "SeizureFrequency",
+      "text": "seizure-free-for-three-years",
+      "start": 204,
+      "end": 232,
+      "year": null,
+      "period": "Year",
+      "num_periods": "3",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    },
+    {
+      "id": "T9",
+      "type": "SeizureFrequency",
+      "text": "seizure-",
+      "start": 284,
+      "end": 292,
+      "year": null,
+      "period": null,
+      "num_periods": null,
+      "time_since": "During",
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "1"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 2,
+    "PatientHistory": 2,
+    "Prescription": 2,
+    "SeizureFrequency": 2
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "1 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 284,
+          "end": 292,
+          "text": "seizure-",
+          "entity_types": [
+            "PatientHistory",
+            "SeizureFrequency"
+          ],
+          "entity_ids": [
+            "T2",
+            "T9"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "3 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T7",
+          "type": "Prescription",
+          "text": "Tegretol-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T8",
+          "type": "Prescription",
+          "text": "Tegretol-400mg-in-the-morning",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T2",
+          "type": "PatientHistory",
+          "text": "seizure-",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

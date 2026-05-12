@@ -1,0 +1,465 @@
+{
+  "id": "EA0002",
+  "text": "Dear Dr,\n\nDiagnosis: focal epilepsy-Probable temporal\nCurrent antiepileptic medication: carbamazepine 400 mg twice a day\nTopiramate 100 mg BD\n\nI revealed this 42 year old lady together with her husband in clinic today. In March she had 2 to 3 of her focal seizures without change in awareness. Since her last clinic appointment she has had four secondary generalised seizures. During her focal seizures she may have a strange taste and an unusual sensation in her tummy. She will have a change in awareness and would find it difficult to respond. She also gets the same sensations before one of her have bigger convulsive seizures.\n\nWe had a discussion about changing medication but Mrs Williams was not keen on changing things today. This was despite me reminding her of the ongoing risk of convulsive seizures.\n\nWe revealed her previous MRI scan in 2012. It does show a subtle high intensity signal in the left temporal lobe and I think it would be useful to get a repeat MRI scan to quantify this further. I will ask the epilepsy nurse to contact Mrs Williams in a few months time and I will see her again in this clinic in six months time.\n\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 21,
+      "end": 35,
+      "text": "focal-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-epilepsy",
+        "CUI": "C0014547"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Diagnosis",
+      "start": 27,
+      "end": 53,
+      "text": "epilepsy-Probable-temporal",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "temporal-lobe-epilepsy",
+        "CUI": "C0014556"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Prescription",
+      "start": 88,
+      "end": 102,
+      "text": "carbamazepine-",
+      "attributes": {
+        "DrugName": "Carbamazepine",
+        "DrugDose": "400",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "carbamazepine",
+        "CUI": "C0006949"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "start": 121,
+      "end": 141,
+      "text": "Topiramate-100-mg-BD",
+      "attributes": {
+        "DrugName": "topiramate",
+        "DrugDose": "100",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "topiramate",
+        "CUI": "C0076829"
+      }
+    },
+    {
+      "id": "T102",
+      "type": "Diagnosis",
+      "start": 250,
+      "end": 264,
+      "text": "focal-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-seizures",
+        "CUI": "C0751495"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "SeizureFrequency",
+      "start": 250,
+      "end": 264,
+      "text": "focal-seizures",
+      "attributes": {
+        "LowerNumberOfSeizures": "2",
+        "UpperNumberOfSeizures": "3",
+        "MonthDate": "3",
+        "TimeSince_or_TimeOfEvent": "During",
+        "CUIPhrase": "focal-seizures",
+        "CUI": "C0751495"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "Diagnosis",
+      "start": 345,
+      "end": 375,
+      "text": "secondary-generalised-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "secondary-generalised-seizures",
+        "CUI": "C0270838"
+      }
+    },
+    {
+      "id": "T16",
+      "type": "SeizureFrequency",
+      "start": 345,
+      "end": 375,
+      "text": "secondary-generalised-seizures",
+      "attributes": {
+        "NumberOfSeizures": "4",
+        "PointInTime": "LastClinic",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "secondary-generalised-seizures",
+        "CUI": "C0270838"
+      }
+    },
+    {
+      "id": "T18",
+      "type": "Diagnosis",
+      "start": 388,
+      "end": 402,
+      "text": "focal-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-seizures",
+        "CUI": "C0751495"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "start": 611,
+      "end": 630,
+      "text": "convulsive-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "convulsive-seizures",
+        "CUI": "C0751494"
+      }
+    },
+    {
+      "id": "T22",
+      "type": "Investigations",
+      "start": 839,
+      "end": 847,
+      "text": "MRI-scan",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Abnormal",
+        "CUIPhrase": "mri-abnormal",
+        "CUI": "C1319851"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "21",
+      "end_index": "35",
+      "text": "focal-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-epilepsy",
+        "CUI": "C0014547"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "27",
+      "end_index": "53",
+      "text": "epilepsy-Probable-temporal",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "temporal-lobe-epilepsy",
+        "CUI": "C0014556"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "88",
+      "end_index": "102",
+      "text": "carbamazepine-",
+      "attributes": {
+        "DrugName": "Carbamazepine",
+        "DrugDose": "400",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "carbamazepine",
+        "CUI": "C0006949"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "121",
+      "end_index": "141",
+      "text": "Topiramate-100-mg-BD",
+      "attributes": {
+        "DrugName": "topiramate",
+        "DrugDose": "100",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "topiramate",
+        "CUI": "C0076829"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "250",
+      "end_index": "264",
+      "text": "focal-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-seizures",
+        "CUI": "C0751495"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "250",
+      "end_index": "264",
+      "text": "focal-seizures",
+      "attributes": {
+        "LowerNumberOfSeizures": "2",
+        "UpperNumberOfSeizures": "3",
+        "MonthDate": "3",
+        "TimeSince_or_TimeOfEvent": "During",
+        "CUIPhrase": "focal-seizures",
+        "CUI": "C0751495"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "345",
+      "end_index": "375",
+      "text": "secondary-generalised-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "secondary-generalised-seizures",
+        "CUI": "C0270838"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "345",
+      "end_index": "375",
+      "text": "secondary-generalised-seizures",
+      "attributes": {
+        "NumberOfSeizures": "4",
+        "PointInTime": "LastClinic",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "secondary-generalised-seizures",
+        "CUI": "C0270838"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "388",
+      "end_index": "402",
+      "text": "focal-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-seizures",
+        "CUI": "C0751495"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "611",
+      "end_index": "630",
+      "text": "convulsive-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "convulsive-seizures",
+        "CUI": "C0751494"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "839",
+      "end_index": "847",
+      "text": "MRI-scan",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Abnormal",
+        "CUIPhrase": "mri-abnormal",
+        "CUI": "C1319851"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 250,
+      "end": 264,
+      "text": "focal-seizures",
+      "entity_types": [
+        "Diagnosis",
+        "SeizureFrequency"
+      ],
+      "entity_ids": [
+        "T102",
+        "T12"
+      ]
+    },
+    {
+      "start": 345,
+      "end": 375,
+      "text": "secondary-generalised-seizures",
+      "entity_types": [
+        "Diagnosis",
+        "SeizureFrequency"
+      ],
+      "entity_ids": [
+        "T14",
+        "T16"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T8",
+      "type": "Prescription",
+      "text": "carbamazepine-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "text": "Topiramate-100-mg-BD",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "text": "convulsive-seizures",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T12",
+      "type": "SeizureFrequency",
+      "text": "focal-seizures",
+      "start": 250,
+      "end": 264,
+      "year": null,
+      "period": null,
+      "num_periods": null,
+      "time_since": "During",
+      "point_in_time": null,
+      "lower_seizures": "2",
+      "upper_seizures": "3",
+      "num_seizures": null
+    },
+    {
+      "id": "T16",
+      "type": "SeizureFrequency",
+      "text": "secondary-generalised-seizures",
+      "start": 345,
+      "end": 375,
+      "year": null,
+      "period": null,
+      "num_periods": null,
+      "time_since": "Since",
+      "point_in_time": "LastClinic",
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "4"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 5,
+    "Prescription": 2,
+    "SeizureFrequency": 2,
+    "PatientHistory": 1,
+    "Investigations": 1
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "2 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 250,
+          "end": 264,
+          "text": "focal-seizures",
+          "entity_types": [
+            "Diagnosis",
+            "SeizureFrequency"
+          ],
+          "entity_ids": [
+            "T102",
+            "T12"
+          ]
+        },
+        {
+          "start": 345,
+          "end": 375,
+          "text": "secondary-generalised-seizures",
+          "entity_types": [
+            "Diagnosis",
+            "SeizureFrequency"
+          ],
+          "entity_ids": [
+            "T14",
+            "T16"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "3 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T8",
+          "type": "Prescription",
+          "text": "carbamazepine-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T6",
+          "type": "Prescription",
+          "text": "Topiramate-100-mg-BD",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T10",
+          "type": "PatientHistory",
+          "text": "convulsive-seizures",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [
+    {
+      "id": "T4",
+      "type": "Diagnosis",
+      "text": "epilepsy-Probable-temporal",
+      "certainty": 4
+    }
+  ],
+  "has_unknown_seizure": false
+}

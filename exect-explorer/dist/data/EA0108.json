@@ -1,0 +1,789 @@
+{
+  "id": "EA0108",
+  "text": "Clinic date 1st March 2020\n\nDear Dr\n\nRE\tJohn Jones DOB:\t01.01.1954\tNHS 223 452 5423\n\t17, Old Road, Old Town, RT20 6OP\n\nDiagnosis:\t1. Symptomatic epilepsy presenting with\tfocal motor seizures with secondary generalised tonic clonic seizures\n\t\t2. AVM\n\nMedication:\t1. Levetiracetam 500mg bd\n\t\t2. Carbamazepine 300mg bd\n\nThank you for referring this sixty-six year old retired school master to my epilepsy clinic.  The history is that he suffered a haemorrhage in 2006 from an arteriovenous malformation. This was treated with radiosurgery. Soon after that he started having seizures and had been under the care of my collegue.\n  \nHis epilepsy was well controlled until last December when he had a seizure whilst out walking. Currently his seizures occur 2 to 3 times per month. There is usually a warning in the form of twitching in his left hand and then the episode progresses to a tonic clonic convulsion. \n\nHe says that in his last episode, two weeks ago, he suffered a cut to his forehead, he was alone at the time. He lives with his wife who usually can assist him after a seizure. \n\nHis neurological examination today was normal. \n\nThere is some room to increase his medication to achieve better control of his epilepsy. I suggest that his Carbamazepine is increased to 400mg bd.\nI also think that in the light of his seizures returning we should update CT brain scan, and I am requesting the same.  \n \n\nYours sincerely\n\n",
+  "entities": [
+    {
+      "id": "T3",
+      "type": "Diagnosis",
+      "start": 133,
+      "end": 153,
+      "text": "Symptomatic-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "symptomatic-epilepsy",
+        "CUI": "C1406659"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "Diagnosis",
+      "start": 170,
+      "end": 190,
+      "text": "focal-motor-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-motor-seizures",
+        "CUI": "C0016399"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "Diagnosis",
+      "start": 196,
+      "end": 239,
+      "text": "secondary-generalised-tonic-clonic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "secondary-generalised-tonic-clonic-seizures",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "start": 245,
+      "end": 248,
+      "text": "AVM",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "avm",
+        "CUI": "C0917804"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "Prescription",
+      "start": 265,
+      "end": 287,
+      "text": "Levetiracetam-500mg-bd",
+      "attributes": {
+        "DrugName": "levetiracetam",
+        "DrugDose": "500",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "levetiracetam",
+        "CUI": "C0377265"
+      }
+    },
+    {
+      "id": "T13",
+      "type": "Prescription",
+      "start": 293,
+      "end": 315,
+      "text": "Carbamazepine-300mg-bd",
+      "attributes": {
+        "DrugName": "carbamazepine",
+        "DrugDose": "300",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "carbamazepine",
+        "CUI": "C0006949"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "PatientHistory",
+      "start": 445,
+      "end": 456,
+      "text": "haemorrhage",
+      "attributes": {
+        "YearDate": "2006",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "haemorrhage",
+        "CUI": "C0019080"
+      }
+    },
+    {
+      "id": "T17",
+      "type": "PatientHistory",
+      "start": 473,
+      "end": 499,
+      "text": "arteriovenous-malformation",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "arteriovenous-malformation",
+        "CUI": "C0334533"
+      }
+    },
+    {
+      "id": "T19",
+      "type": "PatientHistory",
+      "start": 571,
+      "end": 580,
+      "text": "seizures-",
+      "attributes": {
+        "PointInTime": "Surgery",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T21",
+      "type": "Diagnosis",
+      "start": 631,
+      "end": 639,
+      "text": "epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T23",
+      "type": "SeizureFrequency",
+      "start": 694,
+      "end": 702,
+      "text": "seizure-",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "MonthDate": "12",
+        "TimeSince_or_TimeOfEvent": "During",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "start": 694,
+      "end": 702,
+      "text": "seizure-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T25",
+      "type": "SeizureFrequency",
+      "start": 736,
+      "end": 745,
+      "text": "seizures-",
+      "attributes": {
+        "LowerNumberOfSeizures": "2",
+        "UpperNumberOfSeizures": "3",
+        "TimePeriod": "Month",
+        "NumberOfTimePeriods": "1",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "start": 736,
+      "end": 745,
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T27",
+      "type": "Diagnosis",
+      "start": 881,
+      "end": 905,
+      "text": "tonic-clonic-convulsion.",
+      "attributes": {
+        "DiagCategory": "SingleSeizure",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "tonic-clonic-convulsion",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "id": "T29",
+      "type": "PatientHistory",
+      "start": 1076,
+      "end": 1083,
+      "text": "seizure",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T31",
+      "type": "Diagnosis",
+      "start": 1215,
+      "end": 1223,
+      "text": "epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T33",
+      "type": "SeizureFrequency",
+      "start": 1322,
+      "end": 1330,
+      "text": "seizures",
+      "attributes": {
+        "FrequencyChange": "Increased",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "start": 1322,
+      "end": 1330,
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "133",
+      "end_index": "153",
+      "text": "Symptomatic-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "symptomatic-epilepsy",
+        "CUI": "C1406659"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "170",
+      "end_index": "190",
+      "text": "focal-motor-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-motor-seizures",
+        "CUI": "C0016399"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "196",
+      "end_index": "239",
+      "text": "secondary-generalised-tonic-clonic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "secondary-generalised-tonic-clonic-seizures",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "245",
+      "end_index": "248",
+      "text": "AVM",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "avm",
+        "CUI": "C0917804"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "265",
+      "end_index": "287",
+      "text": "Levetiracetam-500mg-bd",
+      "attributes": {
+        "DrugName": "levetiracetam",
+        "DrugDose": "500",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "levetiracetam",
+        "CUI": "C0377265"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "293",
+      "end_index": "315",
+      "text": "Carbamazepine-300mg-bd",
+      "attributes": {
+        "DrugName": "carbamazepine",
+        "DrugDose": "300",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "carbamazepine",
+        "CUI": "C0006949"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "445",
+      "end_index": "456",
+      "text": "haemorrhage",
+      "attributes": {
+        "YearDate": "2006",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "haemorrhage",
+        "CUI": "C0019080"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "473",
+      "end_index": "499",
+      "text": "arteriovenous-malformation",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "arteriovenous-malformation",
+        "CUI": "C0334533"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "571",
+      "end_index": "580",
+      "text": "seizures-",
+      "attributes": {
+        "PointInTime": "Surgery",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "631",
+      "end_index": "639",
+      "text": "epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "694",
+      "end_index": "702",
+      "text": "seizure-",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "MonthDate": "12",
+        "TimeSince_or_TimeOfEvent": "During",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "694",
+      "end_index": "702",
+      "text": "seizure-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "736",
+      "end_index": "745",
+      "text": "seizures-",
+      "attributes": {
+        "LowerNumberOfSeizures": "2",
+        "UpperNumberOfSeizures": "3",
+        "TimePeriod": "Month",
+        "NumberOfTimePeriods": "1",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "736",
+      "end_index": "745",
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "881",
+      "end_index": "905",
+      "text": "tonic-clonic-convulsion.",
+      "attributes": {
+        "DiagCategory": "SingleSeizure",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "tonic-clonic-convulsion",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1076",
+      "end_index": "1083",
+      "text": "seizure",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1215",
+      "end_index": "1223",
+      "text": "epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "1322",
+      "end_index": "1330",
+      "text": "seizures",
+      "attributes": {
+        "FrequencyChange": "Increased",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1322",
+      "end_index": "1330",
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 694,
+      "end": 702,
+      "text": "seizure-",
+      "entity_types": [
+        "SeizureFrequency",
+        "PatientHistory"
+      ],
+      "entity_ids": [
+        "T23",
+        "T10"
+      ]
+    },
+    {
+      "start": 736,
+      "end": 745,
+      "text": "seizures-",
+      "entity_types": [
+        "SeizureFrequency",
+        "PatientHistory"
+      ],
+      "entity_ids": [
+        "T25",
+        "T12"
+      ]
+    },
+    {
+      "start": 1322,
+      "end": 1330,
+      "text": "seizures",
+      "entity_types": [
+        "SeizureFrequency",
+        "PatientHistory"
+      ],
+      "entity_ids": [
+        "T33",
+        "T14"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "text": "AVM",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T1",
+      "type": "Prescription",
+      "text": "Levetiracetam-500mg-bd",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T13",
+      "type": "Prescription",
+      "text": "Carbamazepine-300mg-bd",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T17",
+      "type": "PatientHistory",
+      "text": "arteriovenous-malformation",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "text": "seizure-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "text": "seizures-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T29",
+      "type": "PatientHistory",
+      "text": "seizure",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T33",
+      "type": "SeizureFrequency",
+      "text": "seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "text": "seizures",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T11",
+      "type": "PatientHistory",
+      "text": "haemorrhage",
+      "start": 445,
+      "end": 456,
+      "year": "2006",
+      "period": null,
+      "num_periods": null,
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": null
+    },
+    {
+      "id": "T19",
+      "type": "PatientHistory",
+      "text": "seizures-",
+      "start": 571,
+      "end": 580,
+      "year": null,
+      "period": null,
+      "num_periods": null,
+      "time_since": null,
+      "point_in_time": "Surgery",
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": null
+    },
+    {
+      "id": "T23",
+      "type": "SeizureFrequency",
+      "text": "seizure-",
+      "start": 694,
+      "end": 702,
+      "year": null,
+      "period": null,
+      "num_periods": null,
+      "time_since": "During",
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "1"
+    },
+    {
+      "id": "T25",
+      "type": "SeizureFrequency",
+      "text": "seizures-",
+      "start": 736,
+      "end": 745,
+      "year": null,
+      "period": "Month",
+      "num_periods": "1",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": "2",
+      "upper_seizures": "3",
+      "num_seizures": null
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 6,
+    "PatientHistory": 8,
+    "Prescription": 2,
+    "SeizureFrequency": 3
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "3 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 694,
+          "end": 702,
+          "text": "seizure-",
+          "entity_types": [
+            "SeizureFrequency",
+            "PatientHistory"
+          ],
+          "entity_ids": [
+            "T23",
+            "T10"
+          ]
+        },
+        {
+          "start": 736,
+          "end": 745,
+          "text": "seizures-",
+          "entity_types": [
+            "SeizureFrequency",
+            "PatientHistory"
+          ],
+          "entity_ids": [
+            "T25",
+            "T12"
+          ]
+        },
+        {
+          "start": 1322,
+          "end": 1330,
+          "text": "seizures",
+          "entity_types": [
+            "SeizureFrequency",
+            "PatientHistory"
+          ],
+          "entity_ids": [
+            "T33",
+            "T14"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "9 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T9",
+          "type": "PatientHistory",
+          "text": "AVM",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T1",
+          "type": "Prescription",
+          "text": "Levetiracetam-500mg-bd",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T13",
+          "type": "Prescription",
+          "text": "Carbamazepine-300mg-bd",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T17",
+          "type": "PatientHistory",
+          "text": "arteriovenous-malformation",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T10",
+          "type": "PatientHistory",
+          "text": "seizure-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T12",
+          "type": "PatientHistory",
+          "text": "seizures-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T29",
+          "type": "PatientHistory",
+          "text": "seizure",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T33",
+          "type": "SeizureFrequency",
+          "text": "seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T14",
+          "type": "PatientHistory",
+          "text": "seizures",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

@@ -1,0 +1,289 @@
+{
+  "id": "EA0042",
+  "text": "Clinic date 10th June 2018\n\nRe. Mr John John Jones D.O.B.: 20/10/1996\n\nDiagnosis: probable focal onset epilepsy\n\tAnxiety\n\tEpisodic migraine\n\nCurrent medication Brivaracetam 75mg twice a day \nDispersible aspirin and triptans for migraine\n\nI reviewed this 22 year old man together with his partner again in clinic today. I was pleased to hear that he has felt generally better since switching from Levetiracetam to Brivaracetam. He feels more alert. His focal seizures now happen around once or twice per month.\n\nWe went over potential triggers for his seizures including sleep deprivation and alcohol consumption. We discussed the DVLA rules about driving. He is keen to learn to drive. I explained that he needs to be a year free of seizures before he is eligible to play again.\n\nI suggest increasing the brivaracetam to 100 mg in the morning and 75 mg in the evening for one month then if necessary increasing again to hundred mg twice a day after this. If he is still getting seizures in my next clinic review we can think of adding in an additional medication such as lamotrigine.\n\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 91,
+      "end": 111,
+      "text": "focal-onset-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-onset-epilepsy",
+        "CUI": "C0014547"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "start": 113,
+      "end": 120,
+      "text": "Anxiety",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "anxiety",
+        "CUI": "C0003467"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "start": 122,
+      "end": 139,
+      "text": "Episodic-migraine",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "migraine",
+        "CUI": "C0149931"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Prescription",
+      "start": 141,
+      "end": 189,
+      "text": "Current-medication-Brivaracetam-75mg-twice-a-day",
+      "attributes": {
+        "DrugName": "brivaracetam",
+        "DrugDose": "75",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "brivaracetam",
+        "CUI": "C1699861"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "Diagnosis",
+      "start": 452,
+      "end": 466,
+      "text": "focal-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-seizures",
+        "CUI": "C0751495"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "SeizureFrequency",
+      "start": 452,
+      "end": 508,
+      "text": "focal-seizures-now-happen-around-once-or-twice-per-month",
+      "attributes": {
+        "LowerNumberOfSeizures": "1",
+        "UpperNumberOfSeizures": "2",
+        "TimePeriod": "Month",
+        "NumberOfTimePeriods": "1",
+        "CUIPhrase": "focal-seizure",
+        "CUI": "C0751495"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "start": 551,
+      "end": 559,
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "91",
+      "end_index": "111",
+      "text": "focal-onset-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-onset-epilepsy",
+        "CUI": "C0014547"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "113",
+      "end_index": "120",
+      "text": "Anxiety",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "anxiety",
+        "CUI": "C0003467"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "122",
+      "end_index": "139",
+      "text": "Episodic-migraine",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "migraine",
+        "CUI": "C0149931"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "141",
+      "end_index": "189",
+      "text": "Current-medication-Brivaracetam-75mg-twice-a-day",
+      "attributes": {
+        "DrugName": "brivaracetam",
+        "DrugDose": "75",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "brivaracetam",
+        "CUI": "C1699861"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "452",
+      "end_index": "466",
+      "text": "focal-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-seizures",
+        "CUI": "C0751495"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "452",
+      "end_index": "508",
+      "text": "focal-seizures-now-happen-around-once-or-twice-per-month",
+      "attributes": {
+        "LowerNumberOfSeizures": "1",
+        "UpperNumberOfSeizures": "2",
+        "TimePeriod": "Month",
+        "NumberOfTimePeriods": "1",
+        "CUIPhrase": "focal-seizure",
+        "CUI": "C0751495"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "551",
+      "end_index": "559",
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "text": "Anxiety",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "text": "Episodic-migraine",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T8",
+      "type": "Prescription",
+      "text": "Current-medication-Brivaracetam-75mg-twice-a-day",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "text": "seizures",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T12",
+      "type": "SeizureFrequency",
+      "text": "focal-seizures-now-happen-around-once-or-twice-per-month",
+      "start": 452,
+      "end": 508,
+      "year": null,
+      "period": "Month",
+      "num_periods": "1",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": "1",
+      "upper_seizures": "2",
+      "num_seizures": null
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 2,
+    "PatientHistory": 3,
+    "Prescription": 1,
+    "SeizureFrequency": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "4 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T4",
+          "type": "PatientHistory",
+          "text": "Anxiety",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T6",
+          "type": "PatientHistory",
+          "text": "Episodic-migraine",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T8",
+          "type": "Prescription",
+          "text": "Current-medication-Brivaracetam-75mg-twice-a-day",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T14",
+          "type": "PatientHistory",
+          "text": "seizures",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "text": "focal-onset-epilepsy",
+      "certainty": 4
+    }
+  ],
+  "has_unknown_seizure": false
+}

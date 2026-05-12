@@ -1,0 +1,691 @@
+{
+  "id": "EA0007",
+  "text": "Dear Dr,\n\nDiagnosis: epilepsy – unclassified\n\t\tDiabetes, hypothyroidism\n\nCurrent antiepileptic medication: levetiracetam 750mg mane, 500 mg nocte\n\t\t\t\t\tPhenytoin 75mg tds\n\nOther medication includes: Ramipril, lansoprazole, metformin, propranolol, clopidogrel.\n\nSeizure type and frequency: seizures every 3 to 4 weeks, possibly focal onset\n\nPrevious investigations MRI 2011 Normal\n\nI reviewed this 37 year old lady together with her husband in clinic today. She has had seizures since the age of 13. At present her epilepsy is the best it’s ever been. She has seizures every 3 to 4 weeks. Her diabetes is a little out of control at present with high blood sugars.\n\nBefore her seizures she has a warning of an unusual taste. I was unable to get a detailed description of her seizures today.\n\nWe had a chat about previous options and at present Mrs Evans wanted to keep things as they were. That is an option to increase the levetiracetam by 250 mg every fortnight to a new target dorsal of 1000 mg twice a day if necessary.\n\nI will update her investigations by requesting an EEG and MRI and will also review her old notes. I will see her in clinic in three months time.\n\n\n\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 21,
+      "end": 30,
+      "text": "epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "start": 47,
+      "end": 55,
+      "text": "Diabetes",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "diabetes-",
+        "CUI": "C0011849"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "start": 57,
+      "end": 71,
+      "text": "hypothyroidism",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "hypothyroidism",
+        "CUI": "C0020676"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Prescription",
+      "start": 107,
+      "end": 121,
+      "text": "levetiracetam-",
+      "attributes": {
+        "DrugName": "Levetiracetam",
+        "DrugDose": "750",
+        "DoseUnit": "mg",
+        "Frequency": "1",
+        "CUIPhrase": "levetiracetam",
+        "CUI": "C0377265"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "Prescription",
+      "start": 107,
+      "end": 121,
+      "text": "levetiracetam-",
+      "attributes": {
+        "DrugName": "Levetiracetam",
+        "DrugDose": "500",
+        "DoseUnit": "mg",
+        "Frequency": "1",
+        "CUIPhrase": "levetiracetam",
+        "CUI": "C0377265"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "Prescription",
+      "start": 151,
+      "end": 161,
+      "text": "Phenytoin-",
+      "attributes": {
+        "DrugName": "Phenytoin",
+        "DrugDose": "75",
+        "DoseUnit": "mg",
+        "Frequency": "3",
+        "CUIPhrase": "phenytoin",
+        "CUI": "C0031507"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "start": 288,
+      "end": 297,
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T16",
+      "type": "SeizureFrequency",
+      "start": 288,
+      "end": 298,
+      "text": "seizures-e",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "TimePeriod": "Week",
+        "LowerNumberOfTimePeriods": "3",
+        "UpperNumberOfTimePeriods": "4",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T18",
+      "type": "Diagnosis",
+      "start": 326,
+      "end": 337,
+      "text": "focal-onset",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "3",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-onset-epilepsy",
+        "CUI": "C0014547"
+      }
+    },
+    {
+      "id": "T20",
+      "type": "Investigations",
+      "start": 363,
+      "end": 378,
+      "text": "MRI-2011-Normal",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Normal",
+        "CUIPhrase": "mri-normal",
+        "CUI": "C0436481"
+      }
+    },
+    {
+      "id": "T22",
+      "type": "PatientHistory",
+      "start": 468,
+      "end": 477,
+      "text": "seizures-",
+      "attributes": {
+        "AgeUnit": "Year",
+        "Age": "13",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T24",
+      "type": "Diagnosis",
+      "start": 513,
+      "end": 522,
+      "text": "epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T28",
+      "type": "PatientHistory",
+      "start": 558,
+      "end": 566,
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T26",
+      "type": "SeizureFrequency",
+      "start": 558,
+      "end": 567,
+      "text": "seizures-",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "TimePeriod": "Week",
+        "LowerNumberOfTimePeriods": "3",
+        "UpperNumberOfTimePeriods": "4",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T30",
+      "type": "PatientHistory",
+      "start": 591,
+      "end": 600,
+      "text": "diabetes-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "diabetes",
+        "CUI": "C0011849"
+      }
+    },
+    {
+      "id": "T32",
+      "type": "PatientHistory",
+      "start": 674,
+      "end": 683,
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T34",
+      "type": "PatientHistory",
+      "start": 772,
+      "end": 781,
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "21",
+      "end_index": "30",
+      "text": "epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "47",
+      "end_index": "55",
+      "text": "Diabetes",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "diabetes-",
+        "CUI": "C0011849"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "57",
+      "end_index": "71",
+      "text": "hypothyroidism",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "hypothyroidism",
+        "CUI": "C0020676"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "107",
+      "end_index": "121",
+      "text": "levetiracetam-",
+      "attributes": {
+        "DrugName": "Levetiracetam",
+        "DrugDose": "750",
+        "DoseUnit": "mg",
+        "Frequency": "1",
+        "CUIPhrase": "levetiracetam",
+        "CUI": "C0377265"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "107",
+      "end_index": "121",
+      "text": "levetiracetam-",
+      "attributes": {
+        "DrugName": "Levetiracetam",
+        "DrugDose": "500",
+        "DoseUnit": "mg",
+        "Frequency": "1",
+        "CUIPhrase": "levetiracetam",
+        "CUI": "C0377265"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "151",
+      "end_index": "161",
+      "text": "Phenytoin-",
+      "attributes": {
+        "DrugName": "Phenytoin",
+        "DrugDose": "75",
+        "DoseUnit": "mg",
+        "Frequency": "3",
+        "CUIPhrase": "phenytoin",
+        "CUI": "C0031507"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "288",
+      "end_index": "297",
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "288",
+      "end_index": "298",
+      "text": "seizures-e",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "TimePeriod": "Week",
+        "LowerNumberOfTimePeriods": "3",
+        "UpperNumberOfTimePeriods": "4",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "326",
+      "end_index": "337",
+      "text": "focal-onset",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "3",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-onset-epilepsy",
+        "CUI": "C0014547"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "363",
+      "end_index": "378",
+      "text": "MRI-2011-Normal",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Normal",
+        "CUIPhrase": "mri-normal",
+        "CUI": "C0436481"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "468",
+      "end_index": "477",
+      "text": "seizures-",
+      "attributes": {
+        "AgeUnit": "Year",
+        "Age": "13",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "513",
+      "end_index": "522",
+      "text": "epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "558",
+      "end_index": "567",
+      "text": "seizures-",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "TimePeriod": "Week",
+        "LowerNumberOfTimePeriods": "3",
+        "UpperNumberOfTimePeriods": "4",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "558",
+      "end_index": "566",
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "591",
+      "end_index": "600",
+      "text": "diabetes-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "diabetes",
+        "CUI": "C0011849"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "674",
+      "end_index": "683",
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "772",
+      "end_index": "781",
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 107,
+      "end": 121,
+      "text": "levetiracetam-",
+      "entity_types": [
+        "Prescription",
+        "Prescription"
+      ],
+      "entity_ids": [
+        "T8",
+        "T10"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "text": "Diabetes",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "text": "hypothyroidism",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T8",
+      "type": "Prescription",
+      "text": "levetiracetam-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T10",
+      "type": "Prescription",
+      "text": "levetiracetam-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T12",
+      "type": "Prescription",
+      "text": "Phenytoin-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "text": "seizures-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T22",
+      "type": "PatientHistory",
+      "text": "seizures-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T28",
+      "type": "PatientHistory",
+      "text": "seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T30",
+      "type": "PatientHistory",
+      "text": "diabetes-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T32",
+      "type": "PatientHistory",
+      "text": "seizures-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T34",
+      "type": "PatientHistory",
+      "text": "seizures-",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T16",
+      "type": "SeizureFrequency",
+      "text": "seizures-e",
+      "start": 288,
+      "end": 298,
+      "year": null,
+      "period": "Week",
+      "num_periods": null,
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "1"
+    },
+    {
+      "id": "T26",
+      "type": "SeizureFrequency",
+      "text": "seizures-",
+      "start": 558,
+      "end": 567,
+      "year": null,
+      "period": "Week",
+      "num_periods": null,
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "1"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 3,
+    "PatientHistory": 8,
+    "Prescription": 3,
+    "SeizureFrequency": 2,
+    "Investigations": 1
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "1 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 107,
+          "end": 121,
+          "text": "levetiracetam-",
+          "entity_types": [
+            "Prescription",
+            "Prescription"
+          ],
+          "entity_ids": [
+            "T8",
+            "T10"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "11 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T4",
+          "type": "PatientHistory",
+          "text": "Diabetes",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T6",
+          "type": "PatientHistory",
+          "text": "hypothyroidism",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T8",
+          "type": "Prescription",
+          "text": "levetiracetam-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T10",
+          "type": "Prescription",
+          "text": "levetiracetam-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T12",
+          "type": "Prescription",
+          "text": "Phenytoin-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T14",
+          "type": "PatientHistory",
+          "text": "seizures-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T22",
+          "type": "PatientHistory",
+          "text": "seizures-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T28",
+          "type": "PatientHistory",
+          "text": "seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T30",
+          "type": "PatientHistory",
+          "text": "diabetes-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T32",
+          "type": "PatientHistory",
+          "text": "seizures-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T34",
+          "type": "PatientHistory",
+          "text": "seizures-",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [
+    {
+      "id": "T18",
+      "type": "Diagnosis",
+      "text": "focal-onset",
+      "certainty": 3
+    }
+  ],
+  "has_unknown_seizure": false
+}

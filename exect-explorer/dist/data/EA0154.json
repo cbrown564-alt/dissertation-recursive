@@ -1,0 +1,301 @@
+{
+  "id": "EA0154",
+  "text": "Clinic date 9/6/2018\n \nDiagnosis: Epilepsy - focal onset \nMedication: Currently Lamotrigine 75mg bd to increase over the following weeks to 125mg bd\n \nWe met Joan and her partner David today in the nurse lead clinic following her recent diagnosis of epilepsy. Her seizures began last year. Joan does not really remember what happens during a seizure. She has been told that she sees sees things that aren’t there and her speech is not normal. \n \nDavid says that she seems to panic, she may move her arms around start talking abnormally. After an event she will be confused and need to sleep. We discussed her diagnosis today in some detail. Her MRI has been reported as normal and she is awaiting an appointment for an EEG.\n \nThere are lots of resources available to help explain epilepsy in the family .We briefly discussed SUEDEP. We discussed that sharing a bed reduces the risk of SUDEP.\n \nJoan says the seizure frequency is roughly every 4 weeks at present. We explained that this will become less over time as the medication is increased. She tells us that the Lamotrigine has helped her recover after seizures. She has a good support network, however her family are some distance away. Daniel is currently working from home and he is there to support her and the children. We also discussed contraception and I explained that the depo injection and lamotrigine can interact.\n \nAnother thing we discussed today is Joan’s mood. She has had a low mood for several years and has previously been prescribed sertraline. We discussed today how depression is common in epilepsy. We have advised today that it would be beneficial to consider an anti-depressant she feels in the past the sertraline was not of much use. Please could you arrange to her in regards to her mental health.\n \nWe have also explained to Joan that we run an open access service and we will not send her a routine follow up appointment with the epilepsy nurses. She knows that if she does need an appointment or need any support what so ever with her epilepsy she is free to call us whenever she wants.\n\n",
+  "entities": [
+    {
+      "id": "T7",
+      "type": "Diagnosis",
+      "start": 34,
+      "end": 56,
+      "text": "Epilepsy---focal-onset",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C0014547",
+        "CUIPhrase": "focal-onset-epilepsy",
+        "Certainty": "5",
+        "DiagCategory": "Epilepsy"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "start": 58,
+      "end": 148,
+      "text": "Medication:-Currently-Lamotrigine-75mg-bd-to-increase-over-the-following-weeks-to-125mg-bd",
+      "attributes": {
+        "DrugDose": "75",
+        "DrugName": "lamotrigine",
+        "CUI": "C0064636",
+        "CUIPhrase": "lamotrigine",
+        "DoseUnit": "mg",
+        "Frequency": "2"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "Diagnosis",
+      "start": 250,
+      "end": 258,
+      "text": "epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "PatientHistory",
+      "start": 264,
+      "end": 273,
+      "text": "seizures-",
+      "attributes": {
+        "PointInTime": "Last_Year",
+        "Certainty": "5",
+        "CUI": "C0036572",
+        "CUIPhrase": "seizures",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "Investigations",
+      "start": 645,
+      "end": 649,
+      "text": "MRI-",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "CUI": "C0436481",
+        "CUIPhrase": "mri-normal",
+        "MRI_Results": "Normal"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "SeizureFrequency",
+      "start": 908,
+      "end": 916,
+      "text": "seizure-",
+      "attributes": {
+        "TimePeriod": "Week",
+        "CUI": "C0036572",
+        "NumberOfSeizures": "1",
+        "NumberOfTimePeriods": "4",
+        "CUIPhrase": "seizure"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "PatientHistory",
+      "start": 1108,
+      "end": 1116,
+      "text": "seizures",
+      "attributes": {
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "Diagnosis",
+      "start": 2022,
+      "end": 2030,
+      "text": "epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "PatientHistory",
+      "start_index": "264",
+      "end_index": "273",
+      "text": "seizures-",
+      "attributes": {
+        "PointInTime": "Last_Year",
+        "Certainty": "5",
+        "CUI": "C0036572",
+        "CUIPhrase": "seizures",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "645",
+      "end_index": "649",
+      "text": "MRI-",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "CUI": "C0436481",
+        "CUIPhrase": "mri-normal",
+        "MRI_Results": "Normal"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "250",
+      "end_index": "258",
+      "text": "epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "58",
+      "end_index": "148",
+      "text": "Medication:-Currently-Lamotrigine-75mg-bd-to-increase-over-the-following-weeks-to-125mg-bd",
+      "attributes": {
+        "DrugDose": "75",
+        "DrugName": "lamotrigine",
+        "CUI": "C0064636",
+        "CUIPhrase": "lamotrigine",
+        "DoseUnit": "mg",
+        "Frequency": "2"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1108",
+      "end_index": "1116",
+      "text": "seizures",
+      "attributes": {
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "34",
+      "end_index": "56",
+      "text": "Epilepsy---focal-onset",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUI": "C0014547",
+        "CUIPhrase": "focal-onset-epilepsy",
+        "Certainty": "5",
+        "DiagCategory": "Epilepsy"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "908",
+      "end_index": "916",
+      "text": "seizure-",
+      "attributes": {
+        "TimePeriod": "Week",
+        "CUI": "C0036572",
+        "NumberOfSeizures": "1",
+        "NumberOfTimePeriods": "4",
+        "CUIPhrase": "seizure"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "2022",
+      "end_index": "2030",
+      "text": "epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "text": "Medication:-Currently-Lamotrigine-75mg-bd-to-increase-over-the-following-weeks-to-125mg-bd",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T5",
+      "type": "PatientHistory",
+      "text": "seizures",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T1",
+      "type": "PatientHistory",
+      "text": "seizures-",
+      "start": 264,
+      "end": 273,
+      "year": null,
+      "period": null,
+      "num_periods": null,
+      "time_since": null,
+      "point_in_time": "Last_Year",
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": null
+    },
+    {
+      "id": "T8",
+      "type": "SeizureFrequency",
+      "text": "seizure-",
+      "start": 908,
+      "end": 916,
+      "year": null,
+      "period": "Week",
+      "num_periods": "4",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "1"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 3,
+    "Prescription": 1,
+    "PatientHistory": 2,
+    "Investigations": 1,
+    "SeizureFrequency": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "2 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T4",
+          "type": "Prescription",
+          "text": "Medication:-Currently-Lamotrigine-75mg-bd-to-increase-over-the-following-weeks-to-125mg-bd",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T5",
+          "type": "PatientHistory",
+          "text": "seizures",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

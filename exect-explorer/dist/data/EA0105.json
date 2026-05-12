@@ -1,0 +1,676 @@
+{
+  "id": "EA0105",
+  "text": "Clinic 3/4/2018\n\nDear Dr\n\nRE\tRachel Gwyn DOB:\t21/6/1968\n\nDiagnosis:Focal post stroke epilepsy presenting with generalised tonic clonic seizures .\n\nComorbidities: right ACA infarct November 2005 \nType 2 diabetes\nHypertension \nPost stroke depression \n\nI met Mrs Gwyn for the first time today in clinic. She developed epilepsy three years after her stroke. She is currently being treated with sodium valproate taking 500mg per day. Her seizures have been reasonably well controlled on this dose. The maximum period that she has been without seizures is 3 years.\n\nMrs Gwynn did have a cluster of seizures in February or March this year. There is no obvious trigger to these seizures. She denies any significant side effects with the epilim. She is now post menopausal. \n\nMrs Gwyn has got a raised BMI and therefore sodium valproate may not be the best medication for her especially that she has diabetes. She's not keen to make any changes to her medication. However she would accept trying small dose of another medication for better control of her seizures. I'd be very grateful if you could start her only zonisamide 25 mg od to be increased by 25 mg every two weeks until she is on a maintenance dose of 50MG twice a day. Mrs gwynn does not drive. I will arrange follow up in the nurse lead clinic. \n",
+  "entities": [
+    {
+      "id": "T3",
+      "type": "Diagnosis",
+      "start": 67,
+      "end": 93,
+      "text": "Focal-post-stroke-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-epilepsy",
+        "CUI": "C0014547"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 73,
+      "end": 94,
+      "text": "post-stroke-epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy-due-to-stroke",
+        "CUI": "C4518323"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "Diagnosis",
+      "start": 110,
+      "end": 143,
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "PatientHistory",
+      "start": 172,
+      "end": 180,
+      "text": "infarct-",
+      "attributes": {
+        "MonthDate": "11",
+        "YearDate": "2005",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "infarct",
+        "CUI": "C0751955"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "start": 202,
+      "end": 210,
+      "text": "diabetes",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "diabetes",
+        "CUI": "C0011847"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "start": 211,
+      "end": 223,
+      "text": "Hypertension",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "hypertension",
+        "CUI": "C0020538"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "PatientHistory",
+      "start": 237,
+      "end": 248,
+      "text": "depression-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "depression",
+        "CUI": "C0011570"
+      }
+    },
+    {
+      "id": "T13",
+      "type": "Diagnosis",
+      "start": 315,
+      "end": 324,
+      "text": "epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "start": 346,
+      "end": 352,
+      "text": "stroke",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "stroke",
+        "CUI": "C0038454"
+      }
+    },
+    {
+      "id": "T15",
+      "type": "Prescription",
+      "start": 390,
+      "end": 406,
+      "text": "sodium-valproate",
+      "attributes": {
+        "DrugName": "SodiumValproate",
+        "DrugDose": "500",
+        "DoseUnit": "mg",
+        "Frequency": "1",
+        "CUIPhrase": "sodium-valproate",
+        "CUI": "C0037567"
+      }
+    },
+    {
+      "id": "T19",
+      "type": "SeizureFrequency",
+      "start": 433,
+      "end": 434,
+      "text": "s",
+      "attributes": {
+        "FrequencyChange": "Infrequent",
+        "PointInTime": "DrugChange",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T17",
+      "type": "PatientHistory",
+      "start": 433,
+      "end": 441,
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T21",
+      "type": "SeizureFrequency",
+      "start": 581,
+      "end": 600,
+      "text": "cluster-of-seizures",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "MonthDate": "2",
+        "TimeSince_or_TimeOfEvent": "During",
+        "CUIPhrase": "cluster-of-seizures",
+        "CUI": "C3203523"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "start": 581,
+      "end": 600,
+      "text": "cluster-of-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "cluster-of-seizures",
+        "CUI": "C3203523"
+      }
+    },
+    {
+      "id": "T23",
+      "type": "PatientHistory",
+      "start": 670,
+      "end": 678,
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T25",
+      "type": "PatientHistory",
+      "start": 891,
+      "end": 899,
+      "text": "diabetes",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "diabetes",
+        "CUI": "C0011847"
+      }
+    },
+    {
+      "id": "T27",
+      "type": "PatientHistory",
+      "start": 1046,
+      "end": 1054,
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "67",
+      "end_index": "93",
+      "text": "Focal-post-stroke-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-epilepsy",
+        "CUI": "C0014547"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "73",
+      "end_index": "94",
+      "text": "post-stroke-epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy-due-to-stroke",
+        "CUI": "C4518323"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "110",
+      "end_index": "143",
+      "text": "generalised-tonic-clonic-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "172",
+      "end_index": "180",
+      "text": "infarct-",
+      "attributes": {
+        "MonthDate": "11",
+        "YearDate": "2005",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "infarct",
+        "CUI": "C0751955"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "202",
+      "end_index": "210",
+      "text": "diabetes",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "diabetes",
+        "CUI": "C0011847"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "211",
+      "end_index": "223",
+      "text": "Hypertension",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "hypertension",
+        "CUI": "C0020538"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "237",
+      "end_index": "248",
+      "text": "depression-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "depression",
+        "CUI": "C0011570"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "315",
+      "end_index": "324",
+      "text": "epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "346",
+      "end_index": "352",
+      "text": "stroke",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "stroke",
+        "CUI": "C0038454"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "390",
+      "end_index": "406",
+      "text": "sodium-valproate",
+      "attributes": {
+        "DrugName": "SodiumValproate",
+        "DrugDose": "500",
+        "DoseUnit": "mg",
+        "Frequency": "1",
+        "CUIPhrase": "sodium-valproate",
+        "CUI": "C0037567"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "433",
+      "end_index": "441",
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "433",
+      "end_index": "434",
+      "text": "s",
+      "attributes": {
+        "FrequencyChange": "Infrequent",
+        "PointInTime": "DrugChange",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "581",
+      "end_index": "600",
+      "text": "cluster-of-seizures",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "MonthDate": "2",
+        "TimeSince_or_TimeOfEvent": "During",
+        "CUIPhrase": "cluster-of-seizures",
+        "CUI": "C3203523"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "581",
+      "end_index": "600",
+      "text": "cluster-of-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "cluster-of-seizures",
+        "CUI": "C3203523"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "670",
+      "end_index": "678",
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "891",
+      "end_index": "899",
+      "text": "diabetes",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "diabetes",
+        "CUI": "C0011847"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1046",
+      "end_index": "1054",
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 581,
+      "end": 600,
+      "text": "cluster-of-seizures",
+      "entity_types": [
+        "SeizureFrequency",
+        "PatientHistory"
+      ],
+      "entity_ids": [
+        "T21",
+        "T14"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "text": "diabetes",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "text": "Hypertension",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T11",
+      "type": "PatientHistory",
+      "text": "depression-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "text": "stroke",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T15",
+      "type": "Prescription",
+      "text": "sodium-valproate",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T17",
+      "type": "PatientHistory",
+      "text": "seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "text": "cluster-of-seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T23",
+      "type": "PatientHistory",
+      "text": "seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T25",
+      "type": "PatientHistory",
+      "text": "diabetes",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T27",
+      "type": "PatientHistory",
+      "text": "seizures",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T7",
+      "type": "PatientHistory",
+      "text": "infarct-",
+      "start": 172,
+      "end": 180,
+      "year": "2005",
+      "period": null,
+      "num_periods": null,
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": null
+    },
+    {
+      "id": "T19",
+      "type": "SeizureFrequency",
+      "text": "s",
+      "start": 433,
+      "end": 434,
+      "year": null,
+      "period": null,
+      "num_periods": null,
+      "time_since": "Since",
+      "point_in_time": "DrugChange",
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": null
+    },
+    {
+      "id": "T21",
+      "type": "SeizureFrequency",
+      "text": "cluster-of-seizures",
+      "start": 581,
+      "end": 600,
+      "year": null,
+      "period": null,
+      "num_periods": null,
+      "time_since": "During",
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "1"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 4,
+    "PatientHistory": 10,
+    "Prescription": 1,
+    "SeizureFrequency": 2
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "1 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 581,
+          "end": 600,
+          "text": "cluster-of-seizures",
+          "entity_types": [
+            "SeizureFrequency",
+            "PatientHistory"
+          ],
+          "entity_ids": [
+            "T21",
+            "T14"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "10 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T9",
+          "type": "PatientHistory",
+          "text": "diabetes",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T10",
+          "type": "PatientHistory",
+          "text": "Hypertension",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T11",
+          "type": "PatientHistory",
+          "text": "depression-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T12",
+          "type": "PatientHistory",
+          "text": "stroke",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T15",
+          "type": "Prescription",
+          "text": "sodium-valproate",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T17",
+          "type": "PatientHistory",
+          "text": "seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T14",
+          "type": "PatientHistory",
+          "text": "cluster-of-seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T23",
+          "type": "PatientHistory",
+          "text": "seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T25",
+          "type": "PatientHistory",
+          "text": "diabetes",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T27",
+          "type": "PatientHistory",
+          "text": "seizures",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

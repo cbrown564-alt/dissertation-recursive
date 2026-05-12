@@ -1,0 +1,535 @@
+{
+  "id": "EA0066",
+  "text": "NHS No 654 888 999\nDate 11/03/2019\nClinic Date 9/03/2019\n\nThe Epilepsy service\n\nDear Dr\n\nr.e. Mr Harry Harries. D.O.B: 010/02/1949\n127, Train Road, Stationville. CF97 2ID\n\nDiagnosis: Focal symptomatic epilepsy associated with cerebrovascular dissease\n\nMedication: Lamotrigine 75mg bd\n\nInvestigations: MRI 10/02/2019 evidence of small vessel disease\n \nMr Harris had 4 seizures for the first time in February this year. They were witnessed by his wife and she gives a good description of tonic clonic seizure with limb stiffness, jerking and sturtuous breathing. He was started on the lamotrigine at the time and I am happy to report that there have been no furthere seizures.\n \nHe has previously had a MI and has hypercholestrolaemia. He smokes 25 cigarettes a day and takes simvastatin, clopidogrel as well as the lamotrigine.\n\nHis birth was normal and so were his milestones. He has not had any head injuries, brain infections or febrile seizures.\n \nComments\n1. I would suggest continuing with the lamotrigine. The dose can be increased if he has further seizures.\n2. I don’t think an EEG will add any information at present.\n3. He shouldn’t drive until he’s been a year free of seizures.\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 183,
+      "end": 209,
+      "text": "Focal-symptomatic-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-symptomatic-epilepsy",
+        "CUI": "C0472349"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "start": 226,
+      "end": 250,
+      "text": "cerebrovascular-dissease",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "cerebrovascular-disease",
+        "CUI": "C0007820"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "EpilepsyCause",
+      "start": 226,
+      "end": 250,
+      "text": "cerebrovascular-dissease",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "cerebrovascular-disease",
+        "CUI": "C0007820"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "start": 252,
+      "end": 283,
+      "text": "Medication:-Lamotrigine-75mg-bd",
+      "attributes": {
+        "DrugName": "lamotrigine",
+        "DrugDose": "75",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "Investigations",
+      "start": 301,
+      "end": 305,
+      "text": "MRI-",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Abnormal",
+        "CUIPhrase": "mri-abnormal",
+        "CUI": "C1319851"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "SeizureFrequency",
+      "start": 367,
+      "end": 374,
+      "text": "seizure",
+      "attributes": {
+        "NumberOfSeizures": "4",
+        "MonthDate": "2",
+        "TimeSince_or_TimeOfEvent": "During",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "PatientHistory",
+      "start": 367,
+      "end": 375,
+      "text": "seizures",
+      "attributes": {
+        "MonthDate": "2",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T13",
+      "type": "Diagnosis",
+      "start": 486,
+      "end": 506,
+      "text": "tonic-clonic-seizure",
+      "attributes": {
+        "DiagCategory": "SingleSeizure",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "tonic-clonic-seizure",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "SeizureFrequency",
+      "start": 665,
+      "end": 673,
+      "text": "seizures",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "PointInTime": "DrugChange",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T16",
+      "type": "PatientHistory",
+      "start": 701,
+      "end": 703,
+      "text": "MI",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "mi",
+        "CUI": "C0027051"
+      }
+    },
+    {
+      "id": "T18",
+      "type": "BirthHistory",
+      "start": 831,
+      "end": 848,
+      "text": "-birth-was-normal",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "birth-was-normal",
+        "CUI": "C3665337"
+      }
+    },
+    {
+      "id": "T20",
+      "type": "PatientHistory",
+      "start": 931,
+      "end": 947,
+      "text": "febrile-seizures",
+      "attributes": {
+        "Certainty": "1",
+        "Negation": "Negated",
+        "CUIPhrase": "febrile-seizures",
+        "CUI": "C0009952"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "start": 1056,
+      "end": 1064,
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "183",
+      "end_index": "209",
+      "text": "Focal-symptomatic-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-symptomatic-epilepsy",
+        "CUI": "C0472349"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "226",
+      "end_index": "250",
+      "text": "cerebrovascular-dissease",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "cerebrovascular-disease",
+        "CUI": "C0007820"
+      }
+    },
+    {
+      "entity": "EpilepsyCause",
+      "start_index": "226",
+      "end_index": "250",
+      "text": "cerebrovascular-dissease",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "cerebrovascular-disease",
+        "CUI": "C0007820"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "252",
+      "end_index": "283",
+      "text": "Medication:-Lamotrigine-75mg-bd",
+      "attributes": {
+        "DrugName": "lamotrigine",
+        "DrugDose": "75",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "301",
+      "end_index": "305",
+      "text": "MRI-",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Abnormal",
+        "CUIPhrase": "mri-abnormal",
+        "CUI": "C1319851"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "367",
+      "end_index": "375",
+      "text": "seizures",
+      "attributes": {
+        "MonthDate": "2",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "367",
+      "end_index": "374",
+      "text": "seizure",
+      "attributes": {
+        "NumberOfSeizures": "4",
+        "MonthDate": "2",
+        "TimeSince_or_TimeOfEvent": "During",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "486",
+      "end_index": "506",
+      "text": "tonic-clonic-seizure",
+      "attributes": {
+        "DiagCategory": "SingleSeizure",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "tonic-clonic-seizure",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "665",
+      "end_index": "673",
+      "text": "seizures",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "PointInTime": "DrugChange",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "701",
+      "end_index": "703",
+      "text": "MI",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "mi",
+        "CUI": "C0027051"
+      }
+    },
+    {
+      "entity": "BirthHistory",
+      "start_index": "831",
+      "end_index": "848",
+      "text": "-birth-was-normal",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "birth-was-normal",
+        "CUI": "C3665337"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "931",
+      "end_index": "947",
+      "text": "febrile-seizures",
+      "attributes": {
+        "Certainty": "1",
+        "Negation": "Negated",
+        "CUIPhrase": "febrile-seizures",
+        "CUI": "C0009952"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1056",
+      "end_index": "1064",
+      "text": "seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 226,
+      "end": 250,
+      "text": "cerebrovascular-dissease",
+      "entity_types": [
+        "PatientHistory",
+        "EpilepsyCause"
+      ],
+      "entity_ids": [
+        "T4",
+        "T8"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "text": "cerebrovascular-dissease",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "text": "Medication:-Lamotrigine-75mg-bd",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T11",
+      "type": "PatientHistory",
+      "text": "seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T16",
+      "type": "PatientHistory",
+      "text": "MI",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T20",
+      "type": "PatientHistory",
+      "text": "febrile-seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T9",
+      "type": "PatientHistory",
+      "text": "seizures",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T12",
+      "type": "SeizureFrequency",
+      "text": "seizure",
+      "start": 367,
+      "end": 374,
+      "year": null,
+      "period": null,
+      "num_periods": null,
+      "time_since": "During",
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "4"
+    },
+    {
+      "id": "T14",
+      "type": "SeizureFrequency",
+      "text": "seizures",
+      "start": 665,
+      "end": 673,
+      "year": null,
+      "period": null,
+      "num_periods": null,
+      "time_since": "Since",
+      "point_in_time": "DrugChange",
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 2,
+    "PatientHistory": 5,
+    "EpilepsyCause": 1,
+    "Prescription": 1,
+    "Investigations": 1,
+    "SeizureFrequency": 2,
+    "BirthHistory": 1
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "1 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 226,
+          "end": 250,
+          "text": "cerebrovascular-dissease",
+          "entity_types": [
+            "PatientHistory",
+            "EpilepsyCause"
+          ],
+          "entity_ids": [
+            "T4",
+            "T8"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "6 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T4",
+          "type": "PatientHistory",
+          "text": "cerebrovascular-dissease",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T6",
+          "type": "Prescription",
+          "text": "Medication:-Lamotrigine-75mg-bd",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T11",
+          "type": "PatientHistory",
+          "text": "seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T16",
+          "type": "PatientHistory",
+          "text": "MI",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T20",
+          "type": "PatientHistory",
+          "text": "febrile-seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T9",
+          "type": "PatientHistory",
+          "text": "seizures",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    },
+    {
+      "category": "negated_entities",
+      "description": "1 entity/ies are explicitly negated in the text.",
+      "details": [
+        {
+          "id": "T20",
+          "type": "PatientHistory",
+          "text": "febrile-seizures"
+        }
+      ],
+      "oracle_impact": "clinical_precision"
+    }
+  ],
+  "negated_entities": [
+    {
+      "id": "T20",
+      "type": "PatientHistory",
+      "text": "febrile-seizures"
+    }
+  ],
+  "low_certainty": [
+    {
+      "id": "T20",
+      "type": "PatientHistory",
+      "text": "febrile-seizures",
+      "certainty": 1
+    }
+  ],
+  "has_unknown_seizure": false
+}

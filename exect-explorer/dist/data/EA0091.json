@@ -1,0 +1,104 @@
+{
+  "id": "EA0091",
+  "text": "Clinic date: 3rd March 2014\nTyped: 5th March 2014\n\nDear Dr Pooled\n\nRe: \tMiss Nancy Hoegarden\tD.O.B: 05/08/2006 NHS 123 587 6542\n\nDiagnosis: Probable focal seizures\n\nMedication: Carbamazepine 80mg bd increasing by 20mg increments to 120mg bd or further if necessary (12mg/kg/day) – to try chewtabs\n\nFollow up: 3 months\n\nI reviewed this young lady in the clinic today.  She continues to have a couple of episodes a week of short-lived vacancy.  On February 3rd, she had an episode after school where she simply collapsed.   Mother had noticed some vacant episodes prior to this.  Otherwise she has been very well.  The family recognise that she only really has her episodes if she is overtired or overexcited.  \n\nThey agreed that increasing the Carbamazepine has been helpful in reducing the episodes and therefore we have decided to continue increasing it.  We agreed on slow steady increments, although she could have up to almost double what she is on.  She was keen to try chewtabs rather than liquid and I have given them a prescription for this.  If she likes them, they will come to you to get a prescription for this.  \n\nYours sincerely\n\n\n\n\n\n",
+  "entities": [
+    {
+      "id": "T1",
+      "type": "Diagnosis",
+      "start": 149,
+      "end": 163,
+      "text": "focal-seizures",
+      "attributes": {
+        "CUI": "C0751495",
+        "Certainty": "4",
+        "CUIPhrase": "focal-seizures",
+        "Negation": "Affirmed",
+        "DiagCategory": "MultipleSeizures"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "Prescription",
+      "start": 177,
+      "end": 190,
+      "text": "Carbamazepine",
+      "attributes": {
+        "DrugName": "Carbamazepine",
+        "Frequency": "2",
+        "DoseUnit": "mg",
+        "CUI": "C0006949",
+        "CUIPhrase": "carbamazepine",
+        "DrugDose": "80"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "149",
+      "end_index": "163",
+      "text": "focal-seizures",
+      "attributes": {
+        "CUI": "C0751495",
+        "Certainty": "4",
+        "CUIPhrase": "focal-seizures",
+        "Negation": "Affirmed",
+        "DiagCategory": "MultipleSeizures"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "177",
+      "end_index": "190",
+      "text": "Carbamazepine",
+      "attributes": {
+        "DrugName": "Carbamazepine",
+        "Frequency": "2",
+        "DoseUnit": "mg",
+        "CUI": "C0006949",
+        "CUIPhrase": "carbamazepine",
+        "DrugDose": "80"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T2",
+      "type": "Prescription",
+      "text": "Carbamazepine",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [],
+  "type_counts": {
+    "Diagnosis": 1,
+    "Prescription": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "1 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T2",
+          "type": "Prescription",
+          "text": "Carbamazepine",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [
+    {
+      "id": "T1",
+      "type": "Diagnosis",
+      "text": "focal-seizures",
+      "certainty": 4
+    }
+  ],
+  "has_unknown_seizure": false
+}

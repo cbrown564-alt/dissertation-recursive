@@ -1,0 +1,182 @@
+{
+  "id": "EA0088",
+  "text": "Clinic date: 5th September 2013\nTyped: 8th September 2013\n\nDear Dr Pooled\n\nRe: \tMr Richard Harries\tD.O.B: 10/10/2005 NHS 566 845 12345\n\nDiagnosis: Frontal lobe epilepsy \n\nMedication: Carbamazepine 100mg am, 200mg pm (8mg/kg/day)\n\nFollow: up 5 months\n\nI reviewed this young man in the clinic today.   He has been seizure free since before Christmas.  He has no side effects on the Carbamazepine except for he doesn’t like the taste and I have therefore given them a prescription for chewtabs.  If he likes these and can tolerate them, I have asked them to get a repeat prescription from you for this.\n\nWe will review him as above.  \n\nYours sincerely\n\nYours sincerely\n\n\n\n\n\n",
+  "entities": [
+    {
+      "id": "T3",
+      "type": "Diagnosis",
+      "start": 147,
+      "end": 168,
+      "text": "Frontal-lobe-epilepsy",
+      "attributes": {
+        "CUIPhrase": "frontal-lobe-epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "DiagCategory": "Epilepsy",
+        "CUI": "C0085541"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "Prescription",
+      "start": 171,
+      "end": 205,
+      "text": "Medication:-Carbamazepine-100mg-am",
+      "attributes": {
+        "CUIPhrase": "carbamazepine",
+        "DrugName": "carbamazepine",
+        "DrugDose": "100",
+        "CUI": "C0006949",
+        "DoseUnit": "mg",
+        "Frequency": "1"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "Prescription",
+      "start": 183,
+      "end": 196,
+      "text": "Carbamazepine",
+      "attributes": {
+        "CUI": "C0006949",
+        "DrugName": "Carbamazepine",
+        "CUIPhrase": "carbamazepine",
+        "Frequency": "1",
+        "DrugDose": "200",
+        "DoseUnit": "mg"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "SeizureFrequency",
+      "start": 311,
+      "end": 324,
+      "text": "-seizure-free",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "MonthDate": "12",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "seizure-free",
+        "CUI": "C1299590"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Prescription",
+      "start_index": "171",
+      "end_index": "205",
+      "text": "Medication:-Carbamazepine-100mg-am",
+      "attributes": {
+        "CUIPhrase": "carbamazepine",
+        "DrugName": "carbamazepine",
+        "DrugDose": "100",
+        "CUI": "C0006949",
+        "DoseUnit": "mg",
+        "Frequency": "1"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "183",
+      "end_index": "196",
+      "text": "Carbamazepine",
+      "attributes": {
+        "CUI": "C0006949",
+        "DrugName": "Carbamazepine",
+        "CUIPhrase": "carbamazepine",
+        "Frequency": "1",
+        "DrugDose": "200",
+        "DoseUnit": "mg"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "147",
+      "end_index": "168",
+      "text": "Frontal-lobe-epilepsy",
+      "attributes": {
+        "CUIPhrase": "frontal-lobe-epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "DiagCategory": "Epilepsy",
+        "CUI": "C0085541"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "311",
+      "end_index": "324",
+      "text": "-seizure-free",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "MonthDate": "12",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "seizure-free",
+        "CUI": "C1299590"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T1",
+      "type": "Prescription",
+      "text": "Medication:-Carbamazepine-100mg-am",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T2",
+      "type": "Prescription",
+      "text": "Carbamazepine",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T10",
+      "type": "SeizureFrequency",
+      "text": "-seizure-free",
+      "start": 311,
+      "end": 324,
+      "year": null,
+      "period": null,
+      "num_periods": null,
+      "time_since": "Since",
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 1,
+    "Prescription": 2,
+    "SeizureFrequency": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "2 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T1",
+          "type": "Prescription",
+          "text": "Medication:-Carbamazepine-100mg-am",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T2",
+          "type": "Prescription",
+          "text": "Carbamazepine",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

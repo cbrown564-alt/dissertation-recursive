@@ -1,0 +1,322 @@
+{
+  "id": "EA0165",
+  "text": "Re: Darren Rikens D.O.B: 19/04/1972\n172 Caebryn, Ammanford, CARMS, SA1939GG\n\nDiagnosis: \tFocal Epilepsy, likely frontal with Generalised Tonic-Clonic Seizures\n\nMedication: \tLamotrigine 200mg twice daily\nBrivaracetam 75mg twice daily\nClobazam 20mg BD\nBuccal Midazolam 10mg PRN\n\nI have spoken with Darren today he tells me that he usually receives Accord Lamotrigine 200mg to be\ntaken twice daily, but, this month he has been given an alternative brand. Darren, as is usual for him,\ndecided to do as directed and take the Lamotrigine but he has found that it is having some odd side\neffects for him such as dizziness and is a little unsteady on his feet and a little slurred with his speech.\nIn face he tells me that his friend remarked that he thought that he had been drinking. Darren does not drink alcohol and therefore he was a little curious as to why this should be. \n\nWe have discussed this today and we would ask that you would kindly consider prescribing specifically Accord Lamotrigine for Darren in the future. He is going to continue to take his Lamotrigine as prescribed but we would really appreciate your attention to this matter as soon as you are able to replace the existing Lamotrigine with Accord brand.\n\nIt is well documented that Lamotrigine can be susceptible to differences according to different brands, with this in mind it is not unreasonable that Darren is finding an alternative brand difficult to take. Darren will remain in contact with the team and he knows we are here to support him should it be necessary.\n\nYours sincerely\n\n",
+  "entities": [
+    {
+      "id": "T5",
+      "type": "Diagnosis",
+      "start": 89,
+      "end": 103,
+      "text": "Focal-Epilepsy",
+      "attributes": {
+        "CUIPhrase": "focal-epilepsy",
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUI": "C0014547"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Diagnosis",
+      "start": 112,
+      "end": 120,
+      "text": "frontal-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "CUI": "C0085541",
+        "Certainty": "4",
+        "CUIPhrase": "frontal lobe epilepsy",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "Diagnosis",
+      "start": 125,
+      "end": 158,
+      "text": "Generalised-Tonic-Clonic-Seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "Certainty": "5",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "start": 173,
+      "end": 202,
+      "text": "Lamotrigine-200mg-twice-daily",
+      "attributes": {
+        "CUIPhrase": "lamotrigine",
+        "Frequency": "2",
+        "CUI": "C0064636",
+        "DrugDose": "200",
+        "DrugName": "lamotrigine",
+        "DoseUnit": "mg"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "start": 203,
+      "end": 232,
+      "text": "Brivaracetam-75mg-twice-daily",
+      "attributes": {
+        "DoseUnit": "mg",
+        "CUI": "C1699861",
+        "DrugDose": "75",
+        "DrugName": "brivaracetam",
+        "Frequency": "2",
+        "CUIPhrase": "brivaracetam"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "Prescription",
+      "start": 233,
+      "end": 249,
+      "text": "Clobazam-20mg-BD",
+      "attributes": {
+        "CUIPhrase": "clobazam",
+        "Frequency": "2",
+        "DrugDose": "20",
+        "DoseUnit": "mg",
+        "CUI": "C0055891",
+        "DrugName": "clobazam"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "Prescription",
+      "start": 250,
+      "end": 275,
+      "text": "Buccal-Midazolam-10mg-PRN",
+      "attributes": {
+        "DoseUnit": "mg",
+        "CUI": "C0026056",
+        "DrugName": "midazolam",
+        "DrugDose": "10",
+        "Frequency": "As_Required",
+        "CUIPhrase": "midazolam"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "Prescription",
+      "start": 353,
+      "end": 364,
+      "text": "Lamotrigine",
+      "attributes": {
+        "DoseUnit": "mg",
+        "CUI": "C0064636",
+        "DrugName": "Lamotrigine",
+        "DrugDose": "200",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Prescription",
+      "start_index": "353",
+      "end_index": "364",
+      "text": "Lamotrigine",
+      "attributes": {
+        "DoseUnit": "mg",
+        "CUI": "C0064636",
+        "DrugName": "Lamotrigine",
+        "DrugDose": "200",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "233",
+      "end_index": "249",
+      "text": "Clobazam-20mg-BD",
+      "attributes": {
+        "CUIPhrase": "clobazam",
+        "Frequency": "2",
+        "DrugDose": "20",
+        "DoseUnit": "mg",
+        "CUI": "C0055891",
+        "DrugName": "clobazam"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "250",
+      "end_index": "275",
+      "text": "Buccal-Midazolam-10mg-PRN",
+      "attributes": {
+        "DoseUnit": "mg",
+        "CUI": "C0026056",
+        "DrugName": "midazolam",
+        "DrugDose": "10",
+        "Frequency": "As_Required",
+        "CUIPhrase": "midazolam"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "173",
+      "end_index": "202",
+      "text": "Lamotrigine-200mg-twice-daily",
+      "attributes": {
+        "CUIPhrase": "lamotrigine",
+        "Frequency": "2",
+        "CUI": "C0064636",
+        "DrugDose": "200",
+        "DrugName": "lamotrigine",
+        "DoseUnit": "mg"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "89",
+      "end_index": "103",
+      "text": "Focal-Epilepsy",
+      "attributes": {
+        "CUIPhrase": "focal-epilepsy",
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUI": "C0014547"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "203",
+      "end_index": "232",
+      "text": "Brivaracetam-75mg-twice-daily",
+      "attributes": {
+        "DoseUnit": "mg",
+        "CUI": "C1699861",
+        "DrugDose": "75",
+        "DrugName": "brivaracetam",
+        "Frequency": "2",
+        "CUIPhrase": "brivaracetam"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "125",
+      "end_index": "158",
+      "text": "Generalised-Tonic-Clonic-Seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Negation": "Affirmed",
+        "CUIPhrase": "generalised-tonic-clonic-seizures",
+        "Certainty": "5",
+        "CUI": "C0494475"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "112",
+      "end_index": "120",
+      "text": "frontal-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "CUI": "C0085541",
+        "Certainty": "4",
+        "CUIPhrase": "frontal",
+        "Negation": "Affirmed"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "text": "Lamotrigine-200mg-twice-daily",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T6",
+      "type": "Prescription",
+      "text": "Brivaracetam-75mg-twice-daily",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T2",
+      "type": "Prescription",
+      "text": "Clobazam-20mg-BD",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T3",
+      "type": "Prescription",
+      "text": "Buccal-Midazolam-10mg-PRN",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T1",
+      "type": "Prescription",
+      "text": "Lamotrigine",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [],
+  "type_counts": {
+    "Diagnosis": 3,
+    "Prescription": 5
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "5 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T4",
+          "type": "Prescription",
+          "text": "Lamotrigine-200mg-twice-daily",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T6",
+          "type": "Prescription",
+          "text": "Brivaracetam-75mg-twice-daily",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T2",
+          "type": "Prescription",
+          "text": "Clobazam-20mg-BD",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T3",
+          "type": "Prescription",
+          "text": "Buccal-Midazolam-10mg-PRN",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T1",
+          "type": "Prescription",
+          "text": "Lamotrigine",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [
+    {
+      "id": "T8",
+      "type": "Diagnosis",
+      "text": "frontal-",
+      "certainty": 4
+    }
+  ],
+  "has_unknown_seizure": false
+}

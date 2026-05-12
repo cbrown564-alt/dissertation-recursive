@@ -1,0 +1,405 @@
+{
+  "id": "EA0016",
+  "text": "Clinic Date 1/2/2019\n\nDiagnosis:\t single focal seizure\nCVA\twith right hemiparesis 2017\n\nMedication : simvastatin, Aspirin\n\nI saw this 52 year old gentleman together With his partner in clinic today. He had an event on 22 December. He was sitting on the sofa when he developed shaking of the right arm. This continued for three minutes. The movements did not become generalised. It took him around four minutes to recover during which time his partner noticed that he had some lip smacking.\n\nHe has not had any the previous seizures. Apart from the previous stroke, he is well. He lives with his partner and is currently a teacher and has stopped driving. He gave up smoking 10 years ago and he drinks three cans of lager every week.\n\nOn examination he had a right hemiparesis. ECG was normal. There was a previous CT scan from 2017 showing a left hemisphere infarct\n\nImpression\n\nThis history is consistent with a single focal seizure secondary to a known stroke. We discussed the following: \n· I will request an MRI of the brain\n· We discuss the advantages and disadvantages of starting antiepileptic medication. I explained that even though he’s only had one seizure he is at risk of further seizures. Currently he would prefer to hold off medication.\n· I explained the driving regulations. He needs to be clear of all seizures for 12 months before he can resume driving.\n· If you went on to have another seizure or if he decided to start medication then I would suggest maybe Levetiracetam 250 mg once-a-day, increasing by 250 mg every two weeks to 250 milligrams twice a day. The main side effects are tiredness, and mood change.\n\nYours sincerely,\n\nDr Carter\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 41,
+      "end": 54,
+      "text": "focal-seizure",
+      "attributes": {
+        "DiagCategory": "SingleSeizure",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-seizure",
+        "CUI": "C0751495"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "start": 55,
+      "end": 59,
+      "text": "CVA-",
+      "attributes": {
+        "YearDate": "2017",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "cva",
+        "CUI": "C0038454"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "start": 70,
+      "end": 82,
+      "text": "hemiparesis-",
+      "attributes": {
+        "YearDate": "2017",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "hemiparesis",
+        "CUI": "C0018989"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "start": 557,
+      "end": 563,
+      "text": "stroke",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "stroke",
+        "CUI": "C0038454"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "start": 764,
+      "end": 775,
+      "text": "hemiparesis",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "hemiparesis",
+        "CUI": "C0018989"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "Investigations",
+      "start": 814,
+      "end": 821,
+      "text": "CT-scan",
+      "attributes": {
+        "CT_Performed": "Yes",
+        "CT_Results": "Abnormal",
+        "CUIPhrase": "ct-abnormal",
+        "CUI": "C0436539"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "start": 858,
+      "end": 865,
+      "text": "infarct",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "infarct",
+        "CUI": "C0751955"
+      }
+    },
+    {
+      "id": "T16",
+      "type": "Diagnosis",
+      "start": 920,
+      "end": 933,
+      "text": "focal-seizure",
+      "attributes": {
+        "DiagCategory": "SingleSeizure",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-seizure",
+        "CUI": "C0751495"
+      }
+    },
+    {
+      "id": "T20",
+      "type": "PatientHistory",
+      "start": 955,
+      "end": 960,
+      "text": "strok",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "stroke",
+        "CUI": "C0038454"
+      }
+    },
+    {
+      "id": "T18",
+      "type": "EpilepsyCause",
+      "start": 955,
+      "end": 961,
+      "text": "stroke",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "strokes",
+        "CUI": "C0038454"
+      }
+    },
+    {
+      "id": "T22",
+      "type": "PatientHistory",
+      "start": 1160,
+      "end": 1168,
+      "text": "seizure-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "41",
+      "end_index": "54",
+      "text": "focal-seizure",
+      "attributes": {
+        "DiagCategory": "SingleSeizure",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-seizure",
+        "CUI": "C0751495"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "55",
+      "end_index": "59",
+      "text": "CVA-",
+      "attributes": {
+        "YearDate": "2017",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "cva",
+        "CUI": "C0038454"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "70",
+      "end_index": "82",
+      "text": "hemiparesis-",
+      "attributes": {
+        "YearDate": "2017",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "hemiparesis",
+        "CUI": "C0018989"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "557",
+      "end_index": "563",
+      "text": "stroke",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "stroke",
+        "CUI": "C0038454"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "764",
+      "end_index": "775",
+      "text": "hemiparesis",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "hemiparesis",
+        "CUI": "C0018989"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "814",
+      "end_index": "821",
+      "text": "CT-scan",
+      "attributes": {
+        "CT_Performed": "Yes",
+        "CT_Results": "Abnormal",
+        "CUIPhrase": "ct-abnormal",
+        "CUI": "C0436539"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "858",
+      "end_index": "865",
+      "text": "infarct",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "infarct",
+        "CUI": "C0751955"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "920",
+      "end_index": "933",
+      "text": "focal-seizure",
+      "attributes": {
+        "DiagCategory": "SingleSeizure",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-seizure",
+        "CUI": "C0751495"
+      }
+    },
+    {
+      "entity": "EpilepsyCause",
+      "start_index": "955",
+      "end_index": "961",
+      "text": "stroke",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "strokes",
+        "CUI": "C0038454"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "955",
+      "end_index": "960",
+      "text": "strok",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "stroke",
+        "CUI": "C0038454"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1160",
+      "end_index": "1168",
+      "text": "seizure-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "text": "stroke",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "text": "hemiparesis",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "text": "infarct",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T20",
+      "type": "PatientHistory",
+      "text": "strok",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T22",
+      "type": "PatientHistory",
+      "text": "seizure-",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "text": "CVA-",
+      "start": 55,
+      "end": 59,
+      "year": "2017",
+      "period": null,
+      "num_periods": null,
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": null
+    },
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "text": "hemiparesis-",
+      "start": 70,
+      "end": 82,
+      "year": "2017",
+      "period": null,
+      "num_periods": null,
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": null
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 2,
+    "PatientHistory": 7,
+    "Investigations": 1,
+    "EpilepsyCause": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "5 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T8",
+          "type": "PatientHistory",
+          "text": "stroke",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T10",
+          "type": "PatientHistory",
+          "text": "hemiparesis",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T12",
+          "type": "PatientHistory",
+          "text": "infarct",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T20",
+          "type": "PatientHistory",
+          "text": "strok",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T22",
+          "type": "PatientHistory",
+          "text": "seizure-",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

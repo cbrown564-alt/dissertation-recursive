@@ -1,0 +1,375 @@
+{
+  "id": "EA0072",
+  "text": "The epilepsy serivce\nOur Ref:\t554876\nNHS No:\t496 212 8890\nDate: \t\t18/10/2018\nClinic Date \t12/10/2018\n\n\nDear Dr\n\nr.e. Florence Trice\tD.O.B:\t11/02/1948\nCariad Care Home, Main Road, Canol y Dref, Port Talbot SA2 9UY\n\nDiagnosis\tSymptomatic focal epilepsy\n\t\tTrisomy 21\n\t\tDementia\n\t\tModerate learning difficulties\n\nMedication\tLevetiracetam 500mg bd\n\t\tLamotrigine 50mg bd\n\nSeizure type\tFocal motor seizures and secondary generalised seizures\n\nI spoke with Ria, one of Miss Trice’s carer today. Since my previous phone call Miss Trice has only had one focal motor seizure which is good for her. It seems therefore that adding in the lamotrigine has helped. I would suggest increasing the lamotrigine further if there were any more seizures.\n\nRia asked about whether Miss Trice should have buccal midazolam but as she has not really had any prolonged seizures then I wouldn’t recommend this at the moment.\n",
+  "entities": [
+    {
+      "id": "T5",
+      "type": "Diagnosis",
+      "start": 224,
+      "end": 250,
+      "text": "Symptomatic-focal-epilepsy",
+      "attributes": {
+        "CUIPhrase": "symptomatic-focal-epilepsy",
+        "CUI": "C0472349",
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "start": 253,
+      "end": 263,
+      "text": "Trisomy-21",
+      "attributes": {
+        "CUI": "C3537167",
+        "Certainty": "5",
+        "CUIPhrase": "Trisomy 21",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "start": 266,
+      "end": 274,
+      "text": "Dementia",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "dementia",
+        "CUI": "C0497327",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "PatientHistory",
+      "start": 277,
+      "end": 307,
+      "text": "Moderate-learning-difficulties",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "learning-difficulties",
+        "CUI": "C0424939"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Prescription",
+      "start": 320,
+      "end": 342,
+      "text": "Levetiracetam-500mg-bd",
+      "attributes": {
+        "CUIPhrase": "levetiracetam",
+        "DrugName": "levetiracetam",
+        "CUI": "C0377265",
+        "DrugDose": "500",
+        "DoseUnit": "mg",
+        "Frequency": "2"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "Prescription",
+      "start": 345,
+      "end": 355,
+      "text": "Lamotrigne",
+      "attributes": {
+        "Frequency": "2",
+        "CUI": "C0064636",
+        "DrugName": "Lamotrigine",
+        "DrugDose": "50",
+        "DoseUnit": "mg",
+        "CUIPhrase": "lamotrigine"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "Diagnosis",
+      "start": 378,
+      "end": 398,
+      "text": "Focal-motor-seizures",
+      "attributes": {
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUI": "C0016399",
+        "DiagCategory": "MultipleSeizures",
+        "CUIPhrase": "focal-motor-seizures"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Diagnosis",
+      "start": 403,
+      "end": 433,
+      "text": "secondary-generalised-seizures",
+      "attributes": {
+        "CUIPhrase": "secondary-generalised-seizures",
+        "Negation": "Affirmed",
+        "CUI": "C0270838",
+        "Certainty": "5",
+        "DiagCategory": "MultipleSeizures"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "SeizureFrequency",
+      "start": 543,
+      "end": 562,
+      "text": "focal-motor-seizure",
+      "attributes": {
+        "CUI": "C0016399",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "focal-motor-seizure",
+        "NumberOfSeizures": "1",
+        "PointInTime": "LastClinic"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "Diagnosis",
+      "start": 543,
+      "end": 563,
+      "text": "focal-motor-seizure-",
+      "attributes": {
+        "CUIPhrase": "focal-motor-seizure",
+        "CUI": "C0016399",
+        "DiagCategory": "SingleSeizure",
+        "Negation": "Affirmed",
+        "Certainty": "5"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "543",
+      "end_index": "563",
+      "text": "focal-motor-seizure-",
+      "attributes": {
+        "CUIPhrase": "focal-motor-seizure",
+        "CUI": "C0016399",
+        "DiagCategory": "SingleSeizure",
+        "Negation": "Affirmed",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "266",
+      "end_index": "274",
+      "text": "Dementia",
+      "attributes": {
+        "Negation": "Affirmed",
+        "CUIPhrase": "dementia",
+        "CUI": "C0497327",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "277",
+      "end_index": "307",
+      "text": "Moderate-learning-difficulties",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "learning-difficulties",
+        "CUI": "C0424939"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "403",
+      "end_index": "433",
+      "text": "secondary-generalised-seizures",
+      "attributes": {
+        "CUIPhrase": "secondary-generalised-seizures",
+        "Negation": "Affirmed",
+        "CUI": "C0270838",
+        "Certainty": "5",
+        "DiagCategory": "MultipleSeizures"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "224",
+      "end_index": "250",
+      "text": "Symptomatic-focal-epilepsy",
+      "attributes": {
+        "CUIPhrase": "symptomatic-focal-epilepsy",
+        "CUI": "C0472349",
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "543",
+      "end_index": "562",
+      "text": "focal-motor-seizure",
+      "attributes": {
+        "CUI": "C0016399",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "focal-motor-seizure",
+        "NumberOfSeizures": "1",
+        "PointInTime": "LastClinic"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "378",
+      "end_index": "398",
+      "text": "Focal-motor-seizures",
+      "attributes": {
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUI": "C0016399",
+        "DiagCategory": "MultipleSeizures",
+        "CUIPhrase": "focal-motor-seizures"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "320",
+      "end_index": "342",
+      "text": "Levetiracetam-500mg-bd",
+      "attributes": {
+        "CUIPhrase": "levetiracetam",
+        "DrugName": "levetiracetam",
+        "CUI": "C0377265",
+        "DrugDose": "500",
+        "DoseUnit": "mg",
+        "Frequency": "2"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "345",
+      "end_index": "355",
+      "text": "Lamotrigne",
+      "attributes": {
+        "Frequency": "2",
+        "CUI": "C0064636",
+        "DrugName": "Lamotrigine",
+        "DrugDose": "50",
+        "DoseUnit": "mg",
+        "CUIPhrase": "lamotrigine"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "253",
+      "end_index": "263",
+      "text": "Trisomy-21",
+      "attributes": {
+        "CUI": "C3537167",
+        "Certainty": "5",
+        "CUIPhrase": "Trisomy",
+        "Negation": "Affirmed"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T10",
+      "type": "PatientHistory",
+      "text": "Trisomy-21",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "text": "Dementia",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T3",
+      "type": "PatientHistory",
+      "text": "Moderate-learning-difficulties",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T8",
+      "type": "Prescription",
+      "text": "Levetiracetam-500mg-bd",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T9",
+      "type": "Prescription",
+      "text": "Lamotrigne",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T6",
+      "type": "SeizureFrequency",
+      "text": "focal-motor-seizure",
+      "start": 543,
+      "end": 562,
+      "year": null,
+      "period": null,
+      "num_periods": null,
+      "time_since": "Since",
+      "point_in_time": "LastClinic",
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "1"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 4,
+    "PatientHistory": 3,
+    "Prescription": 2,
+    "SeizureFrequency": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "5 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T10",
+          "type": "PatientHistory",
+          "text": "Trisomy-21",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T2",
+          "type": "PatientHistory",
+          "text": "Dementia",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T3",
+          "type": "PatientHistory",
+          "text": "Moderate-learning-difficulties",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T8",
+          "type": "Prescription",
+          "text": "Levetiracetam-500mg-bd",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T9",
+          "type": "Prescription",
+          "text": "Lamotrigne",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

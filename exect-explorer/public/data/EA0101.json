@@ -1,0 +1,168 @@
+{
+  "id": "EA0101",
+  "text": "Date 30/11/2018\nNHS No: 112 456 4545\n\nDear Dr\n\nRe: \tCharlene Brown\t\tD.O.B. 3/09/1972\n\nProblem:\tEpilepsy\n\nMedication:\tEpilim chrono 400mg bd\n\t\tSeizure free for years, has not been seen by neurology since 2010\n\nI spoke with Charlene in the nurse lead epilepsy clinic today. We talked about the sodium valproate prevent programme. She hasn't had any paperwork regarding this and I will send it in the post for her today. We discussed today what the programme means for women with epilepsy taking Eplim. Charlene understands the risks and issues around this medication. She is not yet menopausal. She has had her family and does not want to have anymore children. She drives at the moment and does not want to jeopardise her driving status by changing her medication. \n\nI will discuss her case with one of our consultant neurologists for their opinion. However she should not stop her epilim at this point and we will look into the prevent paperwork to make sure that everything is agreed. Charlene knows that this paperwork needs to be filled in every year while she is taking epilim. If she has any issues with her epilepsy then she should contact us on the telephone. \n\nYours sincerely\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 95,
+      "end": 103,
+      "text": "Epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "start": 117,
+      "end": 129,
+      "text": "Eplim-chrono",
+      "attributes": {
+        "DrugName": "SodiumValproate",
+        "DrugDose": "400",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "epilim-chrono",
+        "CUI": "C0591452"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "SeizureFrequency",
+      "start": 141,
+      "end": 153,
+      "text": "Seizure-free",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "2",
+        "CUIPhrase": "seizure-free",
+        "CUI": "C1299590"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Diagnosis",
+      "start": 1112,
+      "end": 1121,
+      "text": "epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "95",
+      "end_index": "103",
+      "text": "Epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "117",
+      "end_index": "129",
+      "text": "Eplim-chrono",
+      "attributes": {
+        "DrugName": "SodiumValproate",
+        "DrugDose": "400",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "epilim-chrono",
+        "CUI": "C0591452"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "141",
+      "end_index": "153",
+      "text": "Seizure-free",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "TimePeriod": "Year",
+        "NumberOfTimePeriods": "2",
+        "CUIPhrase": "seizure-free",
+        "CUI": "C1299590"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1112",
+      "end_index": "1121",
+      "text": "epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T4",
+      "type": "Prescription",
+      "text": "Eplim-chrono",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T6",
+      "type": "SeizureFrequency",
+      "text": "Seizure-free",
+      "start": 141,
+      "end": 153,
+      "year": null,
+      "period": "Year",
+      "num_periods": "2",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 2,
+    "Prescription": 1,
+    "SeizureFrequency": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "1 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T4",
+          "type": "Prescription",
+          "text": "Eplim-chrono",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

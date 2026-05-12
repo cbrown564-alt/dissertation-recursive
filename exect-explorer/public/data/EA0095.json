@@ -1,0 +1,138 @@
+{
+  "id": "EA0095",
+  "text": "Clinic date: September 11th 2020\nTyped: 14th September 2020\n\nDear Dr Pooled\n\nRe: \tSteffan Williams\n\nDiagnosis: Juvenile absence epilepsy\n\nMedication:\t(As reported) Sodium Valproate 500mg am, 300mg pm\n\nChange of Medication:\tTo change to controlled release of Sodium Valproate and to give 500mg bd\n\nFollow Up:\t4 months\n\nThe specialist epilepsy nurse and I reviewed Steffan in the clinic today.  He is now in Year 9 at school and is doing very well there.  \n\nMother tells me that he has one to two episodes most days, shortly after he has got up but none otherwise.  He has no other episodes.  \n\nCompliance with his medication is good but as he is not on the dose that we thought he was on, I have asked mother to get the packets to confirm what they are giving him and to check that is the gastro-resistant tablet.  \n\nI have stressed to them the importance of not ‘burning the candle at both ends’, particularly not becoming sleep deprived.    I have suggested that he goes on the controlled release form of Valproate and I would be grateful if you could prescribe this.\n\nYour sincerely\n",
+  "entities": [
+    {
+      "id": "T1",
+      "type": "Diagnosis",
+      "start": 111,
+      "end": 136,
+      "text": "Juvenile-absence-epilepsy",
+      "attributes": {
+        "CUI": "C4317339",
+        "DiagCategory": "Epilepsy",
+        "CUIPhrase": "juvenile-absence-epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T3",
+      "type": "Prescription",
+      "start": 150,
+      "end": 189,
+      "text": "(As-reported)-Sodium-Valproate-500mg-am",
+      "attributes": {
+        "DrugDose": "500",
+        "CUI": "C0037567",
+        "Frequency": "1",
+        "CUIPhrase": "sodium-valproate",
+        "DoseUnit": "mg",
+        "DrugName": "sodium-valproate"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "Prescription",
+      "start": 164,
+      "end": 180,
+      "text": "Sodium-Valproate",
+      "attributes": {
+        "CUIPhrase": "sodium-valproate",
+        "DoseUnit": "mg",
+        "DrugDose": "300",
+        "CUI": "C0037567",
+        "Frequency": "1",
+        "DrugName": "SodiumValproate"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "111",
+      "end_index": "136",
+      "text": "Juvenile-absence-epilepsy",
+      "attributes": {
+        "CUI": "C4317339",
+        "DiagCategory": "Epilepsy",
+        "CUIPhrase": "juvenile-absence-epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "164",
+      "end_index": "180",
+      "text": "Sodium-Valproate",
+      "attributes": {
+        "CUIPhrase": "sodium-valproate",
+        "DoseUnit": "mg",
+        "DrugDose": "300",
+        "CUI": "C0037567",
+        "Frequency": "1",
+        "DrugName": "SodiumValproate"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "150",
+      "end_index": "189",
+      "text": "(As-reported)-Sodium-Valproate-500mg-am",
+      "attributes": {
+        "DrugDose": "500",
+        "CUI": "C0037567",
+        "Frequency": "1",
+        "CUIPhrase": "sodium-valproate",
+        "DoseUnit": "mg",
+        "DrugName": "sodium-valproate"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T3",
+      "type": "Prescription",
+      "text": "(As-reported)-Sodium-Valproate-500mg-am",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T2",
+      "type": "Prescription",
+      "text": "Sodium-Valproate",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [],
+  "type_counts": {
+    "Diagnosis": 1,
+    "Prescription": 2
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "2 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T3",
+          "type": "Prescription",
+          "text": "(As-reported)-Sodium-Valproate-500mg-am",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T2",
+          "type": "Prescription",
+          "text": "Sodium-Valproate",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

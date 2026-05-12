@@ -1,0 +1,287 @@
+{
+  "id": "EA0008",
+  "text": "Dear Dr,\n\nDiagnosis: symptomatic structural focal epilepsy\n\tPrevious meningioma resection 3rd January 2005\n\nSeizure type and frequency: focal seizures with altered awareness every 3 weeks\n\nCurrent anti-epileptic medication: lamotrigine 75mg bd (to reduce and stop as detailed below)\nTo start levetiracetam as detailed below\n\nI reviewed this 62 year old man together with his wife in clinic today. Unfortunately after the period of seizure freedom the seizures have returned. The seizures are very stereotyped and asked similar to the events he had before surgery. He will get a warning of an unusual burning taste and then lose awareness and contact for a few minutes. His wife said that he will stare and occasionally chew his lips during these events. He feels dizzy on the lamotrigine and is keen to change his medication. I therefore suggest that he starts levetiracetam at a dose of 250mg once-a-day, increasing by 250mg every fortnight. His target dose of levetiracetam should be 750 mg twice daily. At the same time he should reduce his lamotrigine every fortnight until it stops.\n\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 21,
+      "end": 58,
+      "text": "symptomatic-structural-focal-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "symptomatic-structural-focal-epilepsy",
+        "CUI": "C0472349"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "PatientHistory",
+      "start": 69,
+      "end": 89,
+      "text": "meningioma-resection",
+      "attributes": {
+        "DayDate": "3",
+        "MonthDate": "1",
+        "YearDate": "2005",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "meningioma-surgery",
+        "CUI": "C1096493"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "SeizureFrequency",
+      "start": 136,
+      "end": 172,
+      "text": "focal-seizures-with-altered-awarenes",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "TimePeriod": "Week",
+        "NumberOfTimePeriods": "3",
+        "CUIPhrase": "focal-seizures-with-altered-awareness",
+        "CUI": "C0270834"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Diagnosis",
+      "start": 136,
+      "end": 173,
+      "text": "focal-seizures-with-altered-awareness",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-seizures-with-altered-awareness",
+        "CUI": "C0270834"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "Prescription",
+      "start": 189,
+      "end": 254,
+      "text": "Current-anti-epileptic-medication:-lamotrigine-75mg-bd-(to-reduce",
+      "attributes": {
+        "DrugName": "lamotrigine",
+        "DrugDose": "75",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "start": 451,
+      "end": 461,
+      "text": "sseizures-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "SeizureFrequency",
+      "start": 452,
+      "end": 474,
+      "text": "seizures-have-returned",
+      "attributes": {
+        "FrequencyChange": "Increased",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "21",
+      "end_index": "58",
+      "text": "symptomatic-structural-focal-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "symptomatic-structural-focal-epilepsy",
+        "CUI": "C0472349"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "69",
+      "end_index": "89",
+      "text": "meningioma-resection",
+      "attributes": {
+        "DayDate": "3",
+        "MonthDate": "1",
+        "YearDate": "2005",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "meningioma-surgery",
+        "CUI": "C1096493"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "136",
+      "end_index": "173",
+      "text": "focal-seizures-with-altered-awareness",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-seizures-with-altered-awareness",
+        "CUI": "C0270834"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "136",
+      "end_index": "172",
+      "text": "focal-seizures-with-altered-awarenes",
+      "attributes": {
+        "NumberOfSeizures": "1",
+        "TimePeriod": "Week",
+        "NumberOfTimePeriods": "3",
+        "CUIPhrase": "focal-seizures-with-altered-awareness",
+        "CUI": "C0270834"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "189",
+      "end_index": "254",
+      "text": "Current-anti-epileptic-medication:-lamotrigine-75mg-bd-(to-reduce",
+      "attributes": {
+        "DrugName": "lamotrigine",
+        "DrugDose": "75",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "451",
+      "end_index": "461",
+      "text": "sseizures-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "452",
+      "end_index": "474",
+      "text": "seizures-have-returned",
+      "attributes": {
+        "FrequencyChange": "Increased",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T10",
+      "type": "Prescription",
+      "text": "Current-anti-epileptic-medication:-lamotrigine-75mg-bd-(to-reduce",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "text": "sseizures-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T12",
+      "type": "SeizureFrequency",
+      "text": "seizures-have-returned",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T11",
+      "type": "PatientHistory",
+      "text": "meningioma-resection",
+      "start": 69,
+      "end": 89,
+      "year": "2005",
+      "period": null,
+      "num_periods": null,
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": null
+    },
+    {
+      "id": "T8",
+      "type": "SeizureFrequency",
+      "text": "focal-seizures-with-altered-awarenes",
+      "start": 136,
+      "end": 172,
+      "year": null,
+      "period": "Week",
+      "num_periods": "3",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "1"
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 2,
+    "PatientHistory": 2,
+    "SeizureFrequency": 2,
+    "Prescription": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "3 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T10",
+          "type": "Prescription",
+          "text": "Current-anti-epileptic-medication:-lamotrigine-75mg-bd-(to-reduce",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T14",
+          "type": "PatientHistory",
+          "text": "sseizures-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T12",
+          "type": "SeizureFrequency",
+          "text": "seizures-have-returned",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

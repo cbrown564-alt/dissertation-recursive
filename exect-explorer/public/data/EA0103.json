@@ -1,0 +1,347 @@
+{
+  "id": "EA0103",
+  "text": "Clinic Date 21-JUN-2012\nDate Typed 24-JUN-2012\n\nDear Dr\n\nName:\tFrey Little\nDOB:\t12-APR-1972\n\nI Reviewed the above patient who has epilepsy in the context of a cavernoma in the right temporal lobe. She has previously had fairly frequent partial seizures and so we added levetiracetam to her Lamictal. She is currently taking Lamictal 150mg BD and levetiracetam 1250 mg BD. Miss little feels that levetiracetam hasn't really helped her seizures and is probably made her mood feel worse. As you know she's previously had episodes of depression.\n\nI therefore think that on balance it would be best to gradually reduce the levetiracetam at a rate of about 250 mg every two weeks. I will refer her to my colleague who is a specialist in epilepsy for further management. \n\nYours sincerely\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "Diagnosis",
+      "start": 130,
+      "end": 139,
+      "text": "epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "start": 159,
+      "end": 169,
+      "text": "cavernoma-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "cavernoma",
+        "CUI": "C0018920"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "EpilepsyCause",
+      "start": 159,
+      "end": 194,
+      "text": "cavernoma-in-the-right-temporal-lob",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "cavernoma",
+        "CUI": "C0018920"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Diagnosis",
+      "start": 235,
+      "end": 252,
+      "text": "-partial-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "partial-seizures",
+        "CUI": "C0751495"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "Prescription",
+      "start": 327,
+      "end": 335,
+      "text": "Lamictal",
+      "attributes": {
+        "DrugName": "Lamotrigine",
+        "DrugDose": "150",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "lamictal",
+        "CUI": "C0678180"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "Prescription",
+      "start": 349,
+      "end": 362,
+      "text": "levitiracetam",
+      "attributes": {
+        "DrugName": "Levetiracetam",
+        "DrugDose": "1250",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "levetiracetam",
+        "CUI": "C0377265"
+      }
+    },
+    {
+      "id": "T16",
+      "type": "SeizureFrequency",
+      "start": 426,
+      "end": 445,
+      "text": "helped-her-seizures",
+      "attributes": {
+        "FrequencyChange": "Same",
+        "PointInTime": "DrugChange",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "start": 437,
+      "end": 446,
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T19",
+      "type": "PatientHistory",
+      "start": 533,
+      "end": 543,
+      "text": "depression",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "depression",
+        "CUI": "C0011570"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "Diagnosis",
+      "start_index": "130",
+      "end_index": "139",
+      "text": "epilepsy-",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "159",
+      "end_index": "169",
+      "text": "cavernoma-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "cavernoma",
+        "CUI": "C0018920"
+      }
+    },
+    {
+      "entity": "EpilepsyCause",
+      "start_index": "159",
+      "end_index": "194",
+      "text": "cavernoma-in-the-right-temporal-lob",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "cavernoma",
+        "CUI": "C0018920"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "235",
+      "end_index": "252",
+      "text": "-partial-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "partial-seizures",
+        "CUI": "C0751495"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "327",
+      "end_index": "335",
+      "text": "Lamictal",
+      "attributes": {
+        "DrugName": "Lamotrigine",
+        "DrugDose": "150",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "lamictal",
+        "CUI": "C0678180"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "349",
+      "end_index": "362",
+      "text": "levitiracetam",
+      "attributes": {
+        "DrugName": "Levetiracetam",
+        "DrugDose": "1250",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "levetiracetam",
+        "CUI": "C0377265"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "426",
+      "end_index": "445",
+      "text": "helped-her-seizures",
+      "attributes": {
+        "FrequencyChange": "Same",
+        "PointInTime": "DrugChange",
+        "TimeSince_or_TimeOfEvent": "Since",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "437",
+      "end_index": "446",
+      "text": "seizures-",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizures",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "533",
+      "end_index": "543",
+      "text": "depression",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "depression",
+        "CUI": "C0011570"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "text": "cavernoma-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T10",
+      "type": "Prescription",
+      "text": "Lamictal",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T12",
+      "type": "Prescription",
+      "text": "levitiracetam",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T14",
+      "type": "PatientHistory",
+      "text": "seizures-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T19",
+      "type": "PatientHistory",
+      "text": "depression",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T16",
+      "type": "SeizureFrequency",
+      "text": "helped-her-seizures",
+      "start": 426,
+      "end": 445,
+      "year": null,
+      "period": null,
+      "num_periods": null,
+      "time_since": "Since",
+      "point_in_time": "DrugChange",
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": null
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 2,
+    "PatientHistory": 3,
+    "EpilepsyCause": 1,
+    "Prescription": 2,
+    "SeizureFrequency": 1
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "5 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T4",
+          "type": "PatientHistory",
+          "text": "cavernoma-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T10",
+          "type": "Prescription",
+          "text": "Lamictal",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T12",
+          "type": "Prescription",
+          "text": "levitiracetam",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T14",
+          "type": "PatientHistory",
+          "text": "seizures-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T19",
+          "type": "PatientHistory",
+          "text": "depression",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [],
+  "has_unknown_seizure": false
+}

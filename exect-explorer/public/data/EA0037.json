@@ -1,0 +1,415 @@
+{
+  "id": "EA0037",
+  "text": "NHS No 611 231 6001\nClinic date: 03.12. 2013\n\nRT: Jane Kirby  DOB: 16/04/ 1952\n\nDiagnosis: non-epileptic attacks disorder\nFocal seizures with secondary generalisation\n\nMedication: lamotrigine 125mg twice a day\n\t\tClobazam 10mg once at night\n\nEEG(March 2012) capturing a typical event with no EEG changes, slow background. \nMRI (February 2011) non-specific white-matter changes\n\nI had reviewed Jane in my clinic today, she was accompanied by her brother. She’s had a recent admission to hospital because of a cluster of seizures. At the time the seizures were not typical of epilepsy and so her medication was not changed.\n\nJean was revealed by my colleague dr Gowers recently. He increased the lamotrigine to its current course. Jean feels far better on this dose. When she gets a seizure, the post-ictal period can last a couple of days. She cannot answer people properly during this period.\n\nI think most of her problems are down to the nonepileptic attacks (dissociative seizures). I am therefore referring her to neuro-psychology.\n\n",
+  "entities": [
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "start": 91,
+      "end": 122,
+      "text": "non--epileptic-attacks-disorder",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "non-epileptic-attacks",
+        "CUI": "C3495874"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "Diagnosis",
+      "start": 123,
+      "end": 137,
+      "text": "Focal-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-seizures",
+        "CUI": "C0751495"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "Diagnosis",
+      "start": 123,
+      "end": 167,
+      "text": "Focal-seizures-with-secondary-generalisation",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "secondary-generalised-seizures",
+        "CUI": "C0270838"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "Prescription",
+      "start": 169,
+      "end": 210,
+      "text": "Medication:-lamotrigine-125mg-twice-a-day",
+      "attributes": {
+        "DrugName": "lamotrigine",
+        "DrugDose": "125",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine-HSAddedCUI",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "Prescription",
+      "start": 213,
+      "end": 240,
+      "text": "Clobazam-10mg-once-at-night",
+      "attributes": {
+        "DrugName": "clobazam",
+        "DrugDose": "10",
+        "DoseUnit": "mg",
+        "Frequency": "1",
+        "CUIPhrase": "clobazam-HSAddedCUI",
+        "CUI": "C0055891"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "Investigations",
+      "start": 242,
+      "end": 245,
+      "text": "EEG",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Normal",
+        "CUIPhrase": "eeg-normal",
+        "CUI": "C0560017"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "Investigations",
+      "start": 323,
+      "end": 376,
+      "text": "MRI-(February-2011)-non-specific-white-matter-changes",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Abnormal",
+        "CUIPhrase": "mri-abnormal",
+        "CUI": "C1319851"
+      }
+    },
+    {
+      "id": "T16",
+      "type": "PatientHistory",
+      "start": 508,
+      "end": 527,
+      "text": "cluster-of-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "cluster-of-seizures",
+        "CUI": "C3203523"
+      }
+    },
+    {
+      "id": "T18",
+      "type": "PatientHistory",
+      "start": 770,
+      "end": 787,
+      "text": "she-get-a-seizure",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "start": 936,
+      "end": 958,
+      "text": "e-nonepileptic-attacks",
+      "attributes": {
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "non-epileptic-attacks",
+        "CUI": "C3495874"
+      }
+    },
+    {
+      "id": "T20",
+      "type": "PatientHistory",
+      "start": 938,
+      "end": 982,
+      "text": "nonepileptic-attacks-(dissociative-seizures)",
+      "attributes": {
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "dissociative-seizures",
+        "CUI": "C0349245"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "PatientHistory",
+      "start_index": "91",
+      "end_index": "122",
+      "text": "non--epileptic-attacks-disorder",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "non-epileptic-attacks",
+        "CUI": "C3495874"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "123",
+      "end_index": "137",
+      "text": "Focal-seizures",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-seizures",
+        "CUI": "C0751495"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "123",
+      "end_index": "167",
+      "text": "Focal-seizures-with-secondary-generalisation",
+      "attributes": {
+        "DiagCategory": "MultipleSeizures",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "secondary-generalised-seizures",
+        "CUI": "C0270838"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "169",
+      "end_index": "210",
+      "text": "Medication:-lamotrigine-125mg-twice-a-day",
+      "attributes": {
+        "DrugName": "lamotrigine",
+        "DrugDose": "125",
+        "DoseUnit": "mg",
+        "Frequency": "2",
+        "CUIPhrase": "lamotrigine-HSAddedCUI",
+        "CUI": "C0064636"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "213",
+      "end_index": "240",
+      "text": "Clobazam-10mg-once-at-night",
+      "attributes": {
+        "DrugName": "clobazam",
+        "DrugDose": "10",
+        "DoseUnit": "mg",
+        "Frequency": "1",
+        "CUIPhrase": "clobazam-HSAddedCUI",
+        "CUI": "C0055891"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "242",
+      "end_index": "245",
+      "text": "EEG",
+      "attributes": {
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Normal",
+        "CUIPhrase": "eeg-normal",
+        "CUI": "C0560017"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "323",
+      "end_index": "376",
+      "text": "MRI-(February-2011)-non-specific-white-matter-changes",
+      "attributes": {
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Abnormal",
+        "CUIPhrase": "mri-abnormal",
+        "CUI": "C1319851"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "508",
+      "end_index": "527",
+      "text": "cluster-of-seizures",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "cluster-of-seizures",
+        "CUI": "C3203523"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "770",
+      "end_index": "787",
+      "text": "she-get-a-seizure",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "seizure",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "936",
+      "end_index": "958",
+      "text": "e-nonepileptic-attacks",
+      "attributes": {
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "non-epileptic-attacks",
+        "CUI": "C3495874"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "938",
+      "end_index": "982",
+      "text": "nonepileptic-attacks-(dissociative-seizures)",
+      "attributes": {
+        "Certainty": "4",
+        "Negation": "Affirmed",
+        "CUIPhrase": "dissociative-seizures",
+        "CUI": "C0349245"
+      }
+    }
+  ],
+  "overlaps": [],
+  "temporal_sparse": [
+    {
+      "id": "T2",
+      "type": "PatientHistory",
+      "text": "non--epileptic-attacks-disorder",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T8",
+      "type": "Prescription",
+      "text": "Medication:-lamotrigine-125mg-twice-a-day",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T10",
+      "type": "Prescription",
+      "text": "Clobazam-10mg-once-at-night",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T16",
+      "type": "PatientHistory",
+      "text": "cluster-of-seizures",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T18",
+      "type": "PatientHistory",
+      "text": "she-get-a-seizure",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "text": "e-nonepileptic-attacks",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T20",
+      "type": "PatientHistory",
+      "text": "nonepileptic-attacks-(dissociative-seizures)",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [],
+  "type_counts": {
+    "PatientHistory": 5,
+    "Diagnosis": 2,
+    "Prescription": 2,
+    "Investigations": 2
+  },
+  "flaws": [
+    {
+      "category": "temporal_sparsity",
+      "description": "7 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T2",
+          "type": "PatientHistory",
+          "text": "non--epileptic-attacks-disorder",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T8",
+          "type": "Prescription",
+          "text": "Medication:-lamotrigine-125mg-twice-a-day",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T10",
+          "type": "Prescription",
+          "text": "Clobazam-10mg-once-at-night",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T16",
+          "type": "PatientHistory",
+          "text": "cluster-of-seizures",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T18",
+          "type": "PatientHistory",
+          "text": "she-get-a-seizure",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T12",
+          "type": "PatientHistory",
+          "text": "e-nonepileptic-attacks",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T20",
+          "type": "PatientHistory",
+          "text": "nonepileptic-attacks-(dissociative-seizures)",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [
+    {
+      "id": "T12",
+      "type": "PatientHistory",
+      "text": "e-nonepileptic-attacks",
+      "certainty": 4
+    },
+    {
+      "id": "T20",
+      "type": "PatientHistory",
+      "text": "nonepileptic-attacks-(dissociative-seizures)",
+      "certainty": 4
+    }
+  ],
+  "has_unknown_seizure": false
+}

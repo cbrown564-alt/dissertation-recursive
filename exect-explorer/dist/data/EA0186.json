@@ -1,0 +1,807 @@
+{
+  "id": "EA0186",
+  "text": "Clinic date 25/09/2018\n \nRe          Mr Owen Owens\t30/06/1968\n \nDear doctor,\n\nDiagnosis: Symptomatic structural focal epilepsy\n\t\tArea of ischaemic damage left inferior frontal lobe\n\t\tSignificant anxiety and depression\n \nI reviewed this 50 year old man, together with his wife, in clinic today. He was well from an epilepsy point of view until he had a seizure last month. His wife heard a bang from the next room and went in to see him unconsciouss on the floor. He was stiff, his eyes were open and he made unusual groaning noises before starting to shake. This lasted about 40 seconds before he went to a “deep sleep”. It took him several hours to recover fully. Mr Owens himself remembers his right leg twitching before he lost consciousness. I think therefore that this was a focal to bilateral convulsive seizures. As you recall Mr Owens has had focal motor seizures in the past where he has had jerking of his right leg. These were happening frequently before he started the medication. The last event was probably 10 months ago. He has had one previous focal to bilateral convulsive seizure at the time of diagnosis of his epilepsy in May 2017. As you will recall his MRI at the time was abnormal with an area of ischaemic damage in the left inferior frontal lobe. This is the probable cause of his epilepsy. An EEG in 2017 did show some left sided sharp waves.\n\nHe is currently taking lamotrigine 75mg twice a day and given the recent seizure I would be very grateful if you could increase this by 25mg every fortnight to 100mg twice a day. It can be increased further if necessary in a similar way. Previously he tried levetiracetam but this made his mood worse.\n\nMr Owens has ongoing problems with his mood and finds it very difficult to leave the house. He has found anti-depressants useful in the past and I would be very grateful if you could reassess him from his mental health point of view. There is no contraindication to treatment with anti-depressants if necessary.\nMr Owens is still managing to work as an accountant and he is aware of the DVLA driving regulations. He is currently drinking around 40units of alcohol a week. We had a chat about the effects of alcohol and I would advise that he reduces his intake to the recommended 14 units of alcohol per week with a few alcohol free days.\nI will ask the epilepsy nurses to review again. \nYours\n\n",
+  "entities": [
+    {
+      "id": "T3",
+      "type": "Diagnosis",
+      "start": 89,
+      "end": 126,
+      "text": "Symptomatic-structural-focal-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "CUI": "C0472349",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "symptomatic-structural-focal-epilepsy"
+      }
+    },
+    {
+      "id": "T21",
+      "type": "PatientHistory",
+      "start": 137,
+      "end": 180,
+      "text": "ischaemic-damage-left-inferior-frontal-lobe",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "ischaemic-damage-left-inferior-frontal-lobe",
+        "CUI": "C0007786"
+      }
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "start": 195,
+      "end": 203,
+      "text": "anxiety-",
+      "attributes": {
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUI": "C0003467",
+        "CUIPhrase": "anxiety"
+      }
+    },
+    {
+      "id": "T7",
+      "type": "PatientHistory",
+      "start": 207,
+      "end": 217,
+      "text": "depression",
+      "attributes": {
+        "CUI": "C0011570",
+        "CUIPhrase": "depression",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T10",
+      "type": "Diagnosis",
+      "start": 314,
+      "end": 323,
+      "text": "epilepsy-",
+      "attributes": {
+        "CUIPhrase": "epilepsy",
+        "DiagCategory": "Epilepsy",
+        "Negation": "Affirmed",
+        "CUI": "C0014544",
+        "Certainty": "5"
+      }
+    },
+    {
+      "id": "T13",
+      "type": "SeizureFrequency",
+      "start": 352,
+      "end": 358,
+      "text": "seizur",
+      "attributes": {
+        "CUI": "C0036572",
+        "CUIPhrase": "seizure",
+        "TimeSince_or_TimeOfEvent": "During",
+        "NumberOfSeizures": "1",
+        "PointInTime": "Last_Month"
+      }
+    },
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "start": 352,
+      "end": 360,
+      "text": "seizure-",
+      "attributes": {
+        "Certainty": "5",
+        "CUIPhrase": "seizure",
+        "Negation": "Affirmed",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "id": "T5",
+      "type": "Diagnosis",
+      "start": 780,
+      "end": 818,
+      "text": "focal-to-bilateral-convulsive-seizures",
+      "attributes": {
+        "Certainty": "4",
+        "CUI": "C0877017",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizures",
+        "DiagCategory": "MultipleSeizures"
+      }
+    },
+    {
+      "id": "T18",
+      "type": "SeizureFrequency",
+      "start": 851,
+      "end": 871,
+      "text": "focal-motor-seizures",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "NumberOfTimePeriods": "10",
+        "TimePeriod": "Month",
+        "CUIPhrase": "focal motor seizures",
+        "CUI": "C0016399"
+      }
+    },
+    {
+      "id": "T20",
+      "type": "Diagnosis",
+      "start": 851,
+      "end": 871,
+      "text": "focal-motor-seizures",
+      "attributes": {
+        "Negation": "Affirmed",
+        "DiagCategory": "MultipleSeizures",
+        "CUIPhrase": "focal-motor-seizures",
+        "Certainty": "5",
+        "CUI": "C0016399"
+      }
+    },
+    {
+      "id": "T11",
+      "type": "SeizureFrequency",
+      "start": 1060,
+      "end": 1096,
+      "text": "focal-to-bilateral-convulsive-seizur",
+      "attributes": {
+        "YearDate": "2017",
+        "NumberOfSeizures": "1",
+        "TimeSince_or_TimeOfEvent": "During",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizure",
+        "MonthDate": "5",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "id": "T15",
+      "type": "Diagnosis",
+      "start": 1060,
+      "end": 1097,
+      "text": "focal-to-bilateral-convulsive-seizure",
+      "attributes": {
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizure",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "DiagCategory": "SingleSeizure",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "id": "T2",
+      "type": "WhenDiagnosed",
+      "start": 1130,
+      "end": 1137,
+      "text": "epileps",
+      "attributes": {
+        "Certainty": "5",
+        "CUIPhrase": "epilepsy",
+        "YearDate": "2017",
+        "CUI": "C0014544",
+        "Negation": "Affirmed",
+        "MonthDate": "5"
+      }
+    },
+    {
+      "id": "T9",
+      "type": "Diagnosis",
+      "start": 1130,
+      "end": 1139,
+      "text": "epilepsy-",
+      "attributes": {
+        "Certainty": "5",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544",
+        "DiagCategory": "Epilepsy",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "id": "T16",
+      "type": "Investigations",
+      "start": 1175,
+      "end": 1179,
+      "text": "MRI-",
+      "attributes": {
+        "CUIPhrase": "mri-abnormal",
+        "CUI": "C1319851",
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Abnormal"
+      }
+    },
+    {
+      "id": "T12",
+      "type": "EpilepsyCause",
+      "start": 1220,
+      "end": 1236,
+      "text": "ischaemic-damage",
+      "attributes": {
+        "Negation": "Affirmed",
+        "Certainty": "4",
+        "CUI": "C1456496",
+        "CUIPhrase": "brain damage"
+      }
+    },
+    {
+      "id": "T17",
+      "type": "PatientHistory",
+      "start": 1220,
+      "end": 1236,
+      "text": "ischaemic-damage",
+      "attributes": {
+        "CUIPhrase": "brain-ischaemia",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUI": "C0007786"
+      }
+    },
+    {
+      "id": "T19",
+      "type": "Diagnosis",
+      "start": 1306,
+      "end": 1314,
+      "text": "epilepsy",
+      "attributes": {
+        "CUIPhrase": "epilepsy",
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "id": "T1",
+      "type": "Investigations",
+      "start": 1319,
+      "end": 1323,
+      "text": "EEG-",
+      "attributes": {
+        "CUI": "C0151611",
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Abnormal",
+        "CUIPhrase": "eeg-abnormal"
+      }
+    },
+    {
+      "id": "T14",
+      "type": "Prescription",
+      "start": 1370,
+      "end": 1421,
+      "text": "He-is-currently-taking-lamotrigine-75mg-twice-a-day",
+      "attributes": {
+        "CUIPhrase": "lamotrigine",
+        "DoseUnit": "mg",
+        "CUI": "C0064636",
+        "Frequency": "2",
+        "DrugDose": "75",
+        "DrugName": "lamotrigine"
+      }
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "start": 1444,
+      "end": 1452,
+      "text": "seizure-",
+      "attributes": {
+        "CUI": "C0036572",
+        "Certainty": "5",
+        "CUIPhrase": "seizure",
+        "Negation": "Affirmed"
+      }
+    }
+  ],
+  "json_export": [
+    {
+      "entity": "PatientHistory",
+      "start_index": "137",
+      "end_index": "180",
+      "text": "ischaemic-damage-left-inferior-frontal-lobe",
+      "attributes": {
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "ischaemic-damage-left-inferior-frontal-lobe",
+        "CUI": "C0007786"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "1319",
+      "end_index": "1323",
+      "text": "EEG-",
+      "attributes": {
+        "CUI": "C0151611",
+        "EEG_Performed": "Yes",
+        "EEG_Results": "Abnormal",
+        "CUIPhrase": "eeg-abnormal"
+      }
+    },
+    {
+      "entity": "WhenDiagnosed",
+      "start_index": "1130",
+      "end_index": "1137",
+      "text": "epileps",
+      "attributes": {
+        "Certainty": "5",
+        "CUIPhrase": "epilepsy",
+        "YearDate": "2017",
+        "CUI": "C0014544",
+        "Negation": "Affirmed",
+        "MonthDate": "5"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "89",
+      "end_index": "126",
+      "text": "Symptomatic-structural-focal-epilepsy",
+      "attributes": {
+        "DiagCategory": "Epilepsy",
+        "CUI": "C0472349",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUIPhrase": "symptomatic-structural-focal-epilepsy"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "195",
+      "end_index": "203",
+      "text": "anxiety-",
+      "attributes": {
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUI": "C0003467",
+        "CUIPhrase": "anxiety"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "780",
+      "end_index": "818",
+      "text": "focal-to-bilateral-convulsive-seizures",
+      "attributes": {
+        "Certainty": "4",
+        "CUI": "C0877017",
+        "Negation": "Affirmed",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizures",
+        "DiagCategory": "MultipleSeizures"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "352",
+      "end_index": "360",
+      "text": "seizure-",
+      "attributes": {
+        "Certainty": "5",
+        "CUIPhrase": "seizure",
+        "Negation": "Affirmed",
+        "CUI": "C0036572"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "207",
+      "end_index": "217",
+      "text": "depression",
+      "attributes": {
+        "CUI": "C0011570",
+        "CUIPhrase": "depression",
+        "Certainty": "5",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1444",
+      "end_index": "1452",
+      "text": "seizure-",
+      "attributes": {
+        "CUI": "C0036572",
+        "Certainty": "5",
+        "CUIPhrase": "seizure",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1130",
+      "end_index": "1139",
+      "text": "epilepsy-",
+      "attributes": {
+        "Certainty": "5",
+        "CUIPhrase": "epilepsy",
+        "CUI": "C0014544",
+        "DiagCategory": "Epilepsy",
+        "Negation": "Affirmed"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "314",
+      "end_index": "323",
+      "text": "epilepsy-",
+      "attributes": {
+        "CUIPhrase": "epilepsy",
+        "DiagCategory": "Epilepsy",
+        "Negation": "Affirmed",
+        "CUI": "C0014544",
+        "Certainty": "5"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "1060",
+      "end_index": "1096",
+      "text": "focal-to-bilateral-convulsive-seizur",
+      "attributes": {
+        "YearDate": "2017",
+        "NumberOfSeizures": "1",
+        "TimeSince_or_TimeOfEvent": "During",
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizure",
+        "MonthDate": "5",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "entity": "EpilepsyCause",
+      "start_index": "1220",
+      "end_index": "1236",
+      "text": "ischaemic-damage",
+      "attributes": {
+        "Negation": "Affirmed",
+        "Certainty": "4",
+        "CUI": "C1456496",
+        "CUIPhrase": "brain"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "352",
+      "end_index": "358",
+      "text": "seizur",
+      "attributes": {
+        "CUI": "C0036572",
+        "CUIPhrase": "seizure",
+        "TimeSince_or_TimeOfEvent": "During",
+        "NumberOfSeizures": "1",
+        "PointInTime": "Last_Month"
+      }
+    },
+    {
+      "entity": "Prescription",
+      "start_index": "1370",
+      "end_index": "1421",
+      "text": "He-is-currently-taking-lamotrigine-75mg-twice-a-day",
+      "attributes": {
+        "CUIPhrase": "lamotrigine",
+        "DoseUnit": "mg",
+        "CUI": "C0064636",
+        "Frequency": "2",
+        "DrugDose": "75",
+        "DrugName": "lamotrigine"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1060",
+      "end_index": "1097",
+      "text": "focal-to-bilateral-convulsive-seizure",
+      "attributes": {
+        "CUIPhrase": "focal-to-bilateral-convulsive-seizure",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "DiagCategory": "SingleSeizure",
+        "CUI": "C0877017"
+      }
+    },
+    {
+      "entity": "Investigations",
+      "start_index": "1175",
+      "end_index": "1179",
+      "text": "MRI-",
+      "attributes": {
+        "CUIPhrase": "mri-abnormal",
+        "CUI": "C1319851",
+        "MRI_Performed": "Yes",
+        "MRI_Results": "Abnormal"
+      }
+    },
+    {
+      "entity": "PatientHistory",
+      "start_index": "1220",
+      "end_index": "1236",
+      "text": "ischaemic-damage",
+      "attributes": {
+        "CUIPhrase": "brain-ischaemia",
+        "Negation": "Affirmed",
+        "Certainty": "5",
+        "CUI": "C0007786"
+      }
+    },
+    {
+      "entity": "SeizureFrequency",
+      "start_index": "851",
+      "end_index": "871",
+      "text": "focal-motor-seizures",
+      "attributes": {
+        "NumberOfSeizures": "0",
+        "NumberOfTimePeriods": "10",
+        "TimePeriod": "Month",
+        "CUIPhrase": "focal",
+        "CUI": "C0016399"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "1306",
+      "end_index": "1314",
+      "text": "epilepsy",
+      "attributes": {
+        "CUIPhrase": "epilepsy",
+        "DiagCategory": "Epilepsy",
+        "Certainty": "5",
+        "Negation": "Affirmed",
+        "CUI": "C0014544"
+      }
+    },
+    {
+      "entity": "Diagnosis",
+      "start_index": "851",
+      "end_index": "871",
+      "text": "focal-motor-seizures",
+      "attributes": {
+        "Negation": "Affirmed",
+        "DiagCategory": "MultipleSeizures",
+        "CUIPhrase": "focal-motor-seizures",
+        "Certainty": "5",
+        "CUI": "C0016399"
+      }
+    }
+  ],
+  "overlaps": [
+    {
+      "start": 851,
+      "end": 871,
+      "text": "focal-motor-seizures",
+      "entity_types": [
+        "SeizureFrequency",
+        "Diagnosis"
+      ],
+      "entity_ids": [
+        "T18",
+        "T20"
+      ]
+    },
+    {
+      "start": 1220,
+      "end": 1236,
+      "text": "ischaemic-damage",
+      "entity_types": [
+        "EpilepsyCause",
+        "PatientHistory"
+      ],
+      "entity_ids": [
+        "T12",
+        "T17"
+      ]
+    }
+  ],
+  "temporal_sparse": [
+    {
+      "id": "T21",
+      "type": "PatientHistory",
+      "text": "ischaemic-damage-left-inferior-frontal-lobe",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T4",
+      "type": "PatientHistory",
+      "text": "anxiety-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T7",
+      "type": "PatientHistory",
+      "text": "depression",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T6",
+      "type": "PatientHistory",
+      "text": "seizure-",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T17",
+      "type": "PatientHistory",
+      "text": "ischaemic-damage",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T14",
+      "type": "Prescription",
+      "text": "He-is-currently-taking-lamotrigine-75mg-twice-a-day",
+      "reason": "No temporal attribute"
+    },
+    {
+      "id": "T8",
+      "type": "PatientHistory",
+      "text": "seizure-",
+      "reason": "No temporal attribute"
+    }
+  ],
+  "incomplete_meds": [],
+  "timeline_events": [
+    {
+      "id": "T13",
+      "type": "SeizureFrequency",
+      "text": "seizur",
+      "start": 352,
+      "end": 358,
+      "year": null,
+      "period": null,
+      "num_periods": null,
+      "time_since": "During",
+      "point_in_time": "Last_Month",
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "1"
+    },
+    {
+      "id": "T18",
+      "type": "SeizureFrequency",
+      "text": "focal-motor-seizures",
+      "start": 851,
+      "end": 871,
+      "year": null,
+      "period": "Month",
+      "num_periods": "10",
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "0"
+    },
+    {
+      "id": "T11",
+      "type": "SeizureFrequency",
+      "text": "focal-to-bilateral-convulsive-seizur",
+      "start": 1060,
+      "end": 1096,
+      "year": "2017",
+      "period": null,
+      "num_periods": null,
+      "time_since": "During",
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": "1"
+    },
+    {
+      "id": "T2",
+      "type": "WhenDiagnosed",
+      "text": "epileps",
+      "start": 1130,
+      "end": 1137,
+      "year": "2017",
+      "period": null,
+      "num_periods": null,
+      "time_since": null,
+      "point_in_time": null,
+      "lower_seizures": null,
+      "upper_seizures": null,
+      "num_seizures": null
+    }
+  ],
+  "type_counts": {
+    "Diagnosis": 7,
+    "PatientHistory": 6,
+    "SeizureFrequency": 3,
+    "WhenDiagnosed": 1,
+    "Investigations": 2,
+    "EpilepsyCause": 1,
+    "Prescription": 1
+  },
+  "flaws": [
+    {
+      "category": "overlapping_entities",
+      "description": "2 text span(s) carry multiple entity types.",
+      "details": [
+        {
+          "start": 851,
+          "end": 871,
+          "text": "focal-motor-seizures",
+          "entity_types": [
+            "SeizureFrequency",
+            "Diagnosis"
+          ],
+          "entity_ids": [
+            "T18",
+            "T20"
+          ]
+        },
+        {
+          "start": 1220,
+          "end": 1236,
+          "text": "ischaemic-damage",
+          "entity_types": [
+            "EpilepsyCause",
+            "PatientHistory"
+          ],
+          "entity_ids": [
+            "T12",
+            "T17"
+          ]
+        }
+      ],
+      "oracle_impact": "scoring_ambiguity"
+    },
+    {
+      "category": "temporal_sparsity",
+      "description": "7 entity/ies lack explicit temporal anchoring.",
+      "details": [
+        {
+          "id": "T21",
+          "type": "PatientHistory",
+          "text": "ischaemic-damage-left-inferior-frontal-lobe",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T4",
+          "type": "PatientHistory",
+          "text": "anxiety-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T7",
+          "type": "PatientHistory",
+          "text": "depression",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T6",
+          "type": "PatientHistory",
+          "text": "seizure-",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T17",
+          "type": "PatientHistory",
+          "text": "ischaemic-damage",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T14",
+          "type": "Prescription",
+          "text": "He-is-currently-taking-lamotrigine-75mg-twice-a-day",
+          "reason": "No temporal attribute"
+        },
+        {
+          "id": "T8",
+          "type": "PatientHistory",
+          "text": "seizure-",
+          "reason": "No temporal attribute"
+        }
+      ],
+      "oracle_impact": "seizure_frequency"
+    }
+  ],
+  "negated_entities": [],
+  "low_certainty": [
+    {
+      "id": "T5",
+      "type": "Diagnosis",
+      "text": "focal-to-bilateral-convulsive-seizures",
+      "certainty": 4
+    },
+    {
+      "id": "T12",
+      "type": "EpilepsyCause",
+      "text": "ischaemic-damage",
+      "certainty": 4
+    }
+  ],
+  "has_unknown_seizure": false
+}
