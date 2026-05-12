@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Small fallback pilot — run Pass 2b LLM fallback on ungrounded values.
+"""Archived fallback pilot for Pass 2b LLM fallback on ungrounded values.
+
+Retained for historical reproduction. New scored evidence-resolver runs should
+use ``scripts/run_evidence_resolver_scored_batch.py`` with ``--fallback`` when
+fallback grounding is intentionally enabled.
 
 Uses a lightweight local model (default gemma4:e4b) to test whether the
 fallback recovers enough quotes to reach the promotion gate.
@@ -29,6 +33,10 @@ from intake import preprocess_document
 from model_providers import ModelRequest, OllamaAdapter
 from model_registry import DEFAULT_REGISTRY, load_model_specs
 from validate_extraction import check_quote_validity
+
+
+ARCHIVAL_STATUS = "archived_pilot_runner"
+MAINTAINED_ENTRYPOINT = "scripts/run_evidence_resolver_scored_batch.py --fallback"
 
 
 def make_ollama_call(model_id: str = "gemma4:e4b"):

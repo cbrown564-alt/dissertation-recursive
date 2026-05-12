@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
-"""Export run artifacts into a dashboard-friendly JSON bundle."""
+"""Archived dashboard prototype exporter.
+
+Retained for the original aggregate-results dashboard. The active audit
+workbench is ExECT Explorer; model overlay exports are documented in
+``docs/55_exect_explorer_data_contract.md`` and routed in
+``docs/56_archival_entrypoints.md``.
+"""
 
 from __future__ import annotations
 
@@ -15,6 +21,8 @@ from jsonschema import Draft202012Validator
 
 
 DEFAULT_OUTPUT = Path("dashboard/public/data/dashboard_data.json")
+ARCHIVAL_STATUS = "archived_dashboard_prototype"
+MAINTAINED_ENTRYPOINT = "exect-explorer/scripts/build_model_overlay.py"
 SCHEMA_PATH = Path("schemas/dashboard_data.schema.json")
 DASHBOARD_SCHEMA_VERSION = "1.0.0"
 EXPORTER_VERSION = "1.0.0"

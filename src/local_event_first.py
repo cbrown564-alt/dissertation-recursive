@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Local event-first extraction investigation (EL0 / EL1 / EL2).
+"""Archived local event-first extraction investigation (EL0 / EL1 / EL2).
+
+This file is retained for historical run reproduction. New maintained local
+candidate work should use the H6fs evidence-resolver path documented in
+``docs/56_archival_entrypoints.md``.
 
 EL0 -- Re-diagnosis latency check: run H0 (full canonical) and EL_micro on 2 dev docs to
        determine whether the original L1 abandonment was the extended-thinking bug or a
@@ -41,6 +45,8 @@ from normalization import canonical_medication_name, canonical_seizure_type
 from validate_extraction import DEFAULT_SCHEMA
 
 DEFAULT_MARKUP_ROOT = Path("data/ExECT 2 (2025)/MarkupOutput_200_SyntheticEpilepsyLetters")
+ARCHIVAL_STATUS = "archived_phase_runner"
+MAINTAINED_ENTRYPOINT = "scripts/run_evidence_resolver_scored_batch.py"
 DEFAULT_EL_OUTPUT_ROOT = Path("runs/local_event_first")
 
 EL_MICRO = "EL_micro_events"

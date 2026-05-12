@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Dev-pilot for the Option-C hybrid evidence resolver.
+"""Archived dev-pilot for the Option-C hybrid evidence resolver.
+
+Retained for historical reproduction. New scored evidence-resolver runs should
+use ``scripts/run_evidence_resolver_scored_batch.py``.
 
 Usage:
     python scripts/run_evidence_resolver_dev_pilot.py \
@@ -23,6 +26,10 @@ sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 from evidence_resolver import ResolverStats, resolve_evidence_hybrid
 from intake import DEFAULT_EXECT_ROOT, preprocess_document
 from validate_extraction import check_quote_validity
+
+
+ARCHIVAL_STATUS = "archived_pilot_runner"
+MAINTAINED_ENTRYPOINT = "scripts/run_evidence_resolver_scored_batch.py"
 
 
 def load_canonical(path: Path) -> dict:

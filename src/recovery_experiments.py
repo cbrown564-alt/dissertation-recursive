@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Run Phase 4 recovery prompt experiments.
+"""Archived Phase 4 recovery prompt experiments.
+
+This file is retained for historical run reproduction. New maintained scoring,
+prompt, projection, and evidence-resolver work should use the shared core layer
+and current runner documented in ``docs/56_archival_entrypoints.md``.
 
 S4 runs short task-specific direct prompts and merges their outputs into the
 canonical extraction schema. S5 adds a candidate-verification pass before the
@@ -37,6 +41,8 @@ from validate_extraction import DEFAULT_SCHEMA
 
 
 PROMPT_DIR = Path("prompts/recovery")
+ARCHIVAL_STATUS = "archived_phase_runner"
+MAINTAINED_ENTRYPOINT = "scripts/run_evidence_resolver_scored_batch.py"
 DEFAULT_OUTPUT_DIR = Path("runs/recovery/phase4_prompt_contract")
 DEFAULT_PROMPT_MATRIX = Path("runs/recovery/prompt_matrix.json")
 PHASE6_DEFAULT_OUTPUT_DIR = Path("runs/recovery/validation_cycle_01")

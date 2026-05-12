@@ -180,15 +180,17 @@ Status: completed.
 
 ### Milestone F: Archive or Rename Legacy Entrypoints
 
-- Mark frozen experiment scripts as archival.
-- Update docs and README to point new work at maintained commands.
-- Preserve historical run reproducibility.
+Status: completed.
+
+- Mark frozen experiment scripts as archival. **Completed with in-place archival markers.**
+- Update docs and README to point new work at maintained commands. **Completed via `docs/56_archival_entrypoints.md` and README routing.**
+- Preserve historical run reproducibility. **Completed by leaving historical files and commands in place.**
 
 ---
 
 ## 6. Immediate Next Step
 
-Milestones A through E are now complete for the maintained local candidate and Explorer data-contract path. The next implementation step is Milestone F: mark frozen experiment scripts as archival, update docs and README to point new work at maintained commands, and preserve historical run reproducibility.
+Milestones A through F are now complete for the maintained local candidate and Explorer data-contract path. New implementation work should add shared behavior under `src/core/`, run H6fs + evidence-resolver experiments through `scripts/run_evidence_resolver_scored_batch.py`, and use ExECT Explorer model overlays for audit-facing artifacts.
 
 ---
 
@@ -246,3 +248,17 @@ Completed on 2026-05-12:
   - `python -m pytest -q tests` -> 62 passed.
   - `python -m compileall -q src scripts exect-explorer/scripts` -> passed.
   - `python exect-explorer/scripts/build_model_overlay.py --help` -> passed.
+
+Completed on 2026-05-12:
+
+- Completed Milestone F by marking frozen exploratory entrypoints as archival without moving or deleting them:
+  - `src/model_expansion.py`
+  - `src/local_event_first.py`
+  - `src/multi_agent.py`
+  - `src/multi_agent_exploration.py`
+  - `src/recovery_experiments.py`
+  - `src/dashboard_export.py`
+  - evidence-resolver pilot scripts under `scripts/`
+- Added the maintained routing guide:
+  - `docs/56_archival_entrypoints.md`
+- Updated `README.md` to point new work at maintained commands and distinguish archived historical commands from active surfaces.

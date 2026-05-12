@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Robustness mini-run for the evidence resolver.
+"""Archived robustness mini-run for the evidence resolver.
+
+Retained for historical reproduction and targeted perturbation checks. New
+scored local-candidate runs should use
+``scripts/run_evidence_resolver_scored_batch.py``.
 
 Applies family_history_trap and negated_investigation_trap to validation
 documents, runs the evidence resolver, and checks whether any evidence quotes
@@ -27,6 +31,10 @@ from evidence_resolver import (
 from intake import preprocess_document
 from robustness import add_family_history_trap, add_negated_investigation
 from validate_extraction import check_quote_validity
+
+
+ARCHIVAL_STATUS = "archived_pilot_runner"
+MAINTAINED_ENTRYPOINT = "scripts/run_evidence_resolver_scored_batch.py"
 
 
 def load_split_ids(splits_path: Path, split_name: str, limit: int | None = None) -> list[str]:

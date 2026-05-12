@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Multi-agent exploration pipeline (MA_v2).
+"""Archived multi-agent exploration pipeline (MA_v2).
+
+This file is retained as an exploratory research lead. It is intentionally not
+the maintained default pipeline; see ``docs/56_archival_entrypoints.md`` for
+current maintained commands.
 
 Implements the experimental designs from docs/52_future_work_multi_agent_exploration.md:
   MA-A   - Verifier-only augmentation on best single harness
@@ -57,6 +61,8 @@ from model_registry import DEFAULT_REGISTRY, load_model_specs, write_registry_sn
 from validate_extraction import DEFAULT_SCHEMA, ValidationError
 
 
+ARCHIVAL_STATUS = "archived_research_lead"
+MAINTAINED_ENTRYPOINT = "scripts/run_evidence_resolver_scored_batch.py"
 PROMPT_DIR = Path("prompts/multi_agent_v2")
 DEFAULT_OUTPUT_ROOT = Path("runs/multi_agent_exploration")
 

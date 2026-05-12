@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""Stage A smoke runner for the powerful-model expansion study."""
+"""Archived phase runner for the powerful-model expansion study.
+
+This file is retained for historical run reproduction and compatibility
+imports. New maintained pipeline code should use ``src/core`` helpers and the
+H6fs evidence-resolver runner documented in ``docs/56_archival_entrypoints.md``.
+"""
 
 from __future__ import annotations
 
@@ -39,6 +44,8 @@ from validate_extraction import validate_extraction
 
 
 DEFAULT_HARNESS_MATRIX = Path("configs/harness_matrix.yaml")
+ARCHIVAL_STATUS = "archived_phase_runner"
+MAINTAINED_ENTRYPOINT = "scripts/run_evidence_resolver_scored_batch.py"
 DEFAULT_OUTPUT_DIR = Path("runs/model_expansion/stage_a_smoke")
 DEFAULT_STAGE_B_OUTPUT_DIR = Path("runs/model_expansion/stage_b_dev_pilot")
 DEFAULT_STAGE_C_OUTPUT_DIR = Path("runs/model_expansion/stage_c0_strict_validation")

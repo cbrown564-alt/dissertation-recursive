@@ -12,6 +12,8 @@ The current consolidation goal is to preserve the experimental record while extr
 
 New work should treat `src/core/` as the maintained shared layer. The corrected ExECTv2 scoring API now lives in `src/core/scoring.py`; promoted prompt contracts live in `src/core/prompts.py`; canonical projection helpers live in `src/core/projection.py`. `src/evaluate.py` and selected `src/model_expansion.py` functions remain CLI-compatible wrappers and compatibility import surfaces for older experiment scripts.
 
+The post-consolidation entrypoint map is [docs/56_archival_entrypoints.md](docs/56_archival_entrypoints.md). It marks frozen phase scripts as archival while preserving their commands for historical run reproduction.
+
 The most important active candidates are:
 
 - Frontier baselines: GPT-4.1-mini S2/E3.
@@ -73,6 +75,7 @@ metadata.
 - [Synthesis report](docs/50_synthesis_report.md) - final cross-cutting findings and deployment recommendations.
 - [Evidence resolver implementation](docs/52_evidence_resolver_implementation.md) - local evidence-grounding implementation and validation results.
 - [Refactor consolidation plan](docs/54_refactor_consolidation_plan.md) - current cleanup and rationalization roadmap.
+- [Archived entrypoints and maintained commands](docs/56_archival_entrypoints.md) - post-consolidation routing for new work versus historical reproduction.
 
 ## Milestone 1 Exit Check
 
@@ -172,9 +175,11 @@ workflow still need product work before it should be treated as a mature
 analysis surface. See the [dashboard product plan](docs/16_dashboard_product_plan.md)
 for the intended full design and backlog.
 
-## Historical Experiment Priority
+## Archived Historical Experiments
 
-The older milestone commands below are retained for reproducibility. Implementation is complete, and the first final results are now a baseline
+The older milestone commands below are retained for reproducibility. Treat them
+as archived phase commands unless a document explicitly says a historical result
+is being reproduced. Implementation is complete, and the first final results are now a baseline
 observation rather than the end of the project. The current priority is to use
 the [performance recovery roadmap](docs/18_performance_recovery_roadmap.md)
 and the [powerful model expansion roadmap](docs/20_powerful_model_expansion_roadmap.md)

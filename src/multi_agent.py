@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Multi-agent extraction pipeline (MA_v1).
+"""Archived multi-agent extraction pipeline (MA_v1).
+
+This file is retained for historical run reproduction and to preserve the
+research record. Multi-agent designs are research leads, not the maintained
+default pipeline; see ``docs/56_archival_entrypoints.md`` for current routing.
 
 Implements the four-role architecture from docs/36_multi_agent_pipeline_plan.md:
   Stage 1  - Section/Timeline Agent         (1 call)
@@ -43,6 +47,8 @@ from model_registry import DEFAULT_REGISTRY, load_model_specs, write_registry_sn
 from validate_extraction import DEFAULT_SCHEMA
 
 
+ARCHIVAL_STATUS = "archived_research_lead"
+MAINTAINED_ENTRYPOINT = "scripts/run_evidence_resolver_scored_batch.py"
 DEFAULT_OUTPUT_ROOT = Path("runs/multi_agent")
 
 STAGE_OUTPUT_DIR = {
