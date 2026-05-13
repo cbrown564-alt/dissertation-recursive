@@ -6,6 +6,36 @@ from typing import Any
 
 from .labels import benchmark_label_block
 
+INTERNAL_PROMPT_STYLE = "internal"
+SANITIZED_PROMPT_STYLE = "clinician"
+PROMPT_STYLES = {INTERNAL_PROMPT_STYLE, SANITIZED_PROMPT_STYLE}
+
+
+def _validate_prompt_style(prompt_style: str) -> None:
+    if prompt_style not in PROMPT_STYLES:
+        styles = ", ".join(sorted(PROMPT_STYLES))
+        raise ValueError(f"unknown prompt_style={prompt_style!r}; expected one of: {styles}")
+
+
+def _harness_section(harness_id: str, prompt_style: str) -> list[str]:
+    if prompt_style == INTERNAL_PROMPT_STYLE:
+        return [f"## Harness\n{harness_id}"]
+    return []
+
+
+def _field_intro(prompt_style: str, *, rich: bool = False) -> str:
+    if prompt_style == INTERNAL_PROMPT_STYLE:
+        return (
+            "Extract clinical fields from this epilepsy clinic letter."
+            if rich
+            else "Extract only benchmark fields from this epilepsy clinic letter."
+        )
+    return (
+        "Extract the requested current clinical fields from this epilepsy clinic letter."
+        if rich
+        else "Extract the requested current epilepsy fields from this clinic letter."
+    )
+
 
 def h6_few_shot_examples() -> str:
     """Synthetic few-shot examples for current seizure-status edge cases."""
@@ -62,27 +92,29 @@ def h6full_examples() -> str:
     )
 
 
-def build_h6_prompt(document: dict[str, Any], harness_id: str) -> str:
+def build_h6_prompt(document: dict[str, Any], harness_id: str, prompt_style: str = INTERNAL_PROMPT_STYLE) -> str:
+    _validate_prompt_style(prompt_style)
     return "\n\n".join(
         [
-            "Extract only benchmark fields from this epilepsy clinic letter.",
+            _field_intro(prompt_style),
             "Return JSON only with this shape:",
             '{"medication_names":[],"seizure_types":[],"epilepsy_diagnosis_type":null}',
             "Medication names should include current anti-seizure medications only. Use generic drug names where possible.",
             "Seizure types must use only the allowed labels. Do not include aura, warning, symptom, medication side effect, investigation finding, or differential diagnosis labels as seizure types.",
             "Epilepsy diagnosis/type must use one allowed label or null. Do not invent a diagnosis if the letter does not support one.",
             benchmark_label_block(),
-            f"## Harness\n{harness_id}",
+            *_harness_section(harness_id, prompt_style),
             "## Source Letter",
             document["text"],
         ]
     )
 
 
-def build_h6fs_prompt(document: dict[str, Any], harness_id: str) -> str:
+def build_h6fs_prompt(document: dict[str, Any], harness_id: str, prompt_style: str = INTERNAL_PROMPT_STYLE) -> str:
+    _validate_prompt_style(prompt_style)
     return "\n\n".join(
         [
-            "Extract only benchmark fields from this epilepsy clinic letter.",
+            _field_intro(prompt_style),
             "Return JSON only with this shape:",
             '{"medication_names":[],"seizure_types":[],"epilepsy_diagnosis_type":null}',
             "Medication names should include current anti-seizure medications only. Use generic drug names where possible.",
@@ -90,14 +122,15 @@ def build_h6fs_prompt(document: dict[str, Any], harness_id: str) -> str:
             "Epilepsy diagnosis/type must use one allowed label or null. Do not invent a diagnosis if the letter does not support one.",
             benchmark_label_block(),
             h6_few_shot_examples(),
-            f"## Harness\n{harness_id}",
+            *_harness_section(harness_id, prompt_style),
             "## Source Letter",
             document["text"],
         ]
     )
 
 
-def build_h6full_prompt(document: dict[str, Any], harness_id: str) -> str:
+def build_h6full_prompt(document: dict[str, Any], harness_id: str, prompt_style: str = INTERNAL_PROMPT_STYLE) -> str:
+    _validate_prompt_style(prompt_style)
     schema = (
         '{"medications":[{"name":"...","dose":"...","unit":"...","frequency":"..."}],'
         '"seizure_types":[],"epilepsy_diagnosis_type":null,'
@@ -106,7 +139,7 @@ def build_h6full_prompt(document: dict[str, Any], harness_id: str) -> str:
     )
     return "\n\n".join(
         [
-            "Extract clinical fields from this epilepsy clinic letter.",
+            _field_intro(prompt_style, rich=True),
             f"Return JSON only with this shape:\n{schema}",
             (
                 "medications: list current anti-seizure medications only. "
@@ -136,8 +169,25 @@ def build_h6full_prompt(document: dict[str, Any], harness_id: str) -> str:
             ),
             benchmark_label_block(),
             h6full_examples(),
-            f"## Harness\n{harness_id}",
+            *_harness_section(harness_id, prompt_style),
             "## Source Letter",
             document["text"],
         ]
     )
+
+
+def prompt_artifact_report(prompt: str, harness_id: str | None = None) -> dict[str, Any]:
+    """Return prompt artefacts that can bias an extraction run toward internals."""
+    lower_prompt = prompt.lower()
+    artefacts = {
+        "mentions_harness": "## harness" in lower_prompt or (harness_id is not None and harness_id.lower() in lower_prompt),
+        "mentions_benchmark": "benchmark" in lower_prompt,
+        "mentions_pass": "pass 1 of 2" in lower_prompt or "pass 2 of 2" in lower_prompt,
+        "mentions_nearest_allowed_benchmark_label": "nearest allowed benchmark label" in lower_prompt,
+        "mentions_pipeline_id": "pipeline_id" in lower_prompt,
+    }
+    return {
+        "harness_id": harness_id,
+        "artefacts": artefacts,
+        "artefact_count": sum(1 for found in artefacts.values() if found),
+    }

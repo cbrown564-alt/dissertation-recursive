@@ -9,7 +9,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
 from core.manifests import sha256_text
-from core.prompts import build_h6_prompt, build_h6fs_prompt, build_h6full_prompt
+from core.prompts import build_h6_prompt, build_h6fs_prompt, build_h6full_prompt, prompt_artifact_report
 from core.projection import RELAXED_PROJECTION_VERSION, projected_canonical
 from model_expansion import (
     build_h6_prompt as legacy_build_h6_prompt,
@@ -57,6 +57,19 @@ def test_h6fs_prompt_freezes_few_shot_status_contract() -> None:
     assert '"unknown seizure type"' in prompt
     assert '"seizure free"' in prompt
     assert "Allowed seizure_type labels:" in prompt
+
+
+def test_sanitized_prompt_style_removes_internal_run_artefacts() -> None:
+    harness_id = "H6fs_benchmark_only_coarse_json"
+    prompt = build_h6fs_prompt(_document(), harness_id, prompt_style="clinician")
+    report = prompt_artifact_report(prompt, harness_id)
+
+    assert "## Harness" not in prompt
+    assert harness_id not in prompt
+    assert "benchmark" not in prompt.lower()
+    assert "Extract the requested current epilepsy fields" in prompt
+    assert report["artefacts"]["mentions_harness"] is False
+    assert report["artefacts"]["mentions_benchmark"] is False
 
 
 def test_evidence_resolver_fallback_prompt_contract_is_frozen() -> None:

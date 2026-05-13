@@ -94,27 +94,28 @@ def _build_local_prompt(
     document: dict[str, Any],
     schema_path: Path,
     vocab_preamble: bool = False,
+    prompt_style: str = "internal",
 ) -> str:
     if harness_id == "H0_strict_canonical":
         return build_direct_prompt("S2", document, schema_path)
     if harness_id in {"H4_provider_native_structured_output", "H6_benchmark_only_coarse_json"}:
-        prompt = build_h6_prompt(document, harness_id)
+        prompt = build_h6_prompt(document, harness_id, prompt_style=prompt_style)
     elif harness_id == "H6v2_benchmark_only_coarse_json":
         prompt = build_h6v2_prompt(document, harness_id)
     elif harness_id == "H6fs_benchmark_only_coarse_json":
-        prompt = build_h6fs_prompt(document, harness_id)
+        prompt = build_h6fs_prompt(document, harness_id, prompt_style=prompt_style)
     elif harness_id == "H6qa_benchmark_only_coarse_json":
         prompt = build_h6qa_prompt(document, harness_id)
     elif harness_id == "H6ev_benchmark_only_coarse_json":
         prompt = build_h6ev_prompt(document, harness_id)
     elif harness_id == "H6full_benchmark_coarse_json":
-        prompt = build_h6full_prompt(document, harness_id)
+        prompt = build_h6full_prompt(document, harness_id, prompt_style=prompt_style)
     elif harness_id == "H3_loose_answer_then_parse":
         prompt = build_loose_prompt(document, harness_id)
     elif harness_id == "H7_extract_then_normalize":
         prompt = build_h7_extract_prompt(document, harness_id)
     elif harness_id == "H6fs_ev_resolver":
-        prompt = build_h6fs_prompt(document, harness_id)
+        prompt = build_h6fs_prompt(document, harness_id, prompt_style=prompt_style)
     else:
         raise ValueError(f"unsupported local harness: {harness_id}")
     if vocab_preamble:
@@ -139,6 +140,7 @@ def run_local_one(
     ollama_base_url: str,
     vocab_preamble: bool = False,
     stage_tag: str = "local",
+    prompt_style: str = "internal",
 ) -> dict[str, Any]:
     """Execute one model × harness × document combination for a local (Ollama) model.
 
@@ -162,6 +164,7 @@ def run_local_one(
             meta["pass"] = pass_tag
         if vocab_preamble:
             meta["vocab_preamble"] = True
+        meta["prompt_style"] = prompt_style
         return ModelRequest(
             prompt=truncate_to_context(prompt, spec),
             model=spec,
@@ -173,7 +176,7 @@ def run_local_one(
         )
 
     if harness_id == "H7_extract_then_normalize":
-        extract_prompt = _build_local_prompt("H7_extract_then_normalize", document, schema_path, vocab_preamble)
+        extract_prompt = _build_local_prompt("H7_extract_then_normalize", document, schema_path, vocab_preamble, prompt_style)
         write_text(run_root / "extract_prompt.txt", extract_prompt)
         extract_response = adapter.call(make_request(extract_prompt, f"{harness_id}:extract", "extract"))
         write_text(run_root / "extract_raw_response.txt", extract_response.text)
@@ -200,12 +203,13 @@ def run_local_one(
             run_root / "raw_response.txt",
         )
         row["vocab_preamble"] = vocab_preamble
+        row["prompt_style"] = prompt_style
         return row
 
     # Single-pass harnesses
     from model_expansion import normalize_relaxed_payload
 
-    prompt = _build_local_prompt(harness_id, document, schema_path, vocab_preamble)
+    prompt = _build_local_prompt(harness_id, document, schema_path, vocab_preamble, prompt_style)
     write_text(run_root / "prompt.txt", prompt)
     response = adapter.call(make_request(prompt, harness_id))
     write_text(run_root / "raw_response.txt", response.text)
@@ -227,6 +231,7 @@ def run_local_one(
         run_root / "raw_response.txt",
     )
     row["vocab_preamble"] = vocab_preamble
+    row["prompt_style"] = prompt_style
     return row
 
 
@@ -370,6 +375,7 @@ def _summarize_condition(
         "model_label": model_label,
         "harness_id": harness_id,
         "vocab_preamble": vocab_preamble,
+        "prompt_style": rows[0].get("prompt_style", "internal") if rows else "internal",
         "documents": total,
         "call_success_rate": success / total if total else 0.0,
         "parse_success_rate": parse_ok / total if total else 0.0,
@@ -418,6 +424,7 @@ def _run_stage(
     vocab_preamble: bool = False,
     require_present_evidence: bool = False,
     resolver_model_id: str | None = None,
+    prompt_style: str = "internal",
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     """Run all model × harness × document combinations and return (call_rows, summaries)."""
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -428,7 +435,7 @@ def _run_stage(
                 row = run_local_one(
                     model_label, harness_id, document_id, output_dir,
                     registry, exect_root, schema_path, temperature, max_output_tokens,
-                    ollama_base_url, vocab_preamble, stage_tag=stage_name,
+                    ollama_base_url, vocab_preamble, stage_tag=stage_name, prompt_style=prompt_style,
                 )
                 call_rows.append(row)
                 print(f"{row['status']}: {model_label} {harness_id} {document_id}", flush=True)
@@ -540,6 +547,7 @@ def command_l1(args: argparse.Namespace) -> int:
         "stage_l1_h0_baseline", model_labels, LOCAL_HARNESSES_L1, document_ids,
         output_dir, Path(args.registry), Path(args.exect_root), Path(args.markup_root),
         Path(args.schema), args.temperature, args.max_output_tokens, args.ollama_base_url,
+        prompt_style=args.prompt_style,
     )
     failures = [r for r in call_rows if r.get("status") != "success"]
     _write_failure_analysis(output_dir / "failure_analysis.md", call_rows, "L1 H0 Baseline")
@@ -560,6 +568,7 @@ def command_l2(args: argparse.Namespace) -> int:
         "stage_l2_h4_json_mode", model_labels, LOCAL_HARNESSES_L2, document_ids,
         output_dir, Path(args.registry), Path(args.exect_root), Path(args.markup_root),
         Path(args.schema), args.temperature, args.max_output_tokens, args.ollama_base_url,
+        prompt_style=args.prompt_style,
     )
     print(f"\nL2 complete: {len(call_rows)} calls")
     for s in summaries:
@@ -579,7 +588,7 @@ def command_l3(args: argparse.Namespace) -> int:
         "stage_l3_simplified_harnesses", model_labels, harness_ids, document_ids,
         output_dir, Path(args.registry), Path(args.exect_root), Path(args.markup_root),
         Path(args.schema), args.temperature, args.max_output_tokens, args.ollama_base_url,
-        resolver_model_id=args.resolver_model,
+        resolver_model_id=args.resolver_model, prompt_style=args.prompt_style,
     )
     promoted = [s for s in summaries if _passes_l3_gate(s)]
     decision_lines = [
@@ -627,7 +636,7 @@ def command_l4(args: argparse.Namespace) -> int:
         "stage_l4a_vocab", model_labels, harness_ids, document_ids,
         vocab_dir, Path(args.registry), Path(args.exect_root), Path(args.markup_root),
         Path(args.schema), args.temperature, args.max_output_tokens, args.ollama_base_url,
-        vocab_preamble=True,
+        vocab_preamble=True, prompt_style=args.prompt_style,
     )
     for s in summaries_a:
         s["l4_variant"] = "vocab_preamble"
@@ -640,7 +649,7 @@ def command_l4(args: argparse.Namespace) -> int:
         "stage_l4b_baseline", model_labels, harness_ids, document_ids,
         base_dir, Path(args.registry), Path(args.exect_root), Path(args.markup_root),
         Path(args.schema), args.temperature, args.max_output_tokens, args.ollama_base_url,
-        vocab_preamble=False,
+        vocab_preamble=False, prompt_style=args.prompt_style,
     )
     for s in summaries_b:
         s["l4_variant"] = "no_preamble"
@@ -678,6 +687,7 @@ def command_l5(args: argparse.Namespace) -> int:
         vocab_preamble=args.vocab_preamble,
         require_present_evidence=args.require_present_evidence,
         resolver_model_id=args.resolver_model,
+        prompt_style=args.prompt_style,
     )
     # Comparison vs frontier baseline numbers from the workstream plan
     frontier_baselines = [
@@ -767,6 +777,12 @@ def _add_common_args(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--max-output-tokens", type=int, default=4096)
     parser.add_argument("--ollama-base-url", default="http://localhost:11434/v1")
     parser.add_argument("--resolver-model", default=None, help="Ollama model tag for evidence-resolver fallback (e.g. qwen3.6:35b).")
+    parser.add_argument(
+        "--prompt-style",
+        choices=["internal", "clinician"],
+        default="internal",
+        help="Use archived internal prompts or sanitized clinician-facing prompts for supported H6-family harnesses.",
+    )
 
 
 def main() -> int:

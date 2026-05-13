@@ -1,0 +1,72 @@
+version: 2026-05-13-final-clarification-v1
+purpose: >
+  Controlled final clarification matrix for separating prompt artefacts,
+  architecture family, model capability, projection policy, and temporality
+  challenge slices.
+
+models:
+  frontier:
+    - gpt_5_5
+    - gpt_5_4_mini
+    - gpt_4_1_mini_baseline
+    - gemini_3_flash
+  local:
+    - qwen_27b_local
+    - qwen_35b_local
+    - gemma_4b_local
+
+prompt_styles:
+  - internal
+  - clinician
+
+harnesses:
+  single_pass:
+    - H6_benchmark_only_coarse_json
+    - H6fs_benchmark_only_coarse_json
+    - H6full_benchmark_coarse_json
+  two_pass:
+    - H7_extract_then_normalize
+    - D3_candidate_plus_verifier
+  evidence_resolution:
+    - H6fs_ev_resolver
+
+projection_policies:
+  relaxed_projection:
+    description: Current projected_canonical policy; permits deterministic normalization and force-current canonical shape.
+    require_present_evidence: false
+    report_projection_delta: true
+  evidence_required_projection:
+    description: Evidence-bearing projection for harnesses that emit quotes; drops unsupported quoted fields when configured.
+    require_present_evidence: true
+    report_projection_delta: true
+
+evaluation_slices:
+  standard_validation:
+    split: validation
+    minimum_documents: 40
+  temporality_challenge:
+    source: runs/temporality_challenge_set/validation/temporality_challenge_rows.csv
+    categories:
+      - planned_medication
+      - previous_medication
+      - taper_or_stop
+      - dose_escalation
+      - prn_medication
+      - split_dose
+      - seizure_free_historical_type
+  projection_delta:
+    source: runs/projection_delta_report/final_full_field_validation/projection_delta_rows.csv
+
+required_outputs:
+  - raw_response
+  - parsed_payload
+  - canonical_projection
+  - projection_delta_rows
+  - schema_validity
+  - parse_success
+  - latency
+  - token_usage
+  - estimated_cost
+  - quote_validity
+  - evidence_support
+  - failure_categories

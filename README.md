@@ -19,6 +19,10 @@ The first post-consolidation evidence-freeze artifact is documented in
 It freezes the maintained H6fs + evidence-resolver validation run and the full
 ExECT Explorer model overlay used for audit.
 
+The post-synthesis clarification agenda is [docs/58_phase_review_research_agenda.md](docs/58_phase_review_research_agenda.md).
+Implementation has started with sanitized prompt variants and prompt artefact
+auditing in [docs/59_final_clarification_implementation.md](docs/59_final_clarification_implementation.md).
+
 The most important active candidates are:
 
 - Frontier baselines: GPT-4.1-mini S2/E3.
@@ -82,6 +86,8 @@ metadata.
 - [Refactor consolidation plan](docs/54_refactor_consolidation_plan.md) - current cleanup and rationalization roadmap.
 - [Archived entrypoints and maintained commands](docs/56_archival_entrypoints.md) - post-consolidation routing for new work versus historical reproduction.
 - [Dissertation evidence freeze](docs/57_dissertation_evidence_freeze.md) - maintained validation artifact, headline metrics, and audit-pass guidance.
+- [Phase review research agenda](docs/58_phase_review_research_agenda.md) - next experimental agenda after synthesis.
+- [Final clarification implementation notes](docs/59_final_clarification_implementation.md) - first implemented slice for prompt artefact A/B testing.
 
 ## Milestone 1 Exit Check
 

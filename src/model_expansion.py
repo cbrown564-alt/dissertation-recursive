@@ -99,8 +99,8 @@ def build_loose_prompt(document: dict[str, Any], harness_id: str) -> str:
     )
 
 
-def build_h6_prompt(document: dict[str, Any], harness_id: str) -> str:
-    return _core_build_h6_prompt(document, harness_id)
+def build_h6_prompt(document: dict[str, Any], harness_id: str, prompt_style: str = "internal") -> str:
+    return _core_build_h6_prompt(document, harness_id, prompt_style=prompt_style)
 
 
 def build_h6v2_prompt(document: dict[str, Any], harness_id: str) -> str:
@@ -138,7 +138,7 @@ def _h6fs_examples() -> str:
     return _core_h6_few_shot_examples()
 
 
-def build_h6fs_prompt(document: dict[str, Any], harness_id: str) -> str:
+def build_h6fs_prompt(document: dict[str, Any], harness_id: str, prompt_style: str = "internal") -> str:
     """H6 with few-shot examples (Variant A).
     Three inline examples demonstrate: unknown seizure type when unspecified,
     seizure free when currently seizure-free, and seizure free (not historical
@@ -146,7 +146,7 @@ def build_h6fs_prompt(document: dict[str, Any], harness_id: str) -> str:
     Targets the two dominant N1 failure modes without changing the label set or
     schema shape.
     """
-    return _core_build_h6fs_prompt(document, harness_id)
+    return _core_build_h6fs_prompt(document, harness_id, prompt_style=prompt_style)
 
 
 def build_h6qa_prompt(document: dict[str, Any], harness_id: str) -> str:
@@ -229,13 +229,13 @@ def _h6full_examples() -> str:
     return _core_h6full_examples()
 
 
-def build_h6full_prompt(document: dict[str, Any], harness_id: str) -> str:
+def build_h6full_prompt(document: dict[str, Any], harness_id: str, prompt_style: str = "internal") -> str:
     """H6full: extends H6 with structured medication dose/unit/frequency,
     explicit EEG/MRI investigations, and current seizure frequency.
     Includes full-schema few-shot examples for calibration.
     Tests whether larger models can follow a richer schema than H6/H6fs.
     """
-    return _core_build_h6full_prompt(document, harness_id)
+    return _core_build_h6full_prompt(document, harness_id, prompt_style=prompt_style)
 
 
 def benchmark_output_schema() -> dict[str, Any]:

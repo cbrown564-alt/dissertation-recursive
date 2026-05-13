@@ -1,8 +1,14 @@
 # Phase Review Research Agenda
 
 **Date:** 2026-05-13  
-**Status:** Working planning note  
+**Status:** Working planning note; implementation started  
 **Purpose:** Capture post-synthesis concerns and convert them into a sharper research agenda for the next experimental pass.
+
+**Implementation tracker:** The first implementation slice is documented in
+[`docs/59_final_clarification_implementation.md`](59_final_clarification_implementation.md).
+Implemented support now covers sanitized prompt variants, prompt artefact
+auditing, projection delta reporting, temporality challenge-set construction,
+and a machine-readable final clarification matrix skeleton.
 
 ---
 
@@ -47,9 +53,20 @@ Some prompts expose internal implementation language to the model, including `pi
 
 Required action:
 
-- create sanitized clinician-facing variants of the final prompts;
+- create sanitized clinician-facing variants of the final prompts; **implemented
+  for maintained H6-family prompt builders via `prompt_style="clinician"` in
+  `src/core/prompts.py`;**
 - A/B test internal-labelled prompts against sanitized prompts;
 - report whether prompt artefacts materially affect extraction quality, temporality, abstention, evidence, or latency.
+
+Implemented support:
+
+- `scripts/audit_prompt_artifacts.py` audits tracked internal prompt artefacts.
+- `src/local_models.py` now accepts `--prompt-style internal|clinician` for
+  supported H6-family local-model runs.
+- `runs/prompt_artifact_audit/prompt_artifacts.json` contains an initial
+  EA0001 audit: internal prompts expose harness identity and benchmark language;
+  clinician variants expose zero tracked artefacts under the current rules.
 
 ### 2.3 Projection and normalization are experimental actors
 
@@ -60,9 +77,22 @@ This is useful engineering, but results should be described as model + projectio
 Required action:
 
 - report raw-output metrics where possible;
-- report projected-output metrics separately;
-- document which claims depend on deterministic post-processing;
+- report projected-output metrics separately; **projection delta reporting
+  implemented as an audit surface;**
+- document which claims depend on deterministic post-processing; **initial
+  retrospective projection-delta report generated;**
 - add ablations for projection policy choices that may bias results.
+
+Implemented support:
+
+- `src/core/projection_diagnostics.py` compares parsed raw model payloads with
+  `canonical_projection.json` outputs.
+- `scripts/build_projection_delta_report.py` builds row-level and summary
+  projection delta reports for existing run directories.
+- Initial retrospective run on `runs/final_full_field/validation/calls`
+  compared 104 documents and found 24 dropped fields, 352 force-current
+  assignments, 5 seizure-label changed documents, and 22 investigation-label
+  changed documents.
 
 ### 2.4 Temporality remains a core clinical failure mode
 
@@ -78,6 +108,17 @@ Examples to target:
 - "reduce and stop";
 - "increase to target dose";
 - "seizure free, previously had focal impaired awareness seizures".
+
+Implemented support:
+
+- `src/core/temporality_challenge.py` defines temporality trigger patterns for
+  planned medication, previous medication, taper/stop, dose escalation, PRN,
+  split-dose schedules, and seizure-free with historical seizure type.
+- `scripts/build_temporality_challenge_set.py` builds a reusable CSV/JSON/MD
+  challenge slice from ExECTv2 splits.
+- Initial validation-split run found 53 temporality matches across 28 documents:
+  22 dose-escalation, 14 planned-medication, 4 previous-medication, 3 split-dose,
+  and 10 taper/stop matches.
 
 ### 2.5 Unknown seizure type is an abstention problem
 
@@ -143,15 +184,17 @@ Compare architecture families under stable scoring:
 
 For each condition, record:
 
-- raw model output score;
+- raw model output score; **still pending where direct raw scoring is possible;**
 - projected canonical score;
 - quote validity;
-- evidence support score;
+- evidence support score; **pending; next implementation target;**
 - schema validity;
 - parse success;
 - latency;
 - input/output tokens;
-- deterministic post-processing applied;
+- deterministic post-processing applied; **projection delta reporting now records
+  field drops/additions, label changes, evidence/quote counts, and force-current
+  assignments;**
 - cost;
 - failure category counts.
 
@@ -159,16 +202,25 @@ For each condition, record:
 
 Report aggregate metrics, but also named hard slices:
 
-- planned medication;
-- previous medication;
-- split-dose prescription;
+- planned medication; **challenge-set trigger implemented;**
+- previous medication; **challenge-set trigger implemented;**
+- split-dose prescription; **challenge-set trigger implemented;**
 - PRN/as-required medication;
-- seizure-free with historical seizure type;
+- seizure-free with historical seizure type; **challenge-set trigger implemented;**
 - unknown seizure type;
 - fine-grained vs collapsed seizure type;
 - diagnosis granularity;
 - multiple seizure-frequency mentions;
 - conflicting or ambiguous gold labels.
+
+Matrix support:
+
+- `configs/final_clarification_matrix.yaml` now names model groups, harness
+  groups, prompt styles, projection policies, evaluation slices, and required
+  outputs.
+- `scripts/describe_final_clarification_matrix.py` summarizes the matrix. The
+  current full-factorial skeleton contains 168 conditions before pragmatic
+  down-selection.
 
 ---
 
@@ -328,11 +380,11 @@ Specific actions:
 
 ## 9. Near-Term Next Steps
 
-1. Sanitize the final prompts and document all internal artefacts currently exposed to models.
-2. Build a temporality challenge set from ExECTv2 letters.
-3. Add raw vs projected scoring reports for promoted relaxed harnesses.
-4. Define evidence support scoring separately from quote validity.
-5. Design the 40-document final clarification matrix.
+1. Sanitize the final prompts and document all internal artefacts currently exposed to models. **Implemented infrastructure; A/B model runs pending.**
+2. Build a temporality challenge set from ExECTv2 letters. **Implemented initial validation slice.**
+3. Add raw vs projected scoring reports for promoted relaxed harnesses. **Projection delta reporting implemented; direct raw-output metrics still pending where feasible.**
+4. Define evidence support scoring separately from quote validity. **Pending; next implementation target.**
+5. Design the 40-document final clarification matrix. **Initial machine-readable matrix skeleton implemented; down-selection pending.**
 6. Rerun Gemini 3 Flash under fixed quota conditions.
 7. Revisit qwen3.6:27b and qwen3.6:35b on 40-doc controlled harness comparisons.
 8. Test local evidence-in-prompt vs deterministic evidence resolver.
