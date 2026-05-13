@@ -15,6 +15,9 @@ models:
     - qwen_35b_local
     - gemma_4b_local
 
+model_registry_aliases:
+  gemini_3_flash: gemini_3_1_flash
+
 prompt_styles:
   - internal
   - clinician
@@ -59,6 +62,8 @@ evaluation_slices:
 
 required_outputs:
   - raw_response
+  - raw_output_score_rows
+  - raw_output_score_summary
   - parsed_payload
   - canonical_projection
   - projection_delta_rows
@@ -70,3 +75,180 @@ required_outputs:
   - quote_validity
   - evidence_support
   - failure_categories
+
+selected_run_plan:
+  version: 2026-05-13-final-clarification-downselect-v1
+  purpose: >
+    Pragmatic 40-document down-selection from the full factorial skeleton. The
+    plan preserves the major causal contrasts while avoiding a 168-condition
+    run before the most informative axes have been tested.
+  documents_per_condition: 40
+  document_slice:
+    split: validation
+    selection: stratified_fixed_seed
+    seed: 58
+    minimum_temporality_documents: 20
+    minimum_standard_validation_documents: 40
+    notes: >
+      Prefer the standard 40-document validation slice, replacing documents
+      only as needed to guarantee temporality challenge coverage without
+      exceeding 40 documents.
+  token_estimates_per_document:
+    H6_benchmark_only_coarse_json:
+      calls_per_document: 1
+      input_tokens: 4200
+      output_tokens: 800
+    H6fs_benchmark_only_coarse_json:
+      calls_per_document: 1
+      input_tokens: 4700
+      output_tokens: 900
+    H6full_benchmark_coarse_json:
+      calls_per_document: 1
+      input_tokens: 5400
+      output_tokens: 1200
+    H7_extract_then_normalize:
+      calls_per_document: 2
+      input_tokens: 7800
+      output_tokens: 1600
+    D3_candidate_plus_verifier:
+      calls_per_document: 2
+      input_tokens: 8200
+      output_tokens: 1500
+    H6fs_ev_resolver:
+      calls_per_document: 2
+      input_tokens: 6100
+      output_tokens: 1050
+  conditions:
+    - id: FC01
+      tier: core_architecture
+      model: gpt_5_4_mini
+      harness: H6fs_benchmark_only_coarse_json
+      prompt_style: clinician
+      projection_policy: relaxed_projection
+      rationale: Compact frontier baseline for benchmark-only extraction.
+    - id: FC02
+      tier: core_architecture
+      model: gpt_5_4_mini
+      harness: H7_extract_then_normalize
+      prompt_style: clinician
+      projection_policy: relaxed_projection
+      rationale: Frontier extract-then-normalize contrast against FC01.
+    - id: FC03
+      tier: core_architecture
+      model: gpt_5_4_mini
+      harness: D3_candidate_plus_verifier
+      prompt_style: clinician
+      projection_policy: relaxed_projection
+      rationale: Frontier candidate-plus-verifier contrast against FC01.
+    - id: FC04
+      tier: core_architecture
+      model: qwen_35b_local
+      harness: H6fs_benchmark_only_coarse_json
+      prompt_style: clinician
+      projection_policy: relaxed_projection
+      rationale: Strong local benchmark-only baseline.
+    - id: FC05
+      tier: core_architecture
+      model: qwen_35b_local
+      harness: H7_extract_then_normalize
+      prompt_style: clinician
+      projection_policy: relaxed_projection
+      rationale: Local extract-then-normalize contrast against FC04.
+    - id: FC06
+      tier: core_architecture
+      model: qwen_35b_local
+      harness: D3_candidate_plus_verifier
+      prompt_style: clinician
+      projection_policy: relaxed_projection
+      rationale: Local candidate-plus-verifier contrast against FC04.
+    - id: FC07
+      tier: prompt_artifact
+      model: gpt_5_4_mini
+      harness: H6fs_benchmark_only_coarse_json
+      prompt_style: internal
+      projection_policy: relaxed_projection
+      rationale: Internal-labelled prompt A/B pair for FC01.
+    - id: FC08
+      tier: prompt_artifact
+      model: qwen_35b_local
+      harness: H6fs_benchmark_only_coarse_json
+      prompt_style: internal
+      projection_policy: relaxed_projection
+      rationale: Local internal-labelled prompt A/B pair for FC04.
+    - id: FC09
+      tier: projection_policy
+      model: gpt_5_4_mini
+      harness: H6full_benchmark_coarse_json
+      prompt_style: clinician
+      projection_policy: evidence_required_projection
+      rationale: Frontier full-field evidence-bearing projection policy check.
+    - id: FC10
+      tier: projection_policy
+      model: qwen_35b_local
+      harness: H6full_benchmark_coarse_json
+      prompt_style: clinician
+      projection_policy: evidence_required_projection
+      rationale: Local full-field evidence-bearing projection policy check.
+    - id: FC11
+      tier: evidence_resolution
+      model: gpt_5_4_mini
+      harness: H6fs_ev_resolver
+      prompt_style: clinician
+      projection_policy: evidence_required_projection
+      rationale: Frontier extraction plus deterministic/LLM evidence resolver.
+    - id: FC12
+      tier: evidence_resolution
+      model: qwen_35b_local
+      harness: H6fs_ev_resolver
+      prompt_style: clinician
+      projection_policy: evidence_required_projection
+      rationale: Local extraction plus deterministic/LLM evidence resolver.
+    - id: FC13
+      tier: frontier_reasoning
+      model: gpt_5_5
+      harness: H6fs_benchmark_only_coarse_json
+      prompt_style: clinician
+      projection_policy: relaxed_projection
+      rationale: Higher-capability frontier model on the compact baseline.
+    - id: FC14
+      tier: frontier_reasoning
+      model: gpt_5_5
+      harness: H7_extract_then_normalize
+      prompt_style: clinician
+      projection_policy: relaxed_projection
+      rationale: Tests whether stronger reasoning specifically helps normalization.
+    - id: FC15
+      tier: fixed_quota_rerun
+      model: gemini_3_flash
+      harness: H6fs_benchmark_only_coarse_json
+      prompt_style: clinician
+      projection_policy: relaxed_projection
+      rationale: Gemini Flash rerun under fixed quota conditions.
+    - id: FC16
+      tier: fixed_quota_rerun
+      model: gemini_3_flash
+      harness: H7_extract_then_normalize
+      prompt_style: clinician
+      projection_policy: relaxed_projection
+      rationale: Gemini Flash architecture contrast after quota recovery.
+    - id: FC17
+      tier: local_family
+      model: qwen_27b_local
+      harness: H6fs_benchmark_only_coarse_json
+      prompt_style: clinician
+      projection_policy: relaxed_projection
+      rationale: Qwen size-family contrast against FC04.
+    - id: FC18
+      tier: local_family
+      model: gemma_4b_local
+      harness: H6fs_benchmark_only_coarse_json
+      prompt_style: clinician
+      projection_policy: relaxed_projection
+      rationale: Contrasting local family baseline.
+    - id: FC19
+      tier: lower_cost_frontier
+      model: gpt_4_1_mini_baseline
+      harness: H6fs_benchmark_only_coarse_json
+      prompt_style: clinician
+      projection_policy: relaxed_projection
+      rationale: Lower-cost frontier baseline for practical comparison.

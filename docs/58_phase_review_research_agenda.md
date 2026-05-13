@@ -89,6 +89,9 @@ Implemented support:
   `canonical_projection.json` outputs.
 - `scripts/build_projection_delta_report.py` builds row-level and summary
   projection delta reports for existing run directories.
+- `src/core/raw_output_scoring.py` and
+  `scripts/build_raw_output_score_report.py` now provide direct raw-payload
+  metrics for fields that can be scored before canonical projection.
 - Initial retrospective run on `runs/final_full_field/validation/calls`
   compared 104 documents and found 24 dropped fields, 352 force-current
   assignments, 5 seizure-label changed documents, and 22 investigation-label
@@ -197,7 +200,8 @@ Compare architecture families under stable scoring:
 
 For each condition, record:
 
-- raw model output score; **still pending where direct raw scoring is possible;**
+- raw model output score; **implemented for directly mappable raw payload
+  fields;**
 - projected canonical score;
 - quote validity;
 - evidence support score; **implemented as a rule-assisted scoring layer
@@ -231,10 +235,16 @@ Matrix support:
 
 - `configs/final_clarification_matrix.yaml` now names model groups, harness
   groups, prompt styles, projection policies, evaluation slices, and required
-  outputs.
+  outputs, including raw-output score rows and summaries.
 - `scripts/describe_final_clarification_matrix.py` summarizes the matrix. The
-  current full-factorial skeleton contains 168 conditions before pragmatic
-  down-selection.
+  current full-factorial skeleton contains 168 conditions.
+- A pragmatic 40-document down-selection is now encoded as `selected_run_plan`:
+  19 selected conditions, 760 document-runs, 1080 estimated model calls, and an
+  estimated API spend of USD 8.5768 before local runtime costs.
+- `scripts/run_final_clarification_conditions.py` materializes and optionally
+  runs selected conditions from the plan. FC19 has been launched successfully on
+  the 40-document validation split: all 40 GPT-4.1-mini H6fs clinician-prompt
+  calls succeeded and parsed.
 
 ---
 
@@ -400,7 +410,7 @@ Specific actions:
 4. Define evidence support scoring separately from quote validity. **Implemented
    as rule-assisted per-claim support classification; manual adjudication or
    model-assisted semantic judging remains future work.**
-5. Design the 40-document final clarification matrix. **Initial machine-readable matrix skeleton implemented; down-selection pending.**
+5. Design the 40-document final clarification matrix. **Initial machine-readable matrix skeleton, costed down-selection, launcher, and first low-cost condition implemented.**
 6. Rerun Gemini 3 Flash under fixed quota conditions.
 7. Revisit qwen3.6:27b and qwen3.6:35b on 40-doc controlled harness comparisons.
 8. Test local evidence-in-prompt vs deterministic evidence resolver.

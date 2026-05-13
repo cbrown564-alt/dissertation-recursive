@@ -147,6 +147,46 @@ python scripts/describe_final_clarification_matrix.py \
 The current full-factorial skeleton contains 168 conditions before pragmatic
 down-selection.
 
+The first pragmatic down-selection is now encoded under `selected_run_plan` in
+the matrix config. It keeps 19 40-document conditions covering the core
+architecture comparison, internal-vs-clinician prompt artefact A/B pairs,
+projection-policy checks, evidence-resolver checks, Gemini Flash quota reruns,
+local-family contrasts, and lower-cost frontier baselines. The matrix summary
+script now emits:
+
+- `runs/final_clarification_matrix/selected_run_plan.json`
+- `runs/final_clarification_matrix/selected_run_plan.csv`
+
+Using the 2026-05-07 model registry prices and rough per-harness token
+estimates, the selected plan contains 760 document-runs, 1080 model calls, and
+an estimated API spend of USD 8.5768 before local runtime costs.
+
+## Raw Output Scoring
+
+The sixth implemented slice adds direct raw-payload metrics for fields that can
+be scored without applying canonical projection. `src/core/raw_output_scoring.py`
+extracts model-emitted medication, seizure type, seizure-frequency,
+investigation, and diagnosis values from parsed raw payloads and compares them
+with ExECTv2 gold labels using the same normalization helpers as the maintained
+canonical scorer. These metrics intentionally report `raw_schema_valid_rate` as
+0.0 because the payload is not being treated as canonical schema output.
+
+Run it on a calls directory with:
+
+```bash
+python scripts/build_raw_output_score_report.py \
+  --calls-dir runs/final_full_field/validation/calls \
+  --output-dir runs/raw_output_score_report/final_full_field_validation
+```
+
+The initial retrospective report scored 135 parseable raw outputs from 207 raw
+responses in `runs/final_full_field/validation/calls`. It found raw medication
+name F1 0.8739, raw medication full F1 0.6752, raw seizure-type F1 0.3609,
+raw collapsed seizure-type F1 0.5580, raw frequency per-letter accuracy
+0.1259, EEG accuracy 0.8889, MRI accuracy 0.8296, diagnosis accuracy 0.8074,
+and collapsed diagnosis accuracy 0.6519. Empty local-model responses accounted
+for the skipped raw outputs.
+
 ## Evidence Support Scoring
 
 The fifth implemented slice separates evidence support from quote validity in
@@ -177,7 +217,46 @@ claim-supporting evidence.
 
 ## Next Implementation Slices
 
-1. Add raw-output metrics where direct raw scoring is possible without applying
-   canonical projection.
-2. Down-select the 168-condition full-factorial skeleton into a costed
-   40-document final run plan.
+## Controlled Condition Launcher
+
+The seventh implemented slice turns the selected run plan into executable
+condition commands. `scripts/run_final_clarification_conditions.py` reads
+`selected_run_plan`, materializes per-condition commands, and can optionally
+execute them. It dispatches API-backed conditions through
+`src/model_expansion.py h6-h7-clean-diagnostic` and local Ollama conditions
+through `src/local_models.py stage-l5`. The frontier diagnostic runner now
+supports `H6fs_benchmark_only_coarse_json` and `--prompt-style internal|clinician`
+so the selected clinician-facing H6fs conditions can run without hand edits.
+
+Dry-run one condition:
+
+```bash
+python scripts/run_final_clarification_conditions.py \
+  --ids FC19 \
+  --output-dir runs/final_clarification
+```
+
+Execute it:
+
+```bash
+python scripts/run_final_clarification_conditions.py \
+  --ids FC19 \
+  --output-dir runs/final_clarification \
+  --execute
+```
+
+The first launched condition was FC19: `gpt_4_1_mini_baseline` with
+`H6fs_benchmark_only_coarse_json`, clinician prompt style, on the 40-document
+validation split. All 40 calls succeeded and parsed. Projected metrics were:
+medication name F1 0.8846, seizure-type F1 0.3495, diagnosis accuracy 0.8000,
+benchmark quality 0.6780, mean latency 2104 ms, mean input tokens 754.7, mean
+output tokens 42.7, and mean estimated cost USD 0.00037 per document. The raw
+pre-projection companion report found raw medication name F1 0.8846, raw
+collapsed seizure-type F1 0.5476, raw diagnosis accuracy 0.8000, and no skipped
+raw outputs.
+
+## Next Implementation Slices
+
+1. Launch the paired FC01 clinician H6fs condition and FC07 internal-prompt
+   condition to quantify the prompt artefact A/B comparison on the same
+   40-document validation slice.

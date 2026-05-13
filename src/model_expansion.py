@@ -2041,10 +2041,14 @@ def run_h6_h7_one(
     output_dir: Path,
 ) -> tuple[dict[str, Any], dict[str, Any] | None, str | None]:
     google_thinking_budget = getattr(args, "google_thinking_budget", None)
+    prompt_style = getattr(args, "prompt_style", "internal")
     run_root = output_dir / "calls" / spec.label / harness_id / document_id
     run_root.mkdir(parents=True, exist_ok=True)
-    if harness_id in {"H6_benchmark_only_coarse_json", "H4_provider_native_structured_output"}:
-        prompt = build_h6_prompt(document, harness_id)
+    if harness_id in {"H6_benchmark_only_coarse_json", "H6fs_benchmark_only_coarse_json", "H4_provider_native_structured_output"}:
+        if harness_id == "H6fs_benchmark_only_coarse_json":
+            prompt = build_h6fs_prompt(document, harness_id, prompt_style=prompt_style)
+        else:
+            prompt = build_h6_prompt(document, harness_id, prompt_style=prompt_style)
         write_text(run_root / "prompt.txt", prompt)
         request = ModelRequest(
             prompt=prompt,
@@ -2058,7 +2062,7 @@ def run_h6_h7_one(
             else None,
             reasoning_effort=args.reasoning_effort,
             google_thinking_budget=google_thinking_budget,
-            metadata={"document_id": document_id, "stage": "h6_h7_clean_diagnostic"},
+            metadata={"document_id": document_id, "stage": "h6_h7_clean_diagnostic", "prompt_style": prompt_style},
         )
         response = adapter.call(request)
         write_text(run_root / "raw_response.txt", response.text)
@@ -2070,7 +2074,7 @@ def run_h6_h7_one(
         return row, payload, parsed.error
 
     if harness_id == "H8_evidence_later":
-        extract_prompt = build_h6_prompt(document, harness_id)
+        extract_prompt = build_h6_prompt(document, harness_id, prompt_style=prompt_style)
         write_text(run_root / "extract_prompt.txt", extract_prompt)
         extract_request = ModelRequest(
             prompt=extract_prompt,
@@ -2080,7 +2084,7 @@ def run_h6_h7_one(
             max_output_tokens=args.max_output_tokens or min(spec.max_output_tokens or 4096, 4096),
             reasoning_effort=args.reasoning_effort,
             google_thinking_budget=google_thinking_budget,
-            metadata={"document_id": document_id, "stage": "h4_h8_d3_clean_diagnostic", "pass": "extract"},
+            metadata={"document_id": document_id, "stage": "h4_h8_d3_clean_diagnostic", "pass": "extract", "prompt_style": prompt_style},
         )
         extract_response = adapter.call(extract_request)
         write_text(run_root / "extract_raw_response.txt", extract_response.text)
@@ -2097,7 +2101,7 @@ def run_h6_h7_one(
             max_output_tokens=args.max_output_tokens or min(spec.max_output_tokens or 4096, 4096),
             reasoning_effort=args.reasoning_effort,
             google_thinking_budget=google_thinking_budget,
-            metadata={"document_id": document_id, "stage": "h4_h8_d3_clean_diagnostic", "pass": "evidence"},
+            metadata={"document_id": document_id, "stage": "h4_h8_d3_clean_diagnostic", "pass": "evidence", "prompt_style": prompt_style},
         )
         evidence_response = adapter.call(evidence_request)
         write_text(run_root / "raw_response.txt", evidence_response.text)
@@ -2126,7 +2130,7 @@ def run_h6_h7_one(
             max_output_tokens=args.max_output_tokens or min(spec.max_output_tokens or 4096, 4096),
             reasoning_effort=args.reasoning_effort,
             google_thinking_budget=google_thinking_budget,
-            metadata={"document_id": document_id, "stage": "h4_h8_d3_clean_diagnostic", "pass": "candidate"},
+            metadata={"document_id": document_id, "stage": "h4_h8_d3_clean_diagnostic", "pass": "candidate", "prompt_style": prompt_style},
         )
         candidate_response = adapter.call(candidate_request)
         write_text(run_root / "candidate_raw_response.txt", candidate_response.text)
@@ -2141,7 +2145,7 @@ def run_h6_h7_one(
             max_output_tokens=args.max_output_tokens or min(spec.max_output_tokens or 4096, 4096),
             reasoning_effort=args.reasoning_effort,
             google_thinking_budget=google_thinking_budget,
-            metadata={"document_id": document_id, "stage": "h4_h8_d3_clean_diagnostic", "pass": "verifier"},
+            metadata={"document_id": document_id, "stage": "h4_h8_d3_clean_diagnostic", "pass": "verifier", "prompt_style": prompt_style},
         )
         verifier_response = adapter.call(verifier_request)
         write_text(run_root / "raw_response.txt", verifier_response.text)
@@ -2171,7 +2175,7 @@ def run_h6_h7_one(
             max_output_tokens=args.max_output_tokens or min(spec.max_output_tokens or 4096, 4096),
             reasoning_effort=args.reasoning_effort,
             google_thinking_budget=google_thinking_budget,
-            metadata={"document_id": document_id, "stage": "h6_h7_clean_diagnostic", "pass": "extract"},
+            metadata={"document_id": document_id, "stage": "h6_h7_clean_diagnostic", "pass": "extract", "prompt_style": prompt_style},
         )
         extract_response = adapter.call(extract_request)
         write_text(run_root / "extract_raw_response.txt", extract_response.text)
@@ -2188,7 +2192,7 @@ def run_h6_h7_one(
             max_output_tokens=args.max_output_tokens or min(spec.max_output_tokens or 4096, 4096),
             reasoning_effort=args.reasoning_effort,
             google_thinking_budget=google_thinking_budget,
-            metadata={"document_id": document_id, "stage": "h6_h7_clean_diagnostic", "pass": "normalize"},
+            metadata={"document_id": document_id, "stage": "h6_h7_clean_diagnostic", "pass": "normalize", "prompt_style": prompt_style},
         )
         normalize_response = adapter.call(normalize_request)
         write_text(run_root / "raw_response.txt", normalize_response.text)
@@ -2435,6 +2439,12 @@ def main() -> int:
     h6_h7.add_argument("--temperature", type=float)
     h6_h7.add_argument("--max-output-tokens", type=int)
     h6_h7.add_argument("--reasoning-effort", choices=["minimal", "low", "medium", "high"])
+    h6_h7.add_argument(
+        "--prompt-style",
+        choices=["internal", "clinician"],
+        default="internal",
+        help="Use archived internal prompts or sanitized clinician-facing prompts for supported H6-family harnesses.",
+    )
     h6_h7.add_argument("--stub-calls", action="store_true", help="Exercise logging without paid provider calls.")
     h6_h7.add_argument(
         "--require-present-evidence-for-projection",
