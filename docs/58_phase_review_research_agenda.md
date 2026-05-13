@@ -665,6 +665,35 @@ Required actions:
 - ensure every headline result can be traced back to raw responses, projections,
   and scoring summaries.
 
+### 10.10 Dependency table for the current execution phase
+
+Because the project is currently executing the final clarification runs, the
+next actions split into two groups: work that can proceed in parallel while the
+matrix is still running, and work that should wait until the selected
+conditions are complete enough to support interpretation.
+
+| Task | Can proceed in parallel during final clarification runs? | Should wait for runs to complete? | Notes |
+| --- | --- | --- | --- |
+| 9.1 Prompt sanitization and artefact documentation | Yes | No | Infrastructure is implemented; only A/B result interpretation depends on completed runs. |
+| 9.2 Temporality challenge-set construction | Yes | No | The challenge-set build is independent of matrix completion. |
+| 9.3 Raw vs projected scoring report machinery | Yes | Partly | Report infrastructure and incremental report generation can run now; final cross-condition interpretation waits on completed conditions. |
+| 9.4 Evidence-support scoring definition | Yes | Partly | The rule-assisted layer can progress now; stronger conclusions require completed outputs and review samples. |
+| 9.5 Final clarification matrix design | Yes | No | The design and selected run plan should continue while runs execute. |
+| 9.6 Gemini 3 Flash rerun | Yes | No | This is part of the active clarification run campaign, not a post-run analysis dependency. |
+| 9.7 qwen3.6:27b / qwen3.6:35b controlled reruns | Yes | No | These are execution tasks within the matrix campaign. |
+| 9.8 Evidence-in-prompt vs deterministic evidence resolver test | Yes | No | This comparison can be launched as part of the active run set. |
+| 9.9 Retrieval-highlight experiments | Yes | No | These are additional experimental conditions, not post hoc analysis. |
+| 9.10 Benchmark reconciliation table | Yes | No | This should be completed before stronger benchmark claims, but does not depend on run completion. |
+| 10.1 Condition-card registry completion and backfill | Yes | No | The registry should be finished before interpreting selected conditions. |
+| 10.2 Complete and lock the final clarification matrix | No | Yes | This is the primary gating step before stronger architecture or model claims. |
+| 10.3 Convert hard slices into scored analyses | Partly | Yes | Slice definitions can be prepared now, but scoring and error attribution require completed condition outputs. |
+| 10.4 Abstention and granularity scoring | Partly | Yes | Evaluation criteria can be defined now; claim-bearing analysis depends on completed seizure-type outputs. |
+| 10.5 Evidence-support evaluation beyond quote validity | Partly | Yes | Sampling and review design can start now; comparative evaluation needs completed outputs. |
+| 10.6 Targeted ablations | Partly | Yes | Ablation priorities can be derived now from the registry; most execution and interpretation depend on run results. |
+| 10.7 Benchmark reconciliation before final claims | Yes | No | This is a conceptual prerequisite for final claims, not a runtime dependency. |
+| 10.8 Field-level conclusions and deployment profiles | No | Yes | This is synthesis work and should wait for completed clarification evidence. |
+| 10.9 Artefact freeze for writeup and reproducibility | No | Yes | This should happen only after claim-bearing analyses are complete. |
+
 ---
 
 ## 11. Working Conclusion
