@@ -260,3 +260,56 @@ raw outputs.
 1. Launch the paired FC01 clinician H6fs condition and FC07 internal-prompt
    condition to quantify the prompt artefact A/B comparison on the same
    40-document validation slice.
+
+## 2026-05-13 Overnight Run Continuation
+
+The FC01/FC07 prompt artefact A/B pair has now run successfully on the same
+40-document validation slice as FC19. Both conditions completed 40/40 calls
+with 100% parse and projection success.
+
+Projected metrics:
+
+- FC01, `gpt_5_4_mini` + H6fs clinician prompt: medication name F1 0.9038,
+  seizure-type F1 0.4340, diagnosis accuracy 0.8000, benchmark quality 0.7126,
+  mean latency 1397 ms, mean estimated cost USD 0.00076 per document.
+- FC07, `gpt_5_4_mini` + H6fs internal prompt: medication name F1 0.8952,
+  seizure-type F1 0.4190, diagnosis accuracy 0.8000, benchmark quality 0.7048,
+  mean latency 1355 ms, mean estimated cost USD 0.00077 per document.
+
+Raw pre-projection companion reports were generated for FC01, FC07, and FC19
+under each condition's `raw_output_score_report/` directory. The raw FC01 vs
+FC07 comparison tracks the projected result closely: FC01 remains slightly ahead
+on medication name and seizure-type F1, while diagnosis accuracy is unchanged.
+
+Launcher hardening completed during this continuation:
+
+- local D3 candidate-plus-verifier conditions now materialize and execute via
+  `src/local_models.py stage-l5`;
+- API H6full conditions now dispatch through
+  `src/model_expansion.py h6-h7-clean-diagnostic`;
+- frontier evidence-resolver conditions now materialize by reusing the matched
+  H6fs base condition's canonical projections and dispatching
+  `scripts/run_evidence_resolver_scored_batch.py`;
+- local evidence-resolver conditions now pass the configured resolver fallback
+  model from `configs/harness_matrix.yaml`.
+
+Focused verification passed:
+
+```bash
+python -m pytest tests/test_final_clarification_launcher.py \
+  tests/test_core_prompts_projection.py \
+  tests/test_evidence_resolver_scored_runner.py -q
+```
+
+Full selected-plan dry-run materialization now succeeds for all 19 conditions.
+
+Current blocker: Ollama is not reachable at `http://localhost:11434`, so local
+conditions FC04, FC05, FC06, FC08, FC10, FC12, FC17, and FC18 cannot run until
+the local model server is started and the configured models are available.
+
+An overnight API-backed queue was launched for FC02, FC03, FC09, FC13, FC14,
+FC15, and FC16 with `--continue-on-error`. Logs are being written to:
+
+```text
+runs/final_clarification/overnight_api_queue.combined.log
+```

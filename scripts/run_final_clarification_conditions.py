@@ -23,6 +23,7 @@ from model_registry import load_model_specs
 API_RUNNER_HARNESSES = {
     "H6_benchmark_only_coarse_json",
     "H6fs_benchmark_only_coarse_json",
+    "H6full_benchmark_coarse_json",
     "H7_extract_then_normalize",
     "D3_candidate_plus_verifier",
     "H8_evidence_later",
@@ -32,6 +33,7 @@ LOCAL_RUNNER_HARNESSES = {
     "H6fs_benchmark_only_coarse_json",
     "H6full_benchmark_coarse_json",
     "H7_extract_then_normalize",
+    "D3_candidate_plus_verifier",
     "H6fs_ev_resolver",
 }
 
@@ -89,6 +91,29 @@ def _condition_command(
     model = str(condition["model"])
     harness = str(condition["harness"])
     prompt_style = str(condition.get("prompt_style") or "internal")
+    if provider != "ollama" and harness == "H6fs_ev_resolver":
+        config = _load_config(config_path)
+        base_condition = _find_h6fs_base_condition(condition, _selected_conditions(config))
+        if base_condition is None:
+            raise ValueError(f"could not find H6fs base condition for evidence resolver {condition['id']}")
+        parent_harness = "H6fs_benchmark_only_coarse_json"
+        canonical_dir = output_dir / str(base_condition["id"]) / "projections" / model / parent_harness
+        resolver_model = _resolver_fallback_model(config, harness)
+        return [
+            sys.executable,
+            "scripts/run_evidence_resolver_scored_batch.py",
+            "--canonical-dir",
+            str(canonical_dir),
+            "--output-dir",
+            str(condition_dir),
+            "--split",
+            "validation",
+            "--limit",
+            str(docs_per_condition),
+            "--fallback",
+            "--model",
+            resolver_model,
+        ]
     base_args = [
         "--splits",
         "data/splits/exectv2_splits.json",
@@ -108,7 +133,11 @@ def _condition_command(
     if provider == "ollama":
         if harness not in LOCAL_RUNNER_HARNESSES:
             raise ValueError(f"local runner does not support harness {harness}")
-        return [sys.executable, "src/local_models.py", "stage-l5", *base_args]
+        command = [sys.executable, "src/local_models.py", "stage-l5", *base_args]
+        if harness == "H6fs_ev_resolver":
+            resolver_model = _resolver_fallback_model(_load_config(config_path), harness)
+            command.extend(["--resolver-model", resolver_model])
+        return command
     if harness not in API_RUNNER_HARNESSES:
         raise ValueError(f"API diagnostic runner does not support harness {harness}")
     command = [sys.executable, "src/model_expansion.py", "h6-h7-clean-diagnostic", *base_args]
@@ -117,6 +146,43 @@ def _condition_command(
     if provider == "google":
         command.extend(["--google-thinking-budget", "0"])
     return command
+
+
+def _find_h6fs_base_condition(
+    condition: dict[str, Any],
+    conditions: list[dict[str, Any]],
+) -> dict[str, Any] | None:
+    """Find the extraction condition that feeds an evidence-resolver condition."""
+    model = condition.get("model")
+    prompt_style = condition.get("prompt_style")
+    projection_policy = "relaxed_projection"
+    for candidate in conditions:
+        if candidate.get("model") != model:
+            continue
+        if candidate.get("harness") != "H6fs_benchmark_only_coarse_json":
+            continue
+        if candidate.get("prompt_style") != prompt_style:
+            continue
+        if candidate.get("projection_policy") != projection_policy:
+            continue
+        return candidate
+    return None
+
+
+def _resolver_fallback_model(config: dict[str, Any], harness: str) -> str:
+    harnesses = config.get("harnesses") or {}
+    # The final clarification config only names harness families. The detailed
+    # resolver settings live in the maintained harness matrix.
+    matrix_path = Path("configs/harness_matrix.yaml")
+    if matrix_path.exists():
+        harness_matrix = _load_config(matrix_path).get("harnesses") or {}
+        resolver_config = (harness_matrix.get(harness) or {}).get("resolver_config") or {}
+        if resolver_config.get("fallback_model"):
+            return str(resolver_config["fallback_model"])
+    resolver_config = (harnesses.get(harness) or {}).get("resolver_config") if isinstance(harnesses, dict) else None
+    if isinstance(resolver_config, dict) and resolver_config.get("fallback_model"):
+        return str(resolver_config["fallback_model"])
+    return "gemma4:e4b"
 
 
 def _command_to_text(command: list[str]) -> str:

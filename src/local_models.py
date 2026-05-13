@@ -41,6 +41,8 @@ from model_expansion import (
     build_h6full_prompt,
     build_h6qa_prompt,
     build_h6v2_prompt,
+    build_d3_candidate_prompt,
+    build_d3_verifier_prompt,
     build_h7_extract_prompt,
     build_h7_normalize_prompt,
     build_loose_prompt,
@@ -114,6 +116,8 @@ def _build_local_prompt(
         prompt = build_loose_prompt(document, harness_id)
     elif harness_id == "H7_extract_then_normalize":
         prompt = build_h7_extract_prompt(document, harness_id)
+    elif harness_id == "D3_candidate_plus_verifier":
+        prompt = build_d3_candidate_prompt(document, harness_id)
     elif harness_id == "H6fs_ev_resolver":
         prompt = build_h6fs_prompt(document, harness_id, prompt_style=prompt_style)
     else:
@@ -176,7 +180,7 @@ def run_local_one(
         )
 
     if harness_id == "H7_extract_then_normalize":
-        extract_prompt = _build_local_prompt("H7_extract_then_normalize", document, schema_path, vocab_preamble, prompt_style)
+        extract_prompt = _build_local_prompt(harness_id, document, schema_path, vocab_preamble, prompt_style)
         write_text(run_root / "extract_prompt.txt", extract_prompt)
         extract_response = adapter.call(make_request(extract_prompt, f"{harness_id}:extract", "extract"))
         write_text(run_root / "extract_raw_response.txt", extract_response.text)
@@ -199,6 +203,37 @@ def run_local_one(
         row = diagnostic_row(
             spec, adapter, harness_id, document_id,
             [extract_response, normalize_response],
+            payload is not None, parsed.error,
+            run_root / "raw_response.txt",
+        )
+        row["vocab_preamble"] = vocab_preamble
+        row["prompt_style"] = prompt_style
+        return row
+
+    if harness_id == "D3_candidate_plus_verifier":
+        candidate_prompt = _build_local_prompt(harness_id, document, schema_path, vocab_preamble, prompt_style)
+        write_text(run_root / "candidate_prompt.txt", candidate_prompt)
+        candidate_response = adapter.call(make_request(candidate_prompt, f"{harness_id}:candidate", "candidate"))
+        write_text(run_root / "candidate_raw_response.txt", candidate_response.text)
+        write_response_log(candidate_response, run_root / "candidate_provider_response.json")
+
+        verifier_prompt = build_d3_verifier_prompt(document, harness_id, candidate_response.text)
+        if vocab_preamble:
+            verifier_prompt = build_vocab_preamble() + "\n\n" + verifier_prompt
+        write_text(run_root / "verifier_prompt.txt", verifier_prompt)
+        verifier_response = adapter.call(make_request(verifier_prompt, f"{harness_id}:verifier", "verifier"))
+        write_text(run_root / "raw_response.txt", verifier_response.text)
+        write_response_log(verifier_response, run_root / "verifier_provider_response.json")
+
+        parsed = parse_json_response(verifier_response.text)
+        payload = (
+            parsed.data
+            if isinstance(parsed.data, dict) and not candidate_response.error and not verifier_response.error
+            else None
+        )
+        row = diagnostic_row(
+            spec, adapter, harness_id, document_id,
+            [candidate_response, verifier_response],
             payload is not None, parsed.error,
             run_root / "raw_response.txt",
         )

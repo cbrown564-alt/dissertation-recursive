@@ -2044,9 +2044,16 @@ def run_h6_h7_one(
     prompt_style = getattr(args, "prompt_style", "internal")
     run_root = output_dir / "calls" / spec.label / harness_id / document_id
     run_root.mkdir(parents=True, exist_ok=True)
-    if harness_id in {"H6_benchmark_only_coarse_json", "H6fs_benchmark_only_coarse_json", "H4_provider_native_structured_output"}:
+    if harness_id in {
+        "H6_benchmark_only_coarse_json",
+        "H6fs_benchmark_only_coarse_json",
+        "H6full_benchmark_coarse_json",
+        "H4_provider_native_structured_output",
+    }:
         if harness_id == "H6fs_benchmark_only_coarse_json":
             prompt = build_h6fs_prompt(document, harness_id, prompt_style=prompt_style)
+        elif harness_id == "H6full_benchmark_coarse_json":
+            prompt = build_h6full_prompt(document, harness_id, prompt_style=prompt_style)
         else:
             prompt = build_h6_prompt(document, harness_id, prompt_style=prompt_style)
         write_text(run_root / "prompt.txt", prompt)
