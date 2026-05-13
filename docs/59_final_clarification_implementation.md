@@ -217,6 +217,34 @@ claim-supporting evidence.
 
 ## Next Implementation Slices
 
+## Condition-Card Registry
+
+The eighth implemented slice adds the condition-card registry required by the
+medium-term agenda. `docs/60_condition_card_registry.md` decomposes the major
+named systems into the standardized taxonomy and makes the experimental roles
+explicit:
+
+- intervention;
+- control;
+- nuisance factor;
+- measurement policy.
+
+The registry backfills the implicit research question for S2, E3, H6, H6fs,
+H6full, H7, D3, H8, MA_v1, MA_v2 variants, Gan direct, Gan CoT, Gan few-shot,
+and Gan retrieval-highlight. It also labels which comparisons are controlled
+one-axis contrasts and which are bundled comparisons that cannot support causal
+claims without further ablation.
+
+The ablation priorities now derived from the registry are:
+
+- H6 vs H6fs and internal vs clinician prompts for prompt-engineering claims;
+- H6/H6full vs H7/D3/H8 with matched model and projection reporting for
+  decomposition claims;
+- MA-A/B/C/D only against matched-budget single-agent controls for multi-agent
+  claims;
+- retrieval-highlight transfer to ExECTv2 with retrieval-only ablations before
+  making retrieval claims beyond Gan frequency.
+
 ## Controlled Condition Launcher
 
 The seventh implemented slice turns the selected run plan into executable

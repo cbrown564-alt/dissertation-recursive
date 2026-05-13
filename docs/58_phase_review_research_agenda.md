@@ -8,7 +8,8 @@
 [`docs/59_final_clarification_implementation.md`](59_final_clarification_implementation.md).
 Implemented support now covers sanitized prompt variants, prompt artefact
 auditing, projection delta reporting, temporality challenge-set construction,
-and a machine-readable final clarification matrix skeleton.
+condition-card registry construction, and a machine-readable final clarification
+matrix skeleton.
 
 ---
 
@@ -170,7 +171,89 @@ Implemented support:
 
 Run a controlled 40-document minimum study that clarifies which architecture actually helps which field.
 
-### 3.2 Candidate models
+This should be treated less like an informal prompt bake-off and more like a
+hyperparameter evaluation. Named harnesses such as S2, E3, H6, H7, D3, and
+MA_v1 are not atomic explanations. They are bundles of design choices. The next
+study must decompose those bundles into modular experimental components and
+state the research question attached to each component.
+
+### 3.2 Harness Component Taxonomy
+
+Every condition should be described using a standardized component card before
+it is run or interpreted. At minimum, record:
+
+- **base model:** provider, model family, model size/class, local vs API,
+  reasoning model vs non-reasoning model, context limit, output budget, and
+  relevant runtime constraints;
+- **task scope:** fields requested, whether the condition is benchmark-only,
+  full-schema, field-specific, or profile-specific;
+- **input representation:** full letter, sentence list, event list, retrieved
+  highlights, sectioned letter, or candidate list;
+- **prompt style:** internal-labelled, clinician-facing, benchmark-facing,
+  guideline-enriched, few-shot, chain-of-thought, or minimal instruction;
+- **label constraint:** open-label extraction, closed benchmark label set,
+  collapsed taxonomy, fine-grained ILAE taxonomy, or post-hoc normalization;
+- **output schema:** strict canonical schema, relaxed compact JSON, rich-fact
+  intermediate, candidate list, normalized label, evidence-bearing canonical
+  output, or prose/list output;
+- **evidence design:** evidence at extraction time, evidence later, deterministic
+  evidence resolver, quote required, quote optional, or no evidence;
+- **normalization locus:** model performs normalization, deterministic code
+  performs normalization, verifier performs normalization, or normalization is
+  split across stages;
+- **temporality handling:** explicit current/planned/historical labels,
+  current-only instruction, seizure-free special handling, trigger examples, or
+  implicit projection default;
+- **abstention policy:** explicit `unknown seizure type` rule, uncertainty
+  labels, conservative abstention, forced best label, or no abstention support;
+- **decomposition pattern:** single pass, extract-then-normalize,
+  candidate-plus-verifier, event-first, evidence-later, retrieval-highlight,
+  self-consistency, multi-agent, or hybrid;
+- **call budget:** number of model calls, sequential vs parallel calls, expected
+  latency, token budget, and cost;
+- **projection policy:** native canonical output, relaxed projection,
+  evidence-required projection, force-current projection, field dropping, or
+  no projection;
+- **scoring view:** raw output, projected output, corrected scorer, collapsed
+  labels, abstention score, temporality slice, evidence-support score, and
+  benchmark-reconciled claim status.
+
+This taxonomy turns a condition name into an interpretable experimental
+configuration. It should be possible to say not merely "H7 beat H6", but
+"separating clinical fact extraction from benchmark-label normalization helped
+seizure type under GPT-4.1-mini, while adding a second call and quote-bearing
+intermediates did not help medication temporality."
+
+### 3.3 Condition Cards and Research Questions
+
+Each promoted condition should have a concise model card or condition card. The
+card should make explicit which hypothesis the condition tests and which
+components distinguish it from its comparator.
+
+Minimum card fields:
+
+- condition id and short name;
+- source phase or predecessor condition;
+- primary research question;
+- intended comparator and matched controls;
+- component taxonomy values;
+- expected mechanism of improvement;
+- expected failure mode;
+- fields where benefit is hypothesized;
+- fields where regression risk is expected;
+- scorer assumptions required for interpretation;
+- claim type permitted if successful: benchmark claim, clinical-usefulness
+  claim, deployment claim, metrological claim, or exploratory signal only.
+
+This is the missing bridge between the phase documents and the final research
+agenda. Earlier phases tested many real ideas: cost-effectiveness, schema
+burden, strict vs relaxed output, closed-label constraints, evidence timing,
+few-shot guidance, model-specific prompt effects, local runtime limits,
+retrieval salience, verifier gates, segmentation, error propagation, scorer
+normalization, and gold-standard ceilings. Those ideas now need to be carried
+forward as named axes rather than hidden inside harness IDs.
+
+### 3.4 Candidate models
 
 Use a small, stable set:
 
@@ -182,7 +265,7 @@ Use a small, stable set:
 - qwen3.6:35b;
 - gemma4:e4b as a contrasting local family.
 
-### 3.3 Candidate harnesses
+### 3.5 Candidate harnesses
 
 Compare architecture families under stable scoring:
 
@@ -196,7 +279,7 @@ Compare architecture families under stable scoring:
 - local evidence-in-prompt vs deterministic evidence resolver;
 - clinical-guideline prompt variants.
 
-### 3.4 Required controls
+### 3.6 Required controls
 
 For each condition, record:
 
@@ -216,7 +299,7 @@ For each condition, record:
 - cost;
 - failure category counts.
 
-### 3.5 Minimum reporting slices
+### 3.7 Minimum reporting slices
 
 Report aggregate metrics, but also named hard slices:
 
@@ -419,7 +502,172 @@ Specific actions:
 
 ---
 
-## 10. Working Conclusion
+## 10. Medium-Term Next Steps
+
+The near-term list above is necessary but not sufficient. It mostly creates the
+measurement surface. The medium-term work is to turn that surface into a
+defensible dissertation argument.
+
+### 10.1 Build the condition-card registry
+
+Before interpreting new runs, create a registry that decomposes every major
+system into the standardized component taxonomy.
+
+**Implemented:** Initial registry created at
+[`docs/60_condition_card_registry.md`](60_condition_card_registry.md). It covers
+S2, E3, H6, H6fs, H6full, H7, D3, H8, MA_v1, MA_v2 variants, Gan direct, Gan
+CoT, Gan few-shot, and Gan retrieval-highlight; marks component roles; separates
+controlled one-axis contrasts from bundled comparisons; and derives required
+ablations before stronger prompt-engineering, decomposition, multi-agent, or
+retrieval claims.
+
+Required actions:
+
+- create condition cards for S2, E3, H6, H6fs, H6full, H7, D3, H8, MA_v1,
+  MA_v2 variants, Gan direct, Gan CoT, Gan few-shot, and Gan
+  retrieval-highlight;
+- backfill each card with the research question it was implicitly testing in
+  the relevant phase document;
+- identify which comparisons are controlled one-axis contrasts and which are
+  bundled comparisons that cannot support causal claims;
+- mark each component as an intervention, control, nuisance factor, or
+  measurement policy;
+- use the registry to decide which ablations are still necessary before making
+  claims about prompt engineering, decomposition, multi-agent design, or
+  retrieval.
+
+### 10.2 Complete and lock the final clarification matrix
+
+The selected 40-document matrix should be finished before drawing stronger
+claims about architecture or model effects.
+
+Required actions:
+
+- complete all selected API-backed and local conditions;
+- rerun or repair any condition with partial, failed, or non-comparable outputs;
+- generate raw-output, projected-output, projection-delta, cost, latency, and
+  evidence-support companion reports for every completed condition;
+- freeze the exact 40-document slice and document why it is representative
+  enough for the clarification study;
+- decide whether the 40-document matrix is only a clarification study or also a
+  claim-bearing final evaluation;
+- ensure every selected condition has a condition card before it is interpreted.
+
+### 10.3 Convert hard slices into scored analyses
+
+The temporality challenge set is currently a retrieval/indexing surface. It
+still needs to become an analysis layer.
+
+Required actions:
+
+- score planned-as-current, previous-as-current, taper/stop, dose escalation,
+  PRN, split-dose, and seizure-free/historical-type cases separately;
+- distinguish trigger presence from true gold-positive evaluation cases;
+- add per-slice confusion tables rather than only aggregate F1;
+- identify whether errors arise from extraction, projection, scorer mismatch,
+  or gold ambiguity;
+- write a short qualitative error audit for the highest-impact temporality
+  failures.
+
+### 10.4 Add explicit abstention and granularity scoring
+
+The `unknown seizure type` issue remains mostly unstated in the implementation
+plan. It should become its own evaluation module, not a footnote under seizure
+type F1.
+
+Required actions:
+
+- define abstention-positive gold cases and over-specific model outputs;
+- separate clinically reasonable inference from benchmark-noncompliant
+  inference;
+- report correct abstention, missed abstention, over-abstention, and
+  unsupported specificity;
+- compare fine-grained ILAE labels, collapsed labels, and abstention behaviour
+  as separate outcomes;
+- decide which seizure-type claims are valid dissertation claims and which are
+  benchmark-protocol observations only.
+
+### 10.5 Evaluate evidence support beyond mechanical quote validity
+
+The rule-assisted support layer is an important first pass, but it does not yet
+settle whether evidence truly supports a claim.
+
+Required actions:
+
+- sample supported, co-located, contradictory, ambiguous, invalid-quote, and
+  no-quote cases for manual review;
+- decide whether to add a clinician/manual or model-assisted semantic judge;
+- measure whether evidence requirements improve support or merely change schema
+  compliance;
+- compare deterministic evidence resolution with evidence-in-prompt extraction;
+- identify fields where evidence support is essential versus fields where it
+  adds latency without improving correctness.
+
+### 10.6 Run targeted ablations, not only full harness comparisons
+
+Many remaining questions cannot be answered by comparing named harnesses alone,
+because the harnesses mix multiple interventions.
+
+Required actions:
+
+- derive ablation priorities from the condition-card registry;
+- isolate prompt style, evidence requirement, projection policy, number of
+  calls, guideline text, and output schema as separate factors where feasible;
+- run smaller paired ablations when a full factorial design would be wasteful;
+- test whether deterministic projection improves benchmark scores while hiding
+  clinically meaningful raw-output differences;
+- decide which interventions are field-specific rather than globally helpful.
+
+### 10.7 Reconcile benchmark definitions before final claims
+
+The dissertation should not treat Fang, ExECTv2, and Gan as interchangeable
+targets. This reconciliation work is a prerequisite for the final discussion,
+not optional background.
+
+Required actions:
+
+- complete a Fang / ExECTv2 / Gan task-definition table;
+- document unit of prediction, temporal policy, label taxonomy, evidence
+  expectation, and scoring rule for each benchmark;
+- inspect ExECTv2 lower/upper seizure counts and CUIPhrase mappings before
+  making diagnosis or frequency claims;
+- mark which comparisons are direct, approximate, or invalid;
+- rewrite any existing synthesis language that implies a clean ladder of
+  benchmark difficulty where the tasks are actually different.
+
+### 10.8 Produce field-level conclusions and deployment profiles
+
+The final argument should be field-specific. A single overall "best harness"
+claim would understate the actual finding.
+
+Required actions:
+
+- write separate conclusions for medication names, medication tuples, seizure
+  type, diagnosis, seizure frequency, investigations, and evidence;
+- map each conclusion to likely use-case profiles: registry, clinical review,
+  research cohorting, trial safety, and offline hospital deployment;
+- identify which profile requires maximal recall, maximal precision,
+  conservative abstention, local-only execution, or strongest evidence support;
+- decide whether the recommended deployment architecture differs by profile.
+
+### 10.9 Freeze artefacts for writeup and reproducibility
+
+Once the medium-term analyses are complete, the project needs a clean evidence
+freeze for the dissertation.
+
+Required actions:
+
+- freeze run directories, model registry versions, prompt versions, document
+  splits, matrix config, and scoring scripts used for final claims;
+- create one canonical results index that points to every claim-bearing table;
+- archive failed or exploratory runs separately from final claim-bearing runs;
+- update the dashboard or static tables only from frozen artefacts;
+- ensure every headline result can be traced back to raw responses, projections,
+  and scoring summaries.
+
+---
+
+## 11. Working Conclusion
 
 The strongest dissertation argument is not that one model or one harness wins. It is that clinical information extraction performance depends on the interaction between task type, model capability, prompt architecture, normalization policy, evidence design, and benchmark validity.
 
