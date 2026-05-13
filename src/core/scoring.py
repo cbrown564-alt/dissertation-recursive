@@ -10,6 +10,7 @@ from pathlib import Path
 from typing import Any
 
 from core.io import read_csv_rows
+from core.evidence_support import classify_evidence_support
 from gan_frequency import (
     UNKNOWN_X,
     classification_report as _freq_classification_report,
@@ -350,6 +351,7 @@ def score_document(data: Any | None, source_text: str, document_gold: GoldDocume
         "field_scores": {},
         "field_label_sets": {},
         "evidence_scores": {},
+        "evidence_support": {},
         "semantic_support": {},
         "temporal_scores": {},
         "temporal_support": {},
@@ -378,6 +380,7 @@ def score_document(data: Any | None, source_text: str, document_gold: GoldDocume
     }
 
     fields = data.get("fields", {}) if isinstance(data, dict) else {}
+    result["evidence_support"] = classify_evidence_support(fields, document_gold, source_text)
     present_fields = []
 
     def collect_present(value: Any, path: str) -> None:
@@ -640,6 +643,10 @@ def flatten_summary(system: str, document_scores: list[dict[str, Any]]) -> dict[
             "schema_valid_rate": 0.0,
             "quote_presence_rate": None,
             "quote_validity_rate": None,
+            "evidence_support_rate": None,
+            "evidence_support_decidable_rate": None,
+            "evidence_support_supported_count": None,
+            "evidence_support_claim_count": None,
             "temporal_accuracy": None,
             "medication_name_f1": None,
             "medication_dose_f1": None,
@@ -672,6 +679,9 @@ def flatten_summary(system: str, document_scores: list[dict[str, Any]]) -> dict[
     valid_quote_count = sum(score["quote_validity"]["valid_quote_count"] for score in available)
     present_count = sum(score["quote_presence"]["present_field_count"] for score in available)
     evidence_count = sum(score["quote_presence"]["with_evidence_count"] for score in available)
+    support_claim_count = sum(score.get("evidence_support", {}).get("claim_count", 0) for score in available)
+    support_supported_count = sum(score.get("evidence_support", {}).get("supported_count", 0) for score in available)
+    support_decidable_count = sum(score.get("evidence_support", {}).get("decidable_claim_count", 0) for score in available)
     temporal_checked = sum(score["temporal_scores"]["checked_count"] for score in available)
     temporal_correct = sum(score["temporal_scores"]["correct_count"] for score in available)
 
@@ -754,6 +764,10 @@ def flatten_summary(system: str, document_scores: list[dict[str, Any]]) -> dict[
         "schema_valid_rate": schema_valid / len(available) if available else 0.0,
         "quote_presence_rate": evidence_count / present_count if present_count else 1.0,
         "quote_validity_rate": valid_quote_count / quote_count if quote_count else 1.0,
+        "evidence_support_rate": support_supported_count / support_claim_count if support_claim_count else 1.0,
+        "evidence_support_decidable_rate": support_supported_count / support_decidable_count if support_decidable_count else None,
+        "evidence_support_supported_count": support_supported_count,
+        "evidence_support_claim_count": support_claim_count,
         "temporal_accuracy": temporal_correct / temporal_checked if temporal_checked else 1.0,
         "medication_name_f1": prf_metrics["medication_name"]["f1"],
         "medication_dose_f1": prf_metrics["medication_dose"]["f1"],

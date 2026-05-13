@@ -146,6 +146,19 @@ Future evidence scoring should distinguish:
 
 This matters especially for current/planned medication and historical/current seizure type errors.
 
+Implemented support:
+
+- `src/core/evidence_support.py` defines rule-assisted per-claim evidence
+  support categories separate from quote validity: supported, co-located,
+  contradicts gold, ambiguous, invalid quote, and no quote.
+- `src/core/scoring.py` now includes an `evidence_support` block in each
+  document score and aggregate `evidence_support_rate` /
+  `evidence_support_decidable_rate` fields in summary rows.
+- The current implementation is intentionally conservative: support requires a
+  valid quote, overlap with relevant gold evidence, and field correctness under
+  the existing scorer. Ambiguous cases remain visible when the gold annotations
+  do not provide an adjudicable evidence span.
+
 ---
 
 ## 3. Proposed Final Harness Clarification Study
@@ -187,7 +200,8 @@ For each condition, record:
 - raw model output score; **still pending where direct raw scoring is possible;**
 - projected canonical score;
 - quote validity;
-- evidence support score; **pending; next implementation target;**
+- evidence support score; **implemented as a rule-assisted scoring layer
+  separate from quote validity;**
 - schema validity;
 - parse success;
 - latency;
@@ -383,7 +397,9 @@ Specific actions:
 1. Sanitize the final prompts and document all internal artefacts currently exposed to models. **Implemented infrastructure; A/B model runs pending.**
 2. Build a temporality challenge set from ExECTv2 letters. **Implemented initial validation slice.**
 3. Add raw vs projected scoring reports for promoted relaxed harnesses. **Projection delta reporting implemented; direct raw-output metrics still pending where feasible.**
-4. Define evidence support scoring separately from quote validity. **Pending; next implementation target.**
+4. Define evidence support scoring separately from quote validity. **Implemented
+   as rule-assisted per-claim support classification; manual adjudication or
+   model-assisted semantic judging remains future work.**
 5. Design the 40-document final clarification matrix. **Initial machine-readable matrix skeleton implemented; down-selection pending.**
 6. Rerun Gemini 3 Flash under fixed quota conditions.
 7. Revisit qwen3.6:27b and qwen3.6:35b on 40-doc controlled harness comparisons.

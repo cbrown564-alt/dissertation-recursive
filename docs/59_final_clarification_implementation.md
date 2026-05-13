@@ -147,10 +147,37 @@ python scripts/describe_final_clarification_matrix.py \
 The current full-factorial skeleton contains 168 conditions before pragmatic
 down-selection.
 
+## Evidence Support Scoring
+
+The fifth implemented slice separates evidence support from quote validity in
+the maintained scorer. `src/core/evidence_support.py` adds rule-assisted
+per-claim categories:
+
+- `supported`: the quote is valid, overlaps relevant gold evidence, and the
+  extracted value is correct under the current field scorer.
+- `co_located`: the quote is valid but does not overlap relevant gold evidence.
+- `contradicts_gold`: the quote overlaps relevant gold evidence, but the
+  extracted value does not match the gold label or value.
+- `ambiguous`: the quote is valid, but no adjudicable gold evidence span exists
+  for the field group.
+- `invalid_quote` and `no_quote`: quote validity or quote presence failed before
+  support could be assessed.
+
+`score_document()` now emits an `evidence_support` block alongside the existing
+`quote_validity` block, and `flatten_summary()` adds:
+
+- `evidence_support_rate`;
+- `evidence_support_decidable_rate`;
+- `evidence_support_supported_count`;
+- `evidence_support_claim_count`.
+
+This is not a full semantic judge. It is a conservative, reproducible audit
+surface for identifying when valid quotes are merely nearby text rather than
+claim-supporting evidence.
+
 ## Next Implementation Slices
 
 1. Add raw-output metrics where direct raw scoring is possible without applying
    canonical projection.
-2. Add evidence-support scoring separate from quote validity.
-3. Down-select the 168-condition full-factorial skeleton into a costed
+2. Down-select the 168-condition full-factorial skeleton into a costed
    40-document final run plan.

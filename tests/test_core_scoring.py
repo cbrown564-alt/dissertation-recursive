@@ -9,7 +9,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
 from core.io import write_csv
-from core.scoring import GoldDocument, load_gold, score_document
+from core.scoring import GoldDocument, GoldSpan, load_gold, score_document
 
 
 def _field(value: str | None, **extra: object) -> dict[str, object]:
@@ -154,3 +154,60 @@ def test_score_document_uses_loose_frequency_matching_for_ranges() -> None:
     assert score["field_scores"]["current_seizure_frequency_relaxed"]["correct"] is False
     assert score["field_scores"]["current_seizure_frequency_loose"]["correct"] is True
     assert score["field_scores"]["current_seizure_frequency_per_letter"]["correct"] is True
+
+
+def test_score_document_separates_quote_validity_from_evidence_support() -> None:
+    gold = GoldDocument(
+        document_id="EA0001",
+        medications=[{"name": "levetiracetam", "dose": "", "dose_unit": "", "frequency": ""}],
+        spans_by_group={"medications": [GoldSpan(18, 24, "Prescription", "Keppra")]},
+    )
+    data = _canonical(
+        current_anti_seizure_medications=[
+            {
+                "name": "Keppra",
+                "dose": None,
+                "dose_unit": None,
+                "frequency": None,
+                "status": "current",
+                "missingness": "present",
+                "temporality": "current",
+                "evidence": [{"quote": "focal seizures", "sentence_id": None, "char_start": None, "char_end": None}],
+                "evidence_event_ids": [],
+            }
+        ]
+    )
+
+    score = _score(data, gold)
+
+    assert score["quote_validity"]["rate"] == 1.0
+    assert score["evidence_support"]["support_rate"] == 0.0
+    assert score["evidence_support"]["claims"][0]["status"] == "co_located"
+
+
+def test_score_document_marks_overlapping_wrong_claim_as_contradicting_gold() -> None:
+    gold = GoldDocument(
+        document_id="EA0001",
+        medications=[{"name": "carbamazepine", "dose": "", "dose_unit": "", "frequency": ""}],
+        spans_by_group={"medications": [GoldSpan(18, 24, "Prescription", "Keppra")]},
+    )
+    data = _canonical(
+        current_anti_seizure_medications=[
+            {
+                "name": "Keppra",
+                "dose": None,
+                "dose_unit": None,
+                "frequency": None,
+                "status": "current",
+                "missingness": "present",
+                "temporality": "current",
+                "evidence": [{"quote": "Keppra", "sentence_id": None, "char_start": None, "char_end": None}],
+                "evidence_event_ids": [],
+            }
+        ]
+    )
+
+    score = _score(data, gold)
+
+    assert score["quote_validity"]["rate"] == 1.0
+    assert score["evidence_support"]["claims"][0]["status"] == "contradicts_gold"
