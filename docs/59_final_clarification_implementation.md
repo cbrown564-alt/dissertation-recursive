@@ -372,3 +372,38 @@ This sharpens what each benchmark can legitimately support:
 The new table does not replace
 [`docs/19_benchmark_crosswalk.md`](19_benchmark_crosswalk.md); it sits one
 level above it as a claim-discipline document for final writeup.
+
+## Abstention And Granularity Scoring
+
+The tenth implemented slice makes seizure-type abstention visible as its own
+evaluation layer rather than burying it inside strict or collapsed F1.
+
+[`docs/62_abstention_granularity_scoring.md`](62_abstention_granularity_scoring.md)
+defines the first-pass scoring view, and the maintained scorer now emits
+document-level and summary-level abstention/granularity outputs via:
+
+- `src/core/abstention.py`
+- `src/core/scoring.py`
+
+The implemented categories are intentionally benchmark-facing rather than
+claiming full clinical adjudication:
+
+- `correct_abstention`
+- `unsupported_specificity`
+- `missed_abstention`
+- `over_abstention`
+- `granularity_mismatch`
+- `specificity_match`
+
+`flatten_summary()` now reports summary counts and rates for abstention-positive
+gold cases, correct abstention, missed abstention, unsupported specificity,
+over-abstention, and granularity mismatch. This creates the evaluation surface
+needed to compare strict fine-grained label disagreement against collapsed
+benchmark agreement and explicit abstention behaviour in the final
+clarification study.
+
+Focused verification passed:
+
+```bash
+python -m pytest tests/test_core_scoring.py -q
+```

@@ -586,6 +586,15 @@ The `unknown seizure type` issue remains mostly unstated in the implementation
 plan. It should become its own evaluation module, not a footnote under seizure
 type F1.
 
+Implemented support:
+
+- [`docs/62_abstention_granularity_scoring.md`](62_abstention_granularity_scoring.md)
+  now defines the initial benchmark-facing abstention and granularity categories.
+- `src/core/abstention.py` and `src/core/scoring.py` now emit a separate
+  seizure-type abstention/granularity analysis layer with summary counts and
+  rates for correct abstention, missed abstention, unsupported specificity,
+  over-abstention, and granularity mismatch.
+
 Required actions:
 
 - define abstention-positive gold cases and over-specific model outputs;

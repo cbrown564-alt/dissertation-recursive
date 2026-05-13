@@ -9,6 +9,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
+from core.abstention import classify_seizure_type_abstention
 from core.io import read_csv_rows
 from core.evidence_support import classify_evidence_support
 from gan_frequency import (
@@ -355,6 +356,7 @@ def score_document(data: Any | None, source_text: str, document_gold: GoldDocume
         "semantic_support": {},
         "temporal_scores": {},
         "temporal_support": {},
+        "abstention_scores": {},
         "field_correctness": {},
         "cost_latency": {},
         "errors": [],
@@ -461,6 +463,12 @@ def score_document(data: Any | None, source_text: str, document_gold: GoldDocume
         "predicted": [" | ".join(item) for item in sorted(predicted_types_collapsed)],
         "gold": [" | ".join(item) for item in sorted(gold_types_collapsed)],
     }
+    result["abstention_scores"]["seizure_type"] = classify_seizure_type_abstention(
+        {item[0] for item in predicted_types},
+        {item[0] for item in gold_types},
+        {item[0] for item in predicted_types_collapsed},
+        {item[0] for item in gold_types_collapsed},
+    )
 
     predicted_frequency = normalize_value(fields.get("current_seizure_frequency", {}).get("value"))
     gold_frequencies = {item["value"] for item in document_gold.seizure_frequencies if item.get("value")}
@@ -673,6 +681,17 @@ def flatten_summary(system: str, document_scores: list[dict[str, Any]]) -> dict[
             "mean_input_tokens": None,
             "mean_output_tokens": None,
             "mean_estimated_cost_usd": None,
+            "seizure_type_abstention_case_count": 0,
+            "seizure_type_correct_abstention_rate": None,
+            "seizure_type_correct_abstention_count": 0,
+            "seizure_type_missed_abstention_rate": None,
+            "seizure_type_missed_abstention_count": 0,
+            "seizure_type_over_abstention_rate": None,
+            "seizure_type_over_abstention_count": 0,
+            "seizure_type_unsupported_specificity_rate": None,
+            "seizure_type_unsupported_specificity_count": 0,
+            "seizure_type_granularity_mismatch_rate": None,
+            "seizure_type_granularity_mismatch_count": 0,
         }
     schema_valid = sum(1 for score in available if score["schema_valid"])
     quote_count = sum(score["quote_validity"]["quote_count"] for score in available)
@@ -684,6 +703,22 @@ def flatten_summary(system: str, document_scores: list[dict[str, Any]]) -> dict[
     support_decidable_count = sum(score.get("evidence_support", {}).get("decidable_claim_count", 0) for score in available)
     temporal_checked = sum(score["temporal_scores"]["checked_count"] for score in available)
     temporal_correct = sum(score["temporal_scores"]["correct_count"] for score in available)
+    abstention_cases = [
+        score.get("abstention_scores", {}).get("seizure_type", {})
+        for score in available
+        if score.get("abstention_scores", {}).get("seizure_type")
+    ]
+    abstention_positive_cases = [case for case in abstention_cases if case.get("gold_requires_abstention")]
+    specificity_positive_cases = [case for case in abstention_cases if case.get("gold_has_specific_type")]
+    correct_abstention_count = sum(1 for case in abstention_positive_cases if case.get("category") == "correct_abstention")
+    missed_abstention_count = sum(1 for case in abstention_positive_cases if case.get("category") == "missed_abstention")
+    unsupported_specificity_count = sum(
+        1 for case in abstention_positive_cases if case.get("category") == "unsupported_specificity"
+    )
+    over_abstention_count = sum(1 for case in specificity_positive_cases if case.get("category") == "over_abstention")
+    granularity_mismatch_count = sum(
+        1 for case in specificity_positive_cases if case.get("category") == "granularity_mismatch"
+    )
 
     totals: dict[str, dict[str, int]] = {}
     prf_metric_names = [
@@ -794,6 +829,27 @@ def flatten_summary(system: str, document_scores: list[dict[str, Any]]) -> dict[
         "mean_input_tokens": sum(input_tokens) / len(input_tokens) if input_tokens else None,
         "mean_output_tokens": sum(output_tokens) / len(output_tokens) if output_tokens else None,
         "mean_estimated_cost_usd": sum(costs) / len(costs) if costs else None,
+        "seizure_type_abstention_case_count": len(abstention_positive_cases),
+        "seizure_type_correct_abstention_rate": (
+            correct_abstention_count / len(abstention_positive_cases) if abstention_positive_cases else None
+        ),
+        "seizure_type_correct_abstention_count": correct_abstention_count,
+        "seizure_type_missed_abstention_rate": (
+            missed_abstention_count / len(abstention_positive_cases) if abstention_positive_cases else None
+        ),
+        "seizure_type_missed_abstention_count": missed_abstention_count,
+        "seizure_type_over_abstention_rate": (
+            over_abstention_count / len(specificity_positive_cases) if specificity_positive_cases else None
+        ),
+        "seizure_type_over_abstention_count": over_abstention_count,
+        "seizure_type_unsupported_specificity_rate": (
+            unsupported_specificity_count / len(abstention_positive_cases) if abstention_positive_cases else None
+        ),
+        "seizure_type_unsupported_specificity_count": unsupported_specificity_count,
+        "seizure_type_granularity_mismatch_rate": (
+            granularity_mismatch_count / len(specificity_positive_cases) if specificity_positive_cases else None
+        ),
+        "seizure_type_granularity_mismatch_count": granularity_mismatch_count,
     }
 
 

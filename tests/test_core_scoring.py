@@ -9,7 +9,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
 from core.io import write_csv
-from core.scoring import GoldDocument, GoldSpan, load_gold, score_document
+from core.scoring import GoldDocument, GoldSpan, flatten_summary, load_gold, score_document
 
 
 def _field(value: str | None, **extra: object) -> dict[str, object]:
@@ -211,3 +211,52 @@ def test_score_document_marks_overlapping_wrong_claim_as_contradicting_gold() ->
 
     assert score["quote_validity"]["rate"] == 1.0
     assert score["evidence_support"]["claims"][0]["status"] == "contradicts_gold"
+
+
+def test_score_document_records_correct_abstention_case() -> None:
+    gold = GoldDocument(document_id="EA0001", seizure_types=["unknown seizure type"])
+    data = _canonical(seizure_types=[_field("unknown seizure type")])
+
+    score = _score(data, gold)
+
+    assert score["abstention_scores"]["seizure_type"]["gold_requires_abstention"] is True
+    assert score["abstention_scores"]["seizure_type"]["category"] == "correct_abstention"
+
+
+def test_score_document_records_unsupported_specificity_when_gold_expects_unknown() -> None:
+    gold = GoldDocument(document_id="EA0001", seizure_types=["unknown seizure type"])
+    data = _canonical(seizure_types=[_field("focal seizure")])
+
+    score = _score(data, gold)
+
+    assert score["abstention_scores"]["seizure_type"]["category"] == "unsupported_specificity"
+
+
+def test_score_document_records_granularity_mismatch_when_collapsed_labels_agree() -> None:
+    gold = GoldDocument(document_id="EA0001", seizure_types=["focal to bilateral tonic clonic seizure"])
+    data = _canonical(seizure_types=[_field("focal seizure")])
+
+    score = _score(data, gold)
+
+    assert score["field_scores"]["seizure_type"]["f1"] == 0.0
+    assert score["field_scores"]["seizure_type_collapsed"]["f1"] == 1.0
+    assert score["abstention_scores"]["seizure_type"]["category"] == "granularity_mismatch"
+
+
+def test_flatten_summary_aggregates_abstention_and_granularity_metrics() -> None:
+    correct_abstention = _score(_canonical(seizure_types=[_field("unknown seizure type")]), GoldDocument("EA0001", seizure_types=["unknown seizure type"]))
+    unsupported_specificity = _score(_canonical(seizure_types=[_field("focal seizure")]), GoldDocument("EA0001", seizure_types=["unknown seizure type"]))
+    over_abstention = _score(_canonical(seizure_types=[_field("unknown seizure type")]), GoldDocument("EA0001", seizure_types=["focal seizure"]))
+    granularity = _score(_canonical(seizure_types=[_field("focal seizure")]), GoldDocument("EA0001", seizure_types=["focal to bilateral tonic clonic seizure"]))
+
+    summary = flatten_summary("demo", [correct_abstention, unsupported_specificity, over_abstention, granularity])
+
+    assert summary["seizure_type_abstention_case_count"] == 2
+    assert summary["seizure_type_correct_abstention_count"] == 1
+    assert summary["seizure_type_unsupported_specificity_count"] == 1
+    assert summary["seizure_type_correct_abstention_rate"] == 0.5
+    assert summary["seizure_type_unsupported_specificity_rate"] == 0.5
+    assert summary["seizure_type_over_abstention_count"] == 1
+    assert summary["seizure_type_granularity_mismatch_count"] == 1
+    assert summary["seizure_type_over_abstention_rate"] == 0.5
+    assert summary["seizure_type_granularity_mismatch_rate"] == 0.5
