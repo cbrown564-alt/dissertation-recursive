@@ -483,6 +483,17 @@ Specific actions:
 - decide which ExECTv2 fields are usable as-is, usable with revised scoring, or unsuitable for final claims;
 - avoid describing collapsed labels as a replacement for fine-grained ILAE evaluation.
 
+Implemented support:
+
+- [`docs/61_benchmark_reconciliation_table.md`](61_benchmark_reconciliation_table.md)
+  now reconciles Fang 2025, ExECTv2 2024, and Gan 2026 side by side across
+  task definition, unit of prediction, label taxonomy, temporal policy,
+  evidence expectation, gold source, scoring rule, published target,
+  comparability limits, and valid claim type.
+- The earlier Fang-focused bridge remains available in
+  [`docs/19_benchmark_crosswalk.md`](19_benchmark_crosswalk.md) for detailed
+  field mapping into the local schema.
+
 ---
 
 ## 9. Near-Term Next Steps
@@ -498,7 +509,7 @@ Specific actions:
 7. Revisit qwen3.6:27b and qwen3.6:35b on 40-doc controlled harness comparisons.
 8. Test local evidence-in-prompt vs deterministic evidence resolver.
 9. Add retrieval-highlight experiments for ExECTv2 medication and seizure type.
-10. Write the benchmark reconciliation table before making any stronger external benchmark claims.
+10. Write the benchmark reconciliation table before making any stronger external benchmark claims. **Implemented initial cross-benchmark reconciliation table.**
 
 ---
 
@@ -626,7 +637,7 @@ not optional background.
 
 Required actions:
 
-- complete a Fang / ExECTv2 / Gan task-definition table;
+- complete a Fang / ExECTv2 / Gan task-definition table; **initial reconciliation table implemented;**
 - document unit of prediction, temporal policy, label taxonomy, evidence
   expectation, and scoring rule for each benchmark;
 - inspect ExECTv2 lower/upper seizure counts and CUIPhrase mappings before
@@ -683,7 +694,7 @@ conditions are complete enough to support interpretation.
 | 9.7 qwen3.6:27b / qwen3.6:35b controlled reruns | Yes | No | These are execution tasks within the matrix campaign. |
 | 9.8 Evidence-in-prompt vs deterministic evidence resolver test | Yes | No | This comparison can be launched as part of the active run set. |
 | 9.9 Retrieval-highlight experiments | Yes | No | These are additional experimental conditions, not post hoc analysis. |
-| 9.10 Benchmark reconciliation table | Yes | No | This should be completed before stronger benchmark claims, but does not depend on run completion. |
+| 9.10 Benchmark reconciliation table | Yes | No | Initial cross-benchmark reconciliation table now implemented in `docs/61_benchmark_reconciliation_table.md`; refinements remain possible without waiting on run completion. |
 | 10.1 Condition-card registry completion and backfill | Yes | No | The registry should be finished before interpreting selected conditions. |
 | 10.2 Complete and lock the final clarification matrix | No | Yes | This is the primary gating step before stronger architecture or model claims. |
 | 10.3 Convert hard slices into scored analyses | Partly | Yes | Slice definitions can be prepared now, but scoring and error attribution require completed condition outputs. |

@@ -341,3 +341,34 @@ FC15, and FC16 with `--continue-on-error`. Logs are being written to:
 ```text
 runs/final_clarification/overnight_api_queue.combined.log
 ```
+
+## Benchmark Reconciliation Table
+
+The ninth implemented slice completes the cross-benchmark reconciliation task
+that can proceed in parallel while clarification conditions run.
+
+[`docs/61_benchmark_reconciliation_table.md`](61_benchmark_reconciliation_table.md)
+now records Fang 2025, ExECTv2 2024, and Gan 2026 side by side across:
+
+- task definition;
+- unit of prediction;
+- label taxonomy;
+- temporal policy;
+- evidence expectation;
+- gold source;
+- scoring rule;
+- published target;
+- comparability limits;
+- valid claim type.
+
+This sharpens what each benchmark can legitimately support:
+
+- Fang for current ASM names and collapsed seizure/epilepsy-type benchmark
+  views;
+- ExECTv2 for broad corpus continuity, temporality-rich extraction, and
+  mention-level challenge slices;
+- Gan for single-label seizure-frequency normalization.
+
+The new table does not replace
+[`docs/19_benchmark_crosswalk.md`](19_benchmark_crosswalk.md); it sits one
+level above it as a claim-discipline document for final writeup.
